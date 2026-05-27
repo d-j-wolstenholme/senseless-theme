@@ -1,0 +1,19 @@
+{
+  "name": "senseless-theme",
+  "version": "0.1.0",
+  "description": "Senseless — UK aesthetics-focused topical preparation. Shopify theme.",
+  "private": true,
+  "scripts": {
+    "dev": "shopify theme dev --store senseless-tattooing.myshopify.com",
+    "push": "shopify theme push --store senseless-tattooing.myshopify.com",
+    "pull": "shopify theme pull --store senseless-tattooing.myshopify.com",
+    "image": "node scripts/image-pipeline.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "sharp": "^0.33.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

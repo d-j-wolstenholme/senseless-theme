@@ -1,0 +1,13 @@
+.env
+.env.backup
+.env.*
+!.env.example
+.DS_Store
+node_modules/
+.shopify/
+*.log
+.cache/
+.vscode/
+.idea/
+assets/images/inbox/*
+!assets/images/inbox/.gitkeep
