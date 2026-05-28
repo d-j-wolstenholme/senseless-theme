@@ -61,6 +61,7 @@
   .ss-trio__sectioncta:hover { background: var(--ss-text); color: var(--ss-bg); }
 
   @media (min-width: 768px) {
+    .ss-trio--cols-2 .ss-trio__grid { grid-template-columns: repeat(2, 1fr); }
     .ss-trio--cols-3 .ss-trio__grid { grid-template-columns: repeat(3, 1fr); }
     .ss-trio--cols-4 .ss-trio__grid { grid-template-columns: repeat(4, 1fr); }
     .ss-trio__headline { font-size: 32px; }
@@ -140,6 +141,22 @@
               </div>
             </a>
 
+          {%- when 'format_card' -%}
+            <a class="ss-card ss-card--format" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
+              <div class="ss-card__media">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
+                {%- else -%}
+                  <div class="ss-card__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+                {%- endif -%}
+              </div>
+              <div class="ss-card__body">
+                {%- if block.settings.label != blank -%}<h3 class="ss-card__heading">{{ block.settings.label | escape }}</h3>{%- endif -%}
+                {%- if block.settings.body != blank -%}<div class="ss-card__text">{{ block.settings.body }}</div>{%- endif -%}
+                {%- if block.settings.cta_label != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
+              </div>
+            </a>
+
         {%- endcase -%}
       {%- endfor -%}
     </div>
@@ -160,7 +177,7 @@
   "class": "senseless-section senseless-trio-card-row",
   "max_blocks": 4,
   "settings": [
-    { "type": "select", "id": "columns", "label": "Cards per row (desktop)", "default": "3", "options": [ { "value": "3", "label": "3 (trio)" }, { "value": "4", "label": "4 (quad)" } ] },
+    { "type": "select", "id": "columns", "label": "Cards per row (desktop)", "default": "3", "options": [ { "value": "2", "label": "2 (dual)" }, { "value": "3", "label": "3 (trio)" }, { "value": "4", "label": "4 (quad)" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Optional. Leave blank to hide." },
     { "type": "text", "id": "headline", "label": "Headline" },
     { "type": "richtext", "id": "body", "label": "Intro body" },
@@ -208,6 +225,18 @@
         { "type": "url", "id": "cta_url", "label": "CTA link" },
         { "type": "checkbox", "id": "flagship", "label": "Flagship variant (dark palette + badge)", "default": false },
         { "type": "text", "id": "badge_text", "label": "Flagship badge text", "default": "Flagship" }
+      ]
+    },
+    {
+      "type": "format_card",
+      "name": "Format card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless format on a warm off-white background" },
+        { "type": "text", "id": "label", "label": "Format name", "default": "Numbing Gel" },
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Short description of this format.</p>" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View range" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" }
       ]
     }
   ],

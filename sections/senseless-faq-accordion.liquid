@@ -1,0 +1,94 @@
+{%- comment -%}
+  Senseless — FAQ accordion
+  Headline + faq_item blocks (question + answer). Native <details>/<summary>, first item open.
+  Outputs FAQPage schema.org JSON-LD. All copy editable.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-faq {
+    --ss-purple: #6B3FA0;
+    --ss-bg: #f7f7f5;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: #E5E2DC;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-faq__inner { max-width: 760px; margin: 0 auto; padding: 44px 20px; }
+  .ss-faq__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0 0 24px; text-align: center; }
+  .ss-faq__item { border-bottom: 1px solid var(--ss-border); }
+  .ss-faq__item:first-child { border-top: 1px solid var(--ss-border); }
+  .ss-faq__q { font-family: var(--ss-head); font-weight: 600; font-size: 17px; line-height: 1.4; color: var(--ss-text); cursor: pointer; list-style: none; padding: 20px 36px 20px 0; position: relative; }
+  .ss-faq__q::-webkit-details-marker { display: none; }
+  .ss-faq__q::after { content: '+'; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 400; color: var(--ss-purple); line-height: 1; transition: transform 200ms ease-out; }
+  .ss-faq__item[open] .ss-faq__q::after { content: '\2212'; }
+  .ss-faq__a { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); padding: 0 0 20px; }
+  .ss-faq__a p { margin: 0 0 0.6em; }
+  .ss-faq__a p:last-child { margin-bottom: 0; }
+  .ss-faq__a a { color: var(--ss-purple); }
+
+  @media (min-width: 1024px) { .ss-faq__inner { padding: 96px 20px; } }
+  @media (prefers-reduced-motion: reduce) { .ss-faq__q::after { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-faq" aria-label="{{ section.settings.headline | default: 'Frequently asked questions' | escape }}">
+  <div class="ss-faq__inner">
+    {%- if section.settings.headline != blank -%}<h2 class="ss-faq__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+    {%- for block in section.blocks -%}
+      <details class="ss-faq__item" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+        <summary class="ss-faq__q">{{ block.settings.question | escape }}</summary>
+        <div class="ss-faq__a">{{ block.settings.answer }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</section>
+
+{%- liquid
+  assign faq_count = section.blocks.size
+-%}
+{%- if faq_count > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for block in section.blocks -%}
+    {
+      "@type": "Question",
+      "name": {{ block.settings.question | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.answer | strip_html | json }} }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Senseless — FAQ accordion",
+  "tag": "section",
+  "class": "senseless-section senseless-faq-accordion",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Common questions." }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Answer.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Senseless — FAQ accordion", "blocks": [ { "type": "faq_item" }, { "type": "faq_item" }, { "type": "faq_item" } ] }
+  ]
+}
+{% endschema %}
