@@ -16,7 +16,7 @@
     --ss-dark: #241836;
     --ss-text: #1a1a1a;
     --ss-body: #4a4a50;
-    --ss-border: rgba(26,26,26,0.10);
+    --ss-border: #E5E2DC;
     --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: var(--ss-bg);
@@ -32,7 +32,7 @@
   .ss-trio__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
   .ss-trio--cols-4 .ss-trio__grid { grid-template-columns: repeat(2, 1fr); }
 
-  .ss-card { position: relative; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
   .ss-card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
   .ss-card__media { aspect-ratio: 4 / 5; background: var(--ss-bg); position: relative; }
   .ss-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -46,19 +46,14 @@
   .ss-card__price { font-family: var(--ss-sans); font-weight: 500; font-size: 16px; margin: 2px 0 0; color: var(--ss-text); }
   .ss-card__cta { margin-top: auto; padding-top: 10px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
   .ss-card__cta::after { content: '→'; }
-  .ss-card__ctabtn { margin-top: 14px; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 18px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-card__ctabtn { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 18px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
   .ss-card__ctabtn:hover { background: var(--ss-text); color: var(--ss-bg); }
 
-  .ss-card--flagship { background: var(--ss-dark); border-color: var(--ss-dark); color: #f7f7f5; }
-  .ss-card--flagship .ss-card__heading { color: #f7f7f5; }
-  .ss-card--flagship .ss-card__text { color: rgba(247,247,245,0.78); }
-  .ss-card--flagship .ss-card__label,
-  .ss-card--flagship .ss-card__cta { color: #c9b3e6; }
-  .ss-card--flagship .ss-card__price { color: #f7f7f5; }
-  .ss-card--flagship:hover { border-color: var(--ss-dark); }
-  .ss-card--flagship .ss-card__ctabtn { border-color: rgba(247,247,245,0.5); color: #f7f7f5; }
-  .ss-card--flagship .ss-card__ctabtn:hover { background: #f7f7f5; color: var(--ss-dark); }
-  .ss-card__badge { position: absolute; top: 12px; right: 12px; z-index: 1; background: rgba(247,247,245,0.16); color: #f7f7f5; font-family: var(--ss-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
+  .ss-card--flagship { border: 2px solid var(--ss-purple); }
+  .ss-card--flagship:hover { border-color: var(--ss-purple); }
+  .ss-card--flagship .ss-card__ctabtn { background: var(--ss-purple); border-color: var(--ss-purple); color: #ffffff; }
+  .ss-card--flagship .ss-card__ctabtn:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); color: #ffffff; }
+  .ss-card__badge { position: absolute; top: 12px; right: 12px; z-index: 1; background: var(--ss-purple); color: #ffffff; font-family: var(--ss-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
 
   .ss-trio__footer { text-align: center; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
   .ss-trio__closer { font-family: var(--ss-head); font-weight: 600; font-size: 18px; color: var(--ss-text); margin: 0; }
