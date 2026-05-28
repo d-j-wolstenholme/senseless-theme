@@ -1,0 +1,145 @@
+{%- comment -%}
+  Senseless — Hero
+  Homepage-only hero. Desktop: text-left / image-right. Mobile: vertical stack, full-width CTAs.
+  All copy, links and image are editable in the theme editor. URLs + image are wired in templates/index.json.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-hero {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: rgba(26,26,26,0.10);
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-hero__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 44px 20px;
+    display: grid;
+    gap: 28px;
+  }
+  .ss-hero__content { display: flex; flex-direction: column; gap: 20px; }
+  .ss-hero__accent { color: var(--ss-purple); font-size: 28px; line-height: 1; font-family: var(--ss-head); }
+  .ss-hero__headline {
+    font-family: var(--ss-head);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--ss-text);
+  }
+  .ss-hero__subhead {
+    font-family: var(--ss-sans);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ss-body);
+    margin: 0;
+    max-width: 46ch;
+  }
+  .ss-hero__subhead p { margin: 0; }
+  .ss-hero__ctas { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+  .ss-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    padding: 0 28px;
+    border-radius: 14px;
+    font-family: var(--ss-sans);
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out;
+  }
+  .ss-hero__btn--primary { background: var(--ss-purple); color: #ffffff; border: 1px solid var(--ss-purple); }
+  .ss-hero__btn--primary:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
+  .ss-hero__btn--secondary { background: transparent; color: var(--ss-text); border: 1px solid var(--ss-text); }
+  .ss-hero__btn--secondary:hover { background: var(--ss-text); color: var(--ss-bg); }
+  .ss-hero__media { position: relative; border-radius: 4px; overflow: hidden; background: var(--ss-surface); border: 1px solid var(--ss-border); aspect-ratio: 4 / 5; }
+  .ss-hero__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-hero__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--ss-surface); }
+  .ss-hero__placeholder svg { width: 40%; height: auto; opacity: 0.25; fill: var(--ss-purple); }
+
+  @media (min-width: 1024px) {
+    .ss-hero__inner {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+      padding: 96px 40px;
+    }
+    .ss-hero__headline { font-size: 56px; line-height: 1.05; }
+    .ss-hero__subhead { font-size: 18px; }
+    .ss-hero__ctas { flex-direction: row; }
+    .ss-hero__btn { width: auto; }
+    .ss-hero__media { aspect-ratio: 16 / 9; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ss-hero__btn { transition: none; }
+  }
+{%- endstyle -%}
+
+<section class="ss-hero" aria-label="{{ section.settings.headline | escape }}">
+  <div class="ss-hero__inner">
+    <div class="ss-hero__content">
+      <span class="ss-hero__accent" aria-hidden="true">✱</span>
+      {%- if section.settings.headline != blank -%}
+        <h1 class="ss-hero__headline">{{ section.settings.headline | escape }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subhead != blank -%}
+        <div class="ss-hero__subhead">{{ section.settings.subhead }}</div>
+      {%- endif -%}
+      <div class="ss-hero__ctas">
+        {%- if section.settings.primary_cta_label != blank -%}
+          <a class="ss-hero__btn ss-hero__btn--primary" href="{{ section.settings.primary_cta_url | default: '#' }}">{{ section.settings.primary_cta_label | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.secondary_cta_label != blank -%}
+          <a class="ss-hero__btn ss-hero__btn--secondary" href="{{ section.settings.secondary_cta_url | default: '#' }}">{{ section.settings.secondary_cta_label | escape }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="ss-hero__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1600 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '(min-width: 1024px) 50vw, 100vw',
+          widths: '480, 768, 1024, 1280, 1600',
+          alt: section.settings.image_alt,
+          class: 'ss-hero__img' }}
+      {%- else -%}
+        <div class="ss-hero__placeholder">{{ 'image' | placeholder_svg_tag: 'ss-hero__placeholder-svg' }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Hero",
+  "tag": "section",
+  "class": "senseless-section senseless-hero-brand-led",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Confidence Starts With Comfort." },
+    { "type": "richtext", "id": "subhead", "label": "Subhead", "default": "<p>Topical numbing, made for aesthetic appointments. Three strengths and four formats, formulated in the UK for the way modern sessions actually run.</p>" },
+    { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label", "default": "Shop the range" },
+    { "type": "url", "id": "primary_cta_url", "label": "Primary CTA link", "info": "Set to /collections/numbing-cream" },
+    { "type": "text", "id": "secondary_cta_label", "label": "Secondary CTA label", "default": "Find your strength" },
+    { "type": "url", "id": "secondary_cta_url", "label": "Secondary CTA link", "info": "Set to /pages/choosing-your-strength" },
+    { "type": "image_picker", "id": "image", "label": "Hero image", "info": "Editorial product still life. Warm off-white background, no faces, no clinical setting. 16:9 desktop / 4:5 mobile." },
+    { "type": "text", "id": "image_alt", "label": "Hero image alt text", "default": "Senseless topical preparation range arranged on a warm off-white background with a purple brand accent" }
+  ],
+  "presets": [ { "name": "Senseless — Hero" } ]
+}
+{% endschema %}

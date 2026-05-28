@@ -1,0 +1,227 @@
+{%- comment -%}
+  Senseless — Card row (trio / quad)
+  Reusable workhorse. `columns` = 3 or 4. Three block types: tier_card, procedure_card, product_card.
+  Professional tier uses the flagship variant (dark palette + badge). Used 3x on the homepage.
+  All copy editable in the theme editor; URLs/images wired per-instance (templates/index.json).
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-trio {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-dark: #241836;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: rgba(26,26,26,0.10);
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-trio__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; }
+  .ss-trio__header { max-width: 62ch; margin: 0 auto 28px; text-align: center; display: flex; flex-direction: column; gap: 12px; }
+  .ss-trio__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-trio__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; color: var(--ss-text); }
+  .ss-trio__body { font-family: var(--ss-sans); font-size: 17px; line-height: 1.55; color: var(--ss-body); margin: 0; }
+  .ss-trio__body p { margin: 0; }
+
+  .ss-trio__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .ss-trio--cols-4 .ss-trio__grid { grid-template-columns: repeat(2, 1fr); }
+
+  .ss-card { position: relative; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
+  .ss-card__media { aspect-ratio: 4 / 5; background: var(--ss-bg); position: relative; }
+  .ss-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-card__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .ss-card__placeholder svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
+  .ss-card__body { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 auto; }
+  .ss-card__label { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-card__heading { font-family: var(--ss-head); font-weight: 600; font-size: 18px; line-height: 1.3; margin: 0; color: var(--ss-text); }
+  .ss-card__text { font-family: var(--ss-sans); font-size: 15px; line-height: 1.55; color: var(--ss-body); margin: 0; }
+  .ss-card__text p { margin: 0; }
+  .ss-card__price { font-family: var(--ss-sans); font-weight: 500; font-size: 16px; margin: 2px 0 0; color: var(--ss-text); }
+  .ss-card__cta { margin-top: auto; padding-top: 10px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
+  .ss-card__cta::after { content: '→'; }
+  .ss-card__ctabtn { margin-top: 14px; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 18px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-card__ctabtn:hover { background: var(--ss-text); color: var(--ss-bg); }
+
+  .ss-card--flagship { background: var(--ss-dark); border-color: var(--ss-dark); color: #f7f7f5; }
+  .ss-card--flagship .ss-card__heading { color: #f7f7f5; }
+  .ss-card--flagship .ss-card__text { color: rgba(247,247,245,0.78); }
+  .ss-card--flagship .ss-card__label,
+  .ss-card--flagship .ss-card__cta { color: #c9b3e6; }
+  .ss-card--flagship .ss-card__price { color: #f7f7f5; }
+  .ss-card--flagship:hover { border-color: var(--ss-dark); }
+  .ss-card--flagship .ss-card__ctabtn { border-color: rgba(247,247,245,0.5); color: #f7f7f5; }
+  .ss-card--flagship .ss-card__ctabtn:hover { background: #f7f7f5; color: var(--ss-dark); }
+  .ss-card__badge { position: absolute; top: 12px; right: 12px; z-index: 1; background: rgba(247,247,245,0.16); color: #f7f7f5; font-family: var(--ss-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
+
+  .ss-trio__footer { text-align: center; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
+  .ss-trio__closer { font-family: var(--ss-head); font-weight: 600; font-size: 18px; color: var(--ss-text); margin: 0; }
+  .ss-trio__sectioncta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-trio__sectioncta:hover { background: var(--ss-text); color: var(--ss-bg); }
+
+  @media (min-width: 768px) {
+    .ss-trio--cols-3 .ss-trio__grid { grid-template-columns: repeat(3, 1fr); }
+    .ss-trio--cols-4 .ss-trio__grid { grid-template-columns: repeat(4, 1fr); }
+    .ss-trio__headline { font-size: 32px; }
+  }
+  @media (min-width: 1024px) {
+    .ss-trio__inner { padding: 96px 40px; }
+    .ss-trio__grid { gap: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ss-card, .ss-card__ctabtn, .ss-trio__sectioncta { transition: none; }
+    .ss-card:hover { transform: none; }
+  }
+{%- endstyle -%}
+
+<section class="ss-trio ss-trio--cols-{{ section.settings.columns }}" aria-label="{{ section.settings.headline | default: 'Card row' | escape }}">
+  <div class="ss-trio__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
+      <header class="ss-trio__header">
+        {%- if section.settings.eyebrow != blank -%}<p class="ss-trio__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-trio__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.body != blank -%}<div class="ss-trio__body">{{ section.settings.body }}</div>{%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <div class="ss-trio__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+          {%- when 'tier_card' -%}
+            <div class="ss-card{% if block.settings.flagship %} ss-card--flagship{% endif %}" {{ block.shopify_attributes }}>
+              <div class="ss-card__media">
+                {%- if block.settings.flagship and block.settings.badge_text != blank -%}<span class="ss-card__badge">{{ block.settings.badge_text | escape }}</span>{%- endif -%}
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
+                {%- else -%}
+                  <div class="ss-card__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+                {%- endif -%}
+              </div>
+              <div class="ss-card__body">
+                {%- if block.settings.label != blank -%}<p class="ss-card__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+                {%- if block.settings.heading != blank -%}<h3 class="ss-card__heading">{{ block.settings.heading | escape }}</h3>{%- endif -%}
+                {%- if block.settings.body != blank -%}<div class="ss-card__text">{{ block.settings.body }}</div>{%- endif -%}
+                {%- if block.settings.cta_label != blank -%}<a class="ss-card__ctabtn" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_label | escape }}</a>{%- endif -%}
+              </div>
+            </div>
+
+          {%- when 'procedure_card' -%}
+            <a class="ss-card ss-card--procedure" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
+              <div class="ss-card__media">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 25vw, 50vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
+                {%- else -%}
+                  <div class="ss-card__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+                {%- endif -%}
+              </div>
+              <div class="ss-card__body">
+                {%- if block.settings.label != blank -%}<h3 class="ss-card__heading">{{ block.settings.label | escape }}</h3>{%- endif -%}
+                {%- if block.settings.cta_label != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
+              </div>
+            </a>
+
+          {%- when 'product_card' -%}
+            <a class="ss-card ss-card--product{% if block.settings.flagship %} ss-card--flagship{% endif %}" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
+              <div class="ss-card__media">
+                {%- if block.settings.flagship and block.settings.badge_text != blank -%}<span class="ss-card__badge">{{ block.settings.badge_text | escape }}</span>{%- endif -%}
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
+                {%- else -%}
+                  <div class="ss-card__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
+                {%- endif -%}
+              </div>
+              <div class="ss-card__body">
+                {%- if block.settings.label != blank -%}<p class="ss-card__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+                {%- if block.settings.title != blank -%}<h3 class="ss-card__heading">{{ block.settings.title | escape }}</h3>{%- endif -%}
+                {%- if block.settings.price != blank -%}<p class="ss-card__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+                {%- if block.settings.cta_label != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
+              </div>
+            </a>
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.closer != blank or section.settings.section_cta_label != blank -%}
+      <div class="ss-trio__footer">
+        {%- if section.settings.closer != blank -%}<p class="ss-trio__closer">{{ section.settings.closer | escape }}</p>{%- endif -%}
+        {%- if section.settings.section_cta_label != blank -%}<a class="ss-trio__sectioncta" href="{{ section.settings.section_cta_url | default: '#' }}">{{ section.settings.section_cta_label | escape }}</a>{%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Card row",
+  "tag": "section",
+  "class": "senseless-section senseless-trio-card-row",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "select", "id": "columns", "label": "Cards per row (desktop)", "default": "3", "options": [ { "value": "3", "label": "3 (trio)" }, { "value": "4", "label": "4 (quad)" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Optional. Leave blank to hide." },
+    { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "richtext", "id": "body", "label": "Intro body" },
+    { "type": "text", "id": "closer", "label": "Closer line", "info": "Optional short closing line under the cards." },
+    { "type": "text", "id": "section_cta_label", "label": "Section CTA label" },
+    { "type": "url", "id": "section_cta_url", "label": "Section CTA link" }
+  ],
+  "blocks": [
+    {
+      "type": "tier_card",
+      "name": "Tier card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless cream tube on a warm off-white background" },
+        { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "For routine appointments" },
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Short description of this tier and the appointments it suits.</p>" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" },
+        { "type": "checkbox", "id": "flagship", "label": "Flagship variant (dark palette + badge)", "default": false },
+        { "type": "text", "id": "badge_text", "label": "Flagship badge text", "default": "Flagship" }
+      ]
+    },
+    {
+      "type": "procedure_card",
+      "name": "Procedure card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Editorial product image for this procedure type" },
+        { "type": "text", "id": "label", "label": "Procedure name", "default": "Lip Fillers" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View range" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" }
+      ]
+    },
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless Cream 30g tube on a warm off-white background" },
+        { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Cream 30g" },
+        { "type": "text", "id": "price", "label": "Price", "default": "£TBC" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View product" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" },
+        { "type": "checkbox", "id": "flagship", "label": "Flagship variant (dark palette + badge)", "default": false },
+        { "type": "text", "id": "badge_text", "label": "Flagship badge text", "default": "Flagship" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Senseless — Card row",
+      "settings": { "columns": "3" },
+      "blocks": [ { "type": "tier_card" }, { "type": "tier_card" }, { "type": "tier_card" } ]
+    }
+  ]
+}
+{% endschema %}

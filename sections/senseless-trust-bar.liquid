@@ -1,0 +1,75 @@
+{%- comment -%}
+  Senseless — Trust bar
+  Horizontal strip of trust signals (icon + label). Single row on desktop, 2x2 grid on mobile.
+  No headline, no CTA. Reused on Format Collections. Trust items are blocks (icon + label), both editable.
+  When no icon image is set, a line-art placeholder renders in brand purple.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-trust {
+    --ss-purple: #6B3FA0;
+    --ss-bg: #f7f7f5;
+    --ss-text: #1a1a1a;
+    --ss-border: rgba(26,26,26,0.10);
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+    border-top: 1px solid var(--ss-border);
+    border-bottom: 1px solid var(--ss-border);
+  }
+  .ss-trust__inner { max-width: 1100px; margin: 0 auto; padding: 28px 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+  .ss-trust__item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .ss-trust__icon { width: 32px; height: 32px; color: var(--ss-purple); display: flex; align-items: center; justify-content: center; }
+  .ss-trust__icon img { width: 100%; height: 100%; object-fit: contain; }
+  .ss-trust__icon svg { width: 100%; height: 100%; }
+  .ss-trust__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; line-height: 1.3; color: var(--ss-text); margin: 0; }
+
+  @media (min-width: 768px) {
+    .ss-trust__inner { grid-template-columns: repeat(4, 1fr); padding: 32px 40px; }
+    .ss-trust__item { flex-direction: row; text-align: left; gap: 12px; justify-content: center; }
+  }
+{%- endstyle -%}
+
+<section class="ss-trust" aria-label="Trust signals">
+  <ul class="ss-trust__inner" role="list">
+    {%- for block in section.blocks -%}
+      <li class="ss-trust__item" {{ block.shopify_attributes }}>
+        <span class="ss-trust__icon" aria-hidden="true">
+          {%- if block.settings.icon != blank -%}
+            {{ block.settings.icon | image_url: width: 64 | image_tag: loading: 'lazy', widths: '32, 64', alt: '' }}
+          {%- else -%}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg>
+          {%- endif -%}
+        </span>
+        {%- if block.settings.label != blank -%}<p class="ss-trust__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Trust bar",
+  "tag": "section",
+  "class": "senseless-section senseless-trust-bar",
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust signal",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon", "info": "Line-art, brand purple. Leave blank for a placeholder icon." },
+        { "type": "text", "id": "label", "label": "Label", "default": "UK formulated" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Senseless — Trust bar",
+      "blocks": [ { "type": "trust_item" }, { "type": "trust_item" }, { "type": "trust_item" }, { "type": "trust_item" } ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,99 @@
+{%- comment -%}
+  Senseless — Newsletter
+  Single-field email form, sits above the footer. Uses Shopify's customer form with a newsletter tag;
+  GDPR double opt-in is governed by the store's customer-marketing setting. All copy editable.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-news {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: rgba(26,26,26,0.10);
+    --ss-error: #B91C1C;
+    --ss-success: #15803D;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-news__inner { max-width: 680px; margin: 0 auto; padding: 44px 20px; text-align: center; display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .ss-news__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; color: var(--ss-text); }
+  .ss-news__body { font-family: var(--ss-sans); font-size: 17px; line-height: 1.55; color: var(--ss-body); margin: 0; max-width: 54ch; }
+  .ss-news__body p { margin: 0; }
+  .ss-news__form { width: 100%; max-width: 480px; margin-top: 8px; display: flex; flex-direction: column; gap: 10px; }
+  .ss-news__row { display: flex; flex-direction: column; gap: 10px; }
+  .ss-news__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-align: left; color: var(--ss-text); }
+  .ss-news__label .req { color: var(--ss-error); margin-left: 2px; }
+  .ss-news__input { height: 48px; padding: 0 14px; font-family: var(--ss-sans); font-size: 16px; color: var(--ss-text); background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; width: 100%; }
+  .ss-news__input:focus-visible { outline: 2px solid var(--ss-purple); outline-offset: 2px; border-color: var(--ss-text); }
+  .ss-news__submit { height: 48px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-purple); background: var(--ss-purple); color: #fff; font-family: var(--ss-sans); font-weight: 500; font-size: 16px; cursor: pointer; transition: background-color 200ms ease-out, border-color 200ms ease-out; }
+  .ss-news__submit:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
+  .ss-news__finep { font-family: var(--ss-sans); font-size: 13px; line-height: 1.45; color: var(--ss-body); margin: 4px 0 0; }
+  .ss-news__msg { font-family: var(--ss-sans); font-size: 14px; margin: 0; }
+  .ss-news__msg--ok { color: var(--ss-success); }
+  .ss-news__msg--err { color: var(--ss-error); }
+
+  @media (min-width: 768px) {
+    .ss-news__inner { padding: 96px 40px; }
+    .ss-news__row { flex-direction: row; }
+    .ss-news__input { flex: 1 1 auto; }
+    .ss-news__submit { flex: 0 0 auto; }
+    .ss-news__label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ss-news__submit { transition: none; }
+  }
+{%- endstyle -%}
+
+<section class="ss-news" aria-label="{{ section.settings.headline | default: 'Newsletter' | escape }}">
+  <div class="ss-news__inner">
+    {%- if section.settings.headline != blank -%}<h2 class="ss-news__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+    {%- if section.settings.body != blank -%}<div class="ss-news__body">{{ section.settings.body }}</div>{%- endif -%}
+
+    {%- form 'customer', class: 'ss-news__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="ss-news__row">
+        <label class="ss-news__label" for="ss-news-email-{{ section.id }}">{{ section.settings.field_label | default: 'Email address' | escape }}<span class="req" aria-hidden="true">*</span></label>
+        <input
+          id="ss-news-email-{{ section.id }}"
+          class="ss-news__input"
+          type="email"
+          name="contact[email]"
+          autocomplete="email"
+          placeholder="{{ section.settings.field_label | default: 'Email address' | escape }}"
+          aria-required="true"
+          required>
+        <button type="submit" class="ss-news__submit">{{ section.settings.submit_label | default: 'Sign up' | escape }}</button>
+      </div>
+      {%- if section.settings.fine_print != blank -%}<p class="ss-news__finep">{{ section.settings.fine_print | escape }}</p>{%- endif -%}
+      {%- if form.errors -%}
+        <p class="ss-news__msg ss-news__msg--err" role="alert">{{ form.errors | default_errors }}</p>
+      {%- elsif form.posted_successfully? -%}
+        <p class="ss-news__msg ss-news__msg--ok" role="status">{{ section.settings.success_text | default: 'Thanks — check your inbox to confirm your subscription.' | escape }}</p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Newsletter",
+  "tag": "section",
+  "class": "senseless-section senseless-newsletter-signup",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Stay close." },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Notes from the Senseless team. New product launches, prep guidance for upcoming sessions, and what we're hearing from the clinics that stock us.</p>" },
+    { "type": "text", "id": "field_label", "label": "Email field label", "default": "Email address" },
+    { "type": "text", "id": "submit_label", "label": "Submit button label", "default": "Sign up" },
+    { "type": "text", "id": "fine_print", "label": "Fine print", "default": "Double opt-in — we'll email you to confirm. Unsubscribe anytime." },
+    { "type": "text", "id": "success_text", "label": "Success message", "default": "Thanks — check your inbox to confirm your subscription." }
+  ],
+  "presets": [ { "name": "Senseless — Newsletter" } ]
+}
+{% endschema %}

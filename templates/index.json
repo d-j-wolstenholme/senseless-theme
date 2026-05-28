@@ -1,288 +1,227 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
- {
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
+    "hero": {
+      "type": "senseless-hero-brand-led",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "headline": "Confidence Starts With Comfort.",
+        "subhead": "<p>Topical numbing, made for aesthetic appointments. Three strengths and four formats, formulated in the UK for the way modern sessions actually run.</p>",
+        "primary_cta_label": "Shop the range",
+        "primary_cta_url": "/collections/numbing-cream",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Senseless topical preparation range arranged on a warm off-white background with a purple brand accent"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "system": {
+      "type": "senseless-trio-card-row",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "clinical": {
+          "type": "tier_card",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "label": "Clinical Strength",
+            "heading": "For routine appointments",
+            "body": "<p>The everyday Senseless. Used for top-ups, routine microneedling, smaller laser zones, and the appointments most clients book most often. Quietly capable.</p>",
+            "cta_label": "Shop Clinical",
+            "cta_url": "/collections/numbing-cream?strength=clinical",
+            "flagship": false,
+            "image_alt": "Clinical Strength Senseless cream on a warm off-white background"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "advanced": {
+          "type": "tier_card",
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "label": "Advanced Strength",
+            "heading": "For longer or more demanding sessions",
+            "body": "<p>The considered upgrade. Higher concentration, formulated for longer sessions and more sensitive indications. Chosen by clients who know what their appointment will ask of them.</p>",
+            "cta_label": "Shop Advanced",
+            "cta_url": "/collections/numbing-cream?strength=advanced",
+            "flagship": false,
+            "image_alt": "Advanced Strength Senseless cream on a warm off-white background"
+          }
+        },
+        "professional": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Professional Strength",
+            "heading": "Our most concentrated formula",
+            "body": "<p>Developed with practitioners. Used in clinics across the UK. Available without restriction. Professional sits at the top of the Senseless system. Trusted at the chair.</p>",
+            "cta_label": "Shop Professional",
+            "cta_url": "/collections/numbing-cream?strength=professional",
+            "flagship": true,
+            "badge_text": "Flagship",
+            "image_alt": "Professional Strength Senseless cream photographed in a darker palette"
+          }
         }
       },
-      "name": "t:names.featured_collection",
+      "block_order": ["clinical", "advanced", "professional"],
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "columns": "3",
+        "eyebrow": "The Senseless system",
+        "headline": "Match the formula to your appointment.",
+        "body": "<p>Aesthetic appointments vary. The product you bring to them should reflect that. Clinical for routine sessions. Advanced for longer or more sensitive work. Professional, our flagship, formulated for clinicians and available to all.</p>",
+        "closer": "The system does the rest.",
+        "section_cta_label": "Find your strength",
+        "section_cta_url": "/pages/choosing-your-strength"
+      }
+    },
+    "procedure": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "lip": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Lip Fillers",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-lip-fillers",
+            "image_alt": "Editorial product image for the lip fillers range"
+          }
+        },
+        "micro": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Microneedling",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-microneedling",
+            "image_alt": "Editorial product image for the microneedling range"
+          }
+        },
+        "botox": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Botox",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-botox",
+            "image_alt": "Editorial product image for the Botox range"
+          }
+        },
+        "laser": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Laser Treatment",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-laser-treatment",
+            "image_alt": "Editorial product image for the laser treatment range"
+          }
+        }
+      },
+      "block_order": ["lip", "micro", "botox", "laser"],
+      "settings": {
+        "columns": "4",
+        "eyebrow": "",
+        "headline": "Shop by procedure.",
+        "body": "<p>Find the formula made for your appointment type.</p>",
+        "closer": "",
+        "section_cta_label": "See all procedures",
+        "section_cta_url": "/collections/aesthetic-numbing-cream"
+      }
+    },
+    "product_band": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left",
+        "eyebrow": "The product",
+        "headline": "A cosmetic product. Built for aesthetics.",
+        "body": "<p>Senseless is a UK cosmetic product. Not a medicine. Not pharmacy. A topical preparation developed for the way modern aesthetic appointments actually work: short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result.</p>",
+        "cta_label": "How Senseless works",
+        "cta_url": "/pages/how-it-works",
+        "image_alt": "Editorial close-up of a Senseless topical preparation showing texture detail in soft warm light"
+      }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "Cruelty-free" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "featured": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "p_clinical": {
+          "type": "product_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "title": "Cream 30g",
+            "price": "£TBC",
+            "cta_label": "View product",
+            "cta_url": "/products/clinical-strength-cream-30g",
+            "flagship": false,
+            "image_alt": "Clinical Strength Cream 30g tube on a warm off-white background"
+          }
+        },
+        "p_advanced": {
+          "type": "product_card",
+          "settings": {
+            "label": "Advanced Strength",
+            "title": "Cream 30g",
+            "price": "£TBC",
+            "cta_label": "View product",
+            "cta_url": "/products/advanced-strength-cream-30g",
+            "flagship": false,
+            "image_alt": "Advanced Strength Cream 30g tube on a warm off-white background"
+          }
+        },
+        "p_professional": {
+          "type": "product_card",
+          "settings": {
+            "label": "Professional Strength",
+            "title": "Cream 30g",
+            "price": "£TBC",
+            "cta_label": "View product",
+            "cta_url": "/products/professional-strength-cream-30g",
+            "flagship": true,
+            "badge_text": "Flagship",
+            "image_alt": "Professional Strength Cream 30g tube photographed in a darker palette"
+          }
+        }
+      },
+      "block_order": ["p_clinical", "p_advanced", "p_professional"],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "Most chosen",
+        "headline": "Start here.",
+        "body": "<p>The three Senseless products that handle most aesthetic appointments.</p>",
+        "closer": "",
+        "section_cta_label": "Shop all products",
+        "section_cta_url": "/collections/numbing-cream"
+      }
+    },
+    "practitioners": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right",
+        "eyebrow": "Trade & wholesale",
+        "headline": "For clinics and practitioners.",
+        "body": "<p>Senseless is stocked in clinics across the UK. Wholesale accounts for practitioners working at volume — clinic sizes, account pricing, and the consistency clinics need from their supply.</p>",
+        "cta_label": "Trade enquiries",
+        "cta_url": "/pages/trade",
+        "image_alt": "Editorial clinic countertop with a Senseless product, no faces"
+      }
+    },
+    "newsletter": {
+      "type": "senseless-newsletter-signup",
+      "settings": {
+        "headline": "Stay close.",
+        "body": "<p>Notes from the Senseless team. New product launches, prep guidance for upcoming sessions, and what we're hearing from the clinics that stock us.</p>",
+        "field_label": "Email address",
+        "submit_label": "Sign up",
+        "fine_print": "Double opt-in — we'll email you to confirm. Unsubscribe anytime.",
+        "success_text": "Thanks — check your inbox to confirm your subscription."
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "hero",
+    "system",
+    "procedure",
+    "product_band",
+    "trust",
+    "featured",
+    "practitioners",
+    "newsletter"
   ]
 }
