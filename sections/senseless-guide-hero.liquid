@@ -17,9 +17,17 @@
     --ss-border: #E5E2DC;
     --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-dark: #241836;
     background: var(--ss-bg);
     color: var(--ss-text);
   }
+  .ss-gh--dark { background: var(--ss-dark); color: #f7f7f5; }
+  .ss-gh--dark .ss-gh__headline { color: #ffffff; }
+  .ss-gh--dark .ss-gh__subhead { color: rgba(247,247,245,0.82); }
+  .ss-gh--dark .ss-gh__eyebrow { color: #b794d6; }
+  .ss-gh--dark .ss-gh__cta--secondary { color: #f7f7f5; border-color: rgba(247,247,245,0.6); }
+  .ss-gh--dark .ss-gh__cta--secondary:hover { background: #f7f7f5; color: var(--ss-dark); }
+  .ss-gh--dark .ss-gh__media { border-color: rgba(247,247,245,0.18); background: rgba(247,247,245,0.06); }
   .ss-gh__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
   .ss-gh__text { display: flex; flex-direction: column; gap: 14px; max-width: 60ch; }
   .ss-gh__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
@@ -45,7 +53,7 @@
   @media (prefers-reduced-motion: reduce) { .ss-gh__cta { transition: none; } }
 {%- endstyle -%}
 
-<section class="ss-gh{% if section.settings.image != blank %} ss-gh--with-image{% endif %}" aria-label="{{ section.settings.headline | default: 'Guide' | escape }}">
+<section class="ss-gh ss-gh--{{ section.settings.background | default: 'canvas' }}{% if section.settings.image != blank %} ss-gh--with-image{% endif %}" aria-label="{{ section.settings.headline | default: 'Guide' | escape }}">
   <div class="ss-gh__inner">
     <div class="ss-gh__text">
       {%- if section.settings.eyebrow != blank -%}<p class="ss-gh__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
@@ -70,6 +78,7 @@
   "tag": "section",
   "class": "senseless-section senseless-guide-hero",
   "settings": [
+    { "type": "select", "id": "background", "label": "Background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas (warm)" }, { "value": "dark", "label": "Brand dark (#241836)" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "Guide headline" },
     { "type": "richtext", "id": "subhead", "label": "Subhead" },

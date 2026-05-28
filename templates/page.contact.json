@@ -1,135 +1,66 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "blocks": {
-        "title": {
-          "type": "text",
-          "name": "t:names.title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "content": {
-          "type": "text",
-          "name": "t:names.content",
-          "settings": {
-            "text": "{{ closest.page.content }}",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": ["title", "content"],
+    "hero": {
+      "type": "senseless-guide-hero",
       "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 0
+        "eyebrow": "Contact",
+        "headline": "Get in touch.",
+        "subhead": "<p>The team responds to consumer enquiries within 2 working days. Trade, press, and legal routes are separate — see below for the right channel.</p>",
+        "image_alt": "Editorial Senseless product still life"
       }
     },
-    "form": {
-      "type": "section",
+    "routes": {
+      "type": "senseless-trio-card-row",
       "blocks": {
-        "contact_form_UwiCkQ": {
-          "type": "contact-form",
-          "settings": {
-            "width": "custom",
-            "custom_width": 50,
-            "width_mobile": "custom",
-            "custom_width_mobile": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "submit-button": {
-              "type": "contact-form-submit-button",
-              "static": true,
-              "settings": {
-                "label": "Submit",
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
+        "consumer": { "type": "format_card", "settings": { "label": "Customer enquiries", "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below.</p>", "cta_label": "Contact form", "cta_url": "#contact-form", "image_alt": "Editorial image for customer enquiries" } },
+        "trade": { "type": "format_card", "settings": { "label": "For clinics and practitioners", "body": "<p>Wholesale accounts, clinic supply, B2B questions. The Trade page has the dedicated enquiry form and operational details.</p>", "cta_label": "Trade enquiries", "cta_url": "/pages/trade", "image_alt": "Editorial image for trade enquiries" } },
+        "press": { "type": "format_card", "settings": { "label": "Media and partnerships", "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. (Email address to be confirmed before launch.)</p>", "cta_label": "Email press team", "cta_url": "mailto:press@senseless.co.uk", "image_alt": "Editorial image for press enquiries" } },
+        "legal": { "type": "format_card", "settings": { "label": "Data, privacy, legal", "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. (Email address to be confirmed before launch.)</p>", "cta_label": "Email legal team", "cta_url": "mailto:legal@senseless.co.uk", "image_alt": "Editorial image for legal enquiries" } }
       },
-      "block_order": ["contact_form_UwiCkQ"],
-      "name": "t:names.contact_form",
+      "block_order": ["consumer", "trade", "press", "legal"],
+      "settings": { "columns": "4", "eyebrow": "", "headline": "Pick the right channel.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    },
+    "form": {
+      "type": "senseless-contact-form",
+      "blocks": {
+        "f1": { "type": "field", "settings": { "label": "Your name", "type": "text", "required": true } },
+        "f2": { "type": "field", "settings": { "label": "Email", "type": "email", "required": true } },
+        "f3": { "type": "field", "settings": { "label": "Order number", "type": "text", "required": false } },
+        "f4": { "type": "field", "settings": { "label": "Enquiry type", "type": "select", "options": "Product question, Order issue, Returns, Other", "required": true } },
+        "f5": { "type": "field", "settings": { "label": "Your message", "type": "textarea", "required": true } },
+        "f6": { "type": "field", "settings": { "label": "I consent to Senseless storing my details to respond to this enquiry, in line with the Privacy Policy.", "type": "checkbox", "required": true } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6"],
+      "settings": { "anchor_id": "contact-form", "eyebrow": "Customer enquiries", "headline": "Send us a message.", "body": "<p>The team responds within 2 working days. For trade, press, or legal enquiries, use the dedicated channels above for faster routing.</p>", "submit_label": "Send message", "success_message": "Thanks — your message has been sent. We'll respond within 2 working days." }
+    },
+    "company": {
+      "type": "senseless-image-text-band",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-1",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 32,
-        "padding-block-end": 84
+        "direction": "text-left", "eyebrow": "Who you're contacting",
+        "headline": "The legal entity behind Senseless.",
+        "body": "<p>Senseless is a brand of <strong>Matrix Health Group Ltd</strong>, a UK company in the personal-care and aesthetics sector.</p><ul><li>Company name: Matrix Health Group Ltd</li><li>Company number: to be confirmed before launch</li><li>Registered address: to be confirmed before launch</li><li>VAT number: to be confirmed before launch</li></ul><p>For consumer enquiries, please use the form above or the appropriate channel above. The registered company address isn't a consumer support address.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial Senseless brand mark composition"
       }
+    },
+    "response": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral", "eyebrow": "", "heading": "Response times",
+        "body": "<p><strong>Consumer enquiries:</strong> 2 working days, typically faster.</p><p><strong>Trade enquiries:</strong> 2 working days for initial response.</p><p><strong>Press enquiries:</strong> 1 working day for time-sensitive requests.</p><p><strong>Legal / GDPR:</strong> As required by applicable law — UK GDPR data subject requests acknowledged within 1 calendar month per regulation.</p><p>The team works UK office hours (Monday–Friday, 09:00–17:00 GMT/BST). Weekend enquiries are picked up the next working day.</p>",
+        "cta_label": "", "cta_url": ""
+      }
+    },
+    "next": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "faq": { "type": "format_card", "settings": { "label": "FAQ", "body": "<p>Most consumer questions answered already.</p>", "cta_label": "Read FAQ", "cta_url": "/pages/faq", "image_alt": "Editorial image for the FAQ" } },
+        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Help deciding between tiers.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
+        "system": { "type": "format_card", "settings": { "label": "How Senseless works", "body": "<p>The system explained.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-it-works", "image_alt": "Editorial image for the system guide" } }
+      },
+      "block_order": ["faq", "strength", "system"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "Or try one of these first.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
     }
   },
-  "order": ["main", "form"]
+  "order": ["hero", "routes", "form", "company", "response", "next"]
 }

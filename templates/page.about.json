@@ -1,0 +1,74 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "dark",
+        "eyebrow": "About",
+        "headline": "A UK brand built for one thing.",
+        "subhead": "<p>Senseless makes topical preparation products for aesthetic appointments. Three strengths, four formats, formulated to match what each procedure asks of the skin. Aesthetics is the specialism — not the side category.</p>",
+        "image_alt": "Editorial Senseless brand still life, no faces"
+      }
+    },
+    "brand": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The brand",
+        "headline": "A cosmetic brand. An aesthetics specialist.",
+        "body": "<p>Senseless is a UK cosmetic brand, formulated and produced for the aesthetic procedures clinics actually run — lip fillers, Botox, microneedling, laser, semi-permanent makeup, waxing. The brand sits in the cosmetic product category, not the medical one. The product range is built around a single coherent system: three strengths matched to procedure intensity, four formats matched to treatment area. That structure is the brand. The brand doesn't try to be everything for everyone. It tries to be the right answer for one category of appointment.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial Senseless system view"
+      }
+    },
+    "company": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The company",
+        "headline": "Backed by Matrix Health Group Ltd.",
+        "body": "<p>Senseless is a brand of Matrix Health Group Ltd, a UK company in the personal-care and aesthetics sector. The parent company gives Senseless the regulatory, manufacturing, and quality infrastructure to operate as a UK cosmetic brand at the standard the category demands. Matrix Health Group provides the operational scaffolding. Senseless is the brand built on top of it, focused entirely on aesthetic topical preparation.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial product close-up of Senseless"
+      }
+    },
+    "believe": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The position",
+        "headline": "Specialism over breadth. System over single product. Honesty over over-claim.",
+        "body": "<p>The aesthetics category deserves a product range built specifically for it — not generic skin preparation stretched to fit. Most aesthetic appointments need a specific tier and format. A single-product approach can't match every booking, so Senseless doesn't try. The three-tier, four-format system is the answer. And we'd rather tell a buyer when Professional is overkill, when Clinical is enough, or when Senseless isn't the right product at all — than convert a sale that doesn't suit the appointment.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial product close-up of Senseless"
+      }
+    },
+    "used": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "In practice",
+        "headline": "Stocked in clinics across the UK.",
+        "body": "<p>Senseless Professional is used in clinics across the UK for the most demanding procedures the system is built for. Senseless Clinical and Advanced are bought direct by clients preparing for their own appointments. The two audiences sit on the same product range, with the same formulation system, in different tier strengths. The clinic credibility supports the consumer purchase. The consumer purchase isn't a watered-down version of the clinic one. The system is the same.</p>",
+        "cta_label": "Trade enquiries", "cta_url": "/pages/trade",
+        "image_alt": "Editorial clinic-context image, no faces"
+      }
+    },
+    "principles": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white", "eyebrow": "How we work",
+        "headline": "A few things about how we work.",
+        "body": "<p><strong>The system.</strong> Strength matches procedure. Format matches treatment area. The recommendations are matrix-driven, not marketing-driven.</p><p><strong>The honesty.</strong> We tell buyers when a product is overkill for their procedure. We refuse comparative efficacy claims against other brands. We don't gate Professional behind practitioner credentials.</p><p><strong>The voice.</strong> Restrained, declarative, evidence-led. The brand's job is to be useful at the point of purchase. We don't oversell.</p>",
+        "cta_label": "", "cta_url": ""
+      }
+    },
+    "next": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "system": { "type": "format_card", "settings": { "label": "How Senseless works", "body": "<p>The system, in plain terms.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-it-works", "image_alt": "Editorial image for the system guide" } },
+        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Clinical, Advanced, Professional.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
+        "procedures": { "type": "format_card", "settings": { "label": "Shop by procedure", "body": "<p>Every appointment Senseless covers.</p>", "cta_label": "View collection", "cta_url": "/collections/aesthetic-numbing-cream", "image_alt": "Editorial image for the procedures collection" } }
+      },
+      "block_order": ["system", "strength", "procedures"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "Decide what you need.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    }
+  },
+  "order": ["hero", "brand", "company", "believe", "used", "principles", "next"]
+}

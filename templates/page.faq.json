@@ -1,0 +1,107 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "eyebrow": "Frequently asked",
+        "headline": "The questions that come up most.",
+        "subhead": "<p>Grouped by topic. Each answer routes you to the right detailed guide if you want more. Use the search if you can't find what you're looking for, or <a href=\"/pages/contact\">get in touch</a> for anything we haven't covered.</p>",
+        "image_alt": "Editorial Senseless product still life"
+      }
+    },
+    "nav": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white", "eyebrow": "Browse by topic", "headline": "",
+        "body": "<p><a href=\"#about\">About Senseless</a> · <a href=\"#choosing\">Choosing your product</a> · <a href=\"#using\">How to use it</a> · <a href=\"#safety\">Safety and side effects</a> · <a href=\"#aftercare\">Aftercare</a> · <a href=\"#trade\">Trade and clinic supply</a></p>",
+        "cta_label": "", "cta_url": ""
+      }
+    },
+    "about": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "What is Senseless?", "answer": "<p>A UK cosmetic brand making topical preparation products for aesthetic appointments. Three strengths (Clinical, Advanced, Professional) across four formats (cream 10g, cream 30g, gel 35ml, spray 100ml), plus an aftercare cleanser. Built specifically for the procedures aesthetic clinics run.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Is Senseless a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product. Different regulatory category from medical numbing preparations.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Who makes Senseless?", "answer": "<p>Senseless is a brand of Matrix Health Group Ltd, a UK company in the personal-care and aesthetics sector. See the <a href=\"/pages/about\">About page</a> for the full background.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Is Senseless cruelty-free?", "answer": "<p>Cruelty-free certification is being confirmed — this answer will be updated once verified.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Where is Senseless made?", "answer": "<p>UK formulated. Specific manufacturing details available via the regulatory documentation on each product page.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Is Senseless stocked in clinics?", "answer": "<p>Yes — particularly the Professional Strength tier. See the <a href=\"/pages/trade\">Trade page</a> for clinic supply information.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "About Senseless.", "anchor_id": "about" }
+    },
+    "choosing": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Which strength should I choose?", "answer": "<p>Clinical for routine appointments (lip fillers, Botox, smaller laser, brow waxing). Advanced for longer or more sensitive sessions (microneedling, SPMU, full-face laser). Professional for the most intensive bookings. See the <a href=\"/pages/choosing-your-strength\">strength guide</a> for the full matrix.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Cream, gel, or spray?", "answer": "<p>Cream is the default for most face procedures. Gel suits sustained sessions like microneedling. Spray covers body and broader zones. See the <a href=\"/pages/choosing-your-format\">format guide</a>.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "What's the best numbing cream for lip fillers?", "answer": "<p>Clinical Strength Cream is the everyday recommendation. Advanced if your lips run sensitive. Professional is overkill — save it for procedures that need it.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "What's the best numbing cream for microneedling?", "answer": "<p>Advanced Strength. Cream or gel both work — gel often suits the sustained session better. Professional for the most intensive full-face sessions.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Should I just buy Professional to be safe?", "answer": "<p>For most consumers, no. Professional is built for specific demanding procedures. Buying Professional for a routine lip filler appointment over-buys.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "What size should I buy?", "answer": "<p>30g cream suits regular regimens. 10g cream suits single appointments or trial. Gel comes in 35ml only. Spray comes in 100ml only.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Choosing your product.", "anchor_id": "choosing" }
+    },
+    "using": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "How do I apply Senseless?", "answer": "<p>Clean the area. Apply a thin even layer. Leave for the time your practitioner recommends. Wipe before your appointment. See the <a href=\"/pages/how-to-apply-numbing-cream\">application guide</a> for the full routine.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "How long before my appointment should I apply?", "answer": "<p>Depends on the procedure, the tier, and your practitioner's protocol. There isn't a single correct number. Ask your practitioner before your booking.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "How long does Senseless take to work?", "answer": "<p>Onset timing varies by procedure, tier, and individual. See the <a href=\"/pages/how-long-numbing-cream-takes-to-work\">how long it takes to work guide</a> for the framework.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "How long does it last?", "answer": "<p>Duration varies by procedure, tier, and individual. See the <a href=\"/pages/how-long-numbing-cream-lasts\">duration guide</a>.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Can I reapply if my appointment runs long?", "answer": "<p>Most aesthetic practitioners have protocols for this. Ask in advance. Some reapply at the chair, some use additional preparation during the procedure.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Do I wipe it off or wash it off?", "answer": "<p>Most practitioners prefer wiping with a clean cloth or tissue. Some wash. Follow your practitioner's specific instruction.</p>" } },
+        "q7": { "type": "faq_item", "settings": { "question": "Will it work for me?", "answer": "<p>Specific experience varies. Many clients find prepared skin more comfortable than unprepared during aesthetic appointments. See <a href=\"/pages/does-numbing-cream-work\">does numbing cream actually work</a> for the honest answer.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"],
+      "settings": { "headline": "How to use it.", "anchor_id": "using" }
+    },
+    "safety": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Is Senseless safe?", "answer": "<p>Senseless is a UK cosmetic product, regulated as such. Each formulation has a Cosmetic Product Safety Report (CPSR) underwriting its safe use as preparation for aesthetic procedures. Follow application instructions and your practitioner's guidance.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "What are the side effects?", "answer": "<p>As with any topical preparation, individual reactions can vary. The most common observations are mild skin redness or sensitivity at the application site that resolves shortly. If you experience anything unexpected, stop using and consult your practitioner or GP.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Can I use Senseless if I have sensitive skin?", "answer": "<p>Many clients with sensitive skin use Senseless successfully. If you have a history of strong reactions to topical products, do a small patch test first and consult your practitioner before your booking.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Can I use Senseless during pregnancy?", "answer": "<p>Topical preparations during pregnancy are best discussed with your GP or midwife. We recommend speaking to a medical professional before using Senseless if you are pregnant or breastfeeding.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Can I use Senseless on broken or irritated skin?", "answer": "<p>No. Senseless is formulated for application on intact skin as preparation for an aesthetic appointment. Don't apply to broken, irritated, or inflamed skin.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Are there any contraindications?", "answer": "<p>If you have a known allergy or sensitivity to topical preparations, consult your practitioner before use. The full ingredient list is on each product's packaging.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Safety and side effects.", "anchor_id": "safety" }
+    },
+    "aftercare": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Do I need aftercare after my appointment?", "answer": "<p>Most aesthetic procedures benefit from gentle aftercare. The Senseless Foaming Cleanser is built for the hours after.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "What is the Foaming Cleanser for?", "answer": "<p>Antibacterial cleansing for treated skin after your aesthetic appointment. Gentle enough for sensitive zones. See the <a href=\"/products/foaming-cleanser\">Foaming Cleanser product page</a>.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Can I use the Foaming Cleanser daily?", "answer": "<p>Yes. It's gentle enough for daily use, particularly for skin that's been worked on recently.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Is the Foaming Cleanser for face or body?", "answer": "<p>Primarily face, but suitable for any treated area — body waxing, body laser, brazilian aftercare.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": { "headline": "Aftercare.", "anchor_id": "aftercare" }
+    },
+    "trade": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Can clinics stock Senseless?", "answer": "<p>Yes. Wholesale accounts are available for practitioners working at volume. See the <a href=\"/pages/trade\">Trade page</a>.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Do I need to be a practitioner to buy Professional Strength?", "answer": "<p>No. Senseless Professional is available to all without restriction.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "What clinic sizes are available?", "answer": "<p>Clinic sizes available across the range. Specific options confirmed at the trade enquiry stage.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "How do I open a wholesale account?", "answer": "<p>Trade enquiries via the <a href=\"/pages/trade\">Trade page</a>. Account approval is straightforward for UK aesthetic practitioners.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": { "headline": "Trade and clinic supply.", "anchor_id": "trade" }
+    },
+    "next": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "contact": { "type": "format_card", "settings": { "label": "Contact us", "body": "<p>Get in touch directly.</p>", "cta_label": "Contact us", "cta_url": "/pages/contact", "image_alt": "Editorial image for contact" } },
+        "system": { "type": "format_card", "settings": { "label": "How Senseless works", "body": "<p>The system explained.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-it-works", "image_alt": "Editorial image for the system guide" } },
+        "range": { "type": "format_card", "settings": { "label": "Shop the system", "body": "<p>Browse the full range.</p>", "cta_label": "View collection", "cta_url": "/collections/aesthetic-numbing-cream", "image_alt": "Editorial image for the range" } }
+      },
+      "block_order": ["contact", "system", "range"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "Still have a question?", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    }
+  },
+  "order": ["hero", "nav", "about", "choosing", "using", "safety", "aftercare", "trade", "next"]
+}

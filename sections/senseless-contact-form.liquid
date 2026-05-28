@@ -1,0 +1,141 @@
+{%- comment -%}
+  Senseless — Contact / enquiry form
+  Reusable native Shopify contact form ({% form 'contact' %}). Field blocks drive the inputs.
+  Serves both the consumer contact form and the trade enquiry form. Email field maps to contact[email],
+  the textarea maps to contact[body]; all other fields appear as contact[<label>] in the notification email.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-cf {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: #E5E2DC;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-surface);
+    color: var(--ss-text);
+  }
+  .ss-cf__inner { max-width: 680px; margin: 0 auto; padding: 44px 20px; }
+  .ss-cf__header { display: flex; flex-direction: column; gap: 12px; margin: 0 0 24px; }
+  .ss-cf__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-cf__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; }
+  .ss-cf__body { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); }
+  .ss-cf__body p { margin: 0 0 10px; }
+  .ss-cf__success { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-text); background: rgba(107,63,160,0.08); border: 1px solid rgba(107,63,160,0.25); border-radius: 6px; padding: 18px 20px; margin: 0 0 24px; }
+  .ss-cf__errors { font-family: var(--ss-sans); font-size: 15px; color: #8a1f1f; background: rgba(138,31,31,0.06); border: 1px solid rgba(138,31,31,0.25); border-radius: 6px; padding: 14px 18px; margin: 0 0 20px; }
+  .ss-cf__form { display: flex; flex-direction: column; gap: 16px; }
+  .ss-cf__field { display: flex; flex-direction: column; gap: 6px; }
+  .ss-cf__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; }
+  .ss-cf__req { color: var(--ss-purple); }
+  .ss-cf__input, .ss-cf__select, .ss-cf__textarea { font-family: var(--ss-sans); font-size: 16px; color: var(--ss-text); background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; padding: 12px 14px; width: 100%; box-sizing: border-box; }
+  .ss-cf__input:focus, .ss-cf__select:focus, .ss-cf__textarea:focus { outline: 2px solid var(--ss-purple); outline-offset: 1px; border-color: var(--ss-purple); }
+  .ss-cf__textarea { min-height: 120px; resize: vertical; }
+  .ss-cf__check { display: flex; gap: 10px; align-items: flex-start; }
+  .ss-cf__check input { margin-top: 3px; }
+  .ss-cf__check label { font-family: var(--ss-sans); font-size: 14px; line-height: 1.5; color: var(--ss-body); }
+  .ss-cf__submit { align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 28px; border-radius: 14px; border: 1px solid var(--ss-purple); background: var(--ss-purple); color: #fff; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; cursor: pointer; transition: background-color 200ms ease-out; }
+  .ss-cf__submit:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
+
+  @media (min-width: 1024px) { .ss-cf__inner { padding: 72px 20px; } }
+  @media (prefers-reduced-motion: reduce) { .ss-cf__submit { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-cf"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Contact form' | escape }}">
+  <div class="ss-cf__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
+      <header class="ss-cf__header">
+        {%- if section.settings.eyebrow != blank -%}<p class="ss-cf__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-cf__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.body != blank -%}<div class="ss-cf__body">{{ section.settings.body }}</div>{%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- form 'contact', class: 'ss-cf__form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="ss-cf__success">{{ section.settings.success_message | default: 'Thanks — your message has been sent. We&rsquo;ll be in touch.' }}</p>
+      {%- elsif form.errors -%}
+        <div class="ss-cf__errors">{{ form.errors | default_errors }}</div>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- assign fname = block.settings.label | default: 'Field' -%}
+        {%- case block.settings.type -%}
+          {%- when 'email' -%}
+            <div class="ss-cf__field" {{ block.shopify_attributes }}>
+              <label class="ss-cf__label" for="cf-{{ block.id }}">{{ fname | escape }}{% if block.settings.required %} <span class="ss-cf__req">*</span>{% endif %}</label>
+              <input class="ss-cf__input" type="email" id="cf-{{ block.id }}" name="contact[email]" value="{{ form.email }}" {% if block.settings.required %}required{% endif %}>
+            </div>
+          {%- when 'tel' -%}
+            <div class="ss-cf__field" {{ block.shopify_attributes }}>
+              <label class="ss-cf__label" for="cf-{{ block.id }}">{{ fname | escape }}{% if block.settings.required %} <span class="ss-cf__req">*</span>{% endif %}</label>
+              <input class="ss-cf__input" type="tel" id="cf-{{ block.id }}" name="contact[{{ fname | escape }}]" {% if block.settings.required %}required{% endif %}>
+            </div>
+          {%- when 'textarea' -%}
+            <div class="ss-cf__field" {{ block.shopify_attributes }}>
+              <label class="ss-cf__label" for="cf-{{ block.id }}">{{ fname | escape }}{% if block.settings.required %} <span class="ss-cf__req">*</span>{% endif %}</label>
+              <textarea class="ss-cf__textarea" id="cf-{{ block.id }}" name="contact[body]" {% if block.settings.required %}required{% endif %}></textarea>
+            </div>
+          {%- when 'select' -%}
+            <div class="ss-cf__field" {{ block.shopify_attributes }}>
+              <label class="ss-cf__label" for="cf-{{ block.id }}">{{ fname | escape }}{% if block.settings.required %} <span class="ss-cf__req">*</span>{% endif %}</label>
+              <select class="ss-cf__select" id="cf-{{ block.id }}" name="contact[{{ fname | escape }}]" {% if block.settings.required %}required{% endif %}>
+                <option value="">Please select</option>
+                {%- assign opts = block.settings.options | split: ',' -%}
+                {%- for opt in opts -%}<option value="{{ opt | strip | escape }}">{{ opt | strip | escape }}</option>{%- endfor -%}
+              </select>
+            </div>
+          {%- when 'checkbox' -%}
+            <div class="ss-cf__check" {{ block.shopify_attributes }}>
+              <input type="checkbox" id="cf-{{ block.id }}" name="contact[{{ fname | escape }}]" value="Yes" {% if block.settings.required %}required{% endif %}>
+              <label for="cf-{{ block.id }}">{{ fname | escape }}</label>
+            </div>
+          {%- else -%}
+            <div class="ss-cf__field" {{ block.shopify_attributes }}>
+              <label class="ss-cf__label" for="cf-{{ block.id }}">{{ fname | escape }}{% if block.settings.required %} <span class="ss-cf__req">*</span>{% endif %}</label>
+              <input class="ss-cf__input" type="text" id="cf-{{ block.id }}" name="contact[{{ fname | escape }}]" {% if block.settings.required %}required{% endif %}>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+
+      <button type="submit" class="ss-cf__submit">{{ section.settings.submit_label | default: 'Send message' | escape }}</button>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Contact form",
+  "tag": "section",
+  "class": "senseless-section senseless-contact-form",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "contact-form" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Send us a message." },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "text", "id": "submit_label", "label": "Submit button label", "default": "Send message" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Thanks — your message has been sent. We'll be in touch." }
+  ],
+  "blocks": [
+    {
+      "type": "field",
+      "name": "Field",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Field label", "default": "Your name" },
+        { "type": "select", "id": "type", "label": "Field type", "default": "text", "options": [ { "value": "text", "label": "Text" }, { "value": "email", "label": "Email" }, { "value": "tel", "label": "Phone" }, { "value": "textarea", "label": "Text area (message)" }, { "value": "select", "label": "Dropdown" }, { "value": "checkbox", "label": "Checkbox" } ] },
+        { "type": "text", "id": "options", "label": "Dropdown options", "info": "Comma-separated. Dropdown fields only.", "default": "Option one, Option two" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Senseless — Contact form", "blocks": [ { "type": "field", "settings": { "label": "Your name", "type": "text", "required": true } }, { "type": "field", "settings": { "label": "Email", "type": "email", "required": true } }, { "type": "field", "settings": { "label": "Your message", "type": "textarea", "required": true } } ] }
+  ]
+}
+{% endschema %}

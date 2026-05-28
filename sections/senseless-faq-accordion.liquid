@@ -35,7 +35,7 @@
   @media (prefers-reduced-motion: reduce) { .ss-faq__q::after { transition: none; } }
 {%- endstyle -%}
 
-<section class="ss-faq" aria-label="{{ section.settings.headline | default: 'Frequently asked questions' | escape }}">
+<section class="ss-faq"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Frequently asked questions' | escape }}">
   <div class="ss-faq__inner">
     {%- if section.settings.headline != blank -%}<h2 class="ss-faq__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
     {%- for block in section.blocks -%}
@@ -75,7 +75,8 @@
   "class": "senseless-section senseless-faq-accordion",
   "max_blocks": 12,
   "settings": [
-    { "type": "text", "id": "headline", "label": "Headline", "default": "Common questions." }
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Common questions." },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "info": "Optional. Enables in-page jump links (e.g. for an FAQ category nav)." }
   ],
   "blocks": [
     {

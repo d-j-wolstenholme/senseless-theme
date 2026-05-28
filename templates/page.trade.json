@@ -1,0 +1,95 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "eyebrow": "Trade & wholesale",
+        "headline": "Senseless for clinics and practitioners.",
+        "subhead": "<p>Stocked in clinics across the UK. Wholesale accounts available for practitioners working at volume — clinic sizes, account pricing, and the consistency clinics need from their supply.</p>",
+        "primary_cta_label": "Make an enquiry", "primary_cta_url": "#enquiry-form",
+        "secondary_cta_label": "See the consumer range", "secondary_cta_url": "/collections/aesthetic-numbing-cream",
+        "image_alt": "Editorial clinic countertop with Senseless product, no faces"
+      }
+    },
+    "offer": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white", "eyebrow": "What we offer",
+        "headline": "The trade proposition.",
+        "body": "<p><strong>Account pricing.</strong> Volume pricing tiers for clinics, salons, and aesthetic practices. Specific rates discussed at the enquiry stage.</p><p><strong>Clinic sizes.</strong> Bulk sizes for the products clinics use at volume. Beyond the consumer 30g and 35ml ranges. Specific SKUs discussed at the enquiry stage.</p><p><strong>Supply consistency.</strong> UK formulation, UK supply chain, account-level inventory visibility. The supply continuity clinics need from a long-term partner.</p>",
+        "cta_label": "", "cta_url": ""
+      }
+    },
+    "fit": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The fit",
+        "headline": "Built for aesthetic practitioners specifically.",
+        "body": "<p>Senseless is formulated for aesthetic procedures. The product range, the recommendation system, and the trade infrastructure are all built around that specialism. The practitioners Senseless trade suits: aesthetic clinics running injectables, microneedling, and laser; SPMU artists working sustained sittings; waxing salons handling regular body work; and dermatology-adjacent practices using topical preparation for their procedures. If you're a medical or general healthcare practice using numbing for non-aesthetic procedures, Senseless isn't formulated for that context — Emla, Ametop, or another medical preparation is the right product.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial clinic-context image, no faces"
+      }
+    },
+    "position": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The position",
+        "headline": "Professional Strength is available to all. Trade is the clinic relationship.",
+        "body": "<p>Senseless doesn't gate Professional Strength behind practitioner credentials. The flagship is sold direct-to-consumer on the same site, at the same product page. That's deliberate — the system is built on transparency, not on professional-only access. Trade exists for a different reason: clinics working at volume need account pricing, bulk sizes, supply consistency, and direct support. Those operational needs are what trade actually delivers, not exclusive access to the product range.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial product close-up of Senseless"
+      }
+    },
+    "process": {
+      "type": "senseless-how-to-use",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Submit an enquiry.", "body": "<p>The form below. Tell us about your practice, the products you're interested in, your typical order volume.</p>" } },
+        "s2": { "type": "step", "settings": { "title": "Account review.", "body": "<p>We confirm your practice meets the trade criteria (UK-based aesthetic practitioner, registered business). Standard checks, usually quick.</p>" } },
+        "s3": { "type": "step", "settings": { "title": "Account setup.", "body": "<p>Wholesale pricing, payment terms, and ordering portal access confirmed. You're ready to order.</p>" } },
+        "s4": { "type": "step", "settings": { "title": "First order.", "body": "<p>Place via the trade portal. Direct supply from there.</p>" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": { "eyebrow": "The process", "headline": "From enquiry to account.", "closer": "", "cta_label": "", "cta_url": "" }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "What's the minimum order volume?", "answer": "<p>Minimums vary by SKU and account tier. Confirmed at the enquiry stage based on your practice's typical usage.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "What sizes are available wholesale?", "answer": "<p>The full consumer range, plus bulk clinic sizes on the most-used SKUs (typically the Professional Strength tier). Specific options discussed at enquiry.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "How fast is delivery?", "answer": "<p>UK-based supply, standard delivery windows. Specific timing confirmed at order confirmation per shipment.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Do you offer payment terms?", "answer": "<p>Yes — payment terms available for approved accounts. Discussed at account setup.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Can I order sample sizes for staff training?", "answer": "<p>Yes. Sample sizes available for new accounts to evaluate the product range before placing volume orders.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Do you support clinic-branded display or marketing?", "answer": "<p>We work with clinics on point-of-display where appropriate. Specific marketing collaborations discussed case-by-case.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Common trade questions." }
+    },
+    "form": {
+      "type": "senseless-contact-form",
+      "blocks": {
+        "f1": { "type": "field", "settings": { "label": "Practice name", "type": "text", "required": true } },
+        "f2": { "type": "field", "settings": { "label": "Your name", "type": "text", "required": true } },
+        "f3": { "type": "field", "settings": { "label": "Email", "type": "email", "required": true } },
+        "f4": { "type": "field", "settings": { "label": "Phone", "type": "tel", "required": false } },
+        "f5": { "type": "field", "settings": { "label": "Practice type", "type": "select", "options": "Aesthetic clinic, SPMU artist, Salon, Other", "required": true } },
+        "f6": { "type": "field", "settings": { "label": "Approximate monthly product volume", "type": "select", "options": "Under 10 units, 10–50, 50–200, 200+", "required": true } },
+        "f7": { "type": "field", "settings": { "label": "Products you're interested in", "type": "text", "required": false } },
+        "f8": { "type": "field", "settings": { "label": "Tell us about your practice", "type": "textarea", "required": true } },
+        "f9": { "type": "field", "settings": { "label": "I consent to Senseless storing my details to respond to this enquiry, in line with the Privacy Policy.", "type": "checkbox", "required": true } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9"],
+      "settings": { "anchor_id": "enquiry-form", "eyebrow": "Get in touch", "headline": "Tell us about your practice.", "body": "<p>The team responds to trade enquiries within 2 working days. We'll come back to you with account pricing, product recommendations, and next steps.</p>", "submit_label": "Submit enquiry", "success_message": "Thanks — your enquiry has been sent. The trade team will respond within 2 working days." }
+    },
+    "next": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "range": { "type": "format_card", "settings": { "label": "The product range", "body": "<p>Browse the full consumer catalogue.</p>", "cta_label": "View collection", "cta_url": "/collections/aesthetic-numbing-cream", "image_alt": "Editorial image for the range" } },
+        "about": { "type": "format_card", "settings": { "label": "About Senseless", "body": "<p>The brand and the company behind it.</p>", "cta_label": "Read more", "cta_url": "/pages/about", "image_alt": "Editorial image for about" } },
+        "contact": { "type": "format_card", "settings": { "label": "Contact", "body": "<p>Other questions.</p>", "cta_label": "Contact us", "cta_url": "/pages/contact", "image_alt": "Editorial image for contact" } }
+      },
+      "block_order": ["range", "about", "contact"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "While you decide.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    }
+  },
+  "order": ["hero", "offer", "fit", "position", "process", "faq", "form", "next"]
+}
