@@ -1,0 +1,87 @@
+{%- comment -%}
+  Senseless — Guide hero
+  Informational hero variant: eyebrow + headline + subhead + optional image + optional CTAs.
+  Used at the top of Guide pages. CTAs optional (most guides lead with no primary CTA).
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-gh {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: #E5E2DC;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-gh__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+  .ss-gh__text { display: flex; flex-direction: column; gap: 14px; max-width: 60ch; }
+  .ss-gh__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-gh__headline { font-family: var(--ss-head); font-weight: 600; font-size: 32px; line-height: 1.15; margin: 0; }
+  .ss-gh__subhead { font-family: var(--ss-sans); font-size: 18px; line-height: 1.55; color: var(--ss-body); margin: 0; }
+  .ss-gh__subhead p { margin: 0 0 10px; }
+  .ss-gh__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+  .ss-gh__cta { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 22px; border-radius: 14px; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-gh__cta--primary { background: var(--ss-purple); color: #fff; border: 1px solid var(--ss-purple); }
+  .ss-gh__cta--primary:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
+  .ss-gh__cta--secondary { background: transparent; color: var(--ss-text); border: 1px solid var(--ss-text); }
+  .ss-gh__cta--secondary:hover { background: var(--ss-text); color: var(--ss-bg); }
+  .ss-gh__media { aspect-ratio: 4 / 3; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; }
+  .ss-gh__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-gh__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .ss-gh__ph svg { width: 32%; opacity: 0.22; fill: var(--ss-purple); }
+
+  @media (min-width: 900px) {
+    .ss-gh--with-image .ss-gh__inner { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .ss-gh__inner { padding: 72px 40px; }
+    .ss-gh__headline { font-size: 40px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ss-gh__cta { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-gh{% if section.settings.image != blank %} ss-gh--with-image{% endif %}" aria-label="{{ section.settings.headline | default: 'Guide' | escape }}">
+  <div class="ss-gh__inner">
+    <div class="ss-gh__text">
+      {%- if section.settings.eyebrow != blank -%}<p class="ss-gh__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      {%- if section.settings.headline != blank -%}<h1 class="ss-gh__headline">{{ section.settings.headline | escape }}</h1>{%- endif -%}
+      {%- if section.settings.subhead != blank -%}<div class="ss-gh__subhead">{{ section.settings.subhead }}</div>{%- endif -%}
+      {%- if section.settings.primary_cta_label != blank or section.settings.secondary_cta_label != blank -%}
+        <div class="ss-gh__ctas">
+          {%- if section.settings.primary_cta_label != blank -%}<a class="ss-gh__cta ss-gh__cta--primary" href="{{ section.settings.primary_cta_url | default: '#' }}">{{ section.settings.primary_cta_label | escape }}</a>{%- endif -%}
+          {%- if section.settings.secondary_cta_label != blank -%}<a class="ss-gh__cta ss-gh__cta--secondary" href="{{ section.settings.secondary_cta_url | default: '#' }}">{{ section.settings.secondary_cta_label | escape }}</a>{%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.image != blank -%}
+      <div class="ss-gh__media">{{ section.settings.image | image_url: width: 900 | image_tag: loading: 'eager', sizes: '(min-width: 900px) 45vw, 100vw', widths: '400, 700, 900', alt: section.settings.image_alt }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Guide hero",
+  "tag": "section",
+  "class": "senseless-section senseless-guide-hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Guide headline" },
+    { "type": "richtext", "id": "subhead", "label": "Subhead" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Editorial Senseless product image" },
+    { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label" },
+    { "type": "url", "id": "primary_cta_url", "label": "Primary CTA link" },
+    { "type": "text", "id": "secondary_cta_label", "label": "Secondary CTA label" },
+    { "type": "url", "id": "secondary_cta_url", "label": "Secondary CTA link" }
+  ],
+  "presets": [
+    { "name": "Senseless — Guide hero" }
+  ]
+}
+{% endschema %}

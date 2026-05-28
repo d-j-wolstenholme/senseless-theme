@@ -1,0 +1,87 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "eyebrow": "The Senseless system",
+        "headline": "Three strengths. Match it to the appointment.",
+        "subhead": "<p>Clinical for routine appointments. Advanced for longer or more sensitive sessions. Professional for the most demanding indications. Most clients land on Clinical or Advanced. Professional is rarely the everyday choice — and that's the point.</p>",
+        "image_alt": "Editorial three-tier lineup of Senseless cream tubes"
+      }
+    },
+    "tiers": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "clinical": { "type": "tier_card", "settings": { "label": "Clinical Strength", "heading": "The everyday formula", "body": "<p>The Senseless default. Used for top-ups, routine microneedling, smaller laser zones, semi-permanent makeup retouches, lip fillers, Botox. The tier most clients land on. Quietly capable.</p>", "cta_label": "", "cta_url": "", "flagship": false, "image_alt": "Senseless Clinical Strength cream on a warm off-white background" } },
+        "advanced": { "type": "tier_card", "settings": { "label": "Advanced Strength", "heading": "The considered upgrade", "body": "<p>Higher concentration. For longer sessions, more sensitive treatment areas, full-face microneedling, fractional laser, SPMU. The deliberate step up.</p>", "cta_label": "", "cta_url": "", "flagship": false, "image_alt": "Senseless Advanced Strength cream on a warm off-white background" } },
+        "professional": { "type": "tier_card", "settings": { "label": "Professional Strength", "heading": "The flagship", "body": "<p>Our most concentrated formula. Developed with practitioners, used in clinics, available without restriction. For full-face resurfacing, sustained SPMU sittings, the most demanding indications. Trusted at the chair.</p>", "cta_label": "", "cta_url": "", "flagship": true, "badge_text": "", "image_alt": "Senseless Professional Strength cream on a warm off-white background" } }
+      },
+      "block_order": ["clinical", "advanced", "professional"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "The system, summarised.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    },
+    "matrix": {
+      "type": "senseless-strength-matrix",
+      "blocks": {
+        "m1": { "type": "suitability_row", "settings": { "procedure": "Lip Fillers", "recommendation": "Clinical (default) · Advanced if sensitive", "notes": "Professional is overkill. Save it.", "level": "recommended" } },
+        "m2": { "type": "suitability_row", "settings": { "procedure": "Botox", "recommendation": "Clinical", "notes": "Many clients manage without numbing at all — it's optional, not required.", "level": "recommended" } },
+        "m3": { "type": "suitability_row", "settings": { "procedure": "Microneedling", "recommendation": "Advanced (default) · Professional for intensive", "notes": "Clinical is rarely enough on its own.", "level": "recommended" } },
+        "m4": { "type": "suitability_row", "settings": { "procedure": "Laser (face, small zones)", "recommendation": "Advanced", "notes": "Cream for face.", "level": "recommended" } },
+        "m5": { "type": "suitability_row", "settings": { "procedure": "Laser (body, full-face resurfacing)", "recommendation": "Advanced spray (body) · Professional (resurfacing)", "notes": "Treatment area decides format and tier.", "level": "recommended" } },
+        "m6": { "type": "suitability_row", "settings": { "procedure": "SPMU (microblading, lip blush)", "recommendation": "Advanced (default) · Professional for sustained sittings", "notes": "Clinical rarely enough.", "level": "recommended" } },
+        "m7": { "type": "suitability_row", "settings": { "procedure": "Waxing (body, brazilian)", "recommendation": "Advanced spray", "notes": "Spray for body work.", "level": "recommended" } },
+        "m8": { "type": "suitability_row", "settings": { "procedure": "Waxing (small zones — lip, brow)", "recommendation": "Clinical cream", "notes": "Cream for small areas.", "level": "recommended" } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8"],
+      "settings": { "eyebrow": "", "headline": "What we recommend by procedure.", "body": "<p>The honest version — what the brand recommends, what's overkill, and what's not quite enough. Use this to decide between tiers.</p>", "cta_label": "Shop by procedure", "cta_url": "/collections/aesthetic-numbing-cream" }
+    },
+    "approach": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The approach",
+        "headline": "Match the strength to what your appointment asks of the skin.",
+        "body": "<p>Most aesthetic appointments fall into clear tiers. Short, focused, predictable procedures — lip fillers, Botox, smaller laser zones — sit comfortably in Clinical. Longer or more sensitive sessions — microneedling, SPMU, full-face laser — call for Advanced. The most intensive bookings — full-face resurfacing, sustained SPMU sittings — sit in Professional territory. If you're between tiers, choose the higher one. The cost of going up is small. The cost of choosing too low for an intensive session is real.</p>",
+        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
+        "image_alt": "Editorial product close-up of Senseless cream"
+      }
+    },
+    "misunderstandings": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "Common misunderstandings",
+        "headline": "Strength isn't a hierarchy of quality.",
+        "body": "<p>Clinical isn't a weaker version of Professional. Advanced isn't a half-strength compromise. The three tiers are formulated for different appointments, not different levels of effort. Most clients buy Clinical because Clinical is the right product for their booking — not because they're saving money or starting cautious. The system works because each tier is the right answer for the procedures it's built for.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial three-tier Senseless lineup with equal visual weight"
+      }
+    },
+    "format": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "Format vs strength",
+        "headline": "Format is the next decision, after strength.",
+        "body": "<p>Once you've picked a tier, the format choice is separate. Cream is the default for most face appointments. Gel suits sustained sessions where the application stays in place — microneedling especially. Spray covers body and broader zones. Format and strength are independent — an Advanced cream is the same concentration as an Advanced gel.</p>",
+        "cta_label": "Cream, gel, or spray?", "cta_url": "/pages/choosing-your-format",
+        "image_alt": "Editorial three-format lineup of Senseless cream, gel, and spray"
+      }
+    },
+    "callout": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand", "eyebrow": "", "heading": "When to ask your practitioner",
+        "body": "<p>Your practitioner is the best guide for the appointment you've actually booked. The recommendations on this page are the brand's general view. Specific tier, format, timing, and application can all vary by procedure, by clinic, and by client. If you're unsure between tiers, ask before your appointment — most practitioners are happy to recommend what they'd use on a client of yours coming in for that booking.</p>",
+        "cta_label": "", "cta_url": ""
+      }
+    },
+    "shop": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "s30cl": { "type": "product_card", "settings": { "label": "Clinical Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-30g", "flagship": false, "image_alt": "Clinical Strength Cream 30g on a warm off-white background" } },
+        "s30ad": { "type": "product_card", "settings": { "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
+        "s30pr": { "type": "product_card", "settings": { "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } }
+      },
+      "block_order": ["s30cl", "s30ad", "s30pr"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "Decided? Shop the strength.", "body": "", "closer": "", "section_cta_label": "See all by procedure", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+    }
+  },
+  "order": ["hero", "tiers", "matrix", "approach", "misunderstandings", "format", "callout", "shop"]
+}

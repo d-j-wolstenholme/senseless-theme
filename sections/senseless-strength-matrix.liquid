@@ -24,6 +24,8 @@
   .ss-sm__header { text-align: center; max-width: 60ch; margin: 0 auto 28px; display: flex; flex-direction: column; gap: 12px; }
   .ss-sm__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-sm__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; }
+  .ss-sm__intro { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); }
+  .ss-sm__intro p { margin: 0; }
 
   .ss-sm__rows { display: flex; flex-direction: column; border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; background: var(--ss-surface); }
   .ss-sm__row { display: flex; flex-direction: column; gap: 6px; padding: 16px 20px; border-bottom: 1px solid var(--ss-border); }
@@ -33,6 +35,8 @@
   .ss-sm__rec--recommended { color: var(--ss-purple); background: rgba(107,63,160,0.08); }
   .ss-sm__rec--possible { color: var(--ss-body); background: rgba(26,26,26,0.05); }
   .ss-sm__rec--not { color: var(--ss-muted); background: rgba(26,26,26,0.04); }
+  .ss-sm__right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+  .ss-sm__notes { font-family: var(--ss-sans); font-size: 13px; line-height: 1.45; color: var(--ss-body); margin: 0; }
 
   .ss-sm__footer { text-align: center; margin-top: 24px; }
   .ss-sm__cta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
@@ -51,6 +55,7 @@
       <header class="ss-sm__header">
         {%- if section.settings.eyebrow != blank -%}<p class="ss-sm__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
         {%- if section.settings.headline != blank -%}<h2 class="ss-sm__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.body != blank -%}<div class="ss-sm__intro">{{ section.settings.body }}</div>{%- endif -%}
       </header>
     {%- endif -%}
 
@@ -58,7 +63,10 @@
       {%- for block in section.blocks -%}
         <div class="ss-sm__row" {{ block.shopify_attributes }}>
           <p class="ss-sm__proc">{{ block.settings.procedure | escape }}</p>
-          <p class="ss-sm__rec ss-sm__rec--{{ block.settings.level }}">{{ block.settings.recommendation | escape }}</p>
+          <div class="ss-sm__right">
+            <span class="ss-sm__rec ss-sm__rec--{{ block.settings.level }}">{{ block.settings.recommendation | escape }}</span>
+            {%- if block.settings.notes != blank -%}<p class="ss-sm__notes">{{ block.settings.notes | escape }}</p>{%- endif -%}
+          </div>
         </div>
       {%- endfor -%}
     </div>
@@ -80,6 +88,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Suited for" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "The everyday appointment." },
+    { "type": "richtext", "id": "body", "label": "Intro body" },
     { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Find your strength" },
     { "type": "url", "id": "cta_url", "label": "CTA link" }
   ],
@@ -90,6 +99,7 @@
       "settings": [
         { "type": "text", "id": "procedure", "label": "Procedure", "default": "Lip Fillers" },
         { "type": "text", "id": "recommendation", "label": "Recommendation", "default": "Recommended" },
+        { "type": "text", "id": "notes", "label": "Notes", "info": "Optional small line under the recommendation." },
         { "type": "select", "id": "level", "label": "Level", "default": "recommended", "options": [ { "value": "recommended", "label": "Recommended" }, { "value": "possible", "label": "Possible" }, { "value": "not", "label": "Not recommended" } ] }
       ]
     }

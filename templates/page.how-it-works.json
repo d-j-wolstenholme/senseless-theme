@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "eyebrow": "How it works",
+        "headline": "A system, not a single product.",
+        "subhead": "<p>Senseless is a UK cosmetic product, built for the procedures aesthetic clinics actually run. Three strengths and four formats, formulated to match what each appointment asks of the skin. The system is the answer.</p>",
+        "image_alt": "Editorial Senseless product system still life, multiple SKUs"
+      }
+    },
+    "category": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The category",
+        "headline": "A UK cosmetic product. Built for aesthetics.",
+        "body": "<p>Senseless sits in the cosmetic product category. Not a medicine. Not a pharmacy product. A topical preparation formulated specifically for the way modern aesthetic appointments run — short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result. The category matters because it shapes what the product is built for and how it's regulated.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial product close-up of Senseless"
+      }
+    },
+    "system": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The system",
+        "headline": "Three strengths. Four formats. One framework.",
+        "body": "<p>The Senseless system has two axes — strength and format. Strength matches the procedure: Clinical for routine appointments, Advanced for longer or more sensitive sessions, Professional for the most demanding indications. Format matches the treatment area and the session length: cream for most face appointments, gel for sustained sessions, spray for body and broader zones. Together they answer two separate questions, not one.</p>",
+        "cta_label": "Choose your strength", "cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial Senseless system view — all formats and tiers"
+      }
+    },
+    "application": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "Application",
+        "headline": "A short routine ahead of your appointment.",
+        "body": "<p>Senseless is applied before your appointment, at home or wherever you're preparing. Clean the treatment area, apply a thin layer, leave it for the time your practitioner recommends, wipe before the procedure starts. Specific timing varies by procedure, by tier, and by clinic — your practitioner is the best guide for the appointment you've actually booked.</p>",
+        "cta_label": "Full application guide", "cta_url": "/pages/how-to-apply-numbing-cream",
+        "image_alt": "Editorial Senseless product-in-use shot, no faces"
+      }
+    },
+    "expect": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The experience",
+        "headline": "What the product is built to support.",
+        "body": "<p>Senseless is a topical preparation that supports comfort during your aesthetic appointment. Specific experience varies between clients — sensitivity, treatment area, procedure type, practitioner protocol. Many find prepared skin more comfortable than unprepared. The product isn't a substitute for a practitioner's care during your booking; it's the preparation step that sits before it.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial product close-up of Senseless"
+      }
+    },
+    "callout": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand", "eyebrow": "", "heading": "Why we don't talk about the active",
+        "body": "<p>You'll notice this page doesn't lead with the active ingredient. Senseless is a UK cosmetic product, and the formulation details that matter are on the packaging and in the regulatory documentation that sits behind each SKU. What matters at the point of purchase is the system — strength matched to procedure, format matched to treatment area, brand built for aesthetics. The product specifics support that. They don't lead it.</p>",
+        "cta_label": "", "cta_url": ""
+      }
+    },
+    "next": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Clinical, Advanced, Professional. The decision matrix by procedure.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
+        "format": { "type": "format_card", "settings": { "label": "Choose your format", "body": "<p>Cream, gel, spray. Decided by procedure and treatment area.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-format", "image_alt": "Editorial image for the format guide" } },
+        "apply": { "type": "format_card", "settings": { "label": "How to apply", "body": "<p>The application routine, step by step.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-to-apply-numbing-cream", "image_alt": "Editorial image for the application guide" } }
+      },
+      "block_order": ["strength", "format", "apply"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "Decide what you need.", "body": "", "closer": "", "section_cta_label": "Shop the full range", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "What's in Senseless?", "answer": "<p>A UK-formulated cosmetic preparation. Full ingredients list available on each product's packaging and product page.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Is Senseless a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "How long does it take to work?", "answer": "<p>Specific timing depends on the procedure, the tier, and the application protocol. Your practitioner is the best guide for the appointment you've booked.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "How long does the effect last?", "answer": "<p>Senseless is designed for use ahead of a specific appointment. Specific duration varies — your practitioner is the best guide for what to expect during your session.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Will it work for me?", "answer": "<p>Specific experience varies by client. Many clients find prepared skin more comfortable than unprepared during aesthetic appointments. Your practitioner is the best guide for what to expect in your specific procedure.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "settings": { "headline": "Common questions." }
+    }
+  },
+  "order": ["hero", "category", "system", "application", "expect", "callout", "next", "faq"]
+}

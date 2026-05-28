@@ -1,0 +1,67 @@
+{%- comment -%}
+  Senseless — Callout band
+  Highlighted, restrained call-out box: optional eyebrow + heading + body + optional CTA.
+  Used for "ask your practitioner" notes and other emphasised asides on Guides. Brand or neutral style.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-cb {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: #E5E2DC;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-cb__inner { max-width: 820px; margin: 0 auto; padding: 32px 20px; }
+  .ss-cb__box { border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .ss-cb--neutral .ss-cb__box { background: var(--ss-surface); border: 1px solid var(--ss-border); }
+  .ss-cb--brand .ss-cb__box { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.25); }
+  .ss-cb__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-cb__heading { font-family: var(--ss-head); font-weight: 600; font-size: 20px; line-height: 1.3; margin: 0; }
+  .ss-cb__body { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); }
+  .ss-cb__body p { margin: 0 0 10px; }
+  .ss-cb__body p:last-child { margin: 0; }
+  .ss-cb__cta { margin-top: 8px; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 22px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-cb__cta:hover { background: var(--ss-text); color: var(--ss-bg); }
+
+  @media (min-width: 1024px) { .ss-cb__inner { padding: 48px 40px; } }
+  @media (prefers-reduced-motion: reduce) { .ss-cb__cta { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-cb ss-cb--{{ section.settings.style }}" aria-label="{{ section.settings.heading | default: 'Note' | escape }}">
+  <div class="ss-cb__inner">
+    <div class="ss-cb__box">
+      {%- if section.settings.eyebrow != blank -%}<p class="ss-cb__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="ss-cb__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+      {%- if section.settings.body != blank -%}<div class="ss-cb__body">{{ section.settings.body }}</div>{%- endif -%}
+      {%- if section.settings.cta_label != blank -%}<a class="ss-cb__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Callout band",
+  "tag": "section",
+  "class": "senseless-section senseless-callout-band",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Style", "default": "brand", "options": [ { "value": "brand", "label": "Brand (purple tint)" }, { "value": "neutral", "label": "Neutral (white)" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "text", "id": "cta_label", "label": "CTA label" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "presets": [
+    { "name": "Senseless — Callout band", "settings": { "body": "<p>A short, emphasised note.</p>" } }
+  ]
+}
+{% endschema %}

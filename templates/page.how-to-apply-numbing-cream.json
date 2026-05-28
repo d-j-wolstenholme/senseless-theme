@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "eyebrow": "Application",
+        "headline": "A short routine ahead of your appointment.",
+        "subhead": "<p>Four steps for cream and gel. A different routine for spray. Specific timing depends on the procedure, the tier, and your practitioner's protocol — what follows is the framework, not the prescription.</p>",
+        "image_alt": "Editorial Senseless application sequence still life, no faces"
+      }
+    },
+    "creamgel": {
+      "type": "senseless-how-to-use",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Clean the treatment area.", "body": "<p>Use a gentle cleanser — the Senseless Foaming Cleanser works, or any mild non-stripping option. Pat dry. No rubbing.</p>" } },
+        "s2": { "type": "step", "settings": { "title": "Apply a thin, even layer.", "body": "<p>Cover the treatment area without overloading the skin. A pea-sized amount per zone is typical for cream. Gel spreads further, so apply a thinner layer.</p>" } },
+        "s3": { "type": "step", "settings": { "title": "Leave it.", "body": "<p>Follow your practitioner's specific timing guidance for the procedure you've booked. The right window varies by appointment.</p>" } },
+        "s4": { "type": "step", "settings": { "title": "Wipe before your procedure.", "body": "<p>Use a clean cloth or tissue at your practitioner's instruction. They may also do this themselves at the chair.</p>" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": { "eyebrow": "Cream and gel", "headline": "Four steps.", "closer": "", "cta_label": "Choose your format", "cta_url": "/pages/choosing-your-format" }
+    },
+    "spray": {
+      "type": "senseless-how-to-use",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Clean the treatment area.", "body": "<p>Same starting point as cream and gel. Pat dry.</p>" } },
+        "s2": { "type": "step", "settings": { "title": "Spray evenly across the area.", "body": "<p>Hold the bottle approximately 10–15cm from the skin. Apply a thin, even coverage. Spray covers more ground than cream — don't over-apply.</p>" } },
+        "s3": { "type": "step", "settings": { "title": "Wait the window your practitioner recommends.", "body": "<p>Spray is used for body procedures with their own protocols. Your practitioner knows the timing for the booking you've made.</p>" } },
+        "s4": { "type": "step", "settings": { "title": "Wipe before your appointment.", "body": "<p>Clean cloth or tissue, at your practitioner's instruction.</p>" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": { "eyebrow": "Spray", "headline": "A different routine.", "closer": "", "cta_label": "Shop the spray range", "cta_url": "/collections/numbing-spray" }
+    },
+    "procedures": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white", "eyebrow": "By procedure",
+        "headline": "A few procedure-specific notes.",
+        "body": "<p>Your practitioner is the source of truth for timing and protocol. These are the brand's general observations.</p><p><strong>Lip Fillers.</strong> A small treatment area. Less product than a microneedling appointment. Most practitioners have a specific timing window — ask in advance.</p><p><strong>Botox.</strong> The shortest procedure in the aesthetic catalogue. Some clients skip numbing entirely. If you're using it, Clinical Strength suits most appointments.</p><p><strong>Microneedling.</strong> Longer session, broader treatment area. More product, longer prep window typically required. Advanced Strength is the everyday recommendation.</p><p><strong>Laser.</strong> Treatment area decides the format. Cream for face zones. Spray for body. Confirm your practitioner's protocol before applying.</p><p><strong>SPMU (Microblading, Lip Blush).</strong> Sustained sittings. Some artists reapply during the session. Most have specific guidance on what to bring and when to apply.</p><p><strong>Waxing.</strong> Body procedures suit spray. Smaller zones (lip, brow) suit cream. Bikini and brazilian appointments often benefit from longer prep windows than face appointments.</p>",
+        "cta_label": "Shop by procedure", "cta_url": "/collections/aesthetic-numbing-cream"
+      }
+    },
+    "mistakes": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "What to avoid",
+        "headline": "Three application mistakes that come up.",
+        "body": "<p><strong>Applying too much.</strong> A thin layer works better than a thick one. Overloading the skin doesn't improve the preparation — it usually just wastes product.</p><p><strong>Applying too early or too late.</strong> Specific timing matters. Apply at the wrong window and the preparation may not match the procedure. Your practitioner is the best guide.</p><p><strong>Skipping the wipe step.</strong> Most procedures need the product removed before the practitioner starts work. Skipping this step can interfere with the appointment.</p>",
+        "cta_label": "", "cta_url": "",
+        "image_alt": "Editorial product close-up of Senseless"
+      }
+    },
+    "callout": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand", "eyebrow": "", "heading": "When to ask your practitioner",
+        "body": "<p>Specific timing windows vary widely by procedure, by clinic, and by individual sensitivity. Most aesthetic practitioners have application protocols they recommend to their clients — these are tested in their context, with their procedures, on the kind of bookings they actually run. Ask in advance. Most practitioners will tell you how long to leave the product on, whether to bring your own or use theirs, and what they prefer to do at the chair themselves.</p>",
+        "cta_label": "", "cta_url": ""
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "How long before my appointment should I apply?", "answer": "<p>Specific timing depends on the procedure, the tier, and your practitioner's protocol. Most aesthetic appointments have a recommended window — ask your practitioner before your booking.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Can I apply too much?", "answer": "<p>Yes. A thin layer suits all three formats. Overloading the skin doesn't improve the preparation.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Should I cover the area with cling film or anything else?", "answer": "<p>Some practitioners recommend covering for specific procedures. Most don't. Follow your practitioner's specific guidance — don't add a step they haven't recommended.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "What if I apply too early?", "answer": "<p>The preparation window can pass before the procedure starts, which may reduce the effect. If you're early, ask your practitioner whether to reapply or wait.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Should I wash it off or wipe it off?", "answer": "<p>Most practitioners prefer wiping with a clean cloth or tissue. Some wash. Follow your practitioner's specific instruction.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Common questions." }
+    },
+    "next": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Clinical, Advanced, Professional. The decision matrix by procedure.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
+        "format": { "type": "format_card", "settings": { "label": "Choose your format", "body": "<p>Cream, gel, spray. Decided by procedure and treatment area.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-format", "image_alt": "Editorial image for the format guide" } },
+        "procedures": { "type": "format_card", "settings": { "label": "Shop by procedure", "body": "<p>Every appointment Senseless covers.</p>", "cta_label": "View collection", "cta_url": "/collections/aesthetic-numbing-cream", "image_alt": "Editorial image for the procedures collection" } }
+      },
+      "block_order": ["strength", "format", "procedures"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "Decide what you need.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    }
+  },
+  "order": ["hero", "creamgel", "spray", "procedures", "mistakes", "callout", "faq", "next"]
+}

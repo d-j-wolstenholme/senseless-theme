@@ -1,0 +1,87 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "eyebrow": "The format choice",
+        "headline": "Cream, gel, or spray? Pick by procedure.",
+        "subhead": "<p>Format is independent of strength. An Advanced cream is the same concentration as an Advanced gel. The choice between the three formats comes down to the procedure, the treatment area, and your practitioner's protocol. Most clients use cream. Some have appointments that suit gel or spray better.</p>",
+        "image_alt": "Editorial three-format composition of Senseless cream, gel, and spray"
+      }
+    },
+    "formats": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "cream": { "type": "format_card", "settings": { "label": "Cream", "body": "<p><strong>The default format.</strong> A topical preparation cream. The format most aesthetic appointments call for — focused application, controlled area, the format clinics work with most often. Three strengths and two sizes.</p>", "cta_label": "", "cta_url": "/collections/numbing-cream", "image_alt": "Senseless cream on a warm off-white background" } },
+        "gel": { "type": "format_card", "settings": { "label": "Gel", "body": "<p><strong>For sustained appointments.</strong> A topical preparation gel. Sits differently on skin than cream — spreads further, stays in place across longer sessions. The format for microneedling, sustained laser, longer SPMU sittings. Three strengths.</p>", "cta_label": "", "cta_url": "/collections/numbing-gel", "image_alt": "Senseless gel on a warm off-white background" } },
+        "spray": { "type": "format_card", "settings": { "label": "Spray", "body": "<p><strong>For body and broader zones.</strong> A topical preparation spray. Built for surface area — body laser, brazilian waxing, broader injection coverage. Two strengths (Advanced and Professional — no Clinical spray).</p>", "cta_label": "", "cta_url": "/collections/numbing-spray", "image_alt": "Senseless spray on a warm off-white background" } }
+      },
+      "block_order": ["cream", "gel", "spray"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "The three formats.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    },
+    "matrix": {
+      "type": "senseless-strength-matrix",
+      "blocks": {
+        "m1": { "type": "suitability_row", "settings": { "procedure": "Lip Fillers", "recommendation": "Cream", "notes": "Focused application, small treatment area.", "level": "recommended" } },
+        "m2": { "type": "suitability_row", "settings": { "procedure": "Botox", "recommendation": "Cream", "notes": "Same — small area, precise procedure.", "level": "recommended" } },
+        "m3": { "type": "suitability_row", "settings": { "procedure": "Microneedling", "recommendation": "Cream or Gel", "notes": "Both work. Gel often suits the sustained session.", "level": "recommended" } },
+        "m4": { "type": "suitability_row", "settings": { "procedure": "Laser (face, smaller zones)", "recommendation": "Cream", "notes": "Controlled application on smaller treatment areas.", "level": "recommended" } },
+        "m5": { "type": "suitability_row", "settings": { "procedure": "Laser (body, hair removal, resurfacing)", "recommendation": "Spray", "notes": "Broader coverage, larger zones.", "level": "recommended" } },
+        "m6": { "type": "suitability_row", "settings": { "procedure": "SPMU", "recommendation": "Cream", "notes": "Treatment areas too small for spray. Some artists prefer gel.", "level": "recommended" } },
+        "m7": { "type": "suitability_row", "settings": { "procedure": "Waxing (bikini, brazilian, body)", "recommendation": "Spray", "notes": "Body coverage.", "level": "recommended" } },
+        "m8": { "type": "suitability_row", "settings": { "procedure": "Waxing (small zones — lip, brow)", "recommendation": "Cream", "notes": "Small areas.", "level": "recommended" } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8"],
+      "settings": { "eyebrow": "", "headline": "What we recommend by procedure.", "body": "<p>The honest version — which format suits which appointment, and which don't.</p>", "cta_label": "Shop by procedure", "cta_url": "/collections/aesthetic-numbing-cream" }
+    },
+    "cream": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "Cream",
+        "headline": "The default for most aesthetic appointments.",
+        "body": "<p>Cream is the format most clients buy and most procedures call for. It's focused, controlled, suited to face and smaller treatment areas, and the format aesthetic clinics work with most often. If you're booking lip fillers, Botox, smaller laser zones, brow or lip waxing, or SPMU — cream is almost certainly the right choice.</p>",
+        "cta_label": "Shop the cream range", "cta_url": "/collections/numbing-cream",
+        "image_alt": "Editorial Senseless cream texture detail"
+      }
+    },
+    "gel": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "Gel",
+        "headline": "For sustained sessions where the format earns its place.",
+        "body": "<p>Gel sits differently on skin than cream. It spreads further, stays in place across longer sessions, and suits procedures where the preparation needs to last through sustained contact. Microneedling is the procedure where gel most clearly earns its place. Some longer laser sessions and SPMU sittings also suit gel. The strengths and indications carry across from cream — gel isn't stronger or weaker, it's a different application.</p>",
+        "cta_label": "Shop the gel range", "cta_url": "/collections/numbing-gel",
+        "image_alt": "Editorial Senseless gel texture detail"
+      }
+    },
+    "spray": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "Spray",
+        "headline": "For body and broader zones.",
+        "body": "<p>Spray covers ground the other two formats can't. Body laser, brazilian and bikini waxing, broader injection coverage — anywhere the treatment area is large enough that cream or gel would be impractical. Spray starts at Advanced Strength, not Clinical, because the procedures that benefit from spray format already sit past entry-tier territory.</p>",
+        "cta_label": "Shop the spray range", "cta_url": "/collections/numbing-spray",
+        "image_alt": "Editorial Senseless spray bottle detail"
+      }
+    },
+    "callout": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand", "eyebrow": "", "heading": "When to ask your practitioner",
+        "body": "<p>Format choice often comes down to your practitioner's protocol. Some clinics specifically prefer one format over another for their procedures. If you're unsure — particularly for microneedling, SPMU, or laser — ask your practitioner what they recommend. Many have a strong preference that simplifies the decision.</p>",
+        "cta_label": "", "cta_url": ""
+      }
+    },
+    "shop": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "cream": { "type": "format_card", "settings": { "label": "Numbing Cream", "body": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream", "image_alt": "Senseless cream on a warm off-white background" } },
+        "gel": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image_alt": "Senseless gel on a warm off-white background" } },
+        "spray": { "type": "format_card", "settings": { "label": "Numbing Spray", "body": "", "cta_label": "View range", "cta_url": "/collections/numbing-spray", "image_alt": "Senseless spray on a warm off-white background" } }
+      },
+      "block_order": ["cream", "gel", "spray"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "Shop by format.", "body": "", "closer": "", "section_cta_label": "Choose your strength first", "section_cta_url": "/pages/choosing-your-strength" }
+    }
+  },
+  "order": ["hero", "formats", "matrix", "cream", "gel", "spray", "callout", "shop"]
+}
