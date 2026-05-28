@@ -36,13 +36,12 @@
     "grid": {
       "type": "senseless-product-grid",
       "blocks": {
-        "s30ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
-        "sspad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Spray on a warm off-white background" } },
-        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } },
-        "ssppr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Spray on a warm off-white background" } },
-        "s10ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-10g", "flagship": false, "image_alt": "Advanced Strength Cream 10g on a warm off-white background" } }
+        "advcream": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
+        "sspad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Senseless spray on a warm off-white background" } },
+        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } },
+        "ssppr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless spray on a warm off-white background" } }
       },
-      "block_order": ["s30ad", "sspad", "s30pr", "ssppr", "s10ad"],
+      "block_order": ["advcream", "sspad", "s30pr", "ssppr"],
       "settings": { "headline": "The products built for laser appointments.", "body": "<p>Advanced Strength for most sessions. Cream for face, spray for body. Professional for full-face resurfacing.</p>", "show_filters": false }
     },
     "trust": {

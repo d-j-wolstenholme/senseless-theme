@@ -36,13 +36,12 @@
     "grid": {
       "type": "senseless-product-grid",
       "blocks": {
-        "s30ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
-        "sg35ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-gel-35ml", "flagship": false, "image_alt": "Advanced Strength Gel 35ml on a warm off-white background" } },
-        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } },
-        "sg35pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-gel-35ml", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Gel 35ml on a warm off-white background" } },
-        "s10ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-10g", "flagship": false, "image_alt": "Advanced Strength Cream 10g on a warm off-white background" } }
+        "advcream": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
+        "sg35ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Gel", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-gel", "flagship": false, "image_alt": "Advanced Strength Senseless gel on a warm off-white background" } },
+        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } },
+        "sg35pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Gel", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-gel", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless gel on a warm off-white background" } }
       },
-      "block_order": ["s30ad", "sg35ad", "s30pr", "sg35pr", "s10ad"],
+      "block_order": ["advcream", "sg35ad", "s30pr", "sg35pr"],
       "settings": { "headline": "The products built for microneedling.", "body": "<p>Advanced Strength is the recommendation. Cream and gel both fit. Professional for the most intensive sessions.</p>", "show_filters": false }
     },
     "trust": {

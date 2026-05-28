@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "How it works",
         "headline": "A system, not a single product.",
-        "subhead": "<p>Senseless is a UK cosmetic product, built for the procedures aesthetic clinics actually run. Three strengths and four formats, formulated to match what each appointment asks of the skin. The system is the answer.</p>",
+        "subhead": "<p>Senseless is a UK cosmetic product, built for the procedures aesthetic clinics actually run. Three strengths and three formats, formulated to match what each appointment asks of the skin. The system is the answer.</p>",
         "image_alt": "Editorial Senseless product system still life, multiple SKUs"
       }
     },
@@ -23,7 +23,7 @@
       "type": "senseless-image-text-band",
       "settings": {
         "direction": "text-right", "eyebrow": "The system",
-        "headline": "Three strengths. Four formats. One framework.",
+        "headline": "Three strengths. Three formats. One framework.",
         "body": "<p>The Senseless system has two axes — strength and format. Strength matches the procedure: Clinical for routine appointments, Advanced for longer or more sensitive sessions, Professional for the most demanding indications. Format matches the treatment area and the session length: cream for most face appointments, gel for sustained sessions, spray for body and broader zones. Together they answer two separate questions, not one.</p>",
         "cta_label": "Choose your strength", "cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless system view — all formats and tiers"

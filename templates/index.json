@@ -4,7 +4,7 @@
       "type": "senseless-hero-brand-led",
       "settings": {
         "headline": "Confidence Starts With Comfort.",
-        "subhead": "<p>Topical numbing, made for aesthetic appointments. Three strengths and four formats, formulated in the UK for the way modern sessions actually run.</p>",
+        "subhead": "<p>Topical numbing, made for aesthetic appointments. Three strengths and three formats, formulated in the UK for the way modern sessions actually run.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "/collections/numbing-cream",
         "secondary_cta_label": "Find your strength",
@@ -48,7 +48,7 @@
             "cta_label": "Shop Professional",
             "cta_url": "/collections/numbing-cream?strength=professional",
             "flagship": true,
-            "badge_text": "Flagship",
+            "badge_text": "",
             "image_alt": "Professional Strength Senseless cream photographed in a darker palette"
           }
         }
@@ -145,37 +145,37 @@
           "type": "product_card",
           "settings": {
             "label": "Clinical Strength",
-            "title": "Cream 30g",
+            "title": "Cream",
             "price": "£TBC",
             "cta_label": "View product",
-            "cta_url": "/products/clinical-strength-cream-30g",
+            "cta_url": "/products/clinical-strength-cream",
             "flagship": false,
-            "image_alt": "Clinical Strength Cream 30g tube on a warm off-white background"
+            "image_alt": "Clinical Strength Senseless cream tube on a warm off-white background"
           }
         },
         "p_advanced": {
           "type": "product_card",
           "settings": {
             "label": "Advanced Strength",
-            "title": "Cream 30g",
+            "title": "Cream",
             "price": "£TBC",
             "cta_label": "View product",
-            "cta_url": "/products/advanced-strength-cream-30g",
+            "cta_url": "/products/advanced-strength-cream",
             "flagship": false,
-            "image_alt": "Advanced Strength Cream 30g tube on a warm off-white background"
+            "image_alt": "Advanced Strength Senseless cream tube on a warm off-white background"
           }
         },
         "p_professional": {
           "type": "product_card",
           "settings": {
             "label": "Professional Strength",
-            "title": "Cream 30g",
+            "title": "Cream",
             "price": "£TBC",
             "cta_label": "View product",
-            "cta_url": "/products/professional-strength-cream-30g",
+            "cta_url": "/products/professional-strength-cream",
             "flagship": true,
-            "badge_text": "Flagship",
-            "image_alt": "Professional Strength Cream 30g tube photographed in a darker palette"
+            "badge_text": "",
+            "image_alt": "Professional Strength Senseless cream tube on a warm off-white background"
           }
         }
       },

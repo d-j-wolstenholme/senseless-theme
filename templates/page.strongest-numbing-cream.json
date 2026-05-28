@@ -34,9 +34,9 @@
     "range": {
       "type": "senseless-product-grid",
       "blocks": {
-        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } },
-        "sg35pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-gel-35ml", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Gel 35ml on a warm off-white background" } },
-        "ssppr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Spray on a warm off-white background" } }
+        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } },
+        "sg35pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Gel", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-gel", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless gel on a warm off-white background" } },
+        "ssppr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless spray on a warm off-white background" } }
       },
       "block_order": ["s30pr", "sg35pr", "ssppr"],
       "settings": { "headline": "The Professional range.", "body": "<p>Three Professional Strength SKUs across three formats.</p>", "show_filters": false }

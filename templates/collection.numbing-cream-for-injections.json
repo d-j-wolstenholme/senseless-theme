@@ -35,12 +35,11 @@
     "grid": {
       "type": "senseless-product-grid",
       "blocks": {
-        "s10cl": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-10g", "flagship": false, "image_alt": "Clinical Strength Cream 10g on a warm off-white background" } },
-        "s30cl": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-30g", "flagship": false, "image_alt": "Clinical Strength Cream 30g on a warm off-white background" } },
-        "s30ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
-        "sspad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Spray on a warm off-white background" } }
+        "clinical": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
+        "advanced": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
+        "sspad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Senseless spray on a warm off-white background" } }
       },
-      "block_order": ["s10cl", "s30cl", "s30ad", "sspad"],
+      "block_order": ["clinical", "advanced", "sspad"],
       "settings": { "headline": "The products built for injection prep.", "body": "<p>Cream is the default for injection appointments. Spray suits sessions where injections are spread across a wider area.</p>", "show_filters": false }
     },
     "trust": {

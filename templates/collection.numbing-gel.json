@@ -4,13 +4,13 @@
       "type": "senseless-collection-hero",
       "settings": {
         "eyebrow": "Numbing gel",
-        "headline": "A different application. Three strengths.",
-        "subhead": "<p>UK-formulated topical preparation gel, made for aesthetic appointments where the gel format suits the procedure better than a cream. Clinical, Advanced, and Professional.</p>",
+        "headline": "A different application. Two strengths.",
+        "subhead": "<p>UK-formulated topical preparation gel, made for aesthetic appointments where the gel format suits the procedure better than a cream. Advanced and Professional — gel comes in two strengths.</p>",
         "primary_cta_label": "Shop all gel",
         "primary_cta_url": "#product-grid",
         "secondary_cta_label": "Cream or gel?",
         "secondary_cta_url": "/pages/choosing-your-format",
-        "image_alt": "Editorial still life of all three Senseless gel tubes on a warm off-white background"
+        "image_alt": "Editorial still life of the Senseless gel range on a warm off-white background"
       }
     },
     "when_gel": {
@@ -18,7 +18,7 @@
       "settings": {
         "direction": "text-left", "eyebrow": "The format",
         "headline": "Gel suits some procedures better than cream.",
-        "body": "<p>Gel sits differently on the skin. Some practitioners prefer it for treated areas that need to stay exposed, or for procedures where cream isn't practical. Some clients prefer the texture. Same three Senseless strengths, different application. Choose by procedure, by practitioner preference, or by what feels right at the chair.</p>",
+        "body": "<p>Gel sits differently on the skin. Some practitioners prefer it for treated areas that need to stay exposed, or for procedures where cream isn't practical. Some clients prefer the texture. Gel comes in Advanced and Professional strengths — the same concentrations as the cream, in a format that suits a different kind of session. Choose by procedure, by practitioner preference, or by what feels right at the chair.</p>",
         "cta_label": "Compare cream and gel", "cta_url": "/pages/choosing-your-format",
         "image_alt": "Editorial close-up of Senseless gel texture in soft warm light"
       }
@@ -26,11 +26,6 @@
     "strengths": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "clinical": { "type": "tier_card", "settings": {
-          "label": "Clinical Strength", "heading": "For routine appointments",
-          "body": "<p>The everyday Senseless gel. 35ml. Same concentration system as the cream, in a format that suits a different kind of session. Quietly capable.</p>",
-          "cta_label": "Shop Clinical Gel", "cta_url": "/collections/numbing-gel?strength=clinical", "flagship": false,
-          "image_alt": "Clinical Strength Senseless gel on a warm off-white background" } },
         "advanced": { "type": "tier_card", "settings": {
           "label": "Advanced Strength", "heading": "For longer, more demanding sessions",
           "body": "<p>Higher concentration gel. 35ml. For appointments where the gel format suits the procedure and the session asks more of your preparation.</p>",
@@ -39,11 +34,11 @@
         "professional": { "type": "tier_card", "settings": {
           "label": "Professional Strength", "heading": "Our most concentrated gel formula",
           "body": "<p>Developed with practitioners. 35ml. Used in clinics across the UK. Available without restriction. Trusted at the chair.</p>",
-          "cta_label": "Shop Professional Gel", "cta_url": "/collections/numbing-gel?strength=professional", "flagship": true, "badge_text": "Flagship",
-          "image_alt": "Professional Strength Senseless gel photographed in a darker palette" } }
+          "cta_label": "Shop Professional Gel", "cta_url": "/collections/numbing-gel?strength=professional", "flagship": true, "badge_text": "",
+          "image_alt": "Professional Strength Senseless gel on a warm off-white background" } }
       },
-      "block_order": ["clinical", "advanced", "professional"],
-      "settings": { "columns": "3", "eyebrow": "Strengths", "headline": "Same system. Different format.", "body": "", "closer": "", "section_cta_label": "Compare strengths", "section_cta_url": "/pages/choosing-your-strength" }
+      "block_order": ["advanced", "professional"],
+      "settings": { "columns": "2", "eyebrow": "Strengths", "headline": "Two strengths. One system.", "body": "", "closer": "", "section_cta_label": "Compare strengths", "section_cta_url": "/pages/choosing-your-strength" }
     },
     "procedures": {
       "type": "senseless-trio-card-row",
@@ -70,12 +65,11 @@
     "grid": {
       "type": "senseless-product-grid",
       "blocks": {
-        "cl": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-gel-35ml", "flagship": false, "image_alt": "Clinical Strength Gel 35ml on a warm off-white background" } },
-        "ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-gel-35ml", "flagship": false, "image_alt": "Advanced Strength Gel 35ml on a warm off-white background" } },
-        "pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-gel-35ml", "flagship": true, "badge_text": "Flagship", "image_alt": "Professional Strength Gel 35ml photographed in a darker palette" } }
+        "ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Gel", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-gel", "flagship": false, "image_alt": "Advanced Strength Senseless gel on a warm off-white background" } },
+        "pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Gel", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-gel", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless gel on a warm off-white background" } }
       },
-      "block_order": ["cl", "ad", "pr"],
-      "settings": { "headline": "All Senseless gel.", "body": "<p>Three gel SKUs across three strengths. All 35ml.</p>", "show_filters": true }
+      "block_order": ["ad", "pr"],
+      "settings": { "headline": "All Senseless gel.", "body": "<p>Two gel strengths — Advanced and Professional. 35ml.</p>", "show_filters": true }
     },
     "aftercare": {
       "type": "senseless-image-text-band",
@@ -90,7 +84,7 @@
       "type": "senseless-faq-accordion",
       "blocks": {
         "q1": { "type": "faq_item", "settings": { "question": "Cream or gel — which should I choose?", "answer": "<p>Strength is the bigger decision. Format is the next one. Cream suits most appointments. Gel suits procedures where the cream format isn't practical, or where your practitioner prefers it. See the <a href=\"/pages/choosing-your-format\">format guide</a>.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Is gel stronger than cream?", "answer": "<p>No. The three Senseless strengths (Clinical, Advanced, Professional) carry across both formats. A Clinical Strength gel is the same concentration as a Clinical Strength cream. Choose by format preference, not by an assumed strength difference.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Is gel stronger than cream?", "answer": "<p>No. Strength is independent of format — an Advanced gel is the same concentration as an Advanced cream. Gel comes in Advanced and Professional (Clinical is cream only). Choose by format preference, not by an assumed strength difference.</p>" } },
         "q3": { "type": "faq_item", "settings": { "question": "When do I apply gel?", "answer": "<p>Ahead of your appointment. Your practitioner is the best guide for the procedure you've booked.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "Can I use gel for tattoos?", "answer": "<p>Senseless is formulated for aesthetic procedures. For body art see our <a href=\"/blogs/guides/topical-numbing-for-body-art\">topical numbing for body art guide</a>.</p>" } },
         "q5": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }

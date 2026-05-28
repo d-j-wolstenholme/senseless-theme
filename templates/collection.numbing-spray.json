@@ -34,7 +34,7 @@
         "professional": { "type": "tier_card", "settings": {
           "label": "Professional Strength", "heading": "Our most concentrated spray formula",
           "body": "<p>Developed with practitioners. Used in clinics across the UK for the most demanding spray applications. Available without restriction. Trusted at the chair.</p>",
-          "cta_label": "Shop Professional Spray", "cta_url": "/collections/numbing-spray?strength=professional", "flagship": true, "badge_text": "Flagship",
+          "cta_label": "Shop Professional Spray", "cta_url": "/collections/numbing-spray?strength=professional", "flagship": true, "badge_text": "",
           "image_alt": "Professional Strength Senseless spray photographed in a darker palette" } }
       },
       "block_order": ["advanced", "professional"],
@@ -65,8 +65,8 @@
     "grid": {
       "type": "senseless-product-grid",
       "blocks": {
-        "ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Spray 100ml on a warm off-white background" } },
-        "pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "Flagship", "image_alt": "Professional Strength Spray 100ml photographed in a darker palette" } }
+        "ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Senseless spray on a warm off-white background" } },
+        "pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless spray on a warm off-white background" } }
       },
       "block_order": ["ad", "pr"],
       "settings": { "headline": "All Senseless spray.", "body": "<p>Two SKUs, both 100ml.</p>", "show_filters": true }
@@ -96,7 +96,7 @@
       "type": "senseless-trio-card-row",
       "blocks": {
         "cream": { "type": "format_card", "settings": { "label": "Numbing Cream", "body": "<p>The everyday format, three strengths, two sizes.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream", "image_alt": "Editorial image of Senseless Numbing Cream" } },
-        "gel": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>A different application format, three strengths.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image_alt": "Editorial image of Senseless Numbing Gel" } }
+        "gel": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>A different application format. Advanced and Professional.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image_alt": "Editorial image of Senseless Numbing Gel" } }
       },
       "block_order": ["cream", "gel"],
       "settings": { "columns": "2", "eyebrow": "", "headline": "Cream or gel might suit better.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }

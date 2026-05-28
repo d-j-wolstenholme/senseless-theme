@@ -75,9 +75,9 @@
     "shop": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "s30cl": { "type": "product_card", "settings": { "label": "Clinical Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-30g", "flagship": false, "image_alt": "Clinical Strength Cream 30g on a warm off-white background" } },
-        "s30ad": { "type": "product_card", "settings": { "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
-        "s30pr": { "type": "product_card", "settings": { "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } }
+        "s30cl": { "type": "product_card", "settings": { "label": "Clinical Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
+        "s30ad": { "type": "product_card", "settings": { "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
+        "s30pr": { "type": "product_card", "settings": { "label": "Professional Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } }
       },
       "block_order": ["s30cl", "s30ad", "s30pr"],
       "settings": { "columns": "3", "eyebrow": "", "headline": "Decided? Shop the strength.", "body": "", "closer": "", "section_cta_label": "See all by procedure", "section_cta_url": "/collections/aesthetic-numbing-cream" }

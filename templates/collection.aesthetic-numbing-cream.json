@@ -32,7 +32,7 @@
       "settings": {
         "direction": "text-left", "eyebrow": "The approach",
         "headline": "Generic numbing wasn't built for your appointment.",
-        "body": "<p>A cream made for \"skin numbing\" treats every situation the same way. Aesthetic procedures don't work that way. A lip filler appointment asks something different from a session of full-face laser. Senseless is built for the procedure, not the average — three strengths, four formats, formulated to match what each kind of appointment actually demands.</p>",
+        "body": "<p>A cream made for \"skin numbing\" treats every situation the same way. Aesthetic procedures don't work that way. A lip filler appointment asks something different from a session of full-face laser. Senseless is built for the procedure, not the average — three strengths, three formats, formulated to match what each kind of appointment actually demands.</p>",
         "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
         "image_alt": "Editorial product close-up of Senseless"
       }
@@ -61,9 +61,9 @@
     "featured": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "s30cl": { "type": "product_card", "settings": { "label": "Clinical Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-30g", "flagship": false, "image_alt": "Clinical Strength Cream 30g on a warm off-white background" } },
-        "s30ad": { "type": "product_card", "settings": { "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
-        "s30pr": { "type": "product_card", "settings": { "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } }
+        "s30cl": { "type": "product_card", "settings": { "label": "Clinical Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
+        "s30ad": { "type": "product_card", "settings": { "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
+        "s30pr": { "type": "product_card", "settings": { "label": "Professional Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } }
       },
       "block_order": ["s30cl", "s30ad", "s30pr"],
       "settings": { "columns": "3", "eyebrow": "The aesthetic essentials", "headline": "Three to start with.", "body": "<p>The three Senseless products most commonly chosen for aesthetic appointments.</p>", "closer": "", "section_cta_label": "Shop all products", "section_cta_url": "/collections/numbing-cream" }
@@ -80,7 +80,7 @@
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "What's the difference between Senseless and a regular numbing cream?", "answer": "<p>Regular numbing creams are formulated for generic skin numbing. Senseless is built for aesthetic procedures specifically — three strengths matched to the demands of different appointments, in four formats across cream, gel, and spray.</p>" } },
+        "q1": { "type": "faq_item", "settings": { "question": "What's the difference between Senseless and a regular numbing cream?", "answer": "<p>Regular numbing creams are formulated for generic skin numbing. Senseless is built for aesthetic procedures specifically — three strengths matched to the demands of different appointments, in three formats across cream, gel, and spray.</p>" } },
         "q2": { "type": "faq_item", "settings": { "question": "Which procedures does Senseless cover?", "answer": "<p>Lip fillers, Botox, microneedling, laser, SPMU, waxing, and aesthetic injections more broadly. Each procedure has its own collection with the recommended strength and format.</p>" } },
         "q3": { "type": "faq_item", "settings": { "question": "Can I use Senseless for tattoos?", "answer": "<p>Senseless is formulated for aesthetic procedures. For body art, see our <a href=\"/blogs/guides/topical-numbing-for-body-art\">topical numbing for body art guide</a>.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "Which strength should I choose?", "answer": "<p>Clinical suits most aesthetic appointments. Advanced for longer or more sensitive sessions. Professional for the most demanding indications. See the <a href=\"/pages/choosing-your-strength\">strength guide</a>.</p>" } },
@@ -94,7 +94,7 @@
       "type": "senseless-trio-card-row",
       "blocks": {
         "cream": { "type": "format_card", "settings": { "label": "Numbing Cream", "body": "<p>Three strengths and two sizes.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream", "image_alt": "Senseless cream on a warm off-white background" } },
-        "gel": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>Three strengths in a different application.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image_alt": "Senseless gel on a warm off-white background" } },
+        "gel": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>Two strengths — Advanced and Professional.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image_alt": "Senseless gel on a warm off-white background" } },
         "spray": { "type": "format_card", "settings": { "label": "Numbing Spray", "body": "<p>Advanced and Professional, for body areas.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray", "image_alt": "Senseless spray on a warm off-white background" } }
       },
       "block_order": ["cream", "gel", "spray"],

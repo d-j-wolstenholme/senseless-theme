@@ -26,13 +26,12 @@
     "grid": {
       "type": "senseless-product-grid",
       "blocks": {
-        "s10cl": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-10g", "flagship": false, "image_alt": "Clinical Strength Cream 10g on a warm off-white background" } },
-        "s30cl": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-30g", "flagship": false, "image_alt": "Clinical Strength Cream 30g on a warm off-white background" } },
-        "s10ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-10g", "flagship": false, "image_alt": "Advanced Strength Cream 10g on a warm off-white background" } },
-        "sg35cl": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-gel-35ml", "flagship": false, "image_alt": "Clinical Strength Gel 35ml on a warm off-white background" } }
+        "clinical": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
+        "advanced": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
+        "advgel": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Gel", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-gel", "flagship": false, "image_alt": "Advanced Strength Senseless gel on a warm off-white background" } }
       },
-      "block_order": ["s10cl", "s30cl", "s10ad", "sg35cl"],
-      "settings": { "headline": "The products built for lip filler prep.", "body": "<p>Cream is the default. The 10g size suits single appointments. The 30g size suits regular bookings.</p>", "show_filters": false }
+      "block_order": ["clinical", "advanced", "advgel"],
+      "settings": { "headline": "The products built for lip filler prep.", "body": "<p>Cream is the default — Clinical for most appointments, Advanced when the session asks more. Gel for clients who prefer that application.</p>", "show_filters": false }
     },
     "trust": {
       "type": "senseless-trust-bar",

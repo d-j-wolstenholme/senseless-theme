@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "The best for what?",
         "headline": "\"Best\" depends on the appointment you've booked.",
-        "subhead": "<p>There isn't one best numbing cream for everyone. There is a right one for your specific procedure. Senseless is built for aesthetic appointments — three strengths, four formats, formulated to match what each kind of session asks of the skin.</p>",
+        "subhead": "<p>There isn't one best numbing cream for everyone. There is a right one for your specific procedure. Senseless is built for aesthetic appointments — three strengths, three formats, formulated to match what each kind of session asks of the skin.</p>",
         "primary_cta_label": "Shop by procedure", "primary_cta_url": "/collections/aesthetic-numbing-cream",
         "secondary_cta_label": "Find your strength", "secondary_cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless system view — multiple SKUs"
@@ -16,7 +16,7 @@
       "settings": {
         "direction": "text-left", "eyebrow": "The honest version",
         "headline": "\"Best\" is a comparative claim. We don't make those.",
-        "body": "<p>Most landing pages ranking for \"best numbing cream\" claim to be the best. Senseless doesn't. We make claims about what we are — UK-formulated, built for aesthetic procedures, available in three strengths and four formats. We don't make claims about what other brands are or aren't. Different brands, different formulations, different regulatory contexts. The honest answer to \"best\" is \"best for what\" — and that's a question Senseless is built to answer.</p>",
+        "body": "<p>Most landing pages ranking for \"best numbing cream\" claim to be the best. Senseless doesn't. We make claims about what we are — UK-formulated, built for aesthetic procedures, available in three strengths and three formats. We don't make claims about what other brands are or aren't. Different brands, different formulations, different regulatory contexts. The honest answer to \"best\" is \"best for what\" — and that's a question Senseless is built to answer.</p>",
         "cta_label": "", "cta_url": "",
         "image_alt": "Editorial product close-up of Senseless"
       }
@@ -38,7 +38,7 @@
       "type": "senseless-image-text-band",
       "settings": {
         "direction": "text-right", "eyebrow": "The system",
-        "headline": "Three strengths. Four formats. Matched to the appointment.",
+        "headline": "Three strengths. Three formats. Matched to the appointment.",
         "body": "<p>Strength matches the procedure: Clinical for routine, Advanced for longer or more sensitive, Professional for the most demanding. Format matches the treatment area and session length: cream for most face procedures, gel for sustained sessions, spray for body and broader zones. Together they answer two questions — strength and format — which is more useful than answering one (\"best\") with a single product recommendation that can't actually fit every appointment.</p>",
         "cta_label": "Choose your strength", "cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless system view"

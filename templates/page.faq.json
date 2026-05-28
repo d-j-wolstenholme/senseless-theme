@@ -20,7 +20,7 @@
     "about": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "What is Senseless?", "answer": "<p>A UK cosmetic brand making topical preparation products for aesthetic appointments. Three strengths (Clinical, Advanced, Professional) across four formats (cream 10g, cream 30g, gel 35ml, spray 100ml), plus an aftercare cleanser. Built specifically for the procedures aesthetic clinics run.</p>" } },
+        "q1": { "type": "faq_item", "settings": { "question": "What is Senseless?", "answer": "<p>A UK cosmetic brand making topical preparation products for aesthetic appointments. Three strengths (Clinical, Advanced, Professional) across three formats (cream, gel, and spray — cream in 30g and 10g; Clinical is cream only), plus an aftercare cleanser. Built specifically for the procedures aesthetic clinics run.</p>" } },
         "q2": { "type": "faq_item", "settings": { "question": "Is Senseless a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product. Different regulatory category from medical numbing preparations.</p>" } },
         "q3": { "type": "faq_item", "settings": { "question": "Who makes Senseless?", "answer": "<p>Senseless is a brand of Matrix Health Group Ltd, a UK company in the personal-care and aesthetics sector. See the <a href=\"/pages/about\">About page</a> for the full background.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "Is Senseless cruelty-free?", "answer": "<p>Cruelty-free certification is being confirmed — this answer will be updated once verified.</p>" } },
