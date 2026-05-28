@@ -10,6 +10,9 @@ When this file is older than 24 hours, run `/drift-check` to surface any drift b
 
 ---
 
+### 2026-05-28 14:30 BST
+**Decision:** Homepage built — 5 reusable sections (`senseless-hero-brand-led`, `senseless-trio-card-row`, `senseless-image-text-band`, `senseless-trust-bar`, `senseless-newsletter-signup`) + `templates/index.json` wiring all 8 homepage instances, copy populated verbatim from the audited Notion brief, all editable via theme editor. **Critical correction — dev theme target:** the Shopify CLI's default store is `matrix-group-totally-numb` (Totally Numb), and theme `#193366131072` belonged to that store, not Senseless. A first push accidentally landed there. Created a new unpublished theme **"Senseless Dev" `#196680057167`** on `senseless-tattooing.myshopify.com` — now the canonical Senseless dev theme. `.env` `SHOPIFY_DEV_THEME_ID` updated to `196680057167`; CLAUDE.md hard rule 11 updated to always pass `--store senseless-tattooing.myshopify.com`.
+
 ### 2026-05-28 13:45 BST
 **Decision:** Three bootstrap open items resolved. (1) Dangling symlink `.cursor/skills/accessibility` (pointed to a non-existent `.claude/skills/accessibility` target that never came across in the clean Horizon build) deleted. (2) Theme-deploy ownership fixed: theme deploys go through Shopify CLI only (`shopify theme push --theme $SHOPIFY_DEV_THEME_ID`); the client_credentials API token (`shpca_`) cannot see CLI dev themes and is used only for products, collections, metafields, files, and content. (3) Branching strategy adopted: all day-to-day build work happens on `dev`; `main` is stable and merged into only at sprint/milestone completion; never commit directly to `main` during build sessions. `/session-start` checks out `dev` and pulls; `/session-end` commits and pushes to `dev`. Encoded in CLAUDE.md (hard rules 11–12 + Branching Strategy section) and the session-start/session-end command docs.
 
