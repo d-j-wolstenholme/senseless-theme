@@ -20,6 +20,16 @@ This repo is the new build, started from latest Horizon as a clean base. Old the
 8. **Always run `compliance-check` before producing user-facing copy.** UK compliance is non-negotiable.
 9. **Always log strategic decisions in `DECISIONS-LOG.md`** with ISO 8601 timestamp in BST. Surface them in the build report so the planning chat (Claude) can mirror them to Notion.
 10. **Never put credentials in committed files.** `.env` is gitignored. Tokens stay in `.env` only.
+11. **Theme deploys go through Shopify CLI only** (`shopify theme push --theme $SHOPIFY_DEV_THEME_ID`). Never use the API token for theme operations — the client_credentials token cannot see CLI dev themes. API token is for products, collections, metafields, files, and content only.
+12. **All day-to-day work happens on the `dev` branch.** `main` is stable and merged into only at sprint/milestone completion. Never commit directly to `main` during build sessions.
+
+## Branching Strategy
+
+- **`dev`** — the default working branch. All day-to-day build work happens here.
+- **`main`** — stable. Merged into only at sprint/milestone completion. Never commit directly to `main` during build sessions.
+- `/session-start` checks out `dev`, pulls latest (`git pull origin dev`), then runs drift-check.
+- `/session-end` commits to `dev` and pushes to `dev`, then generates the build report.
+- Feature/fix branches (`feature/<desc>`, `fix/<desc>`) branch off `dev` and merge back into `dev`.
 
 ## Naming Conventions
 

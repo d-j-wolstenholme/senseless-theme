@@ -10,6 +10,9 @@ When this file is older than 24 hours, run `/drift-check` to surface any drift b
 
 ---
 
+### 2026-05-28 13:45 BST
+**Decision:** Three bootstrap open items resolved. (1) Dangling symlink `.cursor/skills/accessibility` (pointed to a non-existent `.claude/skills/accessibility` target that never came across in the clean Horizon build) deleted. (2) Theme-deploy ownership fixed: theme deploys go through Shopify CLI only (`shopify theme push --theme $SHOPIFY_DEV_THEME_ID`); the client_credentials API token (`shpca_`) cannot see CLI dev themes and is used only for products, collections, metafields, files, and content. (3) Branching strategy adopted: all day-to-day build work happens on `dev`; `main` is stable and merged into only at sprint/milestone completion; never commit directly to `main` during build sessions. `/session-start` checks out `dev` and pulls; `/session-end` commits and pushes to `dev`. Encoded in CLAUDE.md (hard rules 11–12 + Branching Strategy section) and the session-start/session-end command docs.
+
 ### 2026-05-27 09:00 BST
 **Decision:** Mac mini directory wiped, GitHub repo history wiped, fresh clone of latest Horizon theme initialised, full project scaffolding created (10 skills, 4 slash commands, 4 docs, CLAUDE.md, image pipeline, .env.example, .gitignore, README, manifest). First clean commit pushed to GitHub.
 
