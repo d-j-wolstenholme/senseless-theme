@@ -1,0 +1,104 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "For microneedling",
+        "headline": "For a longer, more intensive session.",
+        "subhead": "<p>UK-formulated topical preparation for microneedling appointments. Advanced Strength is the everyday recommendation. Professional sits one step above, for the most intensive sessions. Clinical is rarely enough.</p>",
+        "primary_cta_label": "Shop for microneedling",
+        "primary_cta_url": "#product-grid",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial product close-up of Senseless cream, no faces, no clinical setting"
+      }
+    },
+    "recommendation": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The recommendation",
+        "headline": "Advanced is the everyday. Professional is the upgrade.",
+        "body": "<p>Microneedling is the procedure most clients underestimate when picking a numbing strength. Sessions run longer than injection appointments. The needles cover broad treatment areas across the full face. Skin gets worked across a wider zone for a sustained period. Advanced Strength is built for exactly that — the longer session, the more sensitive treatment area, the appointment that asks more of your preparation. Professional sits one step above for the most intensive sessions or the most sensitive skin. Clinical is rarely enough on its own.</p>",
+        "cta_label": "Compare strengths", "cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial close-up of Senseless Advanced Strength cream"
+      }
+    },
+    "format": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The format",
+        "headline": "Microneedling is one of the procedures where gel earns its place.",
+        "body": "<p>Most aesthetic appointments are short enough that cream is the natural format. Microneedling is the exception. Sessions are long enough that some clients prefer the gel format — it sits differently on the skin and suits the sustained preparation a microneedling appointment asks for. Same strengths, different application. Choose by personal preference or by your practitioner's protocol.</p>",
+        "cta_label": "Compare formats", "cta_url": "/pages/choosing-your-format",
+        "image_alt": "Editorial gel texture detail"
+      }
+    },
+    "grid": {
+      "type": "senseless-product-grid",
+      "blocks": {
+        "s30ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
+        "sg35ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-gel-35ml", "flagship": false, "image_alt": "Advanced Strength Gel 35ml on a warm off-white background" } },
+        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } },
+        "sg35pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-gel-35ml", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Gel 35ml on a warm off-white background" } },
+        "s10ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-10g", "flagship": false, "image_alt": "Advanced Strength Cream 10g on a warm off-white background" } }
+      },
+      "block_order": ["s30ad", "sg35ad", "s30pr", "sg35pr", "s10ad"],
+      "settings": { "headline": "The products built for microneedling.", "body": "<p>Advanced Strength is the recommendation. Cream and gel both fit. Professional for the most intensive sessions.</p>", "show_filters": false }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "Cruelty-free" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "why": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The detail",
+        "headline": "Microneedling earns its preparation.",
+        "body": "<p>Most aesthetic procedures are short enough that the preparation question almost answers itself. Microneedling is different. A full-face session, sustained needle work, broad treatment area — preparation isn't an optional add-on for most clients. Senseless is formulated to suit the kind of preparation microneedling actually demands.</p>",
+        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
+        "image_alt": "Editorial product close-up of Senseless cream"
+      }
+    },
+    "aftercare": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "Aftercare", "headline": "What comes next.",
+        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
+        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
+        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Which strength is best for microneedling?", "answer": "<p>Advanced Strength is the everyday recommendation. Microneedling is longer and more intensive than most aesthetic appointments. Professional for the most demanding sessions or the most sensitive skin. Clinical is rarely enough on its own.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Cream or gel for microneedling?", "answer": "<p>Both fit. Cream is the default format. Gel is the genuine alternative for sustained preparation — microneedling is the procedure where the gel format has a structural advantage over cream.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "When do I apply it before microneedling?", "answer": "<p>Ahead of your appointment. Microneedling typically asks for longer preparation than injection-based appointments. Your practitioner is the best guide for the specific protocol they recommend.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Will my practitioner reapply during the session?", "answer": "<p>Many do. Microneedling sessions are long enough that some practitioners apply additional preparation at the chair. Ask your practitioner about their approach.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Is Senseless safe for the whole face?", "answer": "<p>Senseless is formulated for facial skin as preparation before aesthetic appointments. Follow your practitioner's guidance for the specific zones treated during your session.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Common questions." }
+    },
+    "related": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
+        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
+        "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } },
+        "botox": { "type": "procedure_card", "settings": { "label": "Botox", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-botox", "image_alt": "Editorial image for the Botox range" } }
+      },
+      "block_order": ["lips", "laser", "spmu", "botox"],
+      "settings": { "columns": "4", "eyebrow": "", "headline": "Other appointments Senseless covers.", "body": "", "closer": "", "section_cta_label": "See all procedures", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+    }
+  },
+  "order": ["hero", "recommendation", "format", "grid", "trust", "why", "aftercare", "faq", "related"]
+}

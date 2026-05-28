@@ -1,0 +1,103 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "For waxing",
+        "headline": "For bikini, brazilian, and body wax.",
+        "subhead": "<p>UK-formulated topical preparation for waxing appointments. Spray for body coverage, cream for smaller zones. Advanced Strength is the recommendation. Professional for the most sensitive bookings.</p>",
+        "primary_cta_label": "Shop for waxing",
+        "primary_cta_url": "#product-grid",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial product still life of Senseless, no skin imagery, no people"
+      }
+    },
+    "recommendation": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The recommendation",
+        "headline": "Sensitive areas earn their preparation.",
+        "body": "<p>Bikini and brazilian waxing are the appointments most clients prepare for. The treatment area is sensitive, the procedure is direct, and the session asks more from the skin than a typical wax. Advanced Strength is the default recommendation — built for the sensitive area, the broader coverage, the appointment that benefits from real preparation. Professional sits one step above for particularly sensitive clients or the longest waxing sessions. Clinical may suit smaller-area waxing — lip, brow — but is rarely enough for bikini work.</p>",
+        "cta_label": "Compare strengths", "cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial product close-up of Senseless Advanced Strength"
+      }
+    },
+    "format": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The format",
+        "headline": "Spray for body. Cream for smaller zones.",
+        "body": "<p>Body waxing covers ground. Spray is built for that — broader coverage, faster application, the format that matches the surface area of a bikini or brazilian appointment. Cream is the right format for the smaller waxing zones — upper lip, brow, underarm. Both are part of the same Senseless system.</p>",
+        "cta_label": "Compare formats", "cta_url": "/pages/choosing-your-format",
+        "image_alt": "Editorial side-by-side product detail of Senseless spray and cream"
+      }
+    },
+    "grid": {
+      "type": "senseless-product-grid",
+      "blocks": {
+        "sspad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Spray on a warm off-white background" } },
+        "ssppr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Spray on a warm off-white background" } },
+        "s30ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
+        "s10ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-10g", "flagship": false, "image_alt": "Advanced Strength Cream 10g on a warm off-white background" } }
+      },
+      "block_order": ["sspad", "ssppr", "s30ad", "s10ad"],
+      "settings": { "headline": "The products built for waxing prep.", "body": "<p>Spray for body, cream for smaller areas. Advanced is the everyday. Professional for the most sensitive sessions.</p>", "show_filters": false }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "Cruelty-free" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "why": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The detail",
+        "headline": "Some appointments shouldn't be done cold.",
+        "body": "<p>Waxing is one of them. Sensitive areas don't respond well to skipping the prep step. Senseless is formulated to suit how clients actually prepare for bikini, brazilian, and body waxing — at home, ahead of the appointment, in the time that fits between booking and the chair.</p>",
+        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
+        "image_alt": "Editorial product close-up of Senseless"
+      }
+    },
+    "aftercare": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "Aftercare", "headline": "What comes next.",
+        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
+        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
+        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Can I use numbing cream before waxing?", "answer": "<p>Yes. Many clients do, particularly for bikini and brazilian appointments. Senseless is formulated as a topical preparation for use before aesthetic procedures, including waxing.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Does it actually work for waxing?", "answer": "<p>Senseless is designed to support comfort during your appointment. Specific experience varies by client, by treatment area, by sensitivity. Many clients find prepared skin more comfortable than unprepared. Your waxing professional is the best guide for what to expect.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Which strength is best for bikini or brazilian waxing?", "answer": "<p>Advanced Strength as the default. Professional for particularly sensitive clients or the most thorough sessions. Clinical may not be enough for bikini work — the area is sensitive enough that most clients benefit from the step up.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Spray or cream?", "answer": "<p>Spray for body work — bikini, brazilian, legs. Cream for smaller zones — upper lip, brow, underarm.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "When do I apply it?", "answer": "<p>Ahead of your appointment. Your waxing professional is the best guide for the specific timing window before they start work.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Common questions." }
+    },
+    "related": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
+        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
+        "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } },
+        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } }
+      },
+      "block_order": ["laser", "micro", "spmu", "lips"],
+      "settings": { "columns": "4", "eyebrow": "", "headline": "Other appointments Senseless covers.", "body": "", "closer": "", "section_cta_label": "See all procedures", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+    }
+  },
+  "order": ["hero", "recommendation", "format", "grid", "trust", "why", "aftercare", "faq", "related"]
+}

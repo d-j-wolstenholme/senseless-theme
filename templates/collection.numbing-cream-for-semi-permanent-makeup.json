@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "For semi-permanent makeup",
+        "headline": "For microblading, lip blush, and brow work.",
+        "subhead": "<p>UK-formulated topical preparation for SPMU appointments. Small treatment areas, sensitive zones, longer sittings — preparation matters. Advanced Strength is the everyday recommendation. Professional for the most sustained sessions.</p>",
+        "primary_cta_label": "Shop for SPMU",
+        "primary_cta_url": "#product-grid",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial product close-up of Senseless cream, no faces, no procedure imagery"
+      }
+    },
+    "recommendation": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The recommendation",
+        "headline": "SPMU asks more from your preparation than most aesthetics.",
+        "body": "<p>The treatment area is small but the work is sustained. A microblading appointment can run 90 minutes. A lip blush session can run two hours. The skin is sensitive — brows and lips both — and the pigment work doesn't pause. Advanced Strength is the everyday recommendation. Professional for the most sustained sittings, the most sensitive skin, or the longest first-time appointments. Clinical is rarely enough for this category.</p>",
+        "cta_label": "Compare strengths", "cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial product close-up of Senseless Advanced Strength cream"
+      }
+    },
+    "grid": {
+      "type": "senseless-product-grid",
+      "blocks": {
+        "s30ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
+        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } },
+        "s10ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-10g", "flagship": false, "image_alt": "Advanced Strength Cream 10g on a warm off-white background" } },
+        "sg35ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Gel 35ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-gel-35ml", "flagship": false, "image_alt": "Advanced Strength Gel 35ml on a warm off-white background" } }
+      },
+      "block_order": ["s30ad", "s30pr", "s10ad", "sg35ad"],
+      "settings": { "headline": "The products built for SPMU prep.", "body": "<p>Cream is the format. Sustained sessions on small, sensitive areas don't suit spray.</p>", "show_filters": false }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "Cruelty-free" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "why": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The detail",
+        "headline": "A sustained session on sensitive skin earns its preparation.",
+        "body": "<p>Most aesthetic appointments are short. SPMU is the exception. Sittings can run long, the treatment area is sensitive by definition, and the appointment can't be paused mid-session for a top-up. Senseless is formulated to suit the kind of preparation a microblading or lip blush appointment actually demands.</p>",
+        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
+        "image_alt": "Editorial product close-up of Senseless cream"
+      }
+    },
+    "aftercare": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "Aftercare", "headline": "What comes next.",
+        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
+        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
+        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Which strength is best for microblading?", "answer": "<p>Advanced Strength for most microblading appointments. Professional for the most sustained sittings or particularly sensitive skin. Clinical is rarely enough on its own for sustained pigment work.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Which strength for lip blush?", "answer": "<p>Same recommendation — Advanced as default, Professional for longer sessions. Lips are sensitive; sustained pigment work on lips asks more from the preparation.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Cream or gel for SPMU?", "answer": "<p>Cream is the default. Gel suits clients who prefer the format. Spray isn't appropriate — the treatment areas are too small.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "When do I apply it before my SPMU appointment?", "answer": "<p>Ahead of your appointment. Specific timing varies by artist — most SPMU artists have a recommended application window. Follow their guidance.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Will my artist reapply during the session?", "answer": "<p>Many do. SPMU sittings are long enough that some artists apply additional preparation at intervals. Ask your artist about their protocol.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Common questions." }
+    },
+    "related": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
+        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
+        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
+        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } }
+      },
+      "block_order": ["micro", "lips", "laser", "wax"],
+      "settings": { "columns": "4", "eyebrow": "", "headline": "Other appointments Senseless covers.", "body": "", "closer": "", "section_cta_label": "See all procedures", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+    }
+  },
+  "order": ["hero", "recommendation", "grid", "trust", "why", "aftercare", "faq", "related"]
+}

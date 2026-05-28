@@ -1,0 +1,105 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "Aesthetic numbing",
+        "headline": "Built for aesthetic procedures. Not generic numbing.",
+        "subhead": "<p>UK-formulated topical preparation, designed specifically for the procedures modern aesthetics clinics actually run. Lip fillers, Botox, microneedling, laser, SPMU, waxing. Choose the appointment.</p>",
+        "primary_cta_label": "Shop by procedure",
+        "primary_cta_url": "#procedure-grid",
+        "secondary_cta_label": "Shop by strength",
+        "secondary_cta_url": "/collections/numbing-cream",
+        "image_alt": "Editorial product still life of Senseless, no faces, no clinical setting"
+      }
+    },
+    "procedures": {
+      "type": "senseless-procedure-grid",
+      "blocks": {
+        "inj": { "type": "procedure_card", "settings": { "label": "Injections", "sub_label": "Umbrella — Lip fillers + Botox", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-injections", "image_alt": "Editorial image for the injections range" } },
+        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
+        "botox": { "type": "procedure_card", "settings": { "label": "Botox", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-botox", "image_alt": "Editorial image for the Botox range" } },
+        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
+        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
+        "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } },
+        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } }
+      },
+      "block_order": ["inj", "lips", "botox", "micro", "laser", "spmu", "wax"],
+      "settings": { "columns": "4", "anchor_id": "procedure-grid", "eyebrow": "By appointment", "headline": "Pick your procedure.", "body": "<p>Each procedure has its own collection — the recommended strength, the right format, and the products built for that kind of session.</p>" }
+    },
+    "why": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The approach",
+        "headline": "Generic numbing wasn't built for your appointment.",
+        "body": "<p>A cream made for \"skin numbing\" treats every situation the same way. Aesthetic procedures don't work that way. A lip filler appointment asks something different from a session of full-face laser. Senseless is built for the procedure, not the average — three strengths, four formats, formulated to match what each kind of appointment actually demands.</p>",
+        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
+        "image_alt": "Editorial product close-up of Senseless"
+      }
+    },
+    "tiers": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "clinical": { "type": "tier_card", "settings": { "label": "Clinical Strength", "heading": "For routine appointments", "body": "<p>The everyday Senseless. Used for top-ups, routine microneedling, smaller laser zones, and the appointments most clients book most often. Quietly capable.</p>", "cta_label": "Shop Clinical", "cta_url": "/collections/numbing-cream?strength=clinical", "flagship": false, "image_alt": "Senseless Clinical Strength cream on a warm off-white background" } },
+        "advanced": { "type": "tier_card", "settings": { "label": "Advanced Strength", "heading": "For longer or more demanding sessions", "body": "<p>The considered upgrade. Higher concentration, formulated for longer sessions and more sensitive indications. Chosen by clients who know what their appointment will ask of them.</p>", "cta_label": "Shop Advanced", "cta_url": "/collections/numbing-cream?strength=advanced", "flagship": false, "image_alt": "Senseless Advanced Strength cream on a warm off-white background" } },
+        "professional": { "type": "tier_card", "settings": { "label": "Professional Strength", "heading": "Our most concentrated formula", "body": "<p>Developed with practitioners. Used in clinics across the UK. Available without restriction. Professional sits at the top of the Senseless system. Trusted at the chair.</p>", "cta_label": "Shop Professional", "cta_url": "/collections/numbing-cream?strength=professional", "flagship": true, "badge_text": "", "image_alt": "Senseless Professional Strength cream on a warm off-white background" } }
+      },
+      "block_order": ["clinical", "advanced", "professional"],
+      "settings": { "columns": "3", "eyebrow": "Strengths", "headline": "Match the strength to the appointment.", "body": "", "closer": "", "section_cta_label": "Find your strength", "section_cta_url": "/pages/choosing-your-strength" }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "Cruelty-free" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "featured": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "s30cl": { "type": "product_card", "settings": { "label": "Clinical Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-30g", "flagship": false, "image_alt": "Clinical Strength Cream 30g on a warm off-white background" } },
+        "s30ad": { "type": "product_card", "settings": { "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
+        "s30pr": { "type": "product_card", "settings": { "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } }
+      },
+      "block_order": ["s30cl", "s30ad", "s30pr"],
+      "settings": { "columns": "3", "eyebrow": "The aesthetic essentials", "headline": "Three to start with.", "body": "<p>The three Senseless products most commonly chosen for aesthetic appointments.</p>", "closer": "", "section_cta_label": "Shop all products", "section_cta_url": "/collections/numbing-cream" }
+    },
+    "aftercare": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "Aftercare", "headline": "What comes next.",
+        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
+        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
+        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "What's the difference between Senseless and a regular numbing cream?", "answer": "<p>Regular numbing creams are formulated for generic skin numbing. Senseless is built for aesthetic procedures specifically — three strengths matched to the demands of different appointments, in four formats across cream, gel, and spray.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Which procedures does Senseless cover?", "answer": "<p>Lip fillers, Botox, microneedling, laser, SPMU, waxing, and aesthetic injections more broadly. Each procedure has its own collection with the recommended strength and format.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Can I use Senseless for tattoos?", "answer": "<p>Senseless is formulated for aesthetic procedures. For body art, see our <a href=\"/blogs/guides/topical-numbing-for-body-art\">topical numbing for body art guide</a>.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Which strength should I choose?", "answer": "<p>Clinical suits most aesthetic appointments. Advanced for longer or more sensitive sessions. Professional for the most demanding indications. See the <a href=\"/pages/choosing-your-strength\">strength guide</a>.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Is Senseless used in clinics?", "answer": "<p>Yes. Senseless Professional is developed with practitioners and used in clinics across the UK.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Common questions." }
+    },
+    "formats": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "cream": { "type": "format_card", "settings": { "label": "Numbing Cream", "body": "<p>Three strengths and two sizes.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream", "image_alt": "Senseless cream on a warm off-white background" } },
+        "gel": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>Three strengths in a different application.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image_alt": "Senseless gel on a warm off-white background" } },
+        "spray": { "type": "format_card", "settings": { "label": "Numbing Spray", "body": "<p>Advanced and Professional, for body areas.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray", "image_alt": "Senseless spray on a warm off-white background" } }
+      },
+      "block_order": ["cream", "gel", "spray"],
+      "settings": { "columns": "3", "eyebrow": "", "headline": "Shop by format.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    }
+  },
+  "order": ["hero", "procedures", "why", "tiers", "trust", "featured", "aftercare", "faq", "formats"]
+}

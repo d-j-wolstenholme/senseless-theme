@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "For Botox",
+        "headline": "Quick prep for a quick appointment.",
+        "subhead": "<p>UK-formulated topical preparation for the Botox booking. Clinical Strength suits most appointments. Botox is shorter than fillers, less sensitive than microneedling, but the right preparation still matters.</p>",
+        "primary_cta_label": "Shop for Botox",
+        "primary_cta_url": "#product-grid",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial product close-up of Senseless cream, no faces, no needles, no clinical setting"
+      }
+    },
+    "recommendation": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The recommendation",
+        "headline": "Clinical Strength is enough.",
+        "body": "<p>Botox appointments are short. The needle is small. The work is precise but not extensive. Clinical Strength cream is formulated exactly for this — the routine appointment, the practiced session, the booking you've made before. Advanced is only needed if your skin runs particularly sensitive or your practitioner is treating an unusually broad area. Professional is overkill for Botox. We say so plainly.</p>",
+        "cta_label": "Compare strengths", "cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial close-up of Senseless Clinical Strength cream"
+      }
+    },
+    "grid": {
+      "type": "senseless-product-grid",
+      "blocks": {
+        "s10cl": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-10g", "flagship": false, "image_alt": "Clinical Strength Cream 10g on a warm off-white background" } },
+        "s30cl": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream-30g", "flagship": false, "image_alt": "Clinical Strength Cream 30g on a warm off-white background" } },
+        "s30ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } }
+      },
+      "block_order": ["s10cl", "s30cl", "s30ad"],
+      "settings": { "headline": "The products built for Botox prep.", "body": "<p>Cream is the format. Clinical is the strength.</p>", "show_filters": false }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "Cruelty-free" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "why": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The detail",
+        "headline": "A short appointment isn't a casual one.",
+        "body": "<p>Botox might be quick but it's still an appointment that deserves preparation. Senseless is formulated to suit how the booking actually runs — prep before you arrive, the work itself short and precise, recovery built into the rest of your day.</p>",
+        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
+        "image_alt": "Editorial product close-up of Senseless cream"
+      }
+    },
+    "aftercare": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "Aftercare", "headline": "What comes next.",
+        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
+        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
+        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Do I really need numbing cream for Botox?", "answer": "<p>Many clients don't. Botox is a short procedure with a fine needle and most people find it manageable without preparation. Numbing cream is for those who want a more comfortable experience or who run sensitive — it's optional, not required.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Which strength should I use?", "answer": "<p>Clinical Strength for almost everyone. Advanced only if your skin is particularly sensitive or your appointment covers a broader area. See <a href=\"/pages/choosing-your-strength\">choose your strength</a>.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "When do I apply it?", "answer": "<p>Ahead of your appointment. Specific timing depends on your practitioner's guidance and how your skin responds to topical preparations.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Will it interfere with the Botox?", "answer": "<p>Senseless is a topical preparation that supports comfort. It works on the skin surface and shouldn't affect the underlying procedure. Ask your practitioner about their protocol if you're unsure.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "settings": { "headline": "Common questions." }
+    },
+    "related": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
+        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
+        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
+        "inj": { "type": "procedure_card", "settings": { "label": "All Injections", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-injections", "image_alt": "Editorial image for the injections range" } }
+      },
+      "block_order": ["lips", "micro", "laser", "inj"],
+      "settings": { "columns": "4", "eyebrow": "", "headline": "Other appointments Senseless covers.", "body": "", "closer": "", "section_cta_label": "See all procedures", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+    }
+  },
+  "order": ["hero", "recommendation", "grid", "trust", "why", "aftercare", "faq", "related"]
+}

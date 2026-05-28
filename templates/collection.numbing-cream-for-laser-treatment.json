@@ -1,0 +1,104 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "For laser",
+        "headline": "For laser hair removal, IPL, and resurfacing.",
+        "subhead": "<p>UK-formulated topical preparation for laser appointments across the category. Advanced Strength is the recommendation. Cream for face, spray for body. Professional for the most intensive resurfacing sessions.</p>",
+        "primary_cta_label": "Shop for laser",
+        "primary_cta_url": "#product-grid",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial product close-up of Senseless cream, no faces, no laser device, no clinical setting"
+      }
+    },
+    "recommendation": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The recommendation",
+        "headline": "Pick by area, not by laser type.",
+        "body": "<p>Laser appointments vary too widely for a single recommendation. A short underarm session and a full-face fractional resurfacing aren't the same booking. The framework that holds: Advanced Strength suits most laser appointments. Cream is right for face and smaller zones. Spray covers ground for body and larger areas. Professional Strength sits at the top for full-face resurfacing or the most intensive sessions. The treatment area decides — not the laser brand or the clinic's marketing.</p>",
+        "cta_label": "Compare strengths", "cta_url": "/pages/choosing-your-strength",
+        "image_alt": "Editorial product close-up of Senseless Advanced Strength cream"
+      }
+    },
+    "format": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "The format",
+        "headline": "Cream for face. Spray for body.",
+        "body": "<p>Face laser appointments are precise and contained. Cream is the natural format — a focused application, a controlled area, the format aesthetic clinics work with most often. Body laser work covers larger zones. Spray is built for that — broader coverage, faster application, the format that matches the surface area.</p>",
+        "cta_label": "Compare formats", "cta_url": "/pages/choosing-your-format",
+        "image_alt": "Editorial side-by-side product detail of Senseless cream and spray"
+      }
+    },
+    "grid": {
+      "type": "senseless-product-grid",
+      "blocks": {
+        "s30ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-30g", "flagship": false, "image_alt": "Advanced Strength Cream 30g on a warm off-white background" } },
+        "sspad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Spray on a warm off-white background" } },
+        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream 30g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream-30g", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Cream 30g on a warm off-white background" } },
+        "ssppr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray 100ml", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Spray on a warm off-white background" } },
+        "s10ad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream 10g", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream-10g", "flagship": false, "image_alt": "Advanced Strength Cream 10g on a warm off-white background" } }
+      },
+      "block_order": ["s30ad", "sspad", "s30pr", "ssppr", "s10ad"],
+      "settings": { "headline": "The products built for laser appointments.", "body": "<p>Advanced Strength for most sessions. Cream for face, spray for body. Professional for full-face resurfacing.</p>", "show_filters": false }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "Cruelty-free" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "why": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left", "eyebrow": "The detail",
+        "headline": "Laser asks specific things from your preparation.",
+        "body": "<p>Some lasers heat the skin. Some target pigment. Some resurface the top layer. Different lasers ask different things from the preparation that comes before them. Senseless is formulated for the category broadly, with three strengths and two relevant formats to match the appointment you've actually booked.</p>",
+        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
+        "image_alt": "Editorial product close-up of Senseless cream"
+      }
+    },
+    "aftercare": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "Aftercare", "headline": "What comes next.",
+        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
+        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
+        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Does laser hair removal hurt?", "answer": "<p>The experience varies — by laser type, by treatment area, by skin sensitivity, by hair coarseness. Many clients find prepared skin more comfortable than unprepared. Read more in our <a href=\"/blogs/guides/does-laser-hair-removal-hurt\">does laser hair removal hurt guide</a>.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Which strength is best for laser?", "answer": "<p>Advanced Strength for most laser appointments. Professional for full-face resurfacing or the most intensive sessions. The treatment area is the deciding factor more than the laser type.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Cream or spray for laser?", "answer": "<p>Cream for face and precise areas. Spray for body and larger zones. The format is decided by surface area, not by personal preference.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "When do I apply it?", "answer": "<p>Ahead of your appointment. Specific timing depends on your practitioner's protocol and the type of laser they're using.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Can I use Senseless before IPL?", "answer": "<p>Yes — IPL is part of the laser category Senseless is formulated for. Follow your practitioner's specific guidance.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": { "headline": "Common questions." }
+    },
+    "related": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
+        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } },
+        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
+        "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } }
+      },
+      "block_order": ["micro", "wax", "lips", "spmu"],
+      "settings": { "columns": "4", "eyebrow": "", "headline": "Other appointments Senseless covers.", "body": "", "closer": "", "section_cta_label": "See all procedures", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+    }
+  },
+  "order": ["hero", "recommendation", "format", "grid", "trust", "why", "aftercare", "faq", "related"]
+}
