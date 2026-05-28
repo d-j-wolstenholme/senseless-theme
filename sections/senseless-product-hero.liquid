@@ -1,0 +1,228 @@
+{%- comment -%}
+  Senseless — Product hero
+  Gallery + info panel (eyebrow/title/subtitle/price/body) + native variant picker + add-to-cart.
+  Pulls live product data. Tier treatment (2px purple border + filled CTA) applies when the product is
+  tagged "Professional" or metafield senseless.tier == "professional", or via the force_tier setting.
+  Variant picker uses the standard option-radio pattern synced to product.variants → hidden id input.
+{%- endcomment -%}
+
+{%- liquid
+  assign p = product
+  assign tier = section.settings.force_tier
+  if tier == 'auto'
+    assign tier = p.metafields.senseless.tier | default: ''
+    if tier == blank
+      for t in p.tags
+        assign tl = t | downcase
+        if tl == 'professional'
+          assign tier = 'professional'
+        endif
+      endfor
+    endif
+  endif
+  assign is_flagship = false
+  if tier == 'professional'
+    assign is_flagship = true
+  endif
+-%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-ph {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: #E5E2DC;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-ph__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; display: grid; grid-template-columns: 1fr; gap: 32px; }
+  .ss-ph__gallery { display: flex; flex-direction: column; gap: 12px; }
+  .ss-ph__main { aspect-ratio: 4 / 5; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; }
+  .ss-ph__main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-ph__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .ss-ph__ph svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
+  .ss-ph__thumbs { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ss-ph__thumb { width: 64px; height: 64px; border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; background: var(--ss-surface); cursor: pointer; padding: 0; }
+  .ss-ph__thumb[aria-current="true"] { border-color: var(--ss-purple); }
+  .ss-ph__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .ss-ph__info { display: flex; flex-direction: column; gap: 12px; }
+  .ss-ph--flagship .ss-ph__info { border: 2px solid var(--ss-purple); border-radius: 4px; padding: 24px; }
+  .ss-ph__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-ph__title { font-family: var(--ss-head); font-weight: 600; font-size: 30px; line-height: 1.15; margin: 0; }
+  .ss-ph__subtitle { font-family: var(--ss-head); font-weight: 500; font-size: 18px; color: var(--ss-body); margin: 0; }
+  .ss-ph__price { font-family: var(--ss-sans); font-weight: 500; font-size: 20px; margin: 4px 0 0; }
+  .ss-ph__price del { color: var(--ss-body); font-weight: 400; margin-right: 8px; }
+  .ss-ph__desc { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); }
+  .ss-ph__desc p { margin: 0 0 10px; }
+
+  .ss-ph__opt { display: flex; flex-direction: column; gap: 8px; margin: 4px 0; }
+  .ss-ph__opt-name { font-family: var(--ss-sans); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; }
+  .ss-ph__opt-values { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ss-ph__opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .ss-ph__opt label { display: inline-flex; align-items: center; justify-content: center; min-width: 56px; height: 40px; padding: 0 14px; border: 1px solid var(--ss-border); border-radius: 14px; background: var(--ss-surface); font-family: var(--ss-sans); font-size: 14px; cursor: pointer; transition: border-color 150ms ease-out, color 150ms ease-out; }
+  .ss-ph__opt input:checked + label { border-color: var(--ss-purple); color: var(--ss-purple); }
+  .ss-ph__opt input:focus-visible + label { outline: 2px solid var(--ss-purple); outline-offset: 2px; }
+
+  .ss-ph__form { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+  .ss-ph__atc { display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-text); background: var(--ss-surface); color: var(--ss-text); font-family: var(--ss-sans); font-weight: 500; font-size: 15px; cursor: pointer; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-ph__atc:hover { background: var(--ss-text); color: var(--ss-bg); }
+  .ss-ph--flagship .ss-ph__atc { background: var(--ss-purple); border-color: var(--ss-purple); color: #ffffff; }
+  .ss-ph--flagship .ss-ph__atc:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
+  .ss-ph__atc[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .ss-ph__trust { font-family: var(--ss-sans); font-size: 13px; color: var(--ss-body); margin: 2px 0 0; }
+
+  @media (min-width: 900px) {
+    .ss-ph__inner { grid-template-columns: 60% 40%; gap: 48px; align-items: start; padding: 64px 40px; }
+    .ss-ph__title { font-size: 36px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ss-ph__atc, .ss-ph__opt label { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-ph{% if is_flagship %} ss-ph--flagship{% endif %}" data-ss-ph aria-label="{{ p.title | escape }}">
+  <div class="ss-ph__inner">
+    <div class="ss-ph__gallery">
+      <div class="ss-ph__main" data-ph-main>
+        {%- if p.featured_media -%}
+          {{ p.featured_media | image_url: width: 1000 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 900px) 55vw, 100vw', widths: '400, 700, 1000', alt: p.featured_media.alt | default: p.title }}
+        {%- else -%}
+          <div class="ss-ph__ph">{{ 'product-1' | placeholder_svg_tag }}</div>
+        {%- endif -%}
+      </div>
+      {%- if p.media.size > 1 -%}
+        <div class="ss-ph__thumbs" role="group" aria-label="Product images">
+          {%- for media in p.media -%}
+            <button type="button" class="ss-ph__thumb" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" data-ph-thumb data-full="{{ media | image_url: width: 1000 }}">
+              {{ media | image_url: width: 128 | image_tag: loading: 'lazy', widths: '64, 128', alt: media.alt | default: p.title }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="ss-ph__info">
+      {%- if section.settings.eyebrow != blank -%}<p class="ss-ph__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      <h1 class="ss-ph__title">{{ p.title | escape }}</h1>
+      {%- if section.settings.subtitle != blank -%}<p class="ss-ph__subtitle">{{ section.settings.subtitle | escape }}</p>{%- endif -%}
+      <p class="ss-ph__price" data-ph-price>
+        {%- assign v = p.selected_or_first_available_variant -%}
+        {%- if v.compare_at_price > v.price -%}<del>{{ v.compare_at_price | money }}</del>{%- endif -%}
+        {{ v.price | money }}
+      </p>
+
+      {%- if p.description != blank -%}<div class="ss-ph__desc">{{ p.description }}</div>{%- endif -%}
+
+      {%- form 'product', p, class: 'ss-ph__form', novalidate: 'novalidate' -%}
+        {%- unless p.has_only_default_variant -%}
+          {%- for option in p.options_with_values -%}
+            <div class="ss-ph__opt" data-ph-optgroup>
+              <span class="ss-ph__opt-name">{{ option.name | escape }}</span>
+              <div class="ss-ph__opt-values">
+                {%- for value in option.values -%}
+                  {%- assign oid = 'opt-' | append: section.id | append: '-' | append: option.position | append: '-' | append: forloop.index -%}
+                  <input type="radio" id="{{ oid }}" name="option{{ option.position }}" value="{{ value | escape }}" data-ph-opt data-position="{{ option.position }}" {% if option.selected_value == value %}checked{% endif %}>
+                  <label for="{{ oid }}">{{ value | escape }}</label>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}" data-ph-id>
+        <button type="submit" name="add" class="ss-ph__atc" data-ph-atc {% unless p.available %}disabled{% endunless %}>
+          <span data-ph-atc-text>{% if p.available %}Add to cart{% else %}Sold out{% endif %}</span>
+        </button>
+      {%- endform -%}
+
+      {%- if section.settings.trust_line != blank -%}<p class="ss-ph__trust">{{ section.settings.trust_line | escape }}</p>{%- endif -%}
+    </div>
+  </div>
+
+  <script type="application/json" data-ph-variants>{{ p.variants | json }}</script>
+  <script>
+    (function () {
+      var root = document.currentScript.closest('[data-ss-ph]');
+      if (!root) return;
+
+      // Gallery thumbnails
+      var main = root.querySelector('[data-ph-main] img');
+      root.querySelectorAll('[data-ph-thumb]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var full = btn.getAttribute('data-full');
+          if (main && full) { main.src = full; main.srcset = ''; }
+          root.querySelectorAll('[data-ph-thumb]').forEach(function (b) { b.setAttribute('aria-current', b === btn ? 'true' : 'false'); });
+        });
+      });
+
+      // Variant selection
+      var dataEl = root.querySelector('[data-ph-variants]');
+      var variants = [];
+      try { variants = JSON.parse(dataEl.textContent); } catch (e) { return; }
+      var idInput = root.querySelector('[data-ph-id]');
+      var priceEl = root.querySelector('[data-ph-price]');
+      var atc = root.querySelector('[data-ph-atc]');
+      var atcText = root.querySelector('[data-ph-atc-text]');
+
+      function money(cents) {
+        try { return '£' + (cents / 100).toFixed(2); } catch (e) { return ''; }
+      }
+      function selectedOptions() {
+        var opts = [];
+        root.querySelectorAll('[data-ph-opt]:checked').forEach(function (i) {
+          opts[parseInt(i.getAttribute('data-position'), 10) - 1] = i.value;
+        });
+        return opts;
+      }
+      function findVariant(opts) {
+        return variants.find(function (v) {
+          return (v.options || []).every(function (o, idx) { return o === opts[idx]; });
+        });
+      }
+      function update() {
+        var opts = selectedOptions();
+        var v = findVariant(opts);
+        if (!v) {
+          if (atc) { atc.setAttribute('disabled', 'disabled'); }
+          if (atcText) { atcText.textContent = 'Unavailable'; }
+          return;
+        }
+        if (idInput) { idInput.value = v.id; }
+        if (priceEl) {
+          var html = '';
+          if (v.compare_at_price && v.compare_at_price > v.price) { html += '<del>' + money(v.compare_at_price) + '</del>'; }
+          html += money(v.price);
+          priceEl.innerHTML = html;
+        }
+        if (atc && atcText) {
+          if (v.available) { atc.removeAttribute('disabled'); atcText.textContent = 'Add to cart'; }
+          else { atc.setAttribute('disabled', 'disabled'); atcText.textContent = 'Sold out'; }
+        }
+      }
+      root.querySelectorAll('[data-ph-opt]').forEach(function (i) { i.addEventListener('change', update); });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Product hero",
+  "tag": "section",
+  "class": "senseless-section senseless-product-hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "e.g. Clinical Strength · Cream. Shared across products on this template — leave blank or drive per-product via metafield.", "default": "" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "" },
+    { "type": "text", "id": "trust_line", "label": "Trust line (below add to cart)", "default": "UK formulated · Cosmetic product" },
+    { "type": "select", "id": "force_tier", "label": "Tier treatment", "default": "auto", "info": "Auto reads product tag 'Professional' or metafield senseless.tier. Professional gets the 2px purple border + filled CTA.", "options": [ { "value": "auto", "label": "Auto (from product)" }, { "value": "none", "label": "None" }, { "value": "professional", "label": "Professional (flagship)" } ] }
+  ],
+  "presets": [
+    { "name": "Senseless — Product hero" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,95 @@
+{%- comment -%}
+  Senseless — How to use
+  Eyebrow + headline + numbered step blocks (title + body) + closing body + CTA.
+  No specific timing claims (compliance) — steps route to the practitioner. Reusable across product pages.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-htu {
+    --ss-purple: #6B3FA0;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: #E5E2DC;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-surface);
+    color: var(--ss-text);
+  }
+  .ss-htu__inner { max-width: 860px; margin: 0 auto; padding: 44px 20px; }
+  .ss-htu__header { max-width: 60ch; margin: 0 0 28px; display: flex; flex-direction: column; gap: 12px; }
+  .ss-htu__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-htu__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; }
+
+  .ss-htu__steps { list-style: none; counter-reset: ss-step; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+  .ss-htu__step { counter-increment: ss-step; display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; }
+  .ss-htu__num { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--ss-purple); color: var(--ss-purple); display: flex; align-items: center; justify-content: center; font-family: var(--ss-head); font-weight: 600; font-size: 16px; }
+  .ss-htu__num::before { content: counter(ss-step); }
+  .ss-htu__stitle { font-family: var(--ss-head); font-weight: 600; font-size: 17px; margin: 0 0 4px; }
+  .ss-htu__sbody { font-family: var(--ss-sans); font-size: 15px; line-height: 1.55; color: var(--ss-body); margin: 0; }
+  .ss-htu__sbody p { margin: 0; }
+
+  .ss-htu__closer { font-family: var(--ss-sans); font-size: 15px; line-height: 1.6; color: var(--ss-body); margin: 28px 0 0; }
+  .ss-htu__cta { margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); text-decoration: none; }
+  .ss-htu__cta::after { content: '\2192'; }
+
+  @media (min-width: 1024px) { .ss-htu__inner { padding: 96px 40px; } }
+{%- endstyle -%}
+
+<section class="ss-htu" aria-label="{{ section.settings.headline | default: 'How to use' | escape }}">
+  <div class="ss-htu__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank -%}
+      <header class="ss-htu__header">
+        {%- if section.settings.eyebrow != blank -%}<p class="ss-htu__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-htu__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <ol class="ss-htu__steps">
+      {%- for block in section.blocks -%}
+        <li class="ss-htu__step" {{ block.shopify_attributes }}>
+          <span class="ss-htu__num" aria-hidden="true"></span>
+          <div>
+            {%- if block.settings.title != blank -%}<p class="ss-htu__stitle">{{ block.settings.title | escape }}</p>{%- endif -%}
+            {%- if block.settings.body != blank -%}<div class="ss-htu__sbody">{{ block.settings.body }}</div>{%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ol>
+
+    {%- if section.settings.closer != blank -%}<div class="ss-htu__closer">{{ section.settings.closer }}</div>{%- endif -%}
+    {%- if section.settings.cta_label != blank -%}<a class="ss-htu__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — How to use",
+  "tag": "section",
+  "class": "senseless-section senseless-how-to-use",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Application" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "A short routine ahead of your appointment." },
+    { "type": "richtext", "id": "closer", "label": "Closing body" },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "How Senseless works" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Step title", "default": "Clean the area." },
+        { "type": "richtext", "id": "body", "label": "Step body", "default": "<p>Use a gentle cleanser. Pat dry — no rubbing.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Senseless — How to use", "blocks": [ { "type": "step" }, { "type": "step" }, { "type": "step" }, { "type": "step" } ] }
+  ]
+}
+{% endschema %}

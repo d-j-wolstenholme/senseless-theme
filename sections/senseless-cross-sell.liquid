@@ -1,0 +1,119 @@
+{%- comment -%}
+  Senseless — Cross-sell ("complete the system")
+  Header + related product cards (label, title, one-line body, price, CTA). Flagship = 2px purple border, no badge.
+  Reusable on product pages for the rest of the range and the aftercare cleanser.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-xs {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-body: #4a4a50;
+    --ss-border: #E5E2DC;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-xs__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; }
+  .ss-xs__header { text-align: center; max-width: 60ch; margin: 0 auto 28px; display: flex; flex-direction: column; gap: 12px; }
+  .ss-xs__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-xs__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; }
+
+  .ss-xs__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .ss-xs__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-xs__card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
+  .ss-xs__card--flagship { border: 2px solid var(--ss-purple); }
+  .ss-xs__card--flagship:hover { border-color: var(--ss-purple); }
+  .ss-xs__media { aspect-ratio: 4 / 5; background: var(--ss-bg); }
+  .ss-xs__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-xs__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .ss-xs__ph svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
+  .ss-xs__cbody { padding: 20px; display: flex; flex-direction: column; gap: 6px; flex: 1 1 auto; }
+  .ss-xs__label { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-xs__title { font-family: var(--ss-head); font-weight: 600; font-size: 18px; line-height: 1.3; margin: 0; }
+  .ss-xs__text { font-family: var(--ss-sans); font-size: 14px; line-height: 1.5; color: var(--ss-body); margin: 0; }
+  .ss-xs__text p { margin: 0; }
+  .ss-xs__price { font-family: var(--ss-sans); font-weight: 500; font-size: 16px; margin: 2px 0 0; }
+  .ss-xs__cta { margin-top: auto; padding-top: 10px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
+  .ss-xs__cta::after { content: '\2192'; }
+
+  @media (min-width: 768px) {
+    .ss-xs--cols-3 .ss-xs__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .ss-xs--cols-4 .ss-xs__grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .ss-xs__headline { font-size: 32px; }
+  }
+  @media (min-width: 1024px) { .ss-xs__inner { padding: 96px 40px; } }
+  @media (prefers-reduced-motion: reduce) { .ss-xs__card { transition: none; } .ss-xs__card:hover { transform: none; } }
+{%- endstyle -%}
+
+<section class="ss-xs ss-xs--cols-{{ section.settings.columns }}" aria-label="{{ section.settings.headline | default: 'Complete the system' | escape }}">
+  <div class="ss-xs__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank -%}
+      <header class="ss-xs__header">
+        {%- if section.settings.eyebrow != blank -%}<p class="ss-xs__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-xs__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <div class="ss-xs__grid">
+      {%- for block in section.blocks -%}
+        <a class="ss-xs__card{% if block.settings.flagship %} ss-xs__card--flagship{% endif %}" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
+          <div class="ss-xs__media">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
+            {%- else -%}
+              <div class="ss-xs__ph">{{ 'image' | placeholder_svg_tag }}</div>
+            {%- endif -%}
+          </div>
+          <div class="ss-xs__cbody">
+            {%- if block.settings.label != blank -%}<p class="ss-xs__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+            {%- if block.settings.title != blank -%}<h3 class="ss-xs__title">{{ block.settings.title | escape }}</h3>{%- endif -%}
+            {%- if block.settings.body != blank -%}<div class="ss-xs__text">{{ block.settings.body }}</div>{%- endif -%}
+            {%- if block.settings.price != blank -%}<p class="ss-xs__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+            {%- if block.settings.cta_label != blank -%}<span class="ss-xs__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Cross-sell",
+  "tag": "section",
+  "class": "senseless-section senseless-cross-sell",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "select", "id": "columns", "label": "Cards per row (desktop)", "default": "3", "options": [ { "value": "3", "label": "3" }, { "value": "4", "label": "4" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Complete the system." }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless product on a warm off-white background" },
+        { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Cream 10g" },
+        { "type": "richtext", "id": "body", "label": "One-line body", "default": "<p>Smaller size, single appointment.</p>" },
+        { "type": "text", "id": "price", "label": "Price", "default": "£TBC" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View product" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" },
+        { "type": "checkbox", "id": "flagship", "label": "Flagship variant (purple border)", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Senseless — Cross-sell", "blocks": [ { "type": "product_card" }, { "type": "product_card" }, { "type": "product_card" } ] }
+  ]
+}
+{% endschema %}
