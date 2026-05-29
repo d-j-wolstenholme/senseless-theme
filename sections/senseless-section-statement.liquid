@@ -1,0 +1,75 @@
+{%- comment -%}
+  Senseless — Statement
+  The statement unit: the spine of the composition system (Strand 1 → Layout & composition).
+  eyebrow (brand/primary, uppercase) → headline (tight, heavy) → ONE lead paragraph
+  (text/secondary, ~58ch) → optional single CTA. Centred, narrow reading measure (~720px).
+  Sits inside the canvas/surface band alternation. Reuses the locked Senseless type + tokens.
+  Max one lead per headline (extra copy is body, never a second lead); at most one italic word.
+{%- endcomment -%}
+
+{%- style -%}
+
+  .ss-st {
+    --ss-purple: #6B3FA0;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1A1816;
+    --ss-body: #2B2730;
+    --ss-secondary: #5C5853;
+    --ss-border: rgba(26,26,26,0.10);
+    --ss-head: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --ss-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ss-text);
+  }
+  .ss-st--canvas { background: var(--ss-bg); }
+  .ss-st--surface { background: var(--ss-surface); border-top: 1px solid var(--ss-border); border-bottom: 1px solid var(--ss-border); }
+  .ss-st__inner { max-width: 720px; margin: 0 auto; padding: 56px 24px; display: flex; flex-direction: column; gap: 18px; }
+  .ss-st--center .ss-st__inner { text-align: center; align-items: center; }
+  .ss-st--left .ss-st__inner { text-align: left; align-items: flex-start; }
+  .ss-st__eyebrow { font-family: var(--ss-sans); font-weight: 600; font-size: 12px; line-height: 1.2; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-st__headline { font-family: var(--ss-head); font-weight: 600; font-size: 30px; line-height: 1.1; letter-spacing: -0.025em; color: var(--ss-text); margin: 0; max-width: 18ch; }
+  .ss-st__headline em, .ss-st__headline i { font-style: italic; font-weight: 600; }
+  .ss-st__lead { font-family: var(--ss-sans); font-weight: 400; font-size: 18px; line-height: 1.55; color: var(--ss-secondary); margin: 0; max-width: 58ch; }
+  .ss-st__lead p { margin: 0; }
+  .ss-st__cta { display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 26px; margin-top: 6px; border-radius: 14px; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; background: var(--ss-purple); color: #fff; border: 1px solid var(--ss-purple); transition: background-color 200ms ease-out, border-color 200ms ease-out; }
+  .ss-st__cta:hover { background: #5A3489; border-color: #5A3489; }
+  .ss-st__cta--ghost { background: transparent; color: var(--ss-text); border-color: var(--ss-text); }
+  .ss-st__cta--ghost:hover { background: var(--ss-text); color: var(--ss-bg); }
+
+  @media (min-width: 1024px) {
+    .ss-st__inner { padding: 96px 24px; gap: 22px; }
+    .ss-st__headline { font-size: 42px; line-height: 1.08; }
+    .ss-st__lead { font-size: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ss-st__cta { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-st ss-st--{{ section.settings.band }} ss-st--{{ section.settings.align }}" aria-label="{{ section.settings.headline | default: 'Statement' | escape }}">
+  <div class="ss-st__inner">
+    {%- if section.settings.eyebrow != blank -%}<p class="ss-st__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.headline != blank -%}<h2 class="ss-st__headline">{{ section.settings.headline }}</h2>{%- endif -%}
+    {%- if section.settings.lead != blank -%}<div class="ss-st__lead">{{ section.settings.lead }}</div>{%- endif -%}
+    {%- if section.settings.cta_label != blank -%}
+      <a class="ss-st__cta{% if section.settings.cta_style == 'ghost' %} ss-st__cta--ghost{% endif %}" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Statement",
+  "tag": "section",
+  "class": "senseless-section senseless-section-statement",
+  "settings": [
+    { "type": "select", "id": "band", "label": "Band background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas (off-white)" }, { "value": "surface", "label": "Surface (white, hairline border)" } ] },
+    { "type": "select", "id": "align", "label": "Alignment", "default": "center", "options": [ { "value": "center", "label": "Centred" }, { "value": "left", "label": "Left" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Senseless system" },
+    { "type": "text", "id": "headline", "label": "Headline", "info": "Use <em>word</em> for a single italic emphasis word.", "default": "Match the formula to your appointment." },
+    { "type": "richtext", "id": "lead", "label": "Lead paragraph", "info": "One paragraph only (~58ch). Extra copy belongs in a body section, not here.", "default": "<p>One lead paragraph, set in the considered grey of the colour ladder, with room to breathe above and below.</p>" },
+    { "type": "text", "id": "cta_label", "label": "CTA label (optional)" },
+    { "type": "url", "id": "cta_url", "label": "CTA link (optional)" },
+    { "type": "select", "id": "cta_style", "label": "CTA style", "default": "primary", "options": [ { "value": "primary", "label": "Primary (filled purple)" }, { "value": "ghost", "label": "Outlined" } ] }
+  ],
+  "presets": [ { "name": "Senseless — Statement" } ]
+}
+{% endschema %}

@@ -19,6 +19,7 @@
   }
   .ss-pq--canvas { background: var(--ss-bg); }
   .ss-pq--white { background: var(--ss-surface); }
+  .ss-pq--sunken { background: #efeeea; }
   .ss-pq--tint { background: rgba(107,63,160,0.06); }
   .ss-pq--dark { background: var(--ss-dark); color: #f4f1f7; }
   .ss-pq__inner { max-width: 820px; margin: 0 auto; padding: 64px 24px; text-align: center; }
@@ -51,7 +52,7 @@
   "tag": "section",
   "class": "senseless-section senseless-pull-quote",
   "settings": [
-    { "type": "select", "id": "background", "label": "Background", "default": "tint", "options": [ { "value": "canvas", "label": "Canvas" }, { "value": "white", "label": "White" }, { "value": "tint", "label": "Purple tint" }, { "value": "dark", "label": "Brand dark" } ] },
+    { "type": "select", "id": "background", "label": "Background", "default": "sunken", "options": [ { "value": "canvas", "label": "Canvas" }, { "value": "white", "label": "White" }, { "value": "sunken", "label": "Sunken (inset)" }, { "value": "tint", "label": "Purple tint" }, { "value": "dark", "label": "Brand dark" } ] },
     { "type": "checkbox", "id": "show_mark", "label": "Show quotation mark", "default": true },
     { "type": "richtext", "id": "quote", "label": "Quote / statement", "default": "<p>Placeholder statement — replace with approved copy.</p>" },
     { "type": "text", "id": "attribution", "label": "Attribution (optional)" },

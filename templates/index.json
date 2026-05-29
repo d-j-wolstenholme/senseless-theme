@@ -3,13 +3,15 @@
     "hero": {
       "type": "senseless-hero-brand-led",
       "settings": {
+        "eyebrow": "Made for aesthetics",
         "headline": "Confidence Starts With Comfort.",
-        "subhead": "<p>Topical numbing, made for aesthetic appointments. Three strengths and three formats, formulated in the UK for the way modern sessions actually run.</p>",
+        "subhead": "<p>A topical preparation made for aesthetic appointments. Three strengths and three formats, formulated in the UK for the way modern sessions actually run.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "/collections/numbing-cream",
         "secondary_cta_label": "Find your strength",
         "secondary_cta_url": "/pages/choosing-your-strength",
-        "image_alt": "Senseless topical preparation range arranged on a warm off-white background with a purple brand accent"
+        "image_alt": "Senseless topical preparation range arranged on a warm off-white background with a purple brand accent",
+        "caption": "The Senseless range — formulated in the UK."
       }
     },
     "trust": {
@@ -21,7 +23,19 @@
         "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
       },
       "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": {}
+      "settings": { "band": "surface" }
+    },
+    "statement": {
+      "type": "senseless-section-statement",
+      "settings": {
+        "band": "canvas",
+        "align": "center",
+        "eyebrow": "The Senseless system",
+        "headline": "Match the formula to your appointment.",
+        "lead": "<p>Aesthetic appointments vary, and the preparation you bring should reflect that — Clinical for routine sessions, Advanced for longer or more sensitive work, and Professional, our most concentrated formula.</p>",
+        "cta_label": "",
+        "cta_style": "ghost"
+      }
     },
     "system": {
       "type": "senseless-trio-card-row",
@@ -31,12 +45,12 @@
         "professional": { "type": "tier_card", "settings": { "label": "Professional Strength", "heading": "Developed with practitioners", "body": "<p>Our most concentrated formula. Used in clinics across the UK. Available without restriction. Professional sits at the top of the Senseless system. Trusted at the chair.</p>", "cta_label": "Shop Professional", "cta_url": "/collections/numbing-cream?strength=professional", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } }
       },
       "block_order": ["clinical", "advanced", "professional"],
-      "settings": { "columns": "3", "eyebrow": "The Senseless system", "headline": "Match the formula to your appointment.", "body": "<p>Aesthetic appointments vary. The product you bring to them should reflect that. Clinical for routine sessions. Advanced for longer or more sensitive work. Professional, our most concentrated formula, formulated for clinicians and available to all.</p>", "closer": "The system does the rest.", "section_cta_label": "Find your strength", "section_cta_url": "/pages/choosing-your-strength" }
+      "settings": { "columns": "3", "eyebrow": "", "headline": "", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
     },
     "decision": {
       "type": "senseless-decision-band",
       "settings": {
-        "style": "tint",
+        "style": "sunken",
         "eyebrow": "Not sure where to start?",
         "headline": "Two quick decisions: strength, then format.",
         "body": "Match the strength to your appointment, then choose the format for the treatment area.",
@@ -56,20 +70,10 @@
       "block_order": ["cream", "gel", "spray"],
       "settings": { "eyebrow": "By format", "headline": "Cream, gel, or spray.", "body": "<p>Format is the second decision, after strength.</p>" }
     },
-    "showcase": {
-      "type": "senseless-product-showcase",
-      "blocks": {
-        "clinical": { "type": "product_item", "settings": { "label": "Clinical Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream tube on a warm off-white background" } },
-        "advanced": { "type": "product_item", "settings": { "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream tube on a warm off-white background" } },
-        "professional": { "type": "product_item", "settings": { "label": "Professional Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream", "flagship": true, "image_alt": "Professional Strength Senseless cream tube on a warm off-white background" } }
-      },
-      "block_order": ["clinical", "advanced", "professional"],
-      "settings": { "eyebrow": "Most chosen", "headline": "Start here.", "body": "<p>The three Senseless products that handle most aesthetic appointments.</p>" }
-    },
     "voice": {
       "type": "senseless-pull-quote",
       "settings": {
-        "background": "dark",
+        "background": "sunken",
         "show_mark": true,
         "quote": "<p>Senseless is a UK cosmetic product. Not a medicine. Not pharmacy. A topical preparation developed for the way modern aesthetic appointments actually work: short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result.</p>",
         "attribution": "",
@@ -88,5 +92,5 @@
       }
     }
   },
-  "order": ["hero", "trust", "system", "decision", "formats", "showcase", "voice", "newsletter"]
+  "order": ["hero", "trust", "statement", "system", "decision", "formats", "voice", "newsletter"]
 }

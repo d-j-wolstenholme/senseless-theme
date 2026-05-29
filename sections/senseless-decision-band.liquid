@@ -20,6 +20,7 @@
   .ss-db--tint { background: rgba(107,63,160,0.07); }
   .ss-db--dark { background: var(--ss-dark); }
   .ss-db--canvas { background: var(--ss-bg); }
+  .ss-db--sunken { background: #efeeea; }
   .ss-db__inner { max-width: 900px; margin: 0 auto; padding: 48px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
   .ss-db__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-db--dark .ss-db__eyebrow { color: #c8a9e6; }
@@ -68,7 +69,7 @@
   "tag": "section",
   "class": "senseless-section senseless-decision-band",
   "settings": [
-    { "type": "select", "id": "style", "label": "Background", "default": "tint", "options": [ { "value": "tint", "label": "Purple tint" }, { "value": "dark", "label": "Brand dark" }, { "value": "canvas", "label": "Canvas" } ] },
+    { "type": "select", "id": "style", "label": "Background", "default": "sunken", "options": [ { "value": "sunken", "label": "Sunken (inset)" }, { "value": "tint", "label": "Purple tint" }, { "value": "dark", "label": "Brand dark" }, { "value": "canvas", "label": "Canvas" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline", "info": "Add ' | ' for a smaller second beat.", "default": "Not sure which strength is right?" },
     { "type": "text", "id": "body", "label": "Supporting line" },
