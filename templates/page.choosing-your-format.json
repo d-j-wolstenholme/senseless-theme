@@ -4,20 +4,20 @@
       "type": "senseless-guide-hero",
       "settings": {
         "eyebrow": "The format choice",
-        "headline": "Cream, gel, or spray? Pick by procedure.",
+        "headline": "Cream, gel, or spray? | Pick by procedure.",
         "subhead": "<p>Format is independent of strength. An Advanced cream is the same concentration as an Advanced gel. The choice between the three formats comes down to the procedure, the treatment area, and your practitioner's protocol. Most clients use cream. Some have appointments that suit gel or spray better.</p>",
         "image_alt": "Editorial three-format composition of Senseless cream, gel, and spray"
       }
     },
     "formats": {
-      "type": "senseless-trio-card-row",
+      "type": "senseless-format-row",
       "blocks": {
-        "cream": { "type": "format_card", "settings": { "label": "Cream", "body": "<p><strong>The default format.</strong> A topical preparation cream. The format most aesthetic appointments call for — focused application, controlled area, the format clinics work with most often. Three strengths and two sizes.</p>", "cta_label": "", "cta_url": "/collections/numbing-cream", "image_alt": "Senseless cream on a warm off-white background" } },
-        "gel": { "type": "format_card", "settings": { "label": "Gel", "body": "<p><strong>For sustained appointments.</strong> A topical preparation gel. Sits differently on skin than cream — spreads further, stays in place across longer sessions. The format for microneedling, sustained laser, longer SPMU sittings. Two strengths — Advanced and Professional (no Clinical gel).</p>", "cta_label": "", "cta_url": "/collections/numbing-gel", "image_alt": "Senseless gel on a warm off-white background" } },
-        "spray": { "type": "format_card", "settings": { "label": "Spray", "body": "<p><strong>For body and broader zones.</strong> A topical preparation spray. Built for surface area — body laser, brazilian waxing, broader injection coverage. Two strengths (Advanced and Professional — no Clinical spray).</p>", "cta_label": "", "cta_url": "/collections/numbing-spray", "image_alt": "Senseless spray on a warm off-white background" } }
+        "cream": { "type": "format_item", "settings": { "label": "Cream", "body": "<p><strong>The default format.</strong> A topical preparation cream. The format most aesthetic appointments call for — focused application, controlled area, the format clinics work with most often. Three strengths and two sizes.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream" } },
+        "gel": { "type": "format_item", "settings": { "label": "Gel", "body": "<p><strong>For sustained appointments.</strong> A topical preparation gel. Sits differently on skin than cream — spreads further, stays in place across longer sessions. The format for microneedling, sustained laser, longer SPMU sittings. Two strengths — Advanced and Professional (no Clinical gel).</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel" } },
+        "spray": { "type": "format_item", "settings": { "label": "Spray", "body": "<p><strong>For body and broader zones.</strong> A topical preparation spray. Built for surface area — body laser, brazilian waxing, broader injection coverage. Two strengths (Advanced and Professional — no Clinical spray).</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray" } }
       },
       "block_order": ["cream", "gel", "spray"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "The three formats.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "settings": { "eyebrow": "The three formats", "headline": "The three formats.", "body": "" }
     },
     "matrix": {
       "type": "senseless-strength-matrix",

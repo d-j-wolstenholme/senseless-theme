@@ -1,0 +1,81 @@
+{%- comment -%}
+  Senseless — Editorial band
+  Long-form, typography-led prose. Generous measure, large lead/standfirst, no cards.
+  Headline supports a dual-barrel break: put " | " in the headline and the part after renders
+  smaller + lighter as a subordinate beat. Distinct from the narrower senseless-rich-text.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-ed {
+    --ss-purple: #6B3FA0;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-dark: #241836;
+    --ss-text: #1a1a1a;
+    --ss-secondary: #5C5853;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ss-text);
+  }
+  .ss-ed--canvas { background: var(--ss-bg); }
+  .ss-ed--white { background: var(--ss-surface); }
+  .ss-ed--dark { background: var(--ss-dark); color: #f4f1f7; }
+  .ss-ed__inner { max-width: 720px; margin: 0 auto; padding: 56px 24px; }
+  .ss-ed--center .ss-ed__inner { text-align: center; }
+  .ss-ed__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 18px; }
+  .ss-ed--dark .ss-ed__eyebrow { color: #c8a9e6; }
+  .ss-ed__headline { font-family: var(--ss-head); font-weight: 600; font-size: 30px; line-height: 1.18; letter-spacing: -0.01em; margin: 0 0 22px; }
+  .ss-ed__headline .ss-ed__beat { display: block; font-size: 0.62em; font-weight: 500; line-height: 1.25; color: var(--ss-secondary); margin-top: 10px; }
+  .ss-ed--dark .ss-ed__headline .ss-ed__beat { color: #b9b2c4; }
+  .ss-ed__lead { font-family: var(--ss-head); font-weight: 500; font-size: 21px; line-height: 1.45; margin: 0 0 20px; }
+  .ss-ed__lead p { margin: 0 0 14px; }
+  .ss-ed__body { font-family: var(--ss-sans); font-size: 17px; line-height: 1.7; color: var(--ss-secondary); }
+  .ss-ed--dark .ss-ed__body { color: #cdc6d6; }
+  .ss-ed__body p { margin: 0 0 18px; }
+  .ss-ed__body p:last-child { margin-bottom: 0; }
+  .ss-ed__cta { margin-top: 24px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; color: var(--ss-purple); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 200ms ease-out; }
+  .ss-ed--dark .ss-ed__cta { color: #c8a9e6; }
+  .ss-ed__cta::after { content: '\2192'; }
+  .ss-ed__cta:hover { border-bottom-color: currentColor; }
+
+  @media (min-width: 1024px) {
+    .ss-ed__inner { padding: 88px 24px; }
+    .ss-ed__headline { font-size: 38px; }
+    .ss-ed__lead { font-size: 23px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ss-ed__cta { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-ed ss-ed--{{ section.settings.background }}{% if section.settings.align == 'center' %} ss-ed--center{% endif %}" aria-label="{{ section.settings.headline | default: 'Editorial' | escape }}">
+  <div class="ss-ed__inner">
+    {%- if section.settings.eyebrow != blank -%}<p class="ss-ed__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.headline != blank -%}
+      {%- assign hl_parts = section.settings.headline | split: ' | ' -%}
+      <h2 class="ss-ed__headline">{{ hl_parts[0] | escape }}{%- if hl_parts.size > 1 -%}<span class="ss-ed__beat">{{ hl_parts[1] | escape }}</span>{%- endif -%}</h2>
+    {%- endif -%}
+    {%- if section.settings.lead != blank -%}<div class="ss-ed__lead">{{ section.settings.lead }}</div>{%- endif -%}
+    {%- if section.settings.body != blank -%}<div class="ss-ed__body">{{ section.settings.body }}</div>{%- endif -%}
+    {%- if section.settings.cta_label != blank -%}<a class="ss-ed__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Editorial",
+  "tag": "section",
+  "class": "senseless-section senseless-editorial-band",
+  "settings": [
+    { "type": "select", "id": "background", "label": "Background", "default": "white", "options": [ { "value": "canvas", "label": "Canvas (warm)" }, { "value": "white", "label": "White" }, { "value": "dark", "label": "Brand dark" } ] },
+    { "type": "select", "id": "align", "label": "Alignment", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Centred" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "headline", "label": "Headline", "info": "Add ' | ' to break into a smaller subordinate second beat.", "default": "Editorial headline" },
+    { "type": "richtext", "id": "lead", "label": "Lead / standfirst" },
+    { "type": "richtext", "id": "body", "label": "Body" },
+    { "type": "text", "id": "cta_label", "label": "CTA label" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "presets": [ { "name": "Senseless — Editorial" } ]
+}
+{% endschema %}

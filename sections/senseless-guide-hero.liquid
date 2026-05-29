@@ -32,6 +32,8 @@
   .ss-gh__text { display: flex; flex-direction: column; gap: 14px; max-width: 60ch; }
   .ss-gh__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-gh__headline { font-family: var(--ss-head); font-weight: 600; font-size: 32px; line-height: 1.15; margin: 0; }
+  .ss-gh__headline .ss-gh__beat { display: block; font-size: 0.58em; font-weight: 500; line-height: 1.25; color: var(--ss-body); margin-top: 12px; }
+  .ss-gh--dark .ss-gh__headline .ss-gh__beat { color: rgba(247,247,245,0.72); }
   .ss-gh__subhead { font-family: var(--ss-sans); font-size: 18px; line-height: 1.55; color: var(--ss-body); margin: 0; }
   .ss-gh__subhead p { margin: 0 0 10px; }
   .ss-gh__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
@@ -57,7 +59,10 @@
   <div class="ss-gh__inner">
     <div class="ss-gh__text">
       {%- if section.settings.eyebrow != blank -%}<p class="ss-gh__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-      {%- if section.settings.headline != blank -%}<h1 class="ss-gh__headline">{{ section.settings.headline | escape }}</h1>{%- endif -%}
+      {%- if section.settings.headline != blank -%}
+        {%- assign gh_hl = section.settings.headline | split: ' | ' -%}
+        <h1 class="ss-gh__headline">{{ gh_hl[0] | escape }}{%- if gh_hl.size > 1 -%}<span class="ss-gh__beat">{{ gh_hl[1] | escape }}</span>{%- endif -%}</h1>
+      {%- endif -%}
       {%- if section.settings.subhead != blank -%}<div class="ss-gh__subhead">{{ section.settings.subhead }}</div>{%- endif -%}
       {%- if section.settings.primary_cta_label != blank or section.settings.secondary_cta_label != blank -%}
         <div class="ss-gh__ctas">

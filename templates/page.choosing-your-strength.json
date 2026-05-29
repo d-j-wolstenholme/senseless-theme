@@ -4,7 +4,7 @@
       "type": "senseless-guide-hero",
       "settings": {
         "eyebrow": "The Senseless system",
-        "headline": "Three strengths. Match it to the appointment.",
+        "headline": "Three strengths. | Match it to the appointment.",
         "subhead": "<p>Clinical for routine appointments. Advanced for longer or more sensitive sessions. Professional for the most demanding indications. Most clients land on Clinical or Advanced. Professional is rarely the everyday choice — and that's the point.</p>",
         "image_alt": "Editorial three-tier lineup of Senseless cream tubes"
       }
@@ -35,9 +35,9 @@
       "settings": { "eyebrow": "", "headline": "What we recommend by procedure.", "body": "<p>The honest version — what the brand recommends, what's overkill, and what's not quite enough. Use this to decide between tiers.</p>", "cta_label": "Shop by procedure", "cta_url": "/collections/aesthetic-numbing-cream" }
     },
     "approach": {
-      "type": "senseless-image-text-band",
+      "type": "senseless-editorial-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "The approach",
+        "background": "canvas", "align": "left", "eyebrow": "The approach",
         "headline": "Match the strength to what your appointment asks of the skin.",
         "body": "<p>Most aesthetic appointments fall into clear tiers. Short, focused, predictable procedures — lip fillers, Botox, smaller laser zones — sit comfortably in Clinical. Longer or more sensitive sessions — microneedling, SPMU, full-face laser — call for Advanced. The most intensive bookings — full-face resurfacing, sustained SPMU sittings — sit in Professional territory. If you're between tiers, choose the higher one. The cost of going up is small. The cost of choosing too low for an intensive session is real.</p>",
         "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
@@ -83,5 +83,5 @@
       "settings": { "columns": "3", "eyebrow": "", "headline": "Decided? Shop the strength.", "body": "", "closer": "", "section_cta_label": "See all by procedure", "section_cta_url": "/collections/aesthetic-numbing-cream" }
     }
   },
-  "order": ["hero", "tiers", "matrix", "approach", "misunderstandings", "format", "callout", "shop"]
+  "order": ["hero", "approach", "tiers", "matrix", "misunderstandings", "format", "callout", "shop"]
 }

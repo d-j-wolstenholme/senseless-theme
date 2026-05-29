@@ -1,0 +1,122 @@
+{%- comment -%}
+  Senseless — Product showcase
+  Richer than a card row: each product is a generous feature row (image one side, roomy details the
+  other) that alternates direction down the page. Professional = 2px purple border + filled CTA.
+  More room per product than senseless-product-grid. Blocks carry their own copy.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-ps {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1a1a1a;
+    --ss-secondary: #5C5853;
+    --ss-border: #E5E2DC;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+  }
+  .ss-ps__inner { max-width: 1080px; margin: 0 auto; padding: 56px 20px; }
+  .ss-ps__header { text-align: center; max-width: 60ch; margin: 0 auto 36px; display: flex; flex-direction: column; gap: 12px; }
+  .ss-ps__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-ps__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; }
+  .ss-ps__intro { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-secondary); }
+  .ss-ps__intro p { margin: 0; }
+
+  .ss-ps__list { display: flex; flex-direction: column; gap: 20px; }
+  .ss-ps__item { background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 6px; overflow: hidden; display: grid; grid-template-columns: 1fr; }
+  .ss-ps__item--flagship { border: 2px solid var(--ss-purple); }
+  .ss-ps__media { aspect-ratio: 4 / 3; background: var(--ss-bg); }
+  .ss-ps__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-ps__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .ss-ps__ph svg { width: 32%; opacity: 0.2; fill: var(--ss-purple); }
+  .ss-ps__body { padding: 28px 24px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+  .ss-ps__label { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-ps__title { font-family: var(--ss-head); font-weight: 600; font-size: 22px; line-height: 1.2; margin: 0; }
+  .ss-ps__text { font-family: var(--ss-sans); font-size: 15px; line-height: 1.6; color: var(--ss-secondary); margin: 2px 0 0; }
+  .ss-ps__text p { margin: 0; }
+  .ss-ps__price { font-family: var(--ss-sans); font-weight: 500; font-size: 17px; margin: 6px 0 0; }
+  .ss-ps__cta { margin-top: 14px; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-ps__cta:hover { background: var(--ss-text); color: var(--ss-bg); }
+  .ss-ps__item--flagship .ss-ps__cta { background: var(--ss-purple); border-color: var(--ss-purple); color: #fff; }
+  .ss-ps__item--flagship .ss-ps__cta:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
+
+  @media (min-width: 768px) {
+    .ss-ps__item { grid-template-columns: 45% 55%; align-items: stretch; }
+    .ss-ps__item--reverse .ss-ps__media { order: 2; }
+    .ss-ps__item--reverse .ss-ps__body { order: 1; }
+    .ss-ps__media { aspect-ratio: auto; }
+    .ss-ps__body { padding: 36px 40px; }
+  }
+  @media (min-width: 1024px) { .ss-ps__inner { padding: 88px 20px; } .ss-ps__headline { font-size: 32px; } .ss-ps__title { font-size: 26px; } }
+  @media (prefers-reduced-motion: reduce) { .ss-ps__cta { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-ps" aria-label="{{ section.settings.headline | default: 'Products' | escape }}">
+  <div class="ss-ps__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
+      <header class="ss-ps__header">
+        {%- if section.settings.eyebrow != blank -%}<p class="ss-ps__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-ps__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.body != blank -%}<div class="ss-ps__intro">{{ section.settings.body }}</div>{%- endif -%}
+      </header>
+    {%- endif -%}
+    <div class="ss-ps__list">
+      {%- for block in section.blocks -%}
+        <div class="ss-ps__item{% if block.settings.flagship %} ss-ps__item--flagship{% endif %}{% cycle '', ' ss-ps__item--reverse' %}" {{ block.shopify_attributes }}>
+          <div class="ss-ps__media">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 45vw, 100vw', widths: '400, 700, 900', alt: block.settings.image_alt }}
+            {%- else -%}
+              <div class="ss-ps__ph">{{ 'product-1' | placeholder_svg_tag }}</div>
+            {%- endif -%}
+          </div>
+          <div class="ss-ps__body">
+            {%- if block.settings.label != blank -%}<p class="ss-ps__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+            {%- if block.settings.title != blank -%}<h3 class="ss-ps__title">{{ block.settings.title | escape }}</h3>{%- endif -%}
+            {%- if block.settings.body != blank -%}<div class="ss-ps__text">{{ block.settings.body }}</div>{%- endif -%}
+            {%- if block.settings.price != blank -%}<p class="ss-ps__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+            {%- if block.settings.cta_label != blank -%}<a class="ss-ps__cta" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_label | escape }}</a>{%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Showcase",
+  "tag": "section",
+  "class": "senseless-section senseless-product-showcase",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "The range." },
+    { "type": "richtext", "id": "body", "label": "Intro body" }
+  ],
+  "blocks": [
+    {
+      "type": "product_item",
+      "name": "Product",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless product on a warm off-white background" },
+        { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Cream" },
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "text", "id": "price", "label": "Price", "default": "£TBC" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View product" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" },
+        { "type": "checkbox", "id": "flagship", "label": "Professional treatment (purple border + filled CTA)", "default": false }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Senseless — Showcase", "blocks": [ { "type": "product_item" }, { "type": "product_item" } ] } ]
+}
+{% endschema %}

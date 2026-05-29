@@ -1,0 +1,83 @@
+{%- comment -%}
+  Senseless — Decision band
+  A prominent routing/decision band: short question + supporting line + up to two CTAs, on a
+  full-width tinted or dark band. Distinct from the bordered aside of senseless-callout-band.
+  Headline supports a " | " dual-barrel break.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-db {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-dark: #241836;
+    --ss-text: #1a1a1a;
+    --ss-secondary: #5C5853;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .ss-db--tint { background: rgba(107,63,160,0.07); }
+  .ss-db--dark { background: var(--ss-dark); }
+  .ss-db--canvas { background: var(--ss-bg); }
+  .ss-db__inner { max-width: 900px; margin: 0 auto; padding: 48px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .ss-db__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-db--dark .ss-db__eyebrow { color: #c8a9e6; }
+  .ss-db__headline { font-family: var(--ss-head); font-weight: 600; font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; margin: 0; color: var(--ss-text); }
+  .ss-db--dark .ss-db__headline { color: #ffffff; }
+  .ss-db__headline .ss-db__beat { display: block; font-size: 0.66em; font-weight: 500; color: var(--ss-secondary); margin-top: 8px; }
+  .ss-db--dark .ss-db__headline .ss-db__beat { color: #b9b2c4; }
+  .ss-db__body { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-secondary); margin: 0; max-width: 56ch; }
+  .ss-db--dark .ss-db__body { color: #cdc6d6; }
+  .ss-db__ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
+  .ss-db__cta { display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 26px; border-radius: 14px; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-db__cta--primary { background: var(--ss-purple); color: #fff; border: 1px solid var(--ss-purple); }
+  .ss-db__cta--primary:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
+  .ss-db__cta--secondary { background: transparent; color: var(--ss-text); border: 1px solid var(--ss-text); }
+  .ss-db__cta--secondary:hover { background: var(--ss-text); color: var(--ss-bg); }
+  .ss-db--dark .ss-db__cta--secondary { color: #f4f1f7; border-color: rgba(244,241,247,0.6); }
+  .ss-db--dark .ss-db__cta--secondary:hover { background: #f4f1f7; color: var(--ss-dark); }
+
+  @media (min-width: 1024px) {
+    .ss-db__inner { padding: 64px 24px; }
+    .ss-db__headline { font-size: 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ss-db__cta { transition: none; } }
+{%- endstyle -%}
+
+<section class="ss-db ss-db--{{ section.settings.style }}" aria-label="{{ section.settings.headline | default: 'Decision' | escape }}">
+  <div class="ss-db__inner">
+    {%- if section.settings.eyebrow != blank -%}<p class="ss-db__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.headline != blank -%}
+      {%- assign hl_parts = section.settings.headline | split: ' | ' -%}
+      <h2 class="ss-db__headline">{{ hl_parts[0] | escape }}{%- if hl_parts.size > 1 -%}<span class="ss-db__beat">{{ hl_parts[1] | escape }}</span>{%- endif -%}</h2>
+    {%- endif -%}
+    {%- if section.settings.body != blank -%}<p class="ss-db__body">{{ section.settings.body | escape }}</p>{%- endif -%}
+    {%- if section.settings.primary_cta_label != blank or section.settings.secondary_cta_label != blank -%}
+      <div class="ss-db__ctas">
+        {%- if section.settings.primary_cta_label != blank -%}<a class="ss-db__cta ss-db__cta--primary" href="{{ section.settings.primary_cta_url | default: '#' }}">{{ section.settings.primary_cta_label | escape }}</a>{%- endif -%}
+        {%- if section.settings.secondary_cta_label != blank -%}<a class="ss-db__cta ss-db__cta--secondary" href="{{ section.settings.secondary_cta_url | default: '#' }}">{{ section.settings.secondary_cta_label | escape }}</a>{%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Decision",
+  "tag": "section",
+  "class": "senseless-section senseless-decision-band",
+  "settings": [
+    { "type": "select", "id": "style", "label": "Background", "default": "tint", "options": [ { "value": "tint", "label": "Purple tint" }, { "value": "dark", "label": "Brand dark" }, { "value": "canvas", "label": "Canvas" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "headline", "label": "Headline", "info": "Add ' | ' for a smaller second beat.", "default": "Not sure which strength is right?" },
+    { "type": "text", "id": "body", "label": "Supporting line" },
+    { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label", "default": "Find your match" },
+    { "type": "url", "id": "primary_cta_url", "label": "Primary CTA link" },
+    { "type": "text", "id": "secondary_cta_label", "label": "Secondary CTA label" },
+    { "type": "url", "id": "secondary_cta_url", "label": "Secondary CTA link" }
+  ],
+  "presets": [ { "name": "Senseless — Decision" } ]
+}
+{% endschema %}

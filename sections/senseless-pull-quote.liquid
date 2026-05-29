@@ -1,0 +1,63 @@
+{%- comment -%}
+  Senseless — Pull quote
+  Editorial pull-quote / considered-voice statement with room to breathe. Large quote type,
+  optional attribution + role. Leave attribution blank for an un-attributed editorial statement.
+{%- endcomment -%}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .ss-pq {
+    --ss-purple: #6B3FA0;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-dark: #241836;
+    --ss-text: #1a1a1a;
+    --ss-secondary: #5C5853;
+    --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --ss-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ss-text);
+  }
+  .ss-pq--canvas { background: var(--ss-bg); }
+  .ss-pq--white { background: var(--ss-surface); }
+  .ss-pq--tint { background: rgba(107,63,160,0.06); }
+  .ss-pq--dark { background: var(--ss-dark); color: #f4f1f7; }
+  .ss-pq__inner { max-width: 820px; margin: 0 auto; padding: 64px 24px; text-align: center; }
+  .ss-pq__mark { font-family: var(--ss-head); font-weight: 700; font-size: 56px; line-height: 1; color: var(--ss-purple); opacity: 0.5; margin: 0 0 8px; }
+  .ss-pq--dark .ss-pq__mark { color: #c8a9e6; }
+  .ss-pq__quote { font-family: var(--ss-head); font-weight: 500; font-size: 26px; line-height: 1.4; letter-spacing: -0.01em; margin: 0; }
+  .ss-pq__quote p { margin: 0 0 12px; }
+  .ss-pq__quote p:last-child { margin: 0; }
+  .ss-pq__attr { margin-top: 24px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; letter-spacing: 0.02em; color: var(--ss-text); }
+  .ss-pq--dark .ss-pq__attr { color: #f4f1f7; }
+  .ss-pq__role { display: block; font-weight: 400; font-size: 13px; color: var(--ss-secondary); margin-top: 2px; }
+  .ss-pq--dark .ss-pq__role { color: #b9b2c4; }
+
+  @media (min-width: 1024px) { .ss-pq__inner { padding: 96px 24px; } .ss-pq__quote { font-size: 32px; } }
+{%- endstyle -%}
+
+<section class="ss-pq ss-pq--{{ section.settings.background }}" aria-label="Quote">
+  <div class="ss-pq__inner">
+    {%- if section.settings.show_mark -%}<p class="ss-pq__mark" aria-hidden="true">&ldquo;</p>{%- endif -%}
+    {%- if section.settings.quote != blank -%}<div class="ss-pq__quote">{{ section.settings.quote }}</div>{%- endif -%}
+    {%- if section.settings.attribution != blank -%}
+      <p class="ss-pq__attr">{{ section.settings.attribution | escape }}{%- if section.settings.role != blank -%}<span class="ss-pq__role">{{ section.settings.role | escape }}</span>{%- endif -%}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Pull quote",
+  "tag": "section",
+  "class": "senseless-section senseless-pull-quote",
+  "settings": [
+    { "type": "select", "id": "background", "label": "Background", "default": "tint", "options": [ { "value": "canvas", "label": "Canvas" }, { "value": "white", "label": "White" }, { "value": "tint", "label": "Purple tint" }, { "value": "dark", "label": "Brand dark" } ] },
+    { "type": "checkbox", "id": "show_mark", "label": "Show quotation mark", "default": true },
+    { "type": "richtext", "id": "quote", "label": "Quote / statement", "default": "<p>Placeholder statement — replace with approved copy.</p>" },
+    { "type": "text", "id": "attribution", "label": "Attribution (optional)" },
+    { "type": "text", "id": "role", "label": "Role / detail (optional)" }
+  ],
+  "presets": [ { "name": "Senseless — Pull quote" } ]
+}
+{% endschema %}

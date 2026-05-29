@@ -24,7 +24,7 @@
       }
     },
     "grid": {
-      "type": "senseless-product-grid",
+      "type": "senseless-product-showcase",
       "blocks": {
         "clinical": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
         "advanced": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },

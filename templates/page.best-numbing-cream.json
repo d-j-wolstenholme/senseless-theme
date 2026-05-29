@@ -12,9 +12,9 @@
       }
     },
     "nosaybest": {
-      "type": "senseless-image-text-band",
+      "type": "senseless-editorial-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "The honest version",
+        "background": "white", "align": "left", "eyebrow": "The honest version",
         "headline": "\"Best\" is a comparative claim. We don't make those.",
         "body": "<p>Most landing pages ranking for \"best numbing cream\" claim to be the best. Senseless doesn't. We make claims about what we are — UK-formulated, built for aesthetic procedures, available in three strengths and three formats. We don't make claims about what other brands are or aren't. Different brands, different formulations, different regulatory contexts. The honest answer to \"best\" is \"best for what\" — and that's a question Senseless is built to answer.</p>",
         "cta_label": "", "cta_url": "",
