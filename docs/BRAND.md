@@ -12,35 +12,46 @@ The canonical code-side mirror of the Brand & Product System Notion page.
 
 ## Colours
 
+Locked colour-text ladder. Defined globally in `snippets/senseless-typography.liquid` (`:root`) and mirrored as `--ss-*` tokens inside every Senseless section.
+
 | Token | Value | Use |
 |---|---|---|
-| `--color-brand-purple` | `#6B3FA0` | Brand accent (matches packaging) |
-| `--color-bg-warm` | `#f7f7f5` | Warm off-white background |
-| `--color-bg-white` | `#ffffff` | White card surfaces |
-| `--color-text-primary` | `#1a1a1a` | Headings, primary text |
-| `--color-text-body` | `#4a4a50` | Body text |
-| `--color-border-subtle` | `rgba(26,26,26,0.10)` | Card borders |
+| `--brand-primary` | `#6B3FA0` | Brand accent (matches packaging); Professional border + filled CTA |
+| `--bg-canvas` | `#f7f7f5` | Warm off-white page background |
+| `--bg-surface` | `#ffffff` | White card / panel surfaces |
+| `--text-primary` | `#1A1816` | Headings, primary text |
+| `--text-body` | `#2B2730` | Running body copy |
+| `--text-secondary` | `#5C5853` | Leads, captions, secondary text |
+| `--text-muted` | `#8E8A82` | Muted / de-emphasised text |
+| `--color-border-subtle` | `#E5E2DC` | Card / divider borders |
 
-Purple is an **accent only** by default — not used as button fill or large area background. Used for hover states, accent lines, the brand asterisk graphic, occasional emphasis.
+Purple is an **accent only** by default — not used as a large area background. The only filled-purple treatments are the Professional tier's 2px `#6B3FA0` border + filled CTA. Otherwise used for hover states, accent lines, the brand asterisk graphic, occasional emphasis.
 
 ## Typography
 
-- **Headings (H1–H4):** Manrope, weights 500–700, no text-transform
-- **Body:** Inter, weight 400
-- **UI/labels:** Inter, weight 500, slight letter-spacing
-- **Optional accent (use sparingly):** TBC editorial display cut for hero numerals or pull-quotes
+Typeface is **Montserrat**, self-hosted via the Shopify font CDN (no `fonts.googleapis.com` / `gstatic.com` requests). Wired through Horizon's font settings: body `montserrat_n4`, subheading `montserrat_n6`, heading `montserrat_n7`, accent `montserrat_n6`. Preloads: weight 400 (body) + 700 (heading) only.
+
+- **Headings:** Montserrat 700 (H1/H2), 600 (H3), no text-transform
+- **Body:** Montserrat 400, line-height 1.7
+- **UI/labels/eyebrow:** Montserrat 600, uppercase, wide tracking
+- **Emphasis (`.t-em`):** italic 600
+
+Global classes live in `senseless-typography.liquid`: `.ss-h1`/`h1.senseless`, `.ss-h2`, `.ss-h3`, `.eyebrow`, `.lead`, `.body-small`, `.caption`, `.t-em`. Sections use their own `.ss-*` scoped classes (so global element rules never override section-tuned sizes) but inherit the same fonts + ladder.
 
 ### Type Scale
 
-| Element | Size | Line Height | Letter Spacing |
-|---|---|---|---|
-| H1 | 40px | display-normal | heading-normal |
-| H2 | 32px | display-tight | heading-normal |
-| H3 | 20px | display-normal | heading-normal |
-| H4 | 16px | display-tight | normal |
-| H5 | 14px | display-loose | normal |
-| H6 | 12px | display-loose | normal |
-| Body | 16px | 1.6 (loose) | normal |
+Fluid via `clamp()`. Format below: `clamp(min, preferred, max)`.
+
+| Element | Size | Line Height | Weight | Letter Spacing |
+|---|---|---|---|---|
+| H1 (`.ss-h1`) | `clamp(2.5rem, 1.5rem + 4vw, 4rem)` | 1.04 | 700 | -0.03em |
+| H2 (`.ss-h2`) | `clamp(1.875rem, 1.2rem + 3vw, 2.75rem)` | 1.1 | 700 | -0.025em |
+| H3 (`.ss-h3`) | `clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem)` | 1.25 | 600 | -0.01em |
+| Lead (`.lead`) | `clamp(1.125rem, 0.95rem + 0.8vw, 1.375rem)` | 1.55 | 400 | — (secondary) |
+| Body | `clamp(1rem, 0.98rem + 0.13vw, 1.0625rem)` | 1.7 | 400 | -0.003em |
+| Body small (`.body-small`) | `0.875rem` | 1.6 | 400 | — |
+| Caption (`.caption`) | `0.8125rem` | 1.5 | 400 | — (secondary) |
+| Eyebrow (`.eyebrow`) | `0.75rem` | — | 600 | 0.2em, uppercase, brand-primary |
 
 ## Components
 

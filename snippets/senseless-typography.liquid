@@ -1,0 +1,42 @@
+{%- comment -%}
+  Senseless — typography contract (locked 2026-05-29). Mirrors Strand 1 — Design System.
+  ONE typeface: Montserrat (self-hosted via Shopify font settings / Shopify CDN — no Google Fonts).
+  Colour-text ladder + type scale. Keep in sync with docs/BRAND.md and CLAUDE.md.
+{%- endcomment -%}
+{% style %}
+  :root {
+    /* Colour-text ladder */
+    --text-primary: #1A1816;   /* headings / display (H1–H3) */
+    --text-body: #2B2730;      /* primary running body — TODO(guides): optionally swap to Inter for article body only; ships Montserrat now */
+    --text-secondary: #5C5853; /* lead / intro, captions, helpers */
+    --text-muted: #8E8A82;     /* disabled / tertiary only */
+    --brand-primary: #6B3FA0;  /* eyebrows + sparing emphasis (accent only) */
+    --bg-canvas: #f7f7f5;
+    --bg-surface: #ffffff;
+
+    /* One typeface — Montserrat */
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--text-body);
+    font-size: clamp(1rem, 0.98rem + 0.13vw, 1.0625rem);
+    line-height: 1.7;
+    letter-spacing: -0.003em;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-sans); color: var(--text-primary); }
+
+  /* Type scale — mobile → desktop via clamp() */
+  .ss-h1, h1.senseless { font-size: clamp(2.5rem, 1.5rem + 4vw, 4rem); line-height: 1.04; font-weight: 700; letter-spacing: -0.03em; color: var(--text-primary); }
+  .ss-h2, h2.senseless { font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; font-weight: 700; letter-spacing: -0.025em; color: var(--text-primary); }
+  .ss-h3, h3.senseless { font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; font-weight: 600; letter-spacing: -0.01em; color: var(--text-primary); }
+
+  .eyebrow { font-family: var(--font-sans); font-size: 0.75rem; line-height: 1.2; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand-primary); }
+  .lead { font-family: var(--font-sans); font-size: clamp(1.125rem, 0.95rem + 0.8vw, 1.375rem); line-height: 1.55; font-weight: 400; color: var(--text-secondary); }
+  .body-small { font-size: 0.875rem; line-height: 1.6; font-weight: 400; color: var(--text-body); }
+  .caption { font-size: 0.8125rem; line-height: 1.45; font-weight: 400; color: var(--text-secondary); }
+  .t-em { font-style: italic; font-weight: 600; } /* italic accent — one emphasis word per section max, no serif */
+{% endstyle %}

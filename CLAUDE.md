@@ -43,13 +43,15 @@ This repo is the new build, started from latest Horizon as a clean base. Old the
 
 See `docs/BRAND.md` for the canonical design system. Quick reference:
 
-- **Brand purple:** `#6B3FA0`
-- **Background warm:** `#f7f7f5`
-- **Background white:** `#ffffff`
-- **Text primary:** `#1a1a1a`
-- **Text body:** `#4a4a50`
-- **Heading font:** Manrope, weights 500–700
-- **Body font:** Inter, weight 400
+- **Brand purple (`--brand-primary`):** `#6B3FA0`
+- **Background canvas (`--bg-canvas`):** `#f7f7f5`
+- **Background surface (`--bg-surface`):** `#ffffff`
+- **Text primary (`--text-primary`):** `#1A1816` — headings
+- **Text body (`--text-body`):** `#2B2730` — running body
+- **Text secondary (`--text-secondary`):** `#5C5853` — leads, captions
+- **Text muted (`--text-muted`):** `#8E8A82`
+- **Border subtle:** `#E5E2DC`
+- **Typeface:** Montserrat, self-hosted via Shopify font CDN (no Google Fonts requests). Headings 700/600, body 400, eyebrow/labels 600. Type scale is fluid `clamp()` — see `snippets/senseless-typography.liquid` + `docs/BRAND.md`.
 - **Button radius:** 14px
 - **Card radius:** 4px
 - **Page width:** narrow

@@ -9,31 +9,12 @@
     fetchpriority="low"
   >
 {%- endunless -%}
-{%- unless settings.type_subheading_font.system? -%}
-  <link
-    rel="preload"
-    as="font"
-    href="{{ settings.type_subheading_font | font_url }}"
-    type="font/woff2"
-    crossorigin
-    fetchpriority="low"
-  >
-{%- endunless -%}
+{%- comment -%} Senseless: preload weight 400 (body) + 700 (heading) only. {%- endcomment -%}
 {%- unless settings.type_heading_font.system? -%}
   <link
     rel="preload"
     as="font"
     href="{{ settings.type_heading_font | font_url }}"
-    type="font/woff2"
-    crossorigin
-    fetchpriority="low"
-  >
-{%- endunless -%}
-{%- unless settings.type_accent_font.system? -%}
-  <link
-    rel="preload"
-    as="font"
-    href="{{ settings.type_accent_font | font_url }}"
     type="font/woff2"
     crossorigin
     fetchpriority="low"
