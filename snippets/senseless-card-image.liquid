@@ -1,0 +1,52 @@
+{%- comment -%}
+  Senseless — card image resolver
+  Renders a card's image, preferring a linked product/collection's own media so cards stay in sync
+  with the catalogue instead of needing a static upload per card. Resolution order:
+    1. image      — explicit static override (image_picker)
+    2. product    — product.featured_image
+    3. collection — collection.image, then its first product's featured_image
+    4. graceful placeholder
+  Params: image, product, collection, alt, sizes, widths, ph_class, ph_icon.
+  The 1:1 framing lives on the caller's media wrapper (aspect-ratio:1/1; img is object-fit:cover).
+{%- endcomment -%}
+{%- liquid
+  assign card_img = blank
+  if image != blank
+    assign card_img = image
+  elsif product != blank and product.featured_image != blank
+    assign card_img = product.featured_image
+  elsif collection != blank and collection.image != blank
+    assign card_img = collection.image
+  elsif collection != blank and collection.products.first.featured_image != blank
+    assign card_img = collection.products.first.featured_image
+  endif
+
+  assign card_alt = alt
+  if card_alt == blank
+    assign card_alt = card_img.alt
+  endif
+  if card_alt == blank and product != blank
+    assign card_alt = product.title
+  endif
+  if card_alt == blank and collection != blank
+    assign card_alt = collection.title
+  endif
+
+  if sizes == blank
+    assign sizes = '(min-width: 768px) 33vw, 100vw'
+  endif
+  if widths == blank
+    assign widths = '300, 500, 800'
+  endif
+  if ph_class == blank
+    assign ph_class = 'ss-card__placeholder'
+  endif
+  if ph_icon == blank
+    assign ph_icon = 'image'
+  endif
+-%}
+{%- if card_img != blank -%}
+  {{ card_img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: sizes, widths: widths, alt: card_alt }}
+{%- else -%}
+  <div class="{{ ph_class }}">{{ ph_icon | placeholder_svg_tag }}</div>
+{%- endif -%}

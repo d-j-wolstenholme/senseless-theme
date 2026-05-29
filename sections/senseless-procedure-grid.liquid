@@ -30,7 +30,7 @@
 
   .ss-procg__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
   .ss-procg__card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
-  .ss-procg__media { aspect-ratio: 4 / 5; background: var(--ss-bg); position: relative; }
+  .ss-procg__media { aspect-ratio: 1 / 1; background: var(--ss-bg); position: relative; }
   .ss-procg__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .ss-procg__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-procg__ph svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
@@ -64,11 +64,7 @@
       {%- for block in section.blocks -%}
         <a class="ss-procg__card" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
           <div class="ss-procg__media">
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 25vw, 50vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
-            {%- else -%}
-              <div class="ss-procg__ph">{{ 'image' | placeholder_svg_tag }}</div>
-            {%- endif -%}
+            {%- render 'senseless-card-image', image: block.settings.image, collection: block.settings.collection, alt: block.settings.image_alt, sizes: '(min-width: 768px) 25vw, 50vw', ph_class: 'ss-procg__ph' -%}
           </div>
           <div class="ss-procg__cbody">
             {%- if block.settings.label != blank -%}<h3 class="ss-procg__title">{{ block.settings.label | escape }}</h3>{%- endif -%}
@@ -99,7 +95,8 @@
       "type": "procedure_card",
       "name": "Procedure card",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "collection", "id": "collection", "label": "Linked collection", "info": "Card image is pulled from this collection's image (or its first product) unless an image is set below." },
+        { "type": "image_picker", "id": "image", "label": "Image (override)" },
         { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Editorial product image for this procedure type" },
         { "type": "text", "id": "label", "label": "Procedure name", "default": "Lip Fillers" },
         { "type": "text", "id": "sub_label", "label": "Sub-label", "info": "Optional small line under the title." },

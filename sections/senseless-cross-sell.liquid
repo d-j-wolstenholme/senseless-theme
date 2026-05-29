@@ -29,7 +29,7 @@
   .ss-xs__card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
   .ss-xs__card--flagship { border: 2px solid var(--ss-purple); }
   .ss-xs__card--flagship:hover { border-color: var(--ss-purple); }
-  .ss-xs__media { aspect-ratio: 4 / 5; background: var(--ss-bg); }
+  .ss-xs__media { aspect-ratio: 1 / 1; background: var(--ss-bg); }
   .ss-xs__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .ss-xs__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-xs__ph svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
@@ -64,11 +64,7 @@
       {%- for block in section.blocks -%}
         <a class="ss-xs__card{% if block.settings.flagship %} ss-xs__card--flagship{% endif %}" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
           <div class="ss-xs__media">
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
-            {%- else -%}
-              <div class="ss-xs__ph">{{ 'image' | placeholder_svg_tag }}</div>
-            {%- endif -%}
+            {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw', ph_class: 'ss-xs__ph' -%}
           </div>
           <div class="ss-xs__cbody">
             {%- if block.settings.label != blank -%}<p class="ss-xs__label">{{ block.settings.label | escape }}</p>{%- endif -%}
@@ -99,7 +95,8 @@
       "type": "product_card",
       "name": "Product card",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "product", "id": "product", "label": "Linked product", "info": "Card image is pulled from this product's featured image unless an image is set below." },
+        { "type": "image_picker", "id": "image", "label": "Image (override)" },
         { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless product on a warm off-white background" },
         { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
         { "type": "text", "id": "title", "label": "Title", "default": "Cream 10g" },

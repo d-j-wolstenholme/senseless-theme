@@ -30,7 +30,7 @@
   .ss-ps__list { display: flex; flex-direction: column; gap: 20px; }
   .ss-ps__item { background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 6px; overflow: hidden; display: grid; grid-template-columns: 1fr; }
   .ss-ps__item--flagship { border: 2px solid var(--ss-purple); }
-  .ss-ps__media { aspect-ratio: 4 / 3; background: var(--ss-bg); }
+  .ss-ps__media { aspect-ratio: 1 / 1; background: var(--ss-bg); }
   .ss-ps__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .ss-ps__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-ps__ph svg { width: 32%; opacity: 0.2; fill: var(--ss-purple); }
@@ -69,11 +69,7 @@
       {%- for block in section.blocks -%}
         <div class="ss-ps__item{% if block.settings.flagship %} ss-ps__item--flagship{% endif %}{% cycle '', ' ss-ps__item--reverse' %}" {{ block.shopify_attributes }}>
           <div class="ss-ps__media">
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 45vw, 100vw', widths: '400, 700, 900', alt: block.settings.image_alt }}
-            {%- else -%}
-              <div class="ss-ps__ph">{{ 'product-1' | placeholder_svg_tag }}</div>
-            {%- endif -%}
+            {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 45vw, 100vw', widths: '400, 700, 900', ph_class: 'ss-ps__ph', ph_icon: 'product-1' -%}
           </div>
           <div class="ss-ps__body">
             {%- if block.settings.label != blank -%}<p class="ss-ps__label">{{ block.settings.label | escape }}</p>{%- endif -%}
@@ -104,7 +100,8 @@
       "type": "product_item",
       "name": "Product",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "product", "id": "product", "label": "Linked product", "info": "Image is pulled from this product's featured image unless an image is set below." },
+        { "type": "image_picker", "id": "image", "label": "Image (override)" },
         { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless product on a warm off-white background" },
         { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
         { "type": "text", "id": "title", "label": "Title", "default": "Cream" },
