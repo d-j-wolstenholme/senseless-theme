@@ -6,7 +6,8 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 
 | Section File | Purpose | Used On |
 |---|---|---|
-| `senseless-hero-brand-led.liquid` | Brand-led full-bleed hero (text-left/image-right desktop, stacked mobile, 2 CTAs, fetchpriority high) | Homepage (1) |
+| `senseless-hero-brand-led.liquid` | Centred brand-statement hero (eyebrow → H1 → lead → 2 CTAs) + product-gallery framing (radial backdrop, single soft shadow, caption, 16:9 desktop / 4:5 mobile) | Homepage (1) |
+| `senseless-section-statement.liquid` | The statement unit — composition spine. Eyebrow → headline → one lead (~58ch) → optional single CTA. Centred/left, canvas/surface band, narrow ~720px measure | Homepage (1), rollout |
 | `senseless-trio-card-row.liquid` | Reusable trio/quad card row; blocks: tier_card, procedure_card, product_card; 1:1 linked-object images, Professional purple-border variant | 27 templates |
 | `senseless-image-text-band.liquid` | Two-column image+text, `direction` text-left/text-right | 27 templates |
 | `senseless-collection-hero.liquid` | Collection landing hero (eyebrow, H1, lead, CTA) | 11 collection templates |
