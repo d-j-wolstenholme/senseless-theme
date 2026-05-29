@@ -67,7 +67,7 @@
       "blocks": {
         "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
         "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "Cruelty-free" } },
+        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
         "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
       },
       "block_order": ["t1", "t2", "t3", "t4"],
