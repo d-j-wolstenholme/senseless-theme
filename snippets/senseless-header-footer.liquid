@@ -1,47 +1,9 @@
 {%- comment -%}
   Senseless — header/footer brand touches
-  Layered on top of Horizon's native header/footer (which already provide the sticky/compress
-  behaviour, mega menu, accessible drawer, cart + search). Typography + colour come from the
-  global ladder in senseless-typography. This only adds: the "Find your strength" CTA pill on the
-  top-level nav item, and a brand hover on menu links. The CTA is targeted by its href so it is
-  robust to Horizon's overflow-menu wrapping, then reverted inside submenus / the mega menu so the
-  pill only ever applies to the single top-level item.
+  Superseded for the header by the fully custom `senseless-header` section (Strand 2), which now
+  owns all header styling/behaviour. The previous "Find your strength" nav pill + Horizon
+  `.header-menu` hover overrides were removed with that rebuild (the pill no longer belongs in the
+  header). The footer still uses Horizon's native footer and needs no overrides here.
+  Intentionally empty — kept because it is rendered in layout/theme.liquid; reuse if a future
+  cross-cutting brand touch is needed.
 {%- endcomment -%}
-{%- style -%}
-  .header-menu .menu-list__link[href$="/pages/choosing-your-strength"] {
-    background: var(--brand-primary, #6B3FA0);
-    border-radius: 999px;
-    padding-block: 0.45em;
-    padding-inline: 1.1em;
-    transition: background-color 200ms ease-out;
-  }
-  .header-menu .menu-list__link[href$="/pages/choosing-your-strength"] .menu-list__link-title {
-    color: #ffffff;
-  }
-  .header-menu .menu-list__link[href$="/pages/choosing-your-strength"]:hover {
-    background: #5A3489;
-  }
-
-  /* Revert the pill anywhere the link appears inside a submenu / mega menu so only the
-     top-level CTA is styled as a button. Higher specificity wins. */
-  .header-menu .menu-list__submenu .menu-list__link[href$="/pages/choosing-your-strength"],
-  .header-menu .mega-menu .menu-list__link[href$="/pages/choosing-your-strength"] {
-    background: transparent;
-    border-radius: 0;
-    padding-block: initial;
-    padding-inline: initial;
-  }
-  .header-menu .menu-list__submenu .menu-list__link[href$="/pages/choosing-your-strength"] .menu-list__link-title,
-  .header-menu .mega-menu .menu-list__link[href$="/pages/choosing-your-strength"] .menu-list__link-title {
-    color: inherit;
-  }
-
-  /* Brand hover on top-level + submenu links (cosmetic, safe). */
-  .header-menu .menu-list__link:not([href$="/pages/choosing-your-strength"]):hover .menu-list__link-title {
-    color: var(--brand-primary, #6B3FA0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .header-menu .menu-list__link[href$="/pages/choosing-your-strength"] { transition: none; }
-  }
-{%- endstyle -%}

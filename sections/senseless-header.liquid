@@ -1,0 +1,392 @@
+{%- comment -%}
+  Senseless — Header (fully custom, replaces Horizon's native header)
+  Strand 2 — Global Components. Centred nav, large wordmark, Shop mega (By format / By procedure),
+  The system + Help dropdowns, About + Trade links, sticky + frosted. Cart drawer, predictive
+  search and account are preserved by re-rendering Horizon's self-contained snippets
+  (header-actions, search); search-modal stays mounted globally in theme.liquid. Mobile: hamburger
+  left, wordmark centre, cart right; nav + search + account inside an accordion drawer.
+  Nav is driven by the linklist chosen in settings (default: senseless-main).
+{%- endcomment -%}
+
+{%- liquid
+  assign uid = section.id | replace: '-', '' | append: section.index
+  assign menu = linklists[section.settings.menu]
+  assign logo_h = section.settings.logo_height | default: 48
+-%}
+
+{%- style -%}
+  .ss-hdr {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1A1816;
+    --ss-body: #2B2730;
+    --ss-secondary: #5C5853;
+    --ss-border: rgba(26,24,22,0.12);
+    --ss-head: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --ss-pad: 18px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,247,245,0.82);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--ss-border);
+    color: var(--ss-text);
+    font-family: var(--ss-head);
+  }
+  .ss-hdr__bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--ss-pad) 20px;
+    transition: padding 200ms ease-out;
+  }
+  .ss-hdr[data-scrolled="true"] .ss-hdr__bar { --ss-pad: 12px; }
+
+  .ss-hdr__left { display: flex; align-items: center; gap: 10px; justify-self: start; }
+  .ss-hdr__right { display: flex; align-items: center; gap: 8px; justify-self: end; }
+
+  /* Wordmark */
+  .ss-hdr__logo { display: inline-flex; align-items: center; text-decoration: none; color: var(--ss-text); }
+  .ss-hdr__logo img { display: block; width: auto; object-fit: contain; }
+  .ss-hdr__wordmark { font-family: var(--ss-head); font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--ss-text); font-size: 26px; }
+  .ss-hdr__logo--mobile { justify-self: center; }
+  .ss-hdr__logo--desktop { display: none; }
+
+  /* Burger */
+  .ss-hdr__burger { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: transparent; color: var(--ss-text); cursor: pointer; padding: 0; }
+  .ss-hdr__burger svg { width: 24px; height: 24px; }
+
+  /* Desktop nav */
+  .ss-hdr__nav { display: none; justify-self: center; }
+  .ss-hdr__navlist { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .ss-hdr__item { position: static; }
+  .ss-hdr__navlink {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--ss-head); font-weight: 600; font-size: 14px; letter-spacing: 0.01em;
+    color: var(--ss-text); background: transparent; border: 0; cursor: pointer;
+    padding: 10px 14px; border-radius: 8px; text-decoration: none;
+    transition: color 200ms ease-out, background-color 200ms ease-out;
+  }
+  .ss-hdr__navlink:hover, .ss-hdr__navlink[aria-expanded="true"] { color: var(--ss-purple); }
+  .ss-hdr__navlink--subtle { color: var(--ss-secondary); font-weight: 500; }
+  .ss-hdr__caret { width: 12px; height: 12px; transition: transform 200ms ease-out; }
+  .ss-hdr__navlink[aria-expanded="true"] .ss-hdr__caret { transform: rotate(180deg); }
+
+  /* Full-width dropdown / mega panels */
+  .ss-hdr__panels { position: absolute; left: 0; right: 0; top: 100%; }
+  .ss-hdr__panel {
+    position: absolute; left: 0; right: 0; top: 0;
+    background: rgba(255,255,255,0.98);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--ss-border);
+    box-shadow: 0 12px 28px rgba(26,24,22,0.08);
+  }
+  .ss-hdr__panel[hidden] { display: none; }
+  .ss-hdr__panelinner { max-width: 1100px; margin: 0 auto; padding: 36px 20px 40px; }
+  .ss-hdr__cols { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 40px; }
+  .ss-hdr__col-title { font-family: var(--ss-head); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 14px; }
+  .ss-hdr__sublist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .ss-hdr__sublink { font-family: var(--ss-head); font-weight: 500; font-size: 16px; color: var(--ss-body); text-decoration: none; transition: color 200ms ease-out; }
+  .ss-hdr__sublink:hover { color: var(--ss-purple); }
+  .ss-hdr__megacta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--ss-border); }
+  .ss-hdr__megacta a { font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-purple); text-decoration: none; }
+  .ss-hdr__megacta a::after { content: ' →'; }
+
+  /* Reuse: tone Horizon action icons to brand text, hide search/account on mobile */
+  .ss-hdr__right { color: var(--ss-text); }
+  .ss-hdr__right .header-actions__action, .ss-hdr__right svg { color: var(--ss-text); }
+
+  /* Drawer */
+  .ss-hdr__scrim { position: fixed; inset: 0; background: rgba(26,24,22,0.4); z-index: 110; opacity: 0; transition: opacity 250ms ease-in-out; }
+  .ss-hdr__scrim[hidden] { display: none; }
+  .ss-hdr__scrim[data-open="true"] { opacity: 1; }
+  .ss-hdr__drawer {
+    position: fixed; top: 0; left: 0; height: 100%; width: 85%; max-width: 380px;
+    background: var(--ss-bg); z-index: 120; transform: translateX(-100%);
+    transition: transform 250ms ease-in-out; display: flex; flex-direction: column;
+    overflow-y: auto; -webkit-overflow-scrolling: touch;
+  }
+  .ss-hdr__drawer[data-open="true"] { transform: translateX(0); }
+  .ss-hdr__drawerhead { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--ss-border); }
+  .ss-hdr__close { width: 44px; height: 44px; border: 0; background: transparent; color: var(--ss-text); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  .ss-hdr__close svg { width: 22px; height: 22px; }
+  .ss-hdr__drawernav { list-style: none; margin: 0; padding: 8px 0; }
+  .ss-hdr__drawernav > li { border-bottom: 1px solid var(--ss-border); }
+  .ss-hdr__acc { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; background: transparent; border: 0; cursor: pointer; font-family: var(--ss-head); font-weight: 600; font-size: 16px; color: var(--ss-text); padding: 16px 20px; text-align: left; }
+  .ss-hdr__drawerlink { display: block; font-family: var(--ss-head); font-weight: 600; font-size: 16px; color: var(--ss-text); text-decoration: none; padding: 16px 20px; }
+  .ss-hdr__acc .ss-hdr__caret { width: 14px; height: 14px; }
+  .ss-hdr__accpanel { padding: 0 20px 12px; }
+  .ss-hdr__accpanel[hidden] { display: none; }
+  .ss-hdr__accgroup { margin: 6px 0 12px; }
+  .ss-hdr__accgroup-title { font-family: var(--ss-head); font-weight: 600; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ss-purple); margin: 8px 0 6px; }
+  .ss-hdr__accpanel a { display: block; font-family: var(--ss-head); font-weight: 500; font-size: 15px; color: var(--ss-body); text-decoration: none; padding: 8px 0; }
+  .ss-hdr__drawerfoot { margin-top: auto; padding: 16px 20px 28px; border-top: 1px solid var(--ss-border); display: flex; flex-direction: column; gap: 4px; }
+  .ss-hdr__drawerfoot a { font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-text); text-decoration: none; padding: 12px 0; display: inline-flex; align-items: center; gap: 10px; }
+  .ss-hdr__drawerfoot svg { width: 18px; height: 18px; }
+
+  @media (min-width: 1024px) {
+    .ss-hdr__nav { display: block; }
+    .ss-hdr__logo--desktop { display: inline-flex; }
+    .ss-hdr__logo--mobile, .ss-hdr__burger { display: none; }
+    .ss-hdr__wordmark { font-size: 34px; }
+  }
+  @media (max-width: 1023px) {
+    .ss-hdr__panels { display: none; }
+    .ss-hdr__right .account-button, .ss-hdr__right .search-action { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ss-hdr__bar, .ss-hdr__scrim, .ss-hdr__drawer, .ss-hdr__caret, .ss-hdr__navlink, .ss-hdr__sublink { transition: none; }
+  }
+{%- endstyle -%}
+
+{%- capture logo_markup -%}
+  {%- if section.settings.logo_image != blank -%}
+    {{ section.settings.logo_image | image_url: width: 600 | image_tag: alt: shop.name, widths: '200,400,600', style: 'height:auto;' }}
+  {%- elsif settings.logo != blank -%}
+    {{ settings.logo | image_url: width: 600 | image_tag: alt: shop.name, widths: '200,400,600' }}
+  {%- else -%}
+    <span class="ss-hdr__wordmark">{{ shop.name | default: 'Senseless' }}</span>
+  {%- endif -%}
+{%- endcapture -%}
+
+<header class="ss-hdr" data-ss-header style="--ss-logo-h: {{ logo_h }}px;">
+  <div class="ss-hdr__bar">
+    <div class="ss-hdr__left">
+      <button class="ss-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ss-drawer-{{ uid }}" data-ss-burger>
+        {{ 'icon-menu.svg' | inline_asset_content }}
+      </button>
+      <a class="ss-hdr__logo ss-hdr__logo--desktop" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">{{ logo_markup }}</a>
+    </div>
+
+    <a class="ss-hdr__logo ss-hdr__logo--mobile" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">{{ logo_markup }}</a>
+
+    <nav class="ss-hdr__nav" aria-label="Primary">
+      <ul class="ss-hdr__navlist">
+        {%- for link in menu.links -%}
+          {%- assign has_children = false -%}
+          {%- if link.links.size > 0 -%}{%- assign has_children = true -%}{%- endif -%}
+          {%- if has_children -%}
+            <li class="ss-hdr__item">
+              <button class="ss-hdr__navlink" type="button" aria-expanded="false" aria-controls="ss-panel-{{ uid }}-{{ forloop.index }}" data-ss-trigger="{{ forloop.index }}">
+                {{ link.title | escape }}
+                <svg class="ss-hdr__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </li>
+          {%- else -%}
+            <li class="ss-hdr__item">
+              <a class="ss-hdr__navlink{% if link.title == 'Trade' %} ss-hdr__navlink--subtle{% endif %}" href="{{ link.url }}">{{ link.title | escape }}</a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="ss-hdr__right">
+      {%- if section.settings.show_search -%}{%- render 'search', display_style: 'icon' -%}{%- endif -%}
+      {%- render 'header-actions', section: section, display_style: 'icon', customer_account_menu: 'customer-account-main-menu' -%}
+    </div>
+  </div>
+
+  <div class="ss-hdr__panels">
+    {%- for link in menu.links -%}
+      {%- if link.links.size > 0 -%}
+        {%- assign has_grandchildren = false -%}
+        {%- for child in link.links -%}{%- if child.links.size > 0 -%}{%- assign has_grandchildren = true -%}{%- endif -%}{%- endfor -%}
+        <div class="ss-hdr__panel" id="ss-panel-{{ uid }}-{{ forloop.index }}" data-ss-panel="{{ forloop.index }}" hidden>
+          <div class="ss-hdr__panelinner">
+            {%- if has_grandchildren -%}
+              <div class="ss-hdr__cols">
+                {%- for child in link.links -%}
+                  <div class="ss-hdr__colgroup">
+                    <p class="ss-hdr__col-title">{{ child.title | escape }}</p>
+                    <ul class="ss-hdr__sublist">
+                      {%- for gc in child.links -%}
+                        <li><a class="ss-hdr__sublink" href="{{ gc.url }}">{{ gc.title | escape }}</a></li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                {%- endfor -%}
+              </div>
+              {%- if section.settings.mega_cta_label != blank -%}
+                <div class="ss-hdr__megacta"><a href="{{ section.settings.mega_cta_url | default: '#' }}">{{ section.settings.mega_cta_label | escape }}</a></div>
+              {%- endif -%}
+            {%- else -%}
+              <ul class="ss-hdr__sublist">
+                {%- for child in link.links -%}
+                  <li><a class="ss-hdr__sublink" href="{{ child.url }}">{{ child.title | escape }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</header>
+
+<div class="ss-hdr__scrim" data-ss-scrim hidden></div>
+
+<nav class="ss-hdr__drawer" id="ss-drawer-{{ uid }}" aria-label="Main navigation" data-ss-drawer aria-hidden="true">
+  <div class="ss-hdr__drawerhead">
+    <a class="ss-hdr__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home"><span class="ss-hdr__wordmark" style="font-size:24px;">{{ shop.name | default: 'Senseless' }}</span></a>
+    <button class="ss-hdr__close" type="button" aria-label="Close menu" data-ss-close>
+      {{ 'icon-close.svg' | inline_asset_content }}
+    </button>
+  </div>
+
+  <ul class="ss-hdr__drawernav">
+    {%- for link in menu.links -%}
+      {%- if link.links.size > 0 -%}
+        {%- assign has_grandchildren = false -%}
+        {%- for child in link.links -%}{%- if child.links.size > 0 -%}{%- assign has_grandchildren = true -%}{%- endif -%}{%- endfor -%}
+        <li>
+          <button class="ss-hdr__acc" type="button" aria-expanded="false" aria-controls="ss-acc-{{ uid }}-{{ forloop.index }}" data-ss-acc="{{ forloop.index }}">
+            {{ link.title | escape }}
+            <svg class="ss-hdr__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="ss-hdr__accpanel" id="ss-acc-{{ uid }}-{{ forloop.index }}" hidden>
+            {%- if has_grandchildren -%}
+              {%- for child in link.links -%}
+                <div class="ss-hdr__accgroup">
+                  <p class="ss-hdr__accgroup-title">{{ child.title | escape }}</p>
+                  {%- for gc in child.links -%}<a href="{{ gc.url }}">{{ gc.title | escape }}</a>{%- endfor -%}
+                </div>
+              {%- endfor -%}
+            {%- else -%}
+              {%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title | escape }}</a>{%- endfor -%}
+            {%- endif -%}
+          </div>
+        </li>
+      {%- else -%}
+        <li><a class="ss-hdr__drawerlink" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  <div class="ss-hdr__drawerfoot">
+    <a href="{{ routes.search_url }}">{{ 'icon-search.svg' | inline_asset_content }} Search</a>
+    <a href="{{ routes.account_url | default: routes.account_login_url }}">{{ 'icon-account.svg' | inline_asset_content }} Account</a>
+  </div>
+</nav>
+
+<script>
+  (function () {
+    var hdr = document.querySelector('.ss-hdr[data-ss-header]');
+    var drawer = document.getElementById('ss-drawer-{{ uid }}');
+    var scrim = document.querySelector('.ss-hdr__scrim[data-ss-scrim]');
+    if (!hdr || !drawer || !scrim) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---- Header height vars (cart drawer / account dialog rely on these) ---- */
+    function setHeights() {
+      var h = hdr.offsetHeight;
+      document.documentElement.style.setProperty('--header-height', h + 'px');
+      document.documentElement.style.setProperty('--header-group-height', h + 'px');
+    }
+    setHeights();
+    window.addEventListener('resize', setHeights);
+
+    /* ---- Sticky compress ---- */
+    function onScroll() { hdr.setAttribute('data-scrolled', window.scrollY > 8 ? 'true' : 'false'); }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ---- Desktop dropdown / mega ---- */
+    var triggers = Array.prototype.slice.call(hdr.querySelectorAll('[data-ss-trigger]'));
+    var panels = Array.prototype.slice.call(hdr.querySelectorAll('[data-ss-panel]'));
+    var openKey = null, hoverTimer = null;
+    function panelFor(key) { return panels.filter(function (p) { return p.getAttribute('data-ss-panel') === key; })[0]; }
+    function closeAll() {
+      triggers.forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
+      panels.forEach(function (p) { p.hidden = true; });
+      openKey = null;
+    }
+    function openPanel(key) {
+      if (openKey === key) return;
+      closeAll();
+      var t = triggers.filter(function (x) { return x.getAttribute('data-ss-trigger') === key; })[0];
+      var p = panelFor(key);
+      if (t) t.setAttribute('aria-expanded', 'true');
+      if (p) p.hidden = false;
+      openKey = key;
+    }
+    triggers.forEach(function (t) {
+      var key = t.getAttribute('data-ss-trigger');
+      t.addEventListener('click', function (e) { e.stopPropagation(); openKey === key ? closeAll() : openPanel(key); });
+      t.addEventListener('mouseenter', function () { clearTimeout(hoverTimer); hoverTimer = setTimeout(function () { openPanel(key); }, 120); });
+      t.addEventListener('mouseleave', function () { clearTimeout(hoverTimer); });
+    });
+    hdr.querySelector('.ss-hdr__panels').addEventListener('mouseleave', function () { hoverTimer = setTimeout(closeAll, 180); });
+    hdr.querySelector('.ss-hdr__panels').addEventListener('mouseenter', function () { clearTimeout(hoverTimer); });
+    document.addEventListener('click', function (e) { if (!hdr.contains(e.target)) closeAll(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeAll(); closeDrawer(); } });
+
+    /* ---- Mobile drawer ---- */
+    var burger = hdr.querySelector('[data-ss-burger]');
+    var closeBtn = drawer.querySelector('[data-ss-close]');
+    function focusables() { return Array.prototype.slice.call(drawer.querySelectorAll('a[href],button:not([disabled])')).filter(function (el) { return el.offsetParent !== null; }); }
+    function openDrawer() {
+      drawer.setAttribute('data-open', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      scrim.hidden = false; requestAnimationFrame(function () { scrim.setAttribute('data-open', 'true'); });
+      if (burger) burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+      document.addEventListener('keydown', trapTab);
+    }
+    function closeDrawer() {
+      if (drawer.getAttribute('data-open') !== 'true') return;
+      drawer.setAttribute('data-open', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      scrim.setAttribute('data-open', 'false');
+      setTimeout(function () { scrim.hidden = true; }, reduce ? 0 : 250);
+      if (burger) { burger.setAttribute('aria-expanded', 'false'); burger.focus(); }
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', trapTab);
+    }
+    function trapTab(e) {
+      if (e.key !== 'Tab') return;
+      var f = focusables(); if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    if (burger) burger.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    scrim.addEventListener('click', closeDrawer);
+
+    /* ---- Drawer accordion ---- */
+    Array.prototype.slice.call(drawer.querySelectorAll('[data-ss-acc]')).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (panel) panel.hidden = open;
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Senseless — Header",
+  "tag": "div",
+  "class": "senseless-section-header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu", "info": "Use the senseless-main menu (Shop mega + The system / Help dropdowns + About + Trade)." },
+    { "type": "image_picker", "id": "logo_image", "label": "Logo image (optional)", "info": "Falls back to the theme logo, then to a Montserrat wordmark of the shop name." },
+    { "type": "range", "id": "logo_height", "label": "Logo image height", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 48 },
+    { "type": "checkbox", "id": "show_search", "label": "Show search", "default": true },
+    { "type": "text", "id": "mega_cta_label", "label": "Mega menu CTA label", "default": "Find your strength" },
+    { "type": "url", "id": "mega_cta_url", "label": "Mega menu CTA link", "info": "Set to /pages/choosing-your-strength" }
+  ],
+  "enabled_on": { "groups": ["header"] },
+  "presets": [ { "name": "Senseless — Header" } ]
+}
+{% endschema %}
