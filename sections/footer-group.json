@@ -123,10 +123,10 @@
         "menu_footer": {
           "type": "menu",
           "settings": {
-            "menu": "footer",
-            "heading": "",
+            "menu": "senseless-footer-shop",
+            "heading": "Shop",
             "menu_spacing": 12,
-            "show_as_accordion": false,
+            "show_as_accordion": true,
             "accordion_icon": "plus",
             "accordion_dividers": false,
             "inherit_color_scheme": true,
@@ -141,10 +141,28 @@
         "menu_main": {
           "type": "menu",
           "settings": {
-            "menu": "main-menu",
-            "heading": "",
+            "menu": "senseless-footer-explore",
+            "heading": "The system",
             "menu_spacing": 12,
-            "show_as_accordion": false,
+            "show_as_accordion": true,
+            "accordion_icon": "plus",
+            "accordion_dividers": false,
+            "inherit_color_scheme": true,
+            "heading_preset": "paragraph",
+            "link_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
+        "menu_company": {
+          "type": "menu",
+          "settings": {
+            "menu": "senseless-footer-company",
+            "heading": "Company",
+            "menu_spacing": 12,
+            "show_as_accordion": true,
             "accordion_icon": "plus",
             "accordion_dividers": false,
             "inherit_color_scheme": true,
@@ -160,7 +178,8 @@
       "block_order": [
         "group_wErUQf",
         "menu_footer",
-        "menu_main"
+        "menu_main",
+        "menu_company"
       ],
       "name": "t:names.footer",
       "settings": {
