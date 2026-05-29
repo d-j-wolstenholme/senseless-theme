@@ -32,8 +32,8 @@
           "cta_label": "Shop Advanced Spray", "cta_url": "/collections/numbing-spray?strength=advanced", "flagship": false,
           "image_alt": "Advanced Strength Senseless spray on a warm off-white background" } },
         "professional": { "type": "tier_card", "settings": {
-          "label": "Professional Strength", "heading": "Our most concentrated spray formula",
-          "body": "<p>Developed with practitioners. Used in clinics across the UK for the most demanding spray applications. Available without restriction. Trusted at the chair.</p>",
+          "label": "Professional Strength", "heading": "Developed with practitioners",
+          "body": "<p>Our most concentrated spray formula. Used in clinics across the UK for the most demanding spray applications. Available without restriction. Trusted at the chair.</p>",
           "cta_label": "Shop Professional Spray", "cta_url": "/collections/numbing-spray?strength=professional", "flagship": true, "badge_text": "",
           "image_alt": "Professional Strength Senseless spray photographed in a darker palette" } }
       },

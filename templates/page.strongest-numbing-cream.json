@@ -3,7 +3,7 @@
     "hero": {
       "type": "senseless-guide-hero",
       "settings": {
-        "eyebrow": "The flagship",
+        "eyebrow": "Professional Strength",
         "headline": "Senseless Professional. Our most concentrated formula.",
         "subhead": "<p>Developed with practitioners. Used in clinics across the UK. Available to all, without restriction. If you're looking for the strongest option in the Senseless system, Professional is it.</p>",
         "primary_cta_label": "Shop Professional", "primary_cta_url": "/collections/numbing-cream?strength=professional",
@@ -46,7 +46,7 @@
       "settings": {
         "background": "white", "eyebrow": "Where it fits",
         "headline": "The procedures Professional is built for.",
-        "body": "<p><strong>Full-face laser resurfacing.</strong> The most demanding face laser procedure. Professional cream is the flagship recommendation.</p><p><strong>Sustained microneedling.</strong> Intensive, full-face microneedling sessions. Professional cream or gel.</p><p><strong>SPMU (long sittings).</strong> Microblading, lip blush, and other SPMU procedures running 90+ minutes. Professional cream or gel.</p><p><strong>Intensive body procedures.</strong> Full-body laser, brazilian/bikini with sensitivity concerns, multi-site body work. Professional spray.</p>",
+        "body": "<p><strong>Full-face laser resurfacing.</strong> The most demanding face laser procedure. Professional cream is the recommendation.</p><p><strong>Sustained microneedling.</strong> Intensive, full-face microneedling sessions. Professional cream or gel.</p><p><strong>SPMU (long sittings).</strong> Microblading, lip blush, and other SPMU procedures running 90+ minutes. Professional cream or gel.</p><p><strong>Intensive body procedures.</strong> Full-body laser, brazilian/bikini with sensitivity concerns, multi-site body work. Professional spray.</p>",
         "cta_label": "", "cta_url": ""
       }
     },

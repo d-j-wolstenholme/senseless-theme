@@ -47,7 +47,6 @@
 
   .ss-pg__card--flagship { border: 2px solid var(--ss-purple); }
   .ss-pg__card--flagship:hover { border-color: var(--ss-purple); }
-  .ss-pg__badge { position: absolute; top: 12px; right: 12px; z-index: 1; background: var(--ss-purple); color: #fff; font-family: var(--ss-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
 
   @media (min-width: 768px) { .ss-pg__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
   @media (min-width: 1024px) { .ss-pg__inner { padding: 96px 40px; } }
@@ -76,7 +75,6 @@
       {%- for block in section.blocks -%}
         <a class="ss-pg__card{% if block.settings.flagship %} ss-pg__card--flagship{% endif %}" href="{{ block.settings.cta_url | default: '#' }}" data-strength="{{ block.settings.strength }}" {{ block.shopify_attributes }}>
           <div class="ss-pg__media">
-            {%- if block.settings.flagship and block.settings.badge_text != blank -%}<span class="ss-pg__badge">{{ block.settings.badge_text | escape }}</span>{%- endif -%}
             {%- if block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 50vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
             {%- else -%}
@@ -157,8 +155,7 @@
         { "type": "text", "id": "price", "label": "Price", "default": "£TBC" },
         { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View product" },
         { "type": "url", "id": "cta_url", "label": "CTA link" },
-        { "type": "checkbox", "id": "flagship", "label": "Flagship variant", "default": false },
-        { "type": "text", "id": "badge_text", "label": "Flagship badge text", "default": "Flagship" }
+        { "type": "checkbox", "id": "flagship", "label": "Professional treatment (purple border)", "default": false }
       ]
     }
   ],

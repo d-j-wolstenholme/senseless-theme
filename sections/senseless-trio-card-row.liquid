@@ -1,7 +1,7 @@
 {%- comment -%}
   Senseless — Card row (trio / quad)
   Reusable workhorse. `columns` = 3 or 4. Three block types: tier_card, procedure_card, product_card.
-  Professional tier uses the flagship variant (dark palette + badge). Used 3x on the homepage.
+  Professional tier uses the flagship variant (2px purple border + filled CTA, no badge). Used 3x on the homepage.
   All copy editable in the theme editor; URLs/images wired per-instance (templates/index.json).
 {%- endcomment -%}
 
@@ -32,7 +32,7 @@
   .ss-trio__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
   .ss-trio--cols-4 .ss-trio__grid { grid-template-columns: repeat(2, 1fr); }
 
-  .ss-card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-card { position: relative; box-sizing: border-box; height: 100%; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
   .ss-card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
   .ss-card__media { aspect-ratio: 4 / 5; background: var(--ss-bg); position: relative; }
   .ss-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -53,7 +53,6 @@
   .ss-card--flagship:hover { border-color: var(--ss-purple); }
   .ss-card--flagship .ss-card__ctabtn { background: var(--ss-purple); border-color: var(--ss-purple); color: #ffffff; }
   .ss-card--flagship .ss-card__ctabtn:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); color: #ffffff; }
-  .ss-card__badge { position: absolute; top: 12px; right: 12px; z-index: 1; background: var(--ss-purple); color: #ffffff; font-family: var(--ss-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
 
   .ss-trio__footer { text-align: center; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
   .ss-trio__closer { font-family: var(--ss-head); font-weight: 600; font-size: 18px; color: var(--ss-text); margin: 0; }
@@ -93,7 +92,6 @@
           {%- when 'tier_card' -%}
             <div class="ss-card{% if block.settings.flagship %} ss-card--flagship{% endif %}" {{ block.shopify_attributes }}>
               <div class="ss-card__media">
-                {%- if block.settings.flagship and block.settings.badge_text != blank -%}<span class="ss-card__badge">{{ block.settings.badge_text | escape }}</span>{%- endif -%}
                 {%- if block.settings.image != blank -%}
                   {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
                 {%- else -%}
@@ -126,7 +124,6 @@
           {%- when 'product_card' -%}
             <a class="ss-card ss-card--product{% if block.settings.flagship %} ss-card--flagship{% endif %}" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
               <div class="ss-card__media">
-                {%- if block.settings.flagship and block.settings.badge_text != blank -%}<span class="ss-card__badge">{{ block.settings.badge_text | escape }}</span>{%- endif -%}
                 {%- if block.settings.image != blank -%}
                   {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
                 {%- else -%}
@@ -197,8 +194,7 @@
         { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Short description of this tier and the appointments it suits.</p>" },
         { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop" },
         { "type": "url", "id": "cta_url", "label": "CTA link" },
-        { "type": "checkbox", "id": "flagship", "label": "Flagship variant (dark palette + badge)", "default": false },
-        { "type": "text", "id": "badge_text", "label": "Flagship badge text", "default": "Flagship" }
+        { "type": "checkbox", "id": "flagship", "label": "Professional treatment (2px purple border + filled CTA)", "default": false }
       ]
     },
     {
@@ -223,8 +219,7 @@
         { "type": "text", "id": "price", "label": "Price", "default": "£TBC" },
         { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View product" },
         { "type": "url", "id": "cta_url", "label": "CTA link" },
-        { "type": "checkbox", "id": "flagship", "label": "Flagship variant (dark palette + badge)", "default": false },
-        { "type": "text", "id": "badge_text", "label": "Flagship badge text", "default": "Flagship" }
+        { "type": "checkbox", "id": "flagship", "label": "Professional treatment (2px purple border + filled CTA)", "default": false }
       ]
     },
     {

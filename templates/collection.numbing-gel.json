@@ -32,8 +32,8 @@
           "cta_label": "Shop Advanced Gel", "cta_url": "/collections/numbing-gel?strength=advanced", "flagship": false,
           "image_alt": "Advanced Strength Senseless gel on a warm off-white background" } },
         "professional": { "type": "tier_card", "settings": {
-          "label": "Professional Strength", "heading": "Our most concentrated gel formula",
-          "body": "<p>Developed with practitioners. 35ml. Used in clinics across the UK. Available without restriction. Trusted at the chair.</p>",
+          "label": "Professional Strength", "heading": "Developed with practitioners",
+          "body": "<p>Our most concentrated gel formula. 35ml. Used in clinics across the UK. Available without restriction. Trusted at the chair.</p>",
           "cta_label": "Shop Professional Gel", "cta_url": "/collections/numbing-gel?strength=professional", "flagship": true, "badge_text": "",
           "image_alt": "Professional Strength Senseless gel on a warm off-white background" } }
       },

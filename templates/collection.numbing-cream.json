@@ -27,8 +27,8 @@
           "cta_label": "Shop Advanced Cream", "cta_url": "/collections/numbing-cream?strength=advanced", "flagship": false,
           "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
         "professional": { "type": "tier_card", "settings": {
-          "label": "Professional Strength", "heading": "Our most concentrated formula",
-          "body": "<p>Developed with practitioners. Used in clinics across the UK. Available without restriction in 30g. Professional sits at the top of the Senseless cream range. Trusted at the chair.</p>",
+          "label": "Professional Strength", "heading": "Developed with practitioners",
+          "body": "<p>Our most concentrated formula. Used in clinics across the UK. Available without restriction in 30g. Professional sits at the top of the Senseless cream range. Trusted at the chair.</p>",
           "cta_label": "Shop Professional Cream", "cta_url": "/collections/numbing-cream?strength=professional", "flagship": true, "badge_text": "",
           "image_alt": "Professional Strength Senseless cream on a warm off-white background" } }
       },

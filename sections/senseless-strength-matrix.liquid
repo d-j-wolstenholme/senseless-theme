@@ -1,7 +1,9 @@
 {%- comment -%}
   Senseless — Strength matrix (procedure suitability)
-  Procedure × recommendation rows. Each row has a level (recommended / possible / not-recommended) that styles the pill.
-  Honest suitability matrix — tells buyers when a product isn't the right choice. Reusable across all product pages.
+  Procedure × recommendation rows. `level` (recommended / possible / not) styles the primary pill.
+  Recommendation text is split on " · " into separate pills so two-tier recs never break mid-phrase
+  (first pill emphasised, later pills lighter). `notes` renders as a muted reason line beneath.
+  Two-column table on desktop, one card per procedure on mobile. Reusable across guides + product pages.
 {%- endcomment -%}
 
 {%- style -%}
@@ -12,7 +14,7 @@
     --ss-bg: #f7f7f5;
     --ss-surface: #ffffff;
     --ss-text: #1a1a1a;
-    --ss-body: #4a4a50;
+    --ss-secondary: #5C5853;
     --ss-muted: #8E8A82;
     --ss-border: #E5E2DC;
     --ss-head: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -24,34 +26,41 @@
   .ss-sm__header { text-align: center; max-width: 60ch; margin: 0 auto 28px; display: flex; flex-direction: column; gap: 12px; }
   .ss-sm__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-sm__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; }
-  .ss-sm__intro { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); }
+  .ss-sm__intro { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-secondary); }
   .ss-sm__intro p { margin: 0; }
 
-  .ss-sm__rows { display: flex; flex-direction: column; border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; background: var(--ss-surface); }
-  .ss-sm__row { display: flex; flex-direction: column; gap: 6px; padding: 16px 20px; border-bottom: 1px solid var(--ss-border); }
-  .ss-sm__row:last-child { border-bottom: 0; }
-  .ss-sm__proc { font-family: var(--ss-head); font-weight: 600; font-size: 16px; margin: 0; }
-  .ss-sm__rec { font-family: var(--ss-sans); font-size: 14px; margin: 0; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 4px 12px; border-radius: 999px; }
-  .ss-sm__rec--recommended { color: var(--ss-purple); background: rgba(107,63,160,0.08); }
-  .ss-sm__rec--possible { color: var(--ss-body); background: rgba(26,26,26,0.05); }
-  .ss-sm__rec--not { color: var(--ss-muted); background: rgba(26,26,26,0.04); }
-  .ss-sm__right { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
-  .ss-sm__notes { font-family: var(--ss-sans); font-size: 13px; line-height: 1.45; color: var(--ss-body); margin: 0; }
+  /* Contained matrix: white surface, light dividers between rows */
+  .ss-sm__table { background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 6px; overflow: hidden; }
+  .ss-sm__col-head { display: none; }
+  .ss-sm__row { display: grid; grid-template-columns: 1fr; gap: 10px; padding: 18px 20px; border-top: 1px solid var(--ss-border); }
+  .ss-sm__row:first-child { border-top: 0; }
+  .ss-sm__proc { font-family: var(--ss-head); font-weight: 600; font-size: 16px; line-height: 1.3; margin: 0; color: var(--ss-text); align-self: start; }
+  .ss-sm__rec { display: flex; flex-direction: column; gap: 8px; }
+  .ss-sm__pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ss-sm__pill { display: inline-flex; align-items: center; font-family: var(--ss-sans); font-weight: 500; font-size: 13px; line-height: 1.3; padding: 5px 12px; border-radius: 999px; border: 1px solid transparent; white-space: nowrap; }
+  .ss-sm__pill--recommended { color: var(--ss-purple); background: rgba(107,63,160,0.10); border-color: rgba(107,63,160,0.30); }
+  .ss-sm__pill--possible { color: var(--ss-secondary); background: rgba(26,26,26,0.05); border-color: var(--ss-border); }
+  .ss-sm__pill--not { color: var(--ss-muted); background: transparent; border-color: var(--ss-border); }
+  .ss-sm__pill--secondary { color: var(--ss-secondary); background: transparent; border-color: rgba(107,63,160,0.30); font-weight: 400; }
+  .ss-sm__reason { font-family: var(--ss-sans); font-size: 13px; line-height: 1.45; color: var(--ss-secondary); margin: 0; }
 
-  .ss-sm__footer { text-align: center; margin-top: 24px; }
+  .ss-sm__footer { text-align: center; margin-top: 28px; }
   .ss-sm__cta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
   .ss-sm__cta:hover { background: var(--ss-text); color: var(--ss-bg); }
 
   @media (min-width: 700px) {
-    .ss-sm__row { flex-direction: row; align-items: center; justify-content: space-between; }
     .ss-sm__inner { padding-top: 96px; padding-bottom: 96px; }
+    .ss-sm__col-head { display: grid; grid-template-columns: 220px 1fr; gap: 28px; padding: 14px 20px; border-bottom: 1px solid var(--ss-border); background: var(--ss-bg); }
+    .ss-sm__col-head span { font-family: var(--ss-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-muted); }
+    .ss-sm__row { grid-template-columns: 220px 1fr; gap: 28px; align-items: center; padding: 18px 20px; }
+    .ss-sm__pill { white-space: normal; }
   }
   @media (prefers-reduced-motion: reduce) { .ss-sm__cta { transition: none; } }
 {%- endstyle -%}
 
 <section class="ss-sm" aria-label="{{ section.settings.headline | default: 'Suitability' | escape }}">
   <div class="ss-sm__inner">
-    {%- if section.settings.eyebrow != blank or section.settings.headline != blank -%}
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
       <header class="ss-sm__header">
         {%- if section.settings.eyebrow != blank -%}<p class="ss-sm__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
         {%- if section.settings.headline != blank -%}<h2 class="ss-sm__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
@@ -59,13 +68,23 @@
       </header>
     {%- endif -%}
 
-    <div class="ss-sm__rows">
+    <div class="ss-sm__table">
+      <div class="ss-sm__col-head" aria-hidden="true"><span>Procedure</span><span>Recommendation</span></div>
       {%- for block in section.blocks -%}
         <div class="ss-sm__row" {{ block.shopify_attributes }}>
           <p class="ss-sm__proc">{{ block.settings.procedure | escape }}</p>
-          <div class="ss-sm__right">
-            <span class="ss-sm__rec ss-sm__rec--{{ block.settings.level }}">{{ block.settings.recommendation | escape }}</span>
-            {%- if block.settings.notes != blank -%}<p class="ss-sm__notes">{{ block.settings.notes | escape }}</p>{%- endif -%}
+          <div class="ss-sm__rec">
+            <div class="ss-sm__pills">
+              {%- assign rec_parts = block.settings.recommendation | split: ' · ' -%}
+              {%- for part in rec_parts -%}
+                {%- if forloop.first -%}
+                  <span class="ss-sm__pill ss-sm__pill--{{ block.settings.level }}">{{ part | escape }}</span>
+                {%- else -%}
+                  <span class="ss-sm__pill ss-sm__pill--secondary">{{ part | escape }}</span>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            {%- if block.settings.notes != blank -%}<p class="ss-sm__reason">{{ block.settings.notes | escape }}</p>{%- endif -%}
           </div>
         </div>
       {%- endfor -%}
@@ -98,8 +117,8 @@
       "name": "Procedure row",
       "settings": [
         { "type": "text", "id": "procedure", "label": "Procedure", "default": "Lip Fillers" },
-        { "type": "text", "id": "recommendation", "label": "Recommendation", "default": "Recommended" },
-        { "type": "text", "id": "notes", "label": "Notes", "info": "Optional small line under the recommendation." },
+        { "type": "text", "id": "recommendation", "label": "Recommendation", "info": "Separate two-tier recommendations with ' · ' to render them as separate pills.", "default": "Recommended" },
+        { "type": "text", "id": "notes", "label": "Notes", "info": "Optional small reason line under the recommendation." },
         { "type": "select", "id": "level", "label": "Level", "default": "recommended", "options": [ { "value": "recommended", "label": "Recommended" }, { "value": "possible", "label": "Possible" }, { "value": "not", "label": "Not recommended" } ] }
       ]
     }
