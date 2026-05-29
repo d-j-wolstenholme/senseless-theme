@@ -112,3 +112,7 @@ Paste this report into the planning chat (Claude conversation) after every sessi
 - **Code:** This repo + GitHub `d-j-wolstenholme/senseless-theme`
 - **Live state:** Shopify Partners account `senseless-tattooing.myshopify.com`
 - **Local mirror:** `DECISIONS-LOG.md` at repo root (active volume only)
+
+## References
+
+- **Site-wide Standards (Notion):** consolidated human-facing index of site-wide standards — `https://www.notion.so/36f58bc375ea8100bc2af19a9dd3747d`. This is a **pointer only**. Canonical values live in the Strands and in this repo's `BRAND.md` / `CLAUDE.md` / `COMPLIANCE.md`. If they ever conflict, the repo docs and Strands win.
