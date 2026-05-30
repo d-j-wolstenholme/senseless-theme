@@ -23,6 +23,7 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-editorial-band.liquid` | Long-form editorial band | 2 templates |
 | `senseless-contact-form.liquid` | Contact / enquiry form | contact, trade (2) |
 | `senseless-cross-sell.liquid` | Related-product cross-sell row (1:1 linked images, Professional border) | product, foaming-cleanser (2) |
+| `senseless-complete-prep.liquid` | Complementary format cross-sell ("Complete your prep") — 2 sibling-format cards + Compare-formats CTA. Variant by host (auto-detects product format; renders nothing if unresolved). Prep, not aftercare. | product (staged) |
 | `senseless-format-row.liquid` | Format comparison row (typographic panels, intentionally imageless) | choosing-your-format, homepage (2) |
 | `senseless-product-hero.liquid` | Product page hero (gallery + buy block) | product, foaming-cleanser (2) |
 | `senseless-product-showcase.liquid` | Product showcase grid (1:1 linked images, Professional border) | lip-fillers collection, homepage (2) |

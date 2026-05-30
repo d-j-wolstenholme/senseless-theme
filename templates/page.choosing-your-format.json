@@ -4,8 +4,8 @@
       "type": "senseless-guide-hero",
       "settings": {
         "eyebrow": "The format choice",
-        "headline": "Cream, gel, or spray? | Pick by procedure.",
-        "subhead": "<p>Format is independent of strength. An Advanced cream is the same concentration as an Advanced gel. The choice between the three formats comes down to the procedure, the treatment area, and your practitioner's protocol. Most clients use cream. Some have appointments that suit gel or spray better.</p>",
+        "headline": "Cream, Gel, and Spray. | Matched to the appointment.",
+        "subhead": "<p>Format is independent of strength — an Advanced Cream is the same concentration as an Advanced Gel. Which one you reach for comes down to the procedure, the treatment area, and your practitioner's protocol. Cream is where most clients start, and it covers the majority of appointments. Gel and Spray each work on their own too — and because different appointments call for different formats, plenty of clients keep more than one.</p>",
         "image_alt": "Editorial three-format composition of Senseless cream, gel, and spray"
       }
     },
@@ -64,6 +64,16 @@
         "image_alt": "Editorial Senseless spray bottle detail"
       }
     },
+    "complementary": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right", "eyebrow": "More than one format",
+        "headline": "Most clients start with Cream. Many don't stop there.",
+        "body": "<p>Cream covers the majority of appointments, which is why it's where most people begin. But few clients book only one kind of treatment. If your diary runs from lip fillers to body laser, or microneedling to waxing, the format that suits one isn't always the one that suits the next. Spray covers the broad, body-scale work. Gel suits the longer, sustained sittings. Cream stays the everyday default. Each works perfectly well on its own — and plenty of clients keep more than one, so they're ready for the next appointment rather than ordering again the week before.</p>",
+        "cta_label": "Shop the full range", "cta_url": "/collections/aesthetic-numbing-cream",
+        "image_alt": "Editorial three-format composition of Senseless Cream, Gel, and Spray on a warm off-white background"
+      }
+    },
     "callout": {
       "type": "senseless-callout-band",
       "settings": {
@@ -83,5 +93,5 @@
       "settings": { "columns": "3", "eyebrow": "", "headline": "Shop by format.", "body": "", "closer": "", "section_cta_label": "Choose your strength first", "section_cta_url": "/pages/choosing-your-strength" }
     }
   },
-  "order": ["hero", "formats", "matrix", "cream", "gel", "spray", "callout", "shop"]
+  "order": ["hero", "formats", "matrix", "cream", "gel", "spray", "complementary", "callout", "shop"]
 }

@@ -1,0 +1,138 @@
+{%- comment -%}
+  Senseless — Complete your prep (complementary format cross-sell)
+  Canonical: "Format Positioning & Cross-Sell Spec" (Site Build OS). Cream is the foundation;
+  Gel + Spray are complementary. The reason to own more than one format is appointment-type /
+  treatment-area + preference + readiness — NEVER in-session combination (compliance, LOCKED).
+  Each format reads standalone-competent.
+
+  Two complementary format cards + a "Compare formats" CTA. Variant by host:
+  A = Cream page (push Spray + Gel), B = Spray page (push Cream + Gel), C = Gel page (push Cream + Spray).
+  Cards link to the sibling format COLLECTIONS until products/variants exist and can be linked
+  by matching strength (then bind per the spec). Place BELOW main content and ABOVE the Foaming
+  Cleanser aftercare cross-link — prep ≠ aftercare, never merge.
+
+  Variant resolution: explicit setting (cream/spray/gel) wins; 'auto' detects the host product's
+  format from metafield `senseless.format` → product.type → tags (format_* / cream|gel|spray).
+  If 'auto' cannot resolve a format (e.g. not a product page, or products not yet created),
+  the section renders nothing — so it is safe to stage on the product template now.
+{%- endcomment -%}
+
+{%- liquid
+  assign fmt = section.settings.variant
+  if fmt == 'auto'
+    assign detected = ''
+    assign mf = product.metafields.senseless.format.value | downcase
+    assign ptype = product.type | downcase
+    assign probe = mf | append: ' ' | append: ptype
+    assign tagstr = product.tags | join: ' ' | downcase
+    assign probe = probe | append: ' ' | append: tagstr
+    if probe contains 'spray'
+      assign detected = 'spray'
+    elsif probe contains 'gel'
+      assign detected = 'gel'
+    elsif probe contains 'cream'
+      assign detected = 'cream'
+    endif
+    assign fmt = detected
+  endif
+
+  assign eyebrow = 'Complete your prep'
+  case fmt
+    when 'cream'
+      assign headline = 'One appointment type rarely tells the whole story.'
+      assign body = 'Cream is the everyday choice and the one most clients start with. If your calendar also runs to body-scale laser or waxing, the Spray covers ground a cream can’t. For longer, sustained sittings, many reach for the Gel. Different appointments, different formats — plenty of clients keep more than one.'
+      assign card1_label = 'Spray'
+      assign card1_handle = 'numbing-spray'
+      assign card2_label = 'Gel'
+      assign card2_handle = 'numbing-gel'
+    when 'spray'
+      assign headline = 'Spray for the broad work. Cream for the rest.'
+      assign body = 'Spray suits body-scale and broader zones. For face and detail appointments — lip fillers, Botox, SPMU — Cream is the format most clinics work with. Many clients keep both, so they’re ready whatever the booking.'
+      assign card1_label = 'Cream'
+      assign card1_handle = 'numbing-cream'
+      assign card2_label = 'Gel'
+      assign card2_handle = 'numbing-gel'
+    when 'gel'
+      assign headline = 'Gel for the long sittings. Cream and Spray for everything else.'
+      assign body = 'Gel earns its place across sustained sessions. Cream remains the everyday default for face and detail; Spray covers body-scale work. Different appointments call for different formats, and many clients keep more than one.'
+      assign card1_label = 'Cream'
+      assign card1_handle = 'numbing-cream'
+      assign card2_label = 'Spray'
+      assign card2_handle = 'numbing-spray'
+  endcase
+-%}
+
+{%- if headline != blank -%}
+{%- style -%}
+  .ss-prep { background: var(--ss-bg, #f7f7f5); color: #1A1816; border-top: 1px solid #E5E2DC; }
+  .ss-prep__inner { max-width: 1100px; margin: 0 auto; padding: 56px 20px; }
+  .ss-prep__head { max-width: 62ch; margin: 0 auto 28px; text-align: center; display: flex; flex-direction: column; gap: 12px; }
+  .ss-prep__eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; line-height: 1.2; letter-spacing: 0.2em; text-transform: uppercase; color: #6B3FA0; margin: 0; }
+  .ss-prep__headline { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; margin: 0; color: #1A1816; }
+  .ss-prep__body { font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.7; color: #2B2730; margin: 0; }
+  .ss-prep__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .ss-prep__card { display: flex; align-items: center; gap: 16px; background: #ffffff; border: 1px solid #E5E2DC; border-radius: 4px; overflow: hidden; text-decoration: none; color: #1A1816; transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-prep__card:hover { transform: translateY(-2px); border-color: rgba(26,24,22,0.28); }
+  .ss-prep__media { flex: 0 0 96px; width: 96px; aspect-ratio: 1 / 1; background: var(--ss-bg, #f7f7f5); }
+  .ss-prep__cardbody { display: flex; flex-direction: column; gap: 2px; padding: 16px 16px 16px 0; }
+  .ss-prep__cardlabel { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.25; margin: 0; }
+  .ss-prep__cardcue { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 13px; color: #6B3FA0; }
+  .ss-prep__cardcue::after { content: ' →'; }
+  .ss-prep__foot { text-align: center; margin-top: 24px; }
+  .ss-prep__cta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid #1A1816; color: #1A1816; background: transparent; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-prep__cta:hover { background: #1A1816; color: #f7f7f5; }
+  @media (min-width: 768px) {
+    .ss-prep__inner { padding: 80px 40px; }
+    .ss-prep__grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ss-prep__card, .ss-prep__cta { transition: none; } .ss-prep__card:hover { transform: none; } }
+{%- endstyle -%}
+
+<section class="ss-prep senseless-section" aria-label="{{ eyebrow }}">
+  <div class="ss-prep__inner">
+    <header class="ss-prep__head">
+      <p class="ss-prep__eyebrow">{{ eyebrow }}</p>
+      <h2 class="ss-prep__headline">{{ headline }}</h2>
+      <p class="ss-prep__body">{{ body }}</p>
+    </header>
+
+    <div class="ss-prep__grid">
+      {%- assign c1 = collections[card1_handle] -%}
+      <a class="ss-prep__card" href="{{ c1.url | default: '/collections/' | append: card1_handle }}">
+        <span class="ss-prep__media">{%- render 'senseless-card-image', collection: c1, alt: card1_label | append: ' — Senseless topical preparation on a warm off-white background', sizes: '96px' -%}</span>
+        <span class="ss-prep__cardbody">
+          <span class="ss-prep__cardlabel">{{ card1_label }}</span>
+          <span class="ss-prep__cardcue">View {{ card1_label }}</span>
+        </span>
+      </a>
+
+      {%- assign c2 = collections[card2_handle] -%}
+      <a class="ss-prep__card" href="{{ c2.url | default: '/collections/' | append: card2_handle }}">
+        <span class="ss-prep__media">{%- render 'senseless-card-image', collection: c2, alt: card2_label | append: ' — Senseless topical preparation on a warm off-white background', sizes: '96px' -%}</span>
+        <span class="ss-prep__cardbody">
+          <span class="ss-prep__cardlabel">{{ card2_label }}</span>
+          <span class="ss-prep__cardcue">View {{ card2_label }}</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="ss-prep__foot">
+      <a class="ss-prep__cta" href="{{ section.settings.compare_url | default: '/pages/choosing-your-format' }}">Compare formats</a>
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Senseless — Complete prep",
+  "tag": "section",
+  "class": "senseless-section senseless-complete-prep",
+  "settings": [
+    { "type": "paragraph", "content": "Complementary format cross-sell. 'Auto' picks the variant from the host product's format (metafield senseless.format → product type → tags); renders nothing if it can't resolve, so it is safe to stage on the product template before products exist." },
+    { "type": "select", "id": "variant", "label": "Variant", "default": "auto", "options": [ { "value": "auto", "label": "Auto (detect product format)" }, { "value": "cream", "label": "Cream page (A)" }, { "value": "spray", "label": "Spray page (B)" }, { "value": "gel", "label": "Gel page (C)" } ] },
+    { "type": "url", "id": "compare_url", "label": "Compare formats link", "info": "Set to /pages/choosing-your-format" }
+  ],
+  "presets": [ { "name": "Senseless — Complete prep", "settings": { "variant": "cream" } } ]
+}
+{% endschema %}

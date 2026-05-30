@@ -78,6 +78,10 @@
       "block_order": ["c1", "c2", "c3"],
       "settings": { "columns": "3", "eyebrow": "The rest of the range", "headline": "The rest of the cream range." }
     },
+    "completeprep": {
+      "type": "senseless-complete-prep",
+      "settings": { "variant": "auto", "compare_url": "/pages/choosing-your-format" }
+    },
     "aftercare": {
       "type": "senseless-image-text-band",
       "settings": {
@@ -88,5 +92,5 @@
       }
     }
   },
-  "order": ["hero", "matrix", "howtouse", "system", "trust", "faq", "crosssell", "aftercare"]
+  "order": ["hero", "matrix", "howtouse", "system", "trust", "faq", "crosssell", "completeprep", "aftercare"]
 }

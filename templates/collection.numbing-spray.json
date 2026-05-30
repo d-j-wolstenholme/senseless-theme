@@ -99,7 +99,7 @@
         "gel": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>A different application format. Advanced and Professional.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image_alt": "Editorial image of Senseless Numbing Gel" } }
       },
       "block_order": ["cream", "gel"],
-      "settings": { "columns": "2", "eyebrow": "", "headline": "Cream or gel might suit better.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "settings": { "columns": "2", "eyebrow": "Complete your prep", "headline": "Spray for the broad work. Cream for the rest.", "body": "<p>Spray covers the broad work; Cream is the everyday default for face and detail. Many keep both.</p>", "closer": "", "section_cta_label": "Compare formats", "section_cta_url": "/pages/choosing-your-format" }
     }
   },
   "order": ["hero", "when_spray", "strengths", "procedures", "trust", "grid", "aftercare", "faq", "formats"]

@@ -67,7 +67,7 @@
         "spray": { "type": "format_item", "settings": { "label": "Numbing Spray", "body": "<p>For body areas and procedures across larger zones.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray" } }
       },
       "block_order": ["cream", "gel", "spray"],
-      "settings": { "eyebrow": "By format", "headline": "Cream, Gel, or Spray.", "body": "<p>Format is the second decision, after strength.</p>" }
+      "settings": { "eyebrow": "By format", "headline": "Cream, Gel, and Spray.", "body": "<p>Cream covers most appointments. Gel and Spray each have their place — and many clients keep more than one.</p>" }
     },
     "voice": {
       "type": "senseless-pull-quote",

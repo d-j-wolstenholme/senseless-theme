@@ -8,7 +8,7 @@
         "subhead": "<p>UK-formulated topical preparation gel, made for aesthetic appointments where the gel format suits the procedure better than a cream. Advanced and Professional — gel comes in two strengths.</p>",
         "primary_cta_label": "Shop all gel",
         "primary_cta_url": "#product-grid",
-        "secondary_cta_label": "Cream or gel?",
+        "secondary_cta_label": "Compare formats",
         "secondary_cta_url": "/pages/choosing-your-format",
         "image_alt": "Editorial still life of the Senseless gel range on a warm off-white background"
       }
@@ -99,7 +99,7 @@
         "spray": { "type": "format_card", "settings": { "label": "Numbing Spray", "body": "<p>For body areas and procedures across larger zones.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray", "image_alt": "Editorial image of Senseless Numbing Spray" } }
       },
       "block_order": ["cream", "spray"],
-      "settings": { "columns": "2", "eyebrow": "", "headline": "Looking for cream or spray?", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "settings": { "columns": "2", "eyebrow": "Complete your prep", "headline": "Gel for the long sittings. Cream and Spray for the rest.", "body": "<p>Gel suits the longer sittings; Cream and Spray cover the rest. Different appointments, different formats.</p>", "closer": "", "section_cta_label": "Compare formats", "section_cta_url": "/pages/choosing-your-format" }
     }
   },
   "order": ["hero", "when_gel", "strengths", "procedures", "trust", "grid", "aftercare", "faq", "formats"]

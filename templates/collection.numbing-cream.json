@@ -117,9 +117,9 @@
       },
       "block_order": ["gel", "spray"],
       "settings": {
-        "columns": "2", "eyebrow": "", "headline": "Not the format for you?",
-        "body": "<p>Senseless also makes gel and spray formats for procedures that suit a different application.</p>",
-        "closer": "", "section_cta_label": "", "section_cta_url": ""
+        "columns": "2", "eyebrow": "Complete your prep", "headline": "Pair Cream with a Gel or Spray.",
+        "body": "<p>Many clients pair Cream with a Gel or Spray for the appointments that suit them. Each works on its own.</p>",
+        "closer": "", "section_cta_label": "Compare formats", "section_cta_url": "/pages/choosing-your-format"
       }
     }
   },
