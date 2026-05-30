@@ -30,6 +30,14 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-newsletter-signup.liquid` | Single-field email signup (Shopify customer form, GDPR double opt-in) | Homepage (1) |
 | `senseless-pull-quote.liquid` | Editorial pull quote | Homepage (1) |
 
+## Header / Footer
+
+| Section File | Purpose | Used On |
+|---|---|---|
+| `senseless-header.liquid` | Fully custom header (replaces Horizon native): large Montserrat wordmark, centred nav driven by the `senseless-main` menu (Shop mega By format/By procedure, The system + Help dropdowns, About + Trade), sticky + frosted, accordion mobile drawer. Reuses Horizon `header-actions` (cart drawer + account) + `search`. | header-group (all pages) |
+
+> Footer still uses Horizon's native `footer.liquid`. Header announcement bar removed (no placeholder text).
+
 ## Senseless Snippets
 
 | Snippet File | Purpose |

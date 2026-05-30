@@ -4,7 +4,7 @@
       "type": "senseless-hero-brand-led",
       "settings": {
         "eyebrow": "Made for aesthetics",
-        "headline": "Confidence Starts With Comfort.",
+        "headline": "Confidence starts with comfort.",
         "subhead": "<p>A topical preparation made for aesthetic appointments. Three strengths and three formats, formulated in the UK for the way modern sessions actually run.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "/collections/numbing-cream",
@@ -18,11 +18,10 @@
       "type": "senseless-trust-bar",
       "blocks": {
         "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t2": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
+        "t3": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
+      "block_order": ["t1", "t2", "t3"],
       "settings": { "band": "surface" }
     },
     "statement": {
@@ -32,7 +31,7 @@
         "align": "center",
         "eyebrow": "The Senseless system",
         "headline": "Match the formula to your appointment.",
-        "lead": "<p>Aesthetic appointments vary, and the preparation you bring should reflect that — Clinical for routine sessions, Advanced for longer or more sensitive work, and Professional, our most concentrated formula.</p>",
+        "lead": "<p>Aesthetic appointments vary. The product you bring to them should reflect that. Clinical for routine sessions. Advanced for longer or more sensitive work. Professional, our most concentrated formula, formulated for clinicians and available to all.</p>",
         "cta_label": "",
         "cta_style": "ghost"
       }
@@ -42,10 +41,10 @@
       "blocks": {
         "clinical": { "type": "tier_card", "settings": { "label": "Clinical Strength", "heading": "For routine appointments", "body": "<p>The everyday Senseless. Used for top-ups, routine microneedling, smaller laser zones, and the appointments most clients book most often. Quietly capable.</p>", "cta_label": "Shop Clinical", "cta_url": "/collections/numbing-cream?strength=clinical", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
         "advanced": { "type": "tier_card", "settings": { "label": "Advanced Strength", "heading": "For longer or more demanding sessions", "body": "<p>The considered upgrade. Higher concentration, formulated for longer sessions and more sensitive indications. Chosen by clients who know what their appointment will ask of them.</p>", "cta_label": "Shop Advanced", "cta_url": "/collections/numbing-cream?strength=advanced", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
-        "professional": { "type": "tier_card", "settings": { "label": "Professional Strength", "heading": "Developed with practitioners", "body": "<p>Our most concentrated formula. Used in clinics across the UK. Available without restriction. Professional sits at the top of the Senseless system. Trusted at the chair.</p>", "cta_label": "Shop Professional", "cta_url": "/collections/numbing-cream?strength=professional", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } }
+        "professional": { "type": "tier_card", "settings": { "label": "Professional Strength", "heading": "Our most concentrated formula", "body": "<p>Developed with practitioners. Used in clinics across the UK. Available without restriction. Professional sits at the top of the Senseless system. Trusted at the chair.</p>", "cta_label": "Shop Professional", "cta_url": "/collections/numbing-cream?strength=professional", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } }
       },
       "block_order": ["clinical", "advanced", "professional"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "settings": { "columns": "3", "eyebrow": "", "headline": "", "body": "", "closer": "The system does the rest.", "section_cta_label": "Find your strength", "section_cta_url": "/pages/choosing-your-strength" }
     },
     "decision": {
       "type": "senseless-decision-band",
@@ -68,7 +67,7 @@
         "spray": { "type": "format_item", "settings": { "label": "Numbing Spray", "body": "<p>For body areas and procedures across larger zones.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray" } }
       },
       "block_order": ["cream", "gel", "spray"],
-      "settings": { "eyebrow": "By format", "headline": "Cream, gel, or spray.", "body": "<p>Format is the second decision, after strength.</p>" }
+      "settings": { "eyebrow": "By format", "headline": "Cream, Gel, or Spray.", "body": "<p>Format is the second decision, after strength.</p>" }
     },
     "voice": {
       "type": "senseless-pull-quote",
