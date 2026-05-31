@@ -30,7 +30,9 @@
   .ss-pg__tab[aria-pressed="true"] { background: var(--ss-purple); border-color: var(--ss-purple); color: #fff; }
   .ss-pg__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
-  .ss-pg__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-pg__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-pg__cardlink { display: flex; flex-direction: column; text-decoration: none; color: inherit; flex: 1 1 auto; }
+  .ss-pg__card .ss-qa { padding: 0 20px 20px; margin-top: 0; }
   .ss-pg__card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
   .ss-pg__card[hidden] { display: none; }
   .ss-pg__media { aspect-ratio: 4 / 5; background: var(--ss-bg); position: relative; }
@@ -72,21 +74,28 @@
 
     <div class="ss-pg__grid">
       {%- for block in section.blocks -%}
-        <a class="ss-pg__card{% if block.settings.flagship %} ss-pg__card--flagship{% endif %}" href="{{ block.settings.cta_url | default: '#' }}" data-strength="{{ block.settings.strength }}" {{ block.shopify_attributes }}>
-          <div class="ss-pg__media">
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 50vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
-            {%- else -%}
-              <div class="ss-pg__ph">{{ 'image' | placeholder_svg_tag }}</div>
-            {%- endif -%}
-          </div>
-          <div class="ss-pg__cbody">
-            {%- if block.settings.label != blank -%}<p class="ss-pg__label">{{ block.settings.label | escape }}</p>{%- endif -%}
-            {%- if block.settings.title != blank -%}<h3 class="ss-pg__title">{{ block.settings.title | escape }}</h3>{%- endif -%}
-            {%- if block.settings.price != blank -%}<p class="ss-pg__price">{{ block.settings.price | escape }}</p>{%- endif -%}
-            {%- if block.settings.cta_label != blank -%}<span class="ss-pg__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
-          </div>
-        </a>
+        {%- assign card_product = block.settings.product -%}
+        {%- if card_product != blank -%}{%- assign card_href = card_product.url -%}{%- else -%}{%- assign card_href = block.settings.cta_url | default: '#' -%}{%- endif -%}
+        <div class="ss-pg__card{% if block.settings.flagship %} ss-pg__card--flagship{% endif %}" data-strength="{{ block.settings.strength }}" {{ block.shopify_attributes }}>
+          <a class="ss-pg__cardlink" href="{{ card_href }}">
+            <div class="ss-pg__media">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 50vw', widths: '300, 500, 800', alt: block.settings.image_alt }}
+              {%- elsif card_product.featured_media != blank -%}
+                {{ card_product.featured_media | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 50vw', widths: '300, 500, 800', alt: card_product.title }}
+              {%- else -%}
+                <div class="ss-pg__ph">{{ 'image' | placeholder_svg_tag }}</div>
+              {%- endif -%}
+            </div>
+            <div class="ss-pg__cbody">
+              {%- if block.settings.label != blank -%}<p class="ss-pg__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+              {%- if block.settings.title != blank -%}<h3 class="ss-pg__title">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-pg__title">{{ card_product.title | escape }}</h3>{%- endif -%}
+              {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-pg__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-pg__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+              {%- if card_product == blank and block.settings.cta_label != blank -%}<span class="ss-pg__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
+            </div>
+          </a>
+          {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
+        </div>
       {%- endfor -%}
     </div>
   </div>
@@ -146,14 +155,15 @@
       "type": "product_item",
       "name": "Product",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "product", "id": "product", "label": "Linked product", "info": "Link a real product to enable inline quick-add (variant + quantity + add to cart). Leave empty for an editorial link-only card. Quick-add auto-enables once the product has price + stock." },
+        { "type": "image_picker", "id": "image", "label": "Image", "info": "Optional override — falls back to the linked product's featured image." },
         { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless product on a warm off-white background" },
         { "type": "select", "id": "strength", "label": "Strength (for filtering)", "default": "clinical", "options": [ { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" }, { "value": "none", "label": "None" } ] },
         { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Cream 30g" },
-        { "type": "text", "id": "price", "label": "Price", "default": "£TBC" },
-        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View product" },
-        { "type": "url", "id": "cta_url", "label": "CTA link" },
+        { "type": "text", "id": "title", "label": "Title", "info": "Optional — falls back to the linked product's title.", "default": "Cream 30g" },
+        { "type": "text", "id": "price", "label": "Price (fallback)", "info": "Shown only when no product is linked, or the product price is unset.", "default": "£TBC" },
+        { "type": "text", "id": "cta_label", "label": "CTA label (link-only cards)", "default": "View product" },
+        { "type": "url", "id": "cta_url", "label": "CTA link (used when no product linked)" },
         { "type": "checkbox", "id": "flagship", "label": "Professional treatment (purple border)", "default": false }
       ]
     }

@@ -71,12 +71,14 @@
           <div class="ss-ps__media">
             {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 45vw, 100vw', widths: '400, 700, 900', ph_class: 'ss-ps__ph', ph_icon: 'product-1' -%}
           </div>
+          {%- assign card_product = block.settings.product -%}
           <div class="ss-ps__body">
             {%- if block.settings.label != blank -%}<p class="ss-ps__label">{{ block.settings.label | escape }}</p>{%- endif -%}
-            {%- if block.settings.title != blank -%}<h3 class="ss-ps__title">{{ block.settings.title | escape }}</h3>{%- endif -%}
+            {%- if block.settings.title != blank -%}<h3 class="ss-ps__title">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-ps__title">{{ card_product.title | escape }}</h3>{%- endif -%}
             {%- if block.settings.body != blank -%}<div class="ss-ps__text">{{ block.settings.body }}</div>{%- endif -%}
-            {%- if block.settings.price != blank -%}<p class="ss-ps__price">{{ block.settings.price | escape }}</p>{%- endif -%}
-            {%- if block.settings.cta_label != blank -%}<a class="ss-ps__cta" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_label | escape }}</a>{%- endif -%}
+            {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-ps__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-ps__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+            {%- if block.settings.cta_label != blank -%}<a class="ss-ps__cta" href="{{ card_product.url | default: block.settings.cta_url | default: '#' }}">{{ block.settings.cta_label | escape }}</a>{%- endif -%}
+            {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
           </div>
         </div>
       {%- endfor -%}

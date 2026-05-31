@@ -11,7 +11,7 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-trio-card-row.liquid` | Reusable trio/quad card row; blocks: tier_card, procedure_card, product_card; 1:1 linked-object images, Professional purple-border variant | 27 templates |
 | `senseless-image-text-band.liquid` | Two-column image+text, `direction` text-left/text-right | 27 templates |
 | `senseless-collection-hero.liquid` | Collection landing hero (eyebrow, H1, lead, CTA) | 11 collection templates |
-| `senseless-product-grid.liquid` | Product/SKU grid for collection pages (1:1 linked images) | 10 collection templates |
+| `senseless-product-grid.liquid` | Product/SKU grid for collection pages (1:1 linked images). Cards take an optional linked `product` → inline quick-add (variant + qty + add-to-cart) via `senseless-quick-add`; unlinked = editorial link-only card | 10 collection templates |
 | `senseless-trust-bar.liquid` | Trust signals strip (UK formulated · Cosmetic product · CPSR assessed · Made for aesthetics), single row desktop / 2×2 mobile, one per page | 15 templates |
 | `senseless-faq-accordion.liquid` | Accessible FAQ accordion (question/answer blocks) | 24 templates |
 | `senseless-guide-hero.liquid` | Guide/article hero for system + SEO pages | 15 templates |
@@ -46,6 +46,7 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 |---|---|
 | `senseless-typography.liquid` | Global `:root` tokens — colour-text ladder + fluid `clamp()` type scale — and global type classes (`.ss-h1/2/3`, `.eyebrow`, `.lead`, `.body-small`, `.caption`, `.t-em`). Rendered in `theme.liquid` head. |
 | `senseless-card-image.liquid` | Shared 1:1 card image. Resolves the linked product's featured image / linked collection's image (then collection's first product), with a graceful theme placeholder fallback and an `image_picker` override. Single source of truth for card thumbnails. |
+| `senseless-quick-add.liquid` | Shared inline quick-add control for product cards. Renders an inline variant `<select>` (when >1 variant), Horizon quantity stepper + add-to-cart inside a Horizon `<product-form-component>` (AJAX `/cart/add` → opens cart drawer). Renders nothing unless a real product is passed (nav/editorial cards stay plain links); stays inert/disabled until the product has price + stock. Reuses Horizon `product-form-component` / `add-to-cart-button` / `quantity-selector`. Used by `senseless-product-grid`, `-trio-card-row` (product_card), `-cross-sell`, `-product-showcase`. |
 | `senseless-header-footer.liquid` | Brand styling + structural overrides for the configured Horizon header/footer (mega menu, accordion drawer, 4-column footer). |
 | `senseless-structured-data.liquid` | JSON-LD dispatcher rendered in `theme.liquid` head. Emits Product+Offer (PDPs) and CollectionPage+ItemList (collections) via the `json` filter (live price/availability/currency; seller legalName "Matrix Health Group Ltd"; claim-free). Dispatches on `request.page_type`; does **not** duplicate Organization/FAQPage/Article schema emitted elsewhere. |
 | `senseless-breadcrumbs-jsonld.liquid` | BreadcrumbList JSON-LD for product / collection / page, reflecting the real hierarchy (Home → [collection] → Product, etc.). Rendered by `senseless-structured-data`. |

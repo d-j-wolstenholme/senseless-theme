@@ -25,7 +25,9 @@
   .ss-xs__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; }
 
   .ss-xs__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-  .ss-xs__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-xs__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-xs__cardlink { display: flex; flex-direction: column; text-decoration: none; color: inherit; flex: 1 1 auto; }
+  .ss-xs__card .ss-qa { padding: 0 20px 20px; margin-top: 0; }
   .ss-xs__card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
   .ss-xs__card--flagship { border: 2px solid var(--ss-purple); }
   .ss-xs__card--flagship:hover { border-color: var(--ss-purple); }
@@ -62,18 +64,23 @@
 
     <div class="ss-xs__grid">
       {%- for block in section.blocks -%}
-        <a class="ss-xs__card{% if block.settings.flagship %} ss-xs__card--flagship{% endif %}" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
-          <div class="ss-xs__media">
-            {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw', ph_class: 'ss-xs__ph' -%}
-          </div>
-          <div class="ss-xs__cbody">
-            {%- if block.settings.label != blank -%}<p class="ss-xs__label">{{ block.settings.label | escape }}</p>{%- endif -%}
-            {%- if block.settings.title != blank -%}<h3 class="ss-xs__title">{{ block.settings.title | escape }}</h3>{%- endif -%}
-            {%- if block.settings.body != blank -%}<div class="ss-xs__text">{{ block.settings.body }}</div>{%- endif -%}
-            {%- if block.settings.price != blank -%}<p class="ss-xs__price">{{ block.settings.price | escape }}</p>{%- endif -%}
-            {%- if block.settings.cta_label != blank -%}<span class="ss-xs__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
-          </div>
-        </a>
+        {%- assign card_product = block.settings.product -%}
+        {%- if card_product != blank -%}{%- assign card_href = card_product.url -%}{%- else -%}{%- assign card_href = block.settings.cta_url | default: '#' -%}{%- endif -%}
+        <div class="ss-xs__card{% if block.settings.flagship %} ss-xs__card--flagship{% endif %}" {{ block.shopify_attributes }}>
+          <a class="ss-xs__cardlink" href="{{ card_href }}">
+            <div class="ss-xs__media">
+              {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw', ph_class: 'ss-xs__ph' -%}
+            </div>
+            <div class="ss-xs__cbody">
+              {%- if block.settings.label != blank -%}<p class="ss-xs__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+              {%- if block.settings.title != blank -%}<h3 class="ss-xs__title">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-xs__title">{{ card_product.title | escape }}</h3>{%- endif -%}
+              {%- if block.settings.body != blank -%}<div class="ss-xs__text">{{ block.settings.body }}</div>{%- endif -%}
+              {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-xs__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-xs__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+              {%- if card_product == blank and block.settings.cta_label != blank -%}<span class="ss-xs__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
+            </div>
+          </a>
+          {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
+        </div>
       {%- endfor -%}
     </div>
   </div>

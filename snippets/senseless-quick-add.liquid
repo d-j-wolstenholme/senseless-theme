@@ -1,0 +1,73 @@
+{%- doc -%}
+  Senseless — inline quick-add control for product cards (storefront-wide).
+  Renders an inline variant <select> (only when the product has >1 variant — Senseless sizes
+  are variants), Horizon's quantity stepper, and an add-to-cart button inside a Horizon
+  <product-form-component> (AJAX add to /cart/add → opens the existing cart drawer; never
+  leaves the page). Reuses Horizon patterns: product-form-component + add-to-cart-button +
+  quantity-selector.
+
+  Renders NOTHING unless a real, purchasable-capable product object is passed — so editorial /
+  navigation cards (procedure/format/guide → collections/pages) stay plain links. Respects
+  inventory: out-of-stock variants are not addable and the control stays inert/disabled while
+  the product is £TBC / 0 stock, auto-enabling once price + stock are set (driven by live
+  variant.available — nothing hardcoded). Must be placed OUTSIDE the card's <a> (no forms in anchors).
+
+  @param {object} product - linked Shopify product (required; renders nothing if blank)
+  @param {string} [section_id] - host section id (wires product-form-component)
+  @param {string} [uid] - unique suffix for the form id (e.g. block.id)
+{%- enddoc -%}
+{%- if product != blank and product != nil -%}
+  {%- liquid
+    assign uid = uid | default: product.id
+    assign form_id = 'SSQuickAdd-' | append: section_id | append: '-' | append: uid
+    assign variant = product.selected_or_first_available_variant
+    assign can_add = false
+    if variant.available
+      assign can_add = true
+    endif
+    assign add_to_cart_text = 'actions.add_to_cart' | t
+  -%}
+  <product-form-component
+    data-section-id="{{ section_id }}"
+    data-product-id="{{ product.id }}"
+    on:submit="/handleSubmit"
+    class="ss-qa"
+  >
+    <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+    {%- form 'product', product, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+      {%- if product.variants_count > 1 -%}
+        <label class="visually-hidden" for="{{ form_id }}-variant">{{ product.options_with_values.first.name | default: 'Option' | escape }}</label>
+        <select id="{{ form_id }}-variant" class="ss-qa__variant" name="id" ref="variantId">
+          {%- for v in product.variants -%}
+            <option value="{{ v.id }}"{% unless v.available %} disabled{% endunless %}>{{ v.title | escape }}{% if v.price > 0 %} — {{ v.price | money }}{% endif %}</option>
+          {%- endfor -%}
+        </select>
+      {%- else -%}
+        <input type="hidden" name="id" ref="variantId" value="{{ variant.id }}"{% unless variant.available %} disabled{% endunless %}>
+      {%- endif -%}
+      <div class="ss-qa__row">
+        {% render 'quantity-selector', product: product, can_update_quantity: can_add %}
+        {% render 'add-to-cart-button',
+          product: product,
+          can_add_to_cart: can_add,
+          add_to_cart_text: add_to_cart_text,
+          class: 'ss-qa__btn',
+          id: form_id
+        %}
+      </div>
+    {%- endform -%}
+  </product-form-component>
+{%- endif -%}
+
+{% stylesheet %}
+  .ss-qa { display: block; margin-top: 10px; }
+  .ss-qa__variant {
+    width: 100%; box-sizing: border-box; margin-bottom: 8px;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px; color: #1A1816; background: #fff;
+    border: 1px solid #E5E2DC; border-radius: 4px; padding: 9px 12px;
+  }
+  .ss-qa__row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .ss-qa__row .quantity-selector-wrapper { flex: 0 0 auto; }
+  .ss-qa__btn { flex: 1 1 auto; border-radius: 14px; }
+{% endstylesheet %}
