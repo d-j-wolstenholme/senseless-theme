@@ -61,6 +61,10 @@ It does NOT appear in:
 - Social posts
 - Alt text describing product effect
 
+### Exception — "numbing" as a category descriptor
+
+"Numbing cream / gel / spray" may be used as a **category / product-type noun** on the matching category (collection) pages and their **Key Facts** blocks — e.g. "Numbing cream in three strengths: Clinical, Advanced, Professional." There it names the product category (which is literally what the page is), not a claim about what the product does. This narrow exception does **not** loosen the Hard Rule: "numbing" / "numbs" used as an **effect or efficacy claim** ("numbs the skin", "a numbing effect", "how much it numbs") remains banned everywhere, including those same pages. Rule of thumb: the category noun is fine; the moment it describes an effect on skin or sensation, it's a violation.
+
 ## Compliance Checklist (run before any user-facing copy ships)
 
 - [ ] No hard-rule phrases in headline, body, alt text, meta, or CTA
