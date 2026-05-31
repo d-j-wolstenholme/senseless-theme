@@ -60,7 +60,7 @@ The three foundation Liquid files were pulled from the dev theme and diffed agai
 | Headings render Montserrat | ✅ PASS | `h1–h6 { font-family: var(--font-sans) }` + `.ss-h*` classes. |
 | Body text `#2B2730` | ✅ PASS | `body { color: var(--text-body) }`, `--text-body: #2B2730`. |
 | A primary element uses `#6B3FA0` | ✅ PASS | `--brand-primary: #6B3FA0`; brand purple literal/used in **26** section/snippet files (eyebrows, Professional-tier border + filled CTA). |
-| Page background `#f7f7f5` | ⚠️ **FAIL** | `--bg-canvas: #f7f7f5` is **defined but never consumed** — no `body { background }` rule, no section reference, and **none of Horizon's 7 color schemes use `#f7f7f5`** (they are `#ffffff`, `#f5f5f5`, `#eef1ea`, `#e1edf5`, `#333333`, transparent ×2). Actual rendered canvas = Horizon `scheme-1` `#ffffff`. The brand "warm off-white" background described in `BRAND.md` is **not rendering.** See Open Questions. |
+| Page background `#f7f7f5` | ✅ **FIXED** | Originally a FAIL — `--bg-canvas` was defined but unapplied; body/`:root` rendered Horizon `scheme-1 #ffffff`. **Fixed this session per owner decision:** set `scheme-1` background to `#f7f7f5` in both `current` and the `Default` preset in `config/settings_data.json`. `scheme-1` is applied to `:root` by `snippets/color-schemes.liquid` (`forloop.index == 1`), so the body + all 13 scheme-1-pinned sections + Horizon-native chrome now render the off-white canvas. This also unifies them with the 22 senseless sections, which already painted their own scoped `--ss-bg: #f7f7f5`. Cards (`--ss-surface: #ffffff`) sit on the canvas as intended elevation; no card broke. The global `--bg-canvas` token remains decorative/unconsumed (sections use scoped `--ss-bg`); kept for reference. |
 
 ---
 
@@ -77,7 +77,7 @@ globals directly — so `var(--token)` consumption counts below reflect the glob
 | `--text-secondary` | `#5C5853` | Lead / captions | yes |
 | `--text-muted` | `#8E8A82` | Disabled / tertiary | **0 — defined, unused** |
 | `--brand-primary` | `#6B3FA0` | Accent (eyebrow, Professional tier) | yes (+26 files use the literal) |
-| `--bg-canvas` | `#f7f7f5` | Intended page background | **0 — defined, unapplied** |
+| `--bg-canvas` | `#f7f7f5` | Page background | global token still unconsumed; canvas now applied via `scheme-1` background (fixed this session) + sections' scoped `--ss-bg` |
 | `--bg-surface` | `#ffffff` | Card / panel surface | **0 — defined, unused as var** |
 | `--font-sans` | `'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif` | Sole typeface | yes |
 
@@ -145,12 +145,9 @@ grep -rI "googleapis\|gstatic" (all source globs)  →  0 matches
 
 ## Open questions / discrepancies to resolve
 
-1. **`--bg-canvas: #f7f7f5` is defined but not applied.** `BRAND.md` calls it the "warm off-white page background," but the rendered canvas is white (`scheme-1 #ffffff`). Decide one of:
-   - (a) wire `#f7f7f5` into the default color scheme background(s) so the brand canvas actually renders, **or**
-   - (b) downgrade the `BRAND.md` wording to "defined token, not currently applied as page background."
-   *(Not actioned this session — changing color schemes is a design change affecting the whole built site and needs sign-off.)*
-2. **`--bg-surface` and `--text-muted` are defined but unconsumed** (as `var()`). Confirm whether they are reserved-for-later or should be removed/wired.
-3. **Branch naming:** brief specified `build/phase-0-foundations`; `CLAUDE.md` convention is `feature/<desc>` / `fix/<desc>`. Used `build/` as the brief asked — confirm whether `build/*` should be added to the naming convention.
+1. ~~`--bg-canvas` not applied~~ — **RESOLVED 2026-05-31.** Owner chose to fix (not amend the doc): `scheme-1` background set to `#f7f7f5` in `current` + `Default` preset; canvas now renders site-wide via `:root`. No card broke; fix kept scoped to the canvas.
+2. **`--bg-surface` and `--text-muted` are defined but unconsumed** (as global `var()`) — **owner decision: KEEP, reserved** for card/section surfaces and secondary text; to be consumed as components are built. Not removed.
+3. **Branch naming** — **owner decision: conform to `CLAUDE.md`.** `feature/*` for build phases, `fix/*` for fixes; `build/*` is **not** added. PR #1 stays as-is on `build/phase-0-foundations`; Phase 1 onward uses `feature/*`.
 
 ---
 
@@ -176,7 +173,7 @@ grep -rI "googleapis\|gstatic" (all source globs)  →  0 matches
 ## Sync status
 
 - Code ↔ dev theme: **PASS** (foundation files byte-identical).
-- Code ↔ `BRAND.md`: **WARN** — `BRAND.md` asserts `#f7f7f5` "page background"; not actually applied (see Open Q1).
+- Code ↔ `BRAND.md`: **PASS** — `#f7f7f5` now applied as the page background via `scheme-1` (Open Q1 resolved this session), matching `BRAND.md`'s "warm off-white page background."
 
 ## Next steps
 
