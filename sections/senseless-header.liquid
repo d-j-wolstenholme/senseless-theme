@@ -153,13 +153,15 @@
   # assets so it renders crisply regardless. Precedence: raster picker (if a
   # PNG/JPG is set) > inline brand SVG (assets/senseless-logo-header.svg).
   assign logo_src = ''
+  assign logo_w = 0
   if section.settings.logo_image != blank
     assign logo_src = section.settings.logo_image | image_url: width: 600
+    assign logo_w = logo_h | times: section.settings.logo_image.aspect_ratio | round
   endif
 -%}
 {%- capture logo_markup -%}
   {%- if logo_src != blank -%}
-    <img class="ss-hdr__logo-img" src="{{ logo_src }}" alt="{{ shop.name | escape }}" height="{{ logo_h }}" loading="eager">
+    <img class="ss-hdr__logo-img" src="{{ logo_src }}" alt="{{ shop.name | escape }}" width="{{ logo_w }}" height="{{ logo_h }}" loading="eager">
   {%- else -%}
     <span class="ss-hdr__logo-svg" role="img" aria-label="{{ shop.name | default: 'Senseless' | escape }}">{{ 'senseless-logo-header.svg' | inline_asset_content }}</span>
   {%- endif -%}
