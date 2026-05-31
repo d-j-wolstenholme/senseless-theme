@@ -35,7 +35,7 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 
 | Section File | Purpose | Used On |
 |---|---|---|
-| `senseless-header.liquid` | Fully custom header (replaces Horizon native): large Montserrat wordmark, centred nav driven by the `senseless-main` menu (Shop mega By format/By procedure, The system + Help dropdowns, About + Trade), sticky + frosted, accordion mobile drawer. Reuses Horizon `header-actions` (cart drawer + account) + `search`. | header-group (all pages) |
+| `senseless-header.liquid` | Fully custom header (replaces Horizon native): large Montserrat wordmark, centred nav driven by the `senseless-main` menu (Shop mega By format/By procedure, The system + Help dropdowns, About + Trade), sticky + frosted, accordion mobile drawer. Reuses Horizon `header-actions` (cart drawer + account) + `search`. **Logo:** inlined from `assets/senseless-logo-header.svg` via `inline_asset_content` — does **not** flow through the shared `snippets/image.liquid` (Shopify's `image_url` returns blank for SVGs, so an SVG in the picker won't render); the `logo_image` picker is now a raster-only (PNG/JPG) override. The wordmark is outlined to vector paths (Helvetica-Light) so it renders identically to the printed packaging on devices without Helvetica. | header-group (all pages) |
 
 > Footer still uses Horizon's native `footer.liquid`. Header announcement bar removed (no placeholder text).
 
