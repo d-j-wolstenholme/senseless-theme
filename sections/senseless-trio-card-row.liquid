@@ -33,6 +33,8 @@
 
   .ss-card { position: relative; box-sizing: border-box; height: 100%; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
   .ss-card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
+  .ss-card__cardlink { display: flex; flex-direction: column; text-decoration: none; color: inherit; flex: 1 1 auto; }
+  .ss-card--product .ss-qa { padding: 0 20px 20px; margin-top: 0; }
   .ss-card__media { aspect-ratio: 1 / 1; background: var(--ss-bg); position: relative; }
   .ss-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .ss-card__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
@@ -113,17 +115,22 @@
             </a>
 
           {%- when 'product_card' -%}
-            <a class="ss-card ss-card--product{% if block.settings.flagship %} ss-card--flagship{% endif %}" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
-              <div class="ss-card__media">
-                {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw' -%}
-              </div>
-              <div class="ss-card__body">
-                {%- if block.settings.label != blank -%}<p class="ss-card__label">{{ block.settings.label | escape }}</p>{%- endif -%}
-                {%- if block.settings.title != blank -%}<h3 class="ss-card__heading">{{ block.settings.title | escape }}</h3>{%- endif -%}
-                {%- if block.settings.price != blank -%}<p class="ss-card__price">{{ block.settings.price | escape }}</p>{%- endif -%}
-                {%- if block.settings.cta_label != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
-              </div>
-            </a>
+            {%- assign card_product = block.settings.product -%}
+            {%- if card_product != blank -%}{%- assign card_href = card_product.url -%}{%- else -%}{%- assign card_href = block.settings.cta_url | default: '#' -%}{%- endif -%}
+            <div class="ss-card ss-card--product{% if block.settings.flagship %} ss-card--flagship{% endif %}" {{ block.shopify_attributes }}>
+              <a class="ss-card__cardlink" href="{{ card_href }}">
+                <div class="ss-card__media">
+                  {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw' -%}
+                </div>
+                <div class="ss-card__body">
+                  {%- if block.settings.label != blank -%}<p class="ss-card__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+                  {%- if block.settings.title != blank -%}<h3 class="ss-card__heading">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-card__heading">{{ card_product.title | escape }}</h3>{%- endif -%}
+                  {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-card__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-card__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+                  {%- if card_product == blank and block.settings.cta_label != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
+                </div>
+              </a>
+              {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
+            </div>
 
           {%- when 'format_card' -%}
             <a class="ss-card ss-card--format" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
