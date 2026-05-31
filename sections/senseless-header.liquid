@@ -53,7 +53,9 @@
 
   /* Wordmark */
   .ss-hdr__logo { display: inline-flex; align-items: center; text-decoration: none; color: var(--ss-text); }
-  .ss-hdr__logo img { display: block; width: auto; object-fit: contain; }
+  .ss-hdr__logo-svg { display: inline-flex; align-items: center; }
+  .ss-hdr__logo-img, .ss-hdr__logo-svg svg { display: block; width: auto; height: 34px; max-width: min(62vw, 240px); object-fit: contain; }
+  @media (min-width: 1024px) { .ss-hdr__logo-img, .ss-hdr__logo-svg svg { height: var(--ss-logo-h, 48px); max-width: 420px; } }
   .ss-hdr__wordmark { font-family: var(--ss-head); font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--ss-text); font-size: 26px; }
   .ss-hdr__logo--mobile { justify-self: center; }
   .ss-hdr__logo--desktop { display: none; }
@@ -145,13 +147,23 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  # SVG logos return blank from image_url (Shopify can't transform SVG), so the
+  # picker path only works for raster images. The brand wordmark is inlined from
+  # assets so it renders crisply regardless. Precedence: raster picker (if a
+  # PNG/JPG is set) > inline brand SVG (assets/senseless-logo-header.svg).
+  assign logo_src = ''
+  assign logo_w = 0
+  if section.settings.logo_image != blank
+    assign logo_src = section.settings.logo_image | image_url: width: 600
+    assign logo_w = logo_h | times: section.settings.logo_image.aspect_ratio | round
+  endif
+-%}
 {%- capture logo_markup -%}
-  {%- if section.settings.logo_image != blank -%}
-    {{ section.settings.logo_image | image_url: width: 600 | image_tag: alt: shop.name, widths: '200,400,600', style: 'height:auto;' }}
-  {%- elsif settings.logo != blank -%}
-    {{ settings.logo | image_url: width: 600 | image_tag: alt: shop.name, widths: '200,400,600' }}
+  {%- if logo_src != blank -%}
+    <img class="ss-hdr__logo-img" src="{{ logo_src }}" alt="{{ shop.name | escape }}" width="{{ logo_w }}" height="{{ logo_h }}" loading="eager">
   {%- else -%}
-    <span class="ss-hdr__wordmark">{{ shop.name | default: 'Senseless' }}</span>
+    <span class="ss-hdr__logo-svg" role="img" aria-label="{{ shop.name | default: 'Senseless' | escape }}">{{ 'senseless-logo-header.svg' | inline_asset_content }}</span>
   {%- endif -%}
 {%- endcapture -%}
 
@@ -380,7 +392,7 @@
   "class": "senseless-section-header",
   "settings": [
     { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu", "info": "Use the senseless-main menu (Shop mega + The system / Help dropdowns + About + Trade)." },
-    { "type": "image_picker", "id": "logo_image", "label": "Logo image (optional)", "info": "Falls back to the theme logo, then to a Montserrat wordmark of the shop name." },
+    { "type": "image_picker", "id": "logo_image", "label": "Logo image (optional, raster only)", "info": "Leave empty to use the brand SVG wordmark (assets/senseless-logo-header.svg). SVGs picked here will NOT render — Shopify can't transform SVG; use a PNG/JPG for a custom raster logo, or replace the asset file to change the SVG." },
     { "type": "range", "id": "logo_height", "label": "Logo image height", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 48 },
     { "type": "checkbox", "id": "show_search", "label": "Show search", "default": true },
     { "type": "text", "id": "mega_cta_label", "label": "Mega menu CTA label", "default": "Find your strength" },
