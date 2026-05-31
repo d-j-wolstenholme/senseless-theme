@@ -6,91 +6,273 @@
         "eyebrow": "Professional Strength",
         "headline": "Senseless Professional. Our most concentrated formula.",
         "subhead": "<p>Developed with practitioners. Used in clinics across the UK. Available to all, without restriction. If you're looking for the strongest option in the Senseless system, Professional is it.</p>",
-        "primary_cta_label": "Shop Professional", "primary_cta_url": "/collections/numbing-cream?strength=professional",
-        "secondary_cta_label": "Compare all strengths", "secondary_cta_url": "/pages/choosing-your-strength",
+        "primary_cta_label": "Shop Professional",
+        "primary_cta_url": "/collections/numbing-cream?strength=professional",
+        "secondary_cta_label": "Compare all strengths",
+        "secondary_cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless Professional product lineup"
       }
     },
     "meaning": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "The honest version",
+        "direction": "text-left",
+        "eyebrow": "The honest version",
         "headline": "Strongest in the Senseless system. Not strongest in the UK.",
         "body": "<p>We won't claim Senseless Professional is the strongest numbing cream in the UK. That's a comparative claim, and the cosmetic product category doesn't lend itself to those — different brands, different formulations, different regulatory contexts. What we'll claim is this: Professional is the most concentrated formula in the Senseless system, developed with practitioners specifically for the most demanding aesthetic procedures. If you want the upper limit of what Senseless makes, this is it.</p>",
-        "cta_label": "", "cta_url": "",
+        "cta_label": "",
+        "cta_url": "",
         "image_alt": "Editorial Senseless Professional product close-up"
       }
     },
     "dontneed": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-right", "eyebrow": "A real consideration",
+        "direction": "text-right",
+        "eyebrow": "A real consideration",
         "headline": "Most clients don't book the procedures Professional is built for.",
         "body": "<p>Professional is formulated for full-face resurfacing, sustained SPMU sittings, intensive microneedling, and the most demanding clinic procedures. If you're booking lip fillers, Botox, a routine microneedling session, or smaller-area laser — Professional is more than the appointment asks for. Advanced is the considered upgrade most consumers find sufficient. Clinical is the everyday default. The system works because each tier matches the procedure, not because the highest tier is always the best choice.</p>",
-        "cta_label": "Choose your strength", "cta_url": "/pages/choosing-your-strength",
+        "cta_label": "Choose your strength",
+        "cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless three-tier system view"
       }
     },
     "range": {
       "type": "senseless-product-grid",
       "blocks": {
-        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } },
-        "sg35pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Gel", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-gel", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless gel on a warm off-white background" } },
-        "ssppr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless spray on a warm off-white background" } }
+        "s30pr": {
+          "type": "product_item",
+          "settings": {
+            "strength": "professional",
+            "label": "Professional Strength",
+            "title": "Cream",
+            "price": "£TBC",
+            "cta_label": "View product",
+            "cta_url": "/products/professional-strength-cream",
+            "flagship": true,
+            "badge_text": "",
+            "image_alt": "Professional Strength Senseless cream on a warm off-white background"
+          }
+        },
+        "sg35pr": {
+          "type": "product_item",
+          "settings": {
+            "strength": "professional",
+            "label": "Professional Strength",
+            "title": "Gel",
+            "price": "£TBC",
+            "cta_label": "View product",
+            "cta_url": "/products/professional-strength-gel",
+            "flagship": true,
+            "badge_text": "",
+            "image_alt": "Professional Strength Senseless gel on a warm off-white background"
+          }
+        },
+        "ssppr": {
+          "type": "product_item",
+          "settings": {
+            "strength": "professional",
+            "label": "Professional Strength",
+            "title": "Spray",
+            "price": "£TBC",
+            "cta_label": "View product",
+            "cta_url": "/products/professional-strength-spray",
+            "flagship": true,
+            "badge_text": "",
+            "image_alt": "Professional Strength Senseless spray on a warm off-white background"
+          }
+        }
       },
-      "block_order": ["s30pr", "sg35pr", "ssppr"],
-      "settings": { "headline": "The Professional range.", "body": "<p>Three Professional Strength SKUs across three formats.</p>", "show_filters": false }
+      "block_order": [
+        "s30pr",
+        "sg35pr",
+        "ssppr"
+      ],
+      "settings": {
+        "headline": "The Professional range.",
+        "body": "<p>Three Professional Strength SKUs across three formats.</p>",
+        "show_filters": false
+      }
     },
     "fits": {
       "type": "senseless-rich-text",
       "settings": {
-        "background": "white", "eyebrow": "Where it fits",
+        "background": "white",
+        "eyebrow": "Where it fits",
         "headline": "The procedures Professional is built for.",
         "body": "<p><strong>Full-face laser resurfacing.</strong> The most demanding face laser procedure. Professional cream is the recommendation.</p><p><strong>Sustained microneedling.</strong> Intensive, full-face microneedling sessions. Professional cream or gel.</p><p><strong>SPMU (long sittings).</strong> Microblading, lip blush, and other SPMU procedures running 90+ minutes. Professional cream or gel.</p><p><strong>Intensive body procedures.</strong> Full-body laser, brazilian/bikini with sensitivity concerns, multi-site body work. Professional spray.</p>",
-        "cta_label": "", "cta_url": ""
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "doesntfit": {
       "type": "senseless-rich-text",
       "settings": {
-        "background": "canvas", "eyebrow": "Where it doesn't",
+        "background": "canvas",
+        "eyebrow": "Where it doesn't",
         "headline": "Procedures where Professional is overkill.",
         "body": "<p><strong>Lip Fillers.</strong> The treatment area is small. Clinical Strength suits most lip filler appointments. Professional is overkill — save it.</p><p><strong>Botox.</strong> The shortest aesthetic procedure. Clinical is enough. Professional is genuinely unnecessary.</p><p><strong>Routine appointments.</strong> Routine top-ups, smaller laser zones, brow waxing, lip waxing — Clinical or Advanced cover these comfortably. Picking Professional doesn't make the appointment more comfortable. It just over-buys.</p>",
-        "cta_label": "Find the right strength", "cta_url": "/pages/choosing-your-strength"
+        "cta_label": "Find the right strength",
+        "cta_url": "/pages/choosing-your-strength"
       }
     },
     "trade": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "Trade & wholesale",
+        "direction": "text-left",
+        "eyebrow": "Trade & wholesale",
         "headline": "Stocked in clinics across the UK.",
         "body": "<p>Senseless Professional is the formulation developed with practitioners and used in clinics across the UK. Wholesale accounts are available — clinic sizes, account pricing, and the consistency clinics need from their supply.</p>",
-        "cta_label": "Trade enquiries", "cta_url": "/pages/trade",
+        "cta_label": "Trade enquiries",
+        "cta_url": "/pages/trade",
         "image_alt": "Editorial clinic countertop with Senseless product, no faces"
       }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Is Professional the strongest numbing cream available in the UK?", "answer": "<p>We don't make that comparative claim. Professional is the most concentrated formula in the Senseless system — that's the brand position. Different brands, different formulations, different regulatory contexts. The comparison isn't ours to make.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Is Professional safe for me to buy without a prescription?", "answer": "<p>Yes. Senseless is a UK cosmetic product. Professional is available to all, without restriction. We don't gate it — the system is built on transparency.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Should I just buy Professional to be safe?", "answer": "<p>For most consumers, no. Professional is built for the procedures it's built for. For routine appointments, Clinical or Advanced is the right choice. Buying Professional doesn't add anything to an appointment that doesn't need it.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Is this the same as the strongest numbing cream for tattoos?", "answer": "<p>Senseless is formulated for aesthetic procedures specifically. For tattoo preparation, see our <a href=\"/blogs/guides/topical-numbing-for-body-art\">topical numbing for body art guide</a>.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Professional the strongest numbing cream available in the UK?",
+            "answer": "<p>We don't make that comparative claim. Professional is the most concentrated formula in the Senseless system — that's the brand position. Different brands, different formulations, different regulatory contexts. The comparison isn't ours to make.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Professional safe for me to buy without a prescription?",
+            "answer": "<p>Yes. Senseless is a UK cosmetic product. Professional is available to all, without restriction. We don't gate it — the system is built on transparency.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should I just buy Professional to be safe?",
+            "answer": "<p>For most consumers, no. Professional is built for the procedures it's built for. For routine appointments, Clinical or Advanced is the right choice. Buying Professional doesn't add anything to an appointment that doesn't need it.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this the same as the strongest numbing cream for tattoos?",
+            "answer": "<p>Senseless is formulated for aesthetic procedures specifically. For tattoo preparation, see our <a href=\"/blogs/guides/topical-numbing-for-body-art\">topical numbing for body art guide</a>.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
-      "settings": { "headline": "Common questions." }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "headline": "Common questions."
+      }
     },
     "tiers": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "clinical": { "type": "format_card", "settings": { "label": "Clinical Strength", "body": "<p>The everyday Senseless. For routine appointments.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream?strength=clinical", "image_alt": "Senseless Clinical Strength on a warm off-white background" } },
-        "advanced": { "type": "format_card", "settings": { "label": "Advanced Strength", "body": "<p>The considered upgrade. For longer or more sensitive sessions.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream?strength=advanced", "image_alt": "Senseless Advanced Strength on a warm off-white background" } },
-        "compare": { "type": "format_card", "settings": { "label": "Compare all three", "body": "<p>Match the tier to the procedure.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } }
+        "clinical": {
+          "type": "format_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "body": "<p>The everyday Senseless. For routine appointments.</p>",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream?strength=clinical",
+            "image_alt": "Senseless Clinical Strength on a warm off-white background"
+          }
+        },
+        "advanced": {
+          "type": "format_card",
+          "settings": {
+            "label": "Advanced Strength",
+            "body": "<p>The considered upgrade. For longer or more sensitive sessions.</p>",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream?strength=advanced",
+            "image_alt": "Senseless Advanced Strength on a warm off-white background"
+          }
+        },
+        "compare": {
+          "type": "format_card",
+          "settings": {
+            "label": "Compare all three",
+            "body": "<p>Match the tier to the procedure.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/choosing-your-strength",
+            "image_alt": "Editorial image for the strength guide"
+          }
+        }
       },
-      "block_order": ["clinical", "advanced", "compare"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "Not sure Professional is for you?", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "block_order": [
+        "clinical",
+        "advanced",
+        "compare"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "",
+        "headline": "Not sure Professional is for you?",
+        "body": "",
+        "closer": "",
+        "section_cta_label": "",
+        "section_cta_url": ""
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "Strongest",
+            "value": "Professional is the highest strength in the Senseless system. Available as cream, gel, and spray."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Built for",
+            "value": "It is built for the most demanding, sustained procedures."
+          }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Choosing",
+            "value": "Stronger is not automatically better. The right strength matches the appointment."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2",
+        "kf3"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
     }
   },
-  "order": ["hero", "meaning", "dontneed", "range", "fits", "doesntfit", "trade", "faq", "tiers"]
+  "order": [
+    "hero",
+    "meaning",
+    "dontneed",
+    "range",
+    "fits",
+    "doesntfit",
+    "trade",
+    "faq",
+    "tiers",
+    "keyfacts"
+  ]
 }

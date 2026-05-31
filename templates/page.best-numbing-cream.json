@@ -6,87 +6,354 @@
         "eyebrow": "The best for what?",
         "headline": "\"Best\" depends on the appointment you've booked.",
         "subhead": "<p>There isn't one best numbing cream for everyone. There is a right one for your specific procedure. Senseless is built for aesthetic appointments — three strengths, three formats, formulated to match what each kind of session asks of the skin.</p>",
-        "primary_cta_label": "Shop by procedure", "primary_cta_url": "/collections/aesthetic-numbing-cream",
-        "secondary_cta_label": "Find your strength", "secondary_cta_url": "/pages/choosing-your-strength",
+        "primary_cta_label": "Shop by procedure",
+        "primary_cta_url": "/collections/aesthetic-numbing-cream",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless system view — multiple SKUs"
       }
     },
     "nosaybest": {
       "type": "senseless-editorial-band",
       "settings": {
-        "background": "white", "align": "left", "eyebrow": "The honest version",
+        "background": "white",
+        "align": "left",
+        "eyebrow": "The honest version",
         "headline": "\"Best\" is a comparative claim. We don't make those.",
         "body": "<p>Most landing pages ranking for \"best numbing cream\" claim to be the best. Senseless doesn't. We make claims about what we are — UK-formulated, built for aesthetic procedures, available in three strengths and three formats. We don't make claims about what other brands are or aren't. Different brands, different formulations, different regulatory contexts. The honest answer to \"best\" is \"best for what\" — and that's a question Senseless is built to answer.</p>",
-        "cta_label": "", "cta_url": "",
+        "cta_label": "",
+        "cta_url": "",
         "image_alt": "Editorial product close-up of Senseless"
       }
     },
     "bestfor": {
       "type": "senseless-procedure-grid",
       "blocks": {
-        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "sub_label": "Clinical Strength Cream is the everyday recommendation. Advanced if your lips run sensitive.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
-        "botox": { "type": "procedure_card", "settings": { "label": "Botox", "sub_label": "Clinical Strength Cream. Many clients don't need numbing at all for Botox. Professional is overkill.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-botox", "image_alt": "Editorial image for the Botox range" } },
-        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "sub_label": "Advanced Strength is the default. Cream or gel both fit. Professional for the most intensive sessions.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
-        "laser": { "type": "procedure_card", "settings": { "label": "Laser", "sub_label": "Advanced Strength. Cream for face, spray for body. Professional for full-face resurfacing.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
-        "spmu": { "type": "procedure_card", "settings": { "label": "SPMU", "sub_label": "Advanced or Professional. Cream is the format. Sustained sittings ask more from preparation.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } },
-        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "sub_label": "Advanced Spray for body (bikini, brazilian). Cream for smaller zones.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } }
+        "lips": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Lip Fillers",
+            "sub_label": "Clinical Strength Cream is the everyday recommendation. Advanced if your lips run sensitive.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-lip-fillers",
+            "image_alt": "Editorial image for the lip fillers range"
+          }
+        },
+        "botox": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Botox",
+            "sub_label": "Clinical Strength Cream. Many clients don't need numbing at all for Botox. Professional is overkill.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-botox",
+            "image_alt": "Editorial image for the Botox range"
+          }
+        },
+        "micro": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Microneedling",
+            "sub_label": "Advanced Strength is the default. Cream or gel both fit. Professional for the most intensive sessions.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-microneedling",
+            "image_alt": "Editorial image for the microneedling range"
+          }
+        },
+        "laser": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Laser",
+            "sub_label": "Advanced Strength. Cream for face, spray for body. Professional for full-face resurfacing.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-laser-treatment",
+            "image_alt": "Editorial image for the laser treatment range"
+          }
+        },
+        "spmu": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "SPMU",
+            "sub_label": "Advanced or Professional. Cream is the format. Sustained sittings ask more from preparation.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
+            "image_alt": "Editorial image for the semi-permanent makeup range"
+          }
+        },
+        "wax": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Waxing",
+            "sub_label": "Advanced Spray for body (bikini, brazilian). Cream for smaller zones.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-waxing",
+            "image_alt": "Editorial image for the waxing range"
+          }
+        }
       },
-      "block_order": ["lips", "botox", "micro", "laser", "spmu", "wax"],
-      "settings": { "columns": "3", "anchor_id": "recommendations", "eyebrow": "Best for your procedure", "headline": "What Senseless recommends, by procedure.", "body": "" }
+      "block_order": [
+        "lips",
+        "botox",
+        "micro",
+        "laser",
+        "spmu",
+        "wax"
+      ],
+      "settings": {
+        "columns": "3",
+        "anchor_id": "recommendations",
+        "eyebrow": "Best for your procedure",
+        "headline": "What Senseless recommends, by procedure.",
+        "body": ""
+      }
     },
     "system": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-right", "eyebrow": "The system",
+        "direction": "text-right",
+        "eyebrow": "The system",
         "headline": "Three strengths. Three formats. Matched to the appointment.",
         "body": "<p>Strength matches the procedure: Clinical for routine, Advanced for longer or more sensitive, Professional for the most demanding. Format matches the treatment area and session length: cream for most face procedures, gel for sustained sessions, spray for body and broader zones. Together they answer two questions — strength and format — which is more useful than answering one (\"best\") with a single product recommendation that can't actually fit every appointment.</p>",
-        "cta_label": "Choose your strength", "cta_url": "/pages/choosing-your-strength",
+        "cta_label": "Choose your strength",
+        "cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless system view"
       }
     },
     "range": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "clinical": { "type": "tier_card", "settings": { "label": "Clinical Strength", "heading": "For routine appointments", "body": "<p>The everyday Senseless. For routine appointments. Quietly capable.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream?strength=clinical", "flagship": false, "image_alt": "Senseless Clinical Strength cream on a warm off-white background" } },
-        "advanced": { "type": "tier_card", "settings": { "label": "Advanced Strength", "heading": "The considered upgrade", "body": "<p>The considered upgrade. For longer or more sensitive sessions.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream?strength=advanced", "flagship": false, "image_alt": "Senseless Advanced Strength cream on a warm off-white background" } },
-        "professional": { "type": "tier_card", "settings": { "label": "Professional Strength", "heading": "Developed with practitioners", "body": "<p>Our most concentrated formula, used in clinics. Trusted at the chair.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream?strength=professional", "flagship": true, "badge_text": "", "image_alt": "Senseless Professional Strength cream on a warm off-white background" } }
+        "clinical": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "heading": "For routine appointments",
+            "body": "<p>The everyday Senseless. For routine appointments. Quietly capable.</p>",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream?strength=clinical",
+            "flagship": false,
+            "image_alt": "Senseless Clinical Strength cream on a warm off-white background"
+          }
+        },
+        "advanced": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Advanced Strength",
+            "heading": "The considered upgrade",
+            "body": "<p>The considered upgrade. For longer or more sensitive sessions.</p>",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream?strength=advanced",
+            "flagship": false,
+            "image_alt": "Senseless Advanced Strength cream on a warm off-white background"
+          }
+        },
+        "professional": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Professional Strength",
+            "heading": "Developed with practitioners",
+            "body": "<p>Our most concentrated formula, used in clinics. Trusted at the chair.</p>",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream?strength=professional",
+            "flagship": true,
+            "badge_text": "",
+            "image_alt": "Senseless Professional Strength cream on a warm off-white background"
+          }
+        }
       },
-      "block_order": ["clinical", "advanced", "professional"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "The system.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "block_order": [
+        "clinical",
+        "advanced",
+        "professional"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "",
+        "headline": "The system.",
+        "body": "",
+        "closer": "",
+        "section_cta_label": "",
+        "section_cta_url": ""
+      }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
       "settings": {}
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "What's the best numbing cream for lip fillers?", "answer": "<p>Clinical Strength Cream is the everyday recommendation. Advanced if your lips are particularly sensitive or your appointment runs longer than a quick top-up. Professional is overkill for lip fillers — save it for the procedures that need it.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "What's the best numbing cream for microneedling?", "answer": "<p>Advanced Strength is the default. Cream or gel both work — gel often suits sustained microneedling sessions. Professional for the most intensive full-face appointments.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "What's the best numbing cream for injections more broadly?", "answer": "<p>For aesthetic injections (fillers, Botox), Clinical Strength Cream is the everyday default. Advanced for longer sessions or larger treatment areas.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Is Senseless better than other brands?", "answer": "<p>We don't make comparative claims. Senseless is formulated for aesthetic procedures specifically — that's the brand position, not a competitive ranking.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the best numbing cream for lip fillers?",
+            "answer": "<p>Clinical Strength Cream is the everyday recommendation. Advanced if your lips are particularly sensitive or your appointment runs longer than a quick top-up. Professional is overkill for lip fillers — save it for the procedures that need it.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the best numbing cream for microneedling?",
+            "answer": "<p>Advanced Strength is the default. Cream or gel both work — gel often suits sustained microneedling sessions. Professional for the most intensive full-face appointments.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the best numbing cream for injections more broadly?",
+            "answer": "<p>For aesthetic injections (fillers, Botox), Clinical Strength Cream is the everyday default. Advanced for longer sessions or larger treatment areas.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Senseless better than other brands?",
+            "answer": "<p>We don't make comparative claims. Senseless is formulated for aesthetic procedures specifically — that's the brand position, not a competitive ranking.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
-      "settings": { "headline": "Common questions." }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "headline": "Common questions."
+      }
     },
     "shop": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "procedures": { "type": "format_card", "settings": { "label": "Shop by procedure", "body": "<p>Every appointment Senseless covers.</p>", "cta_label": "View collection", "cta_url": "/collections/aesthetic-numbing-cream", "image_alt": "Editorial image for the procedures collection" } },
-        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Clinical, Advanced, Professional.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
-        "format": { "type": "format_card", "settings": { "label": "Choose your format", "body": "<p>Cream, gel, spray.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-format", "image_alt": "Editorial image for the format guide" } }
+        "procedures": {
+          "type": "format_card",
+          "settings": {
+            "label": "Shop by procedure",
+            "body": "<p>Every appointment Senseless covers.</p>",
+            "cta_label": "View collection",
+            "cta_url": "/collections/aesthetic-numbing-cream",
+            "image_alt": "Editorial image for the procedures collection"
+          }
+        },
+        "strength": {
+          "type": "format_card",
+          "settings": {
+            "label": "Choose your strength",
+            "body": "<p>Clinical, Advanced, Professional.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/choosing-your-strength",
+            "image_alt": "Editorial image for the strength guide"
+          }
+        },
+        "format": {
+          "type": "format_card",
+          "settings": {
+            "label": "Choose your format",
+            "body": "<p>Cream, gel, spray.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/choosing-your-format",
+            "image_alt": "Editorial image for the format guide"
+          }
+        }
       },
-      "block_order": ["procedures", "strength", "format"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "Find what's right for your appointment.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "block_order": [
+        "procedures",
+        "strength",
+        "format"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "",
+        "headline": "Find what's right for your appointment.",
+        "body": "",
+        "closer": "",
+        "section_cta_label": "",
+        "section_cta_url": ""
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "Best for you",
+            "value": "The right numbing cream depends on the procedure and the area, not a single ranking."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Strength",
+            "value": "Choose strength (Clinical, Advanced, Professional) for how demanding the work is."
+          }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Format",
+            "value": "Choose format (cream, gel, spray) for the area being treated."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2",
+        "kf3"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
     }
   },
-  "order": ["hero", "nosaybest", "bestfor", "system", "range", "trust", "faq", "shop"]
+  "order": [
+    "hero",
+    "nosaybest",
+    "bestfor",
+    "system",
+    "range",
+    "trust",
+    "faq",
+    "shop",
+    "keyfacts"
+  ]
 }

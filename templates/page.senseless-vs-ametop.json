@@ -6,85 +6,328 @@
         "eyebrow": "Senseless vs Ametop",
         "headline": "A different category. A different purpose.",
         "subhead": "<p>Senseless is a UK cosmetic product, formulated for aesthetic procedures. Ametop is a medicine, sold through pharmacies. The comparison is across categories — not the same kind of product, not built for the same kind of buyer.</p>",
-        "primary_cta_label": "Shop the Senseless system", "primary_cta_url": "/collections/aesthetic-numbing-cream",
-        "secondary_cta_label": "Find your strength", "secondary_cta_url": "/pages/choosing-your-strength",
+        "primary_cta_label": "Shop the Senseless system",
+        "primary_cta_url": "/collections/aesthetic-numbing-cream",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless system view"
       }
     },
     "framing": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "The honest framing",
+        "direction": "text-left",
+        "eyebrow": "The honest framing",
         "headline": "Two products. Two categories.",
         "body": "<p>Ametop is a medicine, classified and regulated as such in the UK. Senseless is a cosmetic product, classified and regulated as such. They sit in different categories with different purposes, different regulatory frameworks, and different commercial contexts. We won't pretend Senseless is a direct medical substitute for Ametop — different categories don't substitute for each other. What Senseless offers: a cosmetic preparation purpose-built for aesthetic procedures, with a three-tier system matched to the kind of appointments aesthetic clinics actually run.</p>",
-        "cta_label": "", "cta_url": "",
+        "cta_label": "",
+        "cta_url": "",
         "image_alt": "Editorial product close-up of Senseless"
       }
     },
     "fit": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-right", "eyebrow": "The fit",
+        "direction": "text-right",
+        "eyebrow": "The fit",
         "headline": "If you're booking aesthetics, Senseless is built for it.",
         "body": "<p>The procedures Senseless is formulated for: lip fillers, Botox, microneedling, laser, SPMU, waxing — the aesthetic catalogue. The brand position: cosmetic product, available to all without prescription, three strengths matched to procedure intensity, three formats matched to treatment area. If you're preparing for an aesthetic appointment and you want a product purpose-built for that context, Senseless is the direct answer.</p>",
-        "cta_label": "Shop by procedure", "cta_url": "/collections/aesthetic-numbing-cream",
+        "cta_label": "Shop by procedure",
+        "cta_url": "/collections/aesthetic-numbing-cream",
         "image_alt": "Editorial product close-up of Senseless"
       }
     },
     "ametop": {
       "type": "senseless-callout-band",
       "settings": {
-        "style": "neutral", "eyebrow": "", "heading": "When Ametop might still be what you need",
+        "style": "neutral",
+        "eyebrow": "",
+        "heading": "When Ametop might still be what you need",
         "body": "<p>If your practitioner specifically recommends Ametop or another medical preparation for your procedure, follow their guidance — they know their context. If you're preparing for a medical procedure rather than an aesthetic one, Senseless isn't formulated for that purpose. If you have a specific medical reason to use a prescription preparation, your GP or pharmacist is the right source. Senseless is built for aesthetics. That's a positive position — it doesn't make Senseless the answer to every numbing-product question.</p>",
-        "cta_label": "", "cta_url": ""
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "tiers": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "clinical": { "type": "tier_card", "settings": { "label": "Clinical Strength", "heading": "The everyday formula", "body": "<p>The Senseless default. Used for top-ups, routine microneedling, smaller laser zones, lip fillers, Botox. Quietly capable.</p>", "cta_label": "", "cta_url": "", "flagship": false, "image_alt": "Senseless Clinical Strength cream on a warm off-white background" } },
-        "advanced": { "type": "tier_card", "settings": { "label": "Advanced Strength", "heading": "The considered upgrade", "body": "<p>Higher concentration. For longer sessions, more sensitive treatment areas, full-face microneedling, SPMU.</p>", "cta_label": "", "cta_url": "", "flagship": false, "image_alt": "Senseless Advanced Strength cream on a warm off-white background" } },
-        "professional": { "type": "tier_card", "settings": { "label": "Professional Strength", "heading": "Developed with practitioners", "body": "<p>Our most concentrated formula, used in clinics. Trusted at the chair.</p>", "cta_label": "", "cta_url": "", "flagship": true, "badge_text": "", "image_alt": "Senseless Professional Strength cream on a warm off-white background" } }
+        "clinical": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "heading": "The everyday formula",
+            "body": "<p>The Senseless default. Used for top-ups, routine microneedling, smaller laser zones, lip fillers, Botox. Quietly capable.</p>",
+            "cta_label": "",
+            "cta_url": "",
+            "flagship": false,
+            "image_alt": "Senseless Clinical Strength cream on a warm off-white background"
+          }
+        },
+        "advanced": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Advanced Strength",
+            "heading": "The considered upgrade",
+            "body": "<p>Higher concentration. For longer sessions, more sensitive treatment areas, full-face microneedling, SPMU.</p>",
+            "cta_label": "",
+            "cta_url": "",
+            "flagship": false,
+            "image_alt": "Senseless Advanced Strength cream on a warm off-white background"
+          }
+        },
+        "professional": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Professional Strength",
+            "heading": "Developed with practitioners",
+            "body": "<p>Our most concentrated formula, used in clinics. Trusted at the chair.</p>",
+            "cta_label": "",
+            "cta_url": "",
+            "flagship": true,
+            "badge_text": "",
+            "image_alt": "Senseless Professional Strength cream on a warm off-white background"
+          }
+        }
       },
-      "block_order": ["clinical", "advanced", "professional"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "The Senseless system.", "body": "", "closer": "", "section_cta_label": "Choose your strength", "section_cta_url": "/pages/choosing-your-strength" }
+      "block_order": [
+        "clinical",
+        "advanced",
+        "professional"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "",
+        "headline": "The Senseless system.",
+        "body": "",
+        "closer": "",
+        "section_cta_label": "Choose your strength",
+        "section_cta_url": "/pages/choosing-your-strength"
+      }
     },
     "recommend": {
       "type": "senseless-procedure-grid",
       "blocks": {
-        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "sub_label": "Clinical Strength Cream.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
-        "botox": { "type": "procedure_card", "settings": { "label": "Botox", "sub_label": "Clinical Strength Cream — or no preparation at all for many clients.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-botox", "image_alt": "Editorial image for the Botox range" } },
-        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "sub_label": "Advanced Strength Cream or Gel.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
-        "laser": { "type": "procedure_card", "settings": { "label": "Laser", "sub_label": "Advanced Strength. Cream for face, spray for body.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
-        "spmu": { "type": "procedure_card", "settings": { "label": "SPMU", "sub_label": "Advanced or Professional Cream.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } },
-        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "sub_label": "Advanced Spray for body. Cream for smaller zones.", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } }
+        "lips": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Lip Fillers",
+            "sub_label": "Clinical Strength Cream.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-lip-fillers",
+            "image_alt": "Editorial image for the lip fillers range"
+          }
+        },
+        "botox": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Botox",
+            "sub_label": "Clinical Strength Cream — or no preparation at all for many clients.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-botox",
+            "image_alt": "Editorial image for the Botox range"
+          }
+        },
+        "micro": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Microneedling",
+            "sub_label": "Advanced Strength Cream or Gel.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-microneedling",
+            "image_alt": "Editorial image for the microneedling range"
+          }
+        },
+        "laser": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Laser",
+            "sub_label": "Advanced Strength. Cream for face, spray for body.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-laser-treatment",
+            "image_alt": "Editorial image for the laser treatment range"
+          }
+        },
+        "spmu": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "SPMU",
+            "sub_label": "Advanced or Professional Cream.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
+            "image_alt": "Editorial image for the semi-permanent makeup range"
+          }
+        },
+        "wax": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Waxing",
+            "sub_label": "Advanced Spray for body. Cream for smaller zones.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-waxing",
+            "image_alt": "Editorial image for the waxing range"
+          }
+        }
       },
-      "block_order": ["lips", "botox", "micro", "laser", "spmu", "wax"],
-      "settings": { "columns": "3", "anchor_id": "recommendations", "eyebrow": "By procedure", "headline": "For aesthetic procedures, here's the Senseless recommendation.", "body": "" }
+      "block_order": [
+        "lips",
+        "botox",
+        "micro",
+        "laser",
+        "spmu",
+        "wax"
+      ],
+      "settings": {
+        "columns": "3",
+        "anchor_id": "recommendations",
+        "eyebrow": "By procedure",
+        "headline": "For aesthetic procedures, here's the Senseless recommendation.",
+        "body": ""
+      }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Is Senseless a direct replacement for Ametop?", "answer": "<p>No — not by design. Different categories, different purposes. Senseless is a cosmetic product built for aesthetic procedures. Ametop is a medicine. If you specifically need a medical preparation, Senseless isn't formulated for that.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Do I need a prescription for Senseless?", "answer": "<p>No. Senseless is a cosmetic product, available without prescription. Ametop, as a medicine, has its own pharmacy/prescription context.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "How does Senseless compare to Ametop in strength?", "answer": "<p>We don't make comparative strength claims — different categories, different regulatory contexts, different formulations. Senseless has its own three-tier system (Clinical, Advanced, Professional). Ametop has its own documentation as a medicine.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Will my practitioner accept Senseless instead of Ametop?", "answer": "<p>Most aesthetic practitioners have preferences. Ask them in advance. Senseless is stocked in clinics across the UK — many practitioners will recognise it.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "How does Senseless compare to Ametop in price?", "answer": "<p>We don't make comparative pricing claims. Pricing varies, and Ametop is a pharmacy product so its pricing depends on the dispensing context.</p>" } },
-        "q6": { "type": "faq_item", "settings": { "question": "Is Senseless safer than Ametop?", "answer": "<p>We don't make comparative safety claims. Different categories, different safety frameworks. Both have their own regulatory documentation.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Senseless a direct replacement for Ametop?",
+            "answer": "<p>No — not by design. Different categories, different purposes. Senseless is a cosmetic product built for aesthetic procedures. Ametop is a medicine. If you specifically need a medical preparation, Senseless isn't formulated for that.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a prescription for Senseless?",
+            "answer": "<p>No. Senseless is a cosmetic product, available without prescription. Ametop, as a medicine, has its own pharmacy/prescription context.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does Senseless compare to Ametop in strength?",
+            "answer": "<p>We don't make comparative strength claims — different categories, different regulatory contexts, different formulations. Senseless has its own three-tier system (Clinical, Advanced, Professional). Ametop has its own documentation as a medicine.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will my practitioner accept Senseless instead of Ametop?",
+            "answer": "<p>Most aesthetic practitioners have preferences. Ask them in advance. Senseless is stocked in clinics across the UK — many practitioners will recognise it.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does Senseless compare to Ametop in price?",
+            "answer": "<p>We don't make comparative pricing claims. Pricing varies, and Ametop is a pharmacy product so its pricing depends on the dispensing context.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Senseless safer than Ametop?",
+            "answer": "<p>We don't make comparative safety claims. Different categories, different safety frameworks. Both have their own regulatory documentation.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
-      "settings": { "headline": "Common questions." }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "headline": "Common questions."
+      }
     },
     "next": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Clinical, Advanced, Professional.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
-        "system": { "type": "format_card", "settings": { "label": "How Senseless works", "body": "<p>The system, in plain terms.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-it-works", "image_alt": "Editorial image for the system guide" } },
-        "procedures": { "type": "format_card", "settings": { "label": "Shop by procedure", "body": "<p>Every appointment Senseless covers.</p>", "cta_label": "View collection", "cta_url": "/collections/aesthetic-numbing-cream", "image_alt": "Editorial image for the procedures collection" } }
+        "strength": {
+          "type": "format_card",
+          "settings": {
+            "label": "Choose your strength",
+            "body": "<p>Clinical, Advanced, Professional.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/choosing-your-strength",
+            "image_alt": "Editorial image for the strength guide"
+          }
+        },
+        "system": {
+          "type": "format_card",
+          "settings": {
+            "label": "How Senseless works",
+            "body": "<p>The system, in plain terms.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/how-it-works",
+            "image_alt": "Editorial image for the system guide"
+          }
+        },
+        "procedures": {
+          "type": "format_card",
+          "settings": {
+            "label": "Shop by procedure",
+            "body": "<p>Every appointment Senseless covers.</p>",
+            "cta_label": "View collection",
+            "cta_url": "/collections/aesthetic-numbing-cream",
+            "image_alt": "Editorial image for the procedures collection"
+          }
+        }
       },
-      "block_order": ["strength", "system", "procedures"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "Decide what you need.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "block_order": [
+        "strength",
+        "system",
+        "procedures"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "",
+        "headline": "Decide what you need.",
+        "body": "",
+        "closer": "",
+        "section_cta_label": "",
+        "section_cta_url": ""
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "The system",
+            "value": "Three strengths (Clinical, Advanced, Professional), three formats (cream, gel, spray)."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Medical questions",
+            "value": "For questions about any medicine, speak to a pharmacist or your practitioner."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
     }
   },
-  "order": ["hero", "framing", "fit", "ametop", "tiers", "recommend", "faq", "next"]
+  "order": [
+    "hero",
+    "framing",
+    "fit",
+    "ametop",
+    "tiers",
+    "recommend",
+    "faq",
+    "next",
+    "keyfacts"
+  ]
 }

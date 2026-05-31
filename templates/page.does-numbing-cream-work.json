@@ -12,82 +12,210 @@
     "category": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "The category",
+        "direction": "text-left",
+        "eyebrow": "The category",
         "headline": "This is preparation, not anaesthesia.",
         "body": "<p>Topical numbing preparations sit in a specific category. They're cosmetic products applied to the skin before a procedure. They support comfort during the appointment — that's their purpose, and it's the language regulators recognise. They're not anaesthetics. They're not medicines. They're not designed to remove all sensation from a procedure. What they do is meaningful, but the category itself is honest about what that is.</p>",
-        "cta_label": "", "cta_url": "",
+        "cta_label": "",
+        "cta_url": "",
         "image_alt": "Editorial product close-up of Senseless"
       }
     },
     "varies": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-right", "eyebrow": "The variables",
+        "direction": "text-right",
+        "eyebrow": "The variables",
         "headline": "Three things change what \"works\" means for you.",
         "body": "<p>The procedure matters. A lip filler appointment, a microneedling session, and a laser resurfacing all ask different things from preparation — the same product delivers a different experience across them. The tier matters. Clinical, Advanced, and Professional are formulated for different procedures and session lengths — picking the wrong tier for the procedure is the most common reason a client says \"it didn't work for me.\" The individual matters. Skin sensitivity, treatment area, hydration, and how well the application protocol was followed — these all change the outcome. \"Does it work\" is three questions in one. The answer depends on getting all three right.</p>",
-        "cta_label": "Match the tier to the procedure", "cta_url": "/pages/choosing-your-strength",
+        "cta_label": "Match the tier to the procedure",
+        "cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial Senseless system view"
       }
     },
     "experience": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "The experience",
+        "direction": "text-left",
+        "eyebrow": "The experience",
         "headline": "Prepared skin tends to be more comfortable than unprepared skin.",
         "body": "<p>That's the general observation across the category. Many clients find their aesthetic appointment more comfortable with topical preparation than without. The experience varies — sometimes meaningfully, sometimes subtly. Senseless doesn't promise a specific sensation outcome because that's not the brand's to promise. What the brand promises is a UK-formulated cosmetic preparation built for the kind of sessions modern aesthetic clinics actually run. The experience that follows depends on the procedure, the tier, and you.</p>",
-        "cta_label": "", "cta_url": "",
+        "cta_label": "",
+        "cta_url": "",
         "image_alt": "Editorial product close-up of Senseless"
       }
     },
     "failure": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-right", "eyebrow": "The honest part",
+        "direction": "text-right",
+        "eyebrow": "The honest part",
         "headline": "Three common reasons.",
         "body": "<p><strong>The tier didn't match the procedure.</strong> Clinical Strength applied before a 90-minute microneedling session won't deliver what Advanced would. Picking the wrong tier is the most common reason clients say a preparation didn't work.</p><p><strong>The application window was off.</strong> Too early and the preparation runs its course before the procedure. Too late and it doesn't reach its full effect. Specific timing matters more than most clients realise.</p><p><strong>Expectation set too high.</strong> Some clients expect topical preparation to remove all sensation from a procedure. That's not what this category is for. Clients who go in expecting comfort during the appointment tend to be more satisfied than clients who expect complete absence of sensation.</p>",
-        "cta_label": "Choose your strength", "cta_url": "/pages/choosing-your-strength",
+        "cta_label": "Choose your strength",
+        "cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial product close-up of Senseless"
       }
     },
     "procedures": {
       "type": "senseless-rich-text",
       "settings": {
-        "background": "white", "eyebrow": "By procedure",
+        "background": "white",
+        "eyebrow": "By procedure",
         "headline": "What clients typically report by procedure.",
         "body": "<p>General observations from the broader category, not specific claims about your appointment.</p><p><strong>Lip Fillers.</strong> Most clients report that prepared skin makes the lip filler experience more comfortable. Many practitioners also apply additional numbing at the chair.</p><p><strong>Botox.</strong> The shortest aesthetic procedure. Many clients book without numbing entirely. Those who use it typically report subtle rather than dramatic comfort differences.</p><p><strong>Microneedling.</strong> Often the procedure where clients notice the biggest difference from preparation. The session is longer, the treatment area broader — preparation is doing more work.</p><p><strong>Laser.</strong> Highly variable. Body laser sessions report bigger differences from preparation than face laser. Resurfacing procedures sit even higher on the impact scale.</p><p><strong>SPMU.</strong> Sustained sittings on sensitive skin. Most artists strongly recommend preparation. Many also reapply during the session.</p><p><strong>Waxing.</strong> Bikini and brazilian appointments tend to report meaningful differences from preparation. Smaller-area waxing (lip, brow) sees less impact.</p>",
-        "cta_label": "", "cta_url": ""
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "callout": {
       "type": "senseless-callout-band",
       "settings": {
-        "style": "brand", "eyebrow": "", "heading": "When to ask your practitioner",
+        "style": "brand",
+        "eyebrow": "",
+        "heading": "When to ask your practitioner",
         "body": "<p>The most honest answer to \"does it work for my specific booking\" comes from your practitioner. They've seen hundreds of clients prepare for the procedures they run. They know what preparation typically delivers in their clinic, on their procedures, with the kind of bookings yours sits in. Ask before your appointment.</p>",
-        "cta_label": "", "cta_url": ""
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Will I feel anything during the procedure?", "answer": "<p>Possibly yes. Topical preparation supports comfort but doesn't typically remove all sensation. Expect a more comfortable experience, not a completely sensation-free one.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Why do some reviews say it didn't work?", "answer": "<p>Most often: wrong tier for the procedure, wrong application window, or expectations set too high. Topical preparation is meaningful but specific — getting all three right matters.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "How does Senseless compare to alternatives?", "answer": "<p>We don't make comparative claims. Senseless is formulated for aesthetic procedures specifically — that's the brand's position.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Will my practitioner think numbing cream is unnecessary?", "answer": "<p>Some practitioners include preparation in their protocol. Some recommend clients prepare at home. Some advise against it for specific procedures (Botox especially). Ask what your practitioner prefers — they have a position on this.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will I feel anything during the procedure?",
+            "answer": "<p>Possibly yes. Topical preparation supports comfort but doesn't typically remove all sensation. Expect a more comfortable experience, not a completely sensation-free one.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why do some reviews say it didn't work?",
+            "answer": "<p>Most often: wrong tier for the procedure, wrong application window, or expectations set too high. Topical preparation is meaningful but specific — getting all three right matters.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does Senseless compare to alternatives?",
+            "answer": "<p>We don't make comparative claims. Senseless is formulated for aesthetic procedures specifically — that's the brand's position.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will my practitioner think numbing cream is unnecessary?",
+            "answer": "<p>Some practitioners include preparation in their protocol. Some recommend clients prepare at home. Some advise against it for specific procedures (Botox especially). Ask what your practitioner prefers — they have a position on this.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
-      "settings": { "headline": "Common questions." }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "headline": "Common questions."
+      }
     },
     "next": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Match the tier to the procedure.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
-        "system": { "type": "format_card", "settings": { "label": "How Senseless works", "body": "<p>The system, in plain terms.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-it-works", "image_alt": "Editorial image for the system guide" } },
-        "apply": { "type": "format_card", "settings": { "label": "How to apply", "body": "<p>The application routine.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-to-apply-numbing-cream", "image_alt": "Editorial image for the application guide" } }
+        "strength": {
+          "type": "format_card",
+          "settings": {
+            "label": "Choose your strength",
+            "body": "<p>Match the tier to the procedure.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/choosing-your-strength",
+            "image_alt": "Editorial image for the strength guide"
+          }
+        },
+        "system": {
+          "type": "format_card",
+          "settings": {
+            "label": "How Senseless works",
+            "body": "<p>The system, in plain terms.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/how-it-works",
+            "image_alt": "Editorial image for the system guide"
+          }
+        },
+        "apply": {
+          "type": "format_card",
+          "settings": {
+            "label": "How to apply",
+            "body": "<p>The application routine.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/how-to-apply-numbing-cream",
+            "image_alt": "Editorial image for the application guide"
+          }
+        }
       },
-      "block_order": ["strength", "system", "apply"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "Decide what you need.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "block_order": [
+        "strength",
+        "system",
+        "apply"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "",
+        "headline": "Decide what you need.",
+        "body": "",
+        "closer": "",
+        "section_cta_label": "",
+        "section_cta_url": ""
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "What it is",
+            "value": "A preparation step matched to the procedure, not the procedure itself."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Experience",
+            "value": "Individual experiences differ; your practitioner is the guide."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
     }
   },
-  "order": ["hero", "category", "varies", "experience", "failure", "procedures", "callout", "faq", "next"]
+  "order": [
+    "hero",
+    "category",
+    "varies",
+    "experience",
+    "failure",
+    "procedures",
+    "callout",
+    "faq",
+    "next",
+    "keyfacts"
+  ]
 }
