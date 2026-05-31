@@ -1,6 +1,6 @@
 ---
 name: commit-and-deploy
-description: Use this skill at the end of every Claude Code session. Stages all changes, commits to GitHub with a descriptive message, pushes to origin/main, deploys to Shopify dev theme via Shopify CLI, and generates the structured build report. This is the enforced session-end protocol — every session ends with this skill. Trigger by /session-end or "end session" or "commit and deploy".
+description: Use this skill at the end of every Claude Code session. Stages all changes, commits to GitHub with a descriptive message, pushes to origin/dev (NEVER main — main is stable/live-protected per Hard Rule #12), deploys to Shopify dev theme via Shopify CLI, and generates the structured build report. This is the enforced session-end protocol — every session ends with this skill. Trigger by /session-end or "end session" or "commit and deploy".
 ---
 
 # Commit & Deploy
@@ -21,7 +21,10 @@ description: Use this skill at the end of every Claude Code session. Stages all 
 2. Ask user to confirm what's being committed
 3. Stage all changes: `git add .`
 4. Commit with the provided message
-5. Push to origin: `git push origin main`
+5. Push to origin **dev** — **NEVER `main`**. `main` is stable/live-protected (Hard Rule #12); all day-to-day work pushes to `dev`. If on a feature branch, push that branch and open a PR into `dev`:
+   ```
+   git push origin dev   # or: git push origin <current-branch>
+   ```
 6. If theme files changed, push to Shopify dev theme:
    ```
    shopify theme push --store senseless-tattooing.myshopify.com --theme [dev-theme-id]
