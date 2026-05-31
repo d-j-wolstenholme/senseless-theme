@@ -15,6 +15,12 @@
       , {{ powered_by_link }}
     {%- endif -%}
   </span>
+  {%- comment -%} Senseless: subtle parent-company attribution (no MHG logo asset yet — text link). {%- endcomment -%}
+  {%- if block_settings.mhg_url != blank and block_settings.mhg_label != blank -%}
+    <span class="footer-utilities__text footer-utilities__mhg">
+      <a href="{{ block_settings.mhg_url | escape }}" target="_blank" rel="noopener" title="{{ block_settings.mhg_label | escape }}">{{ block_settings.mhg_label | escape }}</a>
+    </span>
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -31,6 +37,19 @@
     {
       "type": "paragraph",
       "content": "t:content.manage_store_name"
+    },
+    {
+      "type": "text",
+      "id": "mhg_url",
+      "label": "Parent company link",
+      "info": "Subtle parent-company attribution shown in the legal band. Leave blank to hide.",
+      "default": "https://matrixhealthgroup.co.uk"
+    },
+    {
+      "type": "text",
+      "id": "mhg_label",
+      "label": "Parent company label",
+      "default": "Matrix Health Group Ltd — parent company"
     },
     {
       "type": "select",

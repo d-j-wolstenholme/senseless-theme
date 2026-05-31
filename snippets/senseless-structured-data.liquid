@@ -1,0 +1,91 @@
+{%- comment -%}
+  Senseless — structured data (JSON-LD), GEO/SEO layer.
+  Rendered once from layout/theme.liquid <head>. Dispatches on request.page_type so it emits
+  the RIGHT schema per template and never duplicates schema already emitted elsewhere:
+    - Organization  → already emitted by Horizon sections/header.liquid (do NOT repeat here)
+    - FAQPage       → already emitted by sections/senseless-faq-accordion.liquid
+    - Article       → already emitted by Horizon sections/main-blog-post.liquid
+  This snippet adds the MISSING types:
+    - Product + Offer        (product pages)
+    - CollectionPage + ItemList (collection pages)
+    - BreadcrumbList         (product, collection, page)
+  All strings are emitted through the `json` filter, which adds quotes + escapes — guaranteeing
+  valid JSON. Prices/availability/currency come from live product data (no hardcoding); seller
+  legalName is the parent company "Matrix Health Group Ltd". Description is claim-free.
+{%- endcomment -%}
+{%- liquid
+  assign base = shop.url
+  assign seller_name = 'Senseless'
+  assign seller_legal = 'Matrix Health Group Ltd'
+  assign cur = cart.currency.iso_code | default: shop.currency
+-%}
+{%- case request.page_type -%}
+
+{%- when 'product' -%}
+  {%- assign pd = product.description | strip_html | strip_newlines | truncate: 480 -%}
+  {%- if pd == blank -%}{%- assign pd = product.title | append: ' — a topical cosmetic preparation by Senseless.' -%}{%- endif -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "description": {{ pd | json }},
+    "url": {{ base | append: product.url | json }},
+    {%- if product.featured_media -%}
+    "image": [
+      {%- for media in product.media limit: 5 -%}
+        {%- if media.media_type == 'image' -%}{{ media | image_url: width: 1200 | prepend: 'https:' | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}
+      {%- endfor -%}
+    ],
+    {%- endif -%}
+    "brand": { "@type": "Brand", "name": {{ seller_name | json }} },
+    "manufacturer": { "@type": "Organization", "name": {{ seller_legal | json }} },
+    {%- if product.vendor != blank -%}"vendor": {{ product.vendor | json }},{%- endif -%}
+    "offers": [
+      {%- for variant in product.variants -%}
+      {
+        "@type": "Offer",
+        {%- if variant.sku != blank -%}"sku": {{ variant.sku | json }},{%- endif -%}
+        "name": {{ variant.title | json }},
+        "price": "{{ variant.price | divided_by: 100.0 }}",
+        "priceCurrency": {{ cur | json }},
+        "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+        "url": {{ base | append: variant.url | json }},
+        "seller": { "@type": "Organization", "name": {{ seller_name | json }}, "legalName": {{ seller_legal | json }} }
+      }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+  {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_type: 'product' -%}
+
+{%- when 'collection' -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "CollectionPage",
+    "name": {{ collection.title | json }},
+    "url": {{ base | append: collection.url | json }},
+    {%- if collection.description != blank -%}"description": {{ collection.description | strip_html | strip_newlines | truncate: 300 | json }},{%- endif -%}
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": {{ collection.all_products_count }},
+      "itemListElement": [
+        {%- for prod in collection.products limit: 48 -%}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "name": {{ prod.title | json }},
+          "url": {{ base | append: prod.url | json }}
+        }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  }
+  </script>
+  {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_type: 'collection' -%}
+
+{%- when 'page' -%}
+  {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_type: 'page' -%}
+
+{%- endcase -%}
