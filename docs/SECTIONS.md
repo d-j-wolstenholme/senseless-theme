@@ -20,6 +20,7 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-procedure-grid.liquid` | Procedure cards grid (1:1 linked collection images) | 4 templates |
 | `senseless-how-to-use.liquid` | Numbered application/how-to-use steps | 4 templates |
 | `senseless-strength-matrix.liquid` | Suitability / strength-by-procedure matrix | 3 templates |
+| `senseless-key-facts.liquid` | Machine-extractable "Key facts" GEO block — semantic `<dl>` of label/value facts + a fixed, non-editable compliance line ("UK cosmetic product, by Matrix Health Group Ltd. Not a medicine."). Per-page facts seeded from each page's Notion v2 Key Facts. | product, 3 format collections, 6 guides, 4 landings (14) |
 | `senseless-editorial-band.liquid` | Long-form editorial band | 2 templates |
 | `senseless-contact-form.liquid` | Contact / enquiry form | contact, trade (2) |
 | `senseless-cross-sell.liquid` | Related-product cross-sell row (1:1 linked images, Professional border) | product, foaming-cleanser (2) |
@@ -47,6 +48,8 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-card-image.liquid` | Shared 1:1 card image. Resolves the linked product's featured image / linked collection's image (then collection's first product), with a graceful theme placeholder fallback and an `image_picker` override. Single source of truth for card thumbnails. |
 | `senseless-quick-add.liquid` | Shared inline quick-add control for product cards. Renders an inline variant `<select>` (when >1 variant), Horizon quantity stepper + add-to-cart inside a Horizon `<product-form-component>` (AJAX `/cart/add` → opens cart drawer). Renders nothing unless a real product is passed (nav/editorial cards stay plain links); stays inert/disabled until the product has price + stock. Reuses Horizon `product-form-component` / `add-to-cart-button` / `quantity-selector`. Used by `senseless-product-grid`, `-trio-card-row` (product_card), `-cross-sell`, `-product-showcase`. |
 | `senseless-header-footer.liquid` | Brand styling + structural overrides for the configured Horizon header/footer (mega menu, accordion drawer, 4-column footer). |
+| `senseless-structured-data.liquid` | JSON-LD dispatcher rendered in `theme.liquid` head. Emits Product+Offer (PDPs) and CollectionPage+ItemList (collections) via the `json` filter (live price/availability/currency; seller legalName "Matrix Health Group Ltd"; claim-free). Dispatches on `request.page_type`; does **not** duplicate Organization/FAQPage/Article schema emitted elsewhere. |
+| `senseless-breadcrumbs-jsonld.liquid` | BreadcrumbList JSON-LD for product / collection / page, reflecting the real hierarchy (Home → [collection] → Product, etc.). Rendered by `senseless-structured-data`. |
 
 > Header/footer use Horizon's native `header.liquid` / `footer.liquid` (configured + brand-styled), not bespoke `senseless-` sections. Nav menus are set in Shopify admin: `senseless-main` (header), `senseless-footer-shop` / `-explore` / `-company` (footer).
 
