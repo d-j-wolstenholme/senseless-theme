@@ -12,71 +12,197 @@
     "framework": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "The framework",
+        "direction": "text-left",
+        "eyebrow": "The framework",
         "headline": "Three things shape the window.",
         "body": "<p>The procedure: a 15-minute Botox session asks something different from a 90-minute microneedling appointment. The tier: Clinical, Advanced, and Professional are formulated for different session lengths. The individual: skin sensitivity, treatment area, hydration, and the specific application all change what the same product does on the same procedure for two different clients. The duration question can't be answered with a single number because none of these variables are constant.</p>",
-        "cta_label": "", "cta_url": "",
+        "cta_label": "",
+        "cta_url": "",
         "image_alt": "Editorial product close-up of Senseless"
       }
     },
     "cantell": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-right", "eyebrow": "The general framework", "headline": "",
+        "direction": "text-right",
+        "eyebrow": "The general framework",
+        "headline": "",
         "body": "<p>Most topical preparations for aesthetic procedures are designed to last somewhere between 60 minutes and several hours after application. That's a generic range across the broader category, not a Senseless-specific claim. Within the Senseless system, the tiers are formulated to match the session lengths they're built for — Clinical for shorter, focused appointments; Advanced for longer or more sensitive sessions; Professional for sustained or intensive bookings. The system's logic is built into the duration question, even if the specific number isn't ours to give.</p>",
-        "cta_label": "", "cta_url": "",
+        "cta_label": "",
+        "cta_url": "",
         "image_alt": "Editorial Senseless three-tier system view"
       }
     },
     "procedures": {
       "type": "senseless-rich-text",
       "settings": {
-        "background": "white", "eyebrow": "By procedure",
+        "background": "white",
+        "eyebrow": "By procedure",
         "headline": "What clients book.",
         "body": "<p>These are typical session lengths, not duration-of-effect claims. The preparation needs to match the session.</p><p><strong>Lip Fillers.</strong> 15–30 minutes typically. Clinical Strength fits this comfortably.</p><p><strong>Botox.</strong> 10–20 minutes. The shortest aesthetic procedure. Clinical or even no preparation suits most clients.</p><p><strong>Microneedling.</strong> 30–90 minutes for a full-face session. Advanced is the recommended tier for this length.</p><p><strong>Laser (face zones).</strong> 15–45 minutes typically. Advanced suits most face laser sessions.</p><p><strong>Laser (body, resurfacing).</strong> 30 minutes to 2+ hours. Advanced spray or Professional for the longest sessions.</p><p><strong>SPMU.</strong> 60–120+ minutes — sustained sittings. Advanced or Professional, with reapplication sometimes used during the session.</p>",
-        "cta_label": "", "cta_url": ""
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "runsout": {
       "type": "senseless-image-text-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "A real consideration",
+        "direction": "text-left",
+        "eyebrow": "A real consideration",
         "headline": "Most appointments are timed to fit.",
         "body": "<p>A well-matched preparation lasts the length of the procedure. The reason the Senseless system has three tiers and the recommendation matrix tells you which to pick is exactly this — too short a window for an intensive session is the most common application mistake. If your appointment runs longer than expected and you've been on the lighter side of preparation, your practitioner has options. Some reapply at the chair. Some use additional numbing during the procedure. Some pause briefly. Your practitioner knows what they can offer and what their protocol allows.</p>",
-        "cta_label": "Choose your strength", "cta_url": "/pages/choosing-your-strength",
+        "cta_label": "Choose your strength",
+        "cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial product close-up of Senseless"
       }
     },
     "callout": {
       "type": "senseless-callout-band",
       "settings": {
-        "style": "brand", "eyebrow": "", "heading": "When to ask your practitioner",
+        "style": "brand",
+        "eyebrow": "",
+        "heading": "When to ask your practitioner",
         "body": "<p>Specific duration windows are part of every aesthetic practitioner's protocol. They know how long their procedures run, what preparation they use, and what to do if a client's preparation runs short. Ask in advance. The clinic that runs your appointment is the source of truth for duration questions tied to your specific booking.</p>",
-        "cta_label": "", "cta_url": ""
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Will it last through my whole appointment?", "answer": "<p>If you've matched the tier to the procedure, yes — that's the system's design. If you've chosen a lighter tier than the procedure asks for, the window may not cover the full session. Pick the tier the procedure calls for.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Does the higher tier last longer or work harder?", "answer": "<p>The higher tiers are formulated for procedures that ask more of the preparation. Different concentrations, different formulation context. They're not \"stronger versions\" of Clinical — they're matched to longer or more demanding sessions.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "What if my appointment runs over?", "answer": "<p>Most practitioners have protocols for this. Some reapply, some use additional preparation at the chair. Ask in advance what your practitioner's approach is.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "How does Senseless compare to other brands?", "answer": "<p>We don't make comparative duration claims. Senseless is formulated for aesthetic procedures specifically — that's the brand's position.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it last through my whole appointment?",
+            "answer": "<p>If you've matched the tier to the procedure, yes — that's the system's design. If you've chosen a lighter tier than the procedure asks for, the window may not cover the full session. Pick the tier the procedure calls for.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does the higher tier last longer or work harder?",
+            "answer": "<p>The higher tiers are formulated for procedures that ask more of the preparation. Different concentrations, different formulation context. They're not \"stronger versions\" of Clinical — they're matched to longer or more demanding sessions.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if my appointment runs over?",
+            "answer": "<p>Most practitioners have protocols for this. Some reapply, some use additional preparation at the chair. Ask in advance what your practitioner's approach is.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does Senseless compare to other brands?",
+            "answer": "<p>We don't make comparative duration claims. Senseless is formulated for aesthetic procedures specifically — that's the brand's position.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
-      "settings": { "headline": "Common questions." }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "headline": "Common questions."
+      }
     },
     "next": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Match the tier to the procedure.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
-        "onset": { "type": "format_card", "settings": { "label": "How long it takes to work", "body": "<p>Onset timing, explained.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-long-numbing-cream-takes-to-work", "image_alt": "Editorial image for the onset guide" } },
-        "apply": { "type": "format_card", "settings": { "label": "How to apply", "body": "<p>The application routine.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-to-apply-numbing-cream", "image_alt": "Editorial image for the application guide" } }
+        "strength": {
+          "type": "format_card",
+          "settings": {
+            "label": "Choose your strength",
+            "body": "<p>Match the tier to the procedure.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/choosing-your-strength",
+            "image_alt": "Editorial image for the strength guide"
+          }
+        },
+        "onset": {
+          "type": "format_card",
+          "settings": {
+            "label": "How long it takes to work",
+            "body": "<p>Onset timing, explained.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
+            "image_alt": "Editorial image for the onset guide"
+          }
+        },
+        "apply": {
+          "type": "format_card",
+          "settings": {
+            "label": "How to apply",
+            "body": "<p>The application routine.</p>",
+            "cta_label": "Read guide",
+            "cta_url": "/pages/how-to-apply-numbing-cream",
+            "image_alt": "Editorial image for the application guide"
+          }
+        }
       },
-      "block_order": ["strength", "onset", "apply"],
-      "settings": { "columns": "3", "eyebrow": "", "headline": "Decide what you need.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+      "block_order": [
+        "strength",
+        "onset",
+        "apply"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "",
+        "headline": "Decide what you need.",
+        "body": "",
+        "closer": "",
+        "section_cta_label": "",
+        "section_cta_url": ""
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "Duration",
+            "value": "Duration is procedure- and person-specific; there is no single window."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Planning",
+            "value": "Plan timing with your practitioner around your booking."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
     }
   },
-  "order": ["hero", "framework", "cantell", "procedures", "runsout", "callout", "faq", "next"]
+  "order": [
+    "hero",
+    "framework",
+    "cantell",
+    "procedures",
+    "runsout",
+    "callout",
+    "faq",
+    "next",
+    "keyfacts"
+  ]
 }
