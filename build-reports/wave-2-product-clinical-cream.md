@@ -61,3 +61,6 @@
 
 ## Not done (by design — Wave 2 checkpoint)
 - The other 9 product pages (build after this base template signs off).
+
+---
+**Corrections (follow-up, on top of ec61de8):** (1) **Removed the suitability / "What it's for" section** from the product template entirely (per Canonical State §7 — product pages are ad-facing and carry no suitability; it moves to collections in Wave 3). Render confirms the matrix/heading/CTA are gone with no empty container; sequence is now hero → how-to-use → system → trust → key-facts → FAQ → reviews → related → aftercare. (2) **Constrained the hero gallery image** — `.ss-ph__main` capped at `max-width: 420px` (responsive 4:5 frame; the variant image swaps inside it) so it no longer dominates the viewport. (3) Confirmed the two unverified buy-box items and **added the missing ones**: **Buy it now** dynamic checkout button (`{{ form | payment_button }}`) now renders alongside Add to cart (both reflect sold-out at inventory 0); **variant-linked image swap** wired in the hero JS (`v.featured_image` → main gallery image on 10g/30g change) — mechanism verified in the render, though no visible swap yet because the products have no per-variant media (both show the neutral placeholder until images are assigned). theme-check 0; re-rendered + confirmed. Still the Wave 2 checkpoint.

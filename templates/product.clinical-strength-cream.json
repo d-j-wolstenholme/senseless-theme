@@ -9,24 +9,6 @@
         "force_tier": "auto"
       }
     },
-    "suitability": {
-      "type": "senseless-strength-matrix",
-      "blocks": {
-        "r1": { "type": "suitability_row", "settings": { "procedure": "Microneedling", "recommendation": "Possible — Advanced often suits better", "level": "possible" } },
-        "r2": { "type": "suitability_row", "settings": { "procedure": "Laser, small zones", "recommendation": "Recommended", "level": "recommended" } },
-        "r3": { "type": "suitability_row", "settings": { "procedure": "SPMU", "recommendation": "Not recommended — Advanced or Professional", "level": "not" } },
-        "r4": { "type": "suitability_row", "settings": { "procedure": "Waxing, small zones", "recommendation": "Recommended", "level": "recommended" } },
-        "r5": { "type": "suitability_row", "settings": { "procedure": "Waxing, body", "recommendation": "Not recommended — Advanced spray", "level": "not" } }
-      },
-      "block_order": ["r1", "r2", "r3", "r4", "r5"],
-      "settings": {
-        "eyebrow": "Suited for",
-        "headline": "What Clinical cream is made for.",
-        "body": "<p>The honest version: Clinical covers the broadest range of appointments where a precise cream is the right tool. Where the work runs longer or over more sensitive areas, it tells you so.</p>",
-        "cta_label": "Find your strength",
-        "cta_url": "/pages/choosing-your-strength"
-      }
-    },
     "howto": {
       "type": "senseless-how-to-use",
       "blocks": {
@@ -116,5 +98,5 @@
       }
     }
   },
-  "order": ["hero", "suitability", "howto", "system", "trust", "keyfacts", "faq", "reviews", "related", "aftercare"]
+  "order": ["hero", "howto", "system", "trust", "keyfacts", "faq", "reviews", "related", "aftercare"]
 }
