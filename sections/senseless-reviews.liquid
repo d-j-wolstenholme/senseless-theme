@@ -1,0 +1,43 @@
+{%- comment -%}
+  Senseless — Reviews
+  Hosts the Judge.me review widget as a theme APP BLOCK (not a snippet div), per the global rule.
+  Renders NOTHING until an app block is added in the theme editor — so the section is hidden until
+  reviews exist (no empty state). Judge.me itself hides its widget until 5+ reviews and emits
+  AggregateRating JSON-LD only when reviews exist. Reusable on every product page.
+  NOTE (Wave 2): the Judge.me app is not yet installed on the dev store, so no app block is wired in
+  the template; the section is present (in the template order) but renders nothing until the app is
+  installed and its block is placed here in the editor.
+{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+  {%- style -%}
+    .ss-rev { background: var(--bg-canvas, #f7f7f5); }
+    .ss-rev__inner { max-width: 1100px; margin: 0 auto; padding: 44px 20px; }
+    .ss-rev__headline { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0 0 24px; color: #1A1816; }
+    @media (min-width: 1024px) { .ss-rev__inner { padding: 72px 40px; } }
+  {%- endstyle -%}
+  <section class="ss-rev" aria-label="Customer reviews">
+    <div class="ss-rev__inner">
+      {%- if section.settings.headline != blank -%}<h2 class="ss-rev__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {%- render block -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Senseless — Reviews",
+  "tag": "section",
+  "class": "senseless-section senseless-reviews",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Headline", "default": "What clients say" },
+    { "type": "paragraph", "content": "Add the Judge.me review widget as an app block here. The section renders nothing until a block is added (hidden until reviews exist). Judge.me hides its widget until 5+ reviews and emits AggregateRating only when reviews exist." }
+  ],
+  "blocks": [ { "type": "@app" } ],
+  "presets": [ { "name": "Senseless — Reviews" } ]
+}
+{% endschema %}

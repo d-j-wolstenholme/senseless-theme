@@ -41,10 +41,12 @@
   .ss-xs__text { font-family: var(--ss-sans); font-size: 14px; line-height: 1.5; color: var(--ss-body); margin: 0; }
   .ss-xs__text p { margin: 0; }
   .ss-xs__price { font-family: var(--ss-sans); font-weight: 500; font-size: 16px; margin: 2px 0 0; }
-  .ss-xs__cta { margin-top: auto; padding-top: 10px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
+  .ss-xs__cta { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 20px; border-radius: 14px; border: 1px solid var(--ss-purple); background: transparent; color: var(--ss-purple); font-family: var(--ss-sans); font-weight: 600; font-size: 14px; }
   .ss-xs__cta::after { content: '\2192'; }
+  .ss-xs__card--flagship .ss-xs__cta { background: var(--ss-purple); color: #ffffff; }
 
   @media (min-width: 768px) {
+    .ss-xs--cols-2 .ss-xs__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 760px; margin: 0 auto; }
     .ss-xs--cols-3 .ss-xs__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .ss-xs--cols-4 .ss-xs__grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .ss-xs__headline { font-size: 32px; }
@@ -93,7 +95,7 @@
   "class": "senseless-section senseless-cross-sell",
   "max_blocks": 4,
   "settings": [
-    { "type": "select", "id": "columns", "label": "Cards per row (desktop)", "default": "3", "options": [ { "value": "3", "label": "3" }, { "value": "4", "label": "4" } ] },
+    { "type": "select", "id": "columns", "label": "Cards per row (desktop)", "default": "3", "options": [ { "value": "2", "label": "2" }, { "value": "3", "label": "3" }, { "value": "4", "label": "4" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "Complete the system." }
   ],
@@ -108,7 +110,7 @@
         { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
         { "type": "text", "id": "title", "label": "Title", "default": "Cream 10g" },
         { "type": "richtext", "id": "body", "label": "One-line body", "default": "<p>Smaller size, single appointment.</p>" },
-        { "type": "text", "id": "price", "label": "Price", "default": "£TBC" },
+        { "type": "text", "id": "price", "label": "Price" },
         { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View product" },
         { "type": "url", "id": "cta_url", "label": "CTA link" },
         { "type": "checkbox", "id": "flagship", "label": "Professional treatment (purple border)", "default": false }

@@ -26,7 +26,8 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-cross-sell.liquid` | Related-product cross-sell row (1:1 linked images, Professional border) | product, foaming-cleanser (2) |
 | `senseless-complete-prep.liquid` | Complementary format cross-sell ("Complete your prep") — 2 sibling-format cards + Compare-formats CTA. Variant by host (auto-detects product format; renders nothing if unresolved). Prep, not aftercare. | product (staged) |
 | `senseless-format-row.liquid` | Format comparison row (typographic panels, intentionally imageless) | choosing-your-format, homepage (2) |
-| `senseless-product-hero.liquid` | Product page hero (gallery + buy block) | product, foaming-cleanser (2) |
+| `senseless-product-hero.liquid` | Product page hero (gallery + buy block; live variant price, size radios, add-to-cart with sold-out/unavailable state, trust line). Primary CTA = filled brand-purple (no neutral border). | product, foaming-cleanser, clinical-strength-cream (3) |
+| `senseless-reviews.liquid` | **NEW (Wave 2).** Reviews section that hosts the Judge.me widget as a theme **app block** (`@app`); renders nothing until a block is added (hidden until reviews exist). Judge.me hides until 5+ reviews and emits AggregateRating only when reviews exist. | clinical-strength-cream (1) |
 | `senseless-product-showcase.liquid` | Product showcase grid (1:1 linked images, Professional border) | lip-fillers collection, homepage (2) |
 | `senseless-decision-band.liquid` | Decision/choice band ("find your strength/format") | Homepage (1) |
 | `senseless-newsletter-signup.liquid` | Single-field email signup (Shopify customer form, GDPR double opt-in) | Homepage (1) |
