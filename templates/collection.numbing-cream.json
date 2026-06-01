@@ -33,6 +33,7 @@
       },
       "block_order": ["r1", "r2", "r3"],
       "settings": {
+        "use_metaobject": true,
         "band": "surface",
         "anchor_id": "match",
         "eyebrow": "Selection",
@@ -84,7 +85,7 @@
     "characteristics": {
       "type": "senseless-key-facts",
       "blocks": {
-        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Every Senseless topical numbing cream is made in the UK by Matrix Health Group Ltd — numbing cream UK customers order, formulated and assessed here." } },
+        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Every Senseless topical numbing cream is formulated in the United Kingdom by Matrix Health Group Ltd — numbing cream UK customers order, developed and assessed here." } },
         "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "Senseless is a cosmetic, not a medicine — no prescription needed." } },
         "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
         "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Designed around aesthetic procedures — microneedling, laser, SPMU, waxing and more — not adapted from generic numbing." } }
@@ -103,7 +104,7 @@
         "q6": { "type": "faq_item", "settings": { "question": "Can I apply it the night before?", "answer": "<p>No — apply it close to your appointment, not the night before. It's made for the short window before your treatment.</p>" } },
         "q7": { "type": "faq_item", "settings": { "question": "Which size do I need?", "answer": "<p>10g suits a single session or a trial; 30g is the regular size for repeat use or larger areas. (Professional comes in 30g.)</p>" } },
         "q8": { "type": "faq_item", "settings": { "question": "Is numbing cream a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } },
-        "q9": { "type": "faq_item", "settings": { "question": "What's in it?", "answer": "<p>Each formula is a UK cosmetic made by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>" } }
+        "q9": { "type": "faq_item", "settings": { "question": "What's in it?", "answer": "<p>Each formula is a UK cosmetic formulated by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>" } }
       },
       "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"],
       "settings": { "headline": "Numbing cream — common questions.", "anchor_id": "faq" }

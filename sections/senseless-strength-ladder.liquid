@@ -26,6 +26,8 @@
   .ss-sl__row { display:grid; grid-template-columns:1fr; gap:4px; padding:18px 20px; border-top:1px solid var(--bd); }
   .ss-sl__row:first-child { border-top:0; }
   .ss-sl__strength { font-family:var(--sans); font-weight:600; font-size:16px; color:var(--p); margin:0; }
+  .ss-sl__strengthlink { color:inherit; text-decoration:none; }
+  .ss-sl__strengthlink:hover { text-decoration:underline; }
   .ss-sl__matched { font-family:var(--sans); font-size:15px; line-height:1.55; color:var(--body); margin:0; }
   .ss-sl__matched p { margin:0; }
   .ss-sl__note { margin:20px 0 0; font-family:var(--sans); font-size:14.5px; line-height:1.6; color:var(--sec); border-left:3px solid var(--p); padding:2px 0 2px 16px; }
@@ -48,12 +50,31 @@
     {%- endif -%}
 
     <div class="ss-sl__matrix" role="table" aria-label="{{ section.settings.headline | default: 'Strength matrix' | escape }}">
-      {%- for block in section.blocks -%}
-        <div class="ss-sl__row" role="row" {{ block.shopify_attributes }}>
-          {%- if block.settings.strength != blank -%}<p class="ss-sl__strength" role="cell">{{ block.settings.strength | escape }}</p>{%- endif -%}
-          {%- if block.settings.matched != blank -%}<div class="ss-sl__matched" role="cell">{{ block.settings.matched }}</div>{%- endif -%}
-        </div>
-      {%- endfor -%}
+      {%- comment -%}
+        Single source: the strength_tier metaobject (Clinical/Advanced/Professional). When the
+        toggle is on AND entries exist, iterate them by the `order` field. Falls back to manual
+        rows when off or before the metaobject is populated — so the page never renders empty.
+      {%- endcomment -%}
+      {%- if section.settings.use_metaobject and metaobjects.strength_tier.values_count > 0 -%}
+        {%- assign tiers = metaobjects.strength_tier.values | sort: 'order' -%}
+        {%- for tier in tiers -%}
+          <div class="ss-sl__row" role="row">
+            {%- if tier.name.value != blank -%}
+              <p class="ss-sl__strength" role="cell"{% if tier.accent.value != blank %} style="color:{{ tier.accent.value }}"{% endif %}>
+                {%- if tier.link.value != blank -%}<a class="ss-sl__strengthlink" href="{{ tier.link.value }}">{{ tier.name.value | escape }}</a>{%- else -%}{{ tier.name.value | escape }}{%- endif -%}
+              </p>
+            {%- endif -%}
+            {%- if tier.session_descriptor.value != blank -%}<p class="ss-sl__matched" role="cell">{{ tier.session_descriptor.value | escape }}</p>{%- endif -%}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div class="ss-sl__row" role="row" {{ block.shopify_attributes }}>
+            {%- if block.settings.strength != blank -%}<p class="ss-sl__strength" role="cell">{{ block.settings.strength | escape }}</p>{%- endif -%}
+            {%- if block.settings.matched != blank -%}<div class="ss-sl__matched" role="cell">{{ block.settings.matched }}</div>{%- endif -%}
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
 
     {%- if section.settings.note != blank -%}<div class="ss-sl__note">{{ section.settings.note }}</div>{%- endif -%}
@@ -72,7 +93,9 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Selection" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "Match your strength to the session" },
     { "type": "richtext", "id": "body", "label": "Intro body" },
-    { "type": "richtext", "id": "note", "label": "Anti-upsell note (under the matrix)" }
+    { "type": "richtext", "id": "note", "label": "Anti-upsell note (under the matrix)" },
+    { "type": "header", "content": "Source" },
+    { "type": "checkbox", "id": "use_metaobject", "label": "Source rows from the Strength tier metaobject", "default": false, "info": "On: iterate the strength_tier metaobject entries by their order field (single source). Off (or before the metaobject is populated): use the manual Strength rows below." }
   ],
   "blocks": [
     {
