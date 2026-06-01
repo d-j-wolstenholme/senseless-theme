@@ -35,6 +35,9 @@
   .ss-fr__desc p { margin: 0; }
   .ss-fr__link { margin-top: 8px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
   .ss-fr__link::after { content: '\2192'; }
+  .ss-fr__footer { text-align: center; margin: 28px 0 0; }
+  .ss-fr__footerlink { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .ss-fr__footerlink::after { content: '\2192'; }
 
   @media (min-width: 768px) { .ss-fr__grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
   @media (min-width: 1024px) { .ss-fr__inner { padding: 88px 20px; } .ss-fr__headline { font-size: 32px; } }
@@ -59,6 +62,9 @@
         </a>
       {%- endfor -%}
     </div>
+    {%- if section.settings.footer_label != blank -%}
+      <div class="ss-fr__footer"><a class="ss-fr__footerlink" href="{{ section.settings.footer_url | default: '#' }}">{{ section.settings.footer_label | escape }}</a></div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -71,7 +77,9 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "By format" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "Cream, gel, or spray." },
-    { "type": "richtext", "id": "body", "label": "Intro body" }
+    { "type": "richtext", "id": "body", "label": "Intro body" },
+    { "type": "text", "id": "footer_label", "label": "Footer cross-link label (optional)" },
+    { "type": "url", "id": "footer_url", "label": "Footer cross-link URL (optional)" }
   ],
   "blocks": [
     {

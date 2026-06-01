@@ -29,7 +29,7 @@
   .ss-cg__tab:focus-visible { outline:2px solid var(--p); outline-offset:2px; }
   .ss-cg__grid { display:grid; grid-template-columns:1fr; gap:16px; }
   .ss-cg__card { box-sizing:border-box; background:var(--surf); border:1px solid var(--bd); border-radius:4px; overflow:hidden; display:flex; flex-direction:column; }
-  .ss-cg__card--flagship { border:2px solid var(--p); }
+  .ss-cg__card--pro { border:2px solid var(--p); }
   .ss-cg__card[hidden] { display:none; }
   .ss-cg__media { aspect-ratio:1/1; background:var(--bg); display:block; }
   .ss-cg__media img { width:100%; height:100%; object-fit:cover; display:block; }
@@ -100,7 +100,7 @@
           assign v0 = product.selected_or_first_available_variant
           assign form_id = 'cg-' | append: section.id | append: '-' | append: product.id
         -%}
-        <article class="ss-cg__card{% if is_pro %} ss-cg__card--flagship{% endif %}" data-strength="{{ strength }}">
+        <article class="ss-cg__card{% if is_pro %} ss-cg__card--pro{% endif %}" data-strength="{{ strength }}">
           <a class="ss-cg__media" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
             {%- if product.featured_media -%}
               {{ product.featured_media | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,600', alt: product.featured_media.alt | default: product.title }}

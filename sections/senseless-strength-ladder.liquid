@@ -1,0 +1,91 @@
+{%- comment -%}
+  Senseless — Strength ladder (selection logic / "Match the strength to your session").
+  The decision spine that sits ABOVE the buy grid (decide, then buy). A scannable
+  Strength | Matched-to matrix + an anti-upsell note beneath it. Distinct from
+  senseless-strength-matrix (procedure × recommendation suitability) — this is the
+  strength ladder for a single format collection. Reused across all format collections.
+{%- endcomment -%}
+
+{%- liquid
+  assign band = section.settings.band
+  assign anchor = section.settings.anchor_id | default: 'match'
+-%}
+
+{%- style -%}
+  .ss-sl { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
+  .ss-sl--canvas { background:var(--bg); }
+  .ss-sl--surface { background:var(--surf); }
+  .ss-sl__inner { max-width:860px; margin:0 auto; padding:56px 20px; }
+  .ss-sl__head { max-width:62ch; margin:0 0 28px; display:flex; flex-direction:column; gap:12px; }
+  .ss-sl__eyebrow { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
+  .ss-sl__headline { font-family:var(--sans); font-weight:600; font-size:28px; line-height:1.2; margin:0; }
+  .ss-sl__intro { font-family:var(--sans); font-size:16px; line-height:1.6; color:var(--body); }
+  .ss-sl__intro p { margin:0 0 8px; } .ss-sl__intro p:last-child { margin:0; }
+  .ss-sl__matrix { border:1px solid var(--bd); border-radius:6px; overflow:hidden; background:var(--surf); }
+  .ss-sl__row { display:grid; grid-template-columns:1fr; gap:4px; padding:18px 20px; border-top:1px solid var(--bd); }
+  .ss-sl__row:first-child { border-top:0; }
+  .ss-sl__strength { font-family:var(--sans); font-weight:600; font-size:16px; color:var(--p); margin:0; }
+  .ss-sl__matched { font-family:var(--sans); font-size:15px; line-height:1.55; color:var(--body); margin:0; }
+  .ss-sl__matched p { margin:0; }
+  .ss-sl__note { margin:20px 0 0; font-family:var(--sans); font-size:14.5px; line-height:1.6; color:var(--sec); border-left:3px solid var(--p); padding:2px 0 2px 16px; }
+  .ss-sl__note p { margin:0; }
+  @media (min-width:700px) {
+    .ss-sl__row { grid-template-columns:180px 1fr; gap:24px; align-items:baseline; }
+    .ss-sl__headline { font-size:30px; }
+  }
+  @media (min-width:1024px) { .ss-sl__inner { padding:80px 20px; } }
+{%- endstyle -%}
+
+<section class="ss-sl ss-sl--{{ band }}" id="{{ anchor | escape }}" aria-label="{{ section.settings.headline | default: 'Match the strength' | escape }}">
+  <div class="ss-sl__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
+      <header class="ss-sl__head">
+        {%- if section.settings.eyebrow != blank -%}<p class="ss-sl__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-sl__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.body != blank -%}<div class="ss-sl__intro">{{ section.settings.body }}</div>{%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <div class="ss-sl__matrix" role="table" aria-label="{{ section.settings.headline | default: 'Strength matrix' | escape }}">
+      {%- for block in section.blocks -%}
+        <div class="ss-sl__row" role="row" {{ block.shopify_attributes }}>
+          {%- if block.settings.strength != blank -%}<p class="ss-sl__strength" role="cell">{{ block.settings.strength | escape }}</p>{%- endif -%}
+          {%- if block.settings.matched != blank -%}<div class="ss-sl__matched" role="cell">{{ block.settings.matched }}</div>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.note != blank -%}<div class="ss-sl__note">{{ section.settings.note }}</div>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Str ladder",
+  "tag": "section",
+  "class": "senseless-section senseless-strength-ladder",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "select", "id": "band", "label": "Band background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas (off-white)" }, { "value": "surface", "label": "Surface (white)" } ] },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "match" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Selection" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Match your strength to the session" },
+    { "type": "richtext", "id": "body", "label": "Intro body" },
+    { "type": "richtext", "id": "note", "label": "Anti-upsell note (under the matrix)" }
+  ],
+  "blocks": [
+    {
+      "type": "ladder_row",
+      "name": "Strength row",
+      "settings": [
+        { "type": "text", "id": "strength", "label": "Strength", "default": "Clinical" },
+        { "type": "richtext", "id": "matched", "label": "Matched to", "default": "<p>Shorter, routine appointments.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Senseless — Strength ladder", "blocks": [ { "type": "ladder_row" }, { "type": "ladder_row" }, { "type": "ladder_row" } ] }
+  ]
+}
+{% endschema %}
