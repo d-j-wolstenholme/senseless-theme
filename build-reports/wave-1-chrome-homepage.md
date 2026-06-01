@@ -67,3 +67,6 @@
 
 ## Not done (by design — Wave 1 checkpoint)
 - Product pages (Wave 2), collections build (Wave 3), guides/pages (Wave 4), repoint pass (Wave 5).
+
+---
+**Hero fix (follow-up, commit pending):** Homepage hero rebuilt to the spec's two-column layout — text-left / image-right on desktop, stacked with full-width CTAs on mobile — and the secondary CTA "Find your strength" changed from a black border to a brand-purple (`#6B3FA0`) outline + purple text per the Master Rebuild Brief no-neutral-CTA-borders rule; copy/hrefs unchanged; theme-check 0; re-rendered on the preview theme and confirmed.

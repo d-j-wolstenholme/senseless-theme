@@ -1,9 +1,9 @@
 {%- comment -%}
   Senseless — Hero
-  Homepage-only hero. Centred brand statement (Strand 1 → Layout & composition → Hero):
-  eyebrow → large H1 → one lead → primary + secondary CTA, with generous air. The product
-  sits below as a gallery shot — soft radial backdrop, a single soft shadow on the product
-  only, small caption. NOT product-grid-first. 16:9 desktop / 4:5 mobile. Graceful placeholder.
+  Homepage-only hero. Two-column split (Homepage spec "Section 1 — Hero · Desktop text-left, image-right"):
+  LEFT = eyebrow → large H1 → one lead → primary + secondary CTA, left-aligned. RIGHT = product
+  still-life image beside the text on a soft radial backdrop, single soft shadow, small caption.
+  MOBILE: vertical stack (text then image), full-width CTAs. Graceful placeholder.
   All copy, links and image are editable in the theme editor; wired in templates/index.json.
 {%- endcomment -%}
 
@@ -23,14 +23,20 @@
     background: var(--ss-bg);
     color: var(--ss-text);
   }
-  .ss-hero__inner {
-    max-width: 760px;
+  .ss-hero__grid {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 64px 24px 56px;
+    padding: 56px 24px 56px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    align-items: center;
+  }
+  .ss-hero__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     gap: 18px;
   }
   .ss-hero__eyebrow { font-family: var(--ss-sans); font-weight: 600; font-size: 12px; line-height: 1.2; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
@@ -51,7 +57,7 @@
     line-height: 1.55;
     color: var(--ss-secondary);
     margin: 0;
-    max-width: 58ch;
+    max-width: 52ch;
   }
   .ss-hero__subhead p { margin: 0; }
   .ss-hero__ctas { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; width: 100%; }
@@ -71,10 +77,10 @@
   }
   .ss-hero__btn--primary { background: var(--ss-purple); color: #ffffff; border: 1px solid var(--ss-purple); }
   .ss-hero__btn--primary:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
-  .ss-hero__btn--secondary { background: transparent; color: var(--ss-text); border: 1px solid var(--ss-text); }
-  .ss-hero__btn--secondary:hover { background: var(--ss-text); color: var(--ss-bg); }
+  .ss-hero__btn--secondary { background: transparent; color: var(--ss-purple); border: 1px solid var(--ss-purple); }
+  .ss-hero__btn--secondary:hover { background: var(--ss-purple); color: #ffffff; border-color: var(--ss-purple); }
 
-  .ss-hero__gallery { max-width: 1100px; margin: 0 auto; padding: 0 24px 72px; }
+  .ss-hero__gallery { width: 100%; }
   .ss-hero__stage {
     position: relative;
     border-radius: 8px;
@@ -88,16 +94,15 @@
   .ss-hero__stage img { width: 78%; height: 78%; object-fit: contain; display: block; filter: drop-shadow(0 24px 40px rgba(36,24,54,0.16)); }
   .ss-hero__placeholder { width: 56%; height: 56%; display: flex; align-items: center; justify-content: center; }
   .ss-hero__placeholder svg { width: 100%; height: auto; opacity: 0.22; fill: var(--ss-purple); }
-  .ss-hero__caption { margin: 14px 0 0; font-family: var(--ss-sans); font-weight: 400; font-size: 13px; line-height: 1.45; color: var(--ss-secondary); text-align: center; }
+  .ss-hero__caption { margin: 14px 0 0; font-family: var(--ss-sans); font-weight: 400; font-size: 13px; line-height: 1.45; color: var(--ss-secondary); text-align: left; }
 
   @media (min-width: 1024px) {
-    .ss-hero__inner { padding: 120px 24px 64px; gap: 24px; }
-    .ss-hero__headline { font-size: 64px; line-height: 1.04; }
-    .ss-hero__subhead { font-size: 22px; }
-    .ss-hero__ctas { flex-direction: row; justify-content: center; width: auto; }
+    .ss-hero__grid { grid-template-columns: 1.05fr 1fr; gap: 56px; padding: 96px 24px; }
+    .ss-hero__headline { font-size: 60px; line-height: 1.04; }
+    .ss-hero__subhead { font-size: 21px; }
+    .ss-hero__ctas { flex-direction: row; justify-content: flex-start; width: auto; }
     .ss-hero__btn { width: auto; }
-    .ss-hero__gallery { padding-bottom: 120px; }
-    .ss-hero__stage { aspect-ratio: 16 / 9; }
+    .ss-hero__stage { aspect-ratio: 4 / 5; }
   }
   @media (prefers-reduced-motion: reduce) {
     .ss-hero__btn { transition: none; }
@@ -105,42 +110,44 @@
 {%- endstyle -%}
 
 <section class="ss-hero" aria-label="{{ section.settings.headline | escape }}">
-  <div class="ss-hero__inner">
-    {%- if section.settings.eyebrow != blank -%}
-      <p class="ss-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-    {%- endif -%}
-    {%- if section.settings.headline != blank -%}
-      <h1 class="ss-hero__headline">{{ section.settings.headline }}</h1>
-    {%- endif -%}
-    {%- if section.settings.subhead != blank -%}
-      <div class="ss-hero__subhead">{{ section.settings.subhead }}</div>
-    {%- endif -%}
-    <div class="ss-hero__ctas">
-      {%- if section.settings.primary_cta_label != blank -%}
-        <a class="ss-hero__btn ss-hero__btn--primary" href="{{ section.settings.primary_cta_url | default: '#' }}">{{ section.settings.primary_cta_label | escape }}</a>
+  <div class="ss-hero__grid">
+    <div class="ss-hero__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ss-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
-      {%- if section.settings.secondary_cta_label != blank -%}
-        <a class="ss-hero__btn ss-hero__btn--secondary" href="{{ section.settings.secondary_cta_url | default: '#' }}">{{ section.settings.secondary_cta_label | escape }}</a>
+      {%- if section.settings.headline != blank -%}
+        <h1 class="ss-hero__headline">{{ section.settings.headline }}</h1>
       {%- endif -%}
+      {%- if section.settings.subhead != blank -%}
+        <div class="ss-hero__subhead">{{ section.settings.subhead }}</div>
+      {%- endif -%}
+      <div class="ss-hero__ctas">
+        {%- if section.settings.primary_cta_label != blank -%}
+          <a class="ss-hero__btn ss-hero__btn--primary" href="{{ section.settings.primary_cta_url | default: '#' }}">{{ section.settings.primary_cta_label | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.secondary_cta_label != blank -%}
+          <a class="ss-hero__btn ss-hero__btn--secondary" href="{{ section.settings.secondary_cta_url | default: '#' }}">{{ section.settings.secondary_cta_label | escape }}</a>
+        {%- endif -%}
+      </div>
     </div>
-  </div>
 
-  <div class="ss-hero__gallery">
-    <div class="ss-hero__stage">
-      {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 1600 | image_tag:
-          loading: 'eager',
-          fetchpriority: 'high',
-          sizes: '(min-width: 1024px) 1100px, 100vw',
-          widths: '480, 768, 1024, 1280, 1600',
-          alt: section.settings.image_alt }}
-      {%- else -%}
-        <div class="ss-hero__placeholder">{{ 'image' | placeholder_svg_tag: 'ss-hero__placeholder-svg' }}</div>
+    <div class="ss-hero__gallery">
+      <div class="ss-hero__stage">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1600 | image_tag:
+            loading: 'eager',
+            fetchpriority: 'high',
+            sizes: '(min-width: 1024px) 600px, 100vw',
+            widths: '480, 768, 1024, 1280, 1600',
+            alt: section.settings.image_alt }}
+        {%- else -%}
+          <div class="ss-hero__placeholder">{{ 'image' | placeholder_svg_tag: 'ss-hero__placeholder-svg' }}</div>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.caption != blank -%}
+        <p class="ss-hero__caption">{{ section.settings.caption | escape }}</p>
       {%- endif -%}
     </div>
-    {%- if section.settings.caption != blank -%}
-      <p class="ss-hero__caption">{{ section.settings.caption | escape }}</p>
-    {%- endif -%}
   </div>
 </section>
 
@@ -152,15 +159,16 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Made for aesthetics" },
     { "type": "text", "id": "headline", "label": "Headline", "info": "Use <em>word</em> for a single italic emphasis word.", "default": "Confidence Starts With Comfort." },
-    { "type": "richtext", "id": "subhead", "label": "Lead", "info": "One lead paragraph (~58ch).", "default": "<p>A topical preparation made for aesthetic appointments. Three strengths and three formats, formulated in the UK for the way modern sessions actually run.</p>" },
+    { "type": "richtext", "id": "subhead", "label": "Lead", "info": "One lead paragraph (~52ch).", "default": "<p>A topical preparation made for aesthetic appointments. Three strengths and three formats, formulated in the UK for the way modern sessions actually run.</p>" },
     { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label", "default": "Shop the range" },
     { "type": "url", "id": "primary_cta_url", "label": "Primary CTA link", "info": "Set to /collections/numbing-cream" },
     { "type": "text", "id": "secondary_cta_label", "label": "Secondary CTA label", "default": "Find your strength" },
     { "type": "url", "id": "secondary_cta_url", "label": "Secondary CTA link", "info": "Set to /pages/choosing-your-strength" },
-    { "type": "image_picker", "id": "image", "label": "Hero product image", "info": "Editorial product still life on a warm background, no faces, no clinical setting. Sits on a soft radial backdrop. 16:9 desktop / 4:5 mobile." },
+    { "type": "image_picker", "id": "image", "label": "Hero product image", "info": "Editorial product still life on a warm background, no faces, no clinical setting. Sits beside the text on a soft radial backdrop. 4:5." },
     { "type": "text", "id": "image_alt", "label": "Hero image alt text", "default": "Senseless topical preparation range arranged on a warm off-white background with a purple brand accent" },
     { "type": "text", "id": "caption", "label": "Image caption", "default": "The Senseless range — formulated in the UK." }
   ],
   "presets": [ { "name": "Senseless — Hero" } ]
 }
 {% endschema %}
+{%- comment -%} theme-check note: layout rebuilt to two-column text-left/image-right per Homepage spec; secondary CTA now brand-purple outline (no neutral/black CTA borders, per Master Rebuild Brief button rule). {%- endcomment -%}
