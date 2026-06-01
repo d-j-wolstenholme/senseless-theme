@@ -27,7 +27,7 @@ description: Use this skill at the end of every Claude Code session. Stages all 
    ```
 6. If theme files changed, push to Shopify dev theme:
    ```
-   shopify theme push --store senseless-tattooing.myshopify.com --theme [dev-theme-id]
+   shopify theme push --store senseless-numbing.myshopify.com --theme [dev-theme-id]
    ```
 7. Run drift-check skill to surface any open discrepancies
 8. Generate the build report (full format below)
