@@ -34,6 +34,8 @@
   .ss-ft--ink { --ss-ground: #1A1816; --ss-fg: #F3F1EE; --ss-muted: #A6A19B; --ss-line: rgba(255,255,255,0.12); }
   .ss-ft--canvas { --ss-ground: #f7f7f5; --ss-fg: #1A1816; --ss-muted: #5C5853; --ss-line: rgba(26,24,22,0.12); }
   .ss-ft--surface { --ss-ground: #ffffff; --ss-fg: #1A1816; --ss-muted: #5C5853; --ss-line: rgba(26,24,22,0.12); }
+  /* Locked footer band (1 June): bg/sunken warm-light + hairline top border + ink text + purple hover. */
+  .ss-ft--sunken { --ss-ground: #efece4; --ss-fg: #1A1816; --ss-muted: #5C5853; --ss-line: rgba(26,24,22,0.12); }
   .ss-ft {
     background: var(--ss-ground);
     color: var(--ss-fg);
@@ -82,7 +84,7 @@
   }
 {%- endstyle -%}
 
-<footer class="ss-ft ss-ft--{{ section.settings.band | default: 'ink' }}" role="contentinfo" aria-label="Footer">
+<footer class="ss-ft ss-ft--{{ section.settings.band | default: 'sunken' }}" role="contentinfo" aria-label="Footer">
   <div class="ss-ft__inner">
     <div class="ss-ft__top">
 
@@ -216,7 +218,8 @@
   "tag": "footer",
   "class": "ss-ft-section",
   "settings": [
-    { "type": "select", "id": "band", "label": "Background", "default": "ink", "options": [
+    { "type": "select", "id": "band", "label": "Background", "default": "sunken", "options": [
+      { "value": "sunken", "label": "Sunken (warm light) — locked default" },
       { "value": "ink", "label": "Ink (dark)" },
       { "value": "canvas", "label": "Canvas (off-white)" },
       { "value": "surface", "label": "Surface (white)" }

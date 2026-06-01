@@ -2,7 +2,7 @@
   Senseless — structured data (JSON-LD), GEO/SEO layer.
   Rendered once from layout/theme.liquid <head>. Dispatches on request.page_type so it emits
   the RIGHT schema per template and never duplicates schema already emitted elsewhere:
-    - Organization  → already emitted by Horizon sections/header.liquid (do NOT repeat here)
+    - Organization + WebSite/SearchAction → emitted here on the homepage ('index'); the bespoke senseless-header replaced Horizon header.liquid which previously emitted Organization
     - FAQPage       → already emitted by sections/senseless-faq-accordion.liquid
     - Article       → already emitted by Horizon sections/main-blog-post.liquid
   This snippet adds the MISSING types:
@@ -87,5 +87,40 @@
 
 {%- when 'page' -%}
   {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_type: 'page' -%}
+
+{%- when 'index' -%}
+  {%- comment -%} Homepage: Organization + WebSite/SearchAction + BreadcrumbList. The bespoke senseless-header replaced Horizon's header.liquid (which used to emit Organization), so it is emitted here. {%- endcomment -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": {{ seller_name | json }},
+    "legalName": {{ seller_legal | json }},
+    "url": {{ base | json }},
+    "brand": { "@type": "Brand", "name": {{ seller_name | json }} }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ seller_name | json }},
+    "url": {{ base | json }},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ base }}/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | json }} }
+    ]
+  }
+  </script>
 
 {%- endcase -%}
