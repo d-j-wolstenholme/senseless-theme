@@ -76,3 +76,6 @@
 
 ---
 **Procedures-hub links (follow-up):** Added a "See all procedures →" link to the bottom of the Shop ▸ By procedure mega column (purple + arrow + hairline foot treatment matching the mega CTA; added a "See all" child to senseless-main and a `ss-hdr__sublink--foot` style), and a single larger "See all procedures →" CTA below the four homepage procedure cards (new optional section-CTA on senseless-procedure-grid). Both point at the injectable-clean hub `/pages/aesthetic-procedures` (404s on dev until Wave 4) — never the SEO-only `aesthetic-numbing-cream` collection. theme-check 0; re-rendered and confirmed. (Note: the first combined push silently skipped templates/index.json; re-pushed explicitly and verified the deployed asset.)
+
+---
+**Remove Trade from header (follow-up):** `senseless-main` top-level is now Shop · The System · About · Help (Trade item removed via menuUpdate). Trade stays in the footer ("Trade enquiries" → /pages/trade, confirmed) and in the homepage "For practitioners → Trade" section. No theme-file change (store-side menu data); theme-check still 0. Note: a menu-only change doesn't bust the storefront page cache, so a theme re-push was used to force a fresh preview render for verification.
