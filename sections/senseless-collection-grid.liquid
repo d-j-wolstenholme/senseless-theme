@@ -1,0 +1,206 @@
+{%- comment -%}
+  Senseless — Collection grid (§8 quick-add card). Wave 3.
+  PRIMARY buy surface for format collections. Renders the bound collection's products as
+  quick-add cards: size chips (active = solid purple fill), a span+hidden-input quantity stepper,
+  and add-to-cart — wired to Horizon's <product-form-component> (AJAX add → opens the cart drawer,
+  never leaves the page). Optional strength-filter tabs (client-side, by product tag).
+  Card markup + CSS are SELF-CONTAINED in this section (per the Totally Numb lesson — NOT a reuse
+  of the shared quick-add snippet with a modifier class). Judge.me star slot per card is an app-block
+  placeholder, :empty-hidden until the app block is added (flagged at integration).
+{%- endcomment -%}
+
+{%- liquid
+  assign prods = collection.products
+  assign show_filters = section.settings.show_filters
+-%}
+
+{%- style -%}
+  .ss-cg { --p:#6B3FA0; --ph:#5A3489; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); }
+  .ss-cg__inner { max-width:1200px; margin:0 auto; padding:44px 20px; }
+  .ss-cg__head { max-width:62ch; margin:0 0 24px; display:flex; flex-direction:column; gap:12px; }
+  .ss-cg__eyebrow { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
+  .ss-cg__headline { font-family:var(--sans); font-weight:600; font-size:28px; line-height:1.2; margin:0; }
+  .ss-cg__body { font-family:var(--sans); font-size:16px; line-height:1.55; color:var(--body); margin:0; }
+  .ss-cg__body p { margin:0 0 8px; } .ss-cg__body p:last-child { margin:0; }
+  .ss-cg__tabs { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 24px; }
+  .ss-cg__tab { font-family:var(--sans); font-weight:600; font-size:13px; height:38px; padding:0 16px; border-radius:999px; border:1px solid var(--bd); background:var(--surf); color:var(--body); cursor:pointer; }
+  .ss-cg__tab[aria-selected="true"] { background:var(--p); border-color:var(--p); color:#fff; }
+  .ss-cg__tab:focus-visible { outline:2px solid var(--p); outline-offset:2px; }
+  .ss-cg__grid { display:grid; grid-template-columns:1fr; gap:16px; }
+  .ss-cg__card { box-sizing:border-box; background:var(--surf); border:1px solid var(--bd); border-radius:4px; overflow:hidden; display:flex; flex-direction:column; }
+  .ss-cg__card--flagship { border:2px solid var(--p); }
+  .ss-cg__card[hidden] { display:none; }
+  .ss-cg__media { aspect-ratio:1/1; background:var(--bg); display:block; }
+  .ss-cg__media img { width:100%; height:100%; object-fit:cover; display:block; }
+  .ss-cg__ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+  .ss-cg__ph svg { width:38%; opacity:.22; fill:var(--p); }
+  .ss-cg__cbody { padding:18px; display:flex; flex-direction:column; gap:8px; flex:1 1 auto; }
+  .ss-cg__label { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
+  .ss-cg__title { font-family:var(--sans); font-weight:600; font-size:17px; line-height:1.3; margin:0; }
+  .ss-cg__title a { color:inherit; text-decoration:none; }
+  .ss-cg__price { font-family:var(--sans); font-weight:600; font-size:16px; margin:0; }
+  .ss-cg__stars:empty { display:none; }
+  .ss-cg__opt { display:flex; flex-wrap:wrap; gap:8px; margin:2px 0; }
+  .ss-cg__opt input { position:absolute; opacity:0; pointer-events:none; }
+  .ss-cg__chip { display:inline-flex; align-items:center; justify-content:center; min-width:54px; height:38px; padding:0 14px; border:1px solid var(--bd); border-radius:10px; background:var(--surf); font-family:var(--sans); font-size:13px; color:var(--ink); cursor:pointer; transition:background-color .12s ease,border-color .12s ease,color .12s ease; }
+  .ss-cg__opt input:checked + .ss-cg__chip { background:var(--p); border-color:var(--p); color:#fff; }
+  .ss-cg__opt input[data-avail="false"] + .ss-cg__chip { opacity:.55; text-decoration:line-through; }
+  .ss-cg__opt input[data-avail="false"]:checked + .ss-cg__chip { opacity:1; }
+  .ss-cg__opt input:focus-visible + .ss-cg__chip { outline:2px solid var(--p); outline-offset:2px; }
+  .ss-cg__buy { display:flex; gap:10px; align-items:stretch; margin-top:auto; padding-top:6px; }
+  .ss-cg__qty { display:inline-flex; align-items:center; border:1px solid var(--bd); border-radius:10px; overflow:hidden; flex:0 0 auto; }
+  .ss-cg__qbtn { width:34px; height:42px; border:0; background:var(--surf); color:var(--ink); font-size:18px; line-height:1; cursor:pointer; }
+  .ss-cg__qbtn:focus-visible { outline:2px solid var(--p); outline-offset:-2px; }
+  .ss-cg__qval { min-width:30px; text-align:center; font-family:var(--sans); font-weight:600; font-size:14px; }
+  .ss-cg__add { flex:1 1 auto; height:42px; border-radius:10px; border:1px solid var(--p); background:var(--p); color:#fff; font-family:var(--sans); font-weight:600; font-size:14px; cursor:pointer; transition:background-color .15s ease,border-color .15s ease; }
+  .ss-cg__add:hover { background:var(--ph); border-color:var(--ph); }
+  .ss-cg__add[disabled] { opacity:.5; cursor:not-allowed; }
+  @media (min-width:768px) { .ss-cg__grid { grid-template-columns:repeat(3,1fr); gap:24px; } .ss-cg__headline { font-size:32px; } }
+  @media (min-width:1024px) { .ss-cg__inner { padding:80px 40px; } }
+{%- endstyle -%}
+
+<section class="ss-cg" id="{{ section.settings.anchor_id | default: 'shop' | escape }}" aria-label="{{ section.settings.headline | default: 'Shop' | escape }}">
+  <div class="ss-cg__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
+      <header class="ss-cg__head">
+        {%- if section.settings.eyebrow != blank -%}<p class="ss-cg__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-cg__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.body != blank -%}<div class="ss-cg__body">{{ section.settings.body }}</div>{%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if show_filters and prods.size > 1 -%}
+      <div class="ss-cg__tabs" role="tablist" aria-label="Filter by strength" data-cg-tabs>
+        <button class="ss-cg__tab" role="tab" aria-selected="true" data-filter="all">All</button>
+        {%- assign cg_strengths = 'clinical,advanced,professional' | split: ',' -%}
+        {%- for s in cg_strengths -%}
+          {%- assign s_cap = s | capitalize -%}
+          {%- assign has = false -%}
+          {%- for p in prods -%}{%- if p.tags contains s or p.tags contains s_cap -%}{%- assign has = true -%}{%- endif -%}{%- endfor -%}
+          {%- if has -%}<button class="ss-cg__tab" role="tab" aria-selected="false" data-filter="{{ s }}">{{ s_cap }}</button>{%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="ss-cg__grid" data-cg-grid>
+      {%- for product in prods -%}
+        {%- liquid
+          assign strength = ''
+          for t in product.tags
+            assign tl = t | downcase
+            if tl == 'clinical' or tl == 'advanced' or tl == 'professional'
+              assign strength = tl
+            endif
+          endfor
+          assign is_pro = false
+          if strength == 'professional'
+            assign is_pro = true
+          endif
+          assign v0 = product.selected_or_first_available_variant
+          assign form_id = 'cg-' | append: section.id | append: '-' | append: product.id
+        -%}
+        <article class="ss-cg__card{% if is_pro %} ss-cg__card--flagship{% endif %}" data-strength="{{ strength }}">
+          <a class="ss-cg__media" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+            {%- if product.featured_media -%}
+              {{ product.featured_media | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,600', alt: product.featured_media.alt | default: product.title }}
+            {%- else -%}
+              <span class="ss-cg__ph">{{ 'product-1' | placeholder_svg_tag }}</span>
+            {%- endif -%}
+          </a>
+          <div class="ss-cg__cbody">
+            {%- if strength != blank -%}<p class="ss-cg__label">{{ strength | capitalize }} Strength</p>{%- endif -%}
+            <h3 class="ss-cg__title"><a href="{{ product.url }}">{{ product.title | escape }}</a></h3>
+            <p class="ss-cg__price" data-cg-price>{{ v0.price | money }}</p>
+            {%- comment -%} Judge.me per-card star badge slot — add the app block here at integration; :empty-hidden until reviews exist. {%- endcomment -%}
+            <div class="ss-cg__stars" data-judgeme-card></div>
+
+            <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ product.id }}" on:submit="/handleSubmit" data-cg-form>
+              <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+              {%- form 'product', product, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                <input type="hidden" name="id" ref="variantId" value="{{ v0.id }}" data-cg-vid>
+                {%- if product.variants.size > 1 -%}
+                  <div class="ss-cg__opt" role="radiogroup" aria-label="{{ product.options_with_values.first.name | default: 'Size' | escape }}">
+                    {%- for v in product.variants -%}
+                      <input type="radio" id="{{ form_id }}-v{{ v.id }}" name="cgsize-{{ form_id }}" class="ss-cg__chipin" data-cg-opt data-vid="{{ v.id }}" data-price="{{ v.price }}" data-avail="{{ v.available }}" {% if v.id == v0.id %}checked{% endif %}>
+                      <label class="ss-cg__chip" for="{{ form_id }}-v{{ v.id }}">{{ v.title | escape }}</label>
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+                <div class="ss-cg__buy">
+                  <div class="ss-cg__qty" data-cg-qty>
+                    <button type="button" class="ss-cg__qbtn" data-cg-dec aria-label="Decrease quantity">&minus;</button>
+                    <span class="ss-cg__qval" data-cg-qval>1</span>
+                    <button type="button" class="ss-cg__qbtn" data-cg-inc aria-label="Increase quantity">+</button>
+                    <input type="hidden" name="quantity" value="1" data-cg-qin>
+                  </div>
+                  <button type="submit" name="add" class="ss-cg__add" data-cg-add {% unless v0.available %}disabled{% endunless %}>
+                    {% if v0.available %}Add to cart{% else %}Sold out{% endif %}
+                  </button>
+                </div>
+              {%- endform -%}
+            </product-form-component>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.currentScript.closest('.ss-cg');
+      if (!root) return;
+      function money(c){ try { return '£' + (c/100).toFixed(2); } catch(e){ return ''; } }
+      // per-card variant chips + qty
+      root.querySelectorAll('[data-cg-form]').forEach(function (form) {
+        var vid = form.querySelector('[data-cg-vid]');
+        var price = form.closest('.ss-cg__cbody').querySelector('[data-cg-price]');
+        var add = form.querySelector('[data-cg-add]');
+        form.querySelectorAll('[data-cg-opt]').forEach(function (opt) {
+          opt.addEventListener('change', function () {
+            if (vid) vid.value = opt.getAttribute('data-vid');
+            if (price) price.textContent = money(parseInt(opt.getAttribute('data-price'), 10));
+            if (add) {
+              var avail = opt.getAttribute('data-avail') === 'true';
+              add.disabled = !avail;
+              add.textContent = avail ? 'Add to cart' : 'Sold out';
+            }
+          });
+        });
+        var qin = form.querySelector('[data-cg-qin]'), qval = form.querySelector('[data-cg-qval]');
+        function setQ(n){ n = Math.max(1, n); if (qin) qin.value = n; if (qval) qval.textContent = n; }
+        var dec = form.querySelector('[data-cg-dec]'), inc = form.querySelector('[data-cg-inc]');
+        if (dec) dec.addEventListener('click', function(){ setQ(parseInt(qin.value,10) - 1); });
+        if (inc) inc.addEventListener('click', function(){ setQ(parseInt(qin.value,10) + 1); });
+      });
+      // strength filter tabs
+      var tabs = root.querySelector('[data-cg-tabs]');
+      if (tabs) {
+        tabs.addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-filter]'); if (!btn) return;
+          var f = btn.getAttribute('data-filter');
+          tabs.querySelectorAll('[data-filter]').forEach(function (b){ b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); });
+          root.querySelectorAll('.ss-cg__card').forEach(function (card){
+            card.hidden = !(f === 'all' || card.getAttribute('data-strength') === f);
+          });
+        });
+      }
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Coll grid",
+  "tag": "section",
+  "class": "senseless-section senseless-collection-grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "richtext", "id": "body", "label": "Intro body" },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "shop" },
+    { "type": "checkbox", "id": "show_filters", "label": "Show strength filter tabs", "default": true }
+  ],
+  "presets": [ { "name": "Senseless — Collection grid" } ]
+}
+{% endschema %}
