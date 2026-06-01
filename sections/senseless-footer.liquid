@@ -62,7 +62,9 @@
   .ss-ft__legalleft { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 0.75rem; color: var(--ss-muted); }
   .ss-ft__legalleft a { color: var(--ss-muted); text-decoration: none; }
   .ss-ft__legalleft a:hover { color: var(--ss-purple); }
-  .ss-ft__policies { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .ss-ft__policies { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+  .ss-ft__cookiebtn { font: inherit; font-size: 0.75rem; color: var(--ss-muted); background: none; border: 0; padding: 0; cursor: pointer; }
+  .ss-ft__cookiebtn:hover { color: var(--ss-purple); }
   .ss-ft__social { display: flex; gap: 16px; }
   .ss-ft__social a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ss-muted); text-decoration: none; }
   .ss-ft__social a:hover { color: var(--ss-purple); }
@@ -170,6 +172,8 @@
             <a href="#" data-placeholder>Refund policy</a>
             <a href="#" data-placeholder>Shipping policy</a>
           {%- endif -%}
+          {%- comment -%} Re-opens the cookie consent preferences panel (Canonical State §6). {%- endcomment -%}
+          <button type="button" class="ss-ft__cookiebtn" data-ss-cookie-settings>Cookie settings</button>
         </span>
       </div>
 
