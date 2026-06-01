@@ -96,6 +96,9 @@
   .ss-hdr__sublist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
   .ss-hdr__sublink { font-family: var(--ss-head); font-weight: 500; font-size: 16px; color: var(--ss-body); text-decoration: none; transition: color 200ms ease-out; }
   .ss-hdr__sublink:hover { color: var(--ss-purple); }
+  .ss-hdr__colfoot { margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--ss-border); }
+  .ss-hdr__sublink--foot { color: var(--ss-purple); font-weight: 600; font-size: 15px; }
+  .ss-hdr__sublink--foot::after { content: ' →'; }
   .ss-hdr__megacta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--ss-border); }
   .ss-hdr__megacta a { font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-purple); text-decoration: none; }
   .ss-hdr__megacta a::after { content: ' →'; }
@@ -230,7 +233,12 @@
                     <p class="ss-hdr__col-title">{{ child.title | escape }}</p>
                     <ul class="ss-hdr__sublist">
                       {%- for gc in child.links -%}
-                        <li><a class="ss-hdr__sublink" href="{{ gc.url }}">{{ gc.title | escape }}</a></li>
+                        {%- assign gc_t = gc.title | downcase -%}
+                        {%- if gc_t contains 'see all' -%}
+                          <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="{{ gc.url }}">{{ gc.title | escape }}</a></li>
+                        {%- else -%}
+                          <li><a class="ss-hdr__sublink" href="{{ gc.url }}">{{ gc.title | escape }}</a></li>
+                        {%- endif -%}
                       {%- endfor -%}
                     </ul>
                   </div>

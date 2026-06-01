@@ -46,7 +46,9 @@
         "anchor_id": "procedure-grid",
         "eyebrow": "",
         "headline": "Shop by procedure.",
-        "body": "<p>Find the formula made for your appointment type.</p>"
+        "body": "<p>Find the formula made for your appointment type.</p>",
+        "cta_label": "See all procedures",
+        "cta_url": "/pages/aesthetic-procedures"
       }
     },
     "formats": {

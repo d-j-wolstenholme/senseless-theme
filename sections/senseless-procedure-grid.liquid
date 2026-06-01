@@ -40,6 +40,11 @@
   .ss-procg__cta { margin-top: auto; padding-top: 10px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
   .ss-procg__cta::after { content: '\2192'; }
 
+  .ss-procg__foot { margin-top: 32px; display: flex; justify-content: center; }
+  .ss-procg__seeall { display: inline-flex; align-items: center; gap: 8px; height: 50px; padding: 0 28px; border-radius: 14px; border: 1px solid var(--ss-purple); color: var(--ss-purple); background: transparent; font-family: var(--ss-sans); font-weight: 600; font-size: 16px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-procg__seeall::after { content: '\2192'; }
+  .ss-procg__seeall:hover { background: var(--ss-purple); color: #ffffff; }
+
   @media (min-width: 768px) {
     .ss-procg--cols-3 .ss-procg__grid { grid-template-columns: repeat(3, 1fr); }
     .ss-procg--cols-4 .ss-procg__grid { grid-template-columns: repeat(4, 1fr); }
@@ -74,6 +79,12 @@
         </a>
       {%- endfor -%}
     </div>
+
+    {%- if section.settings.cta_label != blank -%}
+      <div class="ss-procg__foot">
+        <a class="ss-procg__seeall" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -88,7 +99,9 @@
     { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "procedure-grid" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline" },
-    { "type": "richtext", "id": "body", "label": "Intro body" }
+    { "type": "richtext", "id": "body", "label": "Intro body" },
+    { "type": "text", "id": "cta_label", "label": "Section CTA label", "info": "Optional 'see all' CTA below the cards." },
+    { "type": "url", "id": "cta_url", "label": "Section CTA link" }
   ],
   "blocks": [
     {
