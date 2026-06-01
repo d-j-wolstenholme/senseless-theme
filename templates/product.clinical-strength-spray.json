@@ -67,28 +67,28 @@
           "type": "step",
           "settings": {
             "title": "Start with clean, dry skin.",
-            "body": "<p>Remove any make-up, oil or moisturiser over the area so nothing sits between the product and the skin.</p>"
+            "body": "<p>Remove make-up, oil or moisturiser so nothing sits between the product and the skin.</p>"
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "title": "Apply a full, even coverage.",
-            "body": "<p>Hold the bottle around 10–15cm from the skin. Customers who get the best results typically report a full, even coverage rather than a light mist.</p>"
+            "title": "Apply even coverage.",
+            "body": "<p>Hold the spray around 10–15cm from the skin and apply even coverage across the area. Customers who get the best results typically report full, even coverage rather than a light mist.</p>"
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "title": "Leave it in place.",
-            "body": "<p>Follow your practitioner's guidance for the procedure you've booked.</p>"
+            "title": "Allow time to take effect.",
+            "body": "<p>Allow time to take effect ahead of your appointment — follow the product guidance and your practitioner.</p>"
           }
         },
         "s4": {
           "type": "step",
           "settings": {
-            "title": "Remove before your appointment.",
-            "body": "<p>Wipe away with a clean cloth or tissue, or as your practitioner directs.</p>"
+            "title": "Proceed or remove as directed.",
+            "body": "<p>Proceed, or remove, as your practitioner directs.</p>"
           }
         }
       },
@@ -100,8 +100,8 @@
       ],
       "settings": {
         "eyebrow": "Application",
-        "headline": "A short routine ahead of your appointment.",
-        "closer": "<p>Your practitioner is the best guide for timing specific to your booking. The steps above are the standard preparation routine.</p>",
+        "headline": "How to apply.",
+        "lead": "<p><strong>Before you apply:</strong> patch test a small amount 24 hours ahead — inside the wrist or behind the ear. If you see redness, irritation or swelling, don't use it.</p><p>Take extra care on sensitive, broken or irritated skin. If your practitioner applies their own numbing, check with them first rather than doubling up.</p>",
         "cta_label": "How Senseless works",
         "cta_url": "/pages/how-it-works"
       }
@@ -139,36 +139,50 @@
         "q1": {
           "type": "faq_item",
           "settings": {
-            "question": "Is Clinical the right strength for my appointment?",
-            "answer": "<p>For most, yes. For longer or more sensitive work, Advanced is the higher strength.</p>"
+            "question": "How long before my appointment should I apply it?",
+            "answer": "<p>Allow time to take effect ahead of your appointment; this varies, so follow the product guidance and your practitioner.</p>"
           }
         },
         "q2": {
           "type": "faq_item",
           "settings": {
-            "question": "When is spray the right format?",
-            "answer": "<p>Spray suits the body and broader areas, where a sprayed application is more practical than a cream.</p>"
+            "question": "How long does it last?",
+            "answer": "<p>It comes down to three things: which strength you've chosen, how well it was applied — a thick layer, covered, left long enough — and how long and demanding the appointment is. Coverage fades gradually rather than stopping suddenly, so matching the strength to the appointment is what keeps it lasting as long as you need.</p>"
           }
         },
         "q3": {
           "type": "faq_item",
           "settings": {
-            "question": "What's in it?",
-            "answer": "<p>A UK-formulated cosmetic preparation. The full ingredients list is on the packaging.</p>"
+            "question": "Do I need to patch test?",
+            "answer": "<p>Yes — a small amount 24 hours ahead, on the wrist or behind the ear. If there's any reaction, don't use it.</p>"
           }
         },
         "q4": {
           "type": "faq_item",
           "settings": {
-            "question": "How long does it last?",
-            "answer": "<p>Senseless is designed for use ahead of a specific appointment. Duration varies by client and by application — your practitioner is the best guide.</p>"
+            "question": "Can I apply it the night before?",
+            "answer": "<p>No — it has a short window. Apply on the day, within the guidance above.</p>"
           }
         },
         "q5": {
           "type": "faq_item",
           "settings": {
+            "question": "What's in it?",
+            "answer": "<p>A UK cosmetic topical preparation by Matrix Health Group Ltd. The full ingredient list is on the pack — patch test first if you have known sensitivities.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I choose Advanced or Professional?",
+            "answer": "<p>Clinical is the baseline most appointments call for. Choose Advanced for longer or more sensitive work, and Professional — the highest strength, developed with practitioners — for the most demanding sessions.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
             "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
+            "answer": "<p>No. A UK cosmetic product, not a medicine.</p>"
           }
         }
       },
@@ -177,7 +191,9 @@
         "q2",
         "q3",
         "q4",
-        "q5"
+        "q5",
+        "q6",
+        "q7"
       ],
       "settings": {
         "headline": "Common questions.",

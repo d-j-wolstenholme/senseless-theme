@@ -23,6 +23,11 @@
   .ss-htu__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-htu__headline { font-family: var(--ss-head); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0; }
 
+  .ss-htu__lead { background: var(--ss-bg); border: 1px solid var(--ss-border); border-left: 3px solid var(--ss-purple); border-radius: 4px; padding: 16px 18px; margin: 0 0 24px; font-family: var(--ss-sans); font-size: 14.5px; line-height: 1.55; color: var(--ss-body); }
+  .ss-htu__lead p { margin: 0 0 8px; }
+  .ss-htu__lead p:last-child { margin: 0; }
+  .ss-htu__lead strong { color: var(--ss-text); font-weight: 600; }
+
   .ss-htu__steps { list-style: none; counter-reset: ss-step; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
   .ss-htu__step { counter-increment: ss-step; display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; }
   .ss-htu__num { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--ss-purple); color: var(--ss-purple); display: flex; align-items: center; justify-content: center; font-family: var(--ss-head); font-weight: 600; font-size: 16px; }
@@ -46,6 +51,8 @@
         {%- if section.settings.headline != blank -%}<h2 class="ss-htu__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
       </header>
     {%- endif -%}
+
+    {%- if section.settings.lead != blank -%}<div class="ss-htu__lead">{{ section.settings.lead }}</div>{%- endif -%}
 
     <ol class="ss-htu__steps">
       {%- for block in section.blocks -%}
@@ -73,6 +80,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Application" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "A short routine ahead of your appointment." },
+    { "type": "richtext", "id": "lead", "label": "Before-you-apply callout (above the steps)" },
     { "type": "richtext", "id": "closer", "label": "Closing body" },
     { "type": "text", "id": "cta_label", "label": "CTA label", "default": "How Senseless works" },
     { "type": "url", "id": "cta_url", "label": "CTA link" }
