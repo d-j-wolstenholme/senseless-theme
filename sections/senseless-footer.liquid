@@ -1,0 +1,247 @@
+{%- comment -%}
+  Senseless — bespoke footer (Strand 2 — Global Components).
+  Dense, large outlined wordmark, four columns (Shop / The system / Brand / Newsletter) + legal band.
+  Replaces Horizon's native footer.liquid. Columns are menu-driven (linklists); where a footer menu
+  is not yet created in admin, an injectable-clean placeholder set renders and is flagged for Stage D wiring.
+  Legal band: © + Matrix Health Group Ltd parent attribution + shop policy links + social.
+  Brand rule: purple is accent only — never a large filled background here.
+{%- endcomment -%}
+
+{%- liquid
+  assign col1_handle = section.settings.col1_menu | default: 'senseless-footer-shop'
+  assign col2_handle = section.settings.col2_menu | default: 'senseless-footer-explore'
+  assign col3_handle = section.settings.col3_menu | default: 'senseless-footer-company'
+  assign shop_menu = linklists[col1_handle]
+  assign sys_menu = linklists[col2_handle]
+  assign brand_menu = linklists[col3_handle]
+  assign logo_h = section.settings.logo_height | default: 64
+
+  assign policy_count = 0
+  for policy in shop.policies
+    if policy.url != blank
+      assign policy_count = policy_count | plus: 1
+    endif
+  endfor
+-%}
+
+{%- style -%}
+  .ss-ft {
+    --ss-purple: #6B3FA0;
+    --ss-purple-hover: #5A3489;
+    --ss-head: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--ss-head);
+  }
+  .ss-ft--ink { --ss-ground: #1A1816; --ss-fg: #F3F1EE; --ss-muted: #A6A19B; --ss-line: rgba(255,255,255,0.12); }
+  .ss-ft--canvas { --ss-ground: #f7f7f5; --ss-fg: #1A1816; --ss-muted: #5C5853; --ss-line: rgba(26,24,22,0.12); }
+  .ss-ft--surface { --ss-ground: #ffffff; --ss-fg: #1A1816; --ss-muted: #5C5853; --ss-line: rgba(26,24,22,0.12); }
+  .ss-ft {
+    background: var(--ss-ground);
+    color: var(--ss-fg);
+    border-top: 1px solid var(--ss-line);
+  }
+  .ss-ft__inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 28px; }
+  .ss-ft__top { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px 48px; align-items: start; }
+  .ss-ft__brand { display: flex; flex-direction: column; gap: 16px; }
+  .ss-ft__logo { display: inline-block; color: var(--ss-fg); }
+  .ss-ft__logo svg { display: block; width: auto; height: {{ logo_h }}px; max-width: 100%; }
+  .ss-ft__logo svg path { fill: currentColor; }
+  .ss-ft__tagline { margin: 0; max-width: 34ch; font-size: 0.9375rem; line-height: 1.55; color: var(--ss-muted); font-weight: 400; }
+
+  .ss-ft__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+  .ss-ft__colhead { margin: 0 0 14px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ss-fg); }
+  .ss-ft__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .ss-ft__list a { font-size: 0.9375rem; line-height: 1.3; font-weight: 500; color: var(--ss-muted); text-decoration: none; transition: color 0.15s ease; }
+  .ss-ft__list a:hover { color: var(--ss-purple); }
+  .ss-ft__list a[data-placeholder] { opacity: 0.85; }
+
+  .ss-ft__news p { margin: 0 0 14px; font-size: 0.9375rem; line-height: 1.55; color: var(--ss-muted); max-width: 36ch; }
+  .ss-ft__form { display: flex; gap: 8px; max-width: 360px; }
+  .ss-ft__input { flex: 1 1 auto; min-width: 0; padding: 12px 14px; font: inherit; font-size: 0.9375rem; color: var(--ss-fg); background: transparent; border: 1px solid var(--ss-line); border-radius: 14px; }
+  .ss-ft__input::placeholder { color: var(--ss-muted); }
+  .ss-ft__submit { flex: 0 0 auto; padding: 12px 18px; font: inherit; font-weight: 600; font-size: 0.875rem; color: #ffffff; background: var(--ss-purple); border: 1px solid var(--ss-purple); border-radius: 14px; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease; }
+  .ss-ft__submit:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
+  .ss-ft__note { margin: 8px 0 0; font-size: 0.75rem; color: var(--ss-muted); }
+  .ss-ft__success { margin: 8px 0 0; font-size: 0.8125rem; color: var(--ss-purple); }
+
+  .ss-ft__legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--ss-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .ss-ft__legalleft { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 0.75rem; color: var(--ss-muted); }
+  .ss-ft__legalleft a { color: var(--ss-muted); text-decoration: none; }
+  .ss-ft__legalleft a:hover { color: var(--ss-purple); }
+  .ss-ft__policies { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .ss-ft__social { display: flex; gap: 16px; }
+  .ss-ft__social a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ss-muted); text-decoration: none; }
+  .ss-ft__social a:hover { color: var(--ss-purple); }
+
+  @media (max-width: 990px) {
+    .ss-ft__top { grid-template-columns: 1fr; gap: 32px; }
+    .ss-ft__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
+  }
+  @media (max-width: 560px) {
+    .ss-ft__inner { padding: 40px 20px 24px; }
+    .ss-ft__legal { flex-direction: column; align-items: flex-start; }
+  }
+{%- endstyle -%}
+
+<footer class="ss-ft ss-ft--{{ section.settings.band | default: 'ink' }}" role="contentinfo" aria-label="Footer">
+  <div class="ss-ft__inner">
+    <div class="ss-ft__top">
+
+      <div class="ss-ft__brand">
+        <a href="{{ routes.root_url }}" class="ss-ft__logo" aria-label="{{ shop.name | escape }} — home">
+          {{ 'senseless-logo-header.svg' | inline_asset_content }}
+        </a>
+        {%- if section.settings.tagline != blank -%}
+          <p class="ss-ft__tagline">{{ section.settings.tagline | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="ss-ft__cols">
+
+        {%- comment -%} Column 1 — Shop {%- endcomment -%}
+        <div class="ss-ft__col">
+          <h2 class="ss-ft__colhead">{{ section.settings.col1_heading | default: 'Shop' | escape }}</h2>
+          <ul class="ss-ft__list">
+            {%- if shop_menu.links.size > 0 -%}
+              {%- for link in shop_menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+              {%- endfor -%}
+            {%- else -%}
+              {%- comment -%} STAGE D: wire the 'senseless-footer-shop' menu in admin. Placeholders below are injectable-clean. {%- endcomment -%}
+              <li><a href="#" data-placeholder>All numbing cream</a></li>
+              <li><a href="#" data-placeholder>Numbing cream</a></li>
+              <li><a href="#" data-placeholder>Numbing gel</a></li>
+              <li><a href="#" data-placeholder>Numbing spray</a></li>
+            {%- endif -%}
+          </ul>
+        </div>
+
+        {%- comment -%} Column 2 — The system {%- endcomment -%}
+        <div class="ss-ft__col">
+          <h2 class="ss-ft__colhead">{{ section.settings.col2_heading | default: 'The system' | escape }}</h2>
+          <ul class="ss-ft__list">
+            {%- if sys_menu.links.size > 0 -%}
+              {%- for link in sys_menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+              {%- endfor -%}
+            {%- else -%}
+              {%- comment -%} STAGE D: wire the 'senseless-footer-explore' menu in admin. {%- endcomment -%}
+              <li><a href="#" data-placeholder>Choosing your strength</a></li>
+              <li><a href="#" data-placeholder>Choosing your format</a></li>
+              <li><a href="#" data-placeholder>How it works</a></li>
+              <li><a href="#" data-placeholder>Does numbing cream work?</a></li>
+            {%- endif -%}
+          </ul>
+        </div>
+
+        {%- comment -%} Column 3 — Brand {%- endcomment -%}
+        <div class="ss-ft__col">
+          <h2 class="ss-ft__colhead">{{ section.settings.col3_heading | default: 'Brand' | escape }}</h2>
+          <ul class="ss-ft__list">
+            {%- if brand_menu.links.size > 0 -%}
+              {%- for link in brand_menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+              {%- endfor -%}
+            {%- else -%}
+              {%- comment -%} STAGE D: wire the 'senseless-footer-company' menu in admin. {%- endcomment -%}
+              <li><a href="#" data-placeholder>About</a></li>
+              <li><a href="#" data-placeholder>Trade enquiries</a></li>
+              <li><a href="#" data-placeholder>Contact</a></li>
+              <li><a href="#" data-placeholder>FAQ</a></li>
+            {%- endif -%}
+          </ul>
+        </div>
+
+        {%- comment -%} Column 4 — Newsletter {%- endcomment -%}
+        <div class="ss-ft__col ss-ft__news">
+          <h2 class="ss-ft__colhead">{{ section.settings.news_heading | default: 'Stay in the loop' | escape }}</h2>
+          {%- if section.settings.news_body != blank -%}
+            <p>{{ section.settings.news_body | escape }}</p>
+          {%- endif -%}
+          {%- form 'customer', class: 'ss-ft__form' -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <label class="visually-hidden" for="ss-ft-email">Email address</label>
+            <input
+              id="ss-ft-email"
+              class="ss-ft__input"
+              type="email"
+              name="contact[email]"
+              placeholder="Email address"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" class="ss-ft__submit">Join</button>
+          {%- endform -%}
+          {%- if section.settings.news_note != blank -%}
+            <p class="ss-ft__note">{{ section.settings.news_note | escape }}</p>
+          {%- endif -%}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ss-ft__legal">
+      <div class="ss-ft__legalleft">
+        <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span>
+        <span aria-hidden="true">·</span>
+        <span>A <a href="{{ section.settings.mhg_url | default: 'https://matrixhealthgroup.co.uk' }}" rel="noopener" target="_blank">Matrix Health Group Ltd</a> brand</span>
+        <span class="ss-ft__policies">
+          {%- if policy_count > 0 -%}
+            {%- for policy in shop.policies -%}
+              {%- if policy.url != blank -%}
+                <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- comment -%} STAGE D: store policies not yet set — placeholders. {%- endcomment -%}
+            <a href="#" data-placeholder>Privacy policy</a>
+            <a href="#" data-placeholder>Terms of service</a>
+            <a href="#" data-placeholder>Refund policy</a>
+            <a href="#" data-placeholder>Shipping policy</a>
+          {%- endif -%}
+        </span>
+      </div>
+
+      <div class="ss-ft__social">
+        {%- if section.settings.instagram_url != blank -%}<a href="{{ section.settings.instagram_url }}" rel="noopener" target="_blank">Instagram</a>{%- else -%}<a href="#" data-placeholder>Instagram</a>{%- endif -%}
+        {%- if section.settings.tiktok_url != blank -%}<a href="{{ section.settings.tiktok_url }}" rel="noopener" target="_blank">TikTok</a>{%- else -%}<a href="#" data-placeholder>TikTok</a>{%- endif -%}
+        {%- if section.settings.facebook_url != blank -%}<a href="{{ section.settings.facebook_url }}" rel="noopener" target="_blank">Facebook</a>{%- else -%}<a href="#" data-placeholder>Facebook</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Senseless — Footer",
+  "tag": "footer",
+  "class": "ss-ft-section",
+  "settings": [
+    { "type": "select", "id": "band", "label": "Background", "default": "ink", "options": [
+      { "value": "ink", "label": "Ink (dark)" },
+      { "value": "canvas", "label": "Canvas (off-white)" },
+      { "value": "surface", "label": "Surface (white)" }
+    ] },
+    { "type": "range", "id": "logo_height", "label": "Wordmark height", "min": 32, "max": 96, "step": 4, "unit": "px", "default": 64 },
+    { "type": "text", "id": "tagline", "label": "Brand tagline", "default": "UK-formulated topical preparation for aesthetic and cosmetic procedures." },
+    { "type": "header", "content": "Columns" },
+    { "type": "text", "id": "col1_heading", "label": "Column 1 heading", "default": "Shop" },
+    { "type": "link_list", "id": "col1_menu", "label": "Column 1 menu", "info": "Defaults to the senseless-footer-shop menu when left unset." },
+    { "type": "text", "id": "col2_heading", "label": "Column 2 heading", "default": "The system" },
+    { "type": "link_list", "id": "col2_menu", "label": "Column 2 menu", "info": "Defaults to the senseless-footer-explore menu when left unset." },
+    { "type": "text", "id": "col3_heading", "label": "Column 3 heading", "default": "Brand" },
+    { "type": "link_list", "id": "col3_menu", "label": "Column 3 menu", "info": "Defaults to the senseless-footer-company menu when left unset." },
+    { "type": "header", "content": "Newsletter" },
+    { "type": "text", "id": "news_heading", "label": "Heading", "default": "Stay in the loop" },
+    { "type": "text", "id": "news_body", "label": "Body", "default": "New formats, restocks, and prep guidance. No noise." },
+    { "type": "text", "id": "news_note", "label": "Small print under form" },
+    { "type": "header", "content": "Legal band" },
+    { "type": "url", "id": "mhg_url", "label": "Matrix Health Group URL" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
+    { "type": "url", "id": "tiktok_url", "label": "TikTok URL" },
+    { "type": "url", "id": "facebook_url", "label": "Facebook URL" }
+  ],
+  "presets": [
+    { "name": "Senseless — Footer" }
+  ]
+}
+{% endschema %}

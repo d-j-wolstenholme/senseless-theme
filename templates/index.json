@@ -18,10 +18,11 @@
       "type": "senseless-trust-bar",
       "blocks": {
         "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t-cos": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
         "t2": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
         "t3": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": ["t1", "t-cos", "t2", "t3"],
       "settings": { "band": "surface" }
     },
     "statement": {

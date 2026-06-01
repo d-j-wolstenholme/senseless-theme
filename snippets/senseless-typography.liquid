@@ -4,6 +4,9 @@
   Colour-text ladder + type scale. Keep in sync with docs/BRAND.md and CLAUDE.md.
 {%- endcomment -%}
 {% style %}
+  {%- comment -%} Self-host Montserrat Medium (weight 500 / role n5) — derived from the body font so it loads from the Shopify font CDN, no Google Fonts. Sits alongside 400 (n4) / 600 (n6) / 700 (n7). {%- endcomment -%}
+  {%- assign body_medium = settings.type_body_font | font_modify: 'weight', '500' -%}
+  {%- if body_medium -%}{{ body_medium | font_face: font_display: 'swap' }}{%- endif -%}
   :root {
     /* Colour-text ladder */
     --text-primary: #1A1816;   /* headings / display (H1–H3) */

@@ -48,11 +48,15 @@ Re-synced 2026-05-31 to the **live store menus** (source of truth: Shopify admin
 
 > No "By strength" axis in nav (strength is taught under *The system → Choosing your strength*). `/pages/aesthetic-procedures` and `/pages/about-us` must exist in admin (verify template assignment). Stale Horizon `main-menu` exists but is unused.
 
-### Footer — `senseless-footer-shop` / `-explore` / `-company`
-- **Shop**: Cream / Gel / Spray / The full range
-- **The system**: How it works / Choosing your strength / Choosing your format / How to apply / FAQs
-- **Company**: About / Contact / Trade enquiries
-- **Legal band** (footer-utilities): copyright + Matrix Health Group Ltd parent-company attribution (→ matrixhealthgroup.co.uk) + policy links + social links
+### Footer — bespoke `senseless-footer.liquid` section (columns `senseless-footer-shop` / `-explore` / `-company`)
+Bespoke `senseless-footer` section (replaces Horizon native `footer` + `footer-utilities`). Dense, large inlined wordmark; four columns over an in-section legal band:
+- **Shop** (menu `senseless-footer-shop`): Cream / Gel / Spray / The full range
+- **The system** (menu `senseless-footer-explore`): How it works / Choosing your strength / Choosing your format / How to apply / FAQs
+- **Brand** (menu `senseless-footer-company`): About / Contact / Trade enquiries
+- **Newsletter**: heading + blurb + native `{% form 'customer' %}` signup
+- **Legal band** (in-section, not `footer-utilities`): copyright + Matrix Health Group Ltd parent-company attribution (→ matrixhealthgroup.co.uk) + `shop.policies` links + social links
+
+> Until the three footer menus and store policies are created in admin (Stage D), the section renders an **injectable-clean** placeholder set per column (flagged in-code). Stage D must keep wired footer menus injectable-clean (no Botox/filler/injection links).
 
 ## Migration / Launch
 

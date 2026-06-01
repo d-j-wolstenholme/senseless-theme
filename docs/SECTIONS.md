@@ -37,8 +37,9 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | Section File | Purpose | Used On |
 |---|---|---|
 | `senseless-header.liquid` | Fully custom header (replaces Horizon native): large Montserrat wordmark, centred nav driven by the `senseless-main` menu (Shop mega By format/By procedure, The system + Help dropdowns, About + Trade), sticky + frosted, accordion mobile drawer. Reuses Horizon `header-actions` (cart drawer + account) + `search`. **Logo:** inlined from `assets/senseless-logo-header.svg` via `inline_asset_content` — does **not** flow through the shared `snippets/image.liquid` (Shopify's `image_url` returns blank for SVGs, so an SVG in the picker won't render); the `logo_image` picker is now a raster-only (PNG/JPG) override. The wordmark is outlined to vector paths (Helvetica-Light) so it renders identically to the printed packaging on devices without Helvetica. | header-group (all pages) |
+| `senseless-footer.liquid` | Fully bespoke footer (replaces Horizon native `footer` + `footer-utilities`). Dense, large inlined wordmark, four columns — **Shop / The system / Brand / Newsletter** — over a legal band (© + Matrix Health Group Ltd parent attribution → matrixhealthgroup.co.uk + `shop.policies` links + social). Columns 1–3 are menu-driven (`senseless-footer-shop` / `-explore` / `-company`); where a menu or policy is not yet set in admin, an **injectable-clean** placeholder set renders and is flagged in-code for Stage D wiring. Newsletter column uses the native `{% form 'customer' %}`. Band setting: ink (default) / canvas / surface. | footer-group (all pages) |
 
-> Footer still uses Horizon's native `footer.liquid`. Header announcement bar removed (no placeholder text).
+> Footer is the bespoke `senseless-footer.liquid` section (replaces Horizon native `footer.liquid`). Header announcement bar removed (no placeholder text).
 
 ## Senseless Snippets
 
@@ -47,11 +48,11 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-typography.liquid` | Global `:root` tokens — colour-text ladder + fluid `clamp()` type scale — and global type classes (`.ss-h1/2/3`, `.eyebrow`, `.lead`, `.body-small`, `.caption`, `.t-em`). Rendered in `theme.liquid` head. |
 | `senseless-card-image.liquid` | Shared 1:1 card image. Resolves the linked product's featured image / linked collection's image (then collection's first product), with a graceful theme placeholder fallback and an `image_picker` override. Single source of truth for card thumbnails. |
 | `senseless-quick-add.liquid` | Shared inline quick-add control for product cards. Renders an inline variant `<select>` (when >1 variant), Horizon quantity stepper + add-to-cart inside a Horizon `<product-form-component>` (AJAX `/cart/add` → opens cart drawer). Renders nothing unless a real product is passed (nav/editorial cards stay plain links); stays inert/disabled until the product has price + stock. Reuses Horizon `product-form-component` / `add-to-cart-button` / `quantity-selector`. Used by `senseless-product-grid`, `-trio-card-row` (product_card), `-cross-sell`, `-product-showcase`. |
-| `senseless-header-footer.liquid` | Brand styling + structural overrides for the configured Horizon header/footer (mega menu, accordion drawer, 4-column footer). |
+| `senseless-header-footer.liquid` | Brand styling + structural overrides for the configured Horizon header (mega menu, accordion drawer). Footer styling now lives in the bespoke `senseless-footer.liquid` section. |
 | `senseless-structured-data.liquid` | JSON-LD dispatcher rendered in `theme.liquid` head. Emits Product+Offer (PDPs) and CollectionPage+ItemList (collections) via the `json` filter (live price/availability/currency; seller legalName "Matrix Health Group Ltd"; claim-free). Dispatches on `request.page_type`; does **not** duplicate Organization/FAQPage/Article schema emitted elsewhere. |
 | `senseless-breadcrumbs-jsonld.liquid` | BreadcrumbList JSON-LD for product / collection / page, reflecting the real hierarchy (Home → [collection] → Product, etc.). Rendered by `senseless-structured-data`. |
 
-> Header/footer use Horizon's native `header.liquid` / `footer.liquid` (configured + brand-styled), not bespoke `senseless-` sections. Nav menus are set in Shopify admin: `senseless-main` (header), `senseless-footer-shop` / `-explore` / `-company` (footer).
+> Header and footer are both bespoke `senseless-` sections (`senseless-header`, `senseless-footer`) — neither uses Horizon's native `header.liquid` / `footer.liquid`. Nav menus are set in Shopify admin: `senseless-main` (header), `senseless-footer-shop` / `-explore` / `-company` (footer columns Shop / The system / Brand). **Footer menus must be kept injectable-clean (no Botox/filler/injection links) when wired in Stage D.**
 
 ## Naming Convention
 

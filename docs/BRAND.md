@@ -16,7 +16,8 @@ Locked colour-text ladder. Defined globally in `snippets/senseless-typography.li
 
 | Token | Value | Use |
 |---|---|---|
-| `--brand-primary` | `#6B3FA0` | Brand accent (matches packaging); Professional border + filled CTA |
+| `--brand-primary` | `#6B3FA0` | Brand accent (matches packaging); primary CTA fill + Professional border |
+| `--brand-primary-hover` | `#5A3489` | Darkened brand purple — primary CTA / link hover. Wired into `scheme-1` (`primary_hover`, `primary_button_hover_*`) and `--ss-purple-hover` in sections |
 | `--bg-canvas` | `#f7f7f5` | Warm off-white page background |
 | `--bg-surface` | `#ffffff` | White card / panel surfaces |
 | `--text-primary` | `#1A1816` | Headings, primary text |
@@ -25,11 +26,11 @@ Locked colour-text ladder. Defined globally in `snippets/senseless-typography.li
 | `--text-muted` | `#8E8A82` | Muted / de-emphasised text |
 | `--color-border-subtle` | `#E5E2DC` | Card / divider borders |
 
-Purple is an **accent only** by default — not used as a large area background. The only filled-purple treatments are the Professional tier's 2px `#6B3FA0` border + filled CTA. Otherwise used for hover states, accent lines, the brand asterisk graphic, occasional emphasis.
+Purple is an **accent only** by default — not used as a large area background. Filled-purple treatments are: **primary CTAs** (the `scheme-1` primary button is brand purple, hover `#5A3489`) and the Professional tier's 2px `#6B3FA0` border. Otherwise used for hover states, accent lines, the brand asterisk graphic, occasional emphasis. (Canvas stays `#f7f7f5`; the bespoke `senseless-footer` defaults to an **ink** band, never a large purple fill.)
 
 ## Typography
 
-Typeface is **Montserrat**, self-hosted via the Shopify font CDN (no `fonts.googleapis.com` / `gstatic.com` requests). Wired through Horizon's font settings: body `montserrat_n4`, subheading `montserrat_n6`, heading `montserrat_n7`, accent `montserrat_n6`. Preloads: weight 400 (body) + 700 (heading) only.
+Typeface is **Montserrat**, self-hosted via the Shopify font CDN (no `fonts.googleapis.com` / `gstatic.com` requests). Wired through Horizon's font settings: body `montserrat_n4` (400), subheading `montserrat_n6` (600), heading `montserrat_n7` (700), accent `montserrat_n6`. Weight **500** (`montserrat_n5`, medium) is also self-hosted — emitted via `font_modify: 'weight', '500'` + `font_face` in `senseless-typography.liquid` — so the four working weights are **400 / 500 / 600 / 700**. Preloads: weight 400 (body) + 700 (heading) only.
 
 - **Headings:** Montserrat 700 (H1/H2), 600 (H3), no text-transform
 - **Body:** Montserrat 400, line-height 1.7
