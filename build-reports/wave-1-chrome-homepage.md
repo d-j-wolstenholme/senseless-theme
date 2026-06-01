@@ -70,3 +70,6 @@
 
 ---
 **Hero fix (follow-up, commit pending):** Homepage hero rebuilt to the spec's two-column layout — text-left / image-right on desktop, stacked with full-width CTAs on mobile — and the secondary CTA "Find your strength" changed from a black border to a brand-purple (`#6B3FA0`) outline + purple text per the Master Rebuild Brief no-neutral-CTA-borders rule; copy/hrefs unchanged; theme-check 0; re-rendered on the preview theme and confirmed.
+
+---
+**Polish pass (header + footer, follow-up):** Header — wordmark reduced (desktop 48→30px, mobile 34→28px) and the three top-right actions (search · account · cart) normalised to uniform 40×40 centred hit-areas with equal 19px icon height + even spacing (fixes the vertical stagger). Footer — SENSELESS wordmark reduced (64→40px); the "Stay in the loop" newsletter column removed entirely (markup, CSS, and schema settings) so the homepage "Stay close." is the single newsletter; footer rebalanced to a clean 3-column row (Shop / The system / Brand) with even 40px gutters. Policy + social stay placeholders (Stage F). Hero unchanged. theme-check 0; re-rendered on preview and confirmed.

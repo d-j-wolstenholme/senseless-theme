@@ -54,7 +54,7 @@
   /* Wordmark */
   .ss-hdr__logo { display: inline-flex; align-items: center; text-decoration: none; color: var(--ss-text); }
   .ss-hdr__logo-svg { display: inline-flex; align-items: center; }
-  .ss-hdr__logo-img, .ss-hdr__logo-svg svg { display: block; width: auto; height: 34px; max-width: min(62vw, 240px); object-fit: contain; }
+  .ss-hdr__logo-img, .ss-hdr__logo-svg svg { display: block; width: auto; height: 28px; max-width: min(62vw, 220px); object-fit: contain; }
   @media (min-width: 1024px) { .ss-hdr__logo-img, .ss-hdr__logo-svg svg { height: var(--ss-logo-h, 48px); max-width: 420px; } }
   .ss-hdr__wordmark { font-family: var(--ss-head); font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--ss-text); font-size: 26px; }
   .ss-hdr__logo--mobile { justify-self: center; }
@@ -101,8 +101,19 @@
   .ss-hdr__megacta a::after { content: ' →'; }
 
   /* Reuse: tone Horizon action icons to brand text, hide search/account on mobile */
-  .ss-hdr__right { color: var(--ss-text); }
+  .ss-hdr__right { color: var(--ss-text); display: flex; align-items: center; gap: 2px; }
   .ss-hdr__right .header-actions__action, .ss-hdr__right svg { color: var(--ss-text); }
+  /* Align the three actions (search · account · cart) on one baseline: uniform square hit-areas, centred, equal icon height, even spacing. */
+  .ss-hdr__right header-actions { display: inline-flex; align-items: center; gap: 2px; }
+  .ss-hdr__right search-button, .ss-hdr__right .search-action { display: inline-flex; align-items: center; }
+  .ss-hdr__right .search-action,
+  .ss-hdr__right .header-actions__action,
+  .ss-hdr__right cart-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; min-width: 40px; padding: 0; margin: 0;
+  }
+  .ss-hdr__right .svg-wrapper { display: inline-flex; align-items: center; justify-content: center; }
+  .ss-hdr__right svg { width: auto; height: 19px; display: block; }
 
   /* Drawer */
   .ss-hdr__scrim { position: fixed; inset: 0; background: rgba(26,24,22,0.4); z-index: 110; opacity: 0; transition: opacity 250ms ease-in-out; }

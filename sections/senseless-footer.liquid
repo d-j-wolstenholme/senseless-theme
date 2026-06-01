@@ -14,7 +14,7 @@
   assign shop_menu = linklists[col1_handle]
   assign sys_menu = linklists[col2_handle]
   assign brand_menu = linklists[col3_handle]
-  assign logo_h = section.settings.logo_height | default: 64
+  assign logo_h = section.settings.logo_height | default: 40
 
   assign policy_count = 0
   for policy in shop.policies
@@ -49,20 +49,13 @@
   .ss-ft__logo svg path { fill: currentColor; }
   .ss-ft__tagline { margin: 0; max-width: 34ch; font-size: 0.9375rem; line-height: 1.55; color: var(--ss-muted); font-weight: 400; }
 
-  .ss-ft__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+  .ss-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
   .ss-ft__colhead { margin: 0 0 14px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ss-fg); }
   .ss-ft__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
   .ss-ft__list a { font-size: 0.9375rem; line-height: 1.3; font-weight: 500; color: var(--ss-muted); text-decoration: none; transition: color 0.15s ease; }
   .ss-ft__list a:hover { color: var(--ss-purple); }
   .ss-ft__list a[data-placeholder] { opacity: 0.85; }
 
-  .ss-ft__news p { margin: 0 0 14px; font-size: 0.9375rem; line-height: 1.55; color: var(--ss-muted); max-width: 36ch; }
-  .ss-ft__form { display: flex; gap: 8px; max-width: 360px; }
-  .ss-ft__input { flex: 1 1 auto; min-width: 0; padding: 12px 14px; font: inherit; font-size: 0.9375rem; color: var(--ss-fg); background: transparent; border: 1px solid var(--ss-line); border-radius: 14px; }
-  .ss-ft__input::placeholder { color: var(--ss-muted); }
-  .ss-ft__submit { flex: 0 0 auto; padding: 12px 18px; font: inherit; font-weight: 600; font-size: 0.875rem; color: #ffffff; background: var(--ss-purple); border: 1px solid var(--ss-purple); border-radius: 14px; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease; }
-  .ss-ft__submit:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
-  .ss-ft__note { margin: 8px 0 0; font-size: 0.75rem; color: var(--ss-muted); }
   .ss-ft__success { margin: 8px 0 0; font-size: 0.8125rem; color: var(--ss-purple); }
 
   .ss-ft__legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--ss-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
@@ -153,30 +146,7 @@
           </ul>
         </div>
 
-        {%- comment -%} Column 4 — Newsletter {%- endcomment -%}
-        <div class="ss-ft__col ss-ft__news">
-          <h2 class="ss-ft__colhead">{{ section.settings.news_heading | default: 'Stay in the loop' | escape }}</h2>
-          {%- if section.settings.news_body != blank -%}
-            <p>{{ section.settings.news_body | escape }}</p>
-          {%- endif -%}
-          {%- form 'customer', class: 'ss-ft__form' -%}
-            <input type="hidden" name="contact[tags]" value="newsletter">
-            <label class="visually-hidden" for="ss-ft-email">Email address</label>
-            <input
-              id="ss-ft-email"
-              class="ss-ft__input"
-              type="email"
-              name="contact[email]"
-              placeholder="Email address"
-              autocomplete="email"
-              required
-            >
-            <button type="submit" class="ss-ft__submit">Join</button>
-          {%- endform -%}
-          {%- if section.settings.news_note != blank -%}
-            <p class="ss-ft__note">{{ section.settings.news_note | escape }}</p>
-          {%- endif -%}
-        </div>
+        {%- comment -%} Newsletter column removed — the homepage "Stay close." section is the single newsletter. {%- endcomment -%}
 
       </div>
     </div>
@@ -224,7 +194,7 @@
       { "value": "canvas", "label": "Canvas (off-white)" },
       { "value": "surface", "label": "Surface (white)" }
     ] },
-    { "type": "range", "id": "logo_height", "label": "Wordmark height", "min": 32, "max": 96, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "logo_height", "label": "Wordmark height", "min": 24, "max": 96, "step": 4, "unit": "px", "default": 40 },
     { "type": "text", "id": "tagline", "label": "Brand tagline", "default": "UK-formulated topical preparation for aesthetic and cosmetic procedures." },
     { "type": "header", "content": "Columns" },
     { "type": "text", "id": "col1_heading", "label": "Column 1 heading", "default": "Shop" },
@@ -233,10 +203,6 @@
     { "type": "link_list", "id": "col2_menu", "label": "Column 2 menu", "info": "Defaults to the senseless-footer-explore menu when left unset." },
     { "type": "text", "id": "col3_heading", "label": "Column 3 heading", "default": "Brand" },
     { "type": "link_list", "id": "col3_menu", "label": "Column 3 menu", "info": "Defaults to the senseless-footer-company menu when left unset." },
-    { "type": "header", "content": "Newsletter" },
-    { "type": "text", "id": "news_heading", "label": "Heading", "default": "Stay in the loop" },
-    { "type": "text", "id": "news_body", "label": "Body", "default": "New formats, restocks, and prep guidance. No noise." },
-    { "type": "text", "id": "news_note", "label": "Small print under form" },
     { "type": "header", "content": "Legal band" },
     { "type": "url", "id": "mhg_url", "label": "Matrix Health Group URL" },
     { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
