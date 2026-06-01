@@ -3,8 +3,8 @@
     "hero": {
       "type": "senseless-product-hero",
       "settings": {
-        "eyebrow": "Clinical Strength · Cream",
-        "subtitle": "The clinical baseline. The formula most appointments call for.",
+        "eyebrow": "Advanced Strength · Cream",
+        "subtitle": "A higher-strength formula. For longer or more sensitive work.",
         "trust_line": "UK formulated · Cosmetic product · CPSR assessed",
         "force_tier": "auto"
       }
@@ -52,10 +52,10 @@
       "settings": {
         "style": "canvas",
         "eyebrow": "The system",
-        "headline": "Clinical is the standard. Two more strengths sit above it.",
-        "body": "Most clients choose Clinical; some go straight to Advanced — a higher-strength cream for longer or more sensitive work. Professional is the highest strength, developed with practitioners and available without restriction.",
-        "primary_cta_label": "View Advanced",
-        "primary_cta_url": "/products/advanced-strength-cream",
+        "headline": "Advanced sits a step above the standard.",
+        "body": "Advanced is the higher-strength cream — for longer appointments and more sensitive treatment areas. Clinical is the baseline most appointments call for; Professional is the highest strength, developed with practitioners and available without restriction.",
+        "primary_cta_label": "View Clinical",
+        "primary_cta_url": "/products/clinical-strength-cream",
         "secondary_cta_label": "View Professional",
         "secondary_cta_url": "/products/professional-strength-cream"
       }
@@ -113,7 +113,7 @@
           "type": "fact",
           "settings": {
             "label": "Strength",
-            "value": "Clinical — the baseline in the Senseless system. Cream format."
+            "value": "Advanced — a higher-strength formula in the Senseless system. Cream format."
           }
         },
         "f2": {
@@ -139,8 +139,8 @@
         "q1": {
           "type": "faq_item",
           "settings": {
-            "question": "Is Clinical strong enough for my appointment?",
-            "answer": "<p>For most, yes. For longer or more sensitive work, Advanced is the higher strength.</p>"
+            "question": "When should I choose Advanced over Clinical?",
+            "answer": "<p>Advanced is the higher-strength option — for longer appointments and more sensitive treatment areas. For the most demanding work, Professional sits above it.</p>"
           }
         },
         "q2": {
@@ -196,13 +196,13 @@
         "a": {
           "type": "product_card",
           "settings": {
-            "label": "Advanced Strength",
-            "title": "Advanced Strength Cream",
-            "body": "<p>For longer or more sensitive sessions.</p>",
+            "label": "Clinical Strength",
+            "title": "Clinical Strength Cream",
+            "body": "<p>The standard most appointments call for.</p>",
             "cta_label": "View product",
-            "cta_url": "/products/advanced-strength-cream",
+            "cta_url": "/products/clinical-strength-cream",
             "flagship": false,
-            "image_alt": "Advanced Strength Cream on a warm off-white background"
+            "image_alt": "Clinical Strength Cream on a warm off-white background"
           }
         },
         "b": {

@@ -3,8 +3,8 @@
     "hero": {
       "type": "senseless-product-hero",
       "settings": {
-        "eyebrow": "Clinical Strength · Cream",
-        "subtitle": "The clinical baseline. The formula most appointments call for.",
+        "eyebrow": "Clinical Strength · Gel",
+        "subtitle": "The baseline strength, in a gel. For work where a gel suits the skin better than a cream.",
         "trust_line": "UK formulated · Cosmetic product · CPSR assessed",
         "force_tier": "auto"
       }
@@ -53,11 +53,11 @@
         "style": "canvas",
         "eyebrow": "The system",
         "headline": "Clinical is the standard. Two more strengths sit above it.",
-        "body": "Most clients choose Clinical; some go straight to Advanced — a higher-strength cream for longer or more sensitive work. Professional is the highest strength, developed with practitioners and available without restriction.",
+        "body": "Most clients choose Clinical; some go straight to Advanced — a higher-strength gel for longer or more sensitive work. Professional is the highest strength, developed with practitioners and available without restriction.",
         "primary_cta_label": "View Advanced",
-        "primary_cta_url": "/products/advanced-strength-cream",
+        "primary_cta_url": "/products/advanced-strength-gel",
         "secondary_cta_label": "View Professional",
-        "secondary_cta_url": "/products/professional-strength-cream"
+        "secondary_cta_url": "/products/professional-strength-gel"
       }
     },
     "howto": {
@@ -113,14 +113,14 @@
           "type": "fact",
           "settings": {
             "label": "Strength",
-            "value": "Clinical — the baseline in the Senseless system. Cream format."
+            "value": "Clinical — the baseline in the Senseless system. Gel format."
           }
         },
         "f2": {
           "type": "fact",
           "settings": {
             "label": "Sizes",
-            "value": "Available in 10g and 30g."
+            "value": "Available in 15ml and 35ml."
           }
         }
       },
@@ -147,24 +147,31 @@
           "type": "faq_item",
           "settings": {
             "question": "What size should I choose?",
-            "answer": "<p>10g suits a single appointment; 30g suits a regular regimen.</p>"
+            "answer": "<p>15ml suits a single session; 35ml suits a regular regimen.</p>"
           }
         },
         "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I choose gel over cream?",
+            "answer": "<p>Gel suits sustained sessions where it sits on the skin better than a cream. Strength is the bigger decision; format is the next.</p>"
+          }
+        },
+        "q4": {
           "type": "faq_item",
           "settings": {
             "question": "What's in it?",
             "answer": "<p>A UK-formulated cosmetic preparation. The full ingredients list is on the packaging.</p>"
           }
         },
-        "q4": {
+        "q5": {
           "type": "faq_item",
           "settings": {
             "question": "How long does it last?",
             "answer": "<p>Senseless is designed for use ahead of a specific appointment. Duration varies by client and by application — your practitioner is the best guide.</p>"
           }
         },
-        "q5": {
+        "q6": {
           "type": "faq_item",
           "settings": {
             "question": "Is this a medicine?",
@@ -177,7 +184,8 @@
         "q2",
         "q3",
         "q4",
-        "q5"
+        "q5",
+        "q6"
       ],
       "settings": {
         "headline": "Common questions.",
@@ -197,24 +205,24 @@
           "type": "product_card",
           "settings": {
             "label": "Advanced Strength",
-            "title": "Advanced Strength Cream",
+            "title": "Advanced Strength Gel",
             "body": "<p>For longer or more sensitive sessions.</p>",
             "cta_label": "View product",
-            "cta_url": "/products/advanced-strength-cream",
+            "cta_url": "/products/advanced-strength-gel",
             "flagship": false,
-            "image_alt": "Advanced Strength Cream on a warm off-white background"
+            "image_alt": "Advanced Strength Gel on a warm off-white background"
           }
         },
         "b": {
           "type": "product_card",
           "settings": {
             "label": "Professional Strength",
-            "title": "Professional Strength Cream",
+            "title": "Professional Strength Gel",
             "body": "<p>The highest strength in the system.</p>",
             "cta_label": "View product",
-            "cta_url": "/products/professional-strength-cream",
+            "cta_url": "/products/professional-strength-gel",
             "flagship": true,
-            "image_alt": "Professional Strength Cream on a warm off-white background"
+            "image_alt": "Professional Strength Gel on a warm off-white background"
           }
         }
       },
@@ -225,7 +233,7 @@
       "settings": {
         "columns": "2",
         "eyebrow": "",
-        "headline": "The rest of the cream range."
+        "headline": "The rest of the gel range."
       }
     },
     "aftercare": {

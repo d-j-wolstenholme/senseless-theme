@@ -3,8 +3,8 @@
     "hero": {
       "type": "senseless-product-hero",
       "settings": {
-        "eyebrow": "Clinical Strength · Cream",
-        "subtitle": "The clinical baseline. The formula most appointments call for.",
+        "eyebrow": "Clinical Strength · Spray",
+        "subtitle": "The baseline strength, in a spray. For the body and broader areas.",
         "trust_line": "UK formulated · Cosmetic product · CPSR assessed",
         "force_tier": "auto"
       }
@@ -53,11 +53,11 @@
         "style": "canvas",
         "eyebrow": "The system",
         "headline": "Clinical is the standard. Two more strengths sit above it.",
-        "body": "Most clients choose Clinical; some go straight to Advanced — a higher-strength cream for longer or more sensitive work. Professional is the highest strength, developed with practitioners and available without restriction.",
+        "body": "Most clients choose Clinical; some go straight to Advanced — a higher-strength spray for longer or more sensitive work. Professional is the highest strength, developed with practitioners and available without restriction.",
         "primary_cta_label": "View Advanced",
-        "primary_cta_url": "/products/advanced-strength-cream",
+        "primary_cta_url": "/products/advanced-strength-spray",
         "secondary_cta_label": "View Professional",
-        "secondary_cta_url": "/products/professional-strength-cream"
+        "secondary_cta_url": "/products/professional-strength-spray"
       }
     },
     "howto": {
@@ -73,8 +73,8 @@
         "s2": {
           "type": "step",
           "settings": {
-            "title": "Apply a thin layer.",
-            "body": "<p>Cover the treatment area evenly. A pea-sized amount per zone is usually enough.</p>"
+            "title": "Spray an even layer.",
+            "body": "<p>Cover the treatment area evenly from a short distance.</p>"
           }
         },
         "s3": {
@@ -113,14 +113,14 @@
           "type": "fact",
           "settings": {
             "label": "Strength",
-            "value": "Clinical — the baseline in the Senseless system. Cream format."
+            "value": "Clinical — the baseline in the Senseless system. Spray format."
           }
         },
         "f2": {
           "type": "fact",
           "settings": {
             "label": "Sizes",
-            "value": "Available in 10g and 30g."
+            "value": "Available in 100ml."
           }
         }
       },
@@ -146,8 +146,8 @@
         "q2": {
           "type": "faq_item",
           "settings": {
-            "question": "What size should I choose?",
-            "answer": "<p>10g suits a single appointment; 30g suits a regular regimen.</p>"
+            "question": "When is spray the right format?",
+            "answer": "<p>Spray suits the body and broader areas, where a sprayed application is more practical than a cream.</p>"
           }
         },
         "q3": {
@@ -197,24 +197,24 @@
           "type": "product_card",
           "settings": {
             "label": "Advanced Strength",
-            "title": "Advanced Strength Cream",
+            "title": "Advanced Strength Spray",
             "body": "<p>For longer or more sensitive sessions.</p>",
             "cta_label": "View product",
-            "cta_url": "/products/advanced-strength-cream",
+            "cta_url": "/products/advanced-strength-spray",
             "flagship": false,
-            "image_alt": "Advanced Strength Cream on a warm off-white background"
+            "image_alt": "Advanced Strength Spray on a warm off-white background"
           }
         },
         "b": {
           "type": "product_card",
           "settings": {
             "label": "Professional Strength",
-            "title": "Professional Strength Cream",
+            "title": "Professional Strength Spray",
             "body": "<p>The highest strength in the system.</p>",
             "cta_label": "View product",
-            "cta_url": "/products/professional-strength-cream",
+            "cta_url": "/products/professional-strength-spray",
             "flagship": true,
-            "image_alt": "Professional Strength Cream on a warm off-white background"
+            "image_alt": "Professional Strength Spray on a warm off-white background"
           }
         }
       },
@@ -225,7 +225,7 @@
       "settings": {
         "columns": "2",
         "eyebrow": "",
-        "headline": "The rest of the cream range."
+        "headline": "The rest of the spray range."
       }
     },
     "aftercare": {

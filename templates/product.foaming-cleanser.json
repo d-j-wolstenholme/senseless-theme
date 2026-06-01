@@ -3,76 +3,218 @@
     "hero": {
       "type": "senseless-product-hero",
       "settings": {
-        "eyebrow": "Aftercare · Foaming Cleanser",
-        "subtitle": "What comes next.",
-        "trust_line": "UK formulated · Cosmetic product · Free UK shipping over £TBC",
-        "force_tier": "none"
-      }
-    },
-    "whatfor": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-left", "eyebrow": "Suited for",
-        "headline": "The hours after.",
-        "body": "<p>Most aesthetic appointments leave skin that needs gentle handling. The Foaming Cleanser is built for that window — antibacterial, lightweight, formulated to cleanse treated skin without aggravating the area. Suited for use after lip fillers, microneedling, laser, SPMU, waxing, and any aesthetic procedure where the treated area benefits from a gentle post-appointment cleanse.</p>",
-        "cta_label": "All procedures", "cta_url": "/collections/aesthetic-numbing-cream",
-        "image_alt": "Editorial Senseless Foaming Cleanser bottle on a clean countertop"
-      }
-    },
-    "howtouse": {
-      "type": "senseless-how-to-use",
-      "blocks": {
-        "s1": { "type": "step", "settings": { "title": "Wait the time your practitioner recommends.", "body": "<p>Most aesthetic procedures have a specific aftercare window before cleansing.</p>" } },
-        "s2": { "type": "step", "settings": { "title": "Apply a small amount of foam to the treated area.", "body": "<p>Pump once or twice. Foam works further than you'd expect.</p>" } },
-        "s3": { "type": "step", "settings": { "title": "Cleanse gently. No rubbing.", "body": "<p>Light, circular motions. Let the foam do the work.</p>" } },
-        "s4": { "type": "step", "settings": { "title": "Rinse with cool water and pat dry.", "body": "<p>Avoid friction on the treated area.</p>" } }
-      },
-      "block_order": ["s1", "s2", "s3", "s4"],
-      "settings": { "eyebrow": "Application", "headline": "A short cleansing routine.", "closer": "", "cta_label": "", "cta_url": "" }
-    },
-    "system": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-right", "eyebrow": "The system",
-        "headline": "Senseless covers both halves of the appointment.",
-        "body": "<p>The numbing range is the before. The Foaming Cleanser is the after. The two work together — not because they have to be used together, but because aesthetic appointments have two halves and Senseless is built for both. Most clients pair the Foaming Cleanser with whichever numbing tier suits their booking.</p>",
-        "cta_label": "Shop numbing range", "cta_url": "/collections/aesthetic-numbing-cream",
-        "image_alt": "Editorial Senseless Foaming Cleanser with a numbing product nearby"
+        "eyebrow": "Foaming Cleanser",
+        "subtitle": "Antibacterial cleansing foam, built for treated skin.",
+        "trust_line": "UK formulated · Cosmetic product · CPSR assessed",
+        "force_tier": "auto"
       }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": {}
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "surface"
+      }
+    },
+    "howto": {
+      "type": "senseless-how-to-use",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Wet the area.",
+            "body": "<p>Use lukewarm water on the skin you're cleansing.</p>"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Work in a small amount.",
+            "body": "<p>A little foam goes a long way. Massage gently — no scrubbing.</p>"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Rinse thoroughly.",
+            "body": "<p>Rinse until the skin is clean and clear of residue.</p>"
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Pat dry.",
+            "body": "<p>Pat with a clean towel — don't rub treated skin.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "eyebrow": "How to use",
+        "headline": "A gentle cleanse, before and after.",
+        "closer": "<p>Use as part of your prep, and again in the hours after your appointment.</p>",
+        "cta_label": "How Senseless works",
+        "cta_url": "/pages/how-it-works"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "f1": {
+          "type": "fact",
+          "settings": {
+            "label": "Strength",
+            "value": "Antibacterial foaming cleanser — prep and aftercare. Not a numbing product."
+          }
+        },
+        "f2": {
+          "type": "fact",
+          "settings": {
+            "label": "Sizes",
+            "value": "Available in 150ml."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2"
+      ],
+      "settings": {
+        "band": "canvas",
+        "heading": "Key facts"
+      }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "When do I use the Foaming Cleanser?", "answer": "<p>After your aesthetic appointment, once you're outside the immediate post-procedure window your practitioner recommends. Specific timing depends on the procedure.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Can I use it daily, not just after appointments?", "answer": "<p>Yes. The Foaming Cleanser is gentle enough for daily use as a cleanser, particularly for sensitive skin or skin that's been worked on recently.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Is this for face or body?", "answer": "<p>Primarily face, but suitable for any treated area — body waxing, body laser, brazilian aftercare. The formulation is gentle across treatment areas.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Will it remove residue from Senseless numbing cream?", "answer": "<p>Yes — it can be used to remove any residual cream after the appointment if your practitioner hasn't already done so.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a numbing product?",
+            "answer": "<p>No — the Foaming Cleanser is a cleanser, not a numbing preparation. It's built for treated skin before and after your appointment.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When do I use it?",
+            "answer": "<p>As part of your prep, and again in the hours after your appointment.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's in it?",
+            "answer": "<p>A UK-formulated cosmetic cleanser. The full ingredients list is on the packaging.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
-      "settings": { "headline": "Common questions." }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "headline": "Common questions.",
+        "anchor_id": "faq"
+      }
     },
-    "pairwith": {
+    "reviews": {
+      "type": "senseless-reviews",
+      "settings": {
+        "headline": "What clients say"
+      }
+    },
+    "pairing": {
       "type": "senseless-cross-sell",
       "blocks": {
-        "c1": { "type": "product_card", "settings": { "label": "Clinical Strength", "title": "Cream", "body": "<p>The everyday pairing.</p>", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
-        "c2": { "type": "product_card", "settings": { "label": "Advanced Strength", "title": "Cream", "body": "<p>For longer or more sensitive sessions.</p>", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
-        "c3": { "type": "product_card", "settings": { "label": "Advanced Strength", "title": "Spray", "body": "<p>For body procedures.</p>", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Senseless spray on a warm off-white background" } }
+        "a": {
+          "type": "product_card",
+          "settings": {
+            "label": "Numbing Cream",
+            "title": "Numbing Cream",
+            "body": "<p>The standard prep, in three strengths.</p>",
+            "cta_label": "Browse the range",
+            "cta_url": "/collections/numbing-cream",
+            "flagship": false,
+            "image_alt": "Senseless numbing cream range on a warm off-white background"
+          }
+        },
+        "b": {
+          "type": "product_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "title": "Clinical Strength Cream",
+            "body": "<p>The standard most appointments start with.</p>",
+            "cta_label": "View product",
+            "cta_url": "/products/clinical-strength-cream",
+            "flagship": false,
+            "image_alt": "Clinical Strength Cream on a warm off-white background"
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3"],
-      "settings": { "columns": "3", "eyebrow": "Pair with", "headline": "Pair with your appointment prep." }
+      "block_order": [
+        "a",
+        "b"
+      ],
+      "settings": {
+        "columns": "2",
+        "eyebrow": "What it pairs with",
+        "headline": "Before and after the cleanse."
+      }
     }
   },
-  "order": ["hero", "whatfor", "howtouse", "system", "trust", "faq", "pairwith"]
+  "order": [
+    "hero",
+    "trust",
+    "howto",
+    "keyfacts",
+    "faq",
+    "reviews",
+    "pairing"
+  ]
 }
