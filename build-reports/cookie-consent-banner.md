@@ -39,3 +39,23 @@ The render checks above are deterministic (markup + JS wiring confirmed on all t
 
 ## Not done (by design)
 - Wave 3 (collections) not started — this was the discrete pre-Wave-3 component.
+
+---
+## Live browser smoke-test (Playwright headless Chromium) — results
+
+Ran a real click-through against the preview theme (storefront password). The custom banner's UI/UX is fully working; the test also caught two **store-side** issues the static render couldn't.
+
+**✅ Working (verified live):**
+- Custom banner shows on first visit; **equal-prominence** Accept/Reject; Manage panel with toggles.
+- Choice **persists** — `localStorage['ss_cookie_consent_v1']` = `{"analytics":true,"marketing":true,"preferences":true}` after Accept; banner hides after choice and **stays hidden on reload**.
+- Footer **"Cookie settings" re-opens** the preferences panel (`reopen_panel: true`).
+- **Gating is genuinely active:** before any choice, `Shopify.customerPrivacy.userCanBeTracked() === false`, `currentVisitorConsent()` empty, and `shouldShowBanner() === true` — i.e. non-essential is denied until consent.
+
+**⚠️ Found (store-side — NOT the banner's code):**
+1. **`setTrackingConsent` fails** with `Error while setting storefront API consent: Cannot read properties of undefined (reading 'consentManagement')`. So clicking Accept/Reject does **not** flip `currentVisitorConsent()` yet — Shopify's **Customer Privacy / consent management isn't fully provisioned on this dev store**. The banner code is correct (documented API, errors caught); the write will succeed once consent management is set up in admin. (Shopify's own native banner hits the same backend.)
+2. **Shopify's native cookie banner is also enabled** (`#shopify-pc__banner` renders) → **two banners** show at once, and the native one overlays/intercepts clicks.
+
+**→ Admin actions for Daniel (launch-gate, account settings — not Claude-changeable):**
+- **Settings → Customer privacy:** finish setting up **consent management / the Customer Privacy API** (resolves the `consentManagement` error so `setTrackingConsent` records consent), and **turn OFF Shopify's built-in cookie banner** so the brand-styled custom banner is the sole UI (both use the same consent API). Re-run this smoke-test after.
+
+**Net:** the custom banner is built correctly and its UX is verified live; making it *genuinely gate* end-to-end is blocked on the two admin settings above, now flagged.
