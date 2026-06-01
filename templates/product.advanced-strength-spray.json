@@ -66,29 +66,29 @@
         "s1": {
           "type": "step",
           "settings": {
-            "title": "Clean the area.",
-            "body": "<p>Use a gentle cleanser. Pat dry — no rubbing.</p>"
+            "title": "Start with clean, dry skin.",
+            "body": "<p>Remove any make-up, oil or moisturiser over the area so nothing sits between the product and the skin.</p>"
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "title": "Spray an even layer.",
-            "body": "<p>Cover the treatment area evenly from a short distance.</p>"
+            "title": "Apply a full, even coverage.",
+            "body": "<p>Hold the bottle around 10–15cm from the skin. Customers who get the best results typically report a full, even coverage rather than a light mist.</p>"
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "title": "Leave it.",
-            "body": "<p>Follow your practitioner's timing guidance for the procedure you've booked.</p>"
+            "title": "Leave it in place.",
+            "body": "<p>Follow your practitioner's guidance for the procedure you've booked.</p>"
           }
         },
         "s4": {
           "type": "step",
           "settings": {
             "title": "Remove before your appointment.",
-            "body": "<p>Wipe with a clean cloth or tissue at the practitioner's instruction.</p>"
+            "body": "<p>Wipe away with a clean cloth or tissue, or as your practitioner directs.</p>"
           }
         }
       },
@@ -101,7 +101,7 @@
       "settings": {
         "eyebrow": "Application",
         "headline": "A short routine ahead of your appointment.",
-        "closer": "<p>Your practitioner is the best guide for application timing specific to your booking. The steps above are the standard preparation routine — your specific appointment may vary.</p>",
+        "closer": "<p>Your practitioner is the best guide for timing specific to your booking. The steps above are the standard preparation routine.</p>",
         "cta_label": "How Senseless works",
         "cta_url": "/pages/how-it-works"
       }
