@@ -44,15 +44,6 @@
         "padding-block-end": 80
       }
     },
-    "comforthub": {
-      "type": "senseless-comfort-compare",
-      "settings": {
-        "mode": "hub",
-        "anchor_id": "comfort",
-        "eyebrow": "A general guide",
-        "heading": "How treatments compare for comfort"
-      }
-    },
     "selectorlink": {
       "type": "senseless-callout-band",
       "settings": {
@@ -65,5 +56,5 @@
       }
     }
   },
-  "order": ["main", "comforthub", "selectorlink"]
+  "order": ["main", "selectorlink"]
 }

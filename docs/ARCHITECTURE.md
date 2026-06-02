@@ -61,3 +61,14 @@ Bespoke `senseless-footer` section (replaces Horizon native `footer` + `footer-u
 ## Migration / Launch
 
 At launch, 301 redirects from old URLs to new URLs are set up via the `redirects` skill. The old Senseless site will have all tattoo-focused URLs redirected to nearest aesthetics equivalents.
+
+## Section build standards (CSS positioning + scoping)
+
+Locked 2026-06-03 after a class-collision bug: `senseless-comfort-compare` used the `.ss-cc` prefix, which is owned by `senseless-cookie-consent` (`position:fixed; bottom:0; z-index:1000`). The cookie banner's positioning leaked onto the comfort section and pinned it to the viewport bottom, overlaying page content. Fixed by renaming the section's prefix to a unique `.ss-cmp`.
+
+Standard for every `senseless-*` section/snippet:
+
+- **Inline by default.** Sections render in normal document flow. `position: fixed` / `position: sticky` is opt-in only and never a default. The only deliberate exceptions today: `senseless-header` (sticky header + fixed mobile drawer/scrim) and `senseless-cookie-consent` (fixed bottom banner). Any new fixed/sticky use must be intentional and noted.
+- **No stray `z-index`.** Don't add `z-index` unless the section genuinely stacks; the fixed exceptions above own the high z-indexes.
+- **Scope CSS to a unique block.** Each section's `{% style %}` must use a prefix unique to that section (e.g. `.ss-cmp` for comfort-compare, `.ss-sel` for the selector, `.ss-cb` for the callout band) — or scope to `#shopify-section-{{ section.id }}`. Never reuse another section's prefix. `.ss-cc` is reserved for `senseless-cookie-consent`.
+- **New sections** copy a corrected wrapper skeleton (inline flow, unique prefix, no z-index) so this class of leak cannot recur.

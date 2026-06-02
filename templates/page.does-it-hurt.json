@@ -1,0 +1,121 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "An honest guide",
+        "headline": "Does it hurt?",
+        "subhead": "<p>Most aesthetic treatments cause brief, manageable discomfort rather than real pain — and it varies by treatment, area and person. Here's an honest guide, treatment by treatment.</p>",
+        "image_alt": "Editorial Senseless numbing range on a warm off-white background"
+      }
+    },
+    "intro": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "Before you book",
+        "headline": "Honest comfort, treatment by treatment",
+        "accent_word": "Honest",
+        "body": "<p>How much a treatment hurts is personal — it varies with the treatment itself, the area being worked on, and your own sensitivity. Numbing is preparation for comfort, not part of the treatment, and most practitioners apply their own as standard, so it's always worth a quick word with yours first. Compare treatments below, then go deeper on the one you're booked in for.</p>"
+      }
+    },
+    "comforthub": {
+      "type": "senseless-comfort-compare",
+      "settings": {
+        "mode": "hub",
+        "anchor_id": "comfort",
+        "eyebrow": "A general guide",
+        "heading": "How treatments compare for comfort"
+      }
+    },
+    "cards": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "c1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Does microneedling hurt?",
+            "note": "A light scratching or prickling — what changes it, by depth and area.",
+            "url": "/pages/does-microneedling-hurt"
+          }
+        },
+        "c2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Does laser hair removal hurt?",
+            "note": "A quick elastic-band snap — what changes it, by area and session.",
+            "url": "/pages/does-laser-hair-removal-hurt"
+          }
+        },
+        "c3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Pain by treatment",
+            "note": "Lip filler, Botox, microblading, lip blush, waxing and electrolysis — answered.",
+            "url": "/pages/does-it-hurt-by-treatment"
+          }
+        }
+      },
+      "block_order": ["c1", "c2", "c3"],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Go deeper",
+        "headline": "Read the full guide"
+      }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which to choose?",
+        "body": "<p>Answer three quick questions — treatment, skin and session length — and we'll point you to the format and strength we'd reach for.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    },
+    "route": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop by procedure",
+            "url": "/pages/aesthetic-procedures"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Browse numbing cream",
+            "url": "/collections/numbing-cream"
+          }
+        }
+      },
+      "block_order": ["l1", "l2"],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Shop",
+        "headline": "Ready when you are"
+      }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "name": "Does it hurt?",
+        "description": "An honest, by-treatment guide to how much common aesthetic treatments hurt, and how to prepare — microneedling, laser, lip filler, Botox and more."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "intro",
+    "comforthub",
+    "cards",
+    "selectorlink",
+    "route",
+    "schema"
+  ]
+}
