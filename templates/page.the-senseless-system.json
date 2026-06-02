@@ -108,7 +108,8 @@
         "headline": "Selection two: the strength",
         "accent_word": "strength",
         "body": "<p>Strength is separate from format — every format comes in all three. Which you need depends on the session, not the procedure name: <strong>how large the area is, how long the appointment runs, how intense it is, and how sensitive your skin is.</strong> None is \"better\" than another; each is built for a different kind of session.</p>",
-        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
+        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
+        "reassurance": "<p>Clinical isn't a weaker version of Professional, and Advanced isn't a half-measure. The three are formulated for different sessions, not different levels of quality. Most people are on Clinical or Advanced because that's the right match for their booking — not because they're settling.</p>"
       }
     },
     "matrix": {
@@ -265,6 +266,57 @@
         "name": "The Senseless System",
         "description": "How Senseless works — two dials, format and strength, matched to your appointment, with a by-procedure guide."
       }
+    },
+    "keyfacts": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "The essentials",
+        "body": "<ul><li>Senseless is a UK cosmetic numbing range by Matrix Health Group Ltd — not a medicine.</li><li>Three strengths (Clinical, Advanced, Professional) and three formats (cream, gel, spray). Strength and format are chosen separately.</li><li>The right choice matches the appointment — stronger is not automatically better.</li><li>Every formula is formulated in the United Kingdom and CPSR assessed.</li></ul>"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the difference between Clinical, Advanced and Professional?",
+            "answer": "<p>Different strengths of the same range. Clinical is the standard for routine sessions, Advanced is higher for longer or more sensitive work, Professional is the highest for the most demanding appointments.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is the strongest one always best?",
+            "answer": "<p>No. Matching the strength to the appointment matters more than reaching for the highest — for many treatments the top strength is more than you need.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I choose between cream, gel and spray?",
+            "answer": "<p>Cream for broad coverage and most appointments, gel for precise facial work that needs to stay put, spray for large or awkward-to-reach areas.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a UK cosmetic product, not a medicine.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
     }
   },
   "order": [
@@ -274,6 +326,8 @@
     "dial2",
     "matrix",
     "honest",
+    "keyfacts",
+    "faq",
     "route",
     "schema"
   ]

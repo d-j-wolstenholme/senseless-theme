@@ -34,6 +34,8 @@
   .ss-sl__matched p { margin:0; }
   .ss-sl__note { margin:24px 0 0; font-family:var(--sans); font-size:14.5px; line-height:1.6; color:var(--sec); border-left:3px solid var(--p); padding:2px 0 2px 16px; }
   .ss-sl__note p { margin:0; }
+  .ss-sl__reassurance { margin:18px 0 0; font-family:var(--sans); font-size:14.5px; line-height:1.6; color:var(--sec); }
+  .ss-sl__reassurance p { margin:0 0 8px; } .ss-sl__reassurance p:last-child { margin:0; }
 
   /* TILES — compact 3-up (collection pages: the at-a-glance Scale) */
   .ss-sl__matrix--tiles { display:grid; grid-template-columns:1fr; gap:12px; }
@@ -92,6 +94,7 @@
     </div>
 
     {%- if section.settings.note != blank -%}<div class="ss-sl__note">{{ section.settings.note }}</div>{%- endif -%}
+    {%- if section.settings.reassurance != blank -%}<div class="ss-sl__reassurance">{{ section.settings.reassurance }}</div>{%- endif -%}
   </div>
 </section>
 
@@ -110,6 +113,7 @@
     { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional)" },
     { "type": "richtext", "id": "body", "label": "Intro body" },
     { "type": "richtext", "id": "note", "label": "Anti-upsell note (under the matrix)" },
+    { "type": "richtext", "id": "reassurance", "label": "Reassurance line (under the note, optional)" },
     { "type": "header", "content": "Source" },
     { "type": "checkbox", "id": "use_metaobject", "label": "Source rows from the Strength tier metaobject", "default": false, "info": "On: iterate the strength_tier metaobject entries by their order field (single source). Off (or before the metaobject is populated): use the manual Strength rows below." }
   ],
