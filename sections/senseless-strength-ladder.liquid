@@ -26,7 +26,11 @@
   .ss-sl__strength { font-family:var(--sans); font-weight:600; font-size:16px; color:var(--p); margin:0; }
   .ss-sl__strengthlink { color:inherit; text-decoration:none; }
   .ss-sl__strengthlink:hover { text-decoration:underline; }
+  .ss-sl__tag { display:inline-block; margin-left:8px; font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--p); background:rgba(107,63,160,.10); border:1px solid rgba(107,63,160,.25); border-radius:999px; padding:2px 8px; vertical-align:middle; }
+  .ss-sl__matrix--rows .ss-sl__row--featured { border:2px solid var(--p); border-radius:6px; }
   .ss-sl__matched { font-family:var(--sans); font-size:15px; line-height:1.55; color:var(--body); margin:0; }
+  .ss-sl__matched strong { color:var(--ink); font-weight:600; }
+  .ss-sl__matched em { font-style:italic; }
   .ss-sl__matched p { margin:0; }
   .ss-sl__note { margin:24px 0 0; font-family:var(--sans); font-size:14.5px; line-height:1.6; color:var(--sec); border-left:3px solid var(--p); padding:2px 0 2px 16px; }
   .ss-sl__note p { margin:0; }
@@ -79,8 +83,8 @@
         {%- endfor -%}
       {%- else -%}
         {%- for block in section.blocks -%}
-          <div class="ss-sl__row" role="row" {{ block.shopify_attributes }}>
-            {%- if block.settings.strength != blank -%}<p class="ss-sl__strength" role="cell">{{ block.settings.strength | escape }}</p>{%- endif -%}
+          <div class="ss-sl__row{% if block.settings.featured %} ss-sl__row--featured{% endif %}" role="row" {{ block.shopify_attributes }}>
+            {%- if block.settings.strength != blank -%}<p class="ss-sl__strength" role="cell">{{ block.settings.strength | escape }}{%- if block.settings.tag != blank -%} <span class="ss-sl__tag">{{ block.settings.tag | escape }}</span>{%- endif -%}</p>{%- endif -%}
             {%- if block.settings.matched != blank -%}<div class="ss-sl__matched" role="cell">{{ block.settings.matched }}</div>{%- endif -%}
           </div>
         {%- endfor -%}
@@ -115,7 +119,9 @@
       "name": "Strength row",
       "settings": [
         { "type": "text", "id": "strength", "label": "Strength", "default": "Clinical" },
-        { "type": "richtext", "id": "matched", "label": "Matched to", "default": "<p>Shorter, routine appointments.</p>" }
+        { "type": "richtext", "id": "matched", "label": "Matched to", "default": "<p>Shorter, routine appointments.</p>" },
+        { "type": "text", "id": "tag", "label": "Tag (optional, e.g. Most popular)" },
+        { "type": "checkbox", "id": "featured", "label": "Featured (2px purple border)", "default": false }
       ]
     }
   ],

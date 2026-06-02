@@ -60,7 +60,7 @@
       {%- if section.settings.eyebrow != blank -%}<p class="ss-gh__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       {%- if section.settings.headline != blank -%}
         {%- assign gh_hl = section.settings.headline | split: ' | ' -%}
-        <h1 class="ss-gh__headline">{{ gh_hl[0] | escape }}{%- if gh_hl.size > 1 -%}<span class="ss-gh__beat">{{ gh_hl[1] | escape }}</span>{%- endif -%}</h1>
+        <h1 class="ss-gh__headline">{% render 'senseless-accent', text: gh_hl[0], word: section.settings.accent_word %}{%- if gh_hl.size > 1 -%}<span class="ss-gh__beat">{{ gh_hl[1] | escape }}</span>{%- endif -%}</h1>
       {%- endif -%}
       {%- if section.settings.subhead != blank -%}<div class="ss-gh__subhead">{{ section.settings.subhead }}</div>{%- endif -%}
       {%- if section.settings.primary_cta_label != blank or section.settings.secondary_cta_label != blank -%}
@@ -85,6 +85,7 @@
     { "type": "select", "id": "background", "label": "Background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas (warm)" }, { "value": "dark", "label": "Brand dark (#241836)" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "Guide headline" },
+    { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional — first beat only)" },
     { "type": "richtext", "id": "subhead", "label": "Subhead" },
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Editorial Senseless product image" },
