@@ -65,5 +65,24 @@ Collection set to **MANUAL** sort and reordered **Clinical → Advanced → Prof
 - `templates/collection.numbing-cream.json` (rebuilt to the 9-section model)
 - Admin API: collection `sortOrder=MANUAL` + Clinical→Advanced→Professional order + model SEO meta
 
+---
+## Addendum (2026-06-02) — compliance fix + metaobject single-source
+
+### Compliance correction (model copy re-pulled verbatim)
+The model copy page was updated after the three-confirms pass; commit `bdddbc2` shipped the old wording. Re-pulled §8 + the "What's in it?" FAQ verbatim and rebuilt (commit `84bfbb0`):
+- **§8 first line:** now "Every Senseless topical numbing cream is **formulated in the United Kingdom** by Matrix Health Group Ltd — numbing cream UK customers order, **developed and assessed here**." (was "made in the UK … formulated and assessed here").
+- **FAQ "What's in it?":** "a UK cosmetic **formulated by** Matrix Health Group Ltd" (was "made by").
+- **key-facts preset default:** "Made in" → "Formulated in" (prevents the banned phrase propagating to new pages).
+- **Meta description:** updated to the new shorter model copy — **150 chars** (resolves the earlier ≤155 flag).
+- **Verified:** "made/manufactured in the UK" = **0** occurrences in rendered copy (Canonical §11 site-wide ban). Old wording gone. "Made for aesthetics" retained (model verbatim; not the banned phrase).
+- **Separate flag (out of this task's scope):** `templates/product.json` (default product template — not used by the suffixed live products) still has a "Made in: United Kingdom" key-fact. Left untouched; recommend a separate product-template compliance sweep.
+
+### Strength Tier metaobject — single source for the ladder
+Adopted the Totally Numb pattern so the collection matrix, the product "where this sits" band, and the future homepage all read one source.
+- **Definition `strength_tier`** (`gid://…/MetaobjectDefinition/38442893660`) — fields: `name`, `session_descriptor`, `accent` (color), `order` (number_integer), `link` (url); **storefront access PUBLIC_READ**. (Required a one-time grant of `write_metaobject_definitions` to the custom app — the token now has 22 scopes.)
+- **3 entries** (verbatim §3 descriptors): clinical (order 1, accent `#1A1816`), advanced (order 2, `#1A1816`), professional (order 3, `#6B3FA0`).
+- **Section refactor** `senseless-strength-ladder`: `use_metaobject` toggle → iterates `metaobjects.strength_tier.values | sort: 'order'`, colouring the strength name by `accent`, with the manual `ladder_row` blocks kept as fallback (so the page never renders empty). Set `use_metaobject: true` on the numbing-cream template.
+- **Verified live:** ladder renders **from the metaobject** — 3 rows, order Clinical→Advanced→Professional, descriptors matching the model exactly, accents Clinical/Advanced `#1A1816` + Professional `#6B3FA0`; only the metaobject branch renders (no fallback duplication). theme-check **0**; Asset-API diff caught Shopify pruning `use_metaobject` on first push → re-pushed + confirmed.
+
 ## HOLD — Stage 1 checkpoint
-Stage 2 (Numbing Gel, Numbing Spray, Microneedling, Laser Treatment, Semi-Permanent Makeup, Waxing) **NOT started** — awaiting approval of the corrected model + a decision on the meta-description length flag.
+Stage 2 (Numbing Gel, Numbing Spray, Microneedling, Laser Treatment, Semi-Permanent Makeup, Waxing) **NOT started** — awaiting approval. The strength_tier metaobject is the single source Stage-2 collections will reuse (each sets `use_metaobject: true`).
