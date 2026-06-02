@@ -47,10 +47,19 @@
         "body": "<p>For many people the sensation is manageable without anything, especially on larger areas. On the sharper zones — upper lip, bikini line, underarms — a topical numbing preparation applied beforehand can make the session more comfortable. Because laser covers larger or awkward areas quickly, a spray is often the easier format for the body, and a cream for smaller, precise areas like the lip. Numbing is preparation for comfort, not part of the treatment itself, and many clinics have their own guidance on what they'd like you to apply — so check with your practitioner first.</p><p><a href=\"/collections/numbing-cream-for-laser-treatment\">Numbing for laser</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
       }
     },
-    "keyfacts": {
+    "aftercare": {
       "type": "senseless-rich-text",
       "settings": {
         "background": "canvas",
+        "eyebrow": "Afterwards",
+        "headline": "What to expect afterwards",
+        "body": "<p>The treated area is often slightly red or warm for a few hours after laser hair removal, a little like mild sunburn, and usually settles quickly. Avoid heat, sun and friction on the area for a day or two, and follow your clinic's aftercare advice. Numbing is only used beforehand for comfort — it isn't part of aftercare.</p>"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
         "eyebrow": "The essentials",
         "body": "<ul><li>Laser hair removal is usually described as a quick elastic-band snap, followed by brief warmth — not a deep pain.</li><li>Sensitive areas (upper lip, bikini, underarms) feel sharper than larger areas (legs, back); many people find later sessions easier.</li><li>A topical numbing preparation can make sensitive areas more comfortable; it reduces the sensation, it doesn't remove it.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
       }
@@ -96,9 +105,16 @@
             "question": "Can I use numbing cream for laser hair removal?",
             "answer": "<p>Yes — a topical numbing preparation on sensitive areas beforehand can make it more comfortable. Check your clinic's guidance first, as some prefer to advise on what you apply.</p>"
           }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the aftercare for laser hair removal?",
+            "answer": "<p>Keep the area cool and protected, avoid heat, sun and friction for a day or two, and follow your clinic's advice; any redness usually settles quickly.</p>"
+          }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
+      "block_order": ["q1", "q2", "q3", "q4", "q5"],
       "settings": {
         "headline": "Common questions",
         "anchor_id": "faq"
@@ -143,6 +159,7 @@
     "comfort",
     "affects",
     "numbing",
+    "aftercare",
     "keyfacts",
     "selectorlink",
     "faq",

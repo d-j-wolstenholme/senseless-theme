@@ -47,10 +47,19 @@
         "body": "<p>Most microneedling practitioners apply their own numbing preparation before they start — so for many people, bringing your own isn't necessary. Where you're preparing at home, or topping up comfort with your practitioner's agreement, a topical numbing gel is the usual choice for facial work because it stays where it's placed. Numbing is about comfort and preparation, not the result of the treatment, and it's removed before the device is used. If you're not sure what your appointment involves, a quick message to your practitioner settles it.</p><p><a href=\"/collections/numbing-cream-for-microneedling\">The right gel for microneedling</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
       }
     },
-    "keyfacts": {
+    "aftercare": {
       "type": "senseless-rich-text",
       "settings": {
         "background": "canvas",
+        "eyebrow": "Afterwards",
+        "headline": "What to expect afterwards",
+        "body": "<p>Skin is usually pink and feels warm or tight for a day or two after microneedling, a little like mild sunburn. Most people find the redness settles within 24–72 hours, with deeper treatments taking a little longer. Keep the skin clean and protected, follow your practitioner's aftercare advice, and avoid heavy actives and direct sun while it recovers. Numbing is only used before the treatment for comfort — it has no role in aftercare.</p>"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
         "eyebrow": "The essentials",
         "body": "<ul><li>Microneedling is usually described as uncomfortable rather than painful — a light scratching or prickling.</li><li>Needle depth, the area treated, and individual sensitivity decide how much you feel.</li><li>Most practitioners apply a numbing preparation as standard; numbing reduces discomfort, it doesn't remove all sensation.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
       }
@@ -96,9 +105,23 @@
             "question": "Do I need to bring my own numbing cream?",
             "answer": "<p>Often not — most practitioners numb the skin themselves. Check with yours before your appointment.</p>"
           }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I expect after microneedling?",
+            "answer": "<p>Skin is typically pink, warm and a little tight for one to three days, similar to mild sunburn, then settles. Follow your practitioner's aftercare advice.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does microneedling take to heal?",
+            "answer": "<p>Most people find visible redness settles within 24–72 hours; deeper treatments can take a little longer.</p>"
+          }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
       "settings": {
         "headline": "Common questions",
         "anchor_id": "faq"
@@ -143,6 +166,7 @@
     "comfort",
     "affects",
     "numbing",
+    "aftercare",
     "keyfacts",
     "selectorlink",
     "faq",
