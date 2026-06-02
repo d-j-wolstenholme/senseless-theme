@@ -64,5 +64,18 @@ All four PASS unless noted. Shared: theme-check **0**; Asset-API diff clean (use
 - **Spray §5b "During-session use" tag** (mentioned in the brief) is **not in the current spray model §5b** (3 items + closing line) — not invented (do-not-recompose). The during-session content is on the page via the verbatim re-application FAQ. Add to the model §5b if a row item is wanted.
 - Add-to-cart not exercisable until stock set; Judge.me per-card stars pending app install (launch-gates).
 
+## Addendum (2026-06-02) — two closeout additions (commit `f4f33d8`)
+Both earlier flags are now resolved (the model gained the copy for both):
+
+1. **§8 per-card caption field.** `senseless-collection-grid` gained an optional `card_caption` block (product picker + caption), rendered as a small italic line under the card title, **matched by product handle** and **empty-safe** (cards/pages without a block render clean). Verbatim §5 descriptors added as caption blocks on all 4 procedure grids:
+   - Microneedling: "Precise facial format, the usual microneedling pick." / "If you prefer a cream." / "For the most intensive sessions." / "Intensive sessions, cream format."
+   - Laser: "Face and smaller zones." / "Body and larger areas." / "Full-face resurfacing." / "Intensive body work."
+   - SPMU: "Precise facial format, the usual SPMU pick." / "If you prefer a cream." / "For the longest sittings." / "Longest sittings, cream format."
+   - Waxing: "Bikini, brazilian, body." / "Lip, brow, underarm." / "Most sensitive bikini / brazilian work." / "Sensitive small-zone work."
+   - **Verified live:** 4 captions render on each of the 4 procedure pages; **cream/gel/spray show none** (empty-safe — the models give no per-card descriptors there).
+2. **Spray §5b "During-session use" tag.** `senseless-link-row` gained an optional `as_tag` pill style; the spray §5b row now carries the spray-only, customer-reported use-mode tag "During-session use" — caption verbatim: *"Many customers report topping the spray up mid-session to help keep an area comfortable — check with your practitioner first."* Not a brand duration/efficacy claim; practitioner-routed; pairs with the §9 re-application FAQ. **Verified live:** pill + caption render inside the spray §5b row (cream/gel don't get it).
+
+theme-check **0**; Asset-API diff confirmed `card_caption` blocks + `as_tag` + `use_metaobject` all survived on remote.
+
 ## HOLD
-Batch 2 complete (4 procedure collections). **Nothing else started** — holding per instruction.
+Batch 2 complete (4 procedure collections) + both closeout additions. **Nothing else started** — holding per instruction.
