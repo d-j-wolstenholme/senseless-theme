@@ -66,6 +66,12 @@ Fluid via `clamp()`. Format below: `clamp(min, preferred, max)`.
 - **Variant swatch:** 34×34px, radius 32
 - **Variant button:** 14px radius, 1px border
 
+## Images
+
+- **Default aspect ratio: 1:1 square, site-wide (standing rule, Canonical §11, 2026-06-02).** Every image-bearing element — product/collection cards, galleries, editorial/content images, hero media — defaults to `aspect-ratio: 1 / 1` on the wrapper + `object-fit: cover` on the `<img>`, so any source crops to square cleanly (no distortion). This is the section DEFAULT, so future pages inherit it.
+- A **non-square ratio is allowed only as a deliberate per-section override**, never the default.
+- Squared sections: collection-hero, guide-hero, image-text-band, hero-brand-led (stage), product-hero (gallery), product-grid, product-showcase, collection-grid, cross-sell, procedure-grid, trio-card-row, complete-prep (thumbnail).
+
 ## Spacing
 
 - **Section padding desktop:** 96px vertical
