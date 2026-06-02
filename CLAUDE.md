@@ -51,7 +51,7 @@ See `docs/BRAND.md` for the canonical design system. Quick reference:
 - **Text secondary (`--text-secondary`):** `#5C5853` — leads, captions
 - **Text muted (`--text-muted`):** `#8E8A82`
 - **Border subtle:** `#E5E2DC`
-- **Typeface:** Montserrat, self-hosted via Shopify font CDN (no Google Fonts requests). Headings 700/600, body 400, eyebrow/labels 600. Type scale is fluid `clamp()` — see `snippets/senseless-typography.liquid` + `docs/BRAND.md`.
+- **Typeface:** Montserrat, self-hosted via Shopify font CDN (no Google Fonts requests). **Headings (reweight 2026-06-02, Strand 1): display/H1 + H2 = 400** (tracking -0.02em; line-height 1.06/1.08 H1, 1.1/1.12 H2); **H3 / card titles = 600**; body 400; eyebrow/labels 600; **italic accent = 500** (`.ss-accent` / `.t-em` — one emphasis word per head, same colour as the head, never the keyword). Type scale is fluid `clamp()` — see `snippets/senseless-typography.liquid` + `docs/BRAND.md`.
 - **Button radius:** 14px
 - **Card radius:** 4px
 - **Page width:** narrow

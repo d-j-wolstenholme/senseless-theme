@@ -30,12 +30,14 @@ Purple is an **accent only** by default — not used as a large area background.
 
 ## Typography
 
-Typeface is **Montserrat**, self-hosted via the Shopify font CDN (no `fonts.googleapis.com` / `gstatic.com` requests). Wired through Horizon's font settings: body `montserrat_n4` (400), subheading `montserrat_n6` (600), heading `montserrat_n7` (700), accent `montserrat_n6`. Weight **500** (`montserrat_n5`, medium) is also self-hosted — emitted via `font_modify: 'weight', '500'` + `font_face` in `senseless-typography.liquid` — so the four working weights are **400 / 500 / 600 / 700**. Preloads: weight 400 (body) + 700 (heading) only.
+Typeface is **Montserrat**, self-hosted via the Shopify font CDN (no `fonts.googleapis.com` / `gstatic.com` requests). Wired through Horizon's font settings: body `montserrat_n4` (400), subheading `montserrat_n6` (600), heading `montserrat_n7` (700), accent `montserrat_n6`. Weight **500** (`montserrat_n5`, medium) is also self-hosted — emitted via `font_modify: 'weight', '500'` + `font_face` in `senseless-typography.liquid` — so the working weights are **400 / 500 / 600** (700 retained only for the header wordmark, footer column labels, and the pull-quote glyph). Head weights now load 400 (body) + 500 (medium/accent) — see the reweight note below.
 
-- **Headings:** Montserrat 700 (H1/H2), 600 (H3), no text-transform
+**Reweight — 2026-06-02 (Strand 1):** display/section heads dropped from 700 → **400** (700 read poster-like). Tracking → -0.02em; line-height 1.06/1.08 (H1), 1.1/1.12 (H2). H3/card titles + eyebrow **unchanged (600)**. Italic accent → **500**.
+
+- **Headings:** Montserrat **400** (H1/H2), 600 (H3 / card titles), no text-transform
 - **Body:** Montserrat 400, line-height 1.7
 - **UI/labels/eyebrow:** Montserrat 600, uppercase, wide tracking
-- **Emphasis (`.t-em`):** italic 600
+- **Italic accent (`.ss-accent` / `.t-em`):** Montserrat italic **500** — exactly one emphasis word per hero/section head, same colour as the head (no purple), never the keyword (the Senseless-positioning/decision word). Built sections take their word from the page word-map.
 
 Global classes live in `senseless-typography.liquid`: `.ss-h1`/`h1.senseless`, `.ss-h2`, `.ss-h3`, `.eyebrow`, `.lead`, `.body-small`, `.caption`, `.t-em`. Sections use their own `.ss-*` scoped classes (so global element rules never override section-tuned sizes) but inherit the same fonts + ladder.
 
@@ -45,8 +47,8 @@ Fluid via `clamp()`. Format below: `clamp(min, preferred, max)`.
 
 | Element | Size | Line Height | Weight | Letter Spacing |
 |---|---|---|---|---|
-| H1 (`.ss-h1`) | `clamp(2.5rem, 1.5rem + 4vw, 4rem)` | 1.04 | 700 | -0.03em |
-| H2 (`.ss-h2`) | `clamp(1.875rem, 1.2rem + 3vw, 2.75rem)` | 1.1 | 700 | -0.025em |
+| H1 (`.ss-h1`) | `clamp(2.5rem, 1.5rem + 4vw, 4rem)` | 1.06 / 1.08 mob | 400 | -0.02em |
+| H2 (`.ss-h2`) | `clamp(1.875rem, 1.2rem + 3vw, 2.75rem)` | 1.1 / 1.12 mob | 400 | -0.02em |
 | H3 (`.ss-h3`) | `clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem)` | 1.25 | 600 | -0.01em |
 | Lead (`.lead`) | `clamp(1.125rem, 0.95rem + 0.8vw, 1.375rem)` | 1.55 | 400 | — (secondary) |
 | Body | `clamp(1rem, 0.98rem + 0.13vw, 1.0625rem)` | 1.7 | 400 | -0.003em |
