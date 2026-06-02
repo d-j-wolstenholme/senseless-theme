@@ -1,0 +1,198 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "An honest guide",
+        "headline": "Does it hurt? Pain by treatment",
+        "subhead": "<p>Most aesthetic treatments cause brief, manageable discomfort rather than real pain — and it varies by treatment, area and person. Here's an honest guide, treatment by treatment.</p>",
+        "image_alt": "Editorial Senseless numbing range on a warm off-white background"
+      }
+    },
+    "intro": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "Before the list",
+        "headline": "How much it hurts is personal",
+        "accent_word": "personal",
+        "body": "<p>How much a treatment hurts is personal — it varies with the treatment itself, the area being worked on, the technique, and your own sensitivity. Numbing is preparation for comfort, not part of the treatment itself, and most practitioners apply their own as standard — so it's always worth a quick word with yours before you book. Below, an honest answer for each treatment, with the format and strength we'd reach for.</p>"
+      }
+    },
+    "t_lipfiller": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "headline": "Does lip filler hurt?",
+        "body": "<p>Most people feel a sharp scratch and some pressure as the injections are placed, eased by the numbing most practitioners use and the numbing agent often mixed into the filler itself. The lip is sensitive, but the discomfort is brief.</p><p><strong>We'd reach for:</strong> Cream, Clinical (sensitive lips → Advanced).</p><p><a href=\"/collections/numbing-cream-for-lip-fillers\">Numbing for lip filler</a> · <a href=\"/pages/the-senseless-system#selector\">Use the Senseless Selector</a></p>"
+      }
+    },
+    "t_botox": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "headline": "Does Botox hurt?",
+        "body": "<p>Botox uses very fine needles, so most people describe a quick pinch or sting rather than real pain. Many manage without any numbing at all.</p><p><strong>We'd reach for:</strong> Cream, Clinical — optional, not required.</p><p><a href=\"/collections/numbing-cream-for-injections\">Numbing for injections</a> · <a href=\"/pages/the-senseless-system#selector\">Use the Senseless Selector</a></p>"
+      }
+    },
+    "t_microblading": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "headline": "Does microblading hurt?",
+        "body": "<p>Most people feel light scratching and some pressure as the blade works through the brow; numbing is usually applied before and during, so discomfort tends to be mild. Longer sittings feel more noticeable.</p><p><strong>We'd reach for:</strong> Gel, Advanced (long sittings → Professional).</p><p><a href=\"/collections/numbing-cream-for-semi-permanent-makeup\">Numbing for SPMU</a> · <a href=\"/pages/the-senseless-system#selector\">Use the Senseless Selector</a></p>"
+      }
+    },
+    "t_lipblush": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "headline": "Does lip blush hurt?",
+        "body": "<p>Lip blush is usually described as uncomfortable rather than painful — a scratching, tickling sensation as pigment is worked into the lip, with numbing applied throughout. The lip is sensitive, so it can feel sharper than brow work.</p><p><strong>We'd reach for:</strong> Gel, Advanced.</p><p><a href=\"/collections/numbing-cream-for-semi-permanent-makeup\">Numbing for SPMU</a> · <a href=\"/pages/the-senseless-system#selector\">Use the Senseless Selector</a></p>"
+      }
+    },
+    "t_waxing": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "headline": "Does waxing hurt?",
+        "body": "<p>Waxing causes a brief, sharp sting as the strip is removed, strongest on sensitive areas and during the first few sessions. It fades quickly and many find it eases over time.</p><p><strong>We'd reach for:</strong> Spray for the body, Cream for small areas — Clinical to Advanced.</p><p><a href=\"/collections/numbing-cream-for-waxing\">Numbing for waxing</a> · <a href=\"/pages/the-senseless-system#selector\">Use the Senseless Selector</a></p>"
+      }
+    },
+    "t_electrolysis": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "headline": "Does electrolysis hurt?",
+        "body": "<p>Electrolysis is often described as a brief heat or stinging sensation at each hair, more noticeable on sensitive areas. As it treats one follicle at a time, sessions can feel repetitive rather than intense.</p><p><strong>We'd reach for:</strong> Cream, Advanced for sensitive areas.</p><p><a href=\"/collections/numbing-cream\">Browse numbing cream</a> · <a href=\"/pages/the-senseless-system#selector\">Use the Senseless Selector</a></p>"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "The essentials",
+        "body": "<ul><li>Most aesthetic treatments cause brief, manageable discomfort rather than real pain.</li><li>How much you feel depends on the treatment, the area and your own sensitivity.</li><li>Most practitioners apply their own numbing; numbing reduces discomfort, it doesn't remove all sensation.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+      }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which to choose?",
+        "body": "<p>Answer three quick questions — treatment, skin and session length — and we'll point you to the format and strength we'd reach for.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does lip filler hurt?",
+            "answer": "<p>Most people feel a sharp scratch and some pressure as the injections are placed, eased by the numbing most practitioners use and the numbing agent often mixed into the filler itself. The lip is sensitive, but the discomfort is brief.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does Botox hurt?",
+            "answer": "<p>Botox uses very fine needles, so most people describe a quick pinch or sting rather than real pain. Many manage without any numbing at all.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does microblading hurt?",
+            "answer": "<p>Most people feel light scratching and some pressure as the blade works through the brow; numbing is usually applied before and during, so discomfort tends to be mild.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does lip blush hurt?",
+            "answer": "<p>Lip blush is usually described as uncomfortable rather than painful — a scratching, tickling sensation as pigment is worked into the lip, with numbing applied throughout.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does waxing hurt?",
+            "answer": "<p>Waxing causes a brief, sharp sting as the strip is removed, strongest on sensitive areas and during the first few sessions. It fades quickly and many find it eases over time.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does electrolysis hurt?",
+            "answer": "<p>Electrolysis is often described as a brief heat or stinging sensation at each hair, more noticeable on sensitive areas. As it treats one follicle at a time, sessions can feel repetitive rather than intense.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": {
+        "headline": "Does it hurt? — by treatment",
+        "anchor_id": "faq"
+      }
+    },
+    "route": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "How treatments compare for comfort",
+            "url": "/pages/aesthetic-procedures#comfort"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Make your Selection",
+            "url": "/pages/the-senseless-system#selector"
+          }
+        },
+        "l3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop by procedure",
+            "url": "/pages/aesthetic-procedures"
+          }
+        }
+      },
+      "block_order": ["l1", "l2", "l3"],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Next",
+        "headline": "Where to go from here"
+      }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "name": "Does it hurt? Pain by treatment",
+        "description": "How much do common aesthetic treatments hurt? Honest, by-treatment answers for lip filler, Botox, microblading, lip blush, waxing and electrolysis."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "intro",
+    "t_lipfiller",
+    "t_botox",
+    "t_microblading",
+    "t_lipblush",
+    "t_waxing",
+    "t_electrolysis",
+    "keyfacts",
+    "selectorlink",
+    "faq",
+    "route",
+    "schema"
+  ]
+}
