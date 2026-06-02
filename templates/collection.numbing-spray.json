@@ -4,341 +4,110 @@
       "type": "senseless-collection-hero",
       "settings": {
         "eyebrow": "Numbing spray",
-        "headline": "For body areas. Two strengths.",
-        "subhead": "<p>UK-formulated topical preparation spray, made for procedures that cover larger zones or suit a sprayed application. Advanced and Professional — no Clinical tier.</p>",
-        "primary_cta_label": "Shop spray",
-        "primary_cta_url": "#product-grid",
-        "secondary_cta_label": "Choose your format",
-        "secondary_cta_url": "/pages/choosing-your-format",
-        "image_alt": "Editorial still life of both Senseless spray bottles on a warm off-white background"
-      }
-    },
-    "when_spray": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-left",
-        "eyebrow": "The format",
-        "headline": "Spray suits a specific kind of procedure.",
-        "body": "<p>Spray covers ground that cream can't. Body areas, larger treatment zones, injection sites where a sprayed application is faster and more practical. Spray sits at Advanced and Professional strengths only — the procedures that suit a spray format don't tend to call for an entry-tier preparation.</p>",
-        "cta_label": "Compare formats",
-        "cta_url": "/pages/choosing-your-format",
-        "image_alt": "Editorial close-up of a Senseless spray application in soft warm light"
-      }
-    },
-    "strengths": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "advanced": {
-          "type": "tier_card",
-          "settings": {
-            "label": "Advanced Strength",
-            "heading": "For longer body procedures",
-            "body": "<p>Higher concentration spray for larger treatment areas, injection preparation, and procedures that cover more skin in a single session. The Senseless starting point for spray format.</p>",
-            "cta_label": "Shop Advanced Spray",
-            "cta_url": "/collections/numbing-spray?strength=advanced",
-            "flagship": false,
-            "image_alt": "Advanced Strength Senseless spray on a warm off-white background"
-          }
-        },
-        "professional": {
-          "type": "tier_card",
-          "settings": {
-            "label": "Professional Strength",
-            "heading": "Developed with practitioners",
-            "body": "<p>Our most concentrated spray formula. Used in clinics across the UK for the most demanding spray applications. Available without restriction. Trusted at the chair.</p>",
-            "cta_label": "Shop Professional Spray",
-            "cta_url": "/collections/numbing-spray?strength=professional",
-            "flagship": true,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless spray photographed in a darker palette"
-          }
-        }
-      },
-      "block_order": [
-        "advanced",
-        "professional"
-      ],
-      "settings": {
-        "columns": "2",
-        "eyebrow": "Strengths",
-        "headline": "Advanced and Professional.",
-        "body": "",
-        "closer": "",
-        "section_cta_label": "Compare strengths",
-        "section_cta_url": "/pages/choosing-your-strength"
-      }
-    },
-    "procedures": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "inj": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Injections",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-injections",
-            "image_alt": "Editorial image for the injections spray range"
-          }
-        },
-        "laser": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Laser Treatment",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-laser-treatment",
-            "image_alt": "Editorial image for the laser treatment spray range"
-          }
-        },
-        "waxing": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Waxing",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-waxing",
-            "image_alt": "Editorial image for the waxing spray range"
-          }
-        },
-        "spmu": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Semi-Permanent Makeup",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
-            "image_alt": "Editorial image for the semi-permanent makeup spray range"
-          }
-        }
-      },
-      "block_order": [
-        "inj",
-        "laser",
-        "waxing",
-        "spmu"
-      ],
-      "settings": {
-        "columns": "4",
-        "eyebrow": "",
-        "headline": "Or by appointment.",
-        "body": "",
-        "closer": "",
-        "section_cta_label": "See all procedures",
-        "section_cta_url": "/collections/aesthetic-numbing-cream"
+        "headline": "Numbing spray, matched to the appointment.",
+        "subhead": "<p>Three strengths — Clinical, Advanced and Professional — in a spray made for the areas a cream can't cover evenly. Spray is the format for large or awkward-to-reach zones, where applying a layer by hand is slow and uneven. The strength you need depends on the session: how large the area is, how sensitive it is, how demanding the work. Here's how to choose.</p>",
+        "primary_cta_label": "Shop the spray range",
+        "primary_cta_url": "#shop",
+        "secondary_cta_label": "Match the strength",
+        "secondary_cta_url": "#match",
+        "image_alt": "Senseless numbing spray — Clinical, Advanced and Professional strengths"
       }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": {
-          "type": "trust_item",
-          "settings": {
-            "label": "UK formulated"
-          }
-        },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
-          }
-        },
-        "t3": {
-          "type": "trust_item",
-          "settings": {
-            "label": "CPSR assessed"
-          }
-        },
-        "t4": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Made for aesthetics"
-          }
-        }
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
       },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
-      ],
-      "settings": {}
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": { "band": "canvas" }
+    },
+    "match": {
+      "type": "senseless-strength-ladder",
+      "blocks": {
+        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>" } },
+        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>" } },
+        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "matched": "<p>The longest, most demanding appointments.</p>" } }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "use_metaobject": true,
+        "band": "surface",
+        "anchor_id": "match",
+        "eyebrow": "The Senseless Scale",
+        "headline": "Match your numbing spray to the session",
+        "body": "<p>Spray is the format for reach — large or contoured areas you can cover quickly and evenly without working a cream in by hand. Within it, the strength is the choice that matters. None is \"better\" than another; each is formulated for a different kind of session.</p>",
+        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
+      }
     },
     "grid": {
-      "type": "senseless-product-grid",
-      "blocks": {
-        "ad": {
-          "type": "product_item",
-          "settings": {
-            "strength": "advanced",
-            "label": "Advanced Strength",
-            "title": "Spray",
-            "price": "£TBC",
-            "cta_label": "View product",
-            "cta_url": "/products/advanced-strength-spray",
-            "flagship": false,
-            "image_alt": "Advanced Strength Senseless spray on a warm off-white background"
-          }
-        },
-        "pr": {
-          "type": "product_item",
-          "settings": {
-            "strength": "professional",
-            "label": "Professional Strength",
-            "title": "Spray",
-            "price": "£TBC",
-            "cta_label": "View product",
-            "cta_url": "/products/professional-strength-spray",
-            "flagship": true,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless spray on a warm off-white background"
-          }
-        }
-      },
-      "block_order": [
-        "ad",
-        "pr"
-      ],
+      "type": "senseless-collection-grid",
       "settings": {
-        "headline": "All Senseless spray.",
-        "body": "<p>Two SKUs, both 100ml.</p>",
-        "show_filters": true
+        "headline": "Buy numbing spray by strength",
+        "anchor_id": "shop",
+        "show_filters": false
       }
     },
-    "aftercare": {
-      "type": "senseless-image-text-band",
+    "format": {
+      "type": "senseless-format-row",
+      "blocks": {
+        "f1": { "type": "format_item", "settings": { "label": "Cream", "body": "<p>Broad coverage on simpler, reachable areas, and most appointments; the default.</p>", "cta_label": "See numbing cream", "cta_url": "/collections/numbing-cream" } },
+        "f2": { "type": "format_item", "settings": { "label": "Gel", "body": "<p>Precise facial work (brows, lips) and longer sittings where it needs to stay exactly where you put it.</p>", "cta_label": "See numbing gel", "cta_url": "/collections/numbing-gel" } }
+      },
+      "block_order": ["f1", "f2"],
       "settings": {
-        "direction": "text-right",
-        "eyebrow": "Aftercare",
-        "headline": "What comes next.",
-        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
-        "cta_label": "View Foaming Cleanser",
-        "cta_url": "/products/foaming-cleanser",
-        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+        "eyebrow": "Format check",
+        "headline": "Is spray the right format?",
+        "body": "<p>Spray is the one to reach for on large or awkward-to-reach areas — where spreading an even layer of cream by hand is slow or impractical. Two cases where another format fits better:</p>",
+        "footer_label": "See all procedures",
+        "footer_url": "/pages/aesthetic-procedures"
       }
+    },
+    "philosophy": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "dark",
+        "align": "left",
+        "headline": "Built for the procedure, not the average",
+        "body": "<p>A generic numbing product treats every situation the same — the same thing for a small touch-up and a large body area. Aesthetic appointments aren't the same, so Senseless isn't built that way. The Senseless System pairs three strengths with three formats, each formulated for what a kind of appointment actually asks for. Spray exists because some areas are too large or awkward to cover well any other way. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>"
+      }
+    },
+    "honest": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "heading": "Before you buy: the bit most sellers skip",
+        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard. If yours does, you may not need to bring your own — and arriving already prepared without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>"
+      }
+    },
+    "characteristics": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Every Senseless spray is formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here." } },
+        "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "Senseless is a cosmetic, not a medicine — no prescription needed." } },
+        "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
+        "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Designed around aesthetic procedures — larger-area work, body waxing, laser zones and more — not adapted from generic numbing." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": { "band": "canvas", "heading": "What makes it Senseless" }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Why no Clinical spray?",
-            "answer": "<p>The procedures that suit spray format tend to be the ones already past entry-tier preparation — body areas, injection sites, larger treatment zones. Spray starts at Advanced because that's where the format genuinely begins to be useful. We could make a Clinical spray. We don't, because we don't see the indication for it.</p>"
-          }
-        },
-        "q2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Cream, gel, or spray — how do I choose?",
-            "answer": "<p>Spray covers ground the other two don't. Cream and gel are face-and-small-area formats. Spray suits body work, broader zones, or injection-led procedures. See <a href=\"/pages/choosing-your-format\">choose your format</a>.</p>"
-          }
-        },
-        "q3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "When do I apply spray?",
-            "answer": "<p>Ahead of your appointment. Your practitioner is the best guide for the specific procedure you've booked.</p>"
-          }
-        },
-        "q4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is spray stronger than cream or gel?",
-            "answer": "<p>Strength is independent of format. An Advanced spray is the same concentration as an Advanced cream. Spray is a different application, not a different strength system.</p>"
-          }
-        },
-        "q5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
-          }
-        }
+        "q1": { "type": "faq_item", "settings": { "question": "When should I use spray instead of cream or gel?", "answer": "<p>Reach for spray on large or awkward-to-reach areas — where spreading an even layer of cream by hand is slow or impractical. Cream suits broad coverage on simpler areas; gel suits precise facial work; spray suits reach and larger zones.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Which spray strength should I choose?", "answer": "<p>Match it to the session, not to price. Clinical for shorter, routine appointments and smaller areas; Advanced for longer or more sensitive work and larger areas; Professional for the most demanding sessions. If you're between two, start with the lower one.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Is spray stronger than cream or gel?", "answer": "<p>No. The three strengths — Clinical, Advanced, Professional — run across all three formats. An Advanced spray matches an Advanced cream on strength; the difference is how it's applied, not the strength. Choose spray for reach, not for an assumed strength difference.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "How do I apply numbing spray evenly?", "answer": "<p>Hold it a short, consistent distance from the skin and cover the area in even passes; allow time for it to take effect before your appointment — follow the product guidance and your practitioner.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "How much area does one bottle cover?", "answer": "<p>The 100ml bottle is sized for larger-area and repeat use. How far it goes depends on the size of the area you're covering and how many sessions you're preparing for.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>" } },
+        "q7": { "type": "faq_item", "settings": { "question": "Is numbing spray a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } },
+        "q8": { "type": "faq_item", "settings": { "question": "What's in it?", "answer": "<p>Each formula is a UK cosmetic formulated by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>" } }
       },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5"
-      ],
-      "settings": {
-        "headline": "Common questions."
-      }
-    },
-    "formats": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "cream": {
-          "type": "format_card",
-          "settings": {
-            "label": "Numbing Cream",
-            "body": "<p>The everyday format, three strengths, two sizes.</p>",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream",
-            "image_alt": "Editorial image of Senseless Numbing Cream"
-          }
-        },
-        "gel": {
-          "type": "format_card",
-          "settings": {
-            "label": "Numbing Gel",
-            "body": "<p>A different application format. Advanced and Professional.</p>",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-gel",
-            "image_alt": "Editorial image of Senseless Numbing Gel"
-          }
-        }
-      },
-      "block_order": [
-        "cream",
-        "gel"
-      ],
-      "settings": {
-        "columns": "2",
-        "eyebrow": "Complete your prep",
-        "headline": "Spray for the broad work. Cream for the rest.",
-        "body": "<p>Spray covers the broad work; Cream is the everyday default for face and detail. Many keep both.</p>",
-        "closer": "",
-        "section_cta_label": "Compare formats",
-        "section_cta_url": "/pages/choosing-your-format"
-      }
-    },
-    "keyfacts": {
-      "type": "senseless-key-facts",
-      "blocks": {
-        "kf1": {
-          "type": "fact",
-          "settings": {
-            "label": "Strengths",
-            "value": "Numbing spray in Advanced and Professional strengths."
-          }
-        },
-        "kf2": {
-          "type": "fact",
-          "settings": {
-            "label": "Format",
-            "value": "Spray suits the body and broader areas — waxing, larger laser zones."
-          }
-        }
-      },
-      "block_order": [
-        "kf1",
-        "kf2"
-      ],
-      "settings": {
-        "band": "surface",
-        "heading": "Key facts"
-      }
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
+      "settings": { "headline": "Numbing spray — common questions.", "anchor_id": "faq" }
     }
   },
-  "order": [
-    "hero",
-    "when_spray",
-    "strengths",
-    "procedures",
-    "trust",
-    "grid",
-    "aftercare",
-    "faq",
-    "formats",
-    "keyfacts"
-  ]
+  "order": ["hero", "trust", "match", "grid", "format", "philosophy", "honest", "characteristics", "faq"]
 }

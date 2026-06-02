@@ -4,341 +4,110 @@
       "type": "senseless-collection-hero",
       "settings": {
         "eyebrow": "Numbing gel",
-        "headline": "A different application. Two strengths.",
-        "subhead": "<p>UK-formulated topical preparation gel, made for aesthetic appointments where the gel format suits the procedure better than a cream. Advanced and Professional — gel comes in two strengths.</p>",
-        "primary_cta_label": "Shop all gel",
-        "primary_cta_url": "#product-grid",
-        "secondary_cta_label": "Compare formats",
-        "secondary_cta_url": "/pages/choosing-your-format",
-        "image_alt": "Editorial still life of the Senseless gel range on a warm off-white background"
-      }
-    },
-    "when_gel": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-left",
-        "eyebrow": "The format",
-        "headline": "Gel suits some procedures better than cream.",
-        "body": "<p>Gel sits differently on the skin. Some practitioners prefer it for treated areas that need to stay exposed, or for procedures where cream isn't practical. Some clients prefer the texture. Gel comes in Advanced and Professional strengths — the same concentrations as the cream, in a format that suits a different kind of session. Choose by procedure, by practitioner preference, or by what feels right at the chair.</p>",
-        "cta_label": "Compare cream and gel",
-        "cta_url": "/pages/choosing-your-format",
-        "image_alt": "Editorial close-up of Senseless gel texture in soft warm light"
-      }
-    },
-    "strengths": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "advanced": {
-          "type": "tier_card",
-          "settings": {
-            "label": "Advanced Strength",
-            "heading": "For longer, more demanding sessions",
-            "body": "<p>Higher concentration gel. 35ml. For appointments where the gel format suits the procedure and the session asks more of your preparation.</p>",
-            "cta_label": "Shop Advanced Gel",
-            "cta_url": "/collections/numbing-gel?strength=advanced",
-            "flagship": false,
-            "image_alt": "Advanced Strength Senseless gel on a warm off-white background"
-          }
-        },
-        "professional": {
-          "type": "tier_card",
-          "settings": {
-            "label": "Professional Strength",
-            "heading": "Developed with practitioners",
-            "body": "<p>Our most concentrated gel formula. 35ml. Used in clinics across the UK. Available without restriction. Trusted at the chair.</p>",
-            "cta_label": "Shop Professional Gel",
-            "cta_url": "/collections/numbing-gel?strength=professional",
-            "flagship": true,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless gel on a warm off-white background"
-          }
-        }
-      },
-      "block_order": [
-        "advanced",
-        "professional"
-      ],
-      "settings": {
-        "columns": "2",
-        "eyebrow": "Strengths",
-        "headline": "Two strengths. One system.",
-        "body": "",
-        "closer": "",
-        "section_cta_label": "Compare strengths",
-        "section_cta_url": "/pages/choosing-your-strength"
-      }
-    },
-    "procedures": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "micro": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Microneedling",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-microneedling",
-            "image_alt": "Editorial image for the microneedling gel range"
-          }
-        },
-        "laser": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Laser Treatment",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-laser-treatment",
-            "image_alt": "Editorial image for the laser treatment gel range"
-          }
-        },
-        "spmu": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Semi-Permanent Makeup",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
-            "image_alt": "Editorial image for the semi-permanent makeup gel range"
-          }
-        },
-        "waxing": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Waxing",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-waxing",
-            "image_alt": "Editorial image for the waxing gel range"
-          }
-        }
-      },
-      "block_order": [
-        "micro",
-        "laser",
-        "spmu",
-        "waxing"
-      ],
-      "settings": {
-        "columns": "4",
-        "eyebrow": "",
-        "headline": "Or by appointment.",
-        "body": "",
-        "closer": "",
-        "section_cta_label": "See all procedures",
-        "section_cta_url": "/collections/aesthetic-numbing-cream"
+        "headline": "Numbing gel, matched to the appointment.",
+        "subhead": "<p>Three strengths — Clinical, Advanced and Professional — in a gel that stays where you put it. Gel is the format for precise, facial work and longer sittings where a cream would migrate. The strength you need depends on the session: how long it runs, how sensitive the area is, how demanding the work. Here's how to choose.</p>",
+        "primary_cta_label": "Shop the gel range",
+        "primary_cta_url": "#shop",
+        "secondary_cta_label": "Match the strength",
+        "secondary_cta_url": "#match",
+        "image_alt": "Senseless numbing gel — Clinical, Advanced and Professional strengths"
       }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": {
-          "type": "trust_item",
-          "settings": {
-            "label": "UK formulated"
-          }
-        },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
-          }
-        },
-        "t3": {
-          "type": "trust_item",
-          "settings": {
-            "label": "CPSR assessed"
-          }
-        },
-        "t4": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Made for aesthetics"
-          }
-        }
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
       },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
-      ],
-      "settings": {}
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": { "band": "surface" }
+    },
+    "match": {
+      "type": "senseless-strength-ladder",
+      "blocks": {
+        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>" } },
+        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>" } },
+        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "matched": "<p>The longest, most demanding appointments.</p>" } }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "use_metaobject": true,
+        "band": "canvas",
+        "anchor_id": "match",
+        "eyebrow": "The Senseless Scale",
+        "headline": "Match your numbing gel to the session",
+        "body": "<p>Gel is the precise format — it holds on facial and contoured areas and stays put through a longer sitting. Within it, the strength is the choice that matters. None is \"better\" than another; each is formulated for a different kind of session.</p>",
+        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
+      }
     },
     "grid": {
-      "type": "senseless-product-grid",
-      "blocks": {
-        "ad": {
-          "type": "product_item",
-          "settings": {
-            "strength": "advanced",
-            "label": "Advanced Strength",
-            "title": "Gel",
-            "price": "£TBC",
-            "cta_label": "View product",
-            "cta_url": "/products/advanced-strength-gel",
-            "flagship": false,
-            "image_alt": "Advanced Strength Senseless gel on a warm off-white background"
-          }
-        },
-        "pr": {
-          "type": "product_item",
-          "settings": {
-            "strength": "professional",
-            "label": "Professional Strength",
-            "title": "Gel",
-            "price": "£TBC",
-            "cta_label": "View product",
-            "cta_url": "/products/professional-strength-gel",
-            "flagship": true,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless gel on a warm off-white background"
-          }
-        }
-      },
-      "block_order": [
-        "ad",
-        "pr"
-      ],
+      "type": "senseless-collection-grid",
       "settings": {
-        "headline": "All Senseless gel.",
-        "body": "<p>Two gel strengths — Advanced and Professional. 35ml.</p>",
-        "show_filters": true
+        "headline": "Buy numbing gel by strength",
+        "anchor_id": "shop",
+        "show_filters": false
       }
     },
-    "aftercare": {
-      "type": "senseless-image-text-band",
+    "format": {
+      "type": "senseless-format-row",
+      "blocks": {
+        "f1": { "type": "format_item", "settings": { "label": "Cream", "body": "<p>Broad coverage and most appointments; the default for larger or simpler areas.</p>", "cta_label": "See numbing cream", "cta_url": "/collections/numbing-cream" } },
+        "f2": { "type": "format_item", "settings": { "label": "Spray", "body": "<p>Large or awkward-to-reach areas where applying an even layer by hand is fiddly.</p>", "cta_label": "See numbing spray", "cta_url": "/collections/numbing-spray" } }
+      },
+      "block_order": ["f1", "f2"],
       "settings": {
-        "direction": "text-right",
-        "eyebrow": "Aftercare",
-        "headline": "What comes next.",
-        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
-        "cta_label": "View Foaming Cleanser",
-        "cta_url": "/products/foaming-cleanser",
-        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+        "eyebrow": "Format check",
+        "headline": "Is gel the right format?",
+        "body": "<p>Gel is the one to reach for when the work is precise or facial, or when a sitting runs long enough that a cream would start to move. Two cases where another format fits better:</p>",
+        "footer_label": "See all procedures",
+        "footer_url": "/pages/aesthetic-procedures"
       }
+    },
+    "philosophy": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "canvas",
+        "align": "left",
+        "headline": "Built for the procedure, not the average",
+        "body": "<p>A generic numbing product treats every situation the same — the same thing for a five-minute touch-up and a full facial session. Aesthetic appointments aren't the same, so Senseless isn't built that way. The Senseless System pairs three strengths with three formats, each formulated for what a kind of appointment actually asks for. Gel exists because some work needs a format that stays exactly where it's placed. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>"
+      }
+    },
+    "honest": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "heading": "Before you buy: the bit most sellers skip",
+        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard — microneedling especially. If yours does, you may not need to bring your own, and arriving already numbed without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>"
+      }
+    },
+    "characteristics": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Every Senseless gel is formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here." } },
+        "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "Senseless is a cosmetic, not a medicine — no prescription needed." } },
+        "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
+        "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Designed around aesthetic procedures — microneedling, SPMU, facial work and more — not adapted from generic numbing." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": { "band": "surface", "heading": "What makes it Senseless" }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Cream or gel — which should I choose?",
-            "answer": "<p>Strength is the bigger decision. Format is the next one. Cream suits most appointments. Gel suits procedures where the cream format isn't practical, or where your practitioner prefers it. See the <a href=\"/pages/choosing-your-format\">format guide</a>.</p>"
-          }
-        },
-        "q2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is gel stronger than cream?",
-            "answer": "<p>No. Strength is independent of format — an Advanced gel is the same concentration as an Advanced cream. Gel comes in Advanced and Professional (Clinical is cream only). Choose by format preference, not by an assumed strength difference.</p>"
-          }
-        },
-        "q3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "When do I apply gel?",
-            "answer": "<p>Ahead of your appointment. Your practitioner is the best guide for the procedure you've booked.</p>"
-          }
-        },
-        "q4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Can I use gel for tattoos?",
-            "answer": "<p>Senseless is formulated for aesthetic procedures. For body art see our <a href=\"/blogs/guides/topical-numbing-for-body-art\">topical numbing for body art guide</a>.</p>"
-          }
-        },
-        "q5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
-          }
-        }
+        "q1": { "type": "faq_item", "settings": { "question": "When should I use gel instead of cream?", "answer": "<p>Reach for gel when the work is precise or facial, or when a sitting runs long enough that a cream would start to move — it holds where you place it. Cream suits broad coverage and most appointments; gel suits microneedling, facial work and longer sittings.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Which gel strength should I choose?", "answer": "<p>Match it to the session, not to price. Clinical for shorter, routine appointments; Advanced for longer or more sensitive work and larger areas; Professional for the most demanding sessions. If you're between two, start with the lower one.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Is gel stronger than cream?", "answer": "<p>No. The three strengths — Clinical, Advanced, Professional — run across both formats. A Clinical gel matches a Clinical cream on strength; the difference is the format, not the strength. Choose gel for how it sits on the skin, not for an assumed strength difference.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "How long before my appointment do I apply numbing gel?", "answer": "<p>Allow time for it to take effect before your appointment, and cover the area if the window is longer — follow the product guidance and your practitioner. Customers who get on best apply a visible layer that sits on the surface rather than being rubbed in.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "Which size do I need?", "answer": "<p>15ml suits a single session, a smaller area, or a trial; 35ml is the regular size for repeat use or larger areas. Both sizes are available in all three strengths.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>" } },
+        "q7": { "type": "faq_item", "settings": { "question": "Is numbing gel a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } },
+        "q8": { "type": "faq_item", "settings": { "question": "What's in it?", "answer": "<p>Each formula is a UK cosmetic formulated by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>" } }
       },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5"
-      ],
-      "settings": {
-        "headline": "Common questions."
-      }
-    },
-    "formats": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "cream": {
-          "type": "format_card",
-          "settings": {
-            "label": "Numbing Cream",
-            "body": "<p>The everyday format, in three strengths and two sizes.</p>",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream",
-            "image_alt": "Editorial image of Senseless Numbing Cream"
-          }
-        },
-        "spray": {
-          "type": "format_card",
-          "settings": {
-            "label": "Numbing Spray",
-            "body": "<p>For body areas and procedures across larger zones.</p>",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-spray",
-            "image_alt": "Editorial image of Senseless Numbing Spray"
-          }
-        }
-      },
-      "block_order": [
-        "cream",
-        "spray"
-      ],
-      "settings": {
-        "columns": "2",
-        "eyebrow": "Complete your prep",
-        "headline": "Gel for the long sittings. Cream and Spray for the rest.",
-        "body": "<p>Gel suits the longer sittings; Cream and Spray cover the rest. Different appointments, different formats.</p>",
-        "closer": "",
-        "section_cta_label": "Compare formats",
-        "section_cta_url": "/pages/choosing-your-format"
-      }
-    },
-    "keyfacts": {
-      "type": "senseless-key-facts",
-      "blocks": {
-        "kf1": {
-          "type": "fact",
-          "settings": {
-            "label": "Strengths",
-            "value": "Numbing gel in Advanced and Professional strengths."
-          }
-        },
-        "kf2": {
-          "type": "fact",
-          "settings": {
-            "label": "Format",
-            "value": "Gel suits sustained work like microneedling, where it sits well on the skin."
-          }
-        }
-      },
-      "block_order": [
-        "kf1",
-        "kf2"
-      ],
-      "settings": {
-        "band": "surface",
-        "heading": "Key facts"
-      }
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
+      "settings": { "headline": "Numbing gel — common questions.", "anchor_id": "faq" }
     }
   },
-  "order": [
-    "hero",
-    "when_gel",
-    "strengths",
-    "procedures",
-    "trust",
-    "grid",
-    "aftercare",
-    "faq",
-    "formats",
-    "keyfacts"
-  ]
+  "order": ["hero", "trust", "match", "grid", "format", "philosophy", "honest", "characteristics", "faq"]
 }
