@@ -50,5 +50,10 @@ The theme template + section code are **pushed and correct**, but the page **can
 - **Phase 12 wiring** (not now): point the header "Find your strength" + every collection's "Match the strength"/secondary CTA to `/pages/the-senseless-system`; mark the two old guide briefs merged.
 - Old `/pages/choosing-your-strength` + `/pages/choosing-your-format` page-template files remain in repo (now superseded) — retire when this page is live.
 
-## HOLD
-Template + modules built, pushed, theme-check 0, copy verbatim + compliant. **Page-resource creation + live render-verify pend a refreshed Admin token.**
+## Addendum — COMPLETED 2026-06-02 (token refreshed)
+Token refreshed via `./scripts/refresh-token.sh` (fresh `shpca_…`, confirmed shop = senseless-numbing). Then:
+- **Page resource created** via Admin API: `The Senseless System`, handle `the-senseless-system`, template `the-senseless-system`, **published** (`gid://shopify/Page/711020708188`).
+- **WebPage JSON-LD** added via new `senseless-page-schema` section (Horizon already emits BreadcrumbList — confirmed; dropped my duplicate so the page has exactly WebPage + BreadcrumbList).
+- **Live render-verified** `/pages/the-senseless-system` (HTTP 200): 7-section order correct; H1 weight **400** + **6 italic accents at 500** (system/System/format/strength/procedure/skip; route clean); ladder **rows** variant with Clinical / Advanced (Most popular tag) / Professional (2px border); **8-row matrix**; `#matrix` anchor present (hero "Jump to the by-procedure guide" lands there); injectables named (relaxed). theme-check 0; Asset-API diff confirmed `layout:rows` + `use_metaobject:false` + accent words. Screenshot `/tmp/ss-ladder.png`.
+
+**Phase 5 = DONE and live.** Remaining (Phase 12, not now): wire header "Find your strength" + collection secondary CTAs → this page; retire old choosing-your-strength/format page templates.
