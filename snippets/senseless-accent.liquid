@@ -1,0 +1,19 @@
+{%- comment -%}
+  Senseless — italic accent helper. Wraps the FIRST occurrence of `word` in `text`
+  in <em class="ss-accent"> (Montserrat italic 500, same colour as the head — no purple).
+  One emphasis word per head. Empty-safe: no word → plain escaped text.
+  Usage: {% render 'senseless-accent', text: section.settings.headline, word: section.settings.accent_word %}
+{%- endcomment -%}
+{%- liquid
+  assign t = text | escape
+  if word != blank
+    assign w = word | escape
+    capture em
+      echo '<em class="ss-accent">'
+      echo w
+      echo '</em>'
+    endcapture
+    assign t = t | replace_first: w, em
+  endif
+  echo t
+-%}

@@ -10,19 +10,47 @@
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
-        "image_alt": "Numbing gel and cream for semi-permanent makeup — Senseless"
+        "image_alt": "Numbing gel and cream for semi-permanent makeup — Senseless",
+        "accent_word": "matched"
       }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": { "band": "canvas" }
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
     },
     "intro": {
       "type": "senseless-editorial-band",
@@ -31,17 +59,40 @@
         "align": "center",
         "eyebrow": "What SPMU asks",
         "headline": "Small area, long sitting",
-        "body": "<p>SPMU is slow, close work, and the skin feels every pass — brows, lash line and lips are sensitive by nature, and a sitting can run well over an hour without a pause. The area is small, so a precise format that stays exactly where it's placed suits it better than a broad one, and the length of the sitting is what pushes most people past the entry strength. Match the prep to the sitting you're actually booked for.</p>"
+        "body": "<p>SPMU is slow, close work, and the skin feels every pass — brows, lash line and lips are sensitive by nature, and a sitting can run well over an hour without a pause. The area is small, so a precise format that stays exactly where it's placed suits it better than a broad one, and the length of the sitting is what pushes most people past the entry strength. Match the prep to the sitting you're actually booked for.</p>",
+        "accent_word": "sitting"
       }
     },
     "match": {
       "type": "senseless-strength-ladder",
       "blocks": {
-        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>" } },
-        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>" } },
-        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "matched": "<p>The longest, most demanding appointments.</p>" } }
+        "r1": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Clinical",
+            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>"
+          }
+        },
+        "r2": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Advanced",
+            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>"
+          }
+        },
+        "r3": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Professional",
+            "matched": "<p>The longest, most demanding appointments.</p>"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
       "settings": {
         "use_metaobject": true,
         "layout": "tiles",
@@ -50,22 +101,53 @@
         "eyebrow": "The Senseless Scale",
         "headline": "Match your numbing cream for SPMU to the sitting",
         "body": "<p>None of the three is \"better\" than another — each is formulated for a different kind of sitting. For SPMU, most people start at Advanced.</p>",
-        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
+        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
+        "accent_word": "Match"
       }
     },
     "grid": {
       "type": "senseless-collection-grid",
       "blocks": {
-        "cap1": { "type": "card_caption", "settings": { "product": "advanced-strength-gel", "caption": "Precise facial format, the usual SPMU pick." } },
-        "cap2": { "type": "card_caption", "settings": { "product": "advanced-strength-cream", "caption": "If you prefer a cream." } },
-        "cap3": { "type": "card_caption", "settings": { "product": "professional-strength-gel", "caption": "For the longest sittings." } },
-        "cap4": { "type": "card_caption", "settings": { "product": "professional-strength-cream", "caption": "Longest sittings, cream format." } }
+        "cap1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-gel",
+            "caption": "Precise facial format, the usual SPMU pick."
+          }
+        },
+        "cap2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-cream",
+            "caption": "If you prefer a cream."
+          }
+        },
+        "cap3": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-gel",
+            "caption": "For the longest sittings."
+          }
+        },
+        "cap4": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-cream",
+            "caption": "Longest sittings, cream format."
+          }
+        }
       },
-      "block_order": ["cap1", "cap2", "cap3", "cap4"],
+      "block_order": [
+        "cap1",
+        "cap2",
+        "cap3",
+        "cap4"
+      ],
       "settings": {
         "headline": "Numbing for SPMU, by strength",
         "anchor_id": "shop",
-        "show_filters": false
+        "show_filters": false,
+        "accent_word": "strength"
       }
     },
     "format": {
@@ -83,34 +165,131 @@
       "settings": {
         "style": "brand",
         "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>Many SPMU artists apply their own numbing as part of the sitting, and some have a specific product or routine they prefer you not to interfere with. If yours does, you may not need to bring your own — and turning up already numbed without asking can affect how the pigment takes. Self-applied prep matters most where the artist doesn't provide it, or where they're happy for you to prepare beforehand. A quick message before you book settles it.</p>"
+        "body": "<p>Many SPMU artists apply their own numbing as part of the sitting, and some have a specific product or routine they prefer you not to interfere with. If yours does, you may not need to bring your own — and turning up already numbed without asking can affect how the pigment takes. Self-applied prep matters most where the artist doesn't provide it, or where they're happy for you to prepare beforehand. A quick message before you book settles it.</p>",
+        "accent_word": "skip"
       }
     },
     "characteristics": {
       "type": "senseless-key-facts",
       "blocks": {
-        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here." } },
-        "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "A cosmetic, not a medicine — no prescription needed." } },
-        "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
-        "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Built around aesthetic procedures — microblading, lip blush, brow work and more — not adapted from generic numbing." } }
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "UK-formulated",
+            "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "A cosmetic product",
+            "value": "A cosmetic, not a medicine — no prescription needed."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "CPSR assessed",
+            "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Made for aesthetics",
+            "value": "Built around aesthetic procedures — microblading, lip blush, brow work and more — not adapted from generic numbing."
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
-      "settings": { "band": "surface", "heading": "What makes it Senseless" }
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "What makes it Senseless",
+        "accent_word": "Senseless"
+      }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Which strength should I use for microblading?", "answer": "<p>Most people use Advanced — microblading is sustained work on sensitive skin. Clinical suits shorter touch-ups; Professional the longest sittings or particularly sensitive skin. If you're between two, start with the lower one.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Which strength for lip blush?", "answer": "<p>Same approach — Advanced as the everyday choice, Professional for longer sittings. Lips are sensitive and lip blush runs long, so it often asks a little more of the prep than a brow sitting.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Does microblading hurt?", "answer": "<p>Most people describe it as scratching rather than sharp, and numbing is there to reduce that discomfort — it doesn't remove all sensation. How it feels varies with the area, the technique and your own sensitivity. Your artist can tell you what to expect for your sitting.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Does lip blush hurt?", "answer": "<p>Lips are more sensitive than brows, so it tends to be felt more, and numbing reduces that discomfort rather than removing it entirely. Your artist will guide the prep that suits the sitting.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Gel or cream for SPMU?", "answer": "<p>Either. Gel is the usual pick — precise on a small area and it holds through a long sitting; cream is the equal alternative. Spray isn't suitable here. Same strengths across both.</p>" } },
-        "q6": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care around the eyes and lips, and on sensitive skin.</p>" } },
-        "q7": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which strength should I use for microblading?",
+            "answer": "<p>Most people use Advanced — microblading is sustained work on sensitive skin. Clinical suits shorter touch-ups; Professional the longest sittings or particularly sensitive skin. If you're between two, start with the lower one.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which strength for lip blush?",
+            "answer": "<p>Same approach — Advanced as the everyday choice, Professional for longer sittings. Lips are sensitive and lip blush runs long, so it often asks a little more of the prep than a brow sitting.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does microblading hurt?",
+            "answer": "<p>Most people describe it as scratching rather than sharp, and numbing is there to reduce that discomfort — it doesn't remove all sensation. How it feels varies with the area, the technique and your own sensitivity. Your artist can tell you what to expect for your sitting.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does lip blush hurt?",
+            "answer": "<p>Lips are more sensitive than brows, so it tends to be felt more, and numbing reduces that discomfort rather than removing it entirely. Your artist will guide the prep that suits the sitting.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Gel or cream for SPMU?",
+            "answer": "<p>Either. Gel is the usual pick — precise on a small area and it holds through a long sitting; cream is the equal alternative. Spray isn't suitable here. Same strengths across both.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to patch test?",
+            "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care around the eyes and lips, and on sensitive skin.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"],
-      "settings": { "headline": "Numbing for SPMU — common questions.", "anchor_id": "faq" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "headline": "Numbing for SPMU — common questions.",
+        "anchor_id": "faq"
+      }
     }
   },
-  "order": ["hero", "trust", "intro", "match", "grid", "format", "honest", "characteristics", "faq"]
+  "order": [
+    "hero",
+    "trust",
+    "intro",
+    "match",
+    "grid",
+    "format",
+    "honest",
+    "characteristics",
+    "faq"
+  ]
 }

@@ -23,7 +23,7 @@
   .ss-ed__inner { max-width: 720px; margin: 0 auto; padding: 56px 24px; }
   .ss-ed--center .ss-ed__inner { text-align: center; }
   .ss-ed__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 18px; }
-  .ss-ed__headline { font-family: var(--ss-head); font-weight: 600; font-size: 30px; line-height: 1.18; letter-spacing: -0.01em; margin: 0 0 22px; }
+  .ss-ed__headline { font-family: var(--ss-head); font-weight: 400; font-size: 30px; line-height: 1.18; letter-spacing: -0.02em; margin: 0 0 22px; }
   .ss-ed__headline .ss-ed__beat { display: block; font-size: 0.62em; font-weight: 500; line-height: 1.25; color: var(--ss-secondary); margin-top: 10px; }
   .ss-ed__lead { font-family: var(--ss-head); font-weight: 500; font-size: 21px; line-height: 1.45; margin: 0 0 20px; }
   .ss-ed__lead p { margin: 0 0 14px; }
@@ -47,7 +47,7 @@
     {%- if section.settings.eyebrow != blank -%}<p class="ss-ed__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     {%- if section.settings.headline != blank -%}
       {%- assign hl_parts = section.settings.headline | split: ' | ' -%}
-      <h2 class="ss-ed__headline">{{ hl_parts[0] | escape }}{%- if hl_parts.size > 1 -%}<span class="ss-ed__beat">{{ hl_parts[1] | escape }}</span>{%- endif -%}</h2>
+      <h2 class="ss-ed__headline">{% render 'senseless-accent', text: hl_parts[0], word: section.settings.accent_word %}{%- if hl_parts.size > 1 -%}<span class="ss-ed__beat">{{ hl_parts[1] | escape }}</span>{%- endif -%}</h2>
     {%- endif -%}
     {%- if section.settings.lead != blank -%}<div class="ss-ed__lead">{{ section.settings.lead }}</div>{%- endif -%}
     {%- if section.settings.body != blank -%}<div class="ss-ed__body">{{ section.settings.body }}</div>{%- endif -%}
@@ -65,6 +65,7 @@
     { "type": "select", "id": "align", "label": "Alignment", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Centred" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline", "info": "Add ' | ' to break into a smaller subordinate second beat.", "default": "Editorial headline" },
+    { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional — first beat only)" },
     { "type": "richtext", "id": "lead", "label": "Lead / standfirst" },
     { "type": "richtext", "id": "body", "label": "Body" },
     { "type": "text", "id": "cta_label", "label": "CTA label" },

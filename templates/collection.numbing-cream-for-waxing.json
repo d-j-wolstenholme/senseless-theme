@@ -10,19 +10,47 @@
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
-        "image_alt": "Numbing spray and cream for waxing — Senseless"
+        "image_alt": "Numbing spray and cream for waxing — Senseless",
+        "accent_word": "matched"
       }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": { "band": "surface" }
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "surface"
+      }
     },
     "intro": {
       "type": "senseless-editorial-band",
@@ -31,17 +59,40 @@
         "align": "left",
         "eyebrow": "What waxing asks",
         "headline": "Broad areas, often sensitive ones",
-        "body": "<p>Legs and arms are straightforward; bikini and brazilian work is where most people want a prep step, because the area is sensitive and the wax is direct. Broad coverage points to a spray you can apply evenly and fast; the more sensitive the area, the more strength it tends to ask for. Match the prep to the area you're actually having done.</p>"
+        "body": "<p>Legs and arms are straightforward; bikini and brazilian work is where most people want a prep step, because the area is sensitive and the wax is direct. Broad coverage points to a spray you can apply evenly and fast; the more sensitive the area, the more strength it tends to ask for. Match the prep to the area you're actually having done.</p>",
+        "accent_word": "sensitive"
       }
     },
     "match": {
       "type": "senseless-strength-ladder",
       "blocks": {
-        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>" } },
-        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>" } },
-        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "matched": "<p>The longest, most demanding appointments.</p>" } }
+        "r1": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Clinical",
+            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>"
+          }
+        },
+        "r2": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Advanced",
+            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>"
+          }
+        },
+        "r3": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Professional",
+            "matched": "<p>The longest, most demanding appointments.</p>"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
       "settings": {
         "use_metaobject": true,
         "layout": "tiles",
@@ -50,22 +101,53 @@
         "eyebrow": "The Senseless Scale",
         "headline": "Match your numbing cream for waxing to the area",
         "body": "<p>None of the three is \"better\" than another — each is formulated for a different kind of appointment. For waxing, most people sit at Advanced; sensitive bikini and brazilian work is where Professional earns its place.</p>",
-        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
+        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
+        "accent_word": "Match"
       }
     },
     "grid": {
       "type": "senseless-collection-grid",
       "blocks": {
-        "cap1": { "type": "card_caption", "settings": { "product": "advanced-strength-spray", "caption": "Bikini, brazilian, body." } },
-        "cap2": { "type": "card_caption", "settings": { "product": "advanced-strength-cream", "caption": "Lip, brow, underarm." } },
-        "cap3": { "type": "card_caption", "settings": { "product": "professional-strength-spray", "caption": "Most sensitive bikini / brazilian work." } },
-        "cap4": { "type": "card_caption", "settings": { "product": "professional-strength-cream", "caption": "Sensitive small-zone work." } }
+        "cap1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-spray",
+            "caption": "Bikini, brazilian, body."
+          }
+        },
+        "cap2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-cream",
+            "caption": "Lip, brow, underarm."
+          }
+        },
+        "cap3": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-spray",
+            "caption": "Most sensitive bikini / brazilian work."
+          }
+        },
+        "cap4": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-cream",
+            "caption": "Sensitive small-zone work."
+          }
+        }
       },
-      "block_order": ["cap1", "cap2", "cap3", "cap4"],
+      "block_order": [
+        "cap1",
+        "cap2",
+        "cap3",
+        "cap4"
+      ],
       "settings": {
         "headline": "Numbing for waxing, by area and strength",
         "anchor_id": "shop",
-        "show_filters": false
+        "show_filters": false,
+        "accent_word": "strength"
       }
     },
     "format": {
@@ -83,34 +165,131 @@
       "settings": {
         "style": "neutral",
         "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>Some waxing therapists are happy for you to prepare beforehand; others have a routine they'd rather you didn't change, and a few prefer to assess the skin themselves first. For bikini and brazilian especially, a quick message before the appointment is worth it — it tells you whether to prepare at home and how long before to apply. The therapist who knows the area and the wax they use is a better guide than a blanket rule from us.</p>"
+        "body": "<p>Some waxing therapists are happy for you to prepare beforehand; others have a routine they'd rather you didn't change, and a few prefer to assess the skin themselves first. For bikini and brazilian especially, a quick message before the appointment is worth it — it tells you whether to prepare at home and how long before to apply. The therapist who knows the area and the wax they use is a better guide than a blanket rule from us.</p>",
+        "accent_word": "skip"
       }
     },
     "characteristics": {
       "type": "senseless-key-facts",
       "blocks": {
-        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here." } },
-        "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "A cosmetic, not a medicine — no prescription needed." } },
-        "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
-        "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Built around aesthetic procedures — bikini, brazilian and body waxing and more — not adapted from generic numbing." } }
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "UK-formulated",
+            "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "A cosmetic product",
+            "value": "A cosmetic, not a medicine — no prescription needed."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "CPSR assessed",
+            "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Made for aesthetics",
+            "value": "Built around aesthetic procedures — bikini, brazilian and body waxing and more — not adapted from generic numbing."
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
-      "settings": { "band": "canvas", "heading": "What makes it Senseless" }
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "canvas",
+        "heading": "What makes it Senseless",
+        "accent_word": "Senseless"
+      }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before waxing?", "answer": "<p>Yes — it's a common prep step, especially for bikini and brazilian appointments. Senseless is a topical preparation for use before aesthetic procedures, including waxing. Check with your therapist for the area you're booked for, as some prefer to advise on timing themselves.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Does numbing cream work for waxing?", "answer": "<p>It's a common way to prepare, and it's there to reduce the discomfort rather than remove all sensation. How much difference it makes varies with the area, your sensitivity and the wax used. Many people find prepared skin more comfortable; your therapist can tell you what to expect for your appointment.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "What's the best numbing for a bikini or brazilian wax?", "answer": "<p>Advanced spray for most bikini and brazilian work; Professional spray for the most sensitive sessions. Clinical is usually not enough for bikini work — the area is sensitive enough that most people step up.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Spray or cream for waxing?", "answer": "<p>Spray for body work — bikini, brazilian, legs; cream for smaller zones — upper lip, brow, underarm. The area decides, not personal preference.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Does waxing hurt?", "answer": "<p>Waxing pulls hair from the root, so it's felt — most on sensitive areas like the bikini line — and numbing reduces that discomfort rather than removing it. How much you feel varies with the area, your sensitivity and how often you wax. Your therapist can talk you through what to expect.</p>" } },
-        "q6": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive areas like the bikini line, and never on broken or irritated skin.</p>" } },
-        "q7": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can you use numbing cream before waxing?",
+            "answer": "<p>Yes — it's a common prep step, especially for bikini and brazilian appointments. Senseless is a topical preparation for use before aesthetic procedures, including waxing. Check with your therapist for the area you're booked for, as some prefer to advise on timing themselves.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does numbing cream work for waxing?",
+            "answer": "<p>It's a common way to prepare, and it's there to reduce the discomfort rather than remove all sensation. How much difference it makes varies with the area, your sensitivity and the wax used. Many people find prepared skin more comfortable; your therapist can tell you what to expect for your appointment.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the best numbing for a bikini or brazilian wax?",
+            "answer": "<p>Advanced spray for most bikini and brazilian work; Professional spray for the most sensitive sessions. Clinical is usually not enough for bikini work — the area is sensitive enough that most people step up.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Spray or cream for waxing?",
+            "answer": "<p>Spray for body work — bikini, brazilian, legs; cream for smaller zones — upper lip, brow, underarm. The area decides, not personal preference.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does waxing hurt?",
+            "answer": "<p>Waxing pulls hair from the root, so it's felt — most on sensitive areas like the bikini line — and numbing reduces that discomfort rather than removing it. How much you feel varies with the area, your sensitivity and how often you wax. Your therapist can talk you through what to expect.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to patch test?",
+            "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive areas like the bikini line, and never on broken or irritated skin.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"],
-      "settings": { "headline": "Numbing for waxing — common questions.", "anchor_id": "faq" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "headline": "Numbing for waxing — common questions.",
+        "anchor_id": "faq"
+      }
     }
   },
-  "order": ["hero", "trust", "intro", "match", "grid", "format", "honest", "characteristics", "faq"]
+  "order": [
+    "hero",
+    "trust",
+    "intro",
+    "match",
+    "grid",
+    "format",
+    "honest",
+    "characteristics",
+    "faq"
+  ]
 }

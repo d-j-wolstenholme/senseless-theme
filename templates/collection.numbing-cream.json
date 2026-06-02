@@ -10,28 +10,78 @@
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
-        "image_alt": "Senseless numbing cream — Clinical, Advanced and Professional strengths"
+        "image_alt": "Senseless numbing cream — Clinical, Advanced and Professional strengths",
+        "accent_word": "matched"
       }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": { "band": "canvas" }
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
     },
     "match": {
       "type": "senseless-strength-ladder",
       "blocks": {
-        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>" } },
-        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>" } },
-        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "matched": "<p>The longest, most demanding appointments.</p>" } }
+        "r1": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Clinical",
+            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>"
+          }
+        },
+        "r2": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Advanced",
+            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>"
+          }
+        },
+        "r3": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Professional",
+            "matched": "<p>The longest, most demanding appointments.</p>"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
       "settings": {
         "use_metaobject": true,
         "band": "surface",
@@ -39,7 +89,8 @@
         "eyebrow": "The Senseless Scale",
         "headline": "Match your numbing cream to the session",
         "body": "<p>Cream is the broad-coverage default — the format most appointments call for. Within it, the strength is the choice that matters. None is \"better\" than another; each is formulated for a different kind of session.</p>",
-        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
+        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
+        "accent_word": "Match"
       }
     },
     "grid": {
@@ -47,33 +98,87 @@
       "settings": {
         "headline": "Buy numbing cream by strength",
         "anchor_id": "shop",
-        "show_filters": false
+        "show_filters": false,
+        "accent_word": "strength"
       }
     },
     "format": {
       "type": "senseless-format-row",
       "blocks": {
-        "f1": { "type": "format_item", "settings": { "label": "Gel", "body": "<p>Precise facial work (brows, lips) and longer sittings where it needs to stay exactly where you put it.</p>", "cta_label": "See numbing gel", "cta_url": "/collections/numbing-gel" } },
-        "f2": { "type": "format_item", "settings": { "label": "Spray", "body": "<p>Large or awkward-to-reach areas where cream is fiddly to apply evenly.</p>", "cta_label": "See numbing spray", "cta_url": "/collections/numbing-spray" } }
+        "f1": {
+          "type": "format_item",
+          "settings": {
+            "label": "Gel",
+            "body": "<p>Precise facial work (brows, lips) and longer sittings where it needs to stay exactly where you put it.</p>",
+            "cta_label": "See numbing gel",
+            "cta_url": "/collections/numbing-gel"
+          }
+        },
+        "f2": {
+          "type": "format_item",
+          "settings": {
+            "label": "Spray",
+            "body": "<p>Large or awkward-to-reach areas where cream is fiddly to apply evenly.</p>",
+            "cta_label": "See numbing spray",
+            "cta_url": "/collections/numbing-spray"
+          }
+        }
       },
-      "block_order": ["f1", "f2"],
+      "block_order": [
+        "f1",
+        "f2"
+      ],
       "settings": {
         "eyebrow": "Format check",
         "headline": "Is cream the right format?",
         "body": "<p>Cream suits broad coverage and most appointments — it's the one to reach for by default. Two cases where another format fits better:</p>",
         "footer_label": "See all procedures",
-        "footer_url": "/pages/aesthetic-procedures"
+        "footer_url": "/pages/aesthetic-procedures",
+        "accent_word": "right"
       }
     },
     "uses": {
       "type": "senseless-link-row",
       "blocks": {
-        "u1": { "type": "link_item", "settings": { "label": "Microneedling", "note": "Broad facial coverage before a roller or pen session.", "url": "/collections/numbing-cream-for-microneedling" } },
-        "u2": { "type": "link_item", "settings": { "label": "Laser (face)", "note": "Even coverage on facial treatment zones.", "url": "/collections/numbing-cream-for-laser-treatment" } },
-        "u3": { "type": "link_item", "settings": { "label": "Semi-permanent makeup", "note": "Prep for brows, lash line and lip work.", "url": "/collections/numbing-cream-for-semi-permanent-makeup" } },
-        "u4": { "type": "link_item", "settings": { "label": "Waxing (small zones)", "note": "Lip, brow and small areas where a cream applies cleanly.", "url": "/collections/numbing-cream-for-waxing" } }
+        "u1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Microneedling",
+            "note": "Broad facial coverage before a roller or pen session.",
+            "url": "/collections/numbing-cream-for-microneedling"
+          }
+        },
+        "u2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Laser (face)",
+            "note": "Even coverage on facial treatment zones.",
+            "url": "/collections/numbing-cream-for-laser-treatment"
+          }
+        },
+        "u3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Semi-permanent makeup",
+            "note": "Prep for brows, lash line and lip work.",
+            "url": "/collections/numbing-cream-for-semi-permanent-makeup"
+          }
+        },
+        "u4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Waxing (small zones)",
+            "note": "Lip, brow and small areas where a cream applies cleanly.",
+            "url": "/collections/numbing-cream-for-waxing"
+          }
+        }
       },
-      "block_order": ["u1", "u2", "u3", "u4"],
+      "block_order": [
+        "u1",
+        "u2",
+        "u3",
+        "u4"
+      ],
       "settings": {
         "band": "surface",
         "eyebrow": "Suited to",
@@ -88,7 +193,8 @@
         "background": "white",
         "align": "left",
         "headline": "Built for the procedure, not the average",
-        "body": "<p>A generic skin numbing cream treats every situation the same — the same product for a five-minute touch-up and a full-face session. Aesthetic appointments aren't the same, so Senseless isn't built that way. Three strengths, three formats, formulated for what each kind of appointment actually asks for. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>"
+        "body": "<p>A generic skin numbing cream treats every situation the same — the same product for a five-minute touch-up and a full-face session. Aesthetic appointments aren't the same, so Senseless isn't built that way. Three strengths, three formats, formulated for what each kind of appointment actually asks for. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>",
+        "accent_word": "average"
       }
     },
     "honest": {
@@ -96,36 +202,148 @@
       "settings": {
         "style": "brand",
         "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard. If yours does, you may not need to bring your own — and arriving already numbed without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>"
+        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard. If yours does, you may not need to bring your own — and arriving already numbed without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>",
+        "accent_word": "skip"
       }
     },
     "characteristics": {
       "type": "senseless-key-facts",
       "blocks": {
-        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Every Senseless topical numbing cream is formulated in the United Kingdom by Matrix Health Group Ltd — numbing cream UK customers order, developed and assessed here." } },
-        "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "Senseless is a cosmetic, not a medicine — no prescription needed." } },
-        "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
-        "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Designed around aesthetic procedures — microneedling, laser, SPMU, waxing and more — not adapted from generic numbing." } }
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "UK-formulated",
+            "value": "Every Senseless topical numbing cream is formulated in the United Kingdom by Matrix Health Group Ltd — numbing cream UK customers order, developed and assessed here."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "A cosmetic product",
+            "value": "Senseless is a cosmetic, not a medicine — no prescription needed."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "CPSR assessed",
+            "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Made for aesthetics",
+            "value": "Designed around aesthetic procedures — microneedling, laser, SPMU, waxing and more — not adapted from generic numbing."
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
-      "settings": { "band": "surface", "heading": "What makes it Senseless" }
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "What makes it Senseless",
+        "accent_word": "Senseless"
+      }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "How long before my appointment do I apply numbing cream?", "answer": "<p>As a general guide, around 45–60 minutes before for cream — but this varies, so follow the product guidance and your practitioner. Customers who get on best tend to apply a thick, visible layer that sits on the surface rather than being rubbed in, then cover it (cling film or similar) until it's removed before the appointment.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "How long does numbing cream last?", "answer": "<p>It depends on three things: which strength you use, how well it's applied, and how long and demanding the appointment is. Rather than a fixed number of hours, think of it as fading gradually — apply close enough to your appointment that it's working through the part that matters. Your practitioner can advise for your specific treatment.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Which strength should I choose?", "answer": "<p>Match it to the session, not to price. Clinical for shorter, routine appointments; Advanced for longer or more sensitive work and larger areas; Professional for the most demanding sessions. If you're between two, start with the lower one.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Should I use cream, gel or spray?", "answer": "<p>Cream for broad coverage and most appointments; gel for precise facial work and longer sittings; spray for large or awkward areas.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>" } },
-        "q6": { "type": "faq_item", "settings": { "question": "Can I apply it the night before?", "answer": "<p>No — apply it close to your appointment, not the night before. It's made for the short window before your treatment.</p>" } },
-        "q7": { "type": "faq_item", "settings": { "question": "Which size do I need?", "answer": "<p>10g suits a single session or a trial; 30g is the regular size for repeat use or larger areas. (Professional comes in 30g.)</p>" } },
-        "q8": { "type": "faq_item", "settings": { "question": "Is numbing cream a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } },
-        "q9": { "type": "faq_item", "settings": { "question": "What's in it?", "answer": "<p>Each formula is a UK cosmetic formulated by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long before my appointment do I apply numbing cream?",
+            "answer": "<p>As a general guide, around 45–60 minutes before for cream — but this varies, so follow the product guidance and your practitioner. Customers who get on best tend to apply a thick, visible layer that sits on the surface rather than being rubbed in, then cover it (cling film or similar) until it's removed before the appointment.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does numbing cream last?",
+            "answer": "<p>It depends on three things: which strength you use, how well it's applied, and how long and demanding the appointment is. Rather than a fixed number of hours, think of it as fading gradually — apply close enough to your appointment that it's working through the part that matters. Your practitioner can advise for your specific treatment.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which strength should I choose?",
+            "answer": "<p>Match it to the session, not to price. Clinical for shorter, routine appointments; Advanced for longer or more sensitive work and larger areas; Professional for the most demanding sessions. If you're between two, start with the lower one.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should I use cream, gel or spray?",
+            "answer": "<p>Cream for broad coverage and most appointments; gel for precise facial work and longer sittings; spray for large or awkward areas.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to patch test?",
+            "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I apply it the night before?",
+            "answer": "<p>No — apply it close to your appointment, not the night before. It's made for the short window before your treatment.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which size do I need?",
+            "answer": "<p>10g suits a single session or a trial; 30g is the regular size for repeat use or larger areas. (Professional comes in 30g.)</p>"
+          }
+        },
+        "q8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is numbing cream a medicine?",
+            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
+          }
+        },
+        "q9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's in it?",
+            "answer": "<p>Each formula is a UK cosmetic formulated by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"],
-      "settings": { "headline": "Numbing cream — common questions.", "anchor_id": "faq" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9"
+      ],
+      "settings": {
+        "headline": "Numbing cream — common questions.",
+        "anchor_id": "faq"
+      }
     }
   },
-  "order": ["hero", "trust", "match", "grid", "format", "uses", "philosophy", "honest", "characteristics", "faq"]
+  "order": [
+    "hero",
+    "trust",
+    "match",
+    "grid",
+    "format",
+    "uses",
+    "philosophy",
+    "honest",
+    "characteristics",
+    "faq"
+  ]
 }

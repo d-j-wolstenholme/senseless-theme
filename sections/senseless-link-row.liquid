@@ -17,7 +17,7 @@
   .ss-lr__inner { max-width:860px; margin:0 auto; padding:48px 20px; }
   .ss-lr__head { max-width:62ch; margin:0 0 18px; display:flex; flex-direction:column; gap:10px; }
   .ss-lr__eyebrow { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
-  .ss-lr__headline { font-family:var(--sans); font-weight:600; font-size:24px; line-height:1.2; margin:0; }
+  .ss-lr__headline { font-family:var(--sans); font-weight: 400; letter-spacing: -0.02em; font-size:24px; line-height:1.2; margin:0; }
   .ss-lr__intro { font-family:var(--sans); font-size:15.5px; line-height:1.55; color:var(--body); }
   .ss-lr__intro p { margin:0; }
   .ss-lr__list { list-style:none; margin:14px 0 0; padding:0; border-top:1px solid var(--bd); }
@@ -39,7 +39,7 @@
     {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.intro != blank -%}
       <header class="ss-lr__head">
         {%- if section.settings.eyebrow != blank -%}<p class="ss-lr__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-        {%- if section.settings.headline != blank -%}<h2 class="ss-lr__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-lr__headline">{% render 'senseless-accent', text: section.settings.headline, word: section.settings.accent_word %}</h2>{%- endif -%}
         {%- if section.settings.intro != blank -%}<div class="ss-lr__intro">{{ section.settings.intro }}</div>{%- endif -%}
       </header>
     {%- endif -%}
@@ -71,6 +71,7 @@
     { "type": "select", "id": "band", "label": "Band background", "default": "surface", "options": [ { "value": "canvas", "label": "Canvas (off-white)" }, { "value": "surface", "label": "Surface (white)" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional)" },
     { "type": "richtext", "id": "intro", "label": "Intro line" },
     { "type": "richtext", "id": "closer", "label": "Closing line" }
   ],

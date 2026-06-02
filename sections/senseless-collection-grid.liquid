@@ -20,7 +20,7 @@
   .ss-cg__inner { max-width:1200px; margin:0 auto; padding:44px 20px; }
   .ss-cg__head { max-width:62ch; margin:0 0 24px; display:flex; flex-direction:column; gap:12px; }
   .ss-cg__eyebrow { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
-  .ss-cg__headline { font-family:var(--sans); font-weight:600; font-size:28px; line-height:1.2; margin:0; }
+  .ss-cg__headline { font-family:var(--sans); font-weight: 400; letter-spacing: -0.02em; font-size:28px; line-height:1.2; margin:0; }
   .ss-cg__body { font-family:var(--sans); font-size:16px; line-height:1.55; color:var(--body); margin:0; }
   .ss-cg__body p { margin:0 0 8px; } .ss-cg__body p:last-child { margin:0; }
   .ss-cg__tabs { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 24px; }
@@ -66,7 +66,7 @@
     {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
       <header class="ss-cg__head">
         {%- if section.settings.eyebrow != blank -%}<p class="ss-cg__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-        {%- if section.settings.headline != blank -%}<h2 class="ss-cg__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-cg__headline">{% render 'senseless-accent', text: section.settings.headline, word: section.settings.accent_word %}</h2>{%- endif -%}
         {%- if section.settings.body != blank -%}<div class="ss-cg__body">{{ section.settings.body }}</div>{%- endif -%}
       </header>
     {%- endif -%}
@@ -205,6 +205,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional)" },
     { "type": "richtext", "id": "body", "label": "Intro body" },
     { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "shop" },
     { "type": "checkbox", "id": "show_filters", "label": "Show strength filter tabs", "default": true }

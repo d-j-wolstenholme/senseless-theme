@@ -22,7 +22,7 @@
   .ss-chero__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; display: grid; gap: 28px; }
   .ss-chero__content { display: flex; flex-direction: column; gap: 16px; }
   .ss-chero__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
-  .ss-chero__headline { font-family: var(--ss-head); font-weight: 600; font-size: 36px; line-height: 1.1; letter-spacing: -0.01em; margin: 0; }
+  .ss-chero__headline { font-family: var(--ss-head); font-weight: 400; font-size: 36px; line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
   .ss-chero__subhead { font-family: var(--ss-sans); font-weight: 400; font-size: 17px; line-height: 1.55; color: var(--ss-body); margin: 0; max-width: 46ch; }
   .ss-chero__subhead p { margin: 0; }
   .ss-chero__ctas { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
@@ -50,7 +50,7 @@
   <div class="ss-chero__inner">
     <div class="ss-chero__content">
       {%- if section.settings.eyebrow != blank -%}<p class="ss-chero__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-      {%- if section.settings.headline != blank -%}<h1 class="ss-chero__headline">{{ section.settings.headline | escape }}</h1>{%- endif -%}
+      {%- if section.settings.headline != blank -%}<h1 class="ss-chero__headline">{% render 'senseless-accent', text: section.settings.headline, word: section.settings.accent_word %}</h1>{%- endif -%}
       {%- if section.settings.subhead != blank -%}<div class="ss-chero__subhead">{{ section.settings.subhead }}</div>{%- endif -%}
       <div class="ss-chero__ctas">
         {%- if section.settings.primary_cta_label != blank -%}<a class="ss-chero__btn ss-chero__btn--primary" href="{{ section.settings.primary_cta_url | default: '#' }}">{{ section.settings.primary_cta_label | escape }}</a>{%- endif -%}
@@ -75,6 +75,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional)" },
     { "type": "richtext", "id": "subhead", "label": "Subhead" },
     { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label" },
     { "type": "url", "id": "primary_cta_url", "label": "Primary CTA link", "info": "Can be an anchor like #product-grid (set in template)." },

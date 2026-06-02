@@ -10,19 +10,47 @@
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
-        "image_alt": "Numbing gel and cream for microneedling — Senseless"
+        "image_alt": "Numbing gel and cream for microneedling — Senseless",
+        "accent_word": "matched"
       }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": { "band": "canvas" }
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
     },
     "intro": {
       "type": "senseless-editorial-band",
@@ -31,17 +59,40 @@
         "align": "left",
         "eyebrow": "What microneedling asks",
         "headline": "Why microneedling asks more of your prep",
-        "body": "<p>A full-face microneedling session covers a broad area for a sustained stretch, not a single quick point. That's why a precise format that stays put tends to suit it better than a light cream, and why most people land on Advanced rather than the entry strength. Match the preparation to the session you're actually booked for.</p>"
+        "body": "<p>A full-face microneedling session covers a broad area for a sustained stretch, not a single quick point. That's why a precise format that stays put tends to suit it better than a light cream, and why most people land on Advanced rather than the entry strength. Match the preparation to the session you're actually booked for.</p>",
+        "accent_word": "more"
       }
     },
     "match": {
       "type": "senseless-strength-ladder",
       "blocks": {
-        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>" } },
-        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>" } },
-        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "matched": "<p>The longest, most demanding appointments.</p>" } }
+        "r1": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Clinical",
+            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>"
+          }
+        },
+        "r2": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Advanced",
+            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>"
+          }
+        },
+        "r3": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Professional",
+            "matched": "<p>The longest, most demanding appointments.</p>"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
       "settings": {
         "use_metaobject": true,
         "layout": "tiles",
@@ -50,22 +101,53 @@
         "eyebrow": "The Senseless Scale",
         "headline": "Match your numbing cream for microneedling to the session",
         "body": "<p>None of the three is \"better\" than another — each is formulated for a different kind of session. For microneedling, most people start at Advanced.</p>",
-        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
+        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
+        "accent_word": "Match"
       }
     },
     "grid": {
       "type": "senseless-collection-grid",
       "blocks": {
-        "cap1": { "type": "card_caption", "settings": { "product": "advanced-strength-gel", "caption": "Precise facial format, the usual microneedling pick." } },
-        "cap2": { "type": "card_caption", "settings": { "product": "advanced-strength-cream", "caption": "If you prefer a cream." } },
-        "cap3": { "type": "card_caption", "settings": { "product": "professional-strength-gel", "caption": "For the most intensive sessions." } },
-        "cap4": { "type": "card_caption", "settings": { "product": "professional-strength-cream", "caption": "Intensive sessions, cream format." } }
+        "cap1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-gel",
+            "caption": "Precise facial format, the usual microneedling pick."
+          }
+        },
+        "cap2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-cream",
+            "caption": "If you prefer a cream."
+          }
+        },
+        "cap3": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-gel",
+            "caption": "For the most intensive sessions."
+          }
+        },
+        "cap4": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-cream",
+            "caption": "Intensive sessions, cream format."
+          }
+        }
       },
-      "block_order": ["cap1", "cap2", "cap3", "cap4"],
+      "block_order": [
+        "cap1",
+        "cap2",
+        "cap3",
+        "cap4"
+      ],
       "settings": {
         "headline": "Numbing for microneedling, by strength",
         "anchor_id": "shop",
-        "show_filters": false
+        "show_filters": false,
+        "accent_word": "strength"
       }
     },
     "format": {
@@ -83,34 +165,131 @@
       "settings": {
         "style": "brand",
         "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>Most microneedling clinics apply their own numbing as standard — it's part of the treatment. If yours does, you may not need to bring your own, and arriving already numbed without checking can get in the way of the session. Self-applied preparation matters most where the practitioner doesn't provide it, or where you want extra on top. A quick message before you book settles it.</p>"
+        "body": "<p>Most microneedling clinics apply their own numbing as standard — it's part of the treatment. If yours does, you may not need to bring your own, and arriving already numbed without checking can get in the way of the session. Self-applied preparation matters most where the practitioner doesn't provide it, or where you want extra on top. A quick message before you book settles it.</p>",
+        "accent_word": "skip"
       }
     },
     "characteristics": {
       "type": "senseless-key-facts",
       "blocks": {
-        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here." } },
-        "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "A cosmetic, not a medicine — no prescription needed." } },
-        "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
-        "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Built around procedures like microneedling — not adapted from generic numbing." } }
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "UK-formulated",
+            "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "A cosmetic product",
+            "value": "A cosmetic, not a medicine — no prescription needed."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "CPSR assessed",
+            "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Made for aesthetics",
+            "value": "Built around procedures like microneedling — not adapted from generic numbing."
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
-      "settings": { "band": "surface", "heading": "What makes it Senseless" }
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "What makes it Senseless",
+        "accent_word": "Senseless"
+      }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Which strength should I use for microneedling?", "answer": "<p>Most people use Advanced — microneedling runs longer and covers more skin than a quick appointment. Clinical suits shorter or first sessions; Professional the most intensive work. If you're between two, start with the lower one.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Gel or cream for microneedling?", "answer": "<p>Either. Gel is the usual pick — precise on the face and it holds through the session; cream is the equal alternative if you prefer it. Same strengths across both.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Does microneedling hurt?", "answer": "<p>Most people find it manageable, and numbing is there to reduce the discomfort — it doesn't remove all sensation. How it feels varies with the depth, the area, and your own sensitivity. Your practitioner can talk you through what to expect for your treatment.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "How long before microneedling do I apply it?", "answer": "<p>Allow time for it to take effect before your appointment, and cover the area if the window is longer — follow the product guidance and your practitioner. Apply a visible layer that sits on the surface rather than being rubbed in.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>" } },
-        "q6": { "type": "faq_item", "settings": { "question": "Is it safe across the whole face?", "answer": "<p>Senseless is made for facial preparation before aesthetic appointments. Follow your practitioner's guidance for the specific zones treated in your session.</p>" } },
-        "q7": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which strength should I use for microneedling?",
+            "answer": "<p>Most people use Advanced — microneedling runs longer and covers more skin than a quick appointment. Clinical suits shorter or first sessions; Professional the most intensive work. If you're between two, start with the lower one.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Gel or cream for microneedling?",
+            "answer": "<p>Either. Gel is the usual pick — precise on the face and it holds through the session; cream is the equal alternative if you prefer it. Same strengths across both.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does microneedling hurt?",
+            "answer": "<p>Most people find it manageable, and numbing is there to reduce the discomfort — it doesn't remove all sensation. How it feels varies with the depth, the area, and your own sensitivity. Your practitioner can talk you through what to expect for your treatment.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long before microneedling do I apply it?",
+            "answer": "<p>Allow time for it to take effect before your appointment, and cover the area if the window is longer — follow the product guidance and your practitioner. Apply a visible layer that sits on the surface rather than being rubbed in.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to patch test?",
+            "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe across the whole face?",
+            "answer": "<p>Senseless is made for facial preparation before aesthetic appointments. Follow your practitioner's guidance for the specific zones treated in your session.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"],
-      "settings": { "headline": "Numbing for microneedling — common questions.", "anchor_id": "faq" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "headline": "Numbing for microneedling — common questions.",
+        "anchor_id": "faq"
+      }
     }
   },
-  "order": ["hero", "trust", "intro", "match", "grid", "format", "honest", "characteristics", "faq"]
+  "order": [
+    "hero",
+    "trust",
+    "intro",
+    "match",
+    "grid",
+    "format",
+    "honest",
+    "characteristics",
+    "faq"
+  ]
 }

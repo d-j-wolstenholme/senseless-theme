@@ -20,7 +20,7 @@
   .ss-sl__inner { max-width:860px; margin:0 auto; padding:56px 20px; }
   .ss-sl__head { max-width:62ch; margin:0 0 28px; display:flex; flex-direction:column; gap:12px; }
   .ss-sl__eyebrow { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
-  .ss-sl__headline { font-family:var(--sans); font-weight:600; font-size:28px; line-height:1.2; margin:0; }
+  .ss-sl__headline { font-family:var(--sans); font-weight: 400; letter-spacing: -0.02em; font-size:28px; line-height:1.2; margin:0; }
   .ss-sl__intro { font-family:var(--sans); font-size:16px; line-height:1.6; color:var(--body); }
   .ss-sl__intro p { margin:0 0 8px; } .ss-sl__intro p:last-child { margin:0; }
   .ss-sl__strength { font-family:var(--sans); font-weight:600; font-size:16px; color:var(--p); margin:0; }
@@ -54,7 +54,7 @@
     {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
       <header class="ss-sl__head">
         {%- if section.settings.eyebrow != blank -%}<p class="ss-sl__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-        {%- if section.settings.headline != blank -%}<h2 class="ss-sl__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-sl__headline">{% render 'senseless-accent', text: section.settings.headline, word: section.settings.accent_word %}</h2>{%- endif -%}
         {%- if section.settings.body != blank -%}<div class="ss-sl__intro">{{ section.settings.body }}</div>{%- endif -%}
       </header>
     {%- endif -%}
@@ -103,6 +103,7 @@
     { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "match" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Selection" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "Match your strength to the session" },
+    { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional)" },
     { "type": "richtext", "id": "body", "label": "Intro body" },
     { "type": "richtext", "id": "note", "label": "Anti-upsell note (under the matrix)" },
     { "type": "header", "content": "Source" },

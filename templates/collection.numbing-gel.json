@@ -10,28 +10,78 @@
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
-        "image_alt": "Senseless numbing gel — Clinical, Advanced and Professional strengths"
+        "image_alt": "Senseless numbing gel — Clinical, Advanced and Professional strengths",
+        "accent_word": "matched"
       }
     },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": { "band": "surface" }
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "surface"
+      }
     },
     "match": {
       "type": "senseless-strength-ladder",
       "blocks": {
-        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>" } },
-        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>" } },
-        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "matched": "<p>The longest, most demanding appointments.</p>" } }
+        "r1": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Clinical",
+            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>"
+          }
+        },
+        "r2": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Advanced",
+            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>"
+          }
+        },
+        "r3": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Professional",
+            "matched": "<p>The longest, most demanding appointments.</p>"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
       "settings": {
         "use_metaobject": true,
         "band": "canvas",
@@ -39,7 +89,8 @@
         "eyebrow": "The Senseless Scale",
         "headline": "Match your numbing gel to the session",
         "body": "<p>Gel is the precise format — it holds on facial and contoured areas and stays put through a longer sitting. Within it, the strength is the choice that matters. None is \"better\" than another; each is formulated for a different kind of session.</p>",
-        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
+        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
+        "accent_word": "Match"
       }
     },
     "grid": {
@@ -47,33 +98,85 @@
       "settings": {
         "headline": "Buy numbing gel by strength",
         "anchor_id": "shop",
-        "show_filters": false
+        "show_filters": false,
+        "accent_word": "strength"
       }
     },
     "format": {
       "type": "senseless-format-row",
       "blocks": {
-        "f1": { "type": "format_item", "settings": { "label": "Cream", "body": "<p>Broad coverage and most appointments; the default for larger or simpler areas.</p>", "cta_label": "See numbing cream", "cta_url": "/collections/numbing-cream" } },
-        "f2": { "type": "format_item", "settings": { "label": "Spray", "body": "<p>Large or awkward-to-reach areas where applying an even layer by hand is fiddly.</p>", "cta_label": "See numbing spray", "cta_url": "/collections/numbing-spray" } }
+        "f1": {
+          "type": "format_item",
+          "settings": {
+            "label": "Cream",
+            "body": "<p>Broad coverage and most appointments; the default for larger or simpler areas.</p>",
+            "cta_label": "See numbing cream",
+            "cta_url": "/collections/numbing-cream"
+          }
+        },
+        "f2": {
+          "type": "format_item",
+          "settings": {
+            "label": "Spray",
+            "body": "<p>Large or awkward-to-reach areas where applying an even layer by hand is fiddly.</p>",
+            "cta_label": "See numbing spray",
+            "cta_url": "/collections/numbing-spray"
+          }
+        }
       },
-      "block_order": ["f1", "f2"],
+      "block_order": [
+        "f1",
+        "f2"
+      ],
       "settings": {
         "eyebrow": "Format check",
         "headline": "Is gel the right format?",
         "body": "<p>Gel is the one to reach for when the work is precise or facial, or when a sitting runs long enough that a cream would start to move. Two cases where another format fits better:</p>",
         "footer_label": "See all procedures",
-        "footer_url": "/pages/aesthetic-procedures"
+        "footer_url": "/pages/aesthetic-procedures",
+        "accent_word": "right"
       }
     },
     "uses": {
       "type": "senseless-link-row",
       "blocks": {
-        "u1": { "type": "link_item", "settings": { "label": "Microneedling", "note": "Holds on the face through a full roller/pen session.", "url": "/collections/numbing-cream-for-microneedling" } },
-        "u2": { "type": "link_item", "settings": { "label": "Semi-permanent makeup", "note": "Stays put on brows, lash line and lips through a long sitting.", "url": "/collections/numbing-cream-for-semi-permanent-makeup" } },
-        "u3": { "type": "link_item", "settings": { "label": "Precise facial work", "note": "Small, defined areas where a cream would migrate." } },
-        "u4": { "type": "link_item", "settings": { "label": "Lip work", "note": "A contained area that needs the product to stay exactly where placed." } }
+        "u1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Microneedling",
+            "note": "Holds on the face through a full roller/pen session.",
+            "url": "/collections/numbing-cream-for-microneedling"
+          }
+        },
+        "u2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Semi-permanent makeup",
+            "note": "Stays put on brows, lash line and lips through a long sitting.",
+            "url": "/collections/numbing-cream-for-semi-permanent-makeup"
+          }
+        },
+        "u3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Precise facial work",
+            "note": "Small, defined areas where a cream would migrate."
+          }
+        },
+        "u4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Lip work",
+            "note": "A contained area that needs the product to stay exactly where placed."
+          }
+        }
       },
-      "block_order": ["u1", "u2", "u3", "u4"],
+      "block_order": [
+        "u1",
+        "u2",
+        "u3",
+        "u4"
+      ],
       "settings": {
         "band": "surface",
         "eyebrow": "Suited to",
@@ -88,7 +191,8 @@
         "background": "canvas",
         "align": "left",
         "headline": "Built for the procedure, not the average",
-        "body": "<p>A generic numbing product treats every situation the same — the same thing for a five-minute touch-up and a full facial session. Aesthetic appointments aren't the same, so Senseless isn't built that way. The Senseless System pairs three strengths with three formats, each formulated for what a kind of appointment actually asks for. Gel exists because some work needs a format that stays exactly where it's placed. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>"
+        "body": "<p>A generic numbing product treats every situation the same — the same thing for a five-minute touch-up and a full facial session. Aesthetic appointments aren't the same, so Senseless isn't built that way. The Senseless System pairs three strengths with three formats, each formulated for what a kind of appointment actually asks for. Gel exists because some work needs a format that stays exactly where it's placed. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>",
+        "accent_word": "average"
       }
     },
     "honest": {
@@ -96,35 +200,140 @@
       "settings": {
         "style": "neutral",
         "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard — microneedling especially. If yours does, you may not need to bring your own, and arriving already numbed without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>"
+        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard — microneedling especially. If yours does, you may not need to bring your own, and arriving already numbed without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>",
+        "accent_word": "skip"
       }
     },
     "characteristics": {
       "type": "senseless-key-facts",
       "blocks": {
-        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Every Senseless gel is formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here." } },
-        "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "Senseless is a cosmetic, not a medicine — no prescription needed." } },
-        "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
-        "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Designed around aesthetic procedures — microneedling, SPMU, facial work and more — not adapted from generic numbing." } }
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "UK-formulated",
+            "value": "Every Senseless gel is formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "A cosmetic product",
+            "value": "Senseless is a cosmetic, not a medicine — no prescription needed."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "CPSR assessed",
+            "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Made for aesthetics",
+            "value": "Designed around aesthetic procedures — microneedling, SPMU, facial work and more — not adapted from generic numbing."
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
-      "settings": { "band": "surface", "heading": "What makes it Senseless" }
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "What makes it Senseless",
+        "accent_word": "Senseless"
+      }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "When should I use gel instead of cream?", "answer": "<p>Reach for gel when the work is precise or facial, or when a sitting runs long enough that a cream would start to move — it holds where you place it. Cream suits broad coverage and most appointments; gel suits microneedling, facial work and longer sittings.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Which gel strength should I choose?", "answer": "<p>Match it to the session, not to price. Clinical for shorter, routine appointments; Advanced for longer or more sensitive work and larger areas; Professional for the most demanding sessions. If you're between two, start with the lower one.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Is gel stronger than cream?", "answer": "<p>No. The three strengths — Clinical, Advanced, Professional — run across both formats. A Clinical gel matches a Clinical cream on strength; the difference is the format, not the strength. Choose gel for how it sits on the skin, not for an assumed strength difference.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "How long before my appointment do I apply numbing gel?", "answer": "<p>Allow time for it to take effect before your appointment, and cover the area if the window is longer — follow the product guidance and your practitioner. Customers who get on best apply a visible layer that sits on the surface rather than being rubbed in.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Which size do I need?", "answer": "<p>15ml suits a single session, a smaller area, or a trial; 35ml is the regular size for repeat use or larger areas. Both sizes are available in all three strengths.</p>" } },
-        "q6": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>" } },
-        "q7": { "type": "faq_item", "settings": { "question": "Is numbing gel a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } },
-        "q8": { "type": "faq_item", "settings": { "question": "What's in it?", "answer": "<p>Each formula is a UK cosmetic formulated by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I use gel instead of cream?",
+            "answer": "<p>Reach for gel when the work is precise or facial, or when a sitting runs long enough that a cream would start to move — it holds where you place it. Cream suits broad coverage and most appointments; gel suits microneedling, facial work and longer sittings.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which gel strength should I choose?",
+            "answer": "<p>Match it to the session, not to price. Clinical for shorter, routine appointments; Advanced for longer or more sensitive work and larger areas; Professional for the most demanding sessions. If you're between two, start with the lower one.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is gel stronger than cream?",
+            "answer": "<p>No. The three strengths — Clinical, Advanced, Professional — run across both formats. A Clinical gel matches a Clinical cream on strength; the difference is the format, not the strength. Choose gel for how it sits on the skin, not for an assumed strength difference.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long before my appointment do I apply numbing gel?",
+            "answer": "<p>Allow time for it to take effect before your appointment, and cover the area if the window is longer — follow the product guidance and your practitioner. Customers who get on best apply a visible layer that sits on the surface rather than being rubbed in.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which size do I need?",
+            "answer": "<p>15ml suits a single session, a smaller area, or a trial; 35ml is the regular size for repeat use or larger areas. Both sizes are available in all three strengths.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to patch test?",
+            "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is numbing gel a medicine?",
+            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
+          }
+        },
+        "q8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's in it?",
+            "answer": "<p>Each formula is a UK cosmetic formulated by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
-      "settings": { "headline": "Numbing gel — common questions.", "anchor_id": "faq" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8"
+      ],
+      "settings": {
+        "headline": "Numbing gel — common questions.",
+        "anchor_id": "faq"
+      }
     }
   },
-  "order": ["hero", "trust", "match", "grid", "format", "uses", "philosophy", "honest", "characteristics", "faq"]
+  "order": [
+    "hero",
+    "trust",
+    "match",
+    "grid",
+    "format",
+    "uses",
+    "philosophy",
+    "honest",
+    "characteristics",
+    "faq"
+  ]
 }

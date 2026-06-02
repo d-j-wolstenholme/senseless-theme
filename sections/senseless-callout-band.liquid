@@ -24,7 +24,7 @@
   .ss-cb--neutral .ss-cb__box { background: var(--ss-surface); border: 1px solid var(--ss-border); }
   .ss-cb--brand .ss-cb__box { background: rgba(107,63,160,0.06); border: 1px solid rgba(107,63,160,0.25); }
   .ss-cb__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
-  .ss-cb__heading { font-family: var(--ss-head); font-weight: 600; font-size: 20px; line-height: 1.3; margin: 0; }
+  .ss-cb__heading { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 20px; line-height: 1.3; margin: 0; }
   .ss-cb__body { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); }
   .ss-cb__body p { margin: 0 0 10px; }
   .ss-cb__body p:last-child { margin: 0; }
@@ -39,7 +39,7 @@
   <div class="ss-cb__inner">
     <div class="ss-cb__box">
       {%- if section.settings.eyebrow != blank -%}<p class="ss-cb__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
-      {%- if section.settings.heading != blank -%}<h2 class="ss-cb__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="ss-cb__heading">{% render 'senseless-accent', text: section.settings.heading, word: section.settings.accent_word %}</h2>{%- endif -%}
       {%- if section.settings.body != blank -%}<div class="ss-cb__body">{{ section.settings.body }}</div>{%- endif -%}
       {%- if section.settings.cta_label != blank -%}<a class="ss-cb__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
     </div>
@@ -55,6 +55,7 @@
     { "type": "select", "id": "style", "label": "Style", "default": "brand", "options": [ { "value": "brand", "label": "Brand (purple tint)" }, { "value": "neutral", "label": "Neutral (white)" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional)" },
     { "type": "richtext", "id": "body", "label": "Body" },
     { "type": "text", "id": "cta_label", "label": "CTA label" },
     { "type": "url", "id": "cta_url", "label": "CTA link" }
