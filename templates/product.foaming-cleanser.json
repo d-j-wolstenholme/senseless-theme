@@ -47,52 +47,6 @@
         "band": "surface"
       }
     },
-    "howto": {
-      "type": "senseless-how-to-use",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "title": "Wet the area.",
-            "body": "<p>Use lukewarm water on the skin you're cleansing.</p>"
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "title": "Work in a small amount.",
-            "body": "<p>A little foam goes a long way. Massage gently — no scrubbing.</p>"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "title": "Rinse thoroughly.",
-            "body": "<p>Rinse until the skin is clean and clear of residue.</p>"
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "title": "Pat dry.",
-            "body": "<p>Pat with a clean towel — don't rub treated skin.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
-      ],
-      "settings": {
-        "eyebrow": "How to use",
-        "headline": "A gentle cleanse, before and after.",
-        "closer": "<p>Use as part of your prep, and again in the hours after your appointment.</p>",
-        "cta_label": "How Senseless works",
-        "cta_url": "/pages/how-it-works"
-      }
-    },
     "keyfacts": {
       "type": "senseless-key-facts",
       "blocks": {
@@ -126,8 +80,8 @@
         "q1": {
           "type": "faq_item",
           "settings": {
-            "question": "Is this a numbing product?",
-            "answer": "<p>No — the Foaming Cleanser is a cleanser, not a numbing preparation. It's built for treated skin before and after your appointment.</p>"
+            "question": "What's it for?",
+            "answer": "<p>An antibacterial foaming cleanser for treated skin — it cleanses the area before and after your appointment, so it's clean going in and looked after afterwards. Not a numbing product.</p>"
           }
         },
         "q2": {
@@ -140,15 +94,15 @@
         "q3": {
           "type": "faq_item",
           "settings": {
-            "question": "What's in it?",
-            "answer": "<p>A UK-formulated cosmetic cleanser. The full ingredients list is on the packaging.</p>"
+            "question": "Is this a numbing product?",
+            "answer": "<p>No — the Foaming Cleanser is a cleanser, not a numbing preparation. It's built for treated skin before and after your appointment.</p>"
           }
         },
         "q4": {
           "type": "faq_item",
           "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
+            "question": "What's in it?",
+            "answer": "<p>A UK-formulated cosmetic cleanser. The full ingredients list is on the pack.</p>"
           }
         }
       },
@@ -243,13 +197,20 @@
         "eyebrow": "Explore",
         "headline": "Explore the range"
       }
+    },
+    "system": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "body": "<p>The Foaming Cleanser sits outside the strength range — it's aftercare, used before and after, never numbing.</p>"
+      }
     }
   },
   "order": [
     "hero",
     "trust",
     "shortdesc",
-    "howto",
+    "system",
     "keyfacts",
     "linksout",
     "faq",

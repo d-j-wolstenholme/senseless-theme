@@ -48,70 +48,11 @@
       }
     },
     "system": {
-      "type": "senseless-decision-band",
+      "type": "senseless-system-band",
       "settings": {
-        "style": "canvas",
-        "eyebrow": "The system",
-        "headline": "Clinical is the standard. Two more strengths sit above it.",
-        "body": "Most clients choose Clinical; some go straight to Advanced — a higher-strength cream for longer or more sensitive work. Professional is the highest strength, developed with practitioners and available without restriction.",
-        "primary_cta_label": "View Advanced",
-        "primary_cta_url": "/products/advanced-strength-cream",
-        "secondary_cta_label": "View Professional",
-        "secondary_cta_url": "/products/professional-strength-cream"
-      }
-    },
-    "howto": {
-      "type": "senseless-how-to-use",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "title": "Start with clean, dry skin.",
-            "body": "<p>Remove make-up, oil or moisturiser so nothing sits between the product and the skin.</p>"
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "title": "Apply a thick, visible layer.",
-            "body": "<p>Let it sit on the surface rather than rubbing it in. Customers who get the best results typically report a generous layer — thick enough to look visibly white on the skin.</p>"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "title": "Cover the area.",
-            "body": "<p>A layer of cling film (or a similar occlusive cover) keeps it in contact with the skin while it takes effect.</p>"
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "title": "Leave it on to take effect.",
-            "body": "<p>As a general guide, cream is applied around 45–60 minutes before your appointment — this varies, so follow the product guidance and your practitioner.</p>"
-          }
-        },
-        "s5": {
-          "type": "step",
-          "settings": {
-            "title": "Remove before your appointment.",
-            "body": "<p>Wipe away with a clean cloth or tissue, or as your practitioner directs.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4",
-        "s5"
-      ],
-      "settings": {
-        "eyebrow": "Application",
-        "headline": "How to apply.",
-        "lead": "<p><strong>Before you apply:</strong> patch test a small amount 24 hours ahead — inside the wrist or behind the ear. If you see redness, irritation or swelling, don't use it.</p><p>Take extra care on sensitive, broken or irritated skin. If your practitioner applies their own numbing, check with them first rather than doubling up.</p>",
-        "cta_label": "How Senseless works",
-        "cta_url": "/pages/how-it-works"
+        "band": "canvas",
+        "current_format": "cream",
+        "current_strength": "clinical"
       }
     },
     "keyfacts": {
@@ -147,57 +88,29 @@
         "q1": {
           "type": "faq_item",
           "settings": {
-            "question": "How long before my appointment should I apply it?",
-            "answer": "<p>As a general guide, around 45–60 minutes ahead. It varies with the product and the appointment, so follow the product guidance and your practitioner.</p>"
+            "question": "How do I apply it?",
+            "answer": "<p>Start with clean, dry skin and apply a thick, visible layer that sits on the surface rather than being rubbed in — a generous, visible layer is what customers report getting on best with. Cover it (cling film or similar) to hold it in contact while it takes effect. As a general guide, apply around 45–60 minutes before your appointment — this varies, so follow the product guidance and your practitioner. Patch test 24 hours ahead first, and remove before your appointment.</p>"
           }
         },
         "q2": {
           "type": "faq_item",
           "settings": {
-            "question": "How long does it last?",
-            "answer": "<p>It comes down to three things: which strength you've chosen, how well it was applied — a thick layer, covered, left long enough — and how long and demanding the appointment is. Coverage fades gradually rather than stopping suddenly, so matching the strength to the appointment is what keeps it lasting as long as you need.</p>"
+            "question": "How long before my appointment?",
+            "answer": "<p>As a general guide, around 45–60 minutes ahead — it varies with the product and the appointment, so follow the product guidance and your practitioner. Don't apply the night before; it's made for the short window before your treatment.</p>"
           }
         },
         "q3": {
           "type": "faq_item",
           "settings": {
-            "question": "Do I need to patch test?",
-            "answer": "<p>Yes — a small amount 24 hours ahead, on the wrist or behind the ear. If there's any reaction, don't use it.</p>"
+            "question": "How long does it last?",
+            "answer": "<p>It comes down to three things: which strength you've chosen, how well it was applied — a thick layer, covered, left long enough — and how long and demanding the appointment is. Rather than a fixed number of hours, think of it as fading gradually; match the strength to the session so it's working through the part that matters.</p>"
           }
         },
         "q4": {
           "type": "faq_item",
           "settings": {
-            "question": "Can I apply it the night before?",
-            "answer": "<p>No — it has a short window. Apply on the day, within the guidance above.</p>"
-          }
-        },
-        "q5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What size should I choose?",
+            "question": "What size should I get?",
             "answer": "<p>10g suits a single appointment or a first try; 30g suits regular bookings or larger areas.</p>"
-          }
-        },
-        "q6": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's in it?",
-            "answer": "<p>A UK cosmetic topical preparation by Matrix Health Group Ltd. The full ingredient list is on the pack — patch test first if you have known sensitivities.</p>"
-          }
-        },
-        "q7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "When should I choose Advanced or Professional?",
-            "answer": "<p>Clinical is the baseline most appointments call for. Choose Advanced for longer or more sensitive work, and Professional — the highest strength, developed with practitioners — for the most demanding sessions.</p>"
-          }
-        },
-        "q8": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. A UK cosmetic product, not a medicine.</p>"
           }
         }
       },
@@ -205,11 +118,7 @@
         "q1",
         "q2",
         "q3",
-        "q4",
-        "q5",
-        "q6",
-        "q7",
-        "q8"
+        "q4"
       ],
       "settings": {
         "headline": "Common questions.",
@@ -261,15 +170,24 @@
       }
     },
     "aftercare": {
-      "type": "senseless-image-text-band",
+      "type": "senseless-link-row",
+      "blocks": {
+        "a1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Foaming Cleanser",
+            "note": "Aftercare for treated skin — cleanse before and after.",
+            "url": "/products/foaming-cleanser"
+          }
+        }
+      },
+      "block_order": [
+        "a1"
+      ],
       "settings": {
-        "direction": "text-right",
-        "eyebrow": "What comes next",
-        "headline": "After your appointment.",
-        "body": "<p>The Senseless Foaming Cleanser is built for treated skin — an antibacterial cleansing foam that respects what you just had done.</p>",
-        "cta_label": "View Foaming Cleanser",
-        "cta_url": "/products/foaming-cleanser",
-        "image_alt": "Editorial Senseless Foaming Cleanser on a clean countertop"
+        "band": "canvas",
+        "eyebrow": "Aftercare",
+        "headline": "After your appointment"
       }
     },
     "shortdesc": {
@@ -351,7 +269,6 @@
     "trust",
     "shortdesc",
     "system",
-    "howto",
     "keyfacts",
     "linksout",
     "faq",

@@ -1,0 +1,62 @@
+{%- comment -%}
+  Senseless — System band. Compact 3×3 "where this sits": rows = Cream/Gel/Spray,
+  columns = Clinical/Advanced/Professional (the 9 numbing products). The current product's
+  cell is filled brand purple (no link); the others link to those products. One-line caption.
+  Set current_format + current_strength per product template. Light, no prices.
+{%- endcomment -%}
+{%- liquid
+  assign cur_f = section.settings.current_format
+  assign cur_s = section.settings.current_strength
+  assign formats = 'cream,gel,spray' | split: ','
+  assign strengths = 'clinical,advanced,professional' | split: ','
+  assign band = section.settings.band | default: 'canvas'
+-%}
+{%- style -%}
+  .ss-sb { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
+  .ss-sb--canvas { background:var(--bg); } .ss-sb--surface { background:var(--surf); }
+  .ss-sb__inner { max-width:720px; margin:0 auto; padding:40px 20px; }
+  .ss-sb__eyebrow { font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0 0 14px; }
+  .ss-sb__grid { display:grid; grid-template-columns:auto repeat(3,1fr); gap:6px; }
+  .ss-sb__ch { font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--sec); text-align:center; padding:6px 4px; }
+  .ss-sb__rh { font-family:var(--sans); font-weight:600; font-size:13px; color:var(--ink); display:flex; align-items:center; padding-right:8px; }
+  .ss-sb__cell { display:flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--bd); border-radius:6px; background:var(--surf); font-family:var(--sans); font-size:12px; font-weight:500; color:var(--body); text-decoration:none; text-align:center; padding:6px; transition:border-color .15s ease, background-color .15s ease; }
+  a.ss-sb__cell:hover { border-color:var(--p); color:var(--p); }
+  .ss-sb__cell--current { background:var(--p); border-color:var(--p); color:#fff; font-weight:600; }
+  .ss-sb__caption { font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--sec); margin:16px 0 0; }
+  @media (max-width:600px){ .ss-sb__ch { font-size:10px; } .ss-sb__rh { font-size:12px; } .ss-sb__cell { min-height:40px; font-size:11px; } }
+{%- endstyle -%}
+<section class="ss-sb ss-sb--{{ band }}" aria-label="Where this sits in the Senseless System">
+  <div class="ss-sb__inner">
+    <p class="ss-sb__eyebrow">The Senseless System</p>
+    <div class="ss-sb__grid" role="table">
+      <span class="ss-sb__ch" aria-hidden="true"></span>
+      {%- for s in strengths -%}<span class="ss-sb__ch">{{ s | capitalize }}</span>{%- endfor -%}
+      {%- for f in formats -%}
+        <span class="ss-sb__rh">{{ f | capitalize }}</span>
+        {%- for s in strengths -%}
+          {%- assign handle = s | append: '-strength-' | append: f -%}
+          {%- if f == cur_f and s == cur_s -%}
+            <span class="ss-sb__cell ss-sb__cell--current" aria-current="true">{{ s | capitalize }}</span>
+          {%- else -%}
+            <a class="ss-sb__cell" href="/products/{{ handle }}">{{ s | capitalize }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+    <p class="ss-sb__caption">Every format comes in three strengths. You're looking at the {{ cur_f }}, at {{ cur_s | capitalize }} strength.</p>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Senseless — System band",
+  "tag": "section",
+  "class": "senseless-section senseless-system-band",
+  "settings": [
+    { "type": "select", "id": "band", "label": "Band background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas" }, { "value": "surface", "label": "Surface" } ] },
+    { "type": "select", "id": "current_format", "label": "Current format", "default": "cream", "options": [ { "value": "cream", "label": "Cream" }, { "value": "gel", "label": "Gel" }, { "value": "spray", "label": "Spray" } ] },
+    { "type": "select", "id": "current_strength", "label": "Current strength", "default": "clinical", "options": [ { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" } ] }
+  ],
+  "presets": [ { "name": "Senseless — System band" } ]
+}
+{% endschema %}
