@@ -23,6 +23,7 @@
   .ss-lr__list { list-style:none; margin:14px 0 0; padding:0; border-top:1px solid var(--bd); }
   .ss-lr__item { display:flex; flex-wrap:wrap; gap:4px 14px; align-items:baseline; padding:14px 0; border-bottom:1px solid var(--bd); }
   .ss-lr__name { font-family:var(--sans); font-weight:600; font-size:15px; color:var(--ink); flex:0 0 auto; text-decoration:none; }
+  .ss-lr__name--tag { display:inline-flex; align-items:center; background:rgba(107,63,160,.08); color:var(--p); border:1px solid rgba(107,63,160,.25); border-radius:999px; padding:3px 12px; font-size:13px; }
   a.ss-lr__name { color:var(--p); }
   a.ss-lr__name:hover { text-decoration:underline; }
   a.ss-lr__name::after { content:' \2192'; }
@@ -49,7 +50,7 @@
           {%- if block.settings.url != blank -%}
             <a class="ss-lr__name" href="{{ block.settings.url }}">{{ block.settings.label | escape }}</a>
           {%- else -%}
-            <span class="ss-lr__name">{{ block.settings.label | escape }}</span>
+            <span class="ss-lr__name{% if block.settings.as_tag %} ss-lr__name--tag{% endif %}">{{ block.settings.label | escape }}</span>
           {%- endif -%}
           {%- if block.settings.note != blank -%}<span class="ss-lr__note">{{ block.settings.note | escape }}</span>{%- endif -%}
         </li>
@@ -80,7 +81,8 @@
       "settings": [
         { "type": "text", "id": "label", "label": "Name" },
         { "type": "text", "id": "note", "label": "One-line why" },
-        { "type": "url", "id": "url", "label": "Link (optional — leave blank for descriptive only)" }
+        { "type": "url", "id": "url", "label": "Link (optional — leave blank for descriptive only)" },
+        { "type": "checkbox", "id": "as_tag", "label": "Render name as a tag/pill", "default": false }
       ]
     }
   ],

@@ -70,9 +70,10 @@
       "blocks": {
         "u1": { "type": "link_item", "settings": { "label": "Waxing (body)", "note": "Covers legs, back, bikini and brazilian zones fast and evenly.", "url": "/collections/numbing-cream-for-waxing" } },
         "u2": { "type": "link_item", "settings": { "label": "Laser (body)", "note": "Even coverage across larger treatment areas a cream is slow to spread.", "url": "/collections/numbing-cream-for-laser-treatment" } },
-        "u3": { "type": "link_item", "settings": { "label": "Large or contoured areas", "note": "Anywhere spreading a cream by hand is slow or uneven." } }
+        "u3": { "type": "link_item", "settings": { "label": "Large or contoured areas", "note": "Anywhere spreading a cream by hand is slow or uneven." } },
+        "u4": { "type": "link_item", "settings": { "label": "During-session use", "note": "Many customers report topping the spray up mid-session to help keep an area comfortable — check with your practitioner first.", "as_tag": true } }
       },
-      "block_order": ["u1", "u2", "u3"],
+      "block_order": ["u1", "u2", "u3", "u4"],
       "settings": {
         "band": "surface",
         "eyebrow": "Suited to",

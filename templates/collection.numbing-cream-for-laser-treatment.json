@@ -55,6 +55,13 @@
     },
     "grid": {
       "type": "senseless-collection-grid",
+      "blocks": {
+        "cap1": { "type": "card_caption", "settings": { "product": "advanced-strength-cream", "caption": "Face and smaller zones." } },
+        "cap2": { "type": "card_caption", "settings": { "product": "advanced-strength-spray", "caption": "Body and larger areas." } },
+        "cap3": { "type": "card_caption", "settings": { "product": "professional-strength-cream", "caption": "Full-face resurfacing." } },
+        "cap4": { "type": "card_caption", "settings": { "product": "professional-strength-spray", "caption": "Intensive body work." } }
+      },
+      "block_order": ["cap1", "cap2", "cap3", "cap4"],
       "settings": {
         "headline": "Numbing for laser, by area and strength",
         "anchor_id": "shop",

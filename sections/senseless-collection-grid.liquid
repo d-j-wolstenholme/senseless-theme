@@ -40,6 +40,7 @@
   .ss-cg__title { font-family:var(--sans); font-weight:600; font-size:17px; line-height:1.3; margin:0; }
   .ss-cg__title a { color:inherit; text-decoration:none; }
   .ss-cg__price { font-family:var(--sans); font-weight:600; font-size:16px; margin:0; }
+  .ss-cg__caption { font-family:var(--sans); font-size:13px; line-height:1.45; color:var(--body); margin:-2px 0 0; font-style:italic; }
   .ss-cg__stars:empty { display:none; }
   .ss-cg__opt { display:flex; flex-wrap:wrap; gap:8px; margin:2px 0; }
   .ss-cg__opt input { position:absolute; opacity:0; pointer-events:none; }
@@ -99,6 +100,12 @@
           endif
           assign v0 = product.selected_or_first_available_variant
           assign form_id = 'cg-' | append: section.id | append: '-' | append: product.id
+          assign card_caption = ''
+          for blk in section.blocks
+            if blk.type == 'card_caption' and blk.settings.product != blank and blk.settings.product.handle == product.handle
+              assign card_caption = blk.settings.caption
+            endif
+          endfor
         -%}
         <article class="ss-cg__card{% if is_pro %} ss-cg__card--pro{% endif %}" data-strength="{{ strength }}">
           <a class="ss-cg__media" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
@@ -111,6 +118,7 @@
           <div class="ss-cg__cbody">
             {%- if strength != blank -%}<p class="ss-cg__label">{{ strength | capitalize }} Strength</p>{%- endif -%}
             <h3 class="ss-cg__title"><a href="{{ product.url }}">{{ product.title | escape }}</a></h3>
+            {%- if card_caption != blank -%}<p class="ss-cg__caption">{{ card_caption | escape }}</p>{%- endif -%}
             <p class="ss-cg__price" data-cg-price>{{ v0.price | money }}</p>
             {%- comment -%} Judge.me per-card star badge slot — add the app block here at integration; :empty-hidden until reviews exist. {%- endcomment -%}
             <div class="ss-cg__stars" data-judgeme-card></div>
@@ -200,6 +208,16 @@
     { "type": "richtext", "id": "body", "label": "Intro body" },
     { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "shop" },
     { "type": "checkbox", "id": "show_filters", "label": "Show strength filter tabs", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "card_caption",
+      "name": "Card caption",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "caption", "label": "Caption", "info": "Optional per-card descriptor (e.g. \"the usual microneedling pick\")." }
+      ]
+    }
   ],
   "presets": [ { "name": "Senseless — Collection grid" } ]
 }
