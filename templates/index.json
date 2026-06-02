@@ -5,11 +5,11 @@
       "settings": {
         "eyebrow": "Made for aesthetics",
         "headline": "Confidence starts with comfort.",
-        "subhead": "<p>Topical numbing, formulated in the UK for aesthetic appointments. Three strengths, three formats — matched to the work, not the marketing.</p>",
+        "subhead": "<p>Senseless is a system — match the strength and the format to the appointment you've booked. Three strengths, three formats, formulated in the UK.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "/collections/numbing-cream",
-        "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/choosing-your-strength",
+        "secondary_cta_label": "How the System works",
+        "secondary_cta_url": "/pages/the-senseless-system",
         "image_alt": "Senseless topical preparation range arranged on a warm off-white background with a purple brand accent",
         "caption": "The Senseless range — formulated in the UK."
       }
@@ -17,30 +17,114 @@
     "strength": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "clinical": { "type": "tier_card", "settings": { "label": "Clinical Strength", "heading": "For standard appointments", "body": "<p>The baseline of the system — the formula most appointments call for. Formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>", "cta_label": "Shop Clinical", "cta_url": "/collections/numbing-cream?strength=clinical", "flagship": false, "image_alt": "Clinical Strength Senseless preparation on a warm off-white background" } },
-        "advanced": { "type": "tier_card", "settings": { "label": "Advanced Strength", "heading": "For longer or more demanding work", "body": "<p>A higher-strength formula, made for longer appointments and more sensitive treatment areas. The strength studios reach for when a session asks more of the skin. For when the appointment asks more.</p>", "cta_label": "Shop Advanced", "cta_url": "/collections/numbing-cream?strength=advanced", "flagship": false, "image_alt": "Advanced Strength Senseless preparation on a warm off-white background" } },
-        "professional": { "type": "tier_card", "settings": { "label": "Professional Strength", "heading": "Our highest-strength formula", "body": "<p>Developed with practitioners and used in studios across the UK. The highest strength in the system — available without restriction. Trusted at the chair.</p>", "cta_label": "Shop Professional", "cta_url": "/collections/numbing-cream?strength=professional", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless preparation on a warm off-white background" } }
+        "clinical": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "heading": "For standard appointments",
+            "body": "<p>The baseline of the system — the formula most appointments call for. Formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>",
+            "cta_label": "Shop Clinical",
+            "cta_url": "/collections/numbing-cream?strength=clinical",
+            "flagship": false,
+            "image_alt": "Clinical Strength Senseless preparation on a warm off-white background"
+          }
+        },
+        "advanced": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Advanced Strength",
+            "heading": "For longer or more demanding work",
+            "body": "<p>A higher-strength formula, made for longer appointments and more sensitive treatment areas. The strength studios reach for when a session asks more of the skin. For when the appointment asks more.</p>",
+            "cta_label": "Shop Advanced",
+            "cta_url": "/collections/numbing-cream?strength=advanced",
+            "flagship": false,
+            "image_alt": "Advanced Strength Senseless preparation on a warm off-white background"
+          }
+        },
+        "professional": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Professional Strength",
+            "heading": "Our highest-strength formula",
+            "body": "<p>Developed with practitioners and used in studios across the UK. The highest strength in the system — available without restriction. Trusted at the chair.</p>",
+            "cta_label": "Shop Professional",
+            "cta_url": "/collections/numbing-cream?strength=professional",
+            "flagship": true,
+            "badge_text": "",
+            "image_alt": "Professional Strength Senseless preparation on a warm off-white background"
+          }
+        }
       },
-      "block_order": ["clinical", "advanced", "professional"],
+      "block_order": [
+        "clinical",
+        "advanced",
+        "professional"
+      ],
       "settings": {
         "columns": "3",
         "eyebrow": "The Senseless system",
-        "headline": "Match the formula to your appointment.",
-        "body": "<p>Aesthetic appointments differ. The formula you bring to the chair should match the one you've booked. Three formulas — Clinical, Advanced, Professional — each calibrated to a different intensity of work. None of them an afterthought.</p>",
-        "closer": "The system does the rest.",
+        "headline": "Match the strength to your session.",
+        "body": "<p>Strength is the first half of your selection. Clinical for routine, shorter sessions. Advanced for longer or more sensitive work. Professional for the most demanding. Not a budget ladder — each is built for a different intensity. Format is the other half: cream, gel or spray, just below.</p>",
+        "closer": "Together, they're your Senseless Selection.",
         "section_cta_label": "",
-        "section_cta_url": ""
+        "section_cta_url": "",
+        "closer_url": "/pages/the-senseless-system"
       }
     },
     "procedure": {
       "type": "senseless-procedure-grid",
       "blocks": {
-        "microneedling": { "type": "procedure_card", "settings": { "collection": "numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range", "label": "Microneedling", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling" } },
-        "laser": { "type": "procedure_card", "settings": { "collection": "numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range", "label": "Laser Treatment", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment" } },
-        "spmu": { "type": "procedure_card", "settings": { "collection": "numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range", "label": "Semi-Permanent Makeup", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup" } },
-        "waxing": { "type": "procedure_card", "settings": { "collection": "numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range", "label": "Waxing", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing" } }
+        "microneedling": {
+          "type": "procedure_card",
+          "settings": {
+            "collection": "numbing-cream-for-microneedling",
+            "image_alt": "Editorial image for the microneedling range",
+            "label": "Microneedling",
+            "sub_label": "",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-microneedling"
+          }
+        },
+        "laser": {
+          "type": "procedure_card",
+          "settings": {
+            "collection": "numbing-cream-for-laser-treatment",
+            "image_alt": "Editorial image for the laser treatment range",
+            "label": "Laser Treatment",
+            "sub_label": "",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-laser-treatment"
+          }
+        },
+        "spmu": {
+          "type": "procedure_card",
+          "settings": {
+            "collection": "numbing-cream-for-semi-permanent-makeup",
+            "image_alt": "Editorial image for the semi-permanent makeup range",
+            "label": "Semi-Permanent Makeup",
+            "sub_label": "",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup"
+          }
+        },
+        "waxing": {
+          "type": "procedure_card",
+          "settings": {
+            "collection": "numbing-cream-for-waxing",
+            "image_alt": "Editorial image for the waxing range",
+            "label": "Waxing",
+            "sub_label": "",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-waxing"
+          }
+        }
       },
-      "block_order": ["microneedling", "laser", "spmu", "waxing"],
+      "block_order": [
+        "microneedling",
+        "laser",
+        "spmu",
+        "waxing"
+      ],
       "settings": {
         "columns": "4",
         "anchor_id": "procedure-grid",
@@ -54,11 +138,39 @@
     "formats": {
       "type": "senseless-format-row",
       "blocks": {
-        "cream": { "type": "format_item", "settings": { "label": "Numbing Cream", "body": "<p>Three strengths. The format most appointments start with.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream" } },
-        "gel": { "type": "format_item", "settings": { "label": "Numbing Gel", "body": "<p>A clear gel for sustained sessions like microneedling.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel" } },
-        "spray": { "type": "format_item", "settings": { "label": "Numbing Spray", "body": "<p>For the body and broader areas.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray" } }
+        "cream": {
+          "type": "format_item",
+          "settings": {
+            "label": "Numbing Cream",
+            "body": "<p>Three strengths. The format most appointments start with.</p>",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream"
+          }
+        },
+        "gel": {
+          "type": "format_item",
+          "settings": {
+            "label": "Numbing Gel",
+            "body": "<p>A clear gel for sustained sessions like microneedling.</p>",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-gel"
+          }
+        },
+        "spray": {
+          "type": "format_item",
+          "settings": {
+            "label": "Numbing Spray",
+            "body": "<p>For the body and broader areas.</p>",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-spray"
+          }
+        }
       },
-      "block_order": ["cream", "gel", "spray"],
+      "block_order": [
+        "cream",
+        "gel",
+        "spray"
+      ],
       "settings": {
         "eyebrow": "By format",
         "headline": "Cream, Gel, and Spray.",
@@ -80,13 +192,40 @@
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t-cos": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t2": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t3": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t-cos": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
       },
-      "block_order": ["t1", "t-cos", "t2", "t3"],
-      "settings": { "band": "surface" }
+      "block_order": [
+        "t1",
+        "t-cos",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "band": "surface"
+      }
     },
     "practitioners": {
       "type": "senseless-image-text-band",
@@ -112,5 +251,14 @@
       }
     }
   },
-  "order": ["hero", "strength", "procedure", "formats", "product", "trust", "practitioners", "newsletter"]
+  "order": [
+    "hero",
+    "strength",
+    "procedure",
+    "formats",
+    "product",
+    "trust",
+    "practitioners",
+    "newsletter"
+  ]
 }

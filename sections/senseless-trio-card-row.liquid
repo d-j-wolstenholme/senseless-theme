@@ -57,6 +57,8 @@
 
   .ss-trio__footer { text-align: center; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
   .ss-trio__closer { font-family: var(--ss-head); font-weight: 600; font-size: 18px; color: var(--ss-text); margin: 0; }
+  .ss-trio__closerlink { color: var(--ss-purple); text-decoration: none; }
+  .ss-trio__closerlink:hover { text-decoration: underline; }
   .ss-trio__sectioncta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
   .ss-trio__sectioncta:hover { background: var(--ss-text); color: var(--ss-bg); }
 
@@ -150,7 +152,7 @@
 
     {%- if section.settings.closer != blank or section.settings.section_cta_label != blank -%}
       <div class="ss-trio__footer">
-        {%- if section.settings.closer != blank -%}<p class="ss-trio__closer">{{ section.settings.closer | escape }}</p>{%- endif -%}
+        {%- if section.settings.closer != blank -%}<p class="ss-trio__closer">{%- if section.settings.closer_url != blank -%}<a class="ss-trio__closerlink" href="{{ section.settings.closer_url }}">{{ section.settings.closer | escape }}</a>{%- else -%}{{ section.settings.closer | escape }}{%- endif -%}</p>{%- endif -%}
         {%- if section.settings.section_cta_label != blank -%}<a class="ss-trio__sectioncta" href="{{ section.settings.section_cta_url | default: '#' }}">{{ section.settings.section_cta_label | escape }}</a>{%- endif -%}
       </div>
     {%- endif -%}
@@ -169,6 +171,7 @@
     { "type": "text", "id": "headline", "label": "Headline" },
     { "type": "richtext", "id": "body", "label": "Intro body" },
     { "type": "text", "id": "closer", "label": "Closer line", "info": "Optional short closing line under the cards." },
+    { "type": "url", "id": "closer_url", "label": "Closer link (optional)" },
     { "type": "text", "id": "section_cta_label", "label": "Section CTA label" },
     { "type": "url", "id": "section_cta_url", "label": "Section CTA link" }
   ],
