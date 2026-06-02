@@ -1,0 +1,161 @@
+{%- comment -%}
+  Senseless — Selector (Phase 6a). Guided, hybrid: three inputs on one screen, live result.
+  Treatment sets FORMAT + BASE strength + CEILING + honest note; Skin/Duration add +1 modifiers.
+  Final strength = clamp(base + modifiers, base, ceiling). Recommendation only — inherits the
+  System-guide §5 matrix compliance (nothing new claimed).
+
+  ⚠ SINGLE SOURCE: the per-treatment Format / Base / Ceiling / Honest-note below MUST stay in
+  lockstep with the System-guide §5 by-procedure matrix (templates/page.the-senseless-system.json
+  → section "matrix", senseless-strength-matrix). If the matrix changes, change these chips too.
+  Built ONCE, embedded only on /pages/the-senseless-system (#selector); linked-in elsewhere.
+{%- endcomment -%}
+{%- liquid
+  assign anchor = section.settings.anchor_id | default: 'selector'
+  assign band = section.settings.band | default: 'canvas'
+-%}
+{%- style -%}
+  .ss-sel { --p:#6B3FA0; --ph:#5A3489; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
+  .ss-sel--canvas { background:var(--bg); } .ss-sel--surface { background:var(--surf); }
+  .ss-sel__inner { max-width:920px; margin:0 auto; padding:48px 20px; }
+  .ss-sel__eyebrow { font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0 0 10px; }
+  .ss-sel__headline { font-family:var(--sans); font-weight:400; letter-spacing:-0.02em; font-size:28px; line-height:1.15; margin:0 0 8px; }
+  .ss-sel__intro { font-family:var(--sans); font-size:16px; line-height:1.55; color:var(--body); margin:0 0 24px; max-width:60ch; }
+  .ss-sel__q { margin:0 0 18px; border:0; padding:0; }
+  .ss-sel__qlabel { font-family:var(--sans); font-weight:600; font-size:14px; color:var(--ink); margin:0 0 10px; }
+  .ss-sel__chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .ss-sel__opt { position:relative; }
+  .ss-sel__opt input { position:absolute; opacity:0; pointer-events:none; }
+  .ss-sel__chip { display:inline-flex; align-items:center; min-height:40px; padding:0 16px; border:1px solid var(--bd); border-radius:999px; background:var(--surf); font-family:var(--sans); font-size:14px; color:var(--ink); cursor:pointer; transition:background-color .12s, border-color .12s, color .12s; }
+  .ss-sel__opt input:checked + .ss-sel__chip { background:var(--p); border-color:var(--p); color:#fff; }
+  .ss-sel__opt input:focus-visible + .ss-sel__chip { outline:2px solid var(--p); outline-offset:2px; }
+  .ss-sel__result { margin-top:8px; border-top:1px solid var(--bd); padding-top:24px; }
+  .ss-sel__empty { font-family:var(--sans); font-size:16px; color:var(--sec); margin:0; }
+  .ss-sel__cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0 0 16px; }
+  .ss-sel__card { border:1px solid var(--bd); border-radius:8px; background:var(--surf); padding:18px; }
+  .ss-sel__card--pro { border:2px solid var(--p); }
+  .ss-sel__cardlabel { font-family:var(--sans); font-weight:500; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--sec); margin:0 0 6px; }
+  .ss-sel__cardval { font-family:var(--sans); font-weight:600; font-size:22px; line-height:1.1; margin:0; color:var(--ink); }
+  .ss-sel__card--pro .ss-sel__cardval { color:var(--p); }
+  .ss-sel__line { font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--body); margin:0 0 10px; }
+  .ss-sel__note { font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--body); margin:0 0 14px; border-left:3px solid var(--p); padding:2px 0 2px 14px; }
+  .ss-sel__cta { display:inline-flex; align-items:center; gap:6px; height:46px; padding:0 22px; border-radius:14px; background:var(--p); color:#fff; font-family:var(--sans); font-weight:600; font-size:15px; text-decoration:none; transition:background-color .15s; }
+  .ss-sel__cta:hover { background:var(--ph); }
+  .ss-sel__cta::after { content:'\2192'; }
+  .ss-sel__pract { font-family:var(--sans); font-size:13px; line-height:1.5; color:var(--sec); margin:14px 0 0; }
+  [hidden] { display:none !important; }
+  @media (max-width:600px){ .ss-sel__cards { grid-template-columns:1fr; } .ss-sel__headline { font-size:24px; } }
+{%- endstyle -%}
+<section class="ss-sel ss-sel--{{ band }}" id="{{ anchor | escape }}" aria-label="{{ section.settings.headline | default: 'The Senseless Selector' | escape }}">
+  <div class="ss-sel__inner" data-selector>
+    {%- if section.settings.eyebrow != blank -%}<p class="ss-sel__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.headline != blank -%}<h2 class="ss-sel__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+    {%- if section.settings.intro != blank -%}<p class="ss-sel__intro">{{ section.settings.intro | escape }}</p>{%- endif -%}
+
+    <fieldset class="ss-sel__q">
+      <legend class="ss-sel__qlabel">What are you booked in for?</legend>
+      <div class="ss-sel__chips">
+        {%- comment -%} Treatment chips carry the engine data (single source = the §5 matrix). {%- endcomment -%}
+        {%- comment -%} Rows delimited by ~ , fields by | (neither appears in any label/note; note for Laser — face contains a semicolon, so ; cannot be the row delimiter). {%- endcomment -%}
+        {%- assign tx = 'Lip fillers|Cream|0|1|Professional is overkill here — save it.~Botox|Cream|0|1|Many people manage without numbing at all — optional, not required.~Microneedling|Gel|1|2|Clinical is rarely enough on its own.~Laser — face|Cream|1|2|Cream for the face; spray for the body.~Laser — body|Spray|1|2|The area decides the format and the strength.~SPMU / microblading|Gel|1|2|Clinical is rarely enough for a full sitting.~Waxing — body|Spray|1|2|Spray covers large zones fast and evenly.~Waxing — small areas|Cream|0|1|Cream for lip, brow and small areas.' | split: '~' -%}
+        {%- for t in tx -%}
+          {%- assign parts = t | split: '|' -%}
+          <label class="ss-sel__opt">
+            <input type="radio" name="ss-sel-tx-{{ section.id }}" data-treatment data-format="{{ parts[1] }}" data-base="{{ parts[2] }}" data-ceiling="{{ parts[3] }}" data-note="{{ parts[4] | escape }}" value="{{ parts[0] | escape }}">
+            <span class="ss-sel__chip">{{ parts[0] | escape }}</span>
+          </label>
+        {%- endfor -%}
+      </div>
+    </fieldset>
+
+    <fieldset class="ss-sel__q">
+      <legend class="ss-sel__qlabel">How's your skin?</legend>
+      <div class="ss-sel__chips">
+        <label class="ss-sel__opt"><input type="radio" name="ss-sel-skin-{{ section.id }}" data-skin data-mod="1"><span class="ss-sel__chip">Sensitive</span></label>
+        <label class="ss-sel__opt"><input type="radio" name="ss-sel-skin-{{ section.id }}" data-skin data-mod="0" checked><span class="ss-sel__chip">Normal</span></label>
+        <label class="ss-sel__opt"><input type="radio" name="ss-sel-skin-{{ section.id }}" data-skin data-mod="0"><span class="ss-sel__chip">Resilient</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="ss-sel__q">
+      <legend class="ss-sel__qlabel">How long is the session?</legend>
+      <div class="ss-sel__chips">
+        <label class="ss-sel__opt"><input type="radio" name="ss-sel-dur-{{ section.id }}" data-duration data-mod="0"><span class="ss-sel__chip">Under 30 min</span></label>
+        <label class="ss-sel__opt"><input type="radio" name="ss-sel-dur-{{ section.id }}" data-duration data-mod="0" checked><span class="ss-sel__chip">30–60 min</span></label>
+        <label class="ss-sel__opt"><input type="radio" name="ss-sel-dur-{{ section.id }}" data-duration data-mod="1"><span class="ss-sel__chip">Over an hour</span></label>
+      </div>
+    </fieldset>
+
+    <div class="ss-sel__result" data-result aria-live="polite">
+      <p class="ss-sel__empty" data-empty>Pick your treatment to see what we'd reach for.</p>
+      <div data-cards-wrap hidden>
+        <div class="ss-sel__cards">
+          <div class="ss-sel__card"><p class="ss-sel__cardlabel">Format</p><p class="ss-sel__cardval" data-format-out></p></div>
+          <div class="ss-sel__card" data-strength-card><p class="ss-sel__cardlabel">Strength</p><p class="ss-sel__cardval" data-strength-out></p></div>
+        </div>
+        <p class="ss-sel__line" data-stepped hidden>Stepped up for sensitive skin and/or a longer session.</p>
+        <p class="ss-sel__line" data-capped hidden>We'd keep it here for this treatment — more isn't needed.</p>
+        <p class="ss-sel__note" data-note-out></p>
+        <a class="ss-sel__cta" data-cta href="#"></a>
+        <p class="ss-sel__pract">Your practitioner may apply their own numbing as standard — a quick message before you book settles it.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.currentScript.closest('.ss-sel');
+      if (!root) return;
+      var STRENGTHS = ['Clinical', 'Advanced', 'Professional'];
+      var SLUG = { Cream: 'numbing-cream', Gel: 'numbing-gel', Spray: 'numbing-spray' };
+      var empty = root.querySelector('[data-empty]');
+      var wrap = root.querySelector('[data-cards-wrap]');
+      var fmtOut = root.querySelector('[data-format-out]');
+      var strOut = root.querySelector('[data-strength-out]');
+      var strCard = root.querySelector('[data-strength-card]');
+      var stepped = root.querySelector('[data-stepped]');
+      var capped = root.querySelector('[data-capped]');
+      var noteOut = root.querySelector('[data-note-out]');
+      var cta = root.querySelector('[data-cta]');
+      function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+      function mod(sel) { var el = root.querySelector(sel + ':checked'); return el ? parseInt(el.getAttribute('data-mod'), 10) : 0; }
+      function update() {
+        var tx = root.querySelector('[data-treatment]:checked');
+        if (!tx) { empty.hidden = false; wrap.hidden = true; return; }
+        empty.hidden = true; wrap.hidden = false;
+        var base = parseInt(tx.getAttribute('data-base'), 10);
+        var ceiling = parseInt(tx.getAttribute('data-ceiling'), 10);
+        var format = tx.getAttribute('data-format');
+        var raw = base + mod('[data-skin]') + mod('[data-duration]');
+        var final = clamp(raw, base, ceiling);
+        var strength = STRENGTHS[final];
+        fmtOut.textContent = format;
+        strOut.textContent = strength;
+        var isPro = final === 2;
+        strCard.classList.toggle('ss-sel__card--pro', isPro);
+        stepped.hidden = !(final > base);
+        capped.hidden = !(raw > ceiling);
+        noteOut.textContent = tx.getAttribute('data-note');
+        cta.textContent = 'Shop ' + strength + ' ' + format;
+        cta.setAttribute('href', '/collections/' + SLUG[format] + '?strength=' + strength.toLowerCase());
+      }
+      root.querySelectorAll('input[type="radio"]').forEach(function (i) { i.addEventListener('change', update); });
+      update();
+    })();
+  </script>
+</section>
+{% schema %}
+{
+  "name": "Senseless — Selector",
+  "tag": "section",
+  "class": "senseless-section senseless-selector",
+  "settings": [
+    { "type": "select", "id": "band", "label": "Band background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas" }, { "value": "surface", "label": "Surface" } ] },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "selector" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Senseless Selector" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Tell us about your appointment." },
+    { "type": "text", "id": "intro", "label": "Intro", "default": "Three quick answers and we'll point you to the format and strength we'd reach for." }
+  ],
+  "presets": [ { "name": "Senseless — Selector" } ]
+}
+{% endschema %}

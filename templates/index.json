@@ -71,6 +71,18 @@
         "closer_url": "/pages/the-senseless-system"
       }
     },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which to choose?",
+        "accent_word": "sure",
+        "body": "<p>Answer three quick questions — your treatment, your skin and how long the session runs — and we'll point you to the format and strength we'd reach for.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    },
     "procedure": {
       "type": "senseless-procedure-grid",
       "blocks": {
@@ -254,6 +266,7 @@
   "order": [
     "hero",
     "strength",
+    "selectorlink",
     "procedure",
     "formats",
     "product",

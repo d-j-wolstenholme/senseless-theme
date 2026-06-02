@@ -25,6 +25,16 @@
         "body": "<p>Most numbing is one product, sold one way. Senseless is built as a system — three formats and three strengths — so you can match what you use to what you're actually booking. Making your Senseless Selection means two choices, and neither is about buying the most expensive: the <strong>format</strong> (how it's applied and where) and the <strong>strength</strong> (how much the session asks for). The rest of this page walks you through both, then a by-procedure guide that puts them together.</p>"
       }
     },
+    "selector": {
+      "type": "senseless-selector",
+      "settings": {
+        "band": "canvas",
+        "anchor_id": "selector",
+        "eyebrow": "The Senseless Selector",
+        "headline": "Tell us about your appointment.",
+        "intro": "Three quick answers and we'll point you to the format and strength we'd reach for. A recommendation, not a rule — your practitioner has the final say."
+      }
+    },
     "dial1": {
       "type": "senseless-link-row",
       "blocks": {
@@ -322,6 +332,7 @@
   "order": [
     "hero",
     "what",
+    "selector",
     "dial1",
     "dial2",
     "matrix",

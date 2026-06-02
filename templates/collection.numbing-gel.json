@@ -322,12 +322,24 @@
         "headline": "Numbing gel — common questions.",
         "anchor_id": "faq"
       }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which to choose?",
+        "body": "<p>Answer three quick questions — treatment, skin and session length — and we'll point you to the format and strength we'd reach for.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
     }
   },
   "order": [
     "hero",
     "trust",
     "match",
+    "selectorlink",
     "grid",
     "format",
     "uses",
