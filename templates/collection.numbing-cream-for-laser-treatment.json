@@ -4,45 +4,14 @@
       "type": "senseless-collection-hero",
       "settings": {
         "eyebrow": "For laser",
-        "headline": "For laser hair removal, IPL, and resurfacing.",
-        "subhead": "<p>UK-formulated topical preparation for laser appointments across the category. Advanced Strength is the recommendation. Cream for face, spray for body. Professional for the most intensive resurfacing sessions.</p>",
+        "headline": "Numbing for laser, matched to the area.",
+        "subhead": "<p>Laser covers everything from a small underarm session to full-face resurfacing, so the right choice depends on the area as much as the strength. Cream suits precise facial work; spray suits larger body zones where an even layer by hand is slow. Advanced is the strength most appointments call for. Here's how to choose.</p>",
         "primary_cta_label": "Shop for laser",
-        "primary_cta_url": "#product-grid",
-        "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/choosing-your-strength",
-        "image_alt": "Editorial product close-up of Senseless cream, no faces, no laser device, no clinical setting"
+        "primary_cta_url": "#shop",
+        "secondary_cta_label": "Match the strength",
+        "secondary_cta_url": "#match",
+        "image_alt": "Numbing cream and spray for laser treatment — Senseless"
       }
-    },
-    "recommendation": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-left", "eyebrow": "The recommendation",
-        "headline": "Pick by area, not by laser type.",
-        "body": "<p>Laser appointments vary too widely for a single recommendation. A short underarm session and a full-face fractional resurfacing aren't the same booking. The framework that holds: Advanced Strength suits most laser appointments. Cream is right for face and smaller zones. Spray covers ground for body and larger areas. Professional Strength sits at the top for full-face resurfacing or the most intensive sessions. The treatment area decides — not the laser brand or the clinic's marketing.</p>",
-        "cta_label": "Compare strengths", "cta_url": "/pages/choosing-your-strength",
-        "image_alt": "Editorial product close-up of Senseless Advanced Strength cream"
-      }
-    },
-    "format": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-right", "eyebrow": "The format",
-        "headline": "Cream for face. Spray for body.",
-        "body": "<p>Face laser appointments are precise and contained. Cream is the natural format — a focused application, a controlled area, the format aesthetic clinics work with most often. Body laser work covers larger zones. Spray is built for that — broader coverage, faster application, the format that matches the surface area.</p>",
-        "cta_label": "Compare formats", "cta_url": "/pages/choosing-your-format",
-        "image_alt": "Editorial side-by-side product detail of Senseless cream and spray"
-      }
-    },
-    "grid": {
-      "type": "senseless-product-grid",
-      "blocks": {
-        "advcream": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
-        "sspad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Senseless spray on a warm off-white background" } },
-        "s30pr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-cream", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless cream on a warm off-white background" } },
-        "ssppr": { "type": "product_item", "settings": { "strength": "professional", "label": "Professional Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/professional-strength-spray", "flagship": true, "badge_text": "", "image_alt": "Professional Strength Senseless spray on a warm off-white background" } }
-      },
-      "block_order": ["advcream", "sspad", "s30pr", "ssppr"],
-      "settings": { "headline": "The products built for laser appointments.", "body": "<p>Advanced Strength for most sessions. Cream for face, spray for body. Professional for full-face resurfacing.</p>", "show_filters": false }
     },
     "trust": {
       "type": "senseless-trust-bar",
@@ -53,51 +22,88 @@
         "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
       },
       "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": {}
+      "settings": { "band": "surface" }
     },
-    "why": {
-      "type": "senseless-image-text-band",
+    "intro": {
+      "type": "senseless-editorial-band",
       "settings": {
-        "direction": "text-left", "eyebrow": "The detail",
-        "headline": "Laser asks specific things from your preparation.",
-        "body": "<p>Some lasers heat the skin. Some target pigment. Some resurface the top layer. Different lasers ask different things from the preparation that comes before them. Senseless is formulated for the category broadly, with three strengths and two relevant formats to match the appointment you've actually booked.</p>",
-        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
-        "image_alt": "Editorial product close-up of Senseless cream"
+        "background": "canvas",
+        "align": "left",
+        "eyebrow": "What laser asks",
+        "headline": "Pick by the area, not the machine",
+        "body": "<p>Laser appointments vary too widely for one answer — a quick underarm session and a full-face resurfacing aren't the same booking. The part that holds: match the format to the area (cream where the work is precise, spray where it's broad) and the strength to the session. The treatment area decides, not the laser brand or the clinic's marketing.</p>"
       }
     },
-    "aftercare": {
-      "type": "senseless-image-text-band",
+    "match": {
+      "type": "senseless-strength-ladder",
+      "blocks": {
+        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>" } },
+        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>" } },
+        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "matched": "<p>The longest, most demanding appointments.</p>" } }
+      },
+      "block_order": ["r1", "r2", "r3"],
       "settings": {
-        "direction": "text-right", "eyebrow": "Aftercare", "headline": "What comes next.",
-        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
-        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
-        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+        "use_metaobject": true,
+        "layout": "tiles",
+        "band": "canvas",
+        "anchor_id": "match",
+        "eyebrow": "The Senseless Scale",
+        "headline": "Match your numbing cream for laser to the session",
+        "body": "<p>None of the three is \"better\" than another — each is formulated for a different kind of session. For laser, most appointments sit at Advanced.</p>",
+        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
       }
+    },
+    "grid": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "headline": "Numbing for laser, by area and strength",
+        "anchor_id": "shop",
+        "show_filters": false
+      }
+    },
+    "format": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "heading": "Cream or spray for laser?",
+        "body": "<p>Decide by the area. Cream suits precise, contained facial work — a focused application on a controlled zone. Spray suits larger body areas, where covering the surface evenly by hand is slow. Gel isn't the laser format — it's for precise facial work like microneedling and SPMU. Same strengths across cream and spray; the area picks the format.</p>",
+        "cta_label": "See all procedures",
+        "cta_url": "/pages/aesthetic-procedures"
+      }
+    },
+    "honest": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "heading": "Before you buy: the bit most sellers skip",
+        "body": "<p>Some laser technicians prefer you to arrive without numbing applied — a few use your feedback on skin temperature and sensation to calibrate the treatment as they go. Others are happy for you to prepare beforehand. Clinics and machines vary, so a quick message to your practitioner before your appointment is the thing that settles it — not a rule we can give you from here.</p>"
+      }
+    },
+    "characteristics": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "c1": { "type": "fact", "settings": { "label": "UK-formulated", "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here." } },
+        "c2": { "type": "fact", "settings": { "label": "A cosmetic product", "value": "A cosmetic, not a medicine — no prescription needed." } },
+        "c3": { "type": "fact", "settings": { "label": "CPSR assessed", "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold." } },
+        "c4": { "type": "fact", "settings": { "label": "Made for aesthetics", "value": "Built around aesthetic procedures — laser hair removal, IPL, resurfacing and more — not adapted from generic numbing." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": { "band": "canvas", "heading": "What makes it Senseless" }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Does laser hair removal hurt?", "answer": "<p>The experience varies — by laser type, by treatment area, by skin sensitivity, by hair coarseness. Many clients find prepared skin more comfortable than unprepared. Read more in our <a href=\"/blogs/guides/does-laser-hair-removal-hurt\">does laser hair removal hurt guide</a>.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Which strength is best for laser?", "answer": "<p>Advanced Strength for most laser appointments. Professional for full-face resurfacing or the most intensive sessions. The treatment area is the deciding factor more than the laser type.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Cream or spray for laser?", "answer": "<p>Cream for face and precise areas. Spray for body and larger zones. The format is decided by surface area, not by personal preference.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "When do I apply it?", "answer": "<p>Ahead of your appointment. Specific timing depends on your practitioner's protocol and the type of laser they're using.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Can I use Senseless before IPL?", "answer": "<p>Yes — IPL is part of the laser category Senseless is formulated for. Follow your practitioner's specific guidance.</p>" } },
-        "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+        "q1": { "type": "faq_item", "settings": { "question": "Does laser hair removal hurt?", "answer": "<p>Most people feel a quick sting or a hot-elastic-band snap with each pulse, and numbing is there to reduce that discomfort — it doesn't remove all sensation. How much you feel varies with the area, the machine, your skin and the coarseness of the hair. Many find prepared skin more comfortable than unprepared, but check with your technician first — some prefer you to arrive without numbing applied.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Which strength should I use for laser?", "answer": "<p>Advanced suits most laser appointments. Clinical for shorter or smaller sessions; Professional for full-face resurfacing or the most intensive body work. The area matters more than the type of laser.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Cream or spray for laser?", "answer": "<p>Cream for the face and precise areas; spray for the body and larger zones. The format follows the surface area, not personal preference.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Can I use it before IPL?", "answer": "<p>Yes — IPL is part of the laser category Senseless is made for. Follow your practitioner's guidance, and check whether they'd rather you arrive without numbing applied.</p>" } },
+        "q5": { "type": "faq_item", "settings": { "question": "When do I apply it?", "answer": "<p>Ahead of your appointment, allowing time for it to take effect — follow the product guidance and your practitioner's protocol for the laser they use.</p>" } },
+        "q6": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or recently-treated skin.</p>" } },
+        "q7": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
-      "settings": { "headline": "Common questions." }
-    },
-    "related": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
-        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } },
-        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
-        "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } }
-      },
-      "block_order": ["micro", "wax", "lips", "spmu"],
-      "settings": { "columns": "4", "eyebrow": "", "headline": "Other appointments Senseless covers.", "body": "", "closer": "", "section_cta_label": "See all procedures", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"],
+      "settings": { "headline": "Numbing for laser — common questions.", "anchor_id": "faq" }
     }
   },
-  "order": ["hero", "recommendation", "format", "grid", "trust", "why", "aftercare", "faq", "related"]
+  "order": ["hero", "trust", "intro", "match", "grid", "format", "honest", "characteristics", "faq"]
 }
