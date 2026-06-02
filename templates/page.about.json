@@ -3,7 +3,7 @@
     "hero": {
       "type": "senseless-guide-hero",
       "settings": {
-        "background": "dark",
+        "background": "canvas",
         "eyebrow": "About",
         "headline": "A UK brand built for one thing.",
         "subhead": "<p>Senseless makes topical preparation products for aesthetic appointments. Three strengths, three formats, formulated to match what each procedure asks of the skin. Aesthetics is the specialism — not the side category.</p>",

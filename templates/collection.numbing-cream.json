@@ -36,7 +36,7 @@
         "use_metaobject": true,
         "band": "surface",
         "anchor_id": "match",
-        "eyebrow": "Selection",
+        "eyebrow": "The Senseless Scale",
         "headline": "Match your numbing cream to the session",
         "body": "<p>Cream is the broad-coverage default — the format most appointments call for. Within it, the strength is the choice that matters. None is \"better\" than another; each is formulated for a different kind of session.</p>",
         "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
@@ -63,6 +63,23 @@
         "body": "<p>Cream suits broad coverage and most appointments — it's the one to reach for by default. Two cases where another format fits better:</p>",
         "footer_label": "See all procedures",
         "footer_url": "/pages/aesthetic-procedures"
+      }
+    },
+    "uses": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "u1": { "type": "link_item", "settings": { "label": "Microneedling", "note": "Broad facial coverage before a roller or pen session.", "url": "/collections/numbing-cream-for-microneedling" } },
+        "u2": { "type": "link_item", "settings": { "label": "Laser (face)", "note": "Even coverage on facial treatment zones.", "url": "/collections/numbing-cream-for-laser-treatment" } },
+        "u3": { "type": "link_item", "settings": { "label": "Semi-permanent makeup", "note": "Prep for brows, lash line and lip work.", "url": "/collections/numbing-cream-for-semi-permanent-makeup" } },
+        "u4": { "type": "link_item", "settings": { "label": "Waxing (small zones)", "note": "Lip, brow and small areas where a cream applies cleanly.", "url": "/collections/numbing-cream-for-waxing" } }
+      },
+      "block_order": ["u1", "u2", "u3", "u4"],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Suited to",
+        "headline": "What numbing cream is for",
+        "intro": "<p>Cream is the broad-coverage default — the format most aesthetic appointments call for. The procedures it's most often chosen for:</p>",
+        "closer": "<p>For precise facial work that must stay put, gel holds where you place it — and for large or body areas, a spray covers ground faster. Match the format to the work.</p>"
       }
     },
     "philosophy": {
@@ -110,5 +127,5 @@
       "settings": { "headline": "Numbing cream — common questions.", "anchor_id": "faq" }
     }
   },
-  "order": ["hero", "trust", "match", "grid", "format", "philosophy", "honest", "characteristics", "faq"]
+  "order": ["hero", "trust", "match", "grid", "format", "uses", "philosophy", "honest", "characteristics", "faq"]
 }

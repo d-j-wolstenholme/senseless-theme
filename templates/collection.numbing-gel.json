@@ -65,6 +65,23 @@
         "footer_url": "/pages/aesthetic-procedures"
       }
     },
+    "uses": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "u1": { "type": "link_item", "settings": { "label": "Microneedling", "note": "Holds on the face through a full roller/pen session.", "url": "/collections/numbing-cream-for-microneedling" } },
+        "u2": { "type": "link_item", "settings": { "label": "Semi-permanent makeup", "note": "Stays put on brows, lash line and lips through a long sitting.", "url": "/collections/numbing-cream-for-semi-permanent-makeup" } },
+        "u3": { "type": "link_item", "settings": { "label": "Precise facial work", "note": "Small, defined areas where a cream would migrate." } },
+        "u4": { "type": "link_item", "settings": { "label": "Lip work", "note": "A contained area that needs the product to stay exactly where placed." } }
+      },
+      "block_order": ["u1", "u2", "u3", "u4"],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Suited to",
+        "headline": "What numbing gel is for",
+        "intro": "<p>Gel suits precise, facial work and longer sittings where it needs to stay exactly where it's placed. The procedures it's most often chosen for:</p>",
+        "closer": "<p>For larger or body areas, a spray covers ground faster — and for broad, simpler areas, cream is the default. Match the format to the work.</p>"
+      }
+    },
     "philosophy": {
       "type": "senseless-editorial-band",
       "settings": {
@@ -109,5 +126,5 @@
       "settings": { "headline": "Numbing gel — common questions.", "anchor_id": "faq" }
     }
   },
-  "order": ["hero", "trust", "match", "grid", "format", "philosophy", "honest", "characteristics", "faq"]
+  "order": ["hero", "trust", "match", "grid", "format", "uses", "philosophy", "honest", "characteristics", "faq"]
 }

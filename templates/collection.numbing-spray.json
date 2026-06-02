@@ -65,10 +65,26 @@
         "footer_url": "/pages/aesthetic-procedures"
       }
     },
+    "uses": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "u1": { "type": "link_item", "settings": { "label": "Waxing (body)", "note": "Covers legs, back, bikini and brazilian zones fast and evenly.", "url": "/collections/numbing-cream-for-waxing" } },
+        "u2": { "type": "link_item", "settings": { "label": "Laser (body)", "note": "Even coverage across larger treatment areas a cream is slow to spread.", "url": "/collections/numbing-cream-for-laser-treatment" } },
+        "u3": { "type": "link_item", "settings": { "label": "Large or contoured areas", "note": "Anywhere spreading a cream by hand is slow or uneven." } }
+      },
+      "block_order": ["u1", "u2", "u3"],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Suited to",
+        "headline": "What numbing spray is for",
+        "intro": "<p>Spray suits large or awkward-to-reach areas you can cover quickly and evenly, without working a layer in by hand. The procedures it's most often chosen for:</p>",
+        "closer": "<p>For precise or facial work, gel holds where you place it — and for broad, simpler areas, cream is the default. Match the format to the work.</p>"
+      }
+    },
     "philosophy": {
       "type": "senseless-editorial-band",
       "settings": {
-        "background": "dark",
+        "background": "canvas",
         "align": "left",
         "headline": "Built for the procedure, not the average",
         "body": "<p>A generic numbing product treats every situation the same — the same thing for a small touch-up and a large body area. Aesthetic appointments aren't the same, so Senseless isn't built that way. The Senseless System pairs three strengths with three formats, each formulated for what a kind of appointment actually asks for. Spray exists because some areas are too large or awkward to cover well any other way. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>"
@@ -102,12 +118,14 @@
         "q4": { "type": "faq_item", "settings": { "question": "How do I apply numbing spray evenly?", "answer": "<p>Hold it a short, consistent distance from the skin and cover the area in even passes; allow time for it to take effect before your appointment — follow the product guidance and your practitioner.</p>" } },
         "q5": { "type": "faq_item", "settings": { "question": "How much area does one bottle cover?", "answer": "<p>The 100ml bottle is sized for larger-area and repeat use. How far it goes depends on the size of the area you're covering and how many sessions you're preparing for.</p>" } },
         "q6": { "type": "faq_item", "settings": { "question": "Do I need to patch test?", "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>" } },
+        "qreapply": { "type": "faq_item", "settings": { "question": "Can I re-apply numbing spray during my session?", "answer": "<p>Many customers report re-applying the spray during a longer session to help extend comfort where their practitioner is happy for them to — its quick, hands-off application makes it easy to top up mid-appointment without disturbing the area. Always check with your practitioner first, as not every procedure allows re-application mid-session.</p>" } },
+        "qinj": { "type": "faq_item", "settings": { "question": "Can I use numbing spray before injections?", "answer": "<p>Many people use a numbing spray to prepare for injectable appointments, where its even, hands-off coverage suits the area. Most clinics apply their own numbing as standard, though — so check with your practitioner before your appointment, as they may prefer to prepare the skin themselves.</p>" } },
         "q7": { "type": "faq_item", "settings": { "question": "Is numbing spray a medicine?", "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>" } },
         "q8": { "type": "faq_item", "settings": { "question": "What's in it?", "answer": "<p>Each formula is a UK cosmetic formulated by Matrix Health Group Ltd, with the full ingredients (INCI) listed on the pack.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "qreapply", "qinj", "q7", "q8"],
       "settings": { "headline": "Numbing spray — common questions.", "anchor_id": "faq" }
     }
   },
-  "order": ["hero", "trust", "match", "grid", "format", "philosophy", "honest", "characteristics", "faq"]
+  "order": ["hero", "trust", "match", "grid", "format", "uses", "philosophy", "honest", "characteristics", "faq"]
 }
