@@ -21,11 +21,13 @@
         "body": "<p>Microneedling is usually described as uncomfortable rather than painful. Most people feel a fine scratching or prickling sensation, strongest over bonier areas like the forehead and jawline, and lighter across the cheeks. The needle depth makes the biggest difference — a light refresh facial feels very different to a deeper treatment for scarring. Numbing is commonly used to make the session more comfortable; it reduces the sensation rather than removing it entirely.</p>"
       }
     },
-    "painslot": {
-      "type": "senseless-pain-scale-slot",
+    "comfort": {
+      "type": "senseless-comfort-compare",
       "settings": {
-        "anchor_id": "pain-scale",
-        "future_heading": "Where microneedling sits — and what changes it."
+        "mode": "microneedling",
+        "anchor_id": "comfort",
+        "eyebrow": "What changes it",
+        "heading": "Where microneedling sits — and what changes it."
       }
     },
     "affects": {
@@ -138,7 +140,7 @@
   "order": [
     "hero",
     "honest",
-    "painslot",
+    "comfort",
     "affects",
     "numbing",
     "keyfacts",

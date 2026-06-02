@@ -21,11 +21,13 @@
         "body": "<p>Laser hair removal is most often described as a fast, sharp flick against the skin — similar to an elastic band snapping — followed by a moment of warmth. Each pulse is brief. Sensitive areas like the upper lip, bikini line and underarms feel sharper than larger, less sensitive areas like the legs. Many people also find it becomes more comfortable across a course of sessions as the hair thins. A topical numbing preparation is sometimes used beforehand to make sensitive areas more comfortable; it reduces the sensation rather than removing it.</p>"
       }
     },
-    "painslot": {
-      "type": "senseless-pain-scale-slot",
+    "comfort": {
+      "type": "senseless-comfort-compare",
       "settings": {
-        "anchor_id": "pain-scale",
-        "future_heading": "Where laser sits by area — and what changes it."
+        "mode": "laser",
+        "anchor_id": "comfort",
+        "eyebrow": "What changes it",
+        "heading": "Where laser sits by area — and what changes it."
       }
     },
     "affects": {
@@ -138,7 +140,7 @@
   "order": [
     "hero",
     "honest",
-    "painslot",
+    "comfort",
     "affects",
     "numbing",
     "keyfacts",
