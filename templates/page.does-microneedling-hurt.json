@@ -1,0 +1,150 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "What to expect",
+        "headline": "Does microneedling hurt?",
+        "subhead": "<p>Most people find microneedling uncomfortable rather than painful — a light scratching or prickling as the device passes over the skin. How much you feel depends on the depth, the area, and your own sensitivity.</p>",
+        "image_alt": "Editorial Senseless numbing gel for microneedling on a warm off-white background"
+      }
+    },
+    "honest": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "The honest answer",
+        "headline": "What it actually feels like",
+        "accent_word": "actually",
+        "body": "<p>Microneedling is usually described as uncomfortable rather than painful. Most people feel a fine scratching or prickling sensation, strongest over bonier areas like the forehead and jawline, and lighter across the cheeks. The needle depth makes the biggest difference — a light refresh facial feels very different to a deeper treatment for scarring. Numbing is commonly used to make the session more comfortable; it reduces the sensation rather than removing it entirely.</p>"
+      }
+    },
+    "painslot": {
+      "type": "senseless-pain-scale-slot",
+      "settings": {
+        "anchor_id": "pain-scale",
+        "future_heading": "Where microneedling sits — and what changes it."
+      }
+    },
+    "affects": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "headline": "What affects how much you feel",
+        "body": "<ul><li><strong>Needle depth.</strong> The single biggest factor. Shallower treatments are largely comfortable; deeper work for scarring or stretch marks is more intense.</li><li><strong>The area.</strong> Skin over bone — forehead, hairline, jaw, nose — is more sensitive than fuller areas like the cheeks.</li><li><strong>Your own sensitivity.</strong> Pain thresholds vary, and skin can be more reactive around your period or when it's already irritated.</li><li><strong>Whether numbing is used.</strong> Most practitioners apply a numbing preparation before the session as standard.</li></ul>"
+      }
+    },
+    "numbing": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Preparation, not the result",
+        "headline": "How numbing fits in",
+        "body": "<p>Most microneedling practitioners apply their own numbing preparation before they start — so for many people, bringing your own isn't necessary. Where you're preparing at home, or topping up comfort with your practitioner's agreement, a topical numbing gel is the usual choice for facial work because it stays where it's placed. Numbing is about comfort and preparation, not the result of the treatment, and it's removed before the device is used. If you're not sure what your appointment involves, a quick message to your practitioner settles it.</p><p><a href=\"/collections/numbing-cream-for-microneedling\">The right gel for microneedling</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "The essentials",
+        "body": "<ul><li>Microneedling is usually described as uncomfortable rather than painful — a light scratching or prickling.</li><li>Needle depth, the area treated, and individual sensitivity decide how much you feel.</li><li>Most practitioners apply a numbing preparation as standard; numbing reduces discomfort, it doesn't remove all sensation.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+      }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which to choose?",
+        "body": "<p>Answer three quick questions — treatment, skin and session length — and we'll point you to the format and strength we'd reach for.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is microneedling painful?",
+            "answer": "<p>For most people it's uncomfortable rather than painful — a light scratching or prickling. Deeper treatments for scarring feel more intense than a surface refresh.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does numbing cream stop microneedling hurting?",
+            "answer": "<p>It reduces the discomfort rather than removing it. Most practitioners apply a numbing preparation before the session as standard.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where does microneedling hurt most?",
+            "answer": "<p>Over bonier areas — the forehead, hairline and jaw — and least across the fuller part of the cheeks.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to bring my own numbing cream?",
+            "answer": "<p>Often not — most practitioners numb the skin themselves. Check with yours before your appointment.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
+    },
+    "route": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop numbing for microneedling",
+            "url": "/collections/numbing-cream-for-microneedling"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Make your Selection",
+            "url": "/pages/the-senseless-system#selector"
+          }
+        }
+      },
+      "block_order": ["l1", "l2"],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Next",
+        "headline": "Ready when you are"
+      }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "name": "Does microneedling hurt?",
+        "description": "Most people find microneedling uncomfortable rather than painful — a light scratching or prickling. What affects it, what to expect, and how to prepare."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "honest",
+    "painslot",
+    "affects",
+    "numbing",
+    "keyfacts",
+    "selectorlink",
+    "faq",
+    "route",
+    "schema"
+  ]
+}

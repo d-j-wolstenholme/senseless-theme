@@ -1,0 +1,150 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "What to expect",
+        "headline": "Does laser hair removal hurt?",
+        "subhead": "<p>Most people describe laser hair removal as a quick snap against the skin — like an elastic band — rather than a deep pain. It's brief, varies by area, and tends to ease over a course of sessions.</p>",
+        "image_alt": "Editorial Senseless numbing spray for laser hair removal on a warm off-white background"
+      }
+    },
+    "honest": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "The honest answer",
+        "headline": "What it actually feels like",
+        "accent_word": "actually",
+        "body": "<p>Laser hair removal is most often described as a fast, sharp flick against the skin — similar to an elastic band snapping — followed by a moment of warmth. Each pulse is brief. Sensitive areas like the upper lip, bikini line and underarms feel sharper than larger, less sensitive areas like the legs. Many people also find it becomes more comfortable across a course of sessions as the hair thins. A topical numbing preparation is sometimes used beforehand to make sensitive areas more comfortable; it reduces the sensation rather than removing it.</p>"
+      }
+    },
+    "painslot": {
+      "type": "senseless-pain-scale-slot",
+      "settings": {
+        "anchor_id": "pain-scale",
+        "future_heading": "Where laser sits by area — and what changes it."
+      }
+    },
+    "affects": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "headline": "What affects how much you feel",
+        "body": "<ul><li><strong>The area.</strong> Thin skin over bone and the most sensitive zones — upper lip, bikini, underarms — feel sharper than the legs, arms or back.</li><li><strong>The session number.</strong> The first session is usually the most noticeable; many people find later sessions easier as hair density drops.</li><li><strong>Your own sensitivity.</strong> Thresholds vary, and skin can be more reactive around your period.</li><li><strong>Whether numbing is used.</strong> A topical numbing preparation on sensitive areas can take the edge off.</li></ul>"
+      }
+    },
+    "numbing": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Preparation, not the result",
+        "headline": "How numbing fits in",
+        "body": "<p>For many people the sensation is manageable without anything, especially on larger areas. On the sharper zones — upper lip, bikini line, underarms — a topical numbing preparation applied beforehand can make the session more comfortable. Because laser covers larger or awkward areas quickly, a spray is often the easier format for the body, and a cream for smaller, precise areas like the lip. Numbing is preparation for comfort, not part of the treatment itself, and many clinics have their own guidance on what they'd like you to apply — so check with your practitioner first.</p><p><a href=\"/collections/numbing-cream-for-laser-treatment\">Numbing for laser</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "The essentials",
+        "body": "<ul><li>Laser hair removal is usually described as a quick elastic-band snap, followed by brief warmth — not a deep pain.</li><li>Sensitive areas (upper lip, bikini, underarms) feel sharper than larger areas (legs, back); many people find later sessions easier.</li><li>A topical numbing preparation can make sensitive areas more comfortable; it reduces the sensation, it doesn't remove it.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+      }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which to choose?",
+        "body": "<p>Answer three quick questions — treatment, skin and session length — and we'll point you to the format and strength we'd reach for.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is laser hair removal painful?",
+            "answer": "<p>Most people describe a quick snap against the skin, like an elastic band, rather than a deep pain. It's brief and varies by area.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which areas hurt most?",
+            "answer": "<p>The most sensitive zones — upper lip, bikini line and underarms — feel sharper than the legs, arms or back.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it get less painful over time?",
+            "answer": "<p>Many people find later sessions more comfortable as the hair thins over a course of treatments.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use numbing cream for laser hair removal?",
+            "answer": "<p>Yes — a topical numbing preparation on sensitive areas beforehand can make it more comfortable. Check your clinic's guidance first, as some prefer to advise on what you apply.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
+    },
+    "route": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop numbing for laser",
+            "url": "/collections/numbing-cream-for-laser-treatment"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Make your Selection",
+            "url": "/pages/the-senseless-system#selector"
+          }
+        }
+      },
+      "block_order": ["l1", "l2"],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Next",
+        "headline": "Ready when you are"
+      }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "name": "Does laser hair removal hurt?",
+        "description": "Most people describe laser hair removal as a quick elastic-band snap against the skin. What affects it, by area, and how to prepare for your appointment."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "honest",
+    "painslot",
+    "affects",
+    "numbing",
+    "keyfacts",
+    "selectorlink",
+    "faq",
+    "route",
+    "schema"
+  ]
+}

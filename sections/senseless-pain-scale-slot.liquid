@@ -1,0 +1,32 @@
+{%- comment -%}
+  Senseless — Pain-scale interactive SLOT (Phase 6 placeholder).
+
+  The per-page pain-scale slider (build-ready spec 37358bc375ea81df995afcf813dd03bb, "Interactive 1")
+  will be built INTO this section in a later task. It is intentionally NOT built yet:
+
+    ⚠ TODO-SOURCE (gating): every 0–10 value and the with-/without-prep bands must come from
+    published typical-experience data, OR be framed "customers typically report" — NEVER invented.
+    No numbers are sourced yet, so the interactive does not ship. Pages ship first (spec build order).
+
+  Until the engine is built this renders ONLY an empty #pain-scale anchor, so:
+    - the page validates and reads complete without the interactive, and
+    - the future slider has a stable in-page anchor to land on.
+
+  The intended placeholder heading is stored in `future_heading` and emitted as an HTML comment
+  only (invisible) — it is NOT shown, to keep the page reading as finished prose.
+{%- endcomment -%}
+<div id="{{ section.settings.anchor_id | default: 'pain-scale' | escape }}" class="ss-pain-slot" data-pain-scale-slot hidden></div>
+{%- if section.settings.future_heading != blank -%}<!-- pain-scale interactive slot · future heading: "{{ section.settings.future_heading | escape }}" · numbers TODO-SOURCE -->{%- endif -%}
+{% schema %}
+{
+  "name": "Senseless — Pain slot",
+  "tag": "section",
+  "class": "senseless-section senseless-pain-scale-slot",
+  "settings": [
+    { "type": "paragraph", "content": "Placeholder for the per-page pain-scale slider. Renders an empty #pain-scale anchor only. The interactive ships later, once typical-experience numbers are sourced (never invented)." },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "pain-scale" },
+    { "type": "text", "id": "future_heading", "label": "Future heading (stored, not displayed)" }
+  ],
+  "presets": [ { "name": "Senseless — Pain slot" } ]
+}
+{% endschema %}
