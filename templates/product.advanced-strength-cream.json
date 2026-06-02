@@ -271,14 +271,89 @@
         "cta_url": "/products/foaming-cleanser",
         "image_alt": "Editorial Senseless Foaming Cleanser on a clean countertop"
       }
+    },
+    "shortdesc": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "body": "<p>Advanced is the higher-strength numbing cream — for longer or more sensitive sessions and larger areas. Formulated in the UK, CPSR assessed.</p>"
+      }
+    },
+    "linksout": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "b0": {
+          "type": "link_item",
+          "settings": {
+            "label": "Numbing cream",
+            "note": "Back to the full range.",
+            "url": "/collections/numbing-cream"
+          }
+        },
+        "u1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Microneedling",
+            "note": "What it's used for.",
+            "url": "/collections/numbing-cream-for-microneedling"
+          }
+        },
+        "u2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Laser",
+            "note": "What it's used for.",
+            "url": "/collections/numbing-cream-for-laser-treatment"
+          }
+        },
+        "u3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Semi-permanent makeup",
+            "note": "What it's used for.",
+            "url": "/collections/numbing-cream-for-semi-permanent-makeup"
+          }
+        },
+        "u4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Waxing",
+            "note": "What it's used for.",
+            "url": "/collections/numbing-cream-for-waxing"
+          }
+        },
+        "g": {
+          "type": "link_item",
+          "settings": {
+            "label": "The Senseless System",
+            "note": "Not sure which strength?",
+            "url": "/pages/the-senseless-system"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "u1",
+        "u2",
+        "u3",
+        "u4",
+        "g"
+      ],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Explore",
+        "headline": "Explore the range"
+      }
     }
   },
   "order": [
     "hero",
     "trust",
+    "shortdesc",
     "system",
     "howto",
     "keyfacts",
+    "linksout",
     "faq",
     "reviews",
     "related",

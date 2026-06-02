@@ -271,14 +271,71 @@
         "cta_url": "/products/foaming-cleanser",
         "image_alt": "Editorial Senseless Foaming Cleanser on a clean countertop"
       }
+    },
+    "shortdesc": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "body": "<p>Clinical is the standard-strength numbing gel — it holds where you place it, for precise and facial work. Formulated in the UK, CPSR assessed.</p>"
+      }
+    },
+    "linksout": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "b0": {
+          "type": "link_item",
+          "settings": {
+            "label": "Numbing gel",
+            "note": "Back to the full range.",
+            "url": "/collections/numbing-gel"
+          }
+        },
+        "u1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Microneedling",
+            "note": "What it's used for.",
+            "url": "/collections/numbing-cream-for-microneedling"
+          }
+        },
+        "u2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Semi-permanent makeup",
+            "note": "What it's used for.",
+            "url": "/collections/numbing-cream-for-semi-permanent-makeup"
+          }
+        },
+        "g": {
+          "type": "link_item",
+          "settings": {
+            "label": "The Senseless System",
+            "note": "Not sure which strength?",
+            "url": "/pages/the-senseless-system"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "u1",
+        "u2",
+        "g"
+      ],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Explore",
+        "headline": "Explore the range"
+      }
     }
   },
   "order": [
     "hero",
     "trust",
+    "shortdesc",
     "system",
     "howto",
     "keyfacts",
+    "linksout",
     "faq",
     "reviews",
     "related",
