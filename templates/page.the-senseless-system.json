@@ -107,7 +107,14 @@
         "eyebrow": "Shop",
         "headline": "Ready when you are"
       }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "name": "The Senseless System",
+        "description": "How Senseless works — two dials, format and strength, matched to your appointment, with a by-procedure guide."
+      }
     }
   },
-  "order": ["hero", "what", "dial1", "dial2", "matrix", "honest", "route"]
+  "order": ["hero", "what", "dial1", "dial2", "matrix", "honest", "route", "schema"]
 }

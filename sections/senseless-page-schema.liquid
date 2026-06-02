@@ -1,0 +1,33 @@
+{%- comment -%}
+  Senseless — Page schema. Emits WebPage JSON-LD for a content page (no visible output).
+  BreadcrumbList is already emitted by Horizon on page templates, so we don't duplicate it.
+  Name defaults to the page title; isPartOf the WebSite.
+{%- endcomment -%}
+{%- liquid
+  assign page_name = section.settings.name | default: page.title
+  assign desc = section.settings.description
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ page_name | json }},
+  "url": {{ canonical_url | json }}{% if desc != blank %},
+  "description": {{ desc | strip_html | json }}{% endif %},
+  "isPartOf": { "@type": "WebSite", "name": {{ shop.name | json }}, "url": {{ shop.url | json }} }
+}
+</script>
+
+{% schema %}
+{
+  "name": "Senseless — Page schema",
+  "tag": "section",
+  "class": "senseless-section senseless-page-schema",
+  "settings": [
+    { "type": "paragraph", "content": "Emits WebPage JSON-LD (Horizon already provides BreadcrumbList). No visible output. Name defaults to the page title." },
+    { "type": "text", "id": "name", "label": "Name override (optional)" },
+    { "type": "text", "id": "description", "label": "Description (optional)" }
+  ],
+  "presets": [ { "name": "Senseless — Page schema" } ]
+}
+{% endschema %}
