@@ -5,9 +5,9 @@
       "settings": {
         "background": "canvas",
         "eyebrow": "The Senseless System",
-        "headline": "Two dials. One system.",
-        "accent_word": "system",
-        "subhead": "<p>Senseless works on a simple idea — match the strength and the format to the appointment in front of you. Here's how the two fit together, and how to choose.</p>",
+        "headline": "Make your Senseless Selection",
+        "accent_word": "Selection",
+        "subhead": "<p>Within the Senseless System, your selection has two parts — the format, and the strength. Here's how to make it.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "/pages/aesthetic-procedures",
         "secondary_cta_label": "Jump to the by-procedure guide",
@@ -22,21 +22,46 @@
         "eyebrow": "The system",
         "headline": "What the Senseless System is",
         "accent_word": "System",
-        "body": "<p>Most numbing is one product, sold one way. Senseless is built as a system — three formats and three strengths — so you can match what you use to what you're actually booking. Two decisions, and neither is about buying the most expensive: the <strong>format</strong> (how it's applied and where) and the <strong>strength</strong> (how much the session asks for). The rest of this page is those two dials, and a by-procedure guide that combines them.</p>"
+        "body": "<p>Most numbing is one product, sold one way. Senseless is built as a system — three formats and three strengths — so you can match what you use to what you're actually booking. Making your Senseless Selection means two choices, and neither is about buying the most expensive: the <strong>format</strong> (how it's applied and where) and the <strong>strength</strong> (how much the session asks for). The rest of this page walks you through both, then a by-procedure guide that puts them together.</p>"
       }
     },
     "dial1": {
       "type": "senseless-link-row",
       "blocks": {
-        "f1": { "type": "link_item", "settings": { "label": "Cream", "note": "Broad coverage, the default for most appointments and larger or simpler areas.", "url": "/collections/numbing-cream" } },
-        "f2": { "type": "link_item", "settings": { "label": "Gel", "note": "Holds exactly where you place it; for precise, facial work and longer sittings.", "url": "/collections/numbing-gel" } },
-        "f3": { "type": "link_item", "settings": { "label": "Spray", "note": "Fast, even, hands-off coverage for large or awkward-to-reach areas.", "url": "/collections/numbing-spray" } }
+        "f1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Cream",
+            "note": "Broad coverage, the default for most appointments and larger or simpler areas.",
+            "url": "/collections/numbing-cream"
+          }
+        },
+        "f2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Gel",
+            "note": "Holds exactly where you place it; for precise, facial work and longer sittings.",
+            "url": "/collections/numbing-gel"
+          }
+        },
+        "f3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Spray",
+            "note": "Fast, even, hands-off coverage for large or awkward-to-reach areas.",
+            "url": "/collections/numbing-spray"
+          }
+        }
       },
-      "block_order": ["f1", "f2", "f3"],
+      "block_order": [
+        "f1",
+        "f2",
+        "f3"
+      ],
       "settings": {
         "band": "canvas",
-        "eyebrow": "Dial one",
-        "headline": "Dial one: the format",
+        "eyebrow": "Selection one",
+        "headline": "Selection one: the format",
         "accent_word": "format",
         "intro": "<p>Format is about where the product goes and how it stays there. Three options:</p>",
         "closer": "<p>If you're between cream and gel, the question is precision; between cream and spray, it's the size of the area.</p>"
@@ -45,18 +70,42 @@
     "dial2": {
       "type": "senseless-strength-ladder",
       "blocks": {
-        "r1": { "type": "ladder_row", "settings": { "strength": "Clinical", "matched": "<p><strong>The standard.</strong> <em>Smaller areas, shorter or routine appointments, and anyone starting out.</em> Fits the majority of sessions.</p>" } },
-        "r2": { "type": "ladder_row", "settings": { "strength": "Advanced", "tag": "Most popular", "matched": "<p><strong>The higher strength.</strong> <em>Larger areas, longer or more sensitive sessions.</em> The one most people settle on for regular work.</p>" } },
-        "r3": { "type": "ladder_row", "settings": { "strength": "Professional", "featured": true, "matched": "<p><strong>The highest in the system.</strong> <em>The longest, most demanding, most sustained sessions.</em> More than most appointments need — and we'll tell you when.</p>" } }
+        "r1": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Clinical",
+            "matched": "<p><strong>The standard.</strong> <em>Smaller areas, shorter or routine appointments, and anyone starting out.</em> Fits the majority of sessions.</p>"
+          }
+        },
+        "r2": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Advanced",
+            "tag": "Most popular",
+            "matched": "<p><strong>The higher strength.</strong> <em>Larger areas, longer or more sensitive sessions.</em> The one most people settle on for regular work.</p>"
+          }
+        },
+        "r3": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Professional",
+            "featured": true,
+            "matched": "<p><strong>The highest in the system.</strong> <em>The longest, most demanding, most sustained sessions.</em> More than most appointments need — and we'll tell you when.</p>"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
       "settings": {
         "use_metaobject": false,
         "layout": "rows",
         "band": "surface",
         "anchor_id": "scale",
         "eyebrow": "The Senseless Scale",
-        "headline": "Dial two: the strength",
+        "headline": "Selection two: the strength",
         "accent_word": "strength",
         "body": "<p>Strength is separate from format — every format comes in all three. Which you need depends on the session, not the procedure name: <strong>how large the area is, how long the appointment runs, how intense it is, and how sensitive your skin is.</strong> None is \"better\" than another; each is built for a different kind of session.</p>",
         "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>"
@@ -65,20 +114,93 @@
     "matrix": {
       "type": "senseless-strength-matrix",
       "blocks": {
-        "m1": { "type": "suitability_row", "settings": { "procedure": "Lip fillers", "recommendation": "Cream, Clinical · Advanced if sensitive", "notes": "Professional is overkill here. Save it.", "level": "recommended" } },
-        "m2": { "type": "suitability_row", "settings": { "procedure": "Botox", "recommendation": "Cream, Clinical", "notes": "Many manage without numbing at all — optional, not required.", "level": "possible" } },
-        "m3": { "type": "suitability_row", "settings": { "procedure": "Microneedling", "recommendation": "Gel, Advanced · Professional for intensive", "notes": "Clinical is rarely enough on its own.", "level": "recommended" } },
-        "m4": { "type": "suitability_row", "settings": { "procedure": "Laser (face)", "recommendation": "Cream, Advanced", "notes": "Cream for the face; spray for the body.", "level": "recommended" } },
-        "m5": { "type": "suitability_row", "settings": { "procedure": "Laser (body)", "recommendation": "Spray, Advanced · Professional for resurfacing", "notes": "The area decides the format and the strength.", "level": "recommended" } },
-        "m6": { "type": "suitability_row", "settings": { "procedure": "SPMU / microblading", "recommendation": "Gel, Advanced · Professional for long sittings", "notes": "Clinical rarely enough for a full sitting.", "level": "recommended" } },
-        "m7": { "type": "suitability_row", "settings": { "procedure": "Waxing (body)", "recommendation": "Spray, Advanced", "notes": "Spray covers large zones fast and evenly.", "level": "recommended" } },
-        "m8": { "type": "suitability_row", "settings": { "procedure": "Waxing (small zones)", "recommendation": "Cream, Clinical", "notes": "Cream for lip, brow and small areas.", "level": "recommended" } }
+        "m1": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Lip fillers",
+            "recommendation": "Cream, Clinical · Advanced if sensitive",
+            "notes": "Professional is overkill here. Save it.",
+            "level": "recommended"
+          }
+        },
+        "m2": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Botox",
+            "recommendation": "Cream, Clinical",
+            "notes": "Many manage without numbing at all — optional, not required.",
+            "level": "possible"
+          }
+        },
+        "m3": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Microneedling",
+            "recommendation": "Gel, Advanced · Professional for intensive",
+            "notes": "Clinical is rarely enough on its own.",
+            "level": "recommended"
+          }
+        },
+        "m4": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Laser (face)",
+            "recommendation": "Cream, Advanced",
+            "notes": "Cream for the face; spray for the body.",
+            "level": "recommended"
+          }
+        },
+        "m5": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Laser (body)",
+            "recommendation": "Spray, Advanced · Professional for resurfacing",
+            "notes": "The area decides the format and the strength.",
+            "level": "recommended"
+          }
+        },
+        "m6": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "SPMU / microblading",
+            "recommendation": "Gel, Advanced · Professional for long sittings",
+            "notes": "Clinical rarely enough for a full sitting.",
+            "level": "recommended"
+          }
+        },
+        "m7": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Waxing (body)",
+            "recommendation": "Spray, Advanced",
+            "notes": "Spray covers large zones fast and evenly.",
+            "level": "recommended"
+          }
+        },
+        "m8": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Waxing (small zones)",
+            "recommendation": "Cream, Clinical",
+            "notes": "Cream for lip, brow and small areas.",
+            "level": "recommended"
+          }
+        }
       },
-      "block_order": ["m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8"],
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6",
+        "m7",
+        "m8"
+      ],
       "settings": {
         "anchor_id": "matrix",
         "eyebrow": "By procedure",
-        "headline": "Putting it together: what we recommend by procedure",
+        "headline": "Putting your selection together: what we recommend by procedure",
         "accent_word": "procedure",
         "body": "<p>The honest version — the format and strength we'd point you to for each treatment, what's overkill, and what's rarely enough. This is a guide, so it covers injectables too; on the shop pages we keep those separate.</p>",
         "closer": "<p>If you're between strengths, choose the higher one — the cost of going up is small; the cost of going too low for an intensive session is real.</p>"
@@ -96,12 +218,41 @@
     "route": {
       "type": "senseless-link-row",
       "blocks": {
-        "l1": { "type": "link_item", "settings": { "label": "Shop cream", "url": "/collections/numbing-cream" } },
-        "l2": { "type": "link_item", "settings": { "label": "Shop gel", "url": "/collections/numbing-gel" } },
-        "l3": { "type": "link_item", "settings": { "label": "Shop spray", "url": "/collections/numbing-spray" } },
-        "l4": { "type": "link_item", "settings": { "label": "Browse by procedure", "url": "/pages/aesthetic-procedures" } }
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop cream",
+            "url": "/collections/numbing-cream"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop gel",
+            "url": "/collections/numbing-gel"
+          }
+        },
+        "l3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop spray",
+            "url": "/collections/numbing-spray"
+          }
+        },
+        "l4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Browse by procedure",
+            "url": "/pages/aesthetic-procedures"
+          }
+        }
       },
-      "block_order": ["l1", "l2", "l3", "l4"],
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
       "settings": {
         "band": "canvas",
         "eyebrow": "Shop",
@@ -116,5 +267,14 @@
       }
     }
   },
-  "order": ["hero", "what", "dial1", "dial2", "matrix", "honest", "route", "schema"]
+  "order": [
+    "hero",
+    "what",
+    "dial1",
+    "dial2",
+    "matrix",
+    "honest",
+    "route",
+    "schema"
+  ]
 }
