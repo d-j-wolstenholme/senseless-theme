@@ -36,7 +36,7 @@
   }
 {%- endstyle -%}
 
-<section class="ss-rt ss-rt--{{ section.settings.background }}" aria-label="{{ section.settings.headline | default: 'Section' | escape }}">
+<section class="ss-rt ss-rt--{{ section.settings.background }}"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Section' | escape }}">
   <div class="ss-rt__inner">
     {%- if section.settings.eyebrow != blank -%}<p class="ss-rt__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     {%- if section.settings.headline != blank -%}<h2 class="ss-rt__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
@@ -52,6 +52,7 @@
   "class": "senseless-section senseless-rich-text",
   "settings": [
     { "type": "select", "id": "background", "label": "Background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas (warm)" }, { "value": "white", "label": "White" } ] },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID (optional, for deep-links)" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline" },
     { "type": "richtext", "id": "body", "label": "Body" },

@@ -21,22 +21,13 @@
         "body": "<p>How much a treatment hurts is personal — it varies with the treatment itself, the area being worked on, and your own sensitivity. Numbing is preparation for comfort, not part of the treatment, and most practitioners apply their own as standard, so it's always worth a quick word with yours first. Compare treatments below, then go deeper on the one you're booked in for.</p>"
       }
     },
-    "comforthub": {
-      "type": "senseless-comfort-compare",
-      "settings": {
-        "mode": "hub",
-        "anchor_id": "comfort",
-        "eyebrow": "A general guide",
-        "heading": "How treatments compare for comfort"
-      }
-    },
     "cards": {
       "type": "senseless-link-row",
       "blocks": {
         "c1": {
           "type": "link_item",
           "settings": {
-            "label": "Does microneedling hurt?",
+            "label": "Microneedling",
             "note": "A light scratching or prickling — what changes it, by depth and area.",
             "url": "/pages/does-microneedling-hurt"
           }
@@ -44,7 +35,7 @@
         "c2": {
           "type": "link_item",
           "settings": {
-            "label": "Does laser hair removal hurt?",
+            "label": "Laser hair removal",
             "note": "A quick elastic-band snap — what changes it, by area and session.",
             "url": "/pages/does-laser-hair-removal-hurt"
           }
@@ -52,17 +43,57 @@
         "c3": {
           "type": "link_item",
           "settings": {
-            "label": "Pain by treatment",
-            "note": "Lip filler, Botox, microblading, lip blush, waxing and electrolysis — answered.",
-            "url": "/pages/does-it-hurt-by-treatment"
+            "label": "Lip filler",
+            "note": "A brief sharp scratch and some pressure — eased by the numbing most practitioners use.",
+            "url": "/pages/does-it-hurt-by-treatment#lip-filler"
+          }
+        },
+        "c4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Botox",
+            "note": "A quick pinch or sting — many people manage without any numbing.",
+            "url": "/pages/does-it-hurt-by-treatment#botox"
+          }
+        },
+        "c5": {
+          "type": "link_item",
+          "settings": {
+            "label": "Microblading",
+            "note": "Light scratching and some pressure — usually mild, with numbing throughout.",
+            "url": "/pages/does-it-hurt-by-treatment#microblading"
+          }
+        },
+        "c6": {
+          "type": "link_item",
+          "settings": {
+            "label": "Lip blush",
+            "note": "Uncomfortable rather than painful — a scratching, tickling sensation.",
+            "url": "/pages/does-it-hurt-by-treatment#lip-blush"
+          }
+        },
+        "c7": {
+          "type": "link_item",
+          "settings": {
+            "label": "Waxing",
+            "note": "A brief, sharp sting as the strip is removed — it fades quickly.",
+            "url": "/pages/does-it-hurt-by-treatment#waxing"
+          }
+        },
+        "c8": {
+          "type": "link_item",
+          "settings": {
+            "label": "Electrolysis",
+            "note": "A brief heat or stinging at each hair, more noticeable on sensitive areas.",
+            "url": "/pages/does-it-hurt-by-treatment#electrolysis"
           }
         }
       },
-      "block_order": ["c1", "c2", "c3"],
+      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"],
       "settings": {
         "band": "canvas",
-        "eyebrow": "Go deeper",
-        "headline": "Read the full guide"
+        "eyebrow": "By treatment",
+        "headline": "Find your treatment"
       }
     },
     "selectorlink": {
@@ -112,7 +143,6 @@
   "order": [
     "hero",
     "intro",
-    "comforthub",
     "cards",
     "selectorlink",
     "route",
