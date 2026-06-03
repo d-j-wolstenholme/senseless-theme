@@ -1,0 +1,167 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "The how-to",
+        "headline": "Using numbing cream",
+        "subhead": "<p>How you apply numbing cream, how long you leave it on, and how long the comfort lasts all depend on the product, the area and your appointment — here's how to think about each, and why your practitioner's guidance comes first.</p>",
+        "image_alt": "Editorial Senseless numbing cream on a warm off-white background"
+      }
+    },
+    "honest": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "The honest answer",
+        "headline": "What numbing cream does — and what comes first",
+        "accent_word": "first",
+        "body": "<p>Topical numbing cream is applied to clean skin before a treatment to make it more comfortable — it reduces the sensation rather than removing it. How long to leave it on, and how long the effect lasts, vary by product, by the area, and by how much is applied, so the product's own instructions and your practitioner's advice always come first. Many clinics apply their own numbing as standard, so it's worth checking before you bring your own.</p>"
+      }
+    },
+    "howto": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "headline": "How to use it",
+        "body": "<ul><li>Start with clean, dry skin.</li><li>Apply an even layer to the area being treated — follow the amount the product specifies.</li><li>Leave it on for the time stated in the product's instructions (don't guess, and don't leave it longer to \"boost\" it).</li><li>Remove it cleanly before your treatment begins, unless your practitioner tells you otherwise.</li><li>When in doubt, ask your practitioner first — many prefer to advise on what you use and how.</li></ul>"
+      }
+    },
+    "leaveon": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "headline": "How long to leave it on",
+        "body": "<p>Leave numbing cream on only for the time the product's instructions specify. Longer isn't better and can irritate the skin. Because products differ, there's no single number that fits all — the label is the authority, and your practitioner can confirm what suits your treatment.</p>"
+      }
+    },
+    "lasts": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "headline": "How long it lasts",
+        "body": "<p>How long the comfort lasts varies by product, area, and how it was applied — so plan around your appointment time and your practitioner's guidance rather than a fixed figure. If you're timing application before a clinic visit, ask them when they'd like it applied.</p>"
+      }
+    },
+    "choosing": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Make your Selection",
+            "note": "Match the format and strength to your treatment with the Senseless Selector.",
+            "url": "/pages/the-senseless-system#selector"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Does it hurt?",
+            "note": "An honest, by-treatment guide to comfort.",
+            "url": "/pages/does-it-hurt"
+          }
+        }
+      },
+      "block_order": ["l1", "l2"],
+      "settings": {
+        "band": "white",
+        "eyebrow": "Choosing the right one",
+        "headline": "Which one suits you?",
+        "intro": "<p>Which format and strength suits you depends on the treatment — that's what the Senseless System is for.</p>"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "The essentials",
+        "body": "<ul><li>Numbing cream is applied to clean skin before treatment to reduce discomfort; it doesn't remove all sensation.</li><li>How long to leave it on and how long it lasts vary by product, area and application — follow the product's instructions.</li><li>Leaving it on longer than directed doesn't improve it and can irritate skin.</li><li>Many practitioners apply their own numbing as standard — check before bringing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long do you leave numbing cream on?",
+            "answer": "<p>For the time stated in the product's instructions — it varies by product, so follow the label and your practitioner's advice rather than a fixed time. Leaving it longer doesn't improve it.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does numbing cream last?",
+            "answer": "<p>It varies by product, area and how it's applied, so plan around your appointment and your practitioner's guidance. There's no single figure that fits every product.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do you use numbing cream?",
+            "answer": "<p>Apply an even layer to clean, dry skin, leave it for the time the product specifies, then remove it cleanly before treatment — and check with your practitioner first, as many advise on what to use.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to bring my own?",
+            "answer": "<p>Often not — many clinics apply their own as standard. Check before your appointment.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
+    },
+    "route": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "r1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Make your Selection",
+            "url": "/pages/the-senseless-system#selector"
+          }
+        },
+        "r2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop the range",
+            "url": "/collections/numbing-cream"
+          }
+        }
+      },
+      "block_order": ["r1", "r2"],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Next",
+        "headline": "Ready when you are"
+      }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "name": "Using numbing cream",
+        "description": "How to use numbing cream, how long to leave it on, and how long it lasts — a clear, honest guide. Always follow the product instructions and your practitioner."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "honest",
+    "howto",
+    "leaveon",
+    "lasts",
+    "choosing",
+    "keyfacts",
+    "faq",
+    "route",
+    "schema"
+  ]
+}

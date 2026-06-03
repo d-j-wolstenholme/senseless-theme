@@ -21,6 +21,7 @@
   .ss-faq__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 28px; line-height: 1.2; margin: 0 0 24px; text-align: center; }
   .ss-faq__item { border-bottom: 1px solid var(--ss-border); }
   .ss-faq__item:first-child { border-top: 1px solid var(--ss-border); }
+  .ss-faq__group { font-family: var(--ss-head); font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ss-purple); margin: 32px 0 8px; }
   .ss-faq__q { font-family: var(--ss-head); font-weight: 600; font-size: 17px; line-height: 1.4; color: var(--ss-text); cursor: pointer; list-style: none; padding: 20px 36px 20px 0; position: relative; }
   .ss-faq__q::-webkit-details-marker { display: none; }
   .ss-faq__q::after { content: '+'; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 400; color: var(--ss-purple); line-height: 1; transition: transform 200ms ease-out; }
@@ -37,7 +38,12 @@
 <section class="ss-faq"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Frequently asked questions' | escape }}">
   <div class="ss-faq__inner">
     {%- if section.settings.headline != blank -%}<h2 class="ss-faq__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+    {%- assign current_group = '' -%}
     {%- for block in section.blocks -%}
+      {%- if block.settings.group != blank and block.settings.group != current_group -%}
+        <h3 class="ss-faq__group">{{ block.settings.group | escape }}</h3>
+        {%- assign current_group = block.settings.group -%}
+      {%- endif -%}
       <details class="ss-faq__item" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
         <summary class="ss-faq__q">{{ block.settings.question | escape }}</summary>
         <div class="ss-faq__a">{{ block.settings.answer }}</div>
@@ -82,6 +88,7 @@
       "type": "faq_item",
       "name": "FAQ item",
       "settings": [
+        { "type": "text", "id": "group", "label": "Group heading (optional — shown before this item when it changes)" },
         { "type": "text", "id": "question", "label": "Question", "default": "Question" },
         { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Answer.</p>" }
       ]
