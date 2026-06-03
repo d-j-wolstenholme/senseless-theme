@@ -72,3 +72,11 @@ Standard for every `senseless-*` section/snippet:
 - **No stray `z-index`.** Don't add `z-index` unless the section genuinely stacks; the fixed exceptions above own the high z-indexes.
 - **Scope CSS to a unique block.** Each section's `{% style %}` must use a prefix unique to that section (e.g. `.ss-cmp` for comfort-compare, `.ss-sel` for the selector, `.ss-cb` for the callout band) — or scope to `#shopify-section-{{ section.id }}`. Never reuse another section's prefix. `.ss-cc` is reserved for `senseless-cookie-consent`.
 - **New sections** copy a corrected wrapper skeleton (inline flow, unique prefix, no z-index) so this class of leak cannot recur.
+
+### Menu-surface standard (desktop dropdowns + mobile drawer)
+
+Locked 2026-06-03 after the mobile drawer rendered transparent and showed the raw `shop.name`. Rules for every menu surface:
+
+- **All menu surfaces are opaque.** Desktop dropdown panels (`.ss-hdr__panel` → solid `#ffffff`) AND the mobile drawer (`.ss-hdr__drawer` → solid `#f7f7f5`) and any submenu/accordion expansions must have a solid background over their full area, with adequate z-index above all page content (dropdowns 99, scrim 110, drawer 120).
+- **The custom header renders at every breakpoint.** `senseless-header` is the only header section (no Horizon `header` fallback in the group). The brand logo is the inline `senseless-logo-header.svg` at all breakpoints — **never render raw `shop.name` as a visible wordmark** (it shows the store handle "senseless-numbing"). `shop.name` may appear only in non-visual `alt`/`aria-label`.
+- **Sibling elements can't inherit header vars.** The drawer + scrim are rendered as siblings *outside* `.ss-hdr` (because `.ss-hdr`'s `backdrop-filter` would make their `position:fixed` resolve against the header box, not the viewport). Because they're not descendants, they do **not** inherit the `--ss-*` brand vars defined on `.ss-hdr` — so `var(--ss-bg)` etc. resolve to nothing (transparent). Any such sibling surface must **define the brand vars on itself** (or hardcode the values). Don't assume inheritance across the `.ss-hdr` boundary.

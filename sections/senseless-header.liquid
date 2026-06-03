@@ -123,8 +123,13 @@
   .ss-hdr__scrim[hidden] { display: none; }
   .ss-hdr__scrim[data-open="true"] { opacity: 1; }
   .ss-hdr__drawer {
+    /* Drawer + scrim render OUTSIDE .ss-hdr (its backdrop-filter would trap position:fixed),
+       so they DON'T inherit .ss-hdr's brand vars — define them here or var(--ss-bg) is empty (transparent). */
+    --ss-purple: #6B3FA0; --ss-purple-hover: #5A3489; --ss-bg: #f7f7f5; --ss-surface: #ffffff;
+    --ss-text: #1A1816; --ss-body: #2B2730; --ss-secondary: #5C5853; --ss-border: rgba(26,24,22,0.12);
+    --ss-head: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     position: fixed; top: 0; left: 0; height: 100%; width: 85%; max-width: 380px;
-    background: var(--ss-bg); z-index: 120; transform: translateX(-100%);
+    background: #f7f7f5; z-index: 120; transform: translateX(-100%);
     transition: transform 250ms ease-in-out; display: flex; flex-direction: column;
     overflow-y: auto; -webkit-overflow-scrolling: touch;
   }
@@ -265,7 +270,7 @@
 
 <nav class="ss-hdr__drawer" id="ss-drawer-{{ uid }}" aria-label="Main navigation" data-ss-drawer aria-hidden="true">
   <div class="ss-hdr__drawerhead">
-    <a class="ss-hdr__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home"><span class="ss-hdr__wordmark" style="font-size:24px;">{{ shop.name | default: 'Senseless' }}</span></a>
+    <a class="ss-hdr__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name | default: 'Senseless' | escape }} home">{{ logo_markup }}</a>
     <button class="ss-hdr__close" type="button" aria-label="Close menu" data-ss-close>
       {{ 'icon-close.svg' | inline_asset_content }}
     </button>
