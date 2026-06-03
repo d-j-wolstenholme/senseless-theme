@@ -99,8 +99,9 @@
   .ss-hdr__sublink--foot { color: var(--ss-purple); font-weight: 600; font-size: 15px; }
   .ss-hdr__sublink--foot::after { content: ' →'; }
   .ss-hdr__megacta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--ss-border); }
-  .ss-hdr__megacta a { font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-purple); text-decoration: none; }
-  .ss-hdr__megacta a::after { content: ' →'; }
+  .ss-hdr__megacta a { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 14px; background: var(--ss-purple); color: #fff; font-family: var(--ss-head); font-weight: 600; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out; }
+  .ss-hdr__megacta a:hover { background: #5A3489; }
+  .ss-hdr__megacta a::after { content: '\2192'; }
 
   /* Reuse: tone Horizon action icons to brand text, hide search/account on mobile */
   .ss-hdr__right { color: var(--ss-text); display: flex; align-items: center; gap: 2px; }
@@ -413,8 +414,8 @@
     { "type": "image_picker", "id": "logo_image", "label": "Logo image (optional, raster only)", "info": "Leave empty to use the brand SVG wordmark (assets/senseless-logo-header.svg). SVGs picked here will NOT render — Shopify can't transform SVG; use a PNG/JPG for a custom raster logo, or replace the asset file to change the SVG." },
     { "type": "range", "id": "logo_height", "label": "Logo image height", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 48 },
     { "type": "checkbox", "id": "show_search", "label": "Show search", "default": true },
-    { "type": "text", "id": "mega_cta_label", "label": "Mega menu CTA label", "default": "Find your strength" },
-    { "type": "url", "id": "mega_cta_url", "label": "Mega menu CTA link", "info": "Set to /pages/the-senseless-system (the live System guide)." }
+    { "type": "text", "id": "mega_cta_label", "label": "Mega menu CTA label", "default": "Shop all" },
+    { "type": "url", "id": "mega_cta_url", "label": "Mega menu CTA link", "info": "Shop mega bottom action — drive into the catalogue, e.g. /collections/numbing-cream (renders as a filled purple button)." }
   ],
   "enabled_on": { "groups": ["header"] },
   "presets": [ { "name": "Senseless — Header" } ]
