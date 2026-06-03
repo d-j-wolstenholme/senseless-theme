@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "grid": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "headline": "Shop all",
+        "show_filters": false,
+        "anchor_id": "shop"
+      }
+    }
+  },
+  "order": ["grid"]
+}
