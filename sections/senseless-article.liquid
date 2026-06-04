@@ -1,0 +1,129 @@
+{%- comment -%}
+  Senseless — Guide article. Custom blog-article layout (Education cluster / Guides blog).
+  Answer-first opener + Key Facts callout (the lead blockquote in the body) + body + FAQ accordion
+  (from the article's custom.faq metafield) + funnel CTAs (in the body). Emits Article +
+  BreadcrumbList + FAQPage JSON-LD (Horizon's main-blog-post isn't used by this template).
+{%- endcomment -%}
+{%- liquid
+  assign base = shop.url
+  assign desc = article.metafields.global.description_tag.value | default: article.excerpt | strip_html | default: article.title
+  assign faq = article.metafields.custom.faq.value
+-%}
+{%- style -%}
+  .ss-art { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); font-family:var(--sans); }
+  .ss-art__head { max-width:740px; margin:0 auto; padding:56px 20px 18px; }
+  .ss-art__eyebrow { font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0 0 12px; }
+  .ss-art__eyebrow a { color:inherit; text-decoration:none; }
+  .ss-art__title { font-weight:400; letter-spacing:-0.02em; font-size:34px; line-height:1.12; margin:0; }
+  .ss-art__meta { font-size:13px; color:var(--sec); margin:14px 0 0; }
+  .ss-art__body { max-width:740px; margin:0 auto; padding:8px 20px 40px; font-size:17px; line-height:1.7; color:var(--body); }
+  .ss-art__body h2 { font-family:var(--sans); font-weight:600; font-size:22px; line-height:1.3; letter-spacing:-0.01em; color:var(--ink); margin:36px 0 12px; }
+  .ss-art__body h3 { font-weight:600; font-size:18px; color:var(--ink); margin:26px 0 8px; }
+  .ss-art__body p { margin:0 0 16px; }
+  .ss-art__body ul, .ss-art__body ol { margin:0 0 16px; padding-left:22px; }
+  .ss-art__body li { margin:0 0 8px; }
+  .ss-art__body a { color:var(--p); }
+  .ss-art__body strong { color:var(--ink); }
+  /* Lead blockquote = Key Facts callout */
+  .ss-art__body blockquote { margin:0 0 22px; padding:18px 20px; background:var(--surf); border:1px solid var(--bd); border-left:3px solid var(--p); border-radius:4px; font-size:17px; color:var(--ink); }
+  .ss-art__body blockquote p { margin:0 0 8px; } .ss-art__body blockquote p:last-child { margin:0; }
+  /* FAQ */
+  .ss-art__faq { background:var(--surf); border-top:1px solid var(--bd); }
+  .ss-art__faq-inner { max-width:740px; margin:0 auto; padding:40px 20px; }
+  .ss-art__faq-head { font-weight:400; letter-spacing:-0.02em; font-size:24px; margin:0 0 18px; }
+  .ss-art__item { border-bottom:1px solid var(--bd); }
+  .ss-art__item:first-of-type { border-top:1px solid var(--bd); }
+  .ss-art__q { font-weight:600; font-size:17px; line-height:1.4; color:var(--ink); cursor:pointer; list-style:none; padding:18px 36px 18px 0; position:relative; }
+  .ss-art__q::-webkit-details-marker { display:none; }
+  .ss-art__q::after { content:'+'; position:absolute; right:4px; top:50%; transform:translateY(-50%); font-size:22px; color:var(--p); line-height:1; }
+  .ss-art__item[open] .ss-art__q::after { content:'\2212'; }
+  .ss-art__a { font-size:16px; line-height:1.6; color:var(--body); padding:0 0 18px; }
+  .ss-art__a p { margin:0 0 .6em; } .ss-art__a p:last-child { margin:0; } .ss-art__a a { color:var(--p); }
+  .ss-art__foot { max-width:740px; margin:0 auto; padding:28px 20px 56px; }
+  .ss-art__back { color:var(--p); text-decoration:none; font-weight:600; font-size:15px; }
+  .ss-art__back:hover { text-decoration:underline; }
+  @media (min-width:1024px){ .ss-art__title { font-size:40px; } }
+{%- endstyle -%}
+<article class="ss-art">
+  <header class="ss-art__head">
+    <p class="ss-art__eyebrow"><a href="{{ blog.url }}">{{ section.settings.eyebrow | default: 'Guides' | escape }}</a></p>
+    <h1 class="ss-art__title">{{ article.title | escape }}</h1>
+    {%- if article.published_at -%}<p class="ss-art__meta">Last updated {{ article.published_at | date: '%-d %B %Y' }}</p>{%- endif -%}
+  </header>
+
+  <div class="ss-art__body rte">{{ article.content }}</div>
+
+  {%- if faq != blank and faq.size > 0 -%}
+    <section class="ss-art__faq" id="faq" aria-label="Common questions">
+      <div class="ss-art__faq-inner">
+        <h2 class="ss-art__faq-head">Common questions</h2>
+        {%- for item in faq -%}
+          <details class="ss-art__item"{% if forloop.first %} open{% endif %}>
+            <summary class="ss-art__q">{{ item.question | escape }}</summary>
+            <div class="ss-art__a">{{ item.answer }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </section>
+  {%- endif -%}
+
+  <div class="ss-art__foot"><a class="ss-art__back" href="{{ blog.url }}">← All guides</a></div>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ article.title | json }},
+  "description": {{ desc | json }},
+  "url": {{ base | append: article.url | json }},
+  "mainEntityOfPage": { "@type": "WebPage", "@id": {{ base | append: article.url | json }} },
+  {%- if article.image -%}"image": [{{ article.image | image_url: width: 1200 | prepend: 'https:' | json }}],{%- endif -%}
+  "datePublished": {{ article.published_at | date: '%Y-%m-%d' | json }},
+  "dateModified": {{ article.published_at | date: '%Y-%m-%d' | json }},
+  "author": { "@type": "Organization", "name": "Senseless" },
+  "publisher": { "@type": "Organization", "name": "Senseless", "legalName": "Matrix Health Group Ltd" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | json }} },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": {{ base | append: blog.url | json }} },
+    { "@type": "ListItem", "position": 3, "name": {{ article.title | json }}, "item": {{ base | append: article.url | json }} }
+  ]
+}
+</script>
+{%- if faq != blank and faq.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for item in faq -%}
+    {
+      "@type": "Question",
+      "name": {{ item.question | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ item.answer | strip_html | json }} }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Guide article",
+  "tag": "section",
+  "class": "senseless-section senseless-article",
+  "settings": [
+    { "type": "paragraph", "content": "Renders the article body (article.content) + a FAQ accordion from the article's custom.faq metafield, and emits Article + BreadcrumbList + FAQPage schema." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Guides" }
+  ],
+  "presets": [ { "name": "Guide article" } ]
+}
+{% endschema %}

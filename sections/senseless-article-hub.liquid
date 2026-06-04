@@ -1,0 +1,102 @@
+{%- comment -%}
+  Senseless — Article Hub (the Guides blog landing / index). Intro + article cards (title + one-line
+  + 1:1 thumbnail frame) from blog.articles, plus links up to the Does-it-hurt hub and Shop.
+  Emits Blog + BreadcrumbList JSON-LD. The content home for the Education cluster.
+{%- endcomment -%}
+{%- liquid
+  assign base = shop.url
+-%}
+{%- style -%}
+  .ss-hub { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); font-family:var(--sans); }
+  .ss-hub__head { max-width:760px; margin:0 auto; padding:56px 20px 8px; }
+  .ss-hub__eyebrow { font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0 0 12px; }
+  .ss-hub__title { font-weight:400; letter-spacing:-0.02em; font-size:34px; line-height:1.14; margin:0 0 14px; }
+  .ss-hub__intro { font-size:17px; line-height:1.6; color:var(--body); }
+  .ss-hub__intro p { margin:0 0 10px; }
+  .ss-hub__grid-wrap { max-width:1100px; margin:0 auto; padding:24px 20px 8px; }
+  .ss-hub__grid { display:grid; grid-template-columns:1fr; gap:20px; }
+  .ss-hub__card { background:var(--surf); border:1px solid var(--bd); border-radius:4px; overflow:hidden; display:flex; flex-direction:column; }
+  .ss-hub__media { aspect-ratio:1/1; background:var(--bg); display:block; }
+  .ss-hub__media img { width:100%; height:100%; object-fit:cover; display:block; }
+  .ss-hub__ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+  .ss-hub__ph svg { width:34%; opacity:.18; fill:var(--p); }
+  .ss-hub__cbody { padding:18px; display:flex; flex-direction:column; gap:8px; flex:1 1 auto; }
+  .ss-hub__ctitle { font-weight:600; font-size:18px; line-height:1.3; margin:0; }
+  .ss-hub__ctitle a { color:inherit; text-decoration:none; }
+  .ss-hub__ctitle a:hover { color:var(--p); }
+  .ss-hub__excerpt { font-size:14.5px; line-height:1.55; color:var(--sec); margin:0; }
+  .ss-hub__links { max-width:1100px; margin:0 auto; padding:8px 20px 56px; display:flex; flex-wrap:wrap; gap:8px 20px; }
+  .ss-hub__links a { color:var(--p); text-decoration:none; font-weight:600; font-size:15px; }
+  .ss-hub__links a:hover { text-decoration:underline; }
+  @media (min-width:700px){ .ss-hub__grid { grid-template-columns:repeat(3,1fr); gap:24px; } }
+  @media (min-width:1024px){ .ss-hub__title { font-size:40px; } }
+{%- endstyle -%}
+<section class="ss-hub" aria-label="{{ blog.title | default: 'Guides' | escape }}">
+  <header class="ss-hub__head">
+    <p class="ss-hub__eyebrow">{{ section.settings.eyebrow | default: 'Guides' | escape }}</p>
+    <h1 class="ss-hub__title">{{ section.settings.headline | default: blog.title | escape }}</h1>
+    {%- if section.settings.intro != blank -%}<div class="ss-hub__intro">{{ section.settings.intro }}</div>{%- endif -%}
+  </header>
+
+  <div class="ss-hub__grid-wrap">
+    <div class="ss-hub__grid">
+      {%- for art in blog.articles -%}
+        <article class="ss-hub__card">
+          <a class="ss-hub__media" href="{{ art.url }}" aria-label="{{ art.title | escape }}">
+            {%- if art.image -%}{{ art.image | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '(min-width:700px) 33vw, 100vw', widths: '300,600', alt: art.title | escape }}
+            {%- else -%}<span class="ss-hub__ph">{{ 'image' | placeholder_svg_tag }}</span>{%- endif -%}
+          </a>
+          <div class="ss-hub__cbody">
+            <h2 class="ss-hub__ctitle"><a href="{{ art.url }}">{{ art.title | escape }}</a></h2>
+            {%- assign one = art.excerpt | strip_html | default: art.content | strip_html | truncate: 120 -%}
+            {%- if one != blank -%}<p class="ss-hub__excerpt">{{ one }}</p>{%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="ss-hub__links">
+    <a href="/pages/does-it-hurt">Does it hurt? — the hub</a>
+    <a href="/collections/shop-all">Shop all</a>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": {{ blog.title | json }},
+  "url": {{ base | append: blog.url | json }},
+  "blogPost": [
+    {%- for art in blog.articles -%}
+    { "@type": "BlogPosting", "headline": {{ art.title | json }}, "url": {{ base | append: art.url | json }}, "datePublished": {{ art.published_at | date: '%Y-%m-%d' | json }} }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | json }} },
+    { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ base | append: blog.url | json }} }
+  ]
+}
+</script>
+
+{% schema %}
+{
+  "name": "Article hub",
+  "tag": "section",
+  "class": "senseless-section senseless-article-hub",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Guides" },
+    { "type": "text", "id": "headline", "label": "Headline (defaults to blog title)" },
+    { "type": "richtext", "id": "intro", "label": "Intro" }
+  ],
+  "presets": [ { "name": "Article hub" } ]
+}
+{% endschema %}

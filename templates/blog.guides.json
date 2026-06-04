@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "hub": {
+      "type": "senseless-article-hub",
+      "settings": {
+        "eyebrow": "Guides",
+        "headline": "Guides",
+        "intro": "<p>Clear, practical guides to aesthetic treatments — what to expect, how they feel, and how to prepare. Educational, practitioner-routed, and written plainly.</p>"
+      }
+    }
+  },
+  "order": ["hub"]
+}
