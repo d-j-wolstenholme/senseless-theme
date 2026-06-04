@@ -86,7 +86,7 @@
       {%- else -%}
         {%- for block in section.blocks -%}
           <div class="ss-sl__row{% if block.settings.featured %} ss-sl__row--featured{% endif %}" role="row" {{ block.shopify_attributes }}>
-            {%- if block.settings.strength != blank -%}<p class="ss-sl__strength" role="cell">{{ block.settings.strength | escape }}{%- if block.settings.tag != blank -%} <span class="ss-sl__tag">{{ block.settings.tag | escape }}</span>{%- endif -%}</p>{%- endif -%}
+            {%- if block.settings.strength != blank -%}<p class="ss-sl__strength" role="cell">{%- if block.settings.link != blank -%}<a class="ss-sl__strengthlink" href="{{ block.settings.link }}">{{ block.settings.strength | escape }}</a>{%- else -%}{{ block.settings.strength | escape }}{%- endif -%}{%- if block.settings.tag != blank -%} <span class="ss-sl__tag">{{ block.settings.tag | escape }}</span>{%- endif -%}</p>{%- endif -%}
             {%- if block.settings.matched != blank -%}<div class="ss-sl__matched" role="cell">{{ block.settings.matched }}</div>{%- endif -%}
           </div>
         {%- endfor -%}
@@ -123,6 +123,7 @@
       "name": "Strength row",
       "settings": [
         { "type": "text", "id": "strength", "label": "Strength", "default": "Clinical" },
+        { "type": "url", "id": "link", "label": "Link (product page)", "info": "Use the full product name as the Strength label." },
         { "type": "richtext", "id": "matched", "label": "Matched to", "default": "<p>Shorter, routine appointments.</p>" },
         { "type": "text", "id": "tag", "label": "Tag (optional, e.g. Most popular)" },
         { "type": "checkbox", "id": "featured", "label": "Featured (2px purple border)", "default": false }

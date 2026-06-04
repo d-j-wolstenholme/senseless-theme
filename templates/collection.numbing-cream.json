@@ -58,22 +58,25 @@
         "r1": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Clinical",
-            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>"
+            "strength": "Clinical Strength Cream",
+            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>",
+            "link": "/products/clinical-strength-cream"
           }
         },
         "r2": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Advanced",
-            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>"
+            "strength": "Advanced Strength Cream",
+            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>",
+            "link": "/products/advanced-strength-cream"
           }
         },
         "r3": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Professional",
-            "matched": "<p>The longest, most demanding appointments.</p>"
+            "strength": "Professional Strength Cream",
+            "matched": "<p>The longest, most demanding appointments.</p>",
+            "link": "/products/professional-strength-cream"
           }
         }
       },
@@ -83,7 +86,7 @@
         "r3"
       ],
       "settings": {
-        "use_metaobject": true,
+        "use_metaobject": false,
         "band": "surface",
         "anchor_id": "match",
         "eyebrow": "The Senseless Scale",
