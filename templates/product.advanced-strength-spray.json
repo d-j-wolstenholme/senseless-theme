@@ -236,10 +236,18 @@
         "eyebrow": "Explore",
         "headline": "Explore the range"
       }
+    },
+    "strengths": {
+      "type": "senseless-strength-links",
+      "settings": {
+        "eyebrow": "The range",
+        "band": "surface"
+      }
     }
   },
   "order": [
     "hero",
+    "strengths",
     "trust",
     "shortdesc",
     "system",
