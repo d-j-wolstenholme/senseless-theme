@@ -75,6 +75,11 @@
   .ss-cg__opt input[data-avail="false"] + .ss-cg__chip { opacity:.55; text-decoration:line-through; }
   .ss-cg__opt input[data-avail="false"]:checked + .ss-cg__chip { opacity:1; }
   .ss-cg__opt input:focus-visible + .ss-cg__chip { outline:2px solid var(--p); outline-offset:2px; }
+  /* Continue the flex column through the form wrapper so .ss-cg__buy (margin-top:auto) bottom-aligns
+     to the card — without this the auto-margin is trapped inside the content-sized <product-form-component>
+     and cards with no size-chip row (e.g. Professional) float their action row up out of line. */
+  .ss-cg__cbody [data-cg-form] { display:flex; flex-direction:column; flex:1 1 auto; }
+  .ss-cg__cbody [data-cg-form] > form { display:flex; flex-direction:column; flex:1 1 auto; }
   .ss-cg__buy { display:flex; gap:10px; align-items:stretch; margin-top:auto; padding-top:6px; }
   .ss-cg__qty { display:inline-flex; align-items:center; border:1px solid var(--bd); border-radius:10px; overflow:hidden; flex:0 0 auto; }
   .ss-cg__qbtn { width:34px; height:42px; border:0; background:var(--surf); color:var(--ink); font-size:18px; line-height:1; cursor:pointer; }

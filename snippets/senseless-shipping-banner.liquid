@@ -32,30 +32,57 @@
 </div>
 <script>
   (function () {
-    var bar = document.querySelector('[data-shipbar]'); if (!bar) return;
-    var empty = bar.querySelector('[data-shipbar-empty]'),
-        prog  = bar.querySelector('[data-shipbar-progress]'),
-        msg   = bar.querySelector('[data-shipbar-msg]'),
-        fill  = bar.querySelector('[data-shipbar-fill]'),
-        same  = bar.querySelector('[data-shipbar-same]');
+    if (window.__ssShipbar) { window.__ssShipbar(); return; }
     var T1 = 4000, T2 = 8000; // pence (£40 / £80)
     function money(p) { var n = p / 100; return '£' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2)); }
     function render(cart) {
-      var n = cart.item_count || 0;
-      var sub = (cart.items_subtotal_price != null) ? cart.items_subtotal_price : cart.total_price;
+      // Re-query each time: the header may be morphed/restored, so cached refs can go stale.
+      var empty = document.querySelector('[data-shipbar-empty]'),
+          prog  = document.querySelector('[data-shipbar-progress]'),
+          msg   = document.querySelector('[data-shipbar-msg]'),
+          fill  = document.querySelector('[data-shipbar-fill]'),
+          same  = document.querySelector('[data-shipbar-same]');
+      if (!empty || !prog) return;
+      var n = (cart && cart.item_count) || 0;
+      var sub = (cart && cart.items_subtotal_price != null) ? cart.items_subtotal_price : ((cart && cart.total_price) || 0);
       if (n === 0) { empty.hidden = false; prog.hidden = true; return; }
       empty.hidden = true; prog.hidden = false;
       var pct, m, showSame = true;
       if (sub < T1) { pct = sub / T2 * 100; m = "You're " + money(T1 - sub) + " away from free standard delivery"; }
       else if (sub < T2) { pct = sub / T2 * 100; m = "Free standard delivery unlocked — " + money(T2 - sub) + " more for free next-day"; }
       else { pct = 100; m = "Free next-day delivery unlocked — order before 1pm for same-day dispatch"; showSame = false; }
-      msg.textContent = m; fill.style.width = Math.min(Math.max(pct, 0), 100) + '%'; same.hidden = !showSame;
+      if (msg) msg.textContent = m;
+      if (fill) fill.style.width = Math.min(Math.max(pct, 0), 100) + '%';
+      if (same) same.hidden = !showSame;
     }
-    function refresh() { fetch('/cart.js', { headers: { 'Accept': 'application/json' } }).then(function (r) { return r.json(); }).then(render).catch(function () {}); }
+    // Cache-busted fetch so a previously-cached empty /cart.js can't keep the banner stuck on the empty state.
+    function refresh(retry) {
+      fetch('/cart.js', { headers: { 'Accept': 'application/json' }, cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw r.status; return r.json(); })
+        .then(render)
+        .catch(function () { if (retry !== false) setTimeout(function () { refresh(false); }, 700); });
+    }
+    window.__ssShipbar = refresh;
+    // Initialise from the CURRENT cart on first parse, on DOM ready, and on bfcache restore
+    // (Horizon's own cart UI re-syncs on pageshow for exactly this reason).
     refresh();
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { refresh(); });
+    window.addEventListener('pageshow', function () { refresh(); });
+    // Cart events — Horizon dispatches 'cart:update'; keep legacy aliases for safety.
+    ['cart:update', 'cart:updated', 'cart:refresh', 'cart:change'].forEach(function (ev) {
+      document.addEventListener(ev, function () { setTimeout(refresh, 60); });
+    });
+    // Catch any AJAX cart mutation (quick-add, drawer qty changes, remove).
     var of = window.fetch;
-    window.fetch = function () { var a = arguments; return of.apply(this, a).then(function (res) { try { var u = (a[0] && a[0].url) || a[0] || ''; if (typeof u === 'string' && /\/cart\/(add|change|update|clear)/i.test(u)) setTimeout(refresh, 80); } catch (e) {} return res; }); };
-    document.addEventListener('cart:updated', refresh);
-    document.addEventListener('cart:refresh', refresh);
+    if (of && !of.__ssWrapped) {
+      window.fetch = function () {
+        var a = arguments;
+        return of.apply(this, a).then(function (res) {
+          try { var u = (a[0] && a[0].url) || a[0] || ''; if (typeof u === 'string' && /\/cart\/(add|change|update|clear)/i.test(u)) setTimeout(refresh, 80); } catch (e) {}
+          return res;
+        });
+      };
+      window.fetch.__ssWrapped = true;
+    }
   })();
 </script>

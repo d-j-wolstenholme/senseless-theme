@@ -125,7 +125,9 @@
 
       {%- if p.description != blank -%}<div class="ss-ph__desc">{{ p.description }}</div>{%- endif -%}
 
-      {%- form 'product', p, class: 'ss-ph__form', novalidate: 'novalidate' -%}
+      <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ p.id }}" on:submit="/handleSubmit">
+      <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+      {%- form 'product', p, class: 'ss-ph__form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
         {%- if p.variants.size > 1 -%}
           {%- for option in p.options_with_values -%}
             <div class="ss-ph__opt" data-ph-optgroup>
@@ -141,7 +143,7 @@
           {%- endfor -%}
         {%- endif -%}
 
-        <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}" data-ph-id>
+        <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}" data-ph-id ref="variantId">
         <div class="ss-ph__actions">
           <button type="submit" name="add" class="ss-ph__atc" data-ph-atc {% unless p.available %}disabled{% endunless %}>
             <span data-ph-atc-text>{% if p.available %}Add to cart{% else %}Sold out{% endif %}</span>
@@ -150,6 +152,7 @@
           {{ form | payment_button }}
         </div>
       {%- endform -%}
+      </product-form-component>
 
       {%- if section.settings.trust_line != blank -%}<p class="ss-ph__trust">{{ section.settings.trust_line | escape }}</p>{%- endif -%}
       {%- if section.settings.delivery_line != blank -%}<p class="ss-ph__delivery">{{ section.settings.delivery_line | escape }}</p>{%- endif -%}
