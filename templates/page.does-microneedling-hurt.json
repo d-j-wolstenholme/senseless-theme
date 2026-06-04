@@ -44,7 +44,7 @@
         "background": "white",
         "eyebrow": "Preparation, not the result",
         "headline": "How numbing fits in",
-        "body": "<p>Most microneedling practitioners apply their own numbing preparation before they start — so for many people, bringing your own isn't necessary. Where you're preparing at home, or topping up comfort with your practitioner's agreement, a topical numbing gel is the usual choice for facial work because it stays where it's placed. Numbing is about comfort and preparation, not the result of the treatment, and it's removed before the device is used. If you're not sure what your appointment involves, a quick message to your practitioner settles it.</p><p><a href=\"/collections/numbing-cream-for-microneedling\">The right gel for microneedling</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
+        "body": "<p>Most microneedling practitioners apply their own numbing preparation before they start — so for many people, bringing your own isn't necessary. Where you're preparing at home, or topping up comfort with your practitioner's agreement, a topical <a href=\"/collections/numbing-gel\">numbing gel</a> is the usual choice for facial work because it stays where it's placed. Numbing is about comfort and preparation, not the result of the treatment, and it's removed before the device is used. If you're not sure what your appointment involves, a quick message to your practitioner settles it.</p><p><a href=\"/collections/numbing-cream-for-microneedling\">The right gel for microneedling</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
       }
     },
     "aftercare": {
@@ -121,7 +121,14 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
       "settings": {
         "headline": "Common questions",
         "anchor_id": "faq"
@@ -145,7 +152,10 @@
           }
         }
       },
-      "block_order": ["l1", "l2"],
+      "block_order": [
+        "l1",
+        "l2"
+      ],
       "settings": {
         "band": "canvas",
         "eyebrow": "Next",

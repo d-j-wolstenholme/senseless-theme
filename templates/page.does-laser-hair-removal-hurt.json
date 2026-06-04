@@ -44,7 +44,7 @@
         "background": "white",
         "eyebrow": "Preparation, not the result",
         "headline": "How numbing fits in",
-        "body": "<p>For many people the sensation is manageable without anything, especially on larger areas. On the sharper zones — upper lip, bikini line, underarms — a topical numbing preparation applied beforehand can make the session more comfortable. Because laser covers larger or awkward areas quickly, a spray is often the easier format for the body, and a cream for smaller, precise areas like the lip. Numbing is preparation for comfort, not part of the treatment itself, and many clinics have their own guidance on what they'd like you to apply — so check with your practitioner first.</p><p><a href=\"/collections/numbing-cream-for-laser-treatment\">Numbing for laser</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
+        "body": "<p>For many people the sensation is manageable without anything, especially on larger areas. On the sharper zones — upper lip, bikini line, underarms — a topical numbing preparation applied beforehand can make the session more comfortable. Because laser covers larger or awkward areas quickly, a <a href=\"/collections/numbing-spray\">spray</a> is often the easier format for the body, and a cream for smaller, precise areas like the lip. Numbing is preparation for comfort, not part of the treatment itself, and many clinics have their own guidance on what they'd like you to apply — so check with your practitioner first.</p><p><a href=\"/collections/numbing-cream-for-laser-treatment\">Numbing for laser</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
       }
     },
     "aftercare": {
@@ -114,7 +114,13 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
       "settings": {
         "headline": "Common questions",
         "anchor_id": "faq"
@@ -138,7 +144,10 @@
           }
         }
       },
-      "block_order": ["l1", "l2"],
+      "block_order": [
+        "l1",
+        "l2"
+      ],
       "settings": {
         "band": "canvas",
         "eyebrow": "Next",
