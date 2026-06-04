@@ -16,12 +16,6 @@
   assign brand_menu = linklists[col3_handle]
   assign logo_h = section.settings.logo_height | default: 40
 
-  assign policy_count = 0
-  for policy in shop.policies
-    if policy.url != blank
-      assign policy_count = policy_count | plus: 1
-    endif
-  endfor
 -%}
 
 {%- style -%}
@@ -161,19 +155,12 @@
         <span aria-hidden="true">·</span>
         <span class="ss-ft__phone"><a href="tel:+443330495549">0333&nbsp;049&nbsp;5549</a></span>
         <span class="ss-ft__policies">
-          {%- if policy_count > 0 -%}
-            {%- for policy in shop.policies -%}
-              {%- if policy.url != blank -%}
-                <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
-              {%- endif -%}
-            {%- endfor -%}
-          {%- else -%}
-            {%- comment -%} STAGE D: store policies not yet set — placeholders. {%- endcomment -%}
-            <a href="#" data-placeholder>Privacy policy</a>
-            <a href="#" data-placeholder>Terms of service</a>
-            <a href="#" data-placeholder>Refund policy</a>
-            <a href="#" data-placeholder>Shipping policy</a>
-          {%- endif -%}
+          {%- comment -%} Point at the custom designed /pages/* policy pages (NOT native /policies/* plain prose). {%- endcomment -%}
+          <a href="/pages/shipping-delivery">Shipping &amp; delivery</a>
+          <a href="/pages/returns-refunds">Returns &amp; refunds</a>
+          <a href="/pages/privacy-policy">Privacy policy</a>
+          <a href="/pages/terms-conditions">Terms &amp; conditions</a>
+          <a href="/pages/cookie-policy">Cookie policy</a>
           {%- comment -%} Re-opens the cookie consent preferences panel (Canonical State §6). {%- endcomment -%}
           <button type="button" class="ss-ft__cookiebtn" data-ss-cookie-settings>Cookie settings</button>
         </span>

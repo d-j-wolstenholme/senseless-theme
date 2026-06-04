@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "policy": {
+      "type": "senseless-policy-page",
+      "settings": { "eyebrow": "Information" }
+    }
+  },
+  "order": ["policy"]
+}
