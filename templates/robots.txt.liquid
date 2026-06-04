@@ -1,0 +1,35 @@
+{%- comment -%}
+  Senseless — robots.txt
+  1. Render Shopify's default groups verbatim (preserves the standard Disallow rules for
+     cart / checkout / account / orders / search etc. + the sitemap reference). Do NOT replace.
+  2. Explicitly welcome AI / LLM crawlers (GEO): each bot gets its own group that mirrors the
+     default '*' group's Disallow rules, so the same sensitive paths stay blocked while the rest
+     of the site (content) is crawlable.
+{%- endcomment -%}
+{%- for group in robots.default_groups -%}
+  {{- group.user_agent }}
+  {%- for rule in group.rules -%}
+    {{ rule }}
+  {%- endfor -%}
+  {%- if group.sitemap != blank -%}
+    {{ group.sitemap }}
+  {%- endif -%}
+
+{% endfor -%}
+
+{%- liquid
+  assign ai_bots = 'GPTBot,ChatGPT-User,OAI-SearchBot,ClaudeBot,Claude-SearchBot,Claude-User,anthropic-ai,Google-Extended,PerplexityBot,Bytespider,CCBot,Meta-ExternalAgent' | split: ','
+  assign default_rules = ''
+  for group in robots.default_groups
+    if group.user_agent.value == '*'
+      assign default_rules = group.rules
+    endif
+  endfor
+-%}
+{%- for bot in ai_bots -%}
+User-agent: {{ bot }}
+Allow: /
+{% for rule in default_rules -%}
+{{ rule }}
+{% endfor %}
+{% endfor -%}

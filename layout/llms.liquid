@@ -1,0 +1,8 @@
+{%- comment -%}
+  Minimal layout for the llms.txt page: includes content_for_header (so Shopify's seo.hidden
+  noindex meta is emitted) but NONE of the theme's nav/footer chrome — keeps the body clean text.
+{%- endcomment -%}<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>{{ content_for_header }}</head>
+<body>{{ content_for_layout }}</body>
+</html>
