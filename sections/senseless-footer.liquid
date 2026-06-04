@@ -1,21 +1,22 @@
 {%- comment -%}
   Senseless — bespoke footer (Strand 2 — Global Components).
-  Dense, large outlined wordmark, four columns (Shop / The system / Brand / Newsletter) + legal band.
-  Replaces Horizon's native footer.liquid. Columns are menu-driven (linklists); where a footer menu
-  is not yet created in admin, an injectable-clean placeholder set renders and is flagged for Stage D wiring.
-  Legal band: © + Matrix Health Group Ltd parent attribution + shop policy links + social.
-  Brand rule: purple is accent only — never a large filled background here.
+  Brand block + FOUR link columns (Shop / The System / Help / Company) + a full-width legal bar.
+  Columns are menu-driven (linklists): senseless-footer-shop / -explore / -help / -company.
+  Legal bar: company line (Matrix Health Group Ltd registered details) + Privacy/Terms/Cookie +
+  cookie-settings + social. Brand rule: purple is accent only.
+  Injectable-clean: footer is ad-facing — no links into injectable collections.
 {%- endcomment -%}
 
 {%- liquid
   assign col1_handle = section.settings.col1_menu | default: 'senseless-footer-shop'
   assign col2_handle = section.settings.col2_menu | default: 'senseless-footer-explore'
-  assign col3_handle = section.settings.col3_menu | default: 'senseless-footer-company'
+  assign col3_handle = section.settings.col3_menu | default: 'senseless-footer-help'
+  assign col4_handle = section.settings.col4_menu | default: 'senseless-footer-company'
   assign shop_menu = linklists[col1_handle]
   assign sys_menu = linklists[col2_handle]
-  assign brand_menu = linklists[col3_handle]
+  assign help_menu = linklists[col3_handle]
+  assign company_menu = linklists[col4_handle]
   assign logo_h = section.settings.logo_height | default: 40
-
 -%}
 
 {%- style -%}
@@ -28,34 +29,27 @@
   .ss-ft--ink { --ss-ground: #1A1816; --ss-fg: #F3F1EE; --ss-muted: #A6A19B; --ss-line: rgba(255,255,255,0.12); }
   .ss-ft--canvas { --ss-ground: #f7f7f5; --ss-fg: #1A1816; --ss-muted: #5C5853; --ss-line: rgba(26,24,22,0.12); }
   .ss-ft--surface { --ss-ground: #ffffff; --ss-fg: #1A1816; --ss-muted: #5C5853; --ss-line: rgba(26,24,22,0.12); }
-  /* Locked footer band (1 June): bg/sunken warm-light + hairline top border + ink text + purple hover. */
   .ss-ft--sunken { --ss-ground: #efece4; --ss-fg: #1A1816; --ss-muted: #5C5853; --ss-line: rgba(26,24,22,0.12); }
-  .ss-ft {
-    background: var(--ss-ground);
-    color: var(--ss-fg);
-    border-top: 1px solid var(--ss-line);
-  }
+  .ss-ft { background: var(--ss-ground); color: var(--ss-fg); border-top: 1px solid var(--ss-line); }
   .ss-ft__inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 28px; }
-  .ss-ft__top { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px 48px; align-items: start; }
+  .ss-ft__top { display: grid; grid-template-columns: minmax(220px, 0.9fr) 2.6fr; gap: 40px 48px; align-items: start; }
   .ss-ft__brand { display: flex; flex-direction: column; gap: 16px; }
   .ss-ft__logo { display: inline-block; color: var(--ss-fg); }
   .ss-ft__logo svg { display: block; width: auto; height: {{ logo_h }}px; max-width: 100%; }
   .ss-ft__logo svg path { fill: currentColor; }
   .ss-ft__tagline { margin: 0; max-width: 34ch; font-size: 0.9375rem; line-height: 1.55; color: var(--ss-muted); font-weight: 400; }
 
-  .ss-ft__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+  .ss-ft__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
   .ss-ft__colhead { margin: 0 0 14px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ss-fg); }
   .ss-ft__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
   .ss-ft__list a { font-size: 0.9375rem; line-height: 1.3; font-weight: 500; color: var(--ss-muted); text-decoration: none; transition: color 0.15s ease; }
   .ss-ft__list a:hover { color: var(--ss-purple); }
-  .ss-ft__list a[data-placeholder] { opacity: 0.85; }
-
-  .ss-ft__success { margin: 8px 0 0; font-size: 0.8125rem; color: var(--ss-purple); }
 
   .ss-ft__legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--ss-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
   .ss-ft__legalleft { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 0.75rem; color: var(--ss-muted); }
   .ss-ft__legalleft a { color: var(--ss-muted); text-decoration: none; }
   .ss-ft__legalleft a:hover { color: var(--ss-purple); }
+  .ss-ft__company { display: block; width: 100%; margin: 0 0 4px; }
   .ss-ft__policies { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
   .ss-ft__cookiebtn { font: inherit; font-size: 0.75rem; color: var(--ss-muted); background: none; border: 0; padding: 0; cursor: pointer; }
   .ss-ft__cookiebtn:hover { color: var(--ss-purple); }
@@ -93,83 +87,74 @@
           <h2 class="ss-ft__colhead">{{ section.settings.col1_heading | default: 'Shop' | escape }}</h2>
           <ul class="ss-ft__list">
             {%- if shop_menu.links.size > 0 -%}
-              {%- for link in shop_menu.links -%}
-                <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              {%- endfor -%}
+              {%- for link in shop_menu.links -%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{%- endfor -%}
             {%- else -%}
-              {%- comment -%} STAGE D: wire the 'senseless-footer-shop' menu in admin. Placeholders below are injectable-clean. {%- endcomment -%}
-              <li><a href="#" data-placeholder>All numbing cream</a></li>
-              <li><a href="#" data-placeholder>Numbing cream</a></li>
-              <li><a href="#" data-placeholder>Numbing gel</a></li>
-              <li><a href="#" data-placeholder>Numbing spray</a></li>
+              <li><a href="/collections/numbing-cream">Numbing Cream</a></li>
+              <li><a href="/collections/numbing-gel">Numbing Gel</a></li>
+              <li><a href="/collections/numbing-spray">Numbing Spray</a></li>
+              <li><a href="/collections/shop-all">Shop all</a></li>
             {%- endif -%}
           </ul>
         </div>
 
-        {%- comment -%} Column 2 — The system {%- endcomment -%}
+        {%- comment -%} Column 2 — The System {%- endcomment -%}
         <div class="ss-ft__col">
-          <h2 class="ss-ft__colhead">{{ section.settings.col2_heading | default: 'The system' | escape }}</h2>
+          <h2 class="ss-ft__colhead">{{ section.settings.col2_heading | default: 'The System' | escape }}</h2>
           <ul class="ss-ft__list">
             {%- if sys_menu.links.size > 0 -%}
-              {%- for link in sys_menu.links -%}
-                <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              {%- endfor -%}
+              {%- for link in sys_menu.links -%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{%- endfor -%}
             {%- else -%}
-              {%- comment -%} STAGE D: wire the 'senseless-footer-explore' menu in admin. {%- endcomment -%}
-              <li><a href="#" data-placeholder>Choosing your strength</a></li>
-              <li><a href="#" data-placeholder>Choosing your format</a></li>
-              <li><a href="#" data-placeholder>How it works</a></li>
-              <li><a href="#" data-placeholder>Does numbing cream work?</a></li>
+              <li><a href="/pages/the-senseless-system">The Senseless System</a></li>
+              <li><a href="/pages/does-it-hurt">Does it hurt?</a></li>
             {%- endif -%}
           </ul>
         </div>
 
-        {%- comment -%} Column 3 — Brand {%- endcomment -%}
+        {%- comment -%} Column 3 — Help {%- endcomment -%}
         <div class="ss-ft__col">
-          <h2 class="ss-ft__colhead">{{ section.settings.col3_heading | default: 'Brand' | escape }}</h2>
+          <h2 class="ss-ft__colhead">{{ section.settings.col3_heading | default: 'Help' | escape }}</h2>
           <ul class="ss-ft__list">
-            {%- if brand_menu.links.size > 0 -%}
-              {%- for link in brand_menu.links -%}
-                <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              {%- endfor -%}
+            {%- if help_menu.links.size > 0 -%}
+              {%- for link in help_menu.links -%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{%- endfor -%}
             {%- else -%}
-              {%- comment -%} STAGE D: wire the 'senseless-footer-company' menu in admin. {%- endcomment -%}
-              <li><a href="#" data-placeholder>About</a></li>
-              <li><a href="#" data-placeholder>Trade enquiries</a></li>
-              <li><a href="#" data-placeholder>Contact</a></li>
-              <li><a href="#" data-placeholder>FAQ</a></li>
+              <li><a href="/pages/faq">FAQ</a></li>
+              <li><a href="/pages/contact">Contact</a></li>
             {%- endif -%}
           </ul>
         </div>
 
-        {%- comment -%} Newsletter column removed — the homepage "Stay close." section is the single newsletter. {%- endcomment -%}
+        {%- comment -%} Column 4 — Company {%- endcomment -%}
+        <div class="ss-ft__col">
+          <h2 class="ss-ft__colhead">{{ section.settings.col4_heading | default: 'Company' | escape }}</h2>
+          <ul class="ss-ft__list">
+            {%- if company_menu.links.size > 0 -%}
+              {%- for link in company_menu.links -%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{%- endfor -%}
+            {%- else -%}
+              <li><a href="/pages/about">About</a></li>
+              <li><a href="/pages/trade">Trade &amp; wholesale</a></li>
+            {%- endif -%}
+          </ul>
+        </div>
 
       </div>
     </div>
 
     <div class="ss-ft__legal">
       <div class="ss-ft__legalleft">
-        <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span>
-        <span aria-hidden="true">·</span>
-        <span>A <a href="{{ section.settings.mhg_url | default: 'https://matrixhealthgroup.co.uk' }}" rel="noopener" target="_blank">Matrix Health Group Ltd</a> brand</span>
-        <span aria-hidden="true">·</span>
-        <span class="ss-ft__phone"><a href="tel:+443330495549">0333&nbsp;049&nbsp;5549</a></span>
+        <span class="ss-ft__company">&copy; Matrix Health Group Ltd {{ 'now' | date: '%Y' }} &middot; Company no. 17099304 &middot; 128 City Road, London EC1V 2NX</span>
         <span class="ss-ft__policies">
-          {%- comment -%} Point at the custom designed /pages/* policy pages (NOT native /policies/* plain prose). {%- endcomment -%}
-          <a href="/pages/shipping-delivery">Shipping &amp; delivery</a>
-          <a href="/pages/returns-refunds">Returns &amp; refunds</a>
-          <a href="/pages/privacy-policy">Privacy policy</a>
-          <a href="/pages/terms-conditions">Terms &amp; conditions</a>
-          <a href="/pages/cookie-policy">Cookie policy</a>
-          {%- comment -%} Re-opens the cookie consent preferences panel (Canonical State §6). {%- endcomment -%}
+          <a href="/pages/privacy-policy">Privacy Policy</a>
+          <a href="/pages/terms-conditions">Terms &amp; Conditions</a>
+          <a href="/pages/cookie-policy">Cookie Policy</a>
+          {%- comment -%} Re-opens the cookie consent preferences panel. {%- endcomment -%}
           <button type="button" class="ss-ft__cookiebtn" data-ss-cookie-settings>Cookie settings</button>
         </span>
       </div>
 
       <div class="ss-ft__social">
-        {%- if section.settings.instagram_url != blank -%}<a href="{{ section.settings.instagram_url }}" rel="noopener" target="_blank">Instagram</a>{%- else -%}<a href="#" data-placeholder>Instagram</a>{%- endif -%}
-        {%- if section.settings.tiktok_url != blank -%}<a href="{{ section.settings.tiktok_url }}" rel="noopener" target="_blank">TikTok</a>{%- else -%}<a href="#" data-placeholder>TikTok</a>{%- endif -%}
-        {%- if section.settings.facebook_url != blank -%}<a href="{{ section.settings.facebook_url }}" rel="noopener" target="_blank">Facebook</a>{%- else -%}<a href="#" data-placeholder>Facebook</a>{%- endif -%}
+        {%- if section.settings.instagram_url != blank -%}<a href="{{ section.settings.instagram_url }}" rel="noopener" target="_blank">Instagram</a>{%- endif -%}
+        {%- if section.settings.tiktok_url != blank -%}<a href="{{ section.settings.tiktok_url }}" rel="noopener" target="_blank">TikTok</a>{%- endif -%}
+        {%- if section.settings.facebook_url != blank -%}<a href="{{ section.settings.facebook_url }}" rel="noopener" target="_blank">Facebook</a>{%- endif -%}
       </div>
     </div>
   </div>
@@ -191,13 +176,14 @@
     { "type": "text", "id": "tagline", "label": "Brand tagline", "default": "UK-formulated topical preparation for aesthetic and cosmetic procedures." },
     { "type": "header", "content": "Columns" },
     { "type": "text", "id": "col1_heading", "label": "Column 1 heading", "default": "Shop" },
-    { "type": "link_list", "id": "col1_menu", "label": "Column 1 menu", "info": "Defaults to the senseless-footer-shop menu when left unset." },
-    { "type": "text", "id": "col2_heading", "label": "Column 2 heading", "default": "The system" },
-    { "type": "link_list", "id": "col2_menu", "label": "Column 2 menu", "info": "Defaults to the senseless-footer-explore menu when left unset." },
-    { "type": "text", "id": "col3_heading", "label": "Column 3 heading", "default": "Brand" },
-    { "type": "link_list", "id": "col3_menu", "label": "Column 3 menu", "info": "Defaults to the senseless-footer-company menu when left unset." },
-    { "type": "header", "content": "Legal band" },
-    { "type": "url", "id": "mhg_url", "label": "Matrix Health Group URL" },
+    { "type": "link_list", "id": "col1_menu", "label": "Column 1 menu", "info": "Defaults to senseless-footer-shop." },
+    { "type": "text", "id": "col2_heading", "label": "Column 2 heading", "default": "The System" },
+    { "type": "link_list", "id": "col2_menu", "label": "Column 2 menu", "info": "Defaults to senseless-footer-explore." },
+    { "type": "text", "id": "col3_heading", "label": "Column 3 heading", "default": "Help" },
+    { "type": "link_list", "id": "col3_menu", "label": "Column 3 menu", "info": "Defaults to senseless-footer-help." },
+    { "type": "text", "id": "col4_heading", "label": "Column 4 heading", "default": "Company" },
+    { "type": "link_list", "id": "col4_menu", "label": "Column 4 menu", "info": "Defaults to senseless-footer-company." },
+    { "type": "header", "content": "Legal bar" },
     { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
     { "type": "url", "id": "tiktok_url", "label": "TikTok URL" },
     { "type": "url", "id": "facebook_url", "label": "Facebook URL" }
