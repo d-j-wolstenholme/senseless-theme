@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "About",
         "headline": "A UK brand built for one thing.",
-        "subhead": "<p>Senseless makes topical preparation products for aesthetic appointments. Three strengths, four formats, formulated to match what each procedure asks of the skin. Aesthetics is the specialism — not the side category.</p>",
+        "subhead": "<p>Senseless makes topical preparation products for aesthetic appointments. Three strengths, three formats, formulated to match what each procedure asks of the skin. Aesthetics is the specialism — not the side category.</p>",
         "primary_cta_label": "", "primary_cta_url": "",
         "secondary_cta_label": "", "secondary_cta_url": "",
         "image_alt": "Editorial Senseless brand still life on a warm off-white background, no faces",
@@ -17,7 +17,7 @@
       "settings": {
         "direction": "text-left", "eyebrow": "The brand",
         "headline": "A cosmetic brand. An aesthetics specialist.",
-        "body": "<p>Senseless is a UK cosmetic brand, formulated and produced for the aesthetic procedures clinics actually run — lip fillers, Botox, microneedling, laser, semi-permanent makeup, waxing. The brand sits in the cosmetic product category, not the medical one. The product range is built around a single coherent system: three strengths matched to procedure intensity, four formats matched to treatment area. That structure is the brand. The brand doesn't try to be everything for everyone. It tries to be the right answer for one category of appointment.</p>",
+        "body": "<p>Senseless is a UK cosmetic brand, formulated and produced for the aesthetic procedures clinics actually run — lip fillers, Botox, microneedling, laser, semi-permanent makeup, waxing. The brand sits in the cosmetic product category, not the medical one. The product range is built around a single coherent system: three strengths matched to procedure intensity, three formats matched to treatment area. That structure is the brand. The brand doesn't try to be everything for everyone. It tries to be the right answer for one category of appointment.</p>",
         "cta_label": "", "cta_url": "", "image_alt": "Editorial Senseless system view"
       }
     },
@@ -35,7 +35,7 @@
       "settings": {
         "direction": "text-left", "eyebrow": "The position",
         "headline": "Specialism over breadth. System over single product. Honesty over over-claim.",
-        "body": "<p>The aesthetics category deserves a product range built specifically for it — not generic skin preparation stretched to fit. Most aesthetic appointments need a specific tier and format. A single-product approach can't match every booking, so Senseless doesn't try. The three-tier, four-format system is the answer. And we'd rather tell a buyer when Professional is overkill, when Clinical is enough, or when Senseless isn't the right product at all — than convert a sale that doesn't suit the appointment.</p>",
+        "body": "<p>The aesthetics category deserves a product range built specifically for it — not generic skin preparation stretched to fit. Most aesthetic appointments need a specific tier and format. A single-product approach can't match every booking, so Senseless doesn't try. The three-tier, three-format system is the answer. And we'd rather tell a buyer when Professional is overkill, when Clinical is enough, or when Senseless isn't the right product at all — than convert a sale that doesn't suit the appointment.</p>",
         "cta_label": "", "cta_url": "", "image_alt": "Editorial Senseless product close-up"
       }
     },
@@ -71,7 +71,7 @@
     "orgschema": { "type": "senseless-org-schema", "settings": {} },
     "schema": {
       "type": "senseless-page-schema",
-      "settings": { "name": "About Senseless", "description": "Senseless is a UK cosmetic brand built for aesthetic appointments. Backed by Matrix Health Group Ltd. Three strengths, four formats, formulated for the procedures aesthetic clinics run." }
+      "settings": { "name": "About Senseless", "description": "Senseless is a UK cosmetic brand built for aesthetic appointments. Backed by Matrix Health Group Ltd. Three strengths, three formats, formulated for the procedures aesthetic clinics run." }
     }
   },
   "order": ["hero", "what", "company", "believe", "practice", "notice", "next", "orgschema", "schema"]

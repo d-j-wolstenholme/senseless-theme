@@ -45,6 +45,18 @@
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+    {%- comment -%}
+      Sticky-header fix: Shopify wraps each header-group section in its own <div id="header-group">
+      and <div class="shopify-section shopify-section-group-header-group">, both only as tall as the
+      header itself. position:sticky is bounded by the element's parent box, so the custom .ss-hdr
+      un-sticks the moment you scroll past the wrapper height. Collapsing both wrappers with
+      display:contents makes .ss-hdr a direct child of <body>, whose content box spans the whole
+      page — so the banner+header unit stays pinned at the top through the full scroll.
+    {%- endcomment -%}
+    <style>
+      #header-group,
+      .shopify-section-group-header-group { display: contents; }
+    </style>
     <div id="header-group">
       {% sections 'header-group' %}
     </div>
