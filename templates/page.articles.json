@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "hub": {
+      "type": "senseless-articles-hub",
+      "blocks": {
+        "g1": {
+          "type": "guide_link",
+          "settings": {
+            "title": "Does it hurt? Pain by treatment",
+            "url": "/pages/does-it-hurt-by-treatment",
+            "body": "How much each aesthetic treatment tends to hurt, treatment by treatment."
+          }
+        },
+        "g2": {
+          "type": "guide_link",
+          "settings": {
+            "title": "Does microneedling hurt?",
+            "url": "/pages/does-microneedling-hurt",
+            "body": "What microneedling feels like and how to prepare."
+          }
+        },
+        "g3": {
+          "type": "guide_link",
+          "settings": {
+            "title": "Does laser hair removal hurt?",
+            "url": "/pages/does-laser-hair-removal-hurt",
+            "body": "What laser hair removal feels like and how to prepare."
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {
+        "eyebrow": "Read",
+        "headline": "Articles",
+        "intro": "<p>Guides and articles on aesthetic treatments — what to expect, how they feel, and how to prepare. Educational and practitioner-routed.</p>",
+        "articles_heading": "From the blog",
+        "guides_heading": "Guides"
+      }
+    }
+  },
+  "order": [
+    "hub"
+  ]
+}
