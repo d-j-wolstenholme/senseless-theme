@@ -47,7 +47,7 @@
 {%- endstyle -%}
 <article class="ss-art">
   <header class="ss-art__head">
-    <p class="ss-art__eyebrow"><a href="{{ blog.url }}">{{ section.settings.eyebrow | default: 'Guides' | escape }}</a></p>
+    <p class="ss-art__eyebrow"><a href="{{ blog.url }}">&larr; All {{ section.settings.eyebrow | default: 'guides' | escape | downcase }}</a></p>
     <h1 class="ss-art__title">{{ article.title | escape }}</h1>
     {%- if article.published_at -%}<p class="ss-art__meta">Last updated {{ article.published_at | date: '%-d %B %Y' }}</p>{%- endif -%}
   </header>
