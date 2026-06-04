@@ -9,7 +9,7 @@
         "primary_cta_label": "Shop the Senseless system",
         "primary_cta_url": "/collections/aesthetic-numbing-cream",
         "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/choosing-your-strength",
+        "secondary_cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial Senseless system view"
       }
     },
@@ -101,7 +101,7 @@
         "body": "",
         "closer": "",
         "section_cta_label": "Choose your strength",
-        "section_cta_url": "/pages/choosing-your-strength"
+        "section_cta_url": "/pages/the-senseless-system"
       }
     },
     "recommend": {
@@ -229,7 +229,7 @@
             "label": "Choose your strength",
             "body": "<p>Clinical, Advanced, Professional.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/choosing-your-strength",
+            "cta_url": "/pages/the-senseless-system",
             "image_alt": "Editorial image for the strength guide"
           }
         },
@@ -239,7 +239,7 @@
             "label": "How Senseless works",
             "body": "<p>The system, in plain terms.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/how-it-works",
+            "cta_url": "/pages/the-senseless-system",
             "image_alt": "Editorial image for the system guide"
           }
         },

@@ -9,7 +9,7 @@
         "primary_cta_label": "Shop by procedure",
         "primary_cta_url": "/collections/aesthetic-numbing-cream",
         "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/choosing-your-strength",
+        "secondary_cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial Senseless system view — multiple SKUs"
       }
     },
@@ -92,7 +92,7 @@
         "headline": "Three strengths. Three formats. Matched to the appointment.",
         "body": "<p>Strength matches the procedure: Clinical for routine, Advanced for longer or more sensitive, Professional for the most demanding. Format matches the treatment area and session length: cream for most face procedures, gel for sustained sessions, spray for body and broader zones. Together they answer two questions — strength and format — which is more useful than answering one (\"best\") with a single product recommendation that can't actually fit every appointment.</p>",
         "cta_label": "Choose your strength",
-        "cta_url": "/pages/choosing-your-strength",
+        "cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial Senseless system view"
       }
     },
@@ -257,7 +257,7 @@
             "label": "Choose your strength",
             "body": "<p>Clinical, Advanced, Professional.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/choosing-your-strength",
+            "cta_url": "/pages/the-senseless-system",
             "image_alt": "Editorial image for the strength guide"
           }
         },
