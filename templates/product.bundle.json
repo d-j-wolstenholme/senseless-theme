@@ -1,0 +1,126 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-product-hero",
+      "settings": {
+        "trust_line": "UK formulated · Cosmetic product",
+        "delivery_line": "Free UK delivery over £40"
+      }
+    },
+    "contents": {
+      "type": "senseless-bundle-contents",
+      "settings": {
+        "eyebrow": "In the kit",
+        "headline": "What's in the kit",
+        "band": "surface"
+      }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Formulated in the United Kingdom"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product — not a medicine"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Strength-matched cream, gel & spray"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Free UK delivery over £40"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
+    },
+    "system": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Where this sits",
+        "headline": "Part of the Senseless System",
+        "body": "<p>Each kit pairs a strength-matched numbing cream, gel and spray with the Foaming Cleanser — the same products sold individually, assembled and picked as one unit. Choose the kit that matches your appointment and your practitioner's guidance. Numbing reduces discomfort rather than removing it.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. It is not a medicine.</p>",
+        "cta_label": "Explore the Senseless System",
+        "cta_url": "/pages/the-senseless-system"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's in the kit?",
+            "answer": "<p>A strength-matched numbing cream, gel and spray, plus the Foaming Cleanser for before and after. The exact sizes are listed above.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is the kit cheaper than buying the items separately?",
+            "answer": "<p>Yes — each kit is priced below the total of its items bought individually. The saving is shown on this page.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I mix strengths in one kit?",
+            "answer": "<p>Each kit is a single strength tier — Clinical, Advanced or Professional — across all three formats. For a different mix, buy the items individually.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which kit should I choose?",
+            "answer": "<p>Match the strength tier to your appointment and your practitioner's guidance. Small and Large differ by the cream and gel sizes; the spray and cleanser are the same in both.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a cosmetic product, formulated in the United Kingdom.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "contents",
+    "trust",
+    "system",
+    "faq"
+  ]
+}

@@ -1,0 +1,59 @@
+{%- comment -%}
+  Senseless — Bundle contents ("What's in the kit"). Reads the product's
+  senseless.bundle_contents list ("Component title|/products/handle" per entry), renders each as a
+  link, and shows the saving (variant price vs compare-at = the sum of the components bought separately).
+{%- endcomment -%}
+{%- liquid
+  assign items = product.metafields.senseless.bundle_contents.value
+  assign saving = 0
+  if product.compare_at_price > product.price
+    assign saving = product.compare_at_price | minus: product.price
+  endif
+-%}
+{%- if items != blank and items.size > 0 -%}
+{%- style -%}
+  .ss-kit { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); font-family:var(--sans); }
+  .ss-kit--surface { background:var(--surf); }
+  .ss-kit__inner { max-width:760px; margin:0 auto; padding:48px 20px; }
+  .ss-kit__eyebrow { font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0 0 10px; }
+  .ss-kit__headline { font-weight:400; letter-spacing:-0.02em; font-size:26px; line-height:1.2; margin:0 0 18px; }
+  .ss-kit__list { list-style:none; margin:0; padding:0; }
+  .ss-kit__item { border-top:1px solid var(--bd); padding:14px 0; font-size:16px; }
+  .ss-kit__item:last-child { border-bottom:1px solid var(--bd); }
+  .ss-kit__item a { color:var(--p); text-decoration:none; font-weight:600; }
+  .ss-kit__item a:hover { text-decoration:underline; }
+  .ss-kit__saving { margin:18px 0 0; font-size:15px; color:var(--body); }
+  .ss-kit__saving strong { color:var(--ink); }
+{%- endstyle -%}
+<section class="ss-kit ss-kit--{{ section.settings.band | default: 'canvas' }}" aria-label="What's in the kit">
+  <div class="ss-kit__inner">
+    <p class="ss-kit__eyebrow">{{ section.settings.eyebrow | default: 'In the kit' | escape }}</p>
+    <h2 class="ss-kit__headline">{{ section.settings.headline | default: "What's in the kit" | escape }}</h2>
+    <ul class="ss-kit__list">
+      {%- for it in items -%}
+        {%- assign parts = it | split: '|' -%}
+        <li class="ss-kit__item">{%- if parts[1] != blank -%}<a href="{{ parts[1] | strip }}">{{ parts[0] | strip | escape }}</a>{%- else -%}{{ parts[0] | strip | escape }}{%- endif -%}</li>
+      {%- endfor -%}
+    </ul>
+    {%- if saving > 0 -%}
+      <p class="ss-kit__saving"><strong>{{ product.price | money }}</strong> — save {{ saving | money }} versus buying the items separately ({{ product.compare_at_price | money }}).</p>
+    {%- endif -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bundle contents",
+  "tag": "section",
+  "class": "senseless-section senseless-bundle-contents",
+  "settings": [
+    { "type": "paragraph", "content": "Reads this product's senseless.bundle_contents list + shows the saving (price vs compare-at). No output if empty." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "In the kit" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "What's in the kit" },
+    { "type": "select", "id": "band", "label": "Band", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas" }, { "value": "surface", "label": "Surface" } ] }
+  ],
+  "presets": [ { "name": "Bundle contents" } ]
+}
+{% endschema %}
