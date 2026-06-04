@@ -12,10 +12,10 @@
     "routes": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "consumer": { "type": "format_card", "settings": { "label": "Customer enquiries", "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below.</p>", "cta_label": "Contact form", "cta_url": "#contact-form", "image_alt": "Editorial image for customer enquiries" } },
+        "consumer": { "type": "format_card", "settings": { "label": "Customer enquiries", "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below, email <a href=\"mailto:hello@senseless.uk\">hello@senseless.uk</a>, or call <a href=\"tel:+443330495549\">0333 049 5549</a>.</p>", "cta_label": "Contact form", "cta_url": "#contact-form", "image_alt": "Editorial image for customer enquiries" } },
         "trade": { "type": "format_card", "settings": { "label": "For clinics and practitioners", "body": "<p>Wholesale accounts, clinic supply, B2B questions. The Trade page has the dedicated enquiry form and operational details.</p>", "cta_label": "Trade enquiries", "cta_url": "/pages/trade", "image_alt": "Editorial image for trade enquiries" } },
-        "press": { "type": "format_card", "settings": { "label": "Media and partnerships", "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. (Email address to be confirmed before launch.)</p>", "cta_label": "Email press team", "cta_url": "mailto:press@senseless.co.uk", "image_alt": "Editorial image for press enquiries" } },
-        "legal": { "type": "format_card", "settings": { "label": "Data, privacy, legal", "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. (Email address to be confirmed before launch.)</p>", "cta_label": "Email legal team", "cta_url": "mailto:legal@senseless.co.uk", "image_alt": "Editorial image for legal enquiries" } }
+        "press": { "type": "format_card", "settings": { "label": "Media and partnerships", "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. <a href=\"mailto:press@senseless.uk\">press@senseless.uk</a>.</p>", "cta_label": "Email press team", "cta_url": "mailto:press@senseless.uk", "image_alt": "Editorial image for press enquiries" } },
+        "legal": { "type": "format_card", "settings": { "label": "Data, privacy, legal", "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. <a href=\"mailto:legal@senseless.uk\">legal@senseless.uk</a>.</p>", "cta_label": "Email legal team", "cta_url": "mailto:legal@senseless.uk", "image_alt": "Editorial image for legal enquiries" } }
       },
       "block_order": ["consumer", "trade", "press", "legal"],
       "settings": { "columns": "4", "eyebrow": "", "headline": "Pick the right channel.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
@@ -38,7 +38,7 @@
       "settings": {
         "direction": "text-left", "eyebrow": "Who you're contacting",
         "headline": "The legal entity behind Senseless.",
-        "body": "<p>Senseless is a brand of <strong>Matrix Health Group Ltd</strong>, a UK company in the personal-care and aesthetics sector.</p><ul><li>Company name: Matrix Health Group Ltd</li><li>Company number: to be confirmed before launch</li><li>Registered address: to be confirmed before launch</li><li>VAT number: to be confirmed before launch</li></ul><p>For consumer enquiries, please use the form above or the appropriate channel above. The registered company address isn't a consumer support address.</p>",
+        "body": "<p>Senseless is a brand of <strong>Matrix Health Group Ltd</strong>, a UK company in the personal-care and aesthetics sector.</p><ul><li>Company name: Matrix Health Group Ltd</li><li>Company number: 17099304</li><li>Registered address: 128 City Road, London, EC1V 2NX</li><li>VAT number: to be confirmed before launch</li><li>Phone: <a href=\"tel:+443330495549\">0333 049 5549</a></li></ul><p>For consumer enquiries, please use the form above or the appropriate channel above. The registered company address isn't a consumer support address.</p>",
         "cta_label": "", "cta_url": "",
         "image_alt": "Editorial Senseless brand mark composition"
       }
@@ -55,12 +55,16 @@
       "type": "senseless-trio-card-row",
       "blocks": {
         "faq": { "type": "format_card", "settings": { "label": "FAQ", "body": "<p>Most consumer questions answered already.</p>", "cta_label": "Read FAQ", "cta_url": "/pages/faq", "image_alt": "Editorial image for the FAQ" } },
-        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Help deciding between tiers.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
-        "system": { "type": "format_card", "settings": { "label": "How Senseless works", "body": "<p>The system explained.</p>", "cta_label": "Read guide", "cta_url": "/pages/how-it-works", "image_alt": "Editorial image for the system guide" } }
+        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Help deciding between tiers.</p>", "cta_label": "Read guide", "cta_url": "/pages/the-senseless-system", "image_alt": "Editorial image for the strength guide" } },
+        "system": { "type": "format_card", "settings": { "label": "How Senseless works", "body": "<p>The system explained.</p>", "cta_label": "Read guide", "cta_url": "/pages/the-senseless-system", "image_alt": "Editorial image for the system guide" } }
       },
       "block_order": ["faq", "strength", "system"],
       "settings": { "columns": "3", "eyebrow": "", "headline": "Or try one of these first.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
+    },
+    "orgschema": {
+      "type": "senseless-org-schema",
+      "settings": {}
     }
   },
-  "order": ["hero", "routes", "form", "company", "response", "next"]
+  "order": ["hero", "routes", "form", "company", "response", "next", "orgschema"]
 }

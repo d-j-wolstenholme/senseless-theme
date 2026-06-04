@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": { "background": "canvas", "eyebrow": "Legal", "headline": "Terms & Conditions", "image_alt": "Senseless range on a warm off-white background" }
+    },
+    "intro": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "white", "headline": "Introduction", "body": "<p>These terms govern your use of the Senseless website and your purchase of products from us. By accessing the site or placing an order, you agree to them. Senseless is a trading name of Matrix Health Group Ltd, a company registered in England and Wales (company number 17099304). Registered address: 128 City Road, London, EC1V 2NX.</p>" }
+    },
+    "using": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "canvas", "headline": "Using the site", "body": "<p>You must be at least 18 to purchase. Use the site only for lawful purposes; do not interfere with its operation, transmit harmful code, or access it through automated means without permission. We may withdraw or restrict access at any time without notice.</p>" }
+    },
+    "orders": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "white", "headline": "Orders & payment", "body": "<p>All orders are subject to acceptance and availability; placing an order is an offer to purchase. We may decline or cancel any order at our discretion, including suspected fraud or a pricing/description error. Prices are in GBP and include VAT where applicable. Payment is taken at order via the methods at checkout. You are responsible for the accuracy of the payment and delivery information you provide.</p>" }
+    },
+    "products": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "canvas", "headline": "Products & descriptions", "body": "<p>We take reasonable care that descriptions and images are accurate; slight colour variation may occur due to screens. Descriptions are general information, not medical advice. All Senseless products are cosmetic-grade and assessed under the UK Cosmetic Products Regulation. They are not intended to diagnose, treat, cure, or prevent any medical condition.</p>" }
+    },
+    "ip": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "white", "headline": "Intellectual property", "body": "<p>All content — text, images, logos, product names, and the Senseless system framework — is owned by Matrix Health Group Ltd or its licensors and protected by UK and international copyright and trademark law. No reproduction, distribution, or use without written permission.</p>" }
+    },
+    "liability": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "canvas", "headline": "Limitation of liability", "body": "<p>Nothing excludes or limits liability for death or personal injury caused by our negligence, fraud, or anything that cannot be excluded under English law. Otherwise, to the extent permitted by law, we are not liable for indirect, incidental, or consequential losses (including loss of profit, data, or business opportunity), and our total liability for any claim shall not exceed the amount you paid for the relevant order.</p>" }
+    },
+    "law": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "white", "headline": "Governing law", "body": "<p>Governed by the laws of England and Wales; disputes subject to the exclusive jurisdiction of the courts of England and Wales.</p>" }
+    },
+    "changes": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "canvas", "headline": "Changes", "body": "<p>We may update these terms; the current version always lives on this page. Continued use after changes is acceptance.</p>" }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Who operates this website?", "answer": "<p>Senseless, a trading name of Matrix Health Group Ltd (17099304), 128 City Road, London, EC1V 2NX.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "How do I contact you about these terms?", "answer": "<p><a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "What law applies?", "answer": "<p>England and Wales.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Can I use content from the site?", "answer": "<p>No — written permission required.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": { "headline": "Common questions", "anchor_id": "faq" }
+    },
+    "links": {
+      "type": "senseless-rich-text",
+      "settings": { "background": "white", "eyebrow": "See also", "body": "<p><a href=\"/pages/privacy-policy\">Privacy Policy</a> · <a href=\"/pages/cookie-policy\">Cookie Policy</a></p>" }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": { "name": "Terms & Conditions", "description": "Terms for using the Senseless website and purchasing our products. Operated by Matrix Health Group Ltd, registered in England and Wales." }
+    }
+  },
+  "order": ["hero", "intro", "using", "orders", "products", "ip", "liability", "law", "changes", "faq", "links", "schema"]
+}

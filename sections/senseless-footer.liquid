@@ -158,6 +158,8 @@
         <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span>
         <span aria-hidden="true">·</span>
         <span>A <a href="{{ section.settings.mhg_url | default: 'https://matrixhealthgroup.co.uk' }}" rel="noopener" target="_blank">Matrix Health Group Ltd</a> brand</span>
+        <span aria-hidden="true">·</span>
+        <span class="ss-ft__phone"><a href="tel:+443330495549">0333&nbsp;049&nbsp;5549</a></span>
         <span class="ss-ft__policies">
           {%- if policy_count > 0 -%}
             {%- for policy in shop.policies -%}

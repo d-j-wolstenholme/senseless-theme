@@ -94,6 +94,14 @@
               <input type="checkbox" id="cf-{{ block.id }}" name="contact[{{ fname | escape }}]" value="Yes" {% if block.settings.required %}required{% endif %}>
               <label for="cf-{{ block.id }}">{{ fname | escape }}</label>
             </div>
+          {%- when 'multiselect' -%}
+            <fieldset class="ss-cf__field" {{ block.shopify_attributes }} style="border:0;padding:0;margin:0;">
+              <legend class="ss-cf__label">{{ fname | escape }}{% if block.settings.required %} <span class="ss-cf__req">*</span>{% endif %}</legend>
+              {%- assign mopts = block.settings.options | split: ',' -%}
+              {%- for opt in mopts -%}
+                <div class="ss-cf__check"><input type="checkbox" id="cf-{{ block.id }}-{{ forloop.index }}" name="contact[{{ fname | escape }}][]" value="{{ opt | strip | escape }}"><label for="cf-{{ block.id }}-{{ forloop.index }}">{{ opt | strip | escape }}</label></div>
+              {%- endfor -%}
+            </fieldset>
           {%- else -%}
             <div class="ss-cf__field" {{ block.shopify_attributes }}>
               <label class="ss-cf__label" for="cf-{{ block.id }}">{{ fname | escape }}{% if block.settings.required %} <span class="ss-cf__req">*</span>{% endif %}</label>
@@ -127,7 +135,7 @@
       "name": "Field",
       "settings": [
         { "type": "text", "id": "label", "label": "Field label", "default": "Your name" },
-        { "type": "select", "id": "type", "label": "Field type", "default": "text", "options": [ { "value": "text", "label": "Text" }, { "value": "email", "label": "Email" }, { "value": "tel", "label": "Phone" }, { "value": "textarea", "label": "Text area (message)" }, { "value": "select", "label": "Dropdown" }, { "value": "checkbox", "label": "Checkbox" } ] },
+        { "type": "select", "id": "type", "label": "Field type", "default": "text", "options": [ { "value": "text", "label": "Text" }, { "value": "email", "label": "Email" }, { "value": "tel", "label": "Phone" }, { "value": "textarea", "label": "Text area (message)" }, { "value": "select", "label": "Dropdown" }, { "value": "multiselect", "label": "Multi-select (checkbox group)" }, { "value": "checkbox", "label": "Checkbox" } ] },
         { "type": "text", "id": "options", "label": "Dropdown options", "info": "Comma-separated. Dropdown fields only.", "default": "Option one, Option two" },
         { "type": "checkbox", "id": "required", "label": "Required", "default": false }
       ]
