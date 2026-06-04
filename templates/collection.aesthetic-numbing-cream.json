@@ -16,15 +16,12 @@
     "procedures": {
       "type": "senseless-procedure-grid",
       "blocks": {
-        "inj": { "type": "procedure_card", "settings": { "label": "Injections", "sub_label": "Umbrella — Lip fillers + Botox", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-injections", "image_alt": "Editorial image for the injections range" } },
-        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
-        "botox": { "type": "procedure_card", "settings": { "label": "Botox", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-botox", "image_alt": "Editorial image for the Botox range" } },
         "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
         "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
         "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } },
         "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } }
       },
-      "block_order": ["inj", "lips", "botox", "micro", "laser", "spmu", "wax"],
+      "block_order": ["micro", "laser", "spmu", "wax"],
       "settings": { "columns": "4", "anchor_id": "procedure-grid", "eyebrow": "By appointment", "headline": "Pick your procedure.", "body": "<p>Each procedure has its own collection — the recommended strength, the right format, and the products built for that kind of session.</p>" }
     },
     "why": {

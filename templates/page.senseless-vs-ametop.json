@@ -107,26 +107,6 @@
     "recommend": {
       "type": "senseless-procedure-grid",
       "blocks": {
-        "lips": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Lip Fillers",
-            "sub_label": "Clinical Strength Cream.",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-lip-fillers",
-            "image_alt": "Editorial image for the lip fillers range"
-          }
-        },
-        "botox": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Botox",
-            "sub_label": "Clinical Strength Cream — or no preparation at all for many clients.",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-botox",
-            "image_alt": "Editorial image for the Botox range"
-          }
-        },
         "micro": {
           "type": "procedure_card",
           "settings": {
@@ -169,8 +149,6 @@
         }
       },
       "block_order": [
-        "lips",
-        "botox",
         "micro",
         "laser",
         "spmu",

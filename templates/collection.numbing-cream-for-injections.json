@@ -3,99 +3,62 @@
     "hero": {
       "type": "senseless-collection-hero",
       "settings": {
-        "eyebrow": "For injections",
-        "headline": "Made for injectable appointments.",
-        "subhead": "<p>UK-formulated topical preparation for the kind of injections aesthetic clinics actually run — lip fillers, Botox, and the wider category. Clinical suits most appointments. Advanced for longer or more sensitive sessions.</p>",
-        "primary_cta_label": "Shop for injections",
-        "primary_cta_url": "#product-grid",
-        "secondary_cta_label": "Lip filler appointment?",
-        "secondary_cta_url": "/collections/numbing-cream-for-lip-fillers",
-        "image_alt": "Editorial product still life of Senseless, no needles, no clinical setting"
-      }
-    },
-    "subprocedures": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "lips": { "type": "format_card", "settings": { "label": "Lip Fillers", "body": "<p>The most common booking. Quick session, sensitive area, time-pressured prep.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
-        "botox": { "type": "format_card", "settings": { "label": "Botox", "body": "<p>Shorter than fillers, less sensitive, but still benefits from prepared skin.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-botox", "image_alt": "Editorial image for the Botox range" } }
-      },
-      "block_order": ["lips", "botox"],
-      "settings": { "columns": "2", "eyebrow": "", "headline": "Which injection are you booking?", "body": "<p>Both sub-procedures have their own collection — the recommended strength, the right format, and the products built for that kind of session.</p>", "closer": "", "section_cta_label": "", "section_cta_url": "" }
-    },
-    "recommendation": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-left", "eyebrow": "The recommendation",
-        "headline": "Clinical Strength is the default.",
-        "body": "<p>Most injection appointments are short, focused, and predictable in their demands. Clinical Strength cream is formulated for exactly that — top-ups, routine fillers, the appointments most clients book most often. If your session runs longer, covers a larger area, or you're prone to more sensitivity, Advanced sits one step up. Professional is rarely needed for injection prep — it's built for procedures that ask more of the skin than injectables typically do.</p>",
-        "cta_label": "Compare strengths", "cta_url": "/pages/choosing-your-strength",
-        "image_alt": "Editorial product close-up of Senseless Clinical Strength cream"
+        "eyebrow": "For injectable appointments",
+        "headline": "Numbing cream for injections",
+        "subhead": "<p>Numbing cream for injections is a topical preparation applied to clean skin beforehand to make the experience more comfortable — it reduces the sensation rather than removing it. Whether you need it depends on the injection, the area and your own sensitivity, and many practitioners apply their own numbing as standard, so it's always worth checking first.</p>",
+        "primary_cta_label": "Shop the range",
+        "primary_cta_url": "#shop",
+        "image_alt": "Senseless numbing cream for injections on a warm off-white background"
       }
     },
     "grid": {
-      "type": "senseless-product-grid",
-      "blocks": {
-        "clinical": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
-        "advanced": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } },
-        "sspad": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Spray", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-spray", "flagship": false, "image_alt": "Advanced Strength Senseless spray on a warm off-white background" } }
-      },
-      "block_order": ["clinical", "advanced", "sspad"],
-      "settings": { "headline": "The products built for injection prep.", "body": "<p>Cream is the default for injection appointments. Spray suits sessions where injections are spread across a wider area.</p>", "show_filters": false }
+      "type": "senseless-collection-grid",
+      "settings": { "headline": "Numbing cream and gel for injections", "show_filters": false, "anchor_id": "shop" }
     },
-    "trust": {
-      "type": "senseless-trust-bar",
-      "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
-      },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": {}
-    },
-    "why": {
-      "type": "senseless-image-text-band",
+    "whattoknow": {
+      "type": "senseless-editorial-band",
       "settings": {
-        "direction": "text-right", "eyebrow": "Why this matters",
-        "headline": "Injection prep is its own thing.",
-        "body": "<p>Injection appointments tend to run on tight windows. Booking, prep, session, recovery — often inside an hour. The cream needs to suit that pace. Senseless is formulated to fit how aesthetic injection appointments actually run, not how a generic skin cream wishes they did.</p>",
-        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
-        "image_alt": "Editorial product close-up of Senseless cream"
+        "background": "white", "align": "left", "eyebrow": "Good to know", "headline": "What to know",
+        "body": "<p>Injections vary from quick and barely noticeable to sharper, depending on the area and the needle. A topical numbing preparation applied beforehand can take the edge off for those who find them uncomfortable. Numbing is preparation for comfort, not part of the procedure itself, and it's applied to clean, healthy skin before your appointment. Because many practitioners have their own approach — and often numb the skin themselves — the most useful first step is a quick word with yours about whether to prepare at home.</p>"
       }
     },
-    "aftercare": {
-      "type": "senseless-image-text-band",
+    "keyfacts": {
+      "type": "senseless-rich-text",
       "settings": {
-        "direction": "text-left", "eyebrow": "Aftercare", "headline": "What comes next.",
-        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
-        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
-        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+        "background": "canvas", "eyebrow": "The essentials",
+        "body": "<ul><li>Numbing cream for injections is applied to clean skin beforehand to reduce discomfort; it doesn't remove all sensation.</li><li>How much you feel depends on the injection, the area and your own sensitivity.</li><li>Many practitioners apply their own numbing as standard — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
       }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Which strength should I choose for injections?", "answer": "<p>Clinical Strength suits most injection appointments — top-ups, routine fillers, Botox. Advanced for longer sessions or if you're prone to sensitivity. See <a href=\"/pages/choosing-your-strength\">choose your strength</a> for the full breakdown.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "When do I apply it before my injection appointment?", "answer": "<p>Apply ahead of your appointment. The specific timing varies by procedure and how you respond to topical preparations — your practitioner is the best guide for the appointment you've booked.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Can I use this for lip fillers specifically?", "answer": "<p>Yes — see our <a href=\"/collections/numbing-cream-for-lip-fillers\">Lip Fillers collection</a> for the focused recommendation.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "What about Botox?", "answer": "<p>Yes — see our <a href=\"/collections/numbing-cream-for-botox\">Botox collection</a>.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Can I use this for blood tests or vaccinations?", "answer": "<p>Senseless is formulated for aesthetic procedures. For medical injections, ask your healthcare provider for guidance specific to their practice.</p>" } },
-        "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+        "q1": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before injections?", "answer": "<p>Often yes, as preparation for comfort — but many practitioners apply their own and have their own guidance, so always check with yours first.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Does numbing cream work for injections?", "answer": "<p>It reduces the discomfort of the injection rather than removing it; how noticeable that is depends on the area and how it's applied.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Which numbing format is best for injections?", "answer": "<p>A cream suits most areas; a gel suits smaller, precise spots. Your practitioner can advise what's appropriate.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Is numbing cream safe to use before injections?", "answer": "<p>Used as directed on clean, healthy skin it's widely used for cosmetic treatments; patch test first and check with your practitioner, especially on sensitive areas.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
-      "settings": { "headline": "Common questions." }
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": { "headline": "Common questions", "anchor_id": "faq" }
+    },
+    "route": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "r1": { "type": "link_item", "settings": { "label": "Shop the cream range", "url": "/collections/numbing-cream" } },
+        "r2": { "type": "link_item", "settings": { "label": "Shop the gel range", "url": "/collections/numbing-gel" } },
+        "r3": { "type": "link_item", "settings": { "label": "The Senseless System", "url": "/pages/the-senseless-system" } }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": { "band": "surface", "eyebrow": "Shop", "headline": "Ready when you are" }
     },
     "related": {
-      "type": "senseless-trio-card-row",
+      "type": "senseless-link-row",
       "blocks": {
-        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
-        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
-        "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } },
-        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } }
+        "a1": { "type": "link_item", "settings": { "label": "Numbing cream for lip fillers", "url": "/collections/numbing-cream-for-lip-fillers" } },
+        "a2": { "type": "link_item", "settings": { "label": "Numbing cream for Botox", "url": "/collections/numbing-cream-for-botox" } }
       },
-      "block_order": ["micro", "laser", "spmu", "wax"],
-      "settings": { "columns": "4", "eyebrow": "", "headline": "Other appointments Senseless covers.", "body": "", "closer": "", "section_cta_label": "See all procedures", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+      "block_order": ["a1", "a2"],
+      "settings": { "band": "canvas", "eyebrow": "Related", "headline": "By treatment" }
     }
   },
-  "order": ["hero", "subprocedures", "recommendation", "grid", "trust", "why", "aftercare", "faq", "related"]
+  "order": ["hero", "grid", "whattoknow", "keyfacts", "faq", "route", "related"]
 }

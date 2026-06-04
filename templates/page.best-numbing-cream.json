@@ -29,26 +29,6 @@
     "bestfor": {
       "type": "senseless-procedure-grid",
       "blocks": {
-        "lips": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Lip Fillers",
-            "sub_label": "Clinical Strength Cream is the everyday recommendation. Advanced if your lips run sensitive.",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-lip-fillers",
-            "image_alt": "Editorial image for the lip fillers range"
-          }
-        },
-        "botox": {
-          "type": "procedure_card",
-          "settings": {
-            "label": "Botox",
-            "sub_label": "Clinical Strength Cream. Many clients don't need numbing at all for Botox. Professional is overkill.",
-            "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-botox",
-            "image_alt": "Editorial image for the Botox range"
-          }
-        },
         "micro": {
           "type": "procedure_card",
           "settings": {
@@ -91,8 +71,6 @@
         }
       },
       "block_order": [
-        "lips",
-        "botox",
         "micro",
         "laser",
         "spmu",

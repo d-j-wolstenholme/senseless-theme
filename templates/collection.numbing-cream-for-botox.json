@@ -3,88 +3,61 @@
     "hero": {
       "type": "senseless-collection-hero",
       "settings": {
-        "eyebrow": "For Botox",
-        "headline": "Quick prep for a quick appointment.",
-        "subhead": "<p>UK-formulated topical preparation for the Botox booking. Clinical Strength suits most appointments. Botox is shorter than fillers, less sensitive than microneedling, but the right preparation still matters.</p>",
-        "primary_cta_label": "Shop for Botox",
-        "primary_cta_url": "#product-grid",
-        "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/choosing-your-strength",
-        "image_alt": "Editorial product close-up of Senseless cream, no faces, no needles, no clinical setting"
-      }
-    },
-    "recommendation": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-left", "eyebrow": "The recommendation",
-        "headline": "Clinical Strength is enough.",
-        "body": "<p>Botox appointments are short. The needle is small. The work is precise but not extensive. Clinical Strength cream is formulated exactly for this — the routine appointment, the practiced session, the booking you've made before. Advanced is only needed if your skin runs particularly sensitive or your practitioner is treating an unusually broad area. Professional is overkill for Botox. We say so plainly.</p>",
-        "cta_label": "Compare strengths", "cta_url": "/pages/choosing-your-strength",
-        "image_alt": "Editorial close-up of Senseless Clinical Strength cream"
+        "eyebrow": "For Botox appointments",
+        "headline": "Numbing cream for Botox",
+        "subhead": "<p>Numbing cream for Botox is a topical preparation some people use beforehand for comfort — though Botox uses very fine needles, so most describe a quick pinch rather than real pain, and many manage without any numbing at all. It reduces the sensation rather than removing it.</p>",
+        "primary_cta_label": "Shop the range",
+        "primary_cta_url": "#shop",
+        "image_alt": "Senseless numbing cream for Botox on a warm off-white background"
       }
     },
     "grid": {
-      "type": "senseless-product-grid",
-      "blocks": {
-        "clinical": { "type": "product_item", "settings": { "strength": "clinical", "label": "Clinical Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/clinical-strength-cream", "flagship": false, "image_alt": "Clinical Strength Senseless cream on a warm off-white background" } },
-        "advanced": { "type": "product_item", "settings": { "strength": "advanced", "label": "Advanced Strength", "title": "Cream", "price": "£TBC", "cta_label": "View product", "cta_url": "/products/advanced-strength-cream", "flagship": false, "image_alt": "Advanced Strength Senseless cream on a warm off-white background" } }
-      },
-      "block_order": ["clinical", "advanced"],
-      "settings": { "headline": "The products built for Botox prep.", "body": "<p>Cream is the format. Clinical is the strength.</p>", "show_filters": false }
+      "type": "senseless-collection-grid",
+      "settings": { "headline": "Numbing cream for Botox", "show_filters": false, "anchor_id": "shop" }
     },
-    "trust": {
-      "type": "senseless-trust-bar",
-      "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
-      },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": {}
-    },
-    "why": {
-      "type": "senseless-image-text-band",
+    "whattoknow": {
+      "type": "senseless-editorial-band",
       "settings": {
-        "direction": "text-right", "eyebrow": "The detail",
-        "headline": "A short appointment isn't a casual one.",
-        "body": "<p>Botox might be quick but it's still an appointment that deserves preparation. Senseless is formulated to suit how the booking actually runs — prep before you arrive, the work itself short and precise, recovery built into the rest of your day.</p>",
-        "cta_label": "How Senseless works", "cta_url": "/pages/how-it-works",
-        "image_alt": "Editorial product close-up of Senseless cream"
+        "background": "white", "align": "left", "eyebrow": "Good to know", "headline": "What to know",
+        "body": "<p>Because Botox involves fine needles and brief injections, numbing is genuinely optional — plenty of people have it without. If you'd prefer to prepare for comfort, a cream applied to clean skin beforehand can help, with your practitioner's agreement. Numbing is preparation, not part of the treatment, and many practitioners apply their own or prefer to advise on what you use — so check with yours first. There's no need to reach for the strongest option; comfort is personal.</p>"
       }
     },
-    "aftercare": {
-      "type": "senseless-image-text-band",
+    "keyfacts": {
+      "type": "senseless-rich-text",
       "settings": {
-        "direction": "text-left", "eyebrow": "Aftercare", "headline": "What comes next.",
-        "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
-        "cta_label": "View Foaming Cleanser", "cta_url": "/products/foaming-cleanser",
-        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+        "background": "canvas", "eyebrow": "The essentials",
+        "body": "<ul><li>Botox uses very fine needles, so most people feel a quick pinch rather than real pain — numbing is optional.</li><li>A topical numbing preparation beforehand can add comfort; it reduces sensation, it doesn't remove it.</li><li>Many practitioners apply their own numbing or prefer to advise — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
       }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Do I really need numbing cream for Botox?", "answer": "<p>Many clients don't. Botox is a short procedure with a fine needle and most people find it manageable without preparation. Numbing cream is for those who want a more comfortable experience or who run sensitive — it's optional, not required.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Which strength should I use?", "answer": "<p>Clinical Strength for almost everyone. Advanced only if your skin is particularly sensitive or your appointment covers a broader area. See <a href=\"/pages/choosing-your-strength\">choose your strength</a>.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "When do I apply it?", "answer": "<p>Ahead of your appointment. Specific timing depends on your practitioner's guidance and how your skin responds to topical preparations.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Will it interfere with the Botox?", "answer": "<p>Senseless is a topical preparation that supports comfort. It works on the skin surface and shouldn't affect the underlying procedure. Ask your practitioner about their protocol if you're unsure.</p>" } },
-        "q5": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }
+        "q1": { "type": "faq_item", "settings": { "question": "Do you need numbing cream for Botox?", "answer": "<p>No — Botox uses fine needles and many people manage without. Some prefer a numbing preparation for added comfort; it's optional.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before Botox?", "answer": "<p>Often yes, for comfort — but check with your practitioner first, as many numb the skin themselves or prefer to advise.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Does Botox hurt without numbing?", "answer": "<p>Most people describe a quick pinch or sting rather than real pain, because the needles are very fine.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "Is numbing cream safe before Botox?", "answer": "<p>Used as directed on clean, healthy skin it's widely used; patch test first and check with your practitioner.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
-      "settings": { "headline": "Common questions." }
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": { "headline": "Common questions", "anchor_id": "faq" }
+    },
+    "route": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "r1": { "type": "link_item", "settings": { "label": "Shop the cream range", "url": "/collections/numbing-cream" } },
+        "r2": { "type": "link_item", "settings": { "label": "The Senseless System", "url": "/pages/the-senseless-system" } }
+      },
+      "block_order": ["r1", "r2"],
+      "settings": { "band": "surface", "eyebrow": "Shop", "headline": "Ready when you are" }
     },
     "related": {
-      "type": "senseless-trio-card-row",
+      "type": "senseless-link-row",
       "blocks": {
-        "lips": { "type": "procedure_card", "settings": { "label": "Lip Fillers", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-lip-fillers", "image_alt": "Editorial image for the lip fillers range" } },
-        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
-        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
-        "inj": { "type": "procedure_card", "settings": { "label": "All Injections", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-injections", "image_alt": "Editorial image for the injections range" } }
+        "a1": { "type": "link_item", "settings": { "label": "Numbing cream for injections", "url": "/collections/numbing-cream-for-injections" } },
+        "a2": { "type": "link_item", "settings": { "label": "Numbing cream for lip fillers", "url": "/collections/numbing-cream-for-lip-fillers" } }
       },
-      "block_order": ["lips", "micro", "laser", "inj"],
-      "settings": { "columns": "4", "eyebrow": "", "headline": "Other appointments Senseless covers.", "body": "", "closer": "", "section_cta_label": "See all procedures", "section_cta_url": "/collections/aesthetic-numbing-cream" }
+      "block_order": ["a1", "a2"],
+      "settings": { "band": "canvas", "eyebrow": "Related", "headline": "By treatment" }
     }
   },
-  "order": ["hero", "recommendation", "grid", "trust", "why", "aftercare", "faq", "related"]
+  "order": ["hero", "grid", "whattoknow", "keyfacts", "faq", "route", "related"]
 }
