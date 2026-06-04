@@ -97,15 +97,15 @@
           </ul>
         </div>
 
-        {%- comment -%} Column 2 — The System {%- endcomment -%}
+        {%- comment -%} Column 2 — Learn (hubs/cornerstones; the Articles hub gathers individual guides) {%- endcomment -%}
         <div class="ss-ft__col">
-          <h2 class="ss-ft__colhead">{{ section.settings.col2_heading | default: 'The System' | escape }}</h2>
+          <h2 class="ss-ft__colhead">{{ section.settings.col2_heading | default: 'Learn' | escape }}</h2>
           <ul class="ss-ft__list">
             {%- if sys_menu.links.size > 0 -%}
               {%- for link in sys_menu.links -%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{%- endfor -%}
             {%- else -%}
               <li><a href="/pages/the-senseless-system">The Senseless System</a></li>
-              <li><a href="/pages/does-it-hurt">Does it hurt?</a></li>
+              <li><a href="/pages/articles">Articles</a></li>
             {%- endif -%}
           </ul>
         </div>
@@ -177,7 +177,7 @@
     { "type": "header", "content": "Columns" },
     { "type": "text", "id": "col1_heading", "label": "Column 1 heading", "default": "Shop" },
     { "type": "link_list", "id": "col1_menu", "label": "Column 1 menu", "info": "Defaults to senseless-footer-shop." },
-    { "type": "text", "id": "col2_heading", "label": "Column 2 heading", "default": "The System" },
+    { "type": "text", "id": "col2_heading", "label": "Column 2 heading", "default": "Learn" },
     { "type": "link_list", "id": "col2_menu", "label": "Column 2 menu", "info": "Defaults to senseless-footer-explore." },
     { "type": "text", "id": "col3_heading", "label": "Column 3 heading", "default": "Help" },
     { "type": "link_list", "id": "col3_menu", "label": "Column 3 menu", "info": "Defaults to senseless-footer-help." },
