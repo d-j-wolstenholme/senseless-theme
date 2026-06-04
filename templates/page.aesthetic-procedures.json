@@ -1,48 +1,34 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "name": "Title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "page-content": {
-          "type": "page-content",
-          "settings": {},
-          "blocks": {}
-        }
-      },
-      "block_order": ["heading", "page-content"],
+    "hero": {
+      "type": "senseless-guide-hero",
       "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "background": "canvas",
+        "eyebrow": "Shop",
+        "headline": "Aesthetic Procedures",
+        "subhead": "<p>The aesthetic treatments Senseless makes a numbing preparation for. Pick your procedure to match the right strength and format — or browse by format below. Always used on your practitioner's guidance.</p>"
       }
+    },
+    "procedures": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "p1": { "type": "format_card", "settings": { "label": "Microneedling", "body": "<p>Collagen-induction needling across the face.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Senseless numbing for microneedling" } },
+        "p2": { "type": "format_card", "settings": { "label": "Laser hair removal", "body": "<p>Light-based hair removal, body and face.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Senseless numbing for laser hair removal" } },
+        "p3": { "type": "format_card", "settings": { "label": "Semi-permanent makeup", "body": "<p>Brows, lip blush and microblading — precise facial work.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Senseless numbing for semi-permanent makeup" } },
+        "p4": { "type": "format_card", "settings": { "label": "Waxing", "body": "<p>From a quick tidy to full body waxing.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Senseless numbing for waxing" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"],
+      "settings": { "columns": "4", "eyebrow": "By procedure", "headline": "Find your treatment", "body": "" }
+    },
+    "formats": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "f1": { "type": "format_card", "settings": { "label": "Numbing Cream", "body": "<p>Broad coverage for most appointments.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream", "image_alt": "Senseless numbing cream" } },
+        "f2": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>Stays where it's placed — precise, facial work.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image_alt": "Senseless numbing gel" } },
+        "f3": { "type": "format_card", "settings": { "label": "Numbing Spray", "body": "<p>Even cover for larger or awkward areas.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray", "image_alt": "Senseless numbing spray" } }
+      },
+      "block_order": ["f1", "f2", "f3"],
+      "settings": { "columns": "3", "eyebrow": "By format", "headline": "Browse by format", "body": "" }
     },
     "selectorlink": {
       "type": "senseless-callout-band",
@@ -56,5 +42,5 @@
       }
     }
   },
-  "order": ["main", "selectorlink"]
+  "order": ["hero", "procedures", "formats", "selectorlink"]
 }
