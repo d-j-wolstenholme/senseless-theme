@@ -56,6 +56,11 @@
     <style>
       #header-group,
       .shopify-section-group-header-group { display: contents; }
+      /* In-page anchor jumps must clear the always-sticky header + shipping banner, or the
+         target heading lands hidden/overshot under the fixed chrome. Offset ~= header height. */
+      :root { --ss-anchor-offset: 145px; }
+      @media (max-width: 768px) { :root { --ss-anchor-offset: 120px; } }
+      [id] { scroll-margin-top: var(--ss-anchor-offset); }
     </style>
     <div id="header-group">
       {% sections 'header-group' %}

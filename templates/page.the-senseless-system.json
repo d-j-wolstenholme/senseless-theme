@@ -214,7 +214,9 @@
         "headline": "Putting your selection together: what we recommend by procedure",
         "accent_word": "procedure",
         "body": "<p>The honest version — the format and strength we'd point you to for each treatment, what's overkill, and what's rarely enough. This is a guide, so it covers injectables too; on the shop pages we keep those separate.</p>",
-        "closer": "<p>If you're between strengths, choose the higher one — the cost of going up is small; the cost of going too low for an intensive session is real.</p>"
+        "closer": "<p>If you're between strengths, choose the higher one — the cost of going up is small; the cost of going too low for an intensive session is real.</p>",
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "honest": {
