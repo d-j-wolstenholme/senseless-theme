@@ -11,6 +11,32 @@
 
 {%- liquid
   assign prods = collection.products
+  assign fmt = section.settings.format | default: 'all'
+  if fmt != 'all'
+    assign typename = fmt | capitalize
+    assign typed = collection.products | where: 'type', typename
+    assign ordered = '' | split: ''
+    assign ranks = 'Clinical,Advanced,Professional' | split: ','
+    for r in ranks
+      for prod in typed
+        if prod.tags contains r
+          assign one = typed | where: 'id', prod.id
+          assign ordered = ordered | concat: one
+        endif
+      endfor
+    endfor
+    for prod in typed
+      assign hasS = false
+      if prod.tags contains 'Clinical' or prod.tags contains 'Advanced' or prod.tags contains 'Professional'
+        assign hasS = true
+      endif
+      unless hasS
+        assign one = typed | where: 'id', prod.id
+        assign ordered = ordered | concat: one
+      endunless
+    endfor
+    assign prods = ordered
+  endif
   assign show_filters = section.settings.show_filters
 -%}
 
@@ -227,7 +253,8 @@
     { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional)" },
     { "type": "richtext", "id": "body", "label": "Intro body" },
     { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "shop" },
-    { "type": "checkbox", "id": "show_filters", "label": "Show strength filter tabs", "default": true }
+    { "type": "checkbox", "id": "show_filters", "label": "Show strength filter tabs", "default": true },
+    { "type": "select", "id": "format", "label": "Format filter", "info": "Limits the grid to one product format, ordered Clinical → Advanced → Professional. 'All' = the whole collection.", "default": "all", "options": [ { "value": "all", "label": "All" }, { "value": "cream", "label": "Cream" }, { "value": "gel", "label": "Gel" }, { "value": "spray", "label": "Spray" }, { "value": "cleanser", "label": "Cleanser" } ] }
   ],
   "blocks": [
     {

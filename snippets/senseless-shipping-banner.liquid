@@ -1,0 +1,61 @@
+{%- comment -%}
+  Senseless — shipping-threshold banner (top of the header, part of the always-sticky unit).
+  Two cart-driven modes, read live via the cart AJAX API (/cart.js), re-render on add/remove:
+   - empty basket → static explainer.
+   - items in basket → 2-milestone progress bar (£40 free standard → £80 free next-day), subtotal-driven.
+  Same-day-dispatch line present in all states. NO paid-price references. Tokens: #6B3FA0 fill, #f7f7f5 ground.
+  ⚠ DISPLAY ONLY — the real free-shipping discounts (standard ≥£40, next-day ≥£80) must exist as Shopify rules.
+{%- endcomment -%}
+{%- style -%}
+  .ss-shipbar { background:#ffffff; border-bottom:1px solid rgba(26,24,22,0.10); color:#1A1816;
+    font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  .ss-shipbar__inner { max-width:1100px; margin:0 auto; padding:7px 20px; text-align:center; }
+  .ss-shipbar__empty { margin:0; font-size:12.5px; line-height:1.4; color:#2B2730; }
+  .ss-shipbar__progress { display:flex; flex-direction:column; gap:5px; align-items:center; }
+  .ss-shipbar__msg { margin:0; font-size:12.5px; font-weight:600; line-height:1.35; color:#1A1816; }
+  .ss-shipbar__bar { position:relative; width:100%; max-width:420px; height:6px; border-radius:999px; background:#ECEAE6; overflow:hidden; }
+  .ss-shipbar__fill { position:absolute; left:0; top:0; bottom:0; width:0%; background:#6B3FA0; border-radius:999px; transition:width 300ms ease-out; }
+  .ss-shipbar__mid { position:absolute; left:50%; top:-2px; bottom:-2px; width:2px; background:#ffffff; box-shadow:0 0 0 1px rgba(26,24,22,0.18); z-index:1; }
+  .ss-shipbar__same { margin:0; font-size:11.5px; line-height:1.35; color:#5C5853; }
+  [hidden] { display:none !important; }
+  @media (prefers-reduced-motion: reduce){ .ss-shipbar__fill { transition:none; } }
+{%- endstyle -%}
+<div class="ss-shipbar" data-shipbar role="region" aria-label="Delivery information">
+  <div class="ss-shipbar__inner">
+    <p class="ss-shipbar__empty" data-shipbar-empty>Free UK standard delivery over £40 · Free next-day over £80 · Order before 1pm for same-day dispatch</p>
+    <div class="ss-shipbar__progress" data-shipbar-progress hidden aria-live="polite">
+      <p class="ss-shipbar__msg" data-shipbar-msg></p>
+      <div class="ss-shipbar__bar"><span class="ss-shipbar__mid" aria-hidden="true"></span><span class="ss-shipbar__fill" data-shipbar-fill></span></div>
+      <p class="ss-shipbar__same" data-shipbar-same>Order before 1pm for same-day dispatch</p>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    var bar = document.querySelector('[data-shipbar]'); if (!bar) return;
+    var empty = bar.querySelector('[data-shipbar-empty]'),
+        prog  = bar.querySelector('[data-shipbar-progress]'),
+        msg   = bar.querySelector('[data-shipbar-msg]'),
+        fill  = bar.querySelector('[data-shipbar-fill]'),
+        same  = bar.querySelector('[data-shipbar-same]');
+    var T1 = 4000, T2 = 8000; // pence (£40 / £80)
+    function money(p) { var n = p / 100; return '£' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2)); }
+    function render(cart) {
+      var n = cart.item_count || 0;
+      var sub = (cart.items_subtotal_price != null) ? cart.items_subtotal_price : cart.total_price;
+      if (n === 0) { empty.hidden = false; prog.hidden = true; return; }
+      empty.hidden = true; prog.hidden = false;
+      var pct, m, showSame = true;
+      if (sub < T1) { pct = sub / T2 * 100; m = "You're " + money(T1 - sub) + " away from free standard delivery"; }
+      else if (sub < T2) { pct = sub / T2 * 100; m = "Free standard delivery unlocked — " + money(T2 - sub) + " more for free next-day"; }
+      else { pct = 100; m = "Free next-day delivery unlocked — order before 1pm for same-day dispatch"; showSame = false; }
+      msg.textContent = m; fill.style.width = Math.min(Math.max(pct, 0), 100) + '%'; same.hidden = !showSame;
+    }
+    function refresh() { fetch('/cart.js', { headers: { 'Accept': 'application/json' } }).then(function (r) { return r.json(); }).then(render).catch(function () {}); }
+    refresh();
+    var of = window.fetch;
+    window.fetch = function () { var a = arguments; return of.apply(this, a).then(function (res) { try { var u = (a[0] && a[0].url) || a[0] || ''; if (typeof u === 'string' && /\/cart\/(add|change|update|clear)/i.test(u)) setTimeout(refresh, 80); } catch (e) {} return res; }); };
+    document.addEventListener('cart:updated', refresh);
+    document.addEventListener('cart:refresh', refresh);
+  })();
+</script>

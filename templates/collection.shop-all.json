@@ -1,13 +1,21 @@
 {
   "sections": {
-    "grid": {
+    "cream": {
       "type": "senseless-collection-grid",
-      "settings": {
-        "headline": "Shop all",
-        "show_filters": false,
-        "anchor_id": "shop"
-      }
+      "settings": { "eyebrow": "By format", "headline": "Numbing Cream", "show_filters": false, "format": "cream", "anchor_id": "cream" }
+    },
+    "gel": {
+      "type": "senseless-collection-grid",
+      "settings": { "eyebrow": "By format", "headline": "Numbing Gel", "show_filters": false, "format": "gel", "anchor_id": "gel" }
+    },
+    "spray": {
+      "type": "senseless-collection-grid",
+      "settings": { "eyebrow": "By format", "headline": "Numbing Spray", "show_filters": false, "format": "spray", "anchor_id": "spray" }
+    },
+    "aftercare": {
+      "type": "senseless-collection-grid",
+      "settings": { "eyebrow": "Aftercare", "headline": "After your appointment", "show_filters": false, "format": "cleanser", "anchor_id": "aftercare" }
     }
   },
-  "order": ["grid"]
+  "order": ["cream", "gel", "spray", "aftercare"]
 }
