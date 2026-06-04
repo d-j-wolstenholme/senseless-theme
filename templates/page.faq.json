@@ -40,7 +40,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Cream, gel or spray — which do I need?",
-            "answer": "<p>Cream suits broad coverage and most appointments, gel suits precise facial work, spray suits larger or awkward areas. <a href=\"/pages/the-senseless-system#selector\">Make your Selection</a> to match it to your treatment.</p>"
+            "answer": "<p>Cream suits broad coverage and most appointments, gel suits precise facial work, spray suits larger or awkward areas. The <a href=\"/pages/the-senseless-system\">Senseless System</a> can help match it to your treatment.</p>"
           }
         },
         "q4": {
@@ -95,7 +95,18 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10"
+      ],
       "settings": {
         "headline": "Common questions",
         "anchor_id": "faq"
@@ -141,7 +152,12 @@
           }
         }
       },
-      "block_order": ["r1", "r2", "r3", "r4"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ],
       "settings": {
         "band": "surface",
         "eyebrow": "Next",

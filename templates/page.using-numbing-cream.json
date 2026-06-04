@@ -51,9 +51,9 @@
         "l1": {
           "type": "link_item",
           "settings": {
-            "label": "Make your Selection",
+            "label": "The Senseless System",
             "note": "Match the format and strength to your treatment with the Senseless Selector.",
-            "url": "/pages/the-senseless-system#selector"
+            "url": "/pages/the-senseless-system"
           }
         },
         "l2": {
@@ -65,7 +65,10 @@
           }
         }
       },
-      "block_order": ["l1", "l2"],
+      "block_order": [
+        "l1",
+        "l2"
+      ],
       "settings": {
         "band": "white",
         "eyebrow": "Choosing the right one",
@@ -113,7 +116,12 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
       "settings": {
         "headline": "Common questions",
         "anchor_id": "faq"
@@ -137,7 +145,10 @@
           }
         }
       },
-      "block_order": ["r1", "r2"],
+      "block_order": [
+        "r1",
+        "r2"
+      ],
       "settings": {
         "band": "surface",
         "eyebrow": "Next",
