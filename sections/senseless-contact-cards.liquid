@@ -1,0 +1,71 @@
+{%- comment -%}
+  Senseless — Contact cards ("Pick the right channel"). NO-IMAGE card variant: each card =
+  Label + Body + CTA, equal heights with the CTA pinned to the bottom. 4-up desktop / 2×2 mobile.
+  Replaces the image-bearing trio-card-row that left empty image placeholders.
+{%- endcomment -%}
+{%- style -%}
+  .ss-cc4 { --p:#6B3FA0; --ph:#5A3489; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); font-family:var(--sans); }
+  .ss-cc4--surface { background:var(--surf); }
+  .ss-cc4__inner { max-width:1100px; margin:0 auto; padding:56px 20px; }
+  .ss-cc4__head { max-width:62ch; margin:0 0 28px; display:flex; flex-direction:column; gap:12px; }
+  .ss-cc4__eyebrow { font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
+  .ss-cc4__headline { font-weight:400; letter-spacing:-0.02em; font-size:28px; line-height:1.2; margin:0; }
+  .ss-cc4__grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; }
+  .ss-cc4__card { box-sizing:border-box; background:var(--surf); border:1px solid var(--bd); border-radius:4px; padding:22px 20px; display:flex; flex-direction:column; gap:10px; height:100%; }
+  .ss-cc4__label { font-weight:600; font-size:17px; line-height:1.3; color:var(--ink); margin:0; }
+  .ss-cc4__body { font-size:14.5px; line-height:1.55; color:var(--body); margin:0; }
+  .ss-cc4__body p { margin:0; } .ss-cc4__body a { color:var(--p); }
+  .ss-cc4__cta { margin-top:auto; padding-top:6px; }
+  .ss-cc4__cta a { display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:14px; color:var(--p); text-decoration:none; }
+  .ss-cc4__cta a::after { content:'\2192'; }
+  .ss-cc4__cta a:hover { color:var(--ph); }
+  @media (min-width:860px){ .ss-cc4__grid { grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px; } }
+{%- endstyle -%}
+<section class="ss-cc4 ss-cc4--{{ section.settings.band | default: 'canvas' }}"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Pick the right channel' | escape }}">
+  <div class="ss-cc4__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.headline != blank -%}
+      <header class="ss-cc4__head">
+        {%- if section.settings.eyebrow != blank -%}<p class="ss-cc4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+        {%- if section.settings.headline != blank -%}<h2 class="ss-cc4__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+      </header>
+    {%- endif -%}
+    <div class="ss-cc4__grid">
+      {%- for block in section.blocks -%}
+        <div class="ss-cc4__card" {{ block.shopify_attributes }}>
+          {%- if block.settings.label != blank -%}<p class="ss-cc4__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+          {%- if block.settings.body != blank -%}<div class="ss-cc4__body">{{ block.settings.body }}</div>{%- endif -%}
+          {%- if block.settings.cta_label != blank -%}<p class="ss-cc4__cta"><a href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_label | escape }}</a></p>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact cards",
+  "tag": "section",
+  "class": "senseless-section senseless-contact-cards",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Get in touch" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Pick the right channel" },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID (optional)" },
+    { "type": "select", "id": "band", "label": "Band", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas" }, { "value": "surface", "label": "Surface" } ] }
+  ],
+  "blocks": [
+    {
+      "type": "contact_card",
+      "name": "Contact card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Customer enquiries" },
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Contact form" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Contact cards", "blocks": [ { "type": "contact_card" }, { "type": "contact_card" }, { "type": "contact_card" }, { "type": "contact_card" } ] } ]
+}
+{% endschema %}

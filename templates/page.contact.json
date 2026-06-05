@@ -10,46 +10,42 @@
       }
     },
     "routes": {
-      "type": "senseless-trio-card-row",
+      "type": "senseless-contact-cards",
       "blocks": {
         "consumer": {
-          "type": "format_card",
+          "type": "contact_card",
           "settings": {
             "label": "Customer enquiries",
-            "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below, email <a href=\"mailto:hello@senseless.uk\">hello@senseless.uk</a>, or call <a href=\"tel:+443330495549\">0333 049 5549</a>.</p>",
+            "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below or <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> (placeholder — confirm before launch).</p>",
             "cta_label": "Contact form",
-            "cta_url": "#contact-form",
-            "image_alt": "Editorial image for customer enquiries"
+            "cta_url": "#contact-form"
           }
         },
         "trade": {
-          "type": "format_card",
+          "type": "contact_card",
           "settings": {
             "label": "For clinics and practitioners",
             "body": "<p>Wholesale accounts, clinic supply, B2B questions. The Trade page has the dedicated enquiry form and operational details.</p>",
             "cta_label": "Trade enquiries",
-            "cta_url": "/pages/trade",
-            "image_alt": "Editorial image for trade enquiries"
+            "cta_url": "/pages/trade"
           }
         },
         "press": {
-          "type": "format_card",
+          "type": "contact_card",
           "settings": {
             "label": "Media and partnerships",
-            "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. <a href=\"mailto:press@senseless.uk\">press@senseless.uk</a>.</p>",
+            "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> (placeholder — confirm before launch).</p>",
             "cta_label": "Email press team",
-            "cta_url": "mailto:press@senseless.uk",
-            "image_alt": "Editorial image for press enquiries"
+            "cta_url": "mailto:cs@senseless.uk"
           }
         },
         "legal": {
-          "type": "format_card",
+          "type": "contact_card",
           "settings": {
             "label": "Data, privacy, legal",
-            "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. <a href=\"mailto:legal@senseless.uk\">legal@senseless.uk</a>.</p>",
+            "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> (placeholder — confirm before launch).</p>",
             "cta_label": "Email legal team",
-            "cta_url": "mailto:legal@senseless.uk",
-            "image_alt": "Editorial image for legal enquiries"
+            "cta_url": "mailto:cs@senseless.uk"
           }
         }
       },
@@ -60,13 +56,9 @@
         "legal"
       ],
       "settings": {
-        "columns": "4",
-        "eyebrow": "",
-        "headline": "Pick the right channel.",
-        "body": "",
-        "closer": "",
-        "section_cta_label": "",
-        "section_cta_url": ""
+        "eyebrow": "Get in touch",
+        "headline": "Pick the right channel",
+        "band": "canvas"
       }
     },
     "form": {
