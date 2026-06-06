@@ -25,8 +25,8 @@
 {%- liquid
   # Brand-independent title/SEO (Phase 13: do not derive from shop.name — survives the shop rename).
   assign brand_name = 'Senseless'
-  assign home_title = 'Senseless — UK Numbing Cream, Gel & Spray for Aesthetics'
-  assign home_desc = 'UK-formulated topical numbing creams, gels and sprays for aesthetic treatments — microneedling, laser, SPMU and waxing. Developed with practitioners.'
+  assign home_title = 'UK Numbing Cream, Gel & Spray for Aesthetics | Senseless'
+  assign home_desc = 'UK-formulated numbing cream, gel and spray, made for aesthetics — microneedling, laser, SPMU and more. Three strengths, matched to your appointment. A cosmetic, CPSR-assessed range. Free UK delivery over £40.'
   assign og_title = page_title | default: brand_name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
@@ -116,16 +116,15 @@
   content="{{ og_description | escape }}"
 >
 
-<title>
-  {%- if request.page_type == 'index' -%}
-    {{ home_title }}
-  {%- else -%}
-    {{ page_title }}
+{%- capture doc_title -%}
+  {%- if request.page_type == 'index' -%}{{ home_title }}
+  {%- else -%}{{ page_title }}
     {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
     {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
     {%- unless page_title contains brand_name %} &ndash; {{ brand_name }}{% endunless -%}
   {%- endif -%}
-</title>
+{%- endcapture -%}
+<title>{{ doc_title | strip }}</title>
 
 <link
   rel="canonical"
