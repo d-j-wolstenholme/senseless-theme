@@ -114,6 +114,149 @@
       "dimensions": "1254x1254",
       "fileSize": "72.8KB",
       "uploadedAt": "2026-06-04T20:01:48.206Z"
+    },
+    {
+      "name": "senseless-clinical-strength-spray",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "PDP featured: clinical-strength-spray",
+      "alt": "Senseless Clinical Strength numbing spray, 100ml, on a white background",
+      "processedFile": "./assets/images/processed/senseless-clinical-strength-spray.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-strength-spray.jpg?v=1780768020",
+      "shopifyFileId": "gid://shopify/MediaImage/70120257618268",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-advanced-strength-spray",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "PDP featured: advanced-strength-spray",
+      "alt": "Senseless Advanced Strength numbing spray, 100ml, on a white background",
+      "processedFile": "./assets/images/processed/senseless-advanced-strength-spray.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-advanced-strength-spray.jpg?v=1780768024",
+      "shopifyFileId": "gid://shopify/MediaImage/70120258175324",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-clinical-strength-gel",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "PDP featured: clinical-strength-gel",
+      "alt": "Senseless Clinical Strength numbing gel, 15ml, on a white background",
+      "processedFile": "./assets/images/processed/senseless-clinical-strength-gel.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-strength-gel.jpg?v=1780768028",
+      "shopifyFileId": "gid://shopify/MediaImage/70120258371932",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-advanced-strength-gel",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "PDP featured: advanced-strength-gel",
+      "alt": "Senseless Advanced Strength numbing gel, 15ml, on a white background",
+      "processedFile": "./assets/images/processed/senseless-advanced-strength-gel.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-advanced-strength-gel.jpg?v=1780768032",
+      "shopifyFileId": "gid://shopify/MediaImage/70120260829532",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-foaming-cleanser",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "PDP featured: foaming-cleanser",
+      "alt": "Senseless Foaming Cleanser, 150ml, on a white background",
+      "processedFile": "./assets/images/processed/senseless-foaming-cleanser.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-foaming-cleanser.jpg?v=1780768036",
+      "shopifyFileId": "gid://shopify/MediaImage/70120262795612",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-professional-strength-spray",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "PDP featured (interim crop): professional-strength-spray",
+      "alt": "Senseless Professional Strength numbing spray, 100ml, on a white background",
+      "processedFile": "./assets/images/processed/senseless-professional-strength-spray.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-professional-strength-spray.jpg?v=1780768109",
+      "shopifyFileId": "gid://shopify/MediaImage/70120267809116",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-professional-strength-gel",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "PDP featured (interim crop): professional-strength-gel",
+      "alt": "Senseless Professional Strength numbing gel, 15ml, on a white background",
+      "processedFile": "./assets/images/processed/senseless-professional-strength-gel.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-professional-strength-gel.jpg?v=1780768113",
+      "shopifyFileId": "gid://shopify/MediaImage/70120267940188",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-numbing-spray-collection",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "Collection image: numbing-spray",
+      "alt": "Senseless numbing spray range \u2014 Clinical, Advanced and Professional Strength",
+      "processedFile": "./assets/images/processed/senseless-numbing-spray-collection.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-numbing-spray-collection.jpg?v=1780768101",
+      "shopifyFileId": "gid://shopify/MediaImage/70120267579740",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-numbing-gel-collection",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "Collection image: numbing-gel",
+      "alt": "Senseless numbing gel range \u2014 Clinical, Advanced and Professional Strength",
+      "processedFile": "./assets/images/processed/senseless-numbing-gel-collection.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-numbing-gel-collection.jpg?v=1780768106",
+      "shopifyFileId": "gid://shopify/MediaImage/70120267645276",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-clinical-starter-bundle",
+      "type": "record",
+      "phase": "10",
+      "assignedTo": "Bundle featured: clinical-numbing-kit-small",
+      "alt": "Senseless Clinical Starter bundle \u2014 numbing cream, gel, spray, foaming cleanser and vanity bag",
+      "processedFile": "./assets/images/processed/senseless-clinical-starter-bundle.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-starter-bundle.jpg?v=1780768133",
+      "shopifyFileId": "gid://shopify/MediaImage/70120277344604",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-home-bundle-social-band",
+      "type": "section",
+      "phase": "10",
+      "assignedTo": "THEME: homepage social/bundle band (section pending \u2014 uploaded, unplaced)",
+      "alt": "Senseless range with vanity bag styled flat-lay with lavender and towel",
+      "processedFile": "./assets/images/processed/senseless-home-bundle-social-band.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-home-bundle-social-band.jpg?v=1780768118",
+      "shopifyFileId": "gid://shopify/MediaImage/70120268071260",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-about-brand-band",
+      "type": "section",
+      "phase": "10",
+      "assignedTo": "THEME: About brand band (page.about what-band)",
+      "alt": "Senseless numbing range on a marble counter in a calm treatment setting",
+      "processedFile": "./assets/images/processed/senseless-about-brand-band.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-about-brand-band.jpg?v=1780768123",
+      "shopifyFileId": "gid://shopify/MediaImage/70120269873500",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-procedure-band",
+      "type": "section",
+      "phase": "10",
+      "assignedTo": "THEME: procedure page band (section pending \u2014 uploaded, unplaced)",
+      "alt": "Senseless numbing range on a treatment trolley in a clinic setting",
+      "processedFile": "./assets/images/processed/senseless-procedure-band.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-procedure-band.jpg?v=1780768128",
+      "shopifyFileId": "gid://shopify/MediaImage/70120273903964",
+      "uploadedAt": "2026-06-07"
     }
   ]
 }
