@@ -512,7 +512,7 @@
 
 <div class="ss-hdr__scrim" data-ss-scrim hidden></div>
 
-<nav class="ss-hdr__drawer" id="ss-drawer-{{ uid }}" aria-label="Main navigation" data-ss-drawer aria-hidden="true">
+<nav class="ss-hdr__drawer" id="ss-drawer-{{ uid }}" aria-label="Main navigation" data-ss-drawer aria-hidden="true" inert>
   <div class="ss-hdr__drawerhead">
     <a class="ss-hdr__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name | default: 'Senseless' | escape }} home">{{ logo_markup }}</a>
     <button class="ss-hdr__close" type="button" aria-label="Close menu" data-ss-close>
@@ -740,6 +740,7 @@
     function openDrawer() {
       drawer.setAttribute('data-open', 'true');
       drawer.setAttribute('aria-hidden', 'false');
+      drawer.removeAttribute('inert');
       scrim.hidden = false; requestAnimationFrame(function () { scrim.setAttribute('data-open', 'true'); });
       if (burger) burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
@@ -750,6 +751,7 @@
       if (drawer.getAttribute('data-open') !== 'true') return;
       drawer.setAttribute('data-open', 'false');
       drawer.setAttribute('aria-hidden', 'true');
+      drawer.setAttribute('inert', '');
       scrim.setAttribute('data-open', 'false');
       setTimeout(function () { scrim.hidden = true; }, reduce ? 0 : 250);
       if (burger) { burger.setAttribute('aria-expanded', 'false'); burger.focus(); }

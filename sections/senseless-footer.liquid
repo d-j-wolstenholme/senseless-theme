@@ -38,6 +38,9 @@
   .ss-ft__logo svg { display: block; width: auto; height: {{ logo_h }}px; max-width: 100%; }
   .ss-ft__logo svg path { fill: currentColor; }
   .ss-ft__tagline { margin: 0; max-width: 34ch; font-size: 0.9375rem; line-height: 1.55; color: var(--ss-muted); font-weight: 400; }
+  .ss-ft__contact { margin: 0; font-size: 0.9375rem; line-height: 1.5; font-weight: 500; }
+  .ss-ft__contact a { color: var(--ss-muted); text-decoration: none; }
+  .ss-ft__contact a:hover { color: var(--ss-purple); }
 
   .ss-ft__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
   .ss-ft__colhead { margin: 0 0 14px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ss-fg); }
@@ -67,7 +70,7 @@
   }
 {%- endstyle -%}
 
-<footer class="ss-ft ss-ft--{{ section.settings.band | default: 'sunken' }}" role="contentinfo" aria-label="Footer">
+<div class="ss-ft ss-ft--{{ section.settings.band | default: 'sunken' }}">
   <div class="ss-ft__inner">
     <div class="ss-ft__top">
 
@@ -78,6 +81,7 @@
         {%- if section.settings.tagline != blank -%}
           <p class="ss-ft__tagline">{{ section.settings.tagline | escape }}</p>
         {%- endif -%}
+        <p class="ss-ft__contact"><a href="tel:+443330495549">0333&nbsp;049&nbsp;5549</a> &middot; <a href="mailto:cs@senseless.uk">cs@senseless.uk</a></p>
       </div>
 
       <div class="ss-ft__cols">
@@ -158,7 +162,7 @@
       </div>
     </div>
   </div>
-</footer>
+</div>
 
 {% schema %}
 {

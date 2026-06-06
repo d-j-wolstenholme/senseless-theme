@@ -287,6 +287,17 @@
         "body": "<ul><li>Senseless is a UK cosmetic numbing range by Matrix Health Group Ltd — not a medicine.</li><li>Three strengths (Clinical, Advanced, Professional) and three formats (cream, gel, spray). Strength and format are chosen separately.</li><li>The right choice matches the appointment — stronger is not automatically better.</li><li>Every formula is formulated in the United Kingdom and CPSR assessed.</li></ul>"
       }
     },
+    "kfdl": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "c1": { "type": "fact", "settings": { "label": "Category", "value": "A topical cosmetic numbing range for aesthetic and cosmetic procedures." } },
+        "c2": { "type": "fact", "settings": { "label": "Formats", "value": "Three formats — cream, gel and spray — plus a foaming cleanser for aftercare." } },
+        "c3": { "type": "fact", "settings": { "label": "Strengths", "value": "Three strengths — Clinical, Advanced and Professional — the Senseless Scale." } },
+        "c4": { "type": "fact", "settings": { "label": "Formulated in", "value": "Formulated in the United Kingdom by Matrix Health Group Ltd." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": { "band": "surface", "heading": "Key facts" }
+    },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
@@ -340,6 +351,7 @@
     "matrix",
     "honest",
     "keyfacts",
+    "kfdl",
     "faq",
     "route",
     "schema"

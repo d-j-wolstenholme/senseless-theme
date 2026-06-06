@@ -16,7 +16,7 @@
           "type": "contact_card",
           "settings": {
             "label": "Customer enquiries",
-            "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below or <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> (placeholder — confirm before launch).</p>",
+            "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below or <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>",
             "cta_label": "Contact form",
             "cta_url": "#contact-form"
           }
@@ -34,7 +34,7 @@
           "type": "contact_card",
           "settings": {
             "label": "Media and partnerships",
-            "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> (placeholder — confirm before launch).</p>",
+            "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>",
             "cta_label": "Email press team",
             "cta_url": "mailto:cs@senseless.uk"
           }
@@ -43,7 +43,7 @@
           "type": "contact_card",
           "settings": {
             "label": "Data, privacy, legal",
-            "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> (placeholder — confirm before launch).</p>",
+            "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>",
             "cta_label": "Email legal team",
             "cta_url": "mailto:cs@senseless.uk"
           }
@@ -137,7 +137,7 @@
         "direction": "text-left",
         "eyebrow": "Who you're contacting",
         "headline": "The legal entity behind Senseless.",
-        "body": "<p>Senseless is a brand of <strong>Matrix Health Group Ltd</strong>, a UK company in the personal-care and aesthetics sector.</p><ul><li>Company name: Matrix Health Group Ltd</li><li>Company number: 17099304</li><li>Registered address: 128 City Road, London, EC1V 2NX</li><li>VAT number: to be confirmed before launch</li><li>Phone: <a href=\"tel:+443330495549\">0333 049 5549</a></li></ul><p>For consumer enquiries, please use the form above or the appropriate channel above. The registered company address isn't a consumer support address.</p>",
+        "body": "<p>Senseless is a brand of <strong>Matrix Health Group Ltd</strong>, a UK company in the personal-care and aesthetics sector.</p><ul><li>Company name: Matrix Health Group Ltd</li><li>Company number: 17099304</li><li>Registered address: 128 City Road, London, EC1V 2NX</li><li>Phone: <a href=\"tel:+443330495549\">0333 049 5549</a></li></ul><p>For consumer enquiries, please use the form above or the appropriate channel above. The registered company address isn't a consumer support address.</p>",
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Editorial Senseless brand mark composition"

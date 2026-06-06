@@ -107,6 +107,28 @@
         "cta_url": "/pages/the-senseless-system#selector"
       }
     },
+    "kf": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "c1": { "type": "fact", "settings": { "label": "What numbing does", "value": "Topical numbing reduces discomfort during a treatment; it doesn't remove all sensation." } },
+        "c2": { "type": "fact", "settings": { "label": "What comfort depends on", "value": "The treatment, the area, your skin, and how the product is applied." } },
+        "c3": { "type": "fact", "settings": { "label": "Formats", "value": "Cream, gel and spray — matched to the area and appointment." } },
+        "c4": { "type": "fact", "settings": { "label": "Before you use it", "value": "Patch test about 24 hours before first use and follow your practitioner's guidance." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": { "band": "surface", "heading": "Key facts" }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": { "type": "faq_item", "settings": { "question": "Does numbing cream stop all pain?", "answer": "<p>No — numbing cream reduces discomfort rather than removing all sensation. It makes many aesthetic treatments more comfortable, but you may still feel pressure or movement.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Which treatments does numbing help with?", "answer": "<p>It's used before procedures such as microneedling, laser and semi-permanent makeup. Match the format and strength to the area and appointment — the Senseless Selector helps you choose.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Will I feel anything during my treatment?", "answer": "<p>Usually some sensation remains — numbing reduces discomfort, it doesn't remove it entirely. Your practitioner can advise what to expect for your specific treatment.</p>" } },
+        "q4": { "type": "faq_item", "settings": { "question": "How can I make a treatment more comfortable?", "answer": "<p>Apply to clean skin, patch test about 24 hours beforehand, and follow the product instructions and your practitioner's advice. Choosing the right strength for the appointment helps too.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": { "headline": "Common questions", "anchor_id": "faq" }
+    },
     "route": {
       "type": "senseless-link-row",
       "blocks": {
@@ -145,6 +167,8 @@
     "intro",
     "cards",
     "selectorlink",
+    "kf",
+    "faq",
     "route",
     "schema"
   ]
