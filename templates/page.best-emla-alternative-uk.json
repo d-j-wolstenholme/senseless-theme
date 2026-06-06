@@ -4,7 +4,7 @@
       "type": "senseless-guide-hero",
       "settings": {
         "eyebrow": "Emla alternative",
-        "headline": "A different category. A different purpose.",
+        "headline": "The best EMLA alternative in the UK: a different category, a different purpose.",
         "subhead": "<p>Senseless is a UK cosmetic product, formulated specifically for aesthetic procedures. Emla is a medicine. The comparison is across categories. If you're looking for the aesthetic-product alternative, this is it.</p>",
         "primary_cta_label": "Shop the Senseless system",
         "primary_cta_url": "/collections/aesthetic-numbing-cream",
@@ -44,8 +44,8 @@
           "type": "tier_card",
           "settings": {
             "label": "Clinical Strength",
-            "heading": "The everyday formula",
-            "body": "<p>The Senseless default. Used for top-ups, routine microneedling, smaller laser zones, lip fillers, Botox. Quietly capable.</p>",
+            "heading": "The standard-strength formula",
+            "body": "<p>The Senseless default. Used for top-ups, routine microneedling, smaller laser zones, and the appointments most clients book most often. Quietly capable.</p>",
             "cta_label": "",
             "cta_url": "",
             "flagship": false,
@@ -56,8 +56,8 @@
           "type": "tier_card",
           "settings": {
             "label": "Advanced Strength",
-            "heading": "The considered upgrade",
-            "body": "<p>Higher concentration. For longer sessions, more sensitive treatment areas, full-face microneedling, SPMU.</p>",
+            "heading": "The step up",
+            "body": "<p>A higher-strength formula. For longer sessions, more sensitive treatment areas, full-face microneedling, SPMU.</p>",
             "cta_label": "",
             "cta_url": "",
             "flagship": false,
@@ -69,7 +69,7 @@
           "settings": {
             "label": "Professional Strength",
             "heading": "Developed with practitioners",
-            "body": "<p>Our most concentrated formula, used in clinics. Trusted at the chair.</p>",
+            "body": "<p>Our highest-strength formula, for the most demanding appointments.</p>",
             "cta_label": "",
             "cta_url": "",
             "flagship": true,
