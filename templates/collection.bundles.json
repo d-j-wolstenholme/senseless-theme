@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "Bundles",
+        "headline": "Complete numbing kits, matched and ready.",
+        "accent_word": "matched",
+        "subhead": "<p>Each kit pairs a strength-matched cream, gel and spray with the Foaming Cleanser and a reusable vanity bag — the whole Senseless system in one. Starter and Ultimate sizes across Clinical, Advanced and Professional.</p>",
+        "primary_cta_label": "Shop bundles",
+        "primary_cta_url": "#shop",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/the-senseless-system",
+        "image_alt": "Senseless complete numbing kits with vanity bag"
+      }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
+        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
+        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
+        "t4": { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": { "band": "canvas" }
+    },
+    "grid": {
+      "type": "senseless-collection-grid",
+      "settings": { "headline": "Shop the bundles", "anchor_id": "shop", "show_filters": false, "format": "all", "accent_word": "bundles" }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which strength?",
+        "body": "<p>Answer three quick questions — treatment, skin and session length — and we'll point you to the strength to match.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    }
+  },
+  "order": ["hero", "trust", "grid", "selectorlink"]
+}

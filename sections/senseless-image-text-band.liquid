@@ -55,7 +55,7 @@
       {%- if section.settings.body != blank -%}<div class="ss-itb__body">{{ section.settings.body }}</div>{%- endif -%}
       {%- if section.settings.cta_label != blank -%}<a class="ss-itb__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
     </div>
-    <div class="ss-itb__media">
+    <div class="ss-itb__media" style="aspect-ratio: {{ section.settings.image_ratio | default: '1 / 1' }};">
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 1024px) 50vw, 100vw', widths: '480, 768, 1024, 1200', alt: section.settings.image_alt }}
       {%- else -%}
@@ -78,6 +78,7 @@
     { "type": "text", "id": "cta_label", "label": "CTA label" },
     { "type": "url", "id": "cta_url", "label": "CTA link" },
     { "type": "image_picker", "id": "image", "label": "Image", "info": "Editorial. 3:2 landscape desktop / 4:5 portrait mobile." },
+    { "type": "select", "id": "image_ratio", "label": "Image ratio", "default": "1 / 1", "info": "Square is the §11 site default. Choose a landscape ratio as a DELIBERATE per-section exception for lifestyle bands (honour the source ratio so it isn't centre-cropped).", "options": [ { "value": "1 / 1", "label": "Square (1:1, default)" }, { "value": "3 / 2", "label": "Landscape (3:2)" }, { "value": "16 / 9", "label": "Wide (16:9)" } ] },
     { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Editorial close-up of a Senseless topical preparation in soft warm light" }
   ],
   "presets": [ { "name": "Senseless — Image band" } ]

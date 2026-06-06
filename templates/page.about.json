@@ -24,7 +24,8 @@
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Senseless numbing range on a marble counter in a calm treatment setting",
-        "image": "shopify://shop_images/senseless-about-brand-band.jpg"
+        "image": "shopify://shop_images/senseless-about-brand-band.jpg",
+        "image_ratio": "3 / 2"
       }
     },
     "company": {
