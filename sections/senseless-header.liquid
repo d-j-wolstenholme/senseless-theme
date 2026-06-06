@@ -33,9 +33,10 @@
   # By-strength flyout reveals the 3 formats of that strength
   assign str_fmt_labels = 'Cream,Gel,Spray' | split: ','
   assign str_fmt_slugs  = 'cream,gel,spray' | split: ','
-  # Bundles in explicit handle order (rename-proof; not the collection's default sort):
-  # Clinical Starter · Clinical Complete · Advanced Starter · Advanced Complete · Professional Complete
-  assign bundle_handles = 'clinical-numbing-kit-small,clinical-numbing-kit-large,advanced-numbing-kit-small,advanced-numbing-kit-large,professional-numbing-kit-large' | split: ','
+  # Bundles flyout: Clinical & Advanced are triggers revealing Starter (kit-small) / Ultimate
+  # (kit-large); Professional is a flat direct link (large only, no Starter). Linked by handle.
+  assign bundle_tiers = 'Clinical,Advanced' | split: ','
+  assign bundle_tier_slugs = 'clinical,advanced' | split: ','
   # Featured card: Professional Complete (SBUN-PR-L). Image pulled DYNAMICALLY from the
   # product's own featured media so real photography auto-populates; optional setting override.
   assign feat_product = all_products['professional-numbing-kit-large']
@@ -400,14 +401,29 @@
                   </ul>
                 </div>
 
-                {%- comment -%}— Column 4: Bundles (explicit handle order; live titles, rename-proof) —{%- endcomment -%}
+                {%- comment -%}— Column 4: Bundles (flyout — tier triggers reveal Starter/Ultimate; Professional flat) —{%- endcomment -%}
                 <div class="ss-hdr__colgroup">
                   <p class="ss-hdr__col-title">Bundles</p>
                   <ul class="ss-hdr__sublist">
-                    {%- for h in bundle_handles -%}
-                      {%- assign bp = all_products[h] -%}
-                      {%- if bp != blank -%}<li><a class="ss-hdr__sublink" href="{{ bp.url }}">{{ bp.title | escape }}</a></li>{%- endif -%}
+                    {%- for t in bundle_tiers -%}
+                      {%- assign bti = forloop.index0 -%}
+                      {%- assign t_slug = bundle_tier_slugs[bti] -%}
+                      <li class="ss-fmt ss-str" data-ss-fmt>
+                        <div class="ss-fmt__row">
+                          <button class="ss-str__head" type="button" aria-expanded="false" aria-controls="ss-bnfly-{{ uid }}-{{ t_slug }}" aria-label="Show {{ t | escape }} bundles" data-ss-fmt-toggle>
+                            {{ t }}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                          </button>
+                        </div>
+                        <div class="ss-fmt__flyout" id="ss-bnfly-{{ uid }}-{{ t_slug }}" data-ss-flyout hidden>
+                          <ul class="ss-hdr__sublist">
+                            <li><a class="ss-hdr__sublink" href="/products/{{ t_slug }}-numbing-kit-small">Starter</a></li>
+                            <li><a class="ss-hdr__sublink" href="/products/{{ t_slug }}-numbing-kit-large">Ultimate</a></li>
+                          </ul>
+                        </div>
+                      </li>
                     {%- endfor -%}
+                    <li><a class="ss-hdr__sublink" href="/products/professional-numbing-kit-large">Professional</a></li>
                     <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/collections/bundles">Shop all bundles</a></li>
                   </ul>
                 </div>
@@ -559,10 +575,21 @@
               </div>
               <div class="ss-hdr__accgroup">
                 <p class="ss-hdr__accgroup-title">Bundles</p>
-                {%- for h in bundle_handles -%}
-                  {%- assign bp = all_products[h] -%}
-                  {%- if bp != blank -%}<a href="{{ bp.url }}">{{ bp.title | escape }}</a>{%- endif -%}
+                {%- for t in bundle_tiers -%}
+                  {%- assign bti = forloop.index0 -%}
+                  {%- assign t_slug = bundle_tier_slugs[bti] -%}
+                  <div class="ss-hdr__subacc">
+                    <button class="ss-hdr__subacc-btn" type="button" aria-expanded="false" aria-controls="ss-dacc-{{ uid }}-bn-{{ t_slug }}" data-ss-subacc>
+                      {{ t }}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="ss-hdr__subacc-panel" id="ss-dacc-{{ uid }}-bn-{{ t_slug }}" hidden>
+                      <a href="/products/{{ t_slug }}-numbing-kit-small">Starter</a>
+                      <a href="/products/{{ t_slug }}-numbing-kit-large">Ultimate</a>
+                    </div>
+                  </div>
                 {%- endfor -%}
+                <a href="/products/professional-numbing-kit-large">Professional</a>
                 <a class="ss-hdr__acc-foot" href="/collections/bundles">Shop all bundles</a>
               </div>
               {%- if section.settings.mega_cta_label != blank -%}
