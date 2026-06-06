@@ -1,17 +1,35 @@
 {%- comment -%}
   Senseless — Header (fully custom, replaces Horizon's native header)
-  Strand 2 — Global Components. Centred nav, large wordmark, Shop mega (By format / By procedure),
-  The system + Help dropdowns, About + Trade links, sticky + frosted. Cart drawer, predictive
-  search and account are preserved by re-rendering Horizon's self-contained snippets
-  (header-actions, search); search-modal stays mounted globally in theme.liquid. Mobile: hamburger
-  left, wordmark centre, cart right; nav + search + account inside an accordion drawer.
-  Nav is driven by the linklist chosen in settings (default: senseless-main).
+  Strand 2 — Global Components. Centred nav, large wordmark, sticky + frosted.
+
+  Two BESPOKE dropdowns (not menu-driven — keyed on the top-level title):
+    • "Shop"       → 4-column mega (By product w/ format→strength flyouts, By procedure,
+                     By strength, Bundles) + swappable featured card + filled "Shop all" CTA.
+    • "The System" → learning hub (Layout B): read-first System card + 3 groups
+                     (Understand by procedure / Application guides / Comfort & pain).
+  Any OTHER top-level item with menu children (e.g. Help) renders a generic dropdown.
+
+  INJECTABLE-CLEAN: both menus render on every page incl. ad landing pages — NO Botox /
+  lip filler / injection labels or links anywhere in either menu. Verified by grep at build.
+
+  Interaction: desktop = hover OR keyboard-focus opens panels; By-product formats reveal
+  their 3 strengths in an inline sub-panel (aria-expanded, keyboard-operable, not hover-only).
+  Mobile = hamburger drawer with nested accordions (tap a format to expand its strengths).
+  Cart drawer / predictive search / account are preserved via Horizon's own snippets.
+  Top-level nav order is driven by the linklist in settings (default: senseless-main).
 {%- endcomment -%}
 
 {%- liquid
   assign uid = section.id | replace: '-', '' | append: section.index
   assign menu = linklists[section.settings.menu]
   assign logo_h = section.settings.logo_height | default: 48
+
+  # By-product data (size-agnostic strength slugs: <strength>-strength-<format>)
+  assign fmt_handles = 'numbing-cream,numbing-gel,numbing-spray' | split: ','
+  assign fmt_labels  = 'Numbing Cream,Numbing Gel,Numbing Spray' | split: ','
+  assign fmt_slugs   = 'cream,gel,spray' | split: ','
+  assign str_labels  = 'Clinical,Advanced,Professional' | split: ','
+  assign str_slugs   = 'clinical,advanced,professional' | split: ','
 -%}
 
 {%- style -%}
@@ -89,7 +107,7 @@
     box-shadow: 0 18px 40px rgba(26,24,22,0.22);
   }
   .ss-hdr__panel[hidden] { display: none; }
-  .ss-hdr__panelinner { max-width: 1100px; margin: 0 auto; padding: 36px 20px 40px; }
+  .ss-hdr__panelinner { max-width: 1180px; margin: 0 auto; padding: 36px 20px 40px; }
   .ss-hdr__cols { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 40px; }
   .ss-hdr__col-title { font-family: var(--ss-head); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 14px; }
   .ss-hdr__sublist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
@@ -100,13 +118,52 @@
   .ss-hdr__sublink--foot::after { content: ' →'; }
   .ss-hdr__megacta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--ss-border); }
   .ss-hdr__megacta a { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 14px; background: var(--ss-purple); color: #fff; font-family: var(--ss-head); font-weight: 600; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out; }
-  .ss-hdr__megacta a:hover { background: #5A3489; }
+  .ss-hdr__megacta a:hover { background: var(--ss-purple-hover); }
   .ss-hdr__megacta a::after { content: '\2192'; }
+
+  /* ---- Shop mega: 4 columns + featured card ---- */
+  .ss-hdr__shopgrid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)) minmax(210px, 280px); gap: 32px; align-items: start; }
+  .ss-hdr__colgroup { min-width: 0; }
+
+  /* By-product format rows + inline strength flyout */
+  .ss-fmt { position: relative; }
+  .ss-fmt__row { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+  .ss-fmt__toggle { flex: 0 0 auto; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 0; border-radius: 6px; color: var(--ss-secondary); cursor: pointer; padding: 0; }
+  .ss-fmt__toggle:hover { color: var(--ss-purple); }
+  .ss-fmt__toggle svg { width: 12px; height: 12px; transition: transform 200ms ease-out; }
+  .ss-fmt__toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .ss-fmt__flyout { margin: 8px 0 4px 12px; padding-left: 12px; border-left: 2px solid var(--ss-border); }
+  .ss-fmt__flyout[hidden] { display: none; }
+  .ss-fmt__flyout .ss-hdr__sublist { gap: 8px; }
+  .ss-fmt__flyout .ss-hdr__sublink { font-size: 15px; }
+  .ss-fmt__flyfoot { margin-top: 8px; }
+  .ss-fmt__flyfoot a { font-family: var(--ss-head); font-weight: 600; font-size: 14px; color: var(--ss-purple); text-decoration: none; }
+  .ss-fmt__flyfoot a::after { content: ' →'; }
+
+  /* Featured card (Shop) */
+  .ss-hdr__featured { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: var(--ss-bg); border: 1px solid var(--ss-border); border-radius: 12px; }
+  .ss-hdr__featured-media { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: 8px; object-fit: cover; background: linear-gradient(135deg, #efeae9, #f7f7f5); }
+  .ss-hdr__featured-ph { display: flex; align-items: center; justify-content: center; border: 1px solid var(--ss-border); color: var(--ss-secondary); font-weight: 600; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .ss-hdr__featured-eyebrow { font-weight: 600; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ss-purple); margin: 2px 0 0; }
+  .ss-hdr__featured-title { font-weight: 600; font-size: 16px; color: var(--ss-text); margin: 0; }
+  .ss-hdr__featured-text { font-weight: 500; font-size: 13.5px; line-height: 1.5; color: var(--ss-secondary); margin: 0; }
+  .ss-hdr__featured-cta { margin-top: 2px; font-family: var(--ss-head); font-weight: 600; font-size: 14px; color: var(--ss-purple); text-decoration: none; }
+  .ss-hdr__featured-cta::after { content: ' →'; }
+
+  /* ---- The System: read-first card + 3 groups ---- */
+  .ss-hdr__sysgrid { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; gap: 40px; align-items: start; }
+  .ss-hdr__sysfeat { display: flex; flex-direction: column; gap: 12px; padding: 22px; background: var(--ss-bg); border: 1px solid var(--ss-border); border-radius: 12px; }
+  .ss-hdr__sysfeat-eyebrow { font-weight: 600; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-hdr__sysfeat-title { font-weight: 400; letter-spacing: -0.02em; font-size: 24px; line-height: 1.1; color: var(--ss-text); margin: 0; }
+  .ss-hdr__sysfeat-text { font-weight: 500; font-size: 14px; line-height: 1.55; color: var(--ss-secondary); margin: 0; }
+  .ss-hdr__sysfeat-cta { margin-top: 4px; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 22px; border-radius: 14px; background: var(--ss-purple); color: #fff; font-family: var(--ss-head); font-weight: 600; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out; }
+  .ss-hdr__sysfeat-cta:hover { background: var(--ss-purple-hover); }
+  .ss-hdr__sysgroups { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 36px; }
+  .ss-hdr__groupnote { font-weight: 500; font-size: 13px; line-height: 1.5; color: var(--ss-secondary); margin: 12px 0 0; }
 
   /* Reuse: tone Horizon action icons to brand text, hide search/account on mobile */
   .ss-hdr__right { color: var(--ss-text); display: flex; align-items: center; gap: 2px; }
   .ss-hdr__right .header-actions__action, .ss-hdr__right svg { color: var(--ss-text); }
-  /* Align the three actions (search · account · cart) on one baseline: uniform square hit-areas, centred, equal icon height, even spacing. */
   .ss-hdr__right header-actions { display: inline-flex; align-items: center; gap: 2px; }
   .ss-hdr__right search-button, .ss-hdr__right .search-action { display: inline-flex; align-items: center; }
   .ss-hdr__right .search-action,
@@ -124,7 +181,7 @@
   .ss-hdr__scrim[data-open="true"] { opacity: 1; }
   .ss-hdr__drawer {
     /* Drawer + scrim render OUTSIDE .ss-hdr (its backdrop-filter would trap position:fixed),
-       so they DON'T inherit .ss-hdr's brand vars — define them here or var(--ss-bg) is empty (transparent). */
+       so they DON'T inherit .ss-hdr's brand vars — define them here or var(--ss-bg) is empty. */
     --ss-purple: #6B3FA0; --ss-purple-hover: #5A3489; --ss-bg: #f7f7f5; --ss-surface: #ffffff;
     --ss-text: #1A1816; --ss-body: #2B2730; --ss-secondary: #5C5853; --ss-border: rgba(26,24,22,0.12);
     --ss-head: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -147,6 +204,16 @@
   .ss-hdr__accgroup { margin: 6px 0 12px; }
   .ss-hdr__accgroup-title { font-family: var(--ss-head); font-weight: 600; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ss-purple); margin: 8px 0 6px; }
   .ss-hdr__accpanel a { display: block; font-family: var(--ss-head); font-weight: 500; font-size: 15px; color: var(--ss-body); text-decoration: none; padding: 8px 0; }
+  /* Drawer nested format accordion */
+  .ss-hdr__subacc { border-top: 1px solid var(--ss-border); }
+  .ss-hdr__subacc:first-of-type { border-top: 0; }
+  .ss-hdr__subacc-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; background: transparent; border: 0; cursor: pointer; font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-text); padding: 10px 0; text-align: left; }
+  .ss-hdr__subacc-btn svg { width: 12px; height: 12px; transition: transform 200ms ease-out; }
+  .ss-hdr__subacc-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .ss-hdr__subacc-panel { padding: 0 0 6px 12px; border-left: 2px solid var(--ss-border); margin-left: 2px; }
+  .ss-hdr__subacc-panel[hidden] { display: none; }
+  .ss-hdr__subacc-panel a { padding: 7px 0; }
+  .ss-hdr__acc-foot { font-weight: 600 !important; color: var(--ss-purple) !important; }
   .ss-hdr__drawerfoot { margin-top: auto; padding: 16px 20px 28px; border-top: 1px solid var(--ss-border); display: flex; flex-direction: column; gap: 4px; }
   .ss-hdr__drawerfoot a { font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-text); text-decoration: none; padding: 12px 0; display: inline-flex; align-items: center; gap: 10px; }
   .ss-hdr__drawerfoot svg { width: 18px; height: 18px; }
@@ -157,20 +224,23 @@
     .ss-hdr__logo--mobile, .ss-hdr__burger { display: none; }
     .ss-hdr__wordmark { font-size: 34px; }
   }
+  @media (max-width: 1199px) {
+    .ss-hdr__shopgrid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
+    .ss-hdr__featured { grid-column: 1 / -1; flex-direction: row; align-items: center; }
+    .ss-hdr__featured-media { width: 120px; flex: 0 0 120px; aspect-ratio: 1; }
+  }
   @media (max-width: 1023px) {
     .ss-hdr__panels { display: none; }
     .ss-hdr__right .account-button, .ss-hdr__right .search-action { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .ss-hdr__bar, .ss-hdr__scrim, .ss-hdr__drawer, .ss-hdr__caret, .ss-hdr__navlink, .ss-hdr__sublink { transition: none; }
+    .ss-hdr__bar, .ss-hdr__scrim, .ss-hdr__drawer, .ss-hdr__caret, .ss-hdr__navlink, .ss-hdr__sublink, .ss-fmt__toggle svg, .ss-hdr__subacc-btn svg { transition: none; }
   }
 {%- endstyle -%}
 
 {%- liquid
   # SVG logos return blank from image_url (Shopify can't transform SVG), so the
-  # picker path only works for raster images. The brand wordmark is inlined from
-  # assets so it renders crisply regardless. Precedence: raster picker (if a
-  # PNG/JPG is set) > inline brand SVG (assets/senseless-logo-header.svg).
+  # picker path only works for raster images. Precedence: raster picker > inline brand SVG.
   assign logo_src = ''
   assign logo_w = 0
   if section.settings.logo_image != blank
@@ -201,9 +271,11 @@
     <nav class="ss-hdr__nav" aria-label="Primary">
       <ul class="ss-hdr__navlist">
         {%- for link in menu.links -%}
-          {%- assign has_children = false -%}
-          {%- if link.links.size > 0 -%}{%- assign has_children = true -%}{%- endif -%}
-          {%- if has_children -%}
+          {%- assign is_bespoke = false -%}
+          {%- if link.title == 'Shop' or link.title == 'The System' -%}{%- assign is_bespoke = true -%}{%- endif -%}
+          {%- assign has_dropdown = false -%}
+          {%- if link.links.size > 0 or is_bespoke -%}{%- assign has_dropdown = true -%}{%- endif -%}
+          {%- if has_dropdown -%}
             <li class="ss-hdr__item">
               <button class="ss-hdr__navlink" type="button" aria-expanded="false" aria-controls="ss-panel-{{ uid }}-{{ forloop.index }}" data-ss-trigger="{{ forloop.index }}">
                 {{ link.title | escape }}
@@ -227,39 +299,145 @@
 
   <div class="ss-hdr__panels">
     {%- for link in menu.links -%}
-      {%- if link.links.size > 0 -%}
-        {%- assign has_grandchildren = false -%}
-        {%- for child in link.links -%}{%- if child.links.size > 0 -%}{%- assign has_grandchildren = true -%}{%- endif -%}{%- endfor -%}
+      {%- assign is_bespoke = false -%}
+      {%- if link.title == 'Shop' or link.title == 'The System' -%}{%- assign is_bespoke = true -%}{%- endif -%}
+      {%- if link.links.size > 0 or is_bespoke -%}
         <div class="ss-hdr__panel" id="ss-panel-{{ uid }}-{{ forloop.index }}" data-ss-panel="{{ forloop.index }}" hidden>
           <div class="ss-hdr__panelinner">
-            {%- if has_grandchildren -%}
-              <div class="ss-hdr__cols">
-                {%- for child in link.links -%}
+
+            {%- if link.title == 'Shop' -%}
+              {%- comment -%}===== SHOP MEGA =====-{%- endcomment -%}
+              <div class="ss-hdr__shopgrid">
+
+                {%- comment -%}— Column 1: By product (format → strength flyouts) —{%- endcomment -%}
+                <div class="ss-hdr__colgroup">
+                  <p class="ss-hdr__col-title">By product</p>
+                  <ul class="ss-hdr__sublist">
+                    {%- for f in fmt_handles -%}
+                      {%- assign fi = forloop.index0 -%}
+                      {%- assign f_label = fmt_labels[fi] -%}
+                      {%- assign f_slug = fmt_slugs[fi] -%}
+                      <li class="ss-fmt" data-ss-fmt>
+                        <div class="ss-fmt__row">
+                          <a class="ss-hdr__sublink ss-fmt__head" href="/collections/{{ f }}">{{ f_label }}</a>
+                          <button class="ss-fmt__toggle" type="button" aria-expanded="false" aria-controls="ss-fly-{{ uid }}-{{ f_slug }}" aria-label="Show {{ f_label | escape }} strengths" data-ss-fmt-toggle>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                          </button>
+                        </div>
+                        <div class="ss-fmt__flyout" id="ss-fly-{{ uid }}-{{ f_slug }}" data-ss-flyout hidden>
+                          <ul class="ss-hdr__sublist">
+                            {%- for s in str_labels -%}
+                              {%- assign si = forloop.index0 -%}
+                              <li><a class="ss-hdr__sublink" href="/products/{{ str_slugs[si] }}-strength-{{ f_slug }}">{{ s }}</a></li>
+                            {%- endfor -%}
+                          </ul>
+                          <p class="ss-fmt__flyfoot"><a href="/collections/{{ f }}">Shop all {{ f_slug }}</a></p>
+                        </div>
+                      </li>
+                    {%- endfor -%}
+                    <li><a class="ss-hdr__sublink" href="/products/foaming-cleanser">Foaming Cleanser</a></li>
+                  </ul>
+                </div>
+
+                {%- comment -%}— Column 2: By procedure (non-injectable only) —{%- endcomment -%}
+                <div class="ss-hdr__colgroup">
+                  <p class="ss-hdr__col-title">By procedure</p>
+                  <ul class="ss-hdr__sublist">
+                    <li><a class="ss-hdr__sublink" href="/collections/numbing-cream-for-microneedling">Microneedling</a></li>
+                    <li><a class="ss-hdr__sublink" href="/collections/numbing-cream-for-laser-treatment">Laser hair removal</a></li>
+                    <li><a class="ss-hdr__sublink" href="/collections/numbing-cream-for-semi-permanent-makeup">Semi-permanent makeup</a></li>
+                    <li><a class="ss-hdr__sublink" href="/collections/numbing-cream-for-waxing">Waxing</a></li>
+                    <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/pages/aesthetic-procedures">See all procedures</a></li>
+                  </ul>
+                </div>
+
+                {%- comment -%}— Column 3: By strength (all → System page, the "help me choose" hub) —{%- endcomment -%}
+                <div class="ss-hdr__colgroup">
+                  <p class="ss-hdr__col-title">By strength</p>
+                  <ul class="ss-hdr__sublist">
+                    <li><a class="ss-hdr__sublink" href="/pages/the-senseless-system">Clinical</a></li>
+                    <li><a class="ss-hdr__sublink" href="/pages/the-senseless-system">Advanced</a></li>
+                    <li><a class="ss-hdr__sublink" href="/pages/the-senseless-system">Professional</a></li>
+                    <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/pages/the-senseless-system">Find your strength</a></li>
+                  </ul>
+                </div>
+
+                {%- comment -%}— Column 4: Bundles (live titles via collection; rename-proof) —{%- endcomment -%}
+                <div class="ss-hdr__colgroup">
+                  <p class="ss-hdr__col-title">Bundles</p>
+                  <ul class="ss-hdr__sublist">
+                    {%- for p in collections['bundles'].products limit: 5 -%}
+                      <li><a class="ss-hdr__sublink" href="{{ p.url }}">{{ p.title | escape }}</a></li>
+                    {%- endfor -%}
+                    <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/collections/bundles">Shop all bundles</a></li>
+                  </ul>
+                </div>
+
+                {%- comment -%}— Featured card (swappable via settings) —{%- endcomment -%}
+                <aside class="ss-hdr__featured">
+                  {%- if section.settings.shop_feat_image != blank -%}
+                    <img class="ss-hdr__featured-media" src="{{ section.settings.shop_feat_image | image_url: width: 600 }}" alt="{{ section.settings.shop_feat_title | default: 'Featured bundle' | escape }}" width="560" height="420" loading="lazy">
+                  {%- else -%}
+                    <span class="ss-hdr__featured-media ss-hdr__featured-ph" aria-hidden="true">Senseless</span>
+                  {%- endif -%}
+                  <p class="ss-hdr__featured-eyebrow">{{ section.settings.shop_feat_eyebrow | default: 'Featured' | escape }}</p>
+                  <p class="ss-hdr__featured-title">{{ section.settings.shop_feat_title | default: 'Advanced Complete' | escape }}</p>
+                  {%- if section.settings.shop_feat_text != blank -%}<p class="ss-hdr__featured-text">{{ section.settings.shop_feat_text | escape }}</p>{%- endif -%}
+                  <a class="ss-hdr__featured-cta" href="{{ section.settings.shop_feat_url | default: '/products/advanced-numbing-kit-large' }}">{{ section.settings.shop_feat_cta | default: 'Shop the kit' | escape }}</a>
+                </aside>
+
+              </div>
+              {%- if section.settings.mega_cta_label != blank -%}
+                <div class="ss-hdr__megacta"><a href="{{ section.settings.mega_cta_url | default: '/collections/shop-all' }}">{{ section.settings.mega_cta_label | escape }}</a></div>
+              {%- endif -%}
+
+            {%- elsif link.title == 'The System' -%}
+              {%- comment -%}===== THE SYSTEM (learning hub — Layout B) =====-{%- endcomment -%}
+              <div class="ss-hdr__sysgrid">
+                <aside class="ss-hdr__sysfeat">
+                  <p class="ss-hdr__sysfeat-eyebrow">The System</p>
+                  <p class="ss-hdr__sysfeat-title">The Senseless System</p>
+                  <p class="ss-hdr__sysfeat-text">How strength and format match what each appointment asks of the skin. Start here.</p>
+                  <a class="ss-hdr__sysfeat-cta" href="/pages/the-senseless-system">Read the system</a>
+                </aside>
+                <div class="ss-hdr__sysgroups">
                   <div class="ss-hdr__colgroup">
-                    <p class="ss-hdr__col-title">{{ child.title | escape }}</p>
+                    <p class="ss-hdr__col-title">Understand by procedure</p>
                     <ul class="ss-hdr__sublist">
-                      {%- for gc in child.links -%}
-                        {%- assign gc_t = gc.title | downcase -%}
-                        {%- if gc_t contains 'see all' -%}
-                          <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="{{ gc.url }}">{{ gc.title | escape }}</a></li>
-                        {%- else -%}
-                          <li><a class="ss-hdr__sublink" href="{{ gc.url }}">{{ gc.title | escape }}</a></li>
-                        {%- endif -%}
-                      {%- endfor -%}
+                      <li><a class="ss-hdr__sublink" href="/collections/numbing-cream-for-microneedling">Microneedling</a></li>
+                      <li><a class="ss-hdr__sublink" href="/collections/numbing-cream-for-laser-treatment">Laser hair removal</a></li>
+                      <li><a class="ss-hdr__sublink" href="/collections/numbing-cream-for-semi-permanent-makeup">Semi-permanent makeup</a></li>
+                      <li><a class="ss-hdr__sublink" href="/collections/numbing-cream-for-waxing">Waxing</a></li>
                     </ul>
                   </div>
-                {%- endfor -%}
+                  <div class="ss-hdr__colgroup">
+                    <p class="ss-hdr__col-title">Application guides</p>
+                    <ul class="ss-hdr__sublist">
+                      <li><a class="ss-hdr__sublink" href="/pages/using-numbing-cream">Using numbing cream</a></li>
+                      <li><a class="ss-hdr__sublink" href="/pages/using-numbing-cream">How long it takes to work</a></li>
+                      <li><a class="ss-hdr__sublink" href="/pages/using-numbing-cream">How long it lasts</a></li>
+                      <li><a class="ss-hdr__sublink" href="/pages/faq">Does it actually work?</a></li>
+                    </ul>
+                  </div>
+                  <div class="ss-hdr__colgroup">
+                    <p class="ss-hdr__col-title">Comfort &amp; pain</p>
+                    <ul class="ss-hdr__sublist">
+                      <li><a class="ss-hdr__sublink" href="/pages/does-it-hurt">Does it hurt?</a></li>
+                    </ul>
+                    <p class="ss-hdr__groupnote">Comfort by treatment — full breakdown inside.</p>
+                  </div>
+                </div>
               </div>
-              {%- if link.title == 'Shop' and section.settings.mega_cta_label != blank -%}
-                <div class="ss-hdr__megacta"><a href="{{ section.settings.mega_cta_url | default: '#' }}">{{ section.settings.mega_cta_label | escape }}</a></div>
-              {%- endif -%}
+
             {%- else -%}
+              {%- comment -%}===== GENERIC dropdown (e.g. Help) =====-{%- endcomment -%}
               <ul class="ss-hdr__sublist">
                 {%- for child in link.links -%}
                   <li><a class="ss-hdr__sublink" href="{{ child.url }}">{{ child.title | escape }}</a></li>
                 {%- endfor -%}
               </ul>
             {%- endif -%}
+
           </div>
         </div>
       {%- endif -%}
@@ -279,25 +457,91 @@
 
   <ul class="ss-hdr__drawernav">
     {%- for link in menu.links -%}
-      {%- if link.links.size > 0 -%}
-        {%- assign has_grandchildren = false -%}
-        {%- for child in link.links -%}{%- if child.links.size > 0 -%}{%- assign has_grandchildren = true -%}{%- endif -%}{%- endfor -%}
+      {%- assign is_bespoke = false -%}
+      {%- if link.title == 'Shop' or link.title == 'The System' -%}{%- assign is_bespoke = true -%}{%- endif -%}
+      {%- if link.links.size > 0 or is_bespoke -%}
         <li>
           <button class="ss-hdr__acc" type="button" aria-expanded="false" aria-controls="ss-acc-{{ uid }}-{{ forloop.index }}" data-ss-acc="{{ forloop.index }}">
             {{ link.title | escape }}
             <svg class="ss-hdr__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <div class="ss-hdr__accpanel" id="ss-acc-{{ uid }}-{{ forloop.index }}" hidden>
-            {%- if has_grandchildren -%}
-              {%- for child in link.links -%}
-                <div class="ss-hdr__accgroup">
-                  <p class="ss-hdr__accgroup-title">{{ child.title | escape }}</p>
-                  {%- for gc in child.links -%}<a href="{{ gc.url }}">{{ gc.title | escape }}</a>{%- endfor -%}
-                </div>
-              {%- endfor -%}
+
+            {%- if link.title == 'Shop' -%}
+              <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">By product</p>
+                {%- for f in fmt_handles -%}
+                  {%- assign fi = forloop.index0 -%}
+                  {%- assign f_label = fmt_labels[fi] -%}
+                  {%- assign f_slug = fmt_slugs[fi] -%}
+                  <div class="ss-hdr__subacc">
+                    <button class="ss-hdr__subacc-btn" type="button" aria-expanded="false" aria-controls="ss-dacc-{{ uid }}-{{ f_slug }}" data-ss-subacc>
+                      {{ f_label }}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="ss-hdr__subacc-panel" id="ss-dacc-{{ uid }}-{{ f_slug }}" hidden>
+                      {%- for s in str_labels -%}
+                        {%- assign si = forloop.index0 -%}
+                        <a href="/products/{{ str_slugs[si] }}-strength-{{ f_slug }}">{{ s }}</a>
+                      {%- endfor -%}
+                      <a class="ss-hdr__acc-foot" href="/collections/{{ f }}">Shop all {{ f_slug }}</a>
+                    </div>
+                  </div>
+                {%- endfor -%}
+                <a href="/products/foaming-cleanser">Foaming Cleanser</a>
+              </div>
+              <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">By procedure</p>
+                <a href="/collections/numbing-cream-for-microneedling">Microneedling</a>
+                <a href="/collections/numbing-cream-for-laser-treatment">Laser hair removal</a>
+                <a href="/collections/numbing-cream-for-semi-permanent-makeup">Semi-permanent makeup</a>
+                <a href="/collections/numbing-cream-for-waxing">Waxing</a>
+                <a class="ss-hdr__acc-foot" href="/pages/aesthetic-procedures">See all procedures</a>
+              </div>
+              <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">By strength</p>
+                <a href="/pages/the-senseless-system">Clinical</a>
+                <a href="/pages/the-senseless-system">Advanced</a>
+                <a href="/pages/the-senseless-system">Professional</a>
+                <a class="ss-hdr__acc-foot" href="/pages/the-senseless-system">Find your strength</a>
+              </div>
+              <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">Bundles</p>
+                {%- for p in collections['bundles'].products limit: 5 -%}
+                  <a href="{{ p.url }}">{{ p.title | escape }}</a>
+                {%- endfor -%}
+                <a class="ss-hdr__acc-foot" href="/collections/bundles">Shop all bundles</a>
+              </div>
+              {%- if section.settings.mega_cta_label != blank -%}
+                <a class="ss-hdr__acc-foot" href="{{ section.settings.mega_cta_url | default: '/collections/shop-all' }}">{{ section.settings.mega_cta_label | escape }}</a>
+              {%- endif -%}
+
+            {%- elsif link.title == 'The System' -%}
+              <a class="ss-hdr__acc-foot" href="/pages/the-senseless-system">Read the system</a>
+              <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">Understand by procedure</p>
+                <a href="/collections/numbing-cream-for-microneedling">Microneedling</a>
+                <a href="/collections/numbing-cream-for-laser-treatment">Laser hair removal</a>
+                <a href="/collections/numbing-cream-for-semi-permanent-makeup">Semi-permanent makeup</a>
+                <a href="/collections/numbing-cream-for-waxing">Waxing</a>
+              </div>
+              <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">Application guides</p>
+                <a href="/pages/using-numbing-cream">Using numbing cream</a>
+                <a href="/pages/using-numbing-cream">How long it takes to work</a>
+                <a href="/pages/using-numbing-cream">How long it lasts</a>
+                <a href="/pages/faq">Does it actually work?</a>
+              </div>
+              <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">Comfort &amp; pain</p>
+                <a href="/pages/does-it-hurt">Does it hurt?</a>
+                <p class="ss-hdr__groupnote">Comfort by treatment — full breakdown inside.</p>
+              </div>
+
             {%- else -%}
               {%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title | escape }}</a>{%- endfor -%}
             {%- endif -%}
+
           </div>
         </li>
       {%- else -%}
@@ -342,6 +586,7 @@
     function closeAll() {
       triggers.forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
       panels.forEach(function (p) { p.hidden = true; });
+      closeFlyouts();
       openKey = null;
     }
     function openPanel(key) {
@@ -358,11 +603,45 @@
       t.addEventListener('click', function (e) { e.stopPropagation(); openKey === key ? closeAll() : openPanel(key); });
       t.addEventListener('mouseenter', function () { clearTimeout(hoverTimer); hoverTimer = setTimeout(function () { openPanel(key); }, 120); });
       t.addEventListener('mouseleave', function () { clearTimeout(hoverTimer); });
+      /* keyboard: focusing the trigger opens its panel (not hover-only) */
+      t.addEventListener('focus', function () { openPanel(key); });
     });
     hdr.querySelector('.ss-hdr__panels').addEventListener('mouseleave', function () { hoverTimer = setTimeout(closeAll, 180); });
     hdr.querySelector('.ss-hdr__panels').addEventListener('mouseenter', function () { clearTimeout(hoverTimer); });
     document.addEventListener('click', function (e) { if (!hdr.contains(e.target)) closeAll(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeAll(); closeDrawer(); } });
+
+    /* ---- By-product strength flyouts (desktop panel) ---- */
+    var fmtItems = Array.prototype.slice.call(hdr.querySelectorAll('[data-ss-fmt]'));
+    function flyoutOf(item) { return item.querySelector('[data-ss-flyout]'); }
+    function toggleOf(item) { return item.querySelector('[data-ss-fmt-toggle]'); }
+    function openFlyout(item) {
+      var fly = flyoutOf(item), tog = toggleOf(item);
+      if (fly) fly.hidden = false;
+      if (tog) tog.setAttribute('aria-expanded', 'true');
+    }
+    function closeFlyout(item) {
+      var fly = flyoutOf(item), tog = toggleOf(item);
+      if (fly) fly.hidden = true;
+      if (tog) tog.setAttribute('aria-expanded', 'false');
+    }
+    function closeFlyouts() { fmtItems.forEach(closeFlyout); }
+    fmtItems.forEach(function (item) {
+      var tog = toggleOf(item);
+      if (tog) tog.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        var open = tog.getAttribute('aria-expanded') === 'true';
+        open ? closeFlyout(item) : openFlyout(item);
+      });
+      /* hover opens (desktop) */
+      item.addEventListener('mouseenter', function () { openFlyout(item); });
+      item.addEventListener('mouseleave', function () { closeFlyout(item); });
+      /* keyboard: focus anywhere inside the format row opens; leaving it closes */
+      item.addEventListener('focusin', function () { openFlyout(item); });
+      item.addEventListener('focusout', function (e) {
+        if (!item.contains(e.relatedTarget)) closeFlyout(item);
+      });
+    });
 
     /* ---- Mobile drawer ---- */
     var burger = hdr.querySelector('[data-ss-burger]');
@@ -398,8 +677,17 @@
     if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
     scrim.addEventListener('click', closeDrawer);
 
-    /* ---- Drawer accordion ---- */
+    /* ---- Drawer accordion (top-level) ---- */
     Array.prototype.slice.call(drawer.querySelectorAll('[data-ss-acc]')).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (panel) panel.hidden = open;
+      });
+    });
+    /* ---- Drawer nested format accordion ---- */
+    Array.prototype.slice.call(drawer.querySelectorAll('[data-ss-subacc]')).forEach(function (btn) {
       btn.addEventListener('click', function () {
         var panel = document.getElementById(btn.getAttribute('aria-controls'));
         var open = btn.getAttribute('aria-expanded') === 'true';
@@ -416,12 +704,19 @@
   "tag": "div",
   "class": "senseless-section-header",
   "settings": [
-    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu", "info": "Use the senseless-main menu (Shop mega + The system / Help dropdowns + About + Trade)." },
-    { "type": "image_picker", "id": "logo_image", "label": "Logo image (optional, raster only)", "info": "Leave empty to use the brand SVG wordmark (assets/senseless-logo-header.svg). SVGs picked here will NOT render — Shopify can't transform SVG; use a PNG/JPG for a custom raster logo, or replace the asset file to change the SVG." },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu", "info": "Top-level order is menu-driven. The Shop mega-menu and The System dropdown are bespoke (built in the section), so their child links here are ignored — keep Shop + The System as top-level items." },
+    { "type": "image_picker", "id": "logo_image", "label": "Logo image (optional, raster only)", "info": "Leave empty to use the brand SVG wordmark (assets/senseless-logo-header.svg). SVGs picked here will NOT render — use a PNG/JPG, or replace the asset file." },
     { "type": "range", "id": "logo_height", "label": "Logo image height", "min": 24, "max": 96, "step": 2, "unit": "px", "default": 48 },
     { "type": "checkbox", "id": "show_search", "label": "Show search", "default": true },
-    { "type": "text", "id": "mega_cta_label", "label": "Mega menu CTA label", "default": "Shop all" },
-    { "type": "url", "id": "mega_cta_url", "label": "Mega menu CTA link", "info": "Shop mega bottom action — drive into the catalogue, e.g. /collections/numbing-cream (renders as a filled purple button)." }
+    { "type": "text", "id": "mega_cta_label", "label": "Shop CTA label", "default": "Shop all" },
+    { "type": "url", "id": "mega_cta_url", "label": "Shop CTA link", "info": "Filled purple button at the foot of the Shop mega. Default: /collections/shop-all." },
+    { "type": "header", "content": "Shop — featured card" },
+    { "type": "image_picker", "id": "shop_feat_image", "label": "Featured image", "info": "Optional. Falls back to a neutral brand placeholder until bundle photography exists." },
+    { "type": "text", "id": "shop_feat_eyebrow", "label": "Featured eyebrow", "default": "Featured" },
+    { "type": "text", "id": "shop_feat_title", "label": "Featured title", "default": "Advanced Complete" },
+    { "type": "text", "id": "shop_feat_text", "label": "Featured text", "default": "Everything for the appointment, in one kit." },
+    { "type": "url", "id": "shop_feat_url", "label": "Featured link", "info": "Default: /products/advanced-numbing-kit-large" },
+    { "type": "text", "id": "shop_feat_cta", "label": "Featured CTA label", "default": "Shop the kit" }
   ],
   "enabled_on": { "groups": ["header"] },
   "presets": [ { "name": "Senseless — Header" } ]
