@@ -30,6 +30,20 @@
   assign fmt_slugs   = 'cream,gel,spray' | split: ','
   assign str_labels  = 'Clinical,Advanced,Professional' | split: ','
   assign str_slugs   = 'clinical,advanced,professional' | split: ','
+  # By-strength flyout reveals the 3 formats of that strength
+  assign str_fmt_labels = 'Cream,Gel,Spray' | split: ','
+  assign str_fmt_slugs  = 'cream,gel,spray' | split: ','
+  # Bundles in explicit handle order (rename-proof; not the collection's default sort):
+  # Clinical Starter · Clinical Complete · Advanced Starter · Advanced Complete · Professional Complete
+  assign bundle_handles = 'clinical-numbing-kit-small,clinical-numbing-kit-large,advanced-numbing-kit-small,advanced-numbing-kit-large,professional-numbing-kit-large' | split: ','
+  # Featured card: Professional Complete (SBUN-PR-L). Image pulled DYNAMICALLY from the
+  # product's own featured media so real photography auto-populates; optional setting override.
+  assign feat_product = all_products['professional-numbing-kit-large']
+  if section.settings.shop_feat_product != blank
+    assign feat_product = section.settings.shop_feat_product
+  endif
+  assign feat_title = section.settings.shop_feat_title | default: feat_product.title
+  assign feat_url = section.settings.shop_feat_url | default: feat_product.url
 -%}
 
 {%- style -%}
@@ -139,6 +153,13 @@
   .ss-fmt__flyfoot { margin-top: 8px; }
   .ss-fmt__flyfoot a { font-family: var(--ss-head); font-weight: 600; font-size: 14px; color: var(--ss-purple); text-decoration: none; }
   .ss-fmt__flyfoot a::after { content: ' →'; }
+
+  /* By-strength: the strength word is a flyout TRIGGER only (button, never a link) */
+  .ss-str__head { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 6px; background: transparent; border: 0; cursor: pointer; padding: 0; font-family: var(--ss-head); font-weight: 500; font-size: 16px; color: var(--ss-body); text-align: left; }
+  .ss-str__head:hover { color: var(--ss-purple); }
+  .ss-str__head svg { flex: 0 0 auto; width: 12px; height: 12px; color: var(--ss-secondary); transition: transform 200ms ease-out; }
+  .ss-str__head:hover svg { color: var(--ss-purple); }
+  .ss-str__head[aria-expanded="true"] svg { transform: rotate(180deg); }
 
   /* Featured card (Shop) */
   .ss-hdr__featured { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: var(--ss-bg); border: 1px solid var(--ss-border); border-radius: 12px; }
@@ -339,7 +360,35 @@
                   </ul>
                 </div>
 
-                {%- comment -%}— Column 2: By procedure (non-injectable only) —{%- endcomment -%}
+                {%- comment -%}— Column 2: By strength (flyout — strength word is a trigger, reveals its 3 formats) —{%- endcomment -%}
+                <div class="ss-hdr__colgroup">
+                  <p class="ss-hdr__col-title">By strength</p>
+                  <ul class="ss-hdr__sublist">
+                    {%- for s in str_labels -%}
+                      {%- assign sti = forloop.index0 -%}
+                      {%- assign s_slug = str_slugs[sti] -%}
+                      <li class="ss-fmt ss-str" data-ss-fmt>
+                        <div class="ss-fmt__row">
+                          <button class="ss-str__head" type="button" aria-expanded="false" aria-controls="ss-stfly-{{ uid }}-{{ s_slug }}" aria-label="Show {{ s | escape }} strength products" data-ss-fmt-toggle>
+                            {{ s }}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                          </button>
+                        </div>
+                        <div class="ss-fmt__flyout" id="ss-stfly-{{ uid }}-{{ s_slug }}" data-ss-flyout hidden>
+                          <ul class="ss-hdr__sublist">
+                            {%- for fl in str_fmt_labels -%}
+                              {%- assign fmi = forloop.index0 -%}
+                              <li><a class="ss-hdr__sublink" href="/products/{{ s_slug }}-strength-{{ str_fmt_slugs[fmi] }}">{{ s }} {{ fl }}</a></li>
+                            {%- endfor -%}
+                          </ul>
+                        </div>
+                      </li>
+                    {%- endfor -%}
+                    <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/pages/the-senseless-system">Find your strength</a></li>
+                  </ul>
+                </div>
+
+                {%- comment -%}— Column 3: By procedure (non-injectable only) —{%- endcomment -%}
                 <div class="ss-hdr__colgroup">
                   <p class="ss-hdr__col-title">By procedure</p>
                   <ul class="ss-hdr__sublist">
@@ -351,39 +400,29 @@
                   </ul>
                 </div>
 
-                {%- comment -%}— Column 3: By strength (all → System page, the "help me choose" hub) —{%- endcomment -%}
-                <div class="ss-hdr__colgroup">
-                  <p class="ss-hdr__col-title">By strength</p>
-                  <ul class="ss-hdr__sublist">
-                    <li><a class="ss-hdr__sublink" href="/pages/the-senseless-system">Clinical</a></li>
-                    <li><a class="ss-hdr__sublink" href="/pages/the-senseless-system">Advanced</a></li>
-                    <li><a class="ss-hdr__sublink" href="/pages/the-senseless-system">Professional</a></li>
-                    <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/pages/the-senseless-system">Find your strength</a></li>
-                  </ul>
-                </div>
-
-                {%- comment -%}— Column 4: Bundles (live titles via collection; rename-proof) —{%- endcomment -%}
+                {%- comment -%}— Column 4: Bundles (explicit handle order; live titles, rename-proof) —{%- endcomment -%}
                 <div class="ss-hdr__colgroup">
                   <p class="ss-hdr__col-title">Bundles</p>
                   <ul class="ss-hdr__sublist">
-                    {%- for p in collections['bundles'].products limit: 5 -%}
-                      <li><a class="ss-hdr__sublink" href="{{ p.url }}">{{ p.title | escape }}</a></li>
+                    {%- for h in bundle_handles -%}
+                      {%- assign bp = all_products[h] -%}
+                      {%- if bp != blank -%}<li><a class="ss-hdr__sublink" href="{{ bp.url }}">{{ bp.title | escape }}</a></li>{%- endif -%}
                     {%- endfor -%}
                     <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/collections/bundles">Shop all bundles</a></li>
                   </ul>
                 </div>
 
-                {%- comment -%}— Featured card (swappable via settings) —{%- endcomment -%}
+                {%- comment -%}— Featured card: Professional Complete; image pulled from the product's featured media (dynamic) —{%- endcomment -%}
                 <aside class="ss-hdr__featured">
-                  {%- if section.settings.shop_feat_image != blank -%}
-                    <img class="ss-hdr__featured-media" src="{{ section.settings.shop_feat_image | image_url: width: 600 }}" alt="{{ section.settings.shop_feat_title | default: 'Featured bundle' | escape }}" width="560" height="420" loading="lazy">
+                  {%- if feat_product.featured_image != blank -%}
+                    <img class="ss-hdr__featured-media" src="{{ feat_product.featured_image | image_url: width: 600 }}" alt="{{ feat_title | escape }}" width="560" height="420" loading="lazy">
                   {%- else -%}
                     <span class="ss-hdr__featured-media ss-hdr__featured-ph" aria-hidden="true">Senseless</span>
                   {%- endif -%}
                   <p class="ss-hdr__featured-eyebrow">{{ section.settings.shop_feat_eyebrow | default: 'Featured' | escape }}</p>
-                  <p class="ss-hdr__featured-title">{{ section.settings.shop_feat_title | default: 'Advanced Complete' | escape }}</p>
+                  <p class="ss-hdr__featured-title">{{ feat_title | escape }}</p>
                   {%- if section.settings.shop_feat_text != blank -%}<p class="ss-hdr__featured-text">{{ section.settings.shop_feat_text | escape }}</p>{%- endif -%}
-                  <a class="ss-hdr__featured-cta" href="{{ section.settings.shop_feat_url | default: '/products/advanced-numbing-kit-large' }}">{{ section.settings.shop_feat_cta | default: 'Shop the kit' | escape }}</a>
+                  <a class="ss-hdr__featured-cta" href="{{ feat_url }}">{{ section.settings.shop_feat_cta | default: 'Shop the kit' | escape }}</a>
                 </aside>
 
               </div>
@@ -491,6 +530,26 @@
                 <a href="/products/foaming-cleanser">Foaming Cleanser</a>
               </div>
               <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">By strength</p>
+                {%- for s in str_labels -%}
+                  {%- assign sti = forloop.index0 -%}
+                  {%- assign s_slug = str_slugs[sti] -%}
+                  <div class="ss-hdr__subacc">
+                    <button class="ss-hdr__subacc-btn" type="button" aria-expanded="false" aria-controls="ss-dacc-{{ uid }}-str-{{ s_slug }}" data-ss-subacc>
+                      {{ s }}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="ss-hdr__subacc-panel" id="ss-dacc-{{ uid }}-str-{{ s_slug }}" hidden>
+                      {%- for fl in str_fmt_labels -%}
+                        {%- assign fmi = forloop.index0 -%}
+                        <a href="/products/{{ s_slug }}-strength-{{ str_fmt_slugs[fmi] }}">{{ s }} {{ fl }}</a>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- endfor -%}
+                <a class="ss-hdr__acc-foot" href="/pages/the-senseless-system">Find your strength</a>
+              </div>
+              <div class="ss-hdr__accgroup">
                 <p class="ss-hdr__accgroup-title">By procedure</p>
                 <a href="/collections/numbing-cream-for-microneedling">Microneedling</a>
                 <a href="/collections/numbing-cream-for-laser-treatment">Laser hair removal</a>
@@ -499,16 +558,10 @@
                 <a class="ss-hdr__acc-foot" href="/pages/aesthetic-procedures">See all procedures</a>
               </div>
               <div class="ss-hdr__accgroup">
-                <p class="ss-hdr__accgroup-title">By strength</p>
-                <a href="/pages/the-senseless-system">Clinical</a>
-                <a href="/pages/the-senseless-system">Advanced</a>
-                <a href="/pages/the-senseless-system">Professional</a>
-                <a class="ss-hdr__acc-foot" href="/pages/the-senseless-system">Find your strength</a>
-              </div>
-              <div class="ss-hdr__accgroup">
                 <p class="ss-hdr__accgroup-title">Bundles</p>
-                {%- for p in collections['bundles'].products limit: 5 -%}
-                  <a href="{{ p.url }}">{{ p.title | escape }}</a>
+                {%- for h in bundle_handles -%}
+                  {%- assign bp = all_products[h] -%}
+                  {%- if bp != blank -%}<a href="{{ bp.url }}">{{ bp.title | escape }}</a>{%- endif -%}
                 {%- endfor -%}
                 <a class="ss-hdr__acc-foot" href="/collections/bundles">Shop all bundles</a>
               </div>
@@ -711,11 +764,11 @@
     { "type": "text", "id": "mega_cta_label", "label": "Shop CTA label", "default": "Shop all" },
     { "type": "url", "id": "mega_cta_url", "label": "Shop CTA link", "info": "Filled purple button at the foot of the Shop mega. Default: /collections/shop-all." },
     { "type": "header", "content": "Shop — featured card" },
-    { "type": "image_picker", "id": "shop_feat_image", "label": "Featured image", "info": "Optional. Falls back to a neutral brand placeholder until bundle photography exists." },
+    { "type": "product", "id": "shop_feat_product", "label": "Featured product", "info": "Defaults to Professional Complete (professional-numbing-kit-large). The card image is pulled from this product's featured media (auto-updates when real photography is added); a neutral brand placeholder shows until then." },
     { "type": "text", "id": "shop_feat_eyebrow", "label": "Featured eyebrow", "default": "Featured" },
-    { "type": "text", "id": "shop_feat_title", "label": "Featured title", "default": "Advanced Complete" },
+    { "type": "text", "id": "shop_feat_title", "label": "Featured title override", "info": "Leave blank to use the product's own title (e.g. 'Professional Complete' once renamed)." },
     { "type": "text", "id": "shop_feat_text", "label": "Featured text", "default": "Everything for the appointment, in one kit." },
-    { "type": "url", "id": "shop_feat_url", "label": "Featured link", "info": "Default: /products/advanced-numbing-kit-large" },
+    { "type": "url", "id": "shop_feat_url", "label": "Featured link override", "info": "Leave blank to link the featured product." },
     { "type": "text", "id": "shop_feat_cta", "label": "Featured CTA label", "default": "Shop the kit" }
   ],
   "enabled_on": { "groups": ["header"] },
