@@ -36,7 +36,10 @@ export class AnchoredPopoverComponent extends Component {
     trigger.dataset.hoverActive = 'true';
     if (!popover.matches(':popover-open')) {
       this.#popoverTrigger = setTimeout(() => {
-        if (trigger.matches('[data-hover-active]')) popover.showPopover();
+        // Guard against the element being detached by a section re-render (e.g. cart add) before the timeout fires.
+        if (trigger.matches('[data-hover-active]') && popover.isConnected && !popover.matches(':popover-open')) {
+          popover.showPopover();
+        }
       }, this.interaction_delay);
     }
   };
