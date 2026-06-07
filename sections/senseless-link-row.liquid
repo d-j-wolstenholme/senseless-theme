@@ -22,7 +22,9 @@
   .ss-lr__intro p { margin:0; }
   .ss-lr__list { list-style:none; margin:14px 0 0; padding:0; border-top:1px solid var(--bd); }
   .ss-lr__item { display:flex; flex-wrap:wrap; gap:4px 14px; align-items:baseline; padding:14px 0; border-bottom:1px solid var(--bd); }
-  .ss-lr__name { font-family:var(--sans); font-weight:600; font-size:15px; color:var(--ink); flex:0 0 auto; text-decoration:none; }
+  /* Mobile (2026-06-07): names sit in a plain bordered list, so semibold purple reads as a stack of
+     small section titles rather than links. Medium on mobile; desktop restores 600 (min-width:700). */
+  .ss-lr__name { font-family:var(--sans); font-weight:500; font-size:15px; color:var(--ink); flex:0 0 auto; text-decoration:none; }
   .ss-lr__name--tag { display:inline-flex; align-items:center; background:rgba(107,63,160,.08); color:var(--p); border:1px solid rgba(107,63,160,.25); border-radius:999px; padding:3px 12px; font-size:13px; }
   a.ss-lr__name { color:var(--p); }
   a.ss-lr__name:hover { text-decoration:underline; }
@@ -30,7 +32,7 @@
   .ss-lr__note { font-family:var(--sans); font-size:14.5px; line-height:1.5; color:var(--sec); flex:1 1 280px; }
   .ss-lr__closer { font-family:var(--sans); font-size:14.5px; line-height:1.6; color:var(--sec); margin:18px 0 0; }
   .ss-lr__closer p { margin:0; }
-  @media (min-width:700px) { .ss-lr__name { flex:0 0 220px; } .ss-lr__headline { font-size:26px; } }
+  @media (min-width:700px) { .ss-lr__name { flex:0 0 220px; font-weight:600; } .ss-lr__headline { font-size:26px; } }
   @media (min-width:1024px) { .ss-lr__inner { padding:64px 20px; } }
 {%- endstyle -%}
 

@@ -67,6 +67,12 @@
   @media (max-width: 560px) {
     .ss-ft__inner { padding: 40px 20px 24px; }
     .ss-ft__legal { flex-direction: column; align-items: flex-start; }
+    /* Mobile (2026-06-07): the caps column heading is the section label, but its links were larger
+       (15px) than the heading, softening the hierarchy. Trim links + lift the heading so each
+       column reads as label-then-links. Desktop unchanged. */
+    .ss-ft__colhead { margin-bottom: 12px; color: var(--ss-fg); }
+    .ss-ft__list { gap: 9px; }
+    .ss-ft__list a { font-size: 0.875rem; }
   }
 {%- endstyle -%}
 

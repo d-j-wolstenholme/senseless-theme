@@ -45,4 +45,12 @@
   .caption { font-size: 0.8125rem; line-height: 1.45; font-weight: 400; color: var(--text-secondary); }
   /* Italic accent — one emphasis word per hero/section head. Montserrat italic 500, same colour as the head (no purple). */
   .ss-accent, .t-em { font-style: italic; font-weight: 500; color: inherit; }
+
+  /* Mobile section separation (2026-06-07, Strand 1): on small screens, sections stack into one
+     column and the desktop column/whitespace cues that mark "where one section ends" disappear, so
+     blocks blur together. Add a subtle hairline between adjacent content sections — mobile only,
+     desktop unchanged. The first section (hero) has no preceding sibling, so it gets no line. */
+  @media (max-width: 749px) {
+    #MainContent .shopify-section + .shopify-section { border-top: 1px solid rgba(26, 24, 22, 0.07); }
+  }
 {% endstyle %}
