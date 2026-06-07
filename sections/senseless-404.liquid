@@ -1,0 +1,100 @@
+{%- comment -%}
+  Senseless — 404 (bespoke, replaces Horizon's stock main-404).
+  Calm, declarative voice. Search box + curated routes back into the site:
+  Home · Shop All · the 3 strength collections · Shop by format · Shop by procedure · Help/Contact.
+  Brand chrome (header/footer) comes from the layout. Brand tokens baked in.
+{%- endcomment -%}
+{%- style -%}
+  .ss-404 { --p:#6B3FA0; --ph:#5A3489; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); font-family:var(--sans); }
+  .ss-404__inner { max-width:760px; margin:0 auto; padding:80px 20px 88px; text-align:center; }
+  .ss-404__eyebrow { font-weight:600; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--p); margin:0 0 14px; }
+  .ss-404__headline { font-weight:400; letter-spacing:-0.02em; line-height:1.1; font-size:34px; color:var(--ink); margin:0 0 14px; }
+  .ss-404__headline .ss-404__em { font-style:italic; font-weight:500; }
+  .ss-404__body { font-weight:400; font-size:16px; line-height:1.6; color:var(--sec); margin:0 auto 28px; max-width:48ch; }
+  .ss-404__search { display:flex; gap:10px; max-width:440px; margin:0 auto 40px; }
+  .ss-404__search input { flex:1 1 auto; min-width:0; height:46px; padding:0 16px; border:1px solid var(--bd); border-radius:14px; background:var(--surf); font-family:var(--sans); font-size:15px; color:var(--ink); }
+  .ss-404__search input:focus { outline:2px solid var(--p); outline-offset:1px; border-color:var(--p); }
+  .ss-404__search button { flex:0 0 auto; height:46px; padding:0 22px; border:0; border-radius:14px; background:var(--p); color:#fff; font-family:var(--sans); font-weight:600; font-size:15px; cursor:pointer; transition:background-color .2s ease; }
+  .ss-404__search button:hover { background:var(--ph); }
+  .ss-404__primary { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin:0 0 44px; }
+  .ss-404__btn { display:inline-flex; align-items:center; height:46px; padding:0 24px; border-radius:14px; font-family:var(--sans); font-weight:600; font-size:15px; text-decoration:none; transition:background-color .2s ease,color .2s ease; }
+  .ss-404__btn--solid { background:var(--p); color:#fff; }
+  .ss-404__btn--solid:hover { background:var(--ph); }
+  .ss-404__btn--ghost { background:transparent; color:var(--p); border:1px solid var(--p); }
+  .ss-404__btn--ghost:hover { background:var(--p); color:#fff; }
+  .ss-404__groups { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px 32px; text-align:left; border-top:1px solid var(--bd); padding-top:36px; }
+  .ss-404__gtitle { font-weight:600; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--p); margin:0 0 12px; }
+  .ss-404__list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+  .ss-404__list a { font-family:var(--sans); font-weight:500; font-size:15px; color:var(--body); text-decoration:none; transition:color .2s ease; }
+  .ss-404__list a:hover { color:var(--p); }
+  @media (max-width:600px) {
+    .ss-404__headline { font-size:28px; }
+    .ss-404__search { flex-direction:column; }
+    .ss-404__search button { width:100%; }
+    .ss-404__groups { grid-template-columns:1fr; gap:24px; }
+    .ss-404__inner { padding:56px 20px 64px; text-align:left; }
+    .ss-404__primary { justify-content:flex-start; }
+    .ss-404__body { margin-left:0; }
+    .ss-404__search { margin-left:0; }
+  }
+{%- endstyle -%}
+<section class="ss-404">
+  <div class="ss-404__inner">
+    <p class="ss-404__eyebrow">{{ section.settings.eyebrow | default: 'Error 404' | escape }}</p>
+    <h1 class="ss-404__headline">{{ section.settings.headline | default: 'We couldn’t find that page.' | escape }}</h1>
+    {%- if section.settings.body != blank -%}<p class="ss-404__body">{{ section.settings.body }}</p>{%- endif -%}
+
+    <form class="ss-404__search" action="{{ routes.search_url }}" method="get" role="search">
+      <label class="visually-hidden" for="ss-404-q">Search</label>
+      <input type="search" id="ss-404-q" name="q" placeholder="Search Senseless" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="ss-404__primary">
+      <a class="ss-404__btn ss-404__btn--solid" href="{{ routes.root_url }}">Back to home</a>
+      <a class="ss-404__btn ss-404__btn--ghost" href="/collections/shop-all">Shop all</a>
+    </div>
+
+    <div class="ss-404__groups">
+      <div class="ss-404__group">
+        <p class="ss-404__gtitle">By strength</p>
+        <ul class="ss-404__list">
+          <li><a href="/collections/clinical">Clinical Strength</a></li>
+          <li><a href="/collections/advanced">Advanced Strength</a></li>
+          <li><a href="/collections/professional">Professional Strength</a></li>
+        </ul>
+      </div>
+      <div class="ss-404__group">
+        <p class="ss-404__gtitle">By format</p>
+        <ul class="ss-404__list">
+          <li><a href="/collections/numbing-cream">Numbing Cream</a></li>
+          <li><a href="/collections/numbing-gel">Numbing Gel</a></li>
+          <li><a href="/collections/numbing-spray">Numbing Spray</a></li>
+        </ul>
+      </div>
+      <div class="ss-404__group">
+        <p class="ss-404__gtitle">More</p>
+        <ul class="ss-404__list">
+          <li><a href="/pages/aesthetic-procedures">Shop by procedure</a></li>
+          <li><a href="/pages/the-senseless-system">Find your strength</a></li>
+          <li><a href="/pages/faq">Help &amp; FAQ</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — 404",
+  "tag": "section",
+  "class": "senseless-section senseless-404",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Error 404" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "We couldn’t find that page." },
+    { "type": "richtext", "id": "body", "label": "Body", "default": "<p>The link may be out of date, or the page may have moved. Search the site, or pick up the range below.</p>" }
+  ]
+}
+{% endschema %}
