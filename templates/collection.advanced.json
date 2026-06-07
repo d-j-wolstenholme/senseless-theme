@@ -4,13 +4,10 @@
       "type": "senseless-collection-hero",
       "settings": {
         "eyebrow": "Advanced Strength",
-        "headline": "Advanced Strength, for longer or more demanding work.",
-        "accent_word": "demanding",
-        "subhead": "<p>A higher-strength formula \u2014 cream, gel and spray at Advanced Strength, for longer sessions or more sensitive treatment areas.</p>",
+        "headline": "Advanced Strength",
+        "subhead": "<p>A higher-strength formula in the Senseless system, made for longer appointments and more sensitive treatment areas. The strength studios reach for when a session asks more of the skin \u2014 for when the appointment asks more.</p>",
         "primary_cta_label": "Shop Advanced",
         "primary_cta_url": "#shop",
-        "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/the-senseless-system",
         "image_alt": "Senseless Advanced Strength numbing range \u2014 cream, gel and spray"
       }
     },
@@ -58,8 +55,16 @@
         "headline": "Shop Advanced Strength",
         "anchor_id": "shop",
         "show_filters": false,
-        "format": "all",
-        "accent_word": "Advanced"
+        "format": "all"
+      }
+    },
+    "whentochoose": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "headline": "When to choose",
+        "body": "<p>Choose Advanced for longer sessions, or larger and more sensitive areas \u2014 a step up from Clinical. Available as a cream, gel or spray.</p>"
       }
     },
     "selectorlink": {
@@ -68,9 +73,53 @@
         "style": "neutral",
         "eyebrow": "The Senseless Selector",
         "heading": "Not sure which strength?",
-        "body": "<p>Answer three quick questions \u2014 treatment, skin and session length \u2014 and we'll point you to the strength and format to match.</p>",
-        "cta_label": "Open the Selector",
+        "body": "<p>Strength matches the appointment, not the budget. Answer a few questions and we'll point you to the right one.</p>",
+        "cta_label": "Find your strength",
         "cta_url": "/pages/the-senseless-system#selector"
+      }
+    },
+    "crosslinks": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "x1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Clinical Strength",
+            "url": "/collections/clinical"
+          }
+        },
+        "x2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Professional Strength",
+            "url": "/collections/professional"
+          }
+        },
+        "x3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop by format",
+            "url": "/collections/shop-all"
+          }
+        },
+        "x4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop by procedure",
+            "url": "/pages/aesthetic-procedures"
+          }
+        }
+      },
+      "block_order": [
+        "x1",
+        "x2",
+        "x3",
+        "x4"
+      ],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Keep exploring",
+        "headline": "Other ways to shop"
       }
     }
   },
@@ -78,6 +127,8 @@
     "hero",
     "trust",
     "grid",
-    "selectorlink"
+    "whentochoose",
+    "selectorlink",
+    "crosslinks"
   ]
 }

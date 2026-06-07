@@ -4,13 +4,10 @@
       "type": "senseless-collection-hero",
       "settings": {
         "eyebrow": "Professional Strength",
-        "headline": "Professional Strength, our highest-strength formula.",
-        "accent_word": "highest-strength",
-        "subhead": "<p>Developed with practitioners \u2014 cream, gel and spray at Professional Strength, for the most demanding appointments.</p>",
+        "headline": "Professional Strength",
+        "subhead": "<p>Developed with practitioners and used in studios across the UK, Professional is the highest strength in the Senseless system \u2014 available without restriction. Trusted at the chair.</p>",
         "primary_cta_label": "Shop Professional",
         "primary_cta_url": "#shop",
-        "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/the-senseless-system",
         "image_alt": "Senseless Professional Strength numbing range \u2014 cream, gel and spray"
       }
     },
@@ -58,8 +55,16 @@
         "headline": "Shop Professional Strength",
         "anchor_id": "shop",
         "show_filters": false,
-        "format": "all",
-        "accent_word": "Professional"
+        "format": "all"
+      }
+    },
+    "whentochoose": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "headline": "When to choose",
+        "body": "<p>Reach for Professional for long appointments, large or particularly sensitive areas, or when you want the most concentrated formula we make. Available as a cream, gel or spray.</p>"
       }
     },
     "selectorlink": {
@@ -68,9 +73,53 @@
         "style": "neutral",
         "eyebrow": "The Senseless Selector",
         "heading": "Not sure which strength?",
-        "body": "<p>Answer three quick questions \u2014 treatment, skin and session length \u2014 and we'll point you to the strength and format to match.</p>",
-        "cta_label": "Open the Selector",
+        "body": "<p>Strength matches the appointment, not the budget. Answer a few questions and we'll point you to the right one.</p>",
+        "cta_label": "Find your strength",
         "cta_url": "/pages/the-senseless-system#selector"
+      }
+    },
+    "crosslinks": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "x1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Clinical Strength",
+            "url": "/collections/clinical"
+          }
+        },
+        "x2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Advanced Strength",
+            "url": "/collections/advanced"
+          }
+        },
+        "x3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop by format",
+            "url": "/collections/shop-all"
+          }
+        },
+        "x4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop by procedure",
+            "url": "/pages/aesthetic-procedures"
+          }
+        }
+      },
+      "block_order": [
+        "x1",
+        "x2",
+        "x3",
+        "x4"
+      ],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Keep exploring",
+        "headline": "Other ways to shop"
       }
     }
   },
@@ -78,6 +127,8 @@
     "hero",
     "trust",
     "grid",
-    "selectorlink"
+    "whentochoose",
+    "selectorlink",
+    "crosslinks"
   ]
 }

@@ -4,13 +4,10 @@
       "type": "senseless-collection-hero",
       "settings": {
         "eyebrow": "Clinical Strength",
-        "headline": "Clinical Strength, for standard appointments.",
-        "accent_word": "standard",
-        "subhead": "<p>The baseline of the Senseless system \u2014 cream, gel and spray at Clinical Strength, for routine aesthetic appointments. Pick the format that suits the treatment area.</p>",
+        "headline": "Clinical Strength",
+        "subhead": "<p>The baseline of the Senseless system \u2014 the strength most appointments call for. Clinical is formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>",
         "primary_cta_label": "Shop Clinical",
         "primary_cta_url": "#shop",
-        "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/the-senseless-system",
         "image_alt": "Senseless Clinical Strength numbing range \u2014 cream, gel and spray"
       }
     },
@@ -58,8 +55,16 @@
         "headline": "Shop Clinical Strength",
         "anchor_id": "shop",
         "show_filters": false,
-        "format": "all",
-        "accent_word": "Clinical"
+        "format": "all"
+      }
+    },
+    "whentochoose": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "headline": "When to choose",
+        "body": "<p>Most people start here. If your session is short or the treatment area is small, Clinical is the sensible first choice \u2014 available as a cream, gel or spray, so you can match the format to the area.</p>"
       }
     },
     "selectorlink": {
@@ -68,9 +73,53 @@
         "style": "neutral",
         "eyebrow": "The Senseless Selector",
         "heading": "Not sure which strength?",
-        "body": "<p>Answer three quick questions \u2014 treatment, skin and session length \u2014 and we'll point you to the strength and format to match.</p>",
-        "cta_label": "Open the Selector",
+        "body": "<p>Strength matches the appointment, not the budget. Answer a few questions and we'll point you to the right one.</p>",
+        "cta_label": "Find your strength",
         "cta_url": "/pages/the-senseless-system#selector"
+      }
+    },
+    "crosslinks": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "x1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Advanced Strength",
+            "url": "/collections/advanced"
+          }
+        },
+        "x2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Professional Strength",
+            "url": "/collections/professional"
+          }
+        },
+        "x3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop by format",
+            "url": "/collections/shop-all"
+          }
+        },
+        "x4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop by procedure",
+            "url": "/pages/aesthetic-procedures"
+          }
+        }
+      },
+      "block_order": [
+        "x1",
+        "x2",
+        "x3",
+        "x4"
+      ],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Keep exploring",
+        "headline": "Other ways to shop"
       }
     }
   },
@@ -78,6 +127,8 @@
     "hero",
     "trust",
     "grid",
-    "selectorlink"
+    "whentochoose",
+    "selectorlink",
+    "crosslinks"
   ]
 }
