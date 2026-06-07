@@ -12,24 +12,25 @@ This repo is the new build, started from latest Horizon as a clean base. Old the
 
 1. **Always ask which machine I'm on at session start.** Mac mini or MacBook Pro. Log it in the session report.
 2. **Always run `/session-start` before any work.** Pulls latest, runs drift check, fetches Notion priorities.
-3. **Always run `/session-end` before closing.** Commits and pushes to both GitHub and Shopify dev theme. No exceptions.
-4. **Never push to the live theme.** Build environment is the Shopify dev theme. Live theme is only switched at launch.
+3. **Always run `/session-end` before closing.** Commits and pushes to both GitHub (`main`) and the Shopify live theme. No exceptions.
+4. **`main` deploys to the LIVE theme.** As of launch (7 June 2026) **Senseless Dev `#199324434780` is the published LIVE theme** on `senseless-numbing`; day-to-day commits on `main` deploy straight to it via the CLI. The storefront password stays ON until public go-live, so live-theme changes aren't publicly visible yet — **but they ARE the live theme**: verify (theme-check 0 + render) before every push. The old dev-staging / never-publish model is retired.
 5. **Never edit BRAND.md, COMPLIANCE.md, ARCHITECTURE.md silently.** When a decision changes the design system, compliance rules, or architecture, update the relevant doc in the same session and surface the update in the build report.
 6. **Never default silently when ambiguous.** If a task isn't fully resolved by CLAUDE.md, the four docs, or `DECISIONS-LOG.md`, ask me before proceeding. Or proceed with an explicit assumption logged in the build report's Open Questions section.
 7. **Always use the `senseless-` prefix on new section files.** No exceptions.
 8. **Always run `compliance-check` before producing user-facing copy.** UK compliance is non-negotiable.
 9. **Always log strategic decisions in `DECISIONS-LOG.md`** with ISO 8601 timestamp in BST. Surface them in the build report so the planning chat (Claude) can mirror them to Notion.
 10. **Never put credentials in committed files.** `.env` is gitignored. Tokens stay in `.env` only.
-11. **Theme deploys go through Shopify CLI only** (`shopify theme push --store $SHOPIFY_STORE --theme $SHOPIFY_DEV_THEME_ID`). **Always pass `--store senseless-tattooing.myshopify.com`** — the CLI's default store is a different account (Totally Numb, `matrix-group-totally-numb`), so omitting `--store` pushes to the wrong store. Keep theme deploys in the CLI; never use the API token for theme push operations. The API token is for products, collections, metafields, files, and content only. Canonical Senseless dev theme: "Senseless Dev" `#196680057167` (unpublished).
-12. **All day-to-day work happens on the `dev` branch.** `main` is stable and merged into only at sprint/milestone completion. Never commit directly to `main` during build sessions.
+11. **Theme deploys go through Shopify CLI only** (`shopify theme push --store $SHOPIFY_STORE --theme $SHOPIFY_DEV_THEME_ID`). **Always pass `--store senseless-numbing.myshopify.com`** — the CLI's default store is a different account (Totally Numb, `matrix-group-totally-numb`), so omitting `--store` pushes to the wrong store. Keep theme deploys in the CLI; never use the API token for theme push operations. The API token is for products, collections, metafields, files, and content only. Canonical Senseless theme: "Senseless Dev" `#199324434780` — **now the published LIVE theme** (`SHOPIFY_DEV_THEME_ID` in `.env` points to it).
+12. **All work happens on `main`.** `main` is the single working branch and deploys directly to the live theme; commit + push to `main` every session. (The `dev`-staging / milestone-merge model is retired as of 7 June 2026 at launch.)
 
 ## Branching Strategy
 
-- **`dev`** — the default working branch. All day-to-day build work happens here.
-- **`main`** — stable. Merged into only at sprint/milestone completion. Never commit directly to `main` during build sessions.
-- `/session-start` checks out `dev`, pulls latest (`git pull origin dev`), then runs drift-check.
-- `/session-end` commits to `dev` and pushes to `dev`, then generates the build report.
-- Feature/fix branches (`feature/<desc>`, `fix/<desc>`) branch off `dev` and merge back into `dev`.
+*(Updated 7 June 2026 at launch — the `dev`-staging + milestone-merge model is retired.)*
+
+- **`main`** — the single working branch. All build work commits to `main` and deploys directly to the **live** Shopify theme (`#199324434780`).
+- `/session-start` checks out `main`, pulls latest (`git pull origin main`), then runs drift-check.
+- `/session-end` commits to `main`, pushes to `main` + the live theme, then generates the build report.
+- Feature/fix branches (`feature/<desc>`, `fix/<desc>`) are optional; branch off `main` and merge back into `main`.
 
 ## Naming Conventions
 
@@ -66,7 +67,7 @@ In `.claude/skills/`:
 | content-brief | Pull a content brief from Notion's Master Page Database |
 | compliance-check | Run draft copy against banned phrases, suggest alternatives |
 | seo-meta | Generate compliant meta title (≤60 chars) and description (≤155 chars) |
-| commit-and-deploy | Session-end: commit, push to GitHub, push to Shopify dev theme, build report |
+| commit-and-deploy | Session-end: commit, push to GitHub (`main`), push to the Shopify live theme, build report |
 | image-process | Run the image pipeline end-to-end (compress → upload → manifest → integrate) |
 | metafield-populator | Create/update Shopify metafield definitions and values via API |
 | page-builder | Chain content-brief → create-section → seo-meta → image-process |
@@ -100,7 +101,7 @@ Paste this report into the planning chat (Claude conversation) after every sessi
 
 ## What NOT to Touch
 
-- The live theme on Shopify (build environment is the dev theme)
+- The old **Horizon** theme (`#199321977180`, now unpublished) — kept as the rollback / reference theme; don't edit or republish it without instruction. (Live theme is now Senseless Dev `#199324434780` — see Hard Rule #4.)
 - `.env` file contents (set up once, never committed)
 - The four `[ARCHIVED]` or `[DELETE]` Notion pages
 - Old Senseless-Horizon theme files (reference only — don't pull from them)
@@ -110,7 +111,7 @@ Paste this report into the planning chat (Claude conversation) after every sessi
 - **Strategy:** Notion Senseless — Site Build OS (parent page: `https://www.notion.so/36c58bc375ea812c9682ca2aa0bc1950`)
 - **Decisions:** Notion Decisions Log (Vol 1 active: `https://www.notion.so/36d58bc375ea81708d1ac0fe0724d445`)
 - **Code:** This repo + GitHub `d-j-wolstenholme/senseless-theme`
-- **Live state:** Shopify Partners account `senseless-tattooing.myshopify.com`
+- **Live state:** Shopify store `senseless-numbing.myshopify.com` (live theme: Senseless Dev `#199324434780`; storefront password ON until public go-live)
 - **Local mirror:** `DECISIONS-LOG.md` at repo root (active volume only)
 
 ## References
