@@ -301,6 +301,39 @@
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-professional-ultimate-bundle.jpg?v=1780787932",
       "shopifyFileId": "gid://shopify/MediaImage/70122791108956",
       "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-clinical-strength-collection",
+      "type": "record",
+      "phase": "10-strength-collections",
+      "assignedTo": "collection.image: clinical (clean strength range shot)",
+      "alt": "Senseless Clinical Strength range — numbing cream, gel and spray",
+      "processedFile": "./assets/images/processed/senseless-clinical-strength-collection.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-strength-collection.jpg?v=1780792157",
+      "shopifyFileId": "gid://shopify/MediaImage/70123252810076",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-advanced-strength-collection",
+      "type": "record",
+      "phase": "10-strength-collections",
+      "assignedTo": "collection.image: advanced (clean strength range shot)",
+      "alt": "Senseless Advanced Strength range — numbing cream, gel and spray",
+      "processedFile": "./assets/images/processed/senseless-advanced-strength-collection.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-advanced-strength-collection.jpg?v=1780792164",
+      "shopifyFileId": "gid://shopify/MediaImage/70123253825884",
+      "uploadedAt": "2026-06-07"
+    },
+    {
+      "name": "senseless-professional-strength-collection",
+      "type": "record",
+      "phase": "10-strength-collections",
+      "assignedTo": "collection.image: professional (clean strength range shot)",
+      "alt": "Senseless Professional Strength range — numbing cream, gel and spray",
+      "processedFile": "./assets/images/processed/senseless-professional-strength-collection.jpg",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-professional-strength-collection.jpg?v=1780792171",
+      "shopifyFileId": "gid://shopify/MediaImage/70123254677852",
+      "uploadedAt": "2026-06-07"
     }
   ]
 }
