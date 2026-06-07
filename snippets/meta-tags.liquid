@@ -121,10 +121,10 @@
   {%- else -%}{{ page_title }}
     {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
     {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-    {%- unless page_title contains brand_name %} &ndash; {{ brand_name }}{% endunless -%}
+    {%- unless page_title contains brand_name %} | {{ brand_name }}{% endunless -%}
   {%- endif -%}
 {%- endcapture -%}
-<title>{{ doc_title | strip }}</title>
+<title>{{ doc_title | strip_newlines | strip }}</title>
 
 <link
   rel="canonical"
