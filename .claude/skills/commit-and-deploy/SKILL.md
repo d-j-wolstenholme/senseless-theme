@@ -1,6 +1,6 @@
 ---
 name: commit-and-deploy
-description: Use this skill at the end of every Claude Code session. Stages all changes, commits to GitHub with a descriptive message, pushes to origin/dev (NEVER main — main is stable/live-protected per Hard Rule #12), deploys to Shopify dev theme via Shopify CLI, and generates the structured build report. This is the enforced session-end protocol — every session ends with this skill. Trigger by /session-end or "end session" or "commit and deploy".
+description: Use this skill at the end of every Claude Code session. Stages all changes, commits to GitHub on `main`, pushes to origin/main, deploys to the Shopify LIVE theme (#199324434780 on senseless-numbing.myshopify.com) via Shopify CLI, and generates the structured build report. As of 7 June 2026 `main` is the single working branch and pushes deploy directly to the live theme — verify (theme-check 0 + render) BEFORE pushing. This is the enforced session-end protocol — every session ends with this skill. Trigger by /session-end or "end session" or "commit and deploy".
 ---
 
 # Commit & Deploy
@@ -17,21 +17,24 @@ description: Use this skill at the end of every Claude Code session. Stages all 
 
 ## Process
 
+**`main` is the single working branch and pushes deploy to the LIVE theme — verify before every push.**
+
 1. Run `git status` to show all changes
 2. Ask user to confirm what's being committed
-3. Stage all changes: `git add .`
-4. Commit with the provided message
-5. Push to origin **dev** — **NEVER `main`**. `main` is stable/live-protected (Hard Rule #12); all day-to-day work pushes to `dev`. If on a feature branch, push that branch and open a PR into `dev`:
+3. **Verify BEFORE deploying (pushes hit live):** `shopify theme check` must be **0 errors**, and password-render the changed surfaces (the storefront password stays ON until public go-live, so live changes aren't public yet — but they ARE live).
+4. Stage all changes: `git add .`
+5. Commit with the provided message
+6. Push to origin **main**:
    ```
-   git push origin dev   # or: git push origin <current-branch>
+   git push origin main
    ```
-6. If theme files changed, push to Shopify dev theme:
+7. If theme files changed, deploy to the **LIVE** theme via Shopify CLI — **`--allow-live` is required** (the theme is published, so the CLI refuses without it). Push changed files with `--only` and re-verify via Asset-API diff (the combined push has silently skipped template JSON before):
    ```
-   shopify theme push --store senseless-numbing.myshopify.com --theme [dev-theme-id]
+   shopify theme push --store senseless-numbing.myshopify.com --theme 199324434780 --allow-live --only <files>
    ```
-7. Run drift-check skill to surface any open discrepancies
-8. Generate the build report (full format below)
-9. Display report ready to paste into planning chat
+8. Run drift-check skill to surface any open discrepancies
+9. Generate the build report (full format below)
+10. Display report ready to paste into planning chat
 
 ## Build Report Format
 
@@ -69,12 +72,14 @@ description: Use this skill at the end of every Claude Code session. Stages all 
 
 ## Outputs
 
-- Git commit + push
-- Shopify dev theme push (if applicable)
+- Git commit + push to `origin/main`
+- Shopify **live** theme push (`#199324434780`, `--allow-live`) if theme files changed
 - Build report (paste into planning chat)
 
 ## Constraints
 
 - Never skip the build report.
-- Never push to live theme (only dev).
+- **Pushes deploy to the LIVE theme** (`#199324434780` on `senseless-numbing.myshopify.com`) — run `shopify theme check` (0 errors) + password-render the changed surfaces BEFORE pushing.
+- **Keep the storefront password ON** until public go-live (don't unpublish/expose the store as part of session-end).
+- `--allow-live` is mandatory on `shopify theme push` (the theme is published); after pushing, Asset-API-verify the changed files (the combined push has silently skipped template JSON).
 - If any drift-check warnings exist, flag in the report but don't block the push.
