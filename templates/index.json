@@ -25,7 +25,8 @@
             "heading": "For standard appointments",
             "body": "<p>The baseline of the system — the formula most appointments call for. Formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>",
             "cta_label": "Shop Clinical",
-            "cta_url": "/collections/numbing-cream?strength=clinical",
+            "cta_url": "/collections/clinical",
+            "collection": "clinical",
             "flagship": false,
             "image_alt": "Clinical Strength Senseless preparation on a warm off-white background"
           }
@@ -37,7 +38,8 @@
             "heading": "For longer or more demanding work",
             "body": "<p>A higher-strength formula, made for longer appointments and more sensitive treatment areas. The strength studios reach for when a session asks more of the skin. For when the appointment asks more.</p>",
             "cta_label": "Shop Advanced",
-            "cta_url": "/collections/numbing-cream?strength=advanced",
+            "cta_url": "/collections/advanced",
+            "collection": "advanced",
             "flagship": false,
             "image_alt": "Advanced Strength Senseless preparation on a warm off-white background"
           }
@@ -49,7 +51,8 @@
             "heading": "Our highest-strength formula",
             "body": "<p>Developed with practitioners and used in studios across the UK. The highest strength in the system — available without restriction. Trusted at the chair.</p>",
             "cta_label": "Shop Professional",
-            "cta_url": "/collections/numbing-cream?strength=professional",
+            "cta_url": "/collections/professional",
+            "collection": "professional",
             "flagship": true,
             "badge_text": "",
             "image_alt": "Professional Strength Senseless preparation on a warm off-white background"

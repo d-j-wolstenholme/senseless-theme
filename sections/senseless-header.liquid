@@ -380,8 +380,8 @@
                       {%- assign s_slug = str_slugs[sti] -%}
                       <li class="ss-fmt ss-str" data-ss-fmt>
                         <div class="ss-fmt__row">
-                          <button class="ss-str__head" type="button" aria-expanded="false" aria-controls="ss-stfly-{{ uid }}-{{ s_slug }}" aria-label="Show {{ s | escape }} strength products" data-ss-fmt-toggle>
-                            {{ s }}
+                          <a class="ss-hdr__sublink ss-fmt__head" href="/collections/{{ s_slug }}">{{ s }}</a>
+                          <button class="ss-fmt__toggle" type="button" aria-expanded="false" aria-controls="ss-stfly-{{ uid }}-{{ s_slug }}" aria-label="Show {{ s | escape }} products" data-ss-fmt-toggle>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                           </button>
                         </div>
@@ -392,6 +392,7 @@
                               <li><a class="ss-hdr__sublink" href="/products/{{ s_slug }}-strength-{{ str_fmt_slugs[fmi] }}">{{ s }} {{ fl }}</a></li>
                             {%- endfor -%}
                           </ul>
+                          <p class="ss-fmt__flyfoot"><a href="/collections/{{ s_slug }}">Shop all {{ s }}</a></p>
                         </div>
                       </li>
                     {%- endfor -%}
@@ -570,6 +571,7 @@
                         {%- assign fmi = forloop.index0 -%}
                         <a href="/products/{{ s_slug }}-strength-{{ str_fmt_slugs[fmi] }}">{{ s }} {{ fl }}</a>
                       {%- endfor -%}
+                      <a class="ss-hdr__acc-foot" href="/collections/{{ s_slug }}">Shop all {{ s }}</a>
                     </div>
                   </div>
                 {%- endfor -%}

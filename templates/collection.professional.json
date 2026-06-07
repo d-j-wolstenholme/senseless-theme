@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "Professional Strength",
+        "headline": "Professional Strength, our highest-strength formula.",
+        "accent_word": "highest-strength",
+        "subhead": "<p>Developed with practitioners \u2014 cream, gel and spray at Professional Strength, for the most demanding appointments.</p>",
+        "primary_cta_label": "Shop Professional",
+        "primary_cta_url": "#shop",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/the-senseless-system",
+        "image_alt": "Senseless Professional Strength numbing range \u2014 cream, gel and spray"
+      }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
+    },
+    "grid": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "headline": "Shop Professional Strength",
+        "anchor_id": "shop",
+        "show_filters": false,
+        "format": "all",
+        "accent_word": "Professional"
+      }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which strength?",
+        "body": "<p>Answer three quick questions \u2014 treatment, skin and session length \u2014 and we'll point you to the strength and format to match.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "grid",
+    "selectorlink"
+  ]
+}

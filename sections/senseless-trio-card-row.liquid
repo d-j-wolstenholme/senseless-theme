@@ -93,10 +93,19 @@
         {%- case block.type -%}
 
           {%- when 'tier_card' -%}
-            <div class="ss-card{% if block.settings.flagship %} ss-card--flagship{% endif %}" {{ block.shopify_attributes }}>
-              <div class="ss-card__media">
-                {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw' -%}
-              </div>
+            {%- liquid
+              assign tier_img = block.settings.image
+              if tier_img == blank and block.settings.collection != blank and block.settings.collection.image != blank
+                assign tier_img = block.settings.collection.image
+              endif
+            -%}
+            <div class="ss-card{% if block.settings.flagship %} ss-card--flagship{% endif %}{% if tier_img == blank %} ss-card--noimg{% endif %}" {{ block.shopify_attributes }}>
+              {%- comment -%} Empty-safe (§11): render the media only when collection.image (or an override) exists — no placeholder/grey box on a clean text card. {%- endcomment -%}
+              {%- if tier_img != blank -%}
+                <div class="ss-card__media">
+                  {{ tier_img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '400, 600, 800', alt: block.settings.image_alt }}
+                </div>
+              {%- endif -%}
               <div class="ss-card__body">
                 {%- if block.settings.label != blank -%}<p class="ss-card__label">{{ block.settings.label | escape }}</p>{%- endif -%}
                 {%- if block.settings.heading != blank -%}<h3 class="ss-card__heading">{{ block.settings.heading | escape }}</h3>{%- endif -%}
@@ -180,7 +189,8 @@
       "type": "tier_card",
       "name": "Tier card",
       "settings": [
-        { "type": "product", "id": "product", "label": "Linked product", "info": "Card image is pulled from this product's featured image unless an image is set below." },
+        { "type": "collection", "id": "collection", "label": "Linked collection", "info": "Empty-safe: the card image is pulled from this collection's image. If unset (and no override below), the card stays a clean text card — no placeholder." },
+        { "type": "product", "id": "product", "label": "Linked product (unused for tier cards)" },
         { "type": "image_picker", "id": "image", "label": "Image (override)" },
         { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless product on a warm off-white background" },
         { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Clinical Strength" },
