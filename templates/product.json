@@ -362,6 +362,12 @@
         "eyebrow": "The range",
         "band": "surface"
       }
+    },
+    "reviews": {
+      "type": "senseless-reviews",
+      "settings": {
+        "headline": "What clients say"
+      }
     }
   },
   "order": [
@@ -372,6 +378,7 @@
     "system",
     "trust",
     "faq",
+    "reviews",
     "keyfacts",
     "crosssell",
     "completeprep",

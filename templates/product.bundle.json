@@ -114,6 +114,12 @@
         "headline": "Common questions",
         "anchor_id": "faq"
       }
+    },
+    "reviews": {
+      "type": "senseless-reviews",
+      "settings": {
+        "headline": "What clients say"
+      }
     }
   },
   "order": [
@@ -121,6 +127,7 @@
     "contents",
     "trust",
     "system",
-    "faq"
+    "faq",
+    "reviews"
   ]
 }

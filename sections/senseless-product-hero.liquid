@@ -56,6 +56,8 @@
   .ss-ph--flagship .ss-ph__info { border: 2px solid var(--ss-purple); border-radius: 4px; padding: 24px; }
   .ss-ph__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-ph__title { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 30px; line-height: 1.15; margin: 0; }
+  .ss-ph__reviews { margin: 6px 0 2px; }
+  .ss-ph__reviews:empty { display: none; }
   .ss-ph__subtitle { font-family: var(--ss-head); font-weight: 500; font-size: 18px; color: var(--ss-body); margin: 0; }
   .ss-ph__price { font-family: var(--ss-sans); font-weight: 500; font-size: 20px; margin: 4px 0 0; }
   .ss-ph__price del { color: var(--ss-body); font-weight: 400; margin-right: 8px; }
@@ -116,6 +118,13 @@
     <div class="ss-ph__info">
       {%- if section.settings.eyebrow != blank -%}<p class="ss-ph__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       <h1 class="ss-ph__title">{{ p.title | escape }}</h1>
+      {%- comment -%} Judge.me Preview Badge app-block slot (near title, TN placement). Renders nothing
+         until the Preview Badge block is added in the editor; :empty-hidden so no zero-state ships. {%- endcomment -%}
+      {%- if section.blocks.size > 0 -%}
+        <div class="ss-ph__reviews">
+          {%- for block in section.blocks -%}{%- if block.type == '@app' -%}{%- render block -%}{%- endif -%}{%- endfor -%}
+        </div>
+      {%- endif -%}
       {%- if section.settings.subtitle != blank -%}<p class="ss-ph__subtitle">{{ section.settings.subtitle | escape }}</p>{%- endif -%}
       <p class="ss-ph__price" data-ph-price>
         {%- assign v = p.selected_or_first_available_variant -%}
@@ -244,6 +253,7 @@
     { "type": "text", "id": "delivery_line", "label": "Delivery line (static, below trust line)", "info": "Static reassurance only — no live progress here. Leave blank to hide.", "default": "Free UK delivery over £40" },
     { "type": "select", "id": "force_tier", "label": "Tier treatment", "default": "auto", "info": "Auto reads product tag 'Professional' or metafield senseless.tier. Professional gets the 2px purple border + filled CTA.", "options": [ { "value": "auto", "label": "Auto (from product)" }, { "value": "none", "label": "None" }, { "value": "professional", "label": "Professional" } ] }
   ],
+  "blocks": [ { "type": "@app" } ],
   "presets": [
     { "name": "Senseless — Product hero" }
   ]
