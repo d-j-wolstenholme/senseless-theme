@@ -4,6 +4,36 @@
   owns all header styling/behaviour. The previous "Find your strength" nav pill + Horizon
   `.header-menu` hover overrides were removed with that rebuild (the pill no longer belongs in the
   header). The footer still uses Horizon's native footer and needs no overrides here.
-  Intentionally empty — kept because it is rendered in layout/theme.liquid; reuse if a future
-  cross-cutting brand touch is needed.
+  Now also home to the brand mapping for two Shopify-owned components we don't fork:
+  the <shopify-account> customer-account component and the Horizon cart drawer. We set their
+  CSS custom properties here (head, loads AFTER the bundled theme CSS) instead of editing the
+  vendor snippet, mapping each to existing Senseless tokens (no new hex).
 {%- endcomment -%}
+{%- style -%}
+  /* ── Customer account component (<shopify-account>) ──────────────────────────────
+     header-actions.liquid (vendor) already maps the component's PRIMARY variables to theme
+     tokens: --color-accent → #6B3FA0, --color-accent-text → on-accent, --color-background,
+     --color-text, fonts (Montserrat) and radii. The component DERIVES the rest of its surface
+     (signed-in avatar, accent-hover, border, shadow, subdued/card/control tones) from those
+     primaries, so the opened account sheet is already brand-coherent — and those derived
+     variables can't be overridden from the page without !important (the component re-declares
+     them). We therefore pin only the signed-in avatar to brand (the one the brief calls out),
+     so it's brand-locked rather than relying on the derivation. Signed-out avatar is already
+     slot-replaced with the site account icon in header-actions. */
+  shopify-account {
+    --shopify-account-signed-in-avatar-color-background: var(--brand-primary) !important;
+    --shopify-account-signed-in-avatar-color-text: var(--color-primary-button-text, var(--bg-surface)) !important;
+    --shopify-account-signed-in-avatar-size: 28px !important; /* matches the header icon footprint / fallback avatar */
+    --shopify-account-avatar-size: 28px !important;
+  }
+
+  /* ── Cart drawer ─────────────────────────────────────────────────────────────────
+     Horizon's drawer already inherits Senseless tokens (canvas #f7f7f5 surface, Montserrat,
+     #6B3FA0 primary checkout button via the shared .button styles, 14px button radius). Pin the
+     heading to brand ink (was scheme foreground at 81% black) so it matches PDP/site headings.
+     Behaviour unchanged — auto-open stays OFF (count-only on add). */
+  .cart-drawer__dialog .cart-drawer__heading {
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+  }
+{%- endstyle -%}
