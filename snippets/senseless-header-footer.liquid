@@ -53,12 +53,10 @@
             mask: url("{{ 'senseless-asterisk.svg' | asset_url }}") center / contain no-repeat;
     background-color: var(--brand-primary) !important;
   }
-  /* Kill the original Judge.me star (the | between asterisks), whatever it's drawn with —
-     pseudo glyph, child svg/img, or a hardcoded-fill path. Our asterisk is the element's
-     masked background, so removing these leaves only the asterisk. */
-  .jdgm-star::before, .jdgm-star::after { content: none !important; background: none !important; }
-  .jdgm-star svg, .jdgm-star img { display: none !important; }
-  .jdgm-star path { fill: transparent !important; stroke: none !important; }
+  /* Kill the original Judge.me SVG star (the | between asterisks) WITHOUT collapsing the
+     element — hide its fill/stroke (keeps the box that sizes our masked-background asterisk). */
+  .jdgm-star::before, .jdgm-star::after { content: none !important; }
+  .jdgm-star, .jdgm-star * { fill: transparent !important; stroke: transparent !important; }
   .jdgm-star.jdgm--off {
     background-color: color-mix(in srgb, var(--brand-primary) 20%, var(--bg-surface, #fff)) !important;
   }
