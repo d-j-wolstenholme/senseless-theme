@@ -5,7 +5,16 @@
       "settings": {
         "trust_line": "UK formulated · Cosmetic product",
         "delivery_line": "Free UK delivery over £40"
-      }
+      },
+      "blocks": {
+        "judgeme_preview_badge": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judgeme_preview_badge"
+      ]
     },
     "contents": {
       "type": "senseless-bundle-contents",
