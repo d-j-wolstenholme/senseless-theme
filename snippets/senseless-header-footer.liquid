@@ -49,10 +49,12 @@
     color: transparent !important;
     -webkit-text-fill-color: transparent !important;  /* kill residual glyph (the | artifact) */
     text-shadow: none !important;
+    background-image: none !important;  /* THE FIX: original star is a background-image sprite — survives every other property. The half rule re-adds its gradient below. */
     -webkit-mask: url("{{ 'senseless-asterisk.svg' | asset_url }}") center / contain no-repeat;
             mask: url("{{ 'senseless-asterisk.svg' | asset_url }}") center / contain no-repeat;
     background-color: var(--brand-primary) !important;
   }
+  .jdgm-prev-badge__stars, .jdgm-star-rating, .jdgm-histogram { background-image: none !important; }
   .jdgm-star.jdgm--off {
     background-color: color-mix(in srgb, var(--brand-primary) 20%, var(--bg-surface, #fff)) !important;
   }
