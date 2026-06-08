@@ -60,4 +60,13 @@
     background-color: transparent !important;
     background-image: linear-gradient(90deg, var(--brand-primary) 0 50%, color-mix(in srgb, var(--brand-primary) 20%, var(--bg-surface, #fff)) 50% 100%) !important;
   }
+  /* The original star is a ::before glyph (content:none collapsed it earlier, and the parent's
+     transparent colour doesn't reach it). Make the pseudo itself invisible WITHOUT removing it,
+     so the box keeps sizing our masked asterisk and the | (the original star) disappears. */
+  .jdgm-star::before, .jdgm-star::after {
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    background: transparent !important;
+    text-shadow: none !important;
+  }
 {%- endstyle -%}
