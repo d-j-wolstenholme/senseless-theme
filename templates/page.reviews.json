@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "Reviews",
+        "headline": "What clients say",
+        "subhead": "<p>What people made of Senseless — reviews from across the range.</p>",
+        "image_alt": "Senseless numbing range on a warm off-white background"
+      }
+    },
+    "reviews": {
+      "type": "senseless-reviews",
+      "settings": {
+        "headline": ""
+      }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "name": "Reviews",
+        "description": "Customer reviews of Senseless numbing cream, gel and spray for aesthetic and cosmetic procedures."
+      }
+    }
+  },
+  "order": ["hero", "reviews", "schema"]
+}
