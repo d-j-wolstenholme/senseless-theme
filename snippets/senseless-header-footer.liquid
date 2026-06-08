@@ -36,47 +36,4 @@
     color: var(--text-primary);
     font-family: var(--font-sans);
   }
-
-  /* ── Judge.me stars → Senseless starburst (EXPERIMENT) ──────────────────────────────
-     Replaces Judge.me's star glyph with the brand starburst via mask-image. Filled = brand
-     purple, empty = light purple-grey, half = 50/50 split. Works whether Judge.me renders
-     stars as an icon-font or inline SVG (hide the glyph with transparent colour, paint the
-     element's box through the starburst mask). Revert = delete this block.
-     If it looks wrong, fall back to the plain #6B3FA0 recolour in Judge.me settings. */
-  .jdgm-star.jdgm--on,
-  .jdgm-star.jdgm--off,
-  .jdgm-star.jdgm--half {
-    color: transparent !important;
-    -webkit-text-fill-color: transparent !important;  /* kill residual glyph (the | artifact) */
-    text-shadow: none !important;
-    background-image: none !important;  /* THE FIX: original star is a background-image sprite — survives every other property. The half rule re-adds its gradient below. */
-    -webkit-mask: url("{{ 'senseless-asterisk.svg' | asset_url }}") center / contain no-repeat;
-            mask: url("{{ 'senseless-asterisk.svg' | asset_url }}") center / contain no-repeat;
-    background-color: var(--brand-primary) !important;
-  }
-  .jdgm-prev-badge__stars, .jdgm-star-rating, .jdgm-histogram { background-image: none !important; }
-  .jdgm-star.jdgm--off {
-    background-color: color-mix(in srgb, var(--brand-primary) 20%, var(--bg-surface, #fff)) !important;
-  }
-  .jdgm-star.jdgm--half {
-    background-color: transparent !important;
-    background-image: linear-gradient(90deg, var(--brand-primary) 0 50%, color-mix(in srgb, var(--brand-primary) 20%, var(--bg-surface, #fff)) 50% 100%) !important;
-  }
-  /* The original star is a ::before glyph (content:none collapsed it earlier, and the parent's
-     transparent colour doesn't reach it). Make the pseudo itself invisible WITHOUT removing it,
-     so the box keeps sizing our masked asterisk and the | (the original star) disappears. */
-  .jdgm-star::before, .jdgm-star::after {
-    color: transparent !important;
-    -webkit-text-fill-color: transparent !important;
-    background: transparent !important;
-    text-shadow: none !important;
-  }
-  /* The | survives every colour/fill/background/pseudo change, so it must be structural:
-     a border, outline, box-shadow, or a stroked star path. Remove those (none collapse the box). */
-  .jdgm-star, .jdgm-star::before, .jdgm-star::after {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-  }
-  .jdgm-star * { stroke: transparent !important; }
 {%- endstyle -%}
