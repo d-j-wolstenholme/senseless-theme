@@ -224,9 +224,10 @@
   .ss-hdr__drawer[data-open="true"] { transform: translateX(0); }
   .ss-hdr__drawerhead { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--ss-border); }
   /* Pinned Shop-all CTA at top of mobile drawer — full-width filled-purple brand button. */
-  .ss-hdr__drawercta { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 4px 0 14px; height: 48px; border-radius: 14px; background: var(--ss-purple); color: #fff; font-family: var(--ss-head); font-weight: 600; font-size: 16px; text-decoration: none; transition: background-color 200ms ease-out; }
-  .ss-hdr__drawercta::after { content: '\2192'; }
-  .ss-hdr__drawercta:hover, .ss-hdr__drawercta:active { background: var(--ss-purple-hover); }
+  /* Scoped above .ss-hdr__accpanel a (the child-link rule) so the white label isn't overridden. */
+  .ss-hdr__accpanel a.ss-hdr__drawercta { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 4px 0 14px; padding: 0; height: 48px; border-radius: 14px; background: var(--ss-purple); color: #fff; font-family: var(--ss-head); font-weight: 600; font-size: 16px; text-decoration: none; transition: background-color 200ms ease-out; }
+  .ss-hdr__accpanel a.ss-hdr__drawercta::after { content: '\2192'; }
+  .ss-hdr__accpanel a.ss-hdr__drawercta:hover, .ss-hdr__accpanel a.ss-hdr__drawercta:active { background: var(--ss-purple-hover); color: #fff; }
   .ss-hdr__close { width: 44px; height: 44px; border: 0; background: transparent; color: var(--ss-text); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
   .ss-hdr__close svg { width: 22px; height: 22px; }
   .ss-hdr__drawernav { list-style: none; margin: 0; padding: 8px 0; }
