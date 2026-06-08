@@ -69,4 +69,12 @@
     background: transparent !important;
     text-shadow: none !important;
   }
+  /* The | survives every colour/fill/background/pseudo change, so it must be structural:
+     a border, outline, box-shadow, or a stroked star path. Remove those (none collapse the box). */
+  .jdgm-star, .jdgm-star::before, .jdgm-star::after {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+  .jdgm-star * { stroke: transparent !important; }
 {%- endstyle -%}
