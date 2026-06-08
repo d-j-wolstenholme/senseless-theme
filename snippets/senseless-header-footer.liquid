@@ -47,6 +47,8 @@
   .jdgm-star.jdgm--off,
   .jdgm-star.jdgm--half {
     color: transparent !important;
+    -webkit-text-fill-color: transparent !important;  /* kill residual glyph (the | artifact) */
+    text-shadow: none !important;
     -webkit-mask: url("{{ 'senseless-starburst.svg' | asset_url }}") center / contain no-repeat;
             mask: url("{{ 'senseless-starburst.svg' | asset_url }}") center / contain no-repeat;
     background-color: var(--brand-primary) !important;
