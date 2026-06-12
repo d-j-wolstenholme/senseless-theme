@@ -5,6 +5,9 @@
   @param {string} [section_id] - The section ID for cart discount component.
 {%- enddoc -%}
 
+{%- comment -%} Senseless cart add-on offer (inline, in-drawer) — ONE suggested add per the Upsell & Cross-sell Strategy; pairs with the free-shipping bar. {%- endcomment -%}
+{% render 'senseless-cart-offer', section_id: section_id %}
+
 <div class="cart-totals">
   {% # We need to keep this node in place to allow morphing to work properly # %}
   <div class="cart-totals__original-container cart-primary-typography">

@@ -1,0 +1,148 @@
+{%- doc -%}
+  Senseless — cart add-on offer row (INLINE, in-drawer). NOT a popup.
+
+  Per "Upsell & Cross-sell Strategy — site-wide": ONE suggested add, paired with the free-shipping
+  bar, to complete the cart-upsell loop. No pop-ups / urgency / scarcity — value framing only.
+
+  Offer LOGIC adapted from Totally Numb sections/tn-cart-upsell.liquid @ 36b0af4 (System 2):
+  product wiring + the "already in cart" guard + AJAX add + dismiss state ONLY. The popup
+  presentation is deliberately NOT ported, and System 1 (free-shipping bar =
+  senseless-shipping-banner) is untouched.
+
+  Add mechanism reuses Horizon <product-form-component> + add-to-cart-button (same plumbing as
+  senseless-quick-add) → AJAX /cart/add → the cart drawer refreshes. Rendered from
+  cart-summary.liquid, so it appears in the drawer + cart page and re-evaluates on every cart
+  re-render (auto-hides the moment the offer product is added).
+
+  Hidden when: product missing / unavailable · already in cart · dismissed this session ·
+  a bundle suggestion is active (placeholder hook — the cart bundle-suggestion logic from the
+  strategy page is NOT built yet; this defers to it cleanly once it exists).
+
+  @param {string} [section_id] - host cart section id (wires product-form-component)
+{%- enddoc -%}
+{%- liquid
+  assign offer_handle = 'vitamin-a-d-ointment-4-pack'
+  assign offer = all_products[offer_handle]
+  assign offer_variant = offer.selected_or_first_available_variant
+
+  assign show = false
+  if offer != blank and offer_variant != blank and offer_variant.available
+    assign show = true
+  endif
+
+  # Already in the cart? (TN System-2 guard.) Re-evaluated on every cart re-render.
+  if show
+    for item in cart.items
+      if item.variant_id == offer_variant.id
+        assign show = false
+        break
+      endif
+    endfor
+  endif
+
+  # Bundle-suggestion deference (one mechanism per moment). The cart bundle-suggestion logic
+  # from the Upsell & Cross-sell Strategy is not yet built; this hook keeps the ointment offer
+  # subordinate to it for when it lands. Currently always false → ointment shows.
+  assign bundle_suggestion_active = false
+  if bundle_suggestion_active
+    assign show = false
+  endif
+
+  assign form_id = 'SSCartOffer-' | append: section_id | append: '-' | append: offer.id
+-%}
+{%- if show -%}
+  <div class="ss-co" data-ss-cart-offer>
+    <div class="ss-co__media">
+      {%- if offer.featured_image -%}
+        <img class="ss-co__img" src="{{ offer.featured_image | image_url: width: 120 }}" alt="{{ offer.featured_image.alt | default: offer.title | escape }}" width="56" height="56" loading="lazy">
+      {%- else -%}
+        <span class="ss-co__ph" aria-hidden="true">{{ 'image' | placeholder_svg_tag }}</span>
+      {%- endif -%}
+    </div>
+    <div class="ss-co__text">
+      <p class="ss-co__eyebrow">Add to your order</p>
+      <p class="ss-co__title">{{ offer.title | escape }}</p>
+      <p class="ss-co__price">{{ offer_variant.price | money }}</p>
+    </div>
+    <product-form-component
+      data-section-id="{{ section_id }}"
+      data-product-id="{{ offer.id }}"
+      on:submit="/handleSubmit"
+      class="ss-co__form"
+    >
+      <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+      {%- form 'product', offer, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+        <input type="hidden" name="id" ref="variantId" value="{{ offer_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        {% render 'add-to-cart-button',
+          product: offer,
+          can_add_to_cart: true,
+          add_to_cart_text: 'Add',
+          class: 'ss-co__add',
+          id: form_id
+        %}
+      {%- endform -%}
+    </product-form-component>
+    <button type="button" class="ss-co__dismiss" data-ss-cart-offer-dismiss aria-label="Dismiss this suggestion">&times;</button>
+  </div>
+
+  <script>
+    (function () {
+      if (window.__ssCartOfferInit) { window.__ssCartOfferApply && window.__ssCartOfferApply(); return; }
+      window.__ssCartOfferInit = true;
+      var KEY = 'ss-cart-offer-dismissed';
+      function apply() {
+        var dismissed = false;
+        try { dismissed = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+        if (!dismissed) return;
+        document.querySelectorAll('[data-ss-cart-offer]').forEach(function (el) { el.setAttribute('hidden', ''); });
+      }
+      window.__ssCartOfferApply = apply;
+      // Dismiss (delegated — survives cart re-renders).
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest && e.target.closest('[data-ss-cart-offer-dismiss]');
+        if (!btn) return;
+        try { sessionStorage.setItem(KEY, '1'); } catch (e2) {}
+        var row = btn.closest('[data-ss-cart-offer]');
+        if (row) row.setAttribute('hidden', '');
+      });
+      // Re-apply dismissed state whenever the cart drawer/section re-renders.
+      var obs = new MutationObserver(function () { apply(); });
+      obs.observe(document.documentElement, { childList: true, subtree: true });
+      apply();
+    })();
+  </script>
+
+  {%- style -%}
+    .ss-co {
+      --ss-co-purple: #6B3FA0; --ss-co-ink: #1A1816; --ss-co-body: #2B2730;
+      --ss-co-canvas: #f7f7f5; --ss-co-border: #E5E2DC;
+      --ss-co-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      position: relative; display: flex; align-items: center; gap: 12px;
+      background: var(--ss-co-canvas); border: 1px solid var(--ss-co-border); border-radius: 4px;
+      padding: 12px 14px; margin: 0 0 14px; font-family: var(--ss-co-sans);
+    }
+    .ss-co[hidden] { display: none; }
+    .ss-co__media { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 4px; overflow: hidden; background: #fff; border: 1px solid var(--ss-co-border); }
+    .ss-co__img, .ss-co__media svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ss-co__ph { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+    .ss-co__ph svg { width: 60%; opacity: 0.22; fill: var(--ss-co-purple); }
+    .ss-co__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+    .ss-co__eyebrow { margin: 0; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-co-purple); }
+    .ss-co__title { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--ss-co-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ss-co__price { margin: 0; font-size: 13px; font-weight: 500; color: var(--ss-co-body); }
+    .ss-co__form { flex: 0 0 auto; }
+    .ss-co .ss-co__add {
+      border-radius: 14px; border: 1px solid var(--ss-co-purple); background: var(--ss-co-purple); color: #fff;
+      font-family: var(--ss-co-sans); font-weight: 600; font-size: 13px; line-height: 1; padding: 10px 16px; cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .ss-co .ss-co__add:hover { background: #5A3489; border-color: #5A3489; }
+    .ss-co__dismiss {
+      position: absolute; top: 4px; right: 6px; width: 22px; height: 22px; border: 0; background: transparent;
+      color: var(--ss-co-body); opacity: 0.45; font-size: 18px; line-height: 1; cursor: pointer; padding: 0;
+    }
+    .ss-co__dismiss:hover { opacity: 0.85; }
+    @media (prefers-reduced-motion: reduce) { .ss-co .ss-co__add { transition: none; } }
+  {%- endstyle -%}
+{%- endif -%}
