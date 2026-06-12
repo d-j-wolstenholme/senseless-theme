@@ -46,7 +46,7 @@
 {%- endstyle -%}
 
 <section class="ss-ed ss-ed--{{ section.settings.background }}{% if section.settings.align == 'center' %} ss-ed--center{% endif %}" aria-label="{{ section.settings.headline | default: 'Editorial' | escape }}">
-  <div class="ss-ed__inner">
+  <div class="ss-ed__inner" data-ss-reveal>
     {%- if section.settings.eyebrow != blank -%}<p class="ss-ed__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     {%- if section.settings.headline != blank -%}
       {%- assign hl_parts = section.settings.headline | split: ' | ' -%}

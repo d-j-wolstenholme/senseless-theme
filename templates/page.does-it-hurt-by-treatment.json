@@ -22,11 +22,14 @@
       }
     },
     "t_lipfiller": {
-      "type": "senseless-rich-text",
+      "type": "senseless-editorial-band",
       "settings": {
         "background": "canvas",
+        "align": "left",
         "anchor_id": "lip-filler",
+        "eyebrow": "Injectables",
         "headline": "Does lip filler hurt?",
+        "accent_word": "brief",
         "body": "<p>Most people feel a sharp scratch and some pressure as the injections are placed, eased by the numbing most practitioners use and the numbing agent often mixed into the filler itself. The lip is sensitive, but the discomfort is brief.</p><p><strong>We'd reach for:</strong> Cream, Clinical (sensitive lips → Advanced).</p><p><a href=\"/collections/numbing-cream\">Numbing cream</a> · <a href=\"/pages/the-senseless-system#selector\">Use the Senseless Selector</a></p>"
       }
     },
@@ -35,6 +38,7 @@
       "settings": {
         "background": "white",
         "anchor_id": "botox",
+        "eyebrow": "Injectables",
         "headline": "Does Botox hurt?",
         "body": "<p>Botox uses very fine needles, so most people describe a quick pinch or sting rather than real pain. Many manage without any numbing at all.</p><p><strong>We'd reach for:</strong> Cream, Clinical — optional, not required.</p><p><a href=\"/collections/numbing-cream\">Numbing cream</a></p>"
       }
@@ -44,16 +48,20 @@
       "settings": {
         "background": "canvas",
         "anchor_id": "microblading",
+        "eyebrow": "Semi-permanent makeup",
         "headline": "Does microblading hurt?",
         "body": "<p>Most people feel light scratching and some pressure as the blade works through the brow; numbing is usually applied before and during, so discomfort tends to be mild. Longer sittings feel more noticeable.</p><p><strong>We'd reach for:</strong> Gel, Advanced (long sittings → Professional).</p><p><a href=\"/collections/numbing-cream-for-semi-permanent-makeup\">Numbing for SPMU</a></p>"
       }
     },
     "t_lipblush": {
-      "type": "senseless-rich-text",
+      "type": "senseless-editorial-band",
       "settings": {
         "background": "white",
+        "align": "left",
         "anchor_id": "lip-blush",
+        "eyebrow": "Semi-permanent makeup",
         "headline": "Does lip blush hurt?",
+        "accent_word": "uncomfortable",
         "body": "<p>Lip blush is usually described as uncomfortable rather than painful — a scratching, tickling sensation as pigment is worked into the lip, with numbing applied throughout. The lip is sensitive, so it can feel sharper than brow work.</p><p><strong>We'd reach for:</strong> Gel, Advanced.</p><p><a href=\"/collections/numbing-cream-for-semi-permanent-makeup\">Numbing for SPMU</a></p>"
       }
     },
@@ -62,6 +70,7 @@
       "settings": {
         "background": "canvas",
         "anchor_id": "waxing",
+        "eyebrow": "Hair removal",
         "headline": "Does waxing hurt?",
         "body": "<p>Waxing causes a brief, sharp sting as the strip is removed, strongest on sensitive areas and during the first few sessions. It fades quickly and many find it eases over time.</p><p><strong>We'd reach for:</strong> Spray for the body, Cream for small areas — Clinical to Advanced.</p><p><a href=\"/collections/numbing-cream-for-waxing\">Numbing for waxing</a></p>"
       }
@@ -71,16 +80,52 @@
       "settings": {
         "background": "white",
         "anchor_id": "electrolysis",
+        "eyebrow": "Hair removal",
         "headline": "Does electrolysis hurt?",
         "body": "<p>Electrolysis is often described as a brief heat or stinging sensation at each hair, more noticeable on sensitive areas. As it treats one follicle at a time, sessions can feel repetitive rather than intense.</p><p><strong>We'd reach for:</strong> Cream, Advanced for sensitive areas.</p><p><a href=\"/collections/numbing-cream\">Browse numbing cream</a></p>"
       }
     },
     "keyfacts": {
-      "type": "senseless-rich-text",
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "The discomfort",
+            "value": "Most aesthetic treatments cause brief, manageable discomfort rather than real pain."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "What changes it",
+            "value": "How much you feel depends on the treatment, the area and your own sensitivity."
+          }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Where numbing fits",
+            "value": "Most practitioners apply their own numbing; numbing reduces discomfort, it doesn't remove all sensation."
+          }
+        },
+        "kf4": {
+          "type": "fact",
+          "settings": {
+            "label": "The range",
+            "value": "Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2",
+        "kf3",
+        "kf4"
+      ],
       "settings": {
-        "background": "canvas",
-        "eyebrow": "The essentials",
-        "body": "<ul><li>Most aesthetic treatments cause brief, manageable discomfort rather than real pain.</li><li>How much you feel depends on the treatment, the area and your own sensitivity.</li><li>Most practitioners apply their own numbing; numbing reduces discomfort, it doesn't remove all sensation.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+        "band": "canvas",
+        "heading": "The essentials"
       }
     },
     "selectorlink": {

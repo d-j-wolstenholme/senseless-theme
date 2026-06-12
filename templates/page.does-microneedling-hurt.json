@@ -34,16 +34,19 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "canvas",
+        "eyebrow": "The variables",
         "headline": "What affects how much you feel",
         "body": "<ul><li><strong>Needle depth.</strong> The single biggest factor. Shallower treatments are largely comfortable; deeper work for scarring or stretch marks is more intense.</li><li><strong>The area.</strong> Skin over bone — forehead, hairline, jaw, nose — is more sensitive than fuller areas like the cheeks.</li><li><strong>Your own sensitivity.</strong> Pain thresholds vary, and skin can be more reactive around your period or when it's already irritated.</li><li><strong>Whether numbing is used.</strong> Most practitioners apply a numbing preparation before the session as standard.</li></ul>"
       }
     },
     "numbing": {
-      "type": "senseless-rich-text",
+      "type": "senseless-editorial-band",
       "settings": {
         "background": "white",
+        "align": "left",
         "eyebrow": "Preparation, not the result",
         "headline": "How numbing fits in",
+        "accent_word": "fits",
         "body": "<p>Most microneedling practitioners apply their own numbing preparation before they start — so for many people, bringing your own isn't necessary. Where you're preparing at home, or topping up comfort with your practitioner's agreement, a topical <a href=\"/collections/numbing-gel\">numbing gel</a> is the usual choice for facial work because it stays where it's placed. Numbing is about comfort and preparation, not the result of the treatment, and it's removed before the device is used. If you're not sure what your appointment involves, a quick message to your practitioner settles it.</p><p><a href=\"/collections/numbing-cream-for-microneedling\">The right gel for microneedling</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
       }
     },
@@ -57,11 +60,46 @@
       }
     },
     "keyfacts": {
-      "type": "senseless-rich-text",
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "What it feels like",
+            "value": "Usually uncomfortable rather than painful — a light scratching or prickling."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "What changes it",
+            "value": "Needle depth, the area treated, and individual sensitivity."
+          }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Numbing's role",
+            "value": "Most practitioners apply a numbing preparation as standard; numbing reduces discomfort, it doesn't remove all sensation."
+          }
+        },
+        "kf4": {
+          "type": "fact",
+          "settings": {
+            "label": "The range",
+            "value": "A UK cosmetic numbing range, formulated in the United Kingdom."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2",
+        "kf3",
+        "kf4"
+      ],
       "settings": {
-        "background": "white",
-        "eyebrow": "The essentials",
-        "body": "<ul><li>Microneedling is usually described as uncomfortable rather than painful — a light scratching or prickling.</li><li>Needle depth, the area treated, and individual sensitivity decide how much you feel.</li><li>Most practitioners apply a numbing preparation as standard; numbing reduces discomfort, it doesn't remove all sensation.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+        "band": "surface",
+        "heading": "The essentials"
       }
     },
     "selectorlink": {

@@ -22,18 +22,76 @@
       }
     },
     "howto": {
-      "type": "senseless-rich-text",
+      "type": "senseless-how-to-use",
       "settings": {
-        "background": "canvas",
+        "eyebrow": "Application",
         "headline": "How to use it",
-        "body": "<ul><li>Patch test about 24 hours before your first use — apply a small amount to your inner wrist or behind the ear and check for any reaction. Don't use it if your skin reacts.</li><li>Start with clean, dry skin.</li><li>Apply an even layer to the area being treated — follow the amount the product specifies.</li><li>As a general guide, cream is applied around 45–60 minutes before the appointment — but this varies, so follow the product's instructions and your practitioner's advice (gel and spray: allow time to take effect).</li><li>If your practitioner advises, cover the area — for example with cling film — while it takes effect.</li><li>Leave it on for the time stated in the product's instructions (don't guess, and don't leave it longer to \"boost\" it).</li><li>Remove it cleanly before your treatment begins, unless your practitioner tells you otherwise.</li><li>When in doubt, ask your practitioner first — many prefer to advise on what you use and how.</li></ul>"
-      }
+        "lead": "<p>A patch test comes first — about 24 hours before your first use, apply a small amount to your inner wrist or behind the ear and check for any reaction. Don't use it if your skin reacts.</p>",
+        "closer": "<p>When in doubt, ask your practitioner first — many prefer to advise on what you use and how.</p>",
+        "cta_label": "The Senseless System",
+        "cta_url": "/pages/the-senseless-system"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Start with clean, dry skin.",
+            "body": "<p>Begin on clean, dry skin before you apply anything.</p>"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Apply an even layer.",
+            "body": "<p>Apply an even layer to the area being treated — follow the amount the product specifies.</p>"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Allow time before your appointment.",
+            "body": "<p>As a general guide, cream is applied around 45–60 minutes before the appointment — but this varies, so follow the product's instructions and your practitioner's advice (gel and spray: allow time to take effect).</p>"
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Cover the area if advised.",
+            "body": "<p>If your practitioner advises, cover the area — for example with cling film — while it takes effect.</p>"
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "title": "Leave it on as directed.",
+            "body": "<p>Leave it on for the time stated in the product's instructions (don't guess, and don't leave it longer to \"boost\" it).</p>"
+          }
+        },
+        "s6": {
+          "type": "step",
+          "settings": {
+            "title": "Remove it cleanly before treatment.",
+            "body": "<p>Remove it cleanly before your treatment begins, unless your practitioner tells you otherwise.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ]
     },
     "leaveon": {
-      "type": "senseless-rich-text",
+      "type": "senseless-editorial-band",
       "settings": {
         "background": "white",
-        "headline": "How long to leave it on",
+        "align": "left",
+        "eyebrow": "How long to leave it on",
+        "headline": "The label is the authority",
+        "accent_word": "authority",
         "body": "<p>Leave numbing cream on only for the time the product's instructions specify. Longer isn't better and can irritate the skin. Because products differ, there's no single number that fits all — the label is the authority, and your practitioner can confirm what suits your treatment.</p>"
       }
     },
@@ -41,6 +99,7 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "canvas",
+        "eyebrow": "How long it lasts",
         "headline": "How long it lasts",
         "body": "<p>How long the comfort lasts varies by product, area, and how it was applied — so plan around your appointment time and your practitioner's guidance rather than a fixed figure. If you're timing application before a clinic visit, ask them when they'd like it applied.</p>"
       }

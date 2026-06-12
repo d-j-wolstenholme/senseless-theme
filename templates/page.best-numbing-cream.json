@@ -72,18 +72,72 @@
     "approach": {
       "type": "senseless-rich-text",
       "settings": {
-        "background": "canvas",
+        "background": "white",
         "eyebrow": "How Senseless does it",
         "headline": "A system, so the right one is findable",
         "body": "<p>Senseless is built around exactly this problem. Rather than sell one product as \"the best,\" the range is a system: three strengths — Clinical, Advanced, Professional — across creams, gels, and sprays, each matched to the treatment and the area. The aim isn't the strongest possible product; it's the right one for your appointment. If you're not sure where you land, the Selector and the System guide walk you through it in a couple of steps.</p><p><a href=\"/pages/the-senseless-system\">The Senseless System</a> · <a href=\"/collections/numbing-cream\">The cream range</a> · <a href=\"/pages/the-senseless-system#selector\">Use the Senseless Selector</a></p>"
       }
     },
-    "keyfacts": {
-      "type": "senseless-rich-text",
+    "matching": {
+      "type": "senseless-editorial-band",
       "settings": {
-        "background": "white",
-        "eyebrow": "The essentials",
-        "body": "<ul><li>There is no single best numbing cream — the most comfortable choice is matched to the treatment, the area, and your sensitivity.</li><li>A stronger product isn't automatically a better one; matching beats maxing.</li><li>Numbing reduces discomfort rather than removing it.</li><li>Senseless is a UK cosmetic range — three strengths, three formats — formulated in the United Kingdom. Not a medicine.</li><li>Many practitioners apply their own numbing as standard — check with yours first.</li></ul>"
+        "background": "canvas",
+        "align": "center",
+        "eyebrow": "The principle",
+        "headline": "Matching beats maxing.",
+        "accent_word": "Matching",
+        "lead": "<p>A stronger product isn't automatically a better one. The most comfortable choice is the one matched to the treatment, the area, and your sensitivity — not the strongest thing you can find.</p>"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "No single best",
+            "value": "The most comfortable choice is matched to the treatment, the area, and your sensitivity."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Match, don't max",
+            "value": "A stronger product isn't automatically a better one; matching beats maxing."
+          }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "What it does",
+            "value": "Numbing reduces discomfort rather than removing it."
+          }
+        },
+        "kf4": {
+          "type": "fact",
+          "settings": {
+            "label": "The range",
+            "value": "A UK cosmetic range — three strengths, three formats — formulated in the United Kingdom."
+          }
+        },
+        "kf5": {
+          "type": "fact",
+          "settings": {
+            "label": "Ask first",
+            "value": "Many practitioners apply their own numbing as standard — check with yours first."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2",
+        "kf3",
+        "kf4",
+        "kf5"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "The essentials"
       }
     },
     "faq": {
@@ -178,7 +232,7 @@
       ],
       "settings": {
         "columns": "3",
-        "eyebrow": "",
+        "eyebrow": "Keep going",
         "headline": "Where to go next",
         "body": "",
         "closer": "",
@@ -199,6 +253,7 @@
     "honest",
     "framework",
     "approach",
+    "matching",
     "keyfacts",
     "faq",
     "next",

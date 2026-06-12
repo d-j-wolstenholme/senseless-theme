@@ -34,16 +34,19 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "canvas",
+        "eyebrow": "What changes it",
         "headline": "What affects how much you feel",
         "body": "<ul><li><strong>The area.</strong> Thin skin over bone and the most sensitive zones — upper lip, bikini, underarms — feel sharper than the legs, arms or back.</li><li><strong>The session number.</strong> The first session is usually the most noticeable; many people find later sessions easier as hair density drops.</li><li><strong>Your own sensitivity.</strong> Thresholds vary, and skin can be more reactive around your period.</li><li><strong>Whether numbing is used.</strong> A topical numbing preparation on sensitive areas can take the edge off.</li></ul>"
       }
     },
     "numbing": {
-      "type": "senseless-rich-text",
+      "type": "senseless-editorial-band",
       "settings": {
         "background": "white",
+        "align": "left",
         "eyebrow": "Preparation, not the result",
         "headline": "How numbing fits in",
+        "accent_word": "fits",
         "body": "<p>For many people the sensation is manageable without anything, especially on larger areas. On the sharper zones — upper lip, bikini line, underarms — a topical numbing preparation applied beforehand can make the session more comfortable. Because laser covers larger or awkward areas quickly, a <a href=\"/collections/numbing-spray\">spray</a> is often the easier format for the body, and a cream for smaller, precise areas like the lip. Numbing is preparation for comfort, not part of the treatment itself, and many clinics have their own guidance on what they'd like you to apply — so check with your practitioner first.</p><p><a href=\"/collections/numbing-cream-for-laser-treatment\">Numbing for laser</a> · <a href=\"/pages/the-senseless-system#selector\">Not sure what you need? Use the Senseless Selector</a></p>"
       }
     },
@@ -57,11 +60,46 @@
       }
     },
     "keyfacts": {
-      "type": "senseless-rich-text",
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "What it feels like",
+            "value": "A quick elastic-band snap, followed by brief warmth — not a deep pain."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "By area",
+            "value": "Upper lip, bikini and underarms feel sharper than legs and back."
+          }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Over time",
+            "value": "Many people find later sessions easier as the hair thins."
+          }
+        },
+        "kf4": {
+          "type": "fact",
+          "settings": {
+            "label": "Where numbing fits",
+            "value": "A topical numbing preparation can make sensitive areas more comfortable; it reduces the sensation, it doesn't remove it."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2",
+        "kf3",
+        "kf4"
+      ],
       "settings": {
-        "background": "white",
-        "eyebrow": "The essentials",
-        "body": "<ul><li>Laser hair removal is usually described as a quick elastic-band snap, followed by brief warmth — not a deep pain.</li><li>Sensitive areas (upper lip, bikini, underarms) feel sharper than larger areas (legs, back); many people find later sessions easier.</li><li>A topical numbing preparation can make sensitive areas more comfortable; it reduces the sensation, it doesn't remove it.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+        "band": "surface",
+        "heading": "The essentials"
       }
     },
     "selectorlink": {

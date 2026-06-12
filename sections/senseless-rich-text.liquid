@@ -24,8 +24,13 @@
   .ss-rt__body { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); }
   .ss-rt__body p { margin: 0 0 14px; }
   .ss-rt__body h3 { font-family: var(--ss-head); font-weight: 600; font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--ss-text); margin: 22px 0 8px; }
-  .ss-rt__body ul, .ss-rt__body ol { margin: 0 0 14px; padding-left: 22px; }
-  .ss-rt__body li { margin: 0 0 6px; }
+  .ss-rt__body ul, .ss-rt__body ol { margin: 4px 0 18px; padding: 0; list-style: none; }
+  .ss-rt__body li { position: relative; margin: 0 0 12px; padding-left: 26px; line-height: 1.6; }
+  .ss-rt__body li:last-child { margin-bottom: 0; }
+  .ss-rt__body ul > li::before { content: ''; position: absolute; left: 4px; top: 0.62em; width: 6px; height: 6px; border-radius: 1px; background: var(--ss-purple); }
+  .ss-rt__body ol { counter-reset: ss-rt-step; }
+  .ss-rt__body ol > li { counter-increment: ss-rt-step; padding-left: 40px; min-height: 26px; }
+  .ss-rt__body ol > li::before { content: counter(ss-rt-step); position: absolute; left: 0; top: 0; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; font-family: var(--ss-head); font-weight: 600; font-size: 12px; color: var(--ss-purple); background: rgba(107, 63, 160, 0.10); border-radius: 999px; }
   .ss-rt__body a { color: var(--ss-purple); }
   .ss-rt__cta { margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); text-decoration: none; align-self: flex-start; }
   .ss-rt__cta::after { content: '\2192'; }
@@ -41,7 +46,7 @@
 {%- endstyle -%}
 
 <section class="ss-rt ss-rt--{{ section.settings.background }}"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Section' | escape }}">
-  <div class="ss-rt__inner">
+  <div class="ss-rt__inner" data-ss-reveal>
     {%- if section.settings.eyebrow != blank -%}<p class="ss-rt__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     {%- if section.settings.headline != blank -%}<h2 class="ss-rt__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
     {%- if section.settings.body != blank -%}<div class="ss-rt__body">{{ section.settings.body }}</div>{%- endif -%}
