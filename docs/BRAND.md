@@ -59,7 +59,7 @@ Fluid via `clamp()`. Format below: `clamp(min, preferred, max)`.
 ## Components
 
 - **Card corner radius:** 4px
-- **Product card corner radius:** 0
+- **Product card corner radius:** 4px *(standardised 2026-06-12 to the theme-majority value; the prior "0" was never built — no card used it. Cards = 4px, buttons/inputs/buy-controls = 14px, pills/badges = 999px.)*
 - **Button border radius:** 14px (primary and secondary)
 - **Badge corner radius:** 100 (pill-shaped)
 - **Input border radius:** 4px, 1px border

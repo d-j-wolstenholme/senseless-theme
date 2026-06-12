@@ -17,12 +17,12 @@
     background: var(--ss-bg);
     color: var(--ss-text);
   }
-  .ss-faq__inner { max-width: 760px; margin: 0 auto; padding: 44px 20px; }
-  .ss-faq__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 28px; line-height: 1.2; margin: 0 0 24px; text-align: center; }
+  .ss-faq__inner { max-width: 760px; margin: 0 auto; padding-block: 96px; padding-inline: 20px; }
+  .ss-faq__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; margin: 0 0 24px; text-align: center; }
   .ss-faq__item { border-bottom: 1px solid var(--ss-border); }
   .ss-faq__item:first-child { border-top: 1px solid var(--ss-border); }
-  .ss-faq__group { font-family: var(--ss-head); font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ss-purple); margin: 32px 0 8px; }
-  .ss-faq__q { font-family: var(--ss-head); font-weight: 600; font-size: 17px; line-height: 1.4; color: var(--ss-text); cursor: pointer; list-style: none; padding: 20px 36px 20px 0; position: relative; }
+  .ss-faq__group { font-family: var(--ss-head); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 32px 0 8px; }
+  .ss-faq__q { font-family: var(--ss-head); font-weight: 600; font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--ss-text); cursor: pointer; list-style: none; padding: 20px 36px 20px 0; position: relative; }
   .ss-faq__q::-webkit-details-marker { display: none; }
   .ss-faq__q::after { content: '+'; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 400; color: var(--ss-purple); line-height: 1; transition: transform 200ms ease-out; }
   .ss-faq__item[open] .ss-faq__q::after { content: '\2212'; }
@@ -31,7 +31,8 @@
   .ss-faq__a p:last-child { margin-bottom: 0; }
   .ss-faq__a a { color: var(--ss-purple); }
 
-  @media (min-width: 1024px) { .ss-faq__inner { padding: 96px 20px; } }
+  @media (max-width: 989px) { .ss-faq__inner { padding-block: 56px; } }
+  @media (max-width: 749px) { .ss-faq__inner { padding-block: 44px; } .ss-faq__headline { line-height: 1.12; } }
   @media (prefers-reduced-motion: reduce) { .ss-faq__q::after { transition: none; } }
 {%- endstyle -%}
 

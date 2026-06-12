@@ -11,7 +11,7 @@
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
         "image": "shopify://shop_images/senseless-procedure-laser-hair-removal.jpg",
-        "image_alt": "Numbing cream and spray for laser treatment — Senseless",
+        "image_alt": "Senseless topical preparation cream and spray for laser treatment",
         "accent_word": "matched"
       }
     },
@@ -167,7 +167,9 @@
         "style": "neutral",
         "heading": "Before you buy: the bit most sellers skip",
         "body": "<p>Some laser technicians prefer you to arrive without numbing applied — a few use your feedback on skin temperature and sensation to calibrate the treatment as they go. Others are happy for you to prepare beforehand. Clinics and machines vary, so a quick message to your practitioner before your appointment is the thing that settles it — not a rule we can give you from here.</p>",
-        "accent_word": "skip"
+        "accent_word": "skip",
+        "cta_label": "Does laser hair removal hurt?",
+        "cta_url": "/pages/does-laser-hair-removal-hurt"
       }
     },
     "characteristics": {

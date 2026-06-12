@@ -6,7 +6,7 @@
         "eyebrow": "Onset timing",
         "headline": "There isn't one right answer.",
         "subhead": "<p>The application window depends on the procedure, the tier, and the practitioner's protocol. Anyone giving you a specific number for every appointment is over-simplifying. The honest answer is a framework — and a routing back to the person doing your procedure.</p>",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Editorial close-up of a Senseless topical preparation on a warm off-white background"
       }
     },
     "framework": {
@@ -18,7 +18,7 @@
         "body": "<p>The procedure shapes the window. A lip filler appointment doesn't ask the same of preparation as a microneedling session. The tier shapes the window. Clinical, Advanced, and Professional are formulated differently — different concentrations means different recommended timing. The individual shapes the window. Skin sensitivity, treatment area, hydration level — these all change what the same product does on the same procedure for two different clients. One number can't cover all three variables.</p>",
         "cta_label": "Choose your strength",
         "cta_url": "/pages/choosing-your-strength",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Editorial still life of the Senseless range — the three onset-shaping variables"
       }
     },
     "cantell": {
@@ -27,10 +27,10 @@
         "direction": "text-right",
         "eyebrow": "The general framework",
         "headline": "",
-        "body": "<p>Most topical preparations for aesthetic procedures are applied somewhere between 20 minutes and 60 minutes before the appointment. That's a generic range, not a Senseless recommendation. The actual window depends on what you've booked and what your practitioner runs. Some appointments need longer prep. Some need much shorter. The framework is real; the number isn't ours to give without knowing your specific booking.</p>",
+        "body": "<p>Topical preparations for aesthetic procedures are applied ahead of the appointment, with the right window varying from one booking to the next. The actual window depends on what you've booked and what your practitioner runs. Some appointments need longer prep. Some need much shorter. The framework is real; the timing isn't ours to give without knowing your specific booking.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Editorial detail of a Senseless preparation tube applied ahead of an appointment"
       }
     },
     "callout": {
@@ -127,7 +127,7 @@
             "body": "<p>Clinical, Advanced, Professional.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/choosing-your-strength",
-            "image_alt": "Editorial image for the strength guide"
+            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
         "apply": {
@@ -137,7 +137,7 @@
             "body": "<p>The application routine, step by step.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/how-to-apply-numbing-cream",
-            "image_alt": "Editorial image for the application guide"
+            "image_alt": "Guide to applying a Senseless topical preparation"
           }
         },
         "lasts": {
@@ -147,7 +147,7 @@
             "body": "<p>Duration through your appointment.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/how-long-numbing-cream-lasts",
-            "image_alt": "Editorial image for the duration guide"
+            "image_alt": "Guide to how long a Senseless preparation lasts"
           }
         }
       },

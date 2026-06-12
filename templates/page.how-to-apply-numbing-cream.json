@@ -47,7 +47,7 @@
         "headline": "Three application mistakes that come up.",
         "body": "<p><strong>Applying too much.</strong> A thin layer works better than a thick one. Overloading the skin doesn't improve the preparation — it usually just wastes product.</p><p><strong>Applying too early or too late.</strong> Specific timing matters. Apply at the wrong window and the preparation may not match the procedure. Your practitioner is the best guide.</p><p><strong>Skipping the wipe step.</strong> Most procedures need the product removed before the practitioner starts work. Skipping this step can interfere with the appointment.</p>",
         "cta_label": "", "cta_url": "",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Editorial detail of a Senseless preparation tube during application"
       }
     },
     "callout": {
@@ -74,9 +74,9 @@
     "next": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Clinical, Advanced, Professional. The decision matrix by procedure.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Editorial image for the strength guide" } },
-        "format": { "type": "format_card", "settings": { "label": "Choose your format", "body": "<p>Cream, gel, spray. Decided by procedure and treatment area.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-format", "image_alt": "Editorial image for the format guide" } },
-        "procedures": { "type": "format_card", "settings": { "label": "Shop by procedure", "body": "<p>Every appointment Senseless covers.</p>", "cta_label": "View collection", "cta_url": "/collections/aesthetic-numbing-cream", "image_alt": "Editorial image for the procedures collection" } }
+        "strength": { "type": "format_card", "settings": { "label": "Choose your strength", "body": "<p>Clinical, Advanced, Professional. The decision matrix by procedure.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-strength", "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional" } },
+        "format": { "type": "format_card", "settings": { "label": "Choose your format", "body": "<p>Cream, gel, spray. Decided by procedure and treatment area.</p>", "cta_label": "Read guide", "cta_url": "/pages/choosing-your-format", "image_alt": "Senseless format guide — cream, gel and spray" } },
+        "procedures": { "type": "format_card", "settings": { "label": "Shop by procedure", "body": "<p>Every appointment Senseless covers.</p>", "cta_label": "View collection", "cta_url": "/collections/aesthetic-numbing-cream", "image_alt": "Senseless range shown by aesthetic procedure" } }
       },
       "block_order": ["strength", "format", "procedures"],
       "settings": { "columns": "3", "eyebrow": "", "headline": "Decide what you need.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }

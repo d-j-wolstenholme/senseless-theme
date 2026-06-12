@@ -14,10 +14,13 @@
     --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
   .ss-lr--canvas { background:var(--bg); }
   .ss-lr--surface { background:var(--surf); }
-  .ss-lr__inner { max-width:860px; margin:0 auto; padding:48px 20px; }
+  .ss-lr__inner { max-width:860px; margin:0 auto; padding-block:48px; padding-inline:20px; }
+  @media (max-width:989px){ .ss-lr__inner { padding-block:32px; } }
+  @media (max-width:749px){ .ss-lr__inner { padding-block:28px; } }
   .ss-lr__head { max-width:62ch; margin:0 0 18px; display:flex; flex-direction:column; gap:10px; }
-  .ss-lr__eyebrow { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
-  .ss-lr__headline { font-family:var(--sans); font-weight: 400; letter-spacing: -0.02em; font-size:24px; line-height:1.2; margin:0; }
+  .ss-lr__eyebrow { font-family:var(--sans); font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0; }
+  .ss-lr__headline { font-family:var(--sans); font-weight: 400; letter-spacing: -0.02em; font-size:clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height:1.1; margin:0; }
+  @media (max-width:749px){ .ss-lr__headline { line-height:1.12; } }
   .ss-lr__intro { font-family:var(--sans); font-size:15.5px; line-height:1.55; color:var(--body); }
   .ss-lr__intro p { margin:0; }
   .ss-lr__list { list-style:none; margin:14px 0 0; padding:0; border-top:1px solid var(--bd); }
@@ -32,8 +35,7 @@
   .ss-lr__note { font-family:var(--sans); font-size:14.5px; line-height:1.5; color:var(--sec); flex:1 1 280px; }
   .ss-lr__closer { font-family:var(--sans); font-size:14.5px; line-height:1.6; color:var(--sec); margin:18px 0 0; }
   .ss-lr__closer p { margin:0; }
-  @media (min-width:700px) { .ss-lr__name { flex:0 0 220px; font-weight:600; } .ss-lr__headline { font-size:26px; } }
-  @media (min-width:1024px) { .ss-lr__inner { padding:64px 20px; } }
+  @media (min-width:700px) { .ss-lr__name { flex:0 0 220px; font-weight:600; } }
 {%- endstyle -%}
 
 <section class="ss-lr ss-lr--{{ band }}" aria-label="{{ section.settings.headline | default: 'Suited to' | escape }}">

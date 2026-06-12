@@ -65,6 +65,17 @@ It does NOT appear in:
 
 "Numbing cream / gel / spray" may be used as a **category / product-type noun** on the matching category (collection) pages and their **Key Facts** blocks — e.g. "Numbing cream in three strengths: Clinical, Advanced, Professional." There it names the product category (which is literally what the page is), not a claim about what the product does. This narrow exception does **not** loosen the Hard Rule: "numbing" / "numbs" used as an **effect or efficacy claim** ("numbs the skin", "a numbing effect", "how much it numbs") remains banned everywhere, including those same pages. Rule of thumb: the category noun is fine; the moment it describes an effect on skin or sensation, it's a violation.
 
+### Exception scope (extended 2026-06-12)
+
+The category-noun exception above is extended to two further surfaces, owner-approved 2026-06-12:
+
+- **Product (PDP) short descriptions** — "numbing cream / gel / spray" may be used as the product-type noun.
+- **Guide / SEO page body copy whose `<title>` targets the term** — the noun may appear in running copy on pages built to rank for "numbing cream" and its variants (e.g. the system/choosing/how-to guides), where the page is unreadable without naming the product type.
+
+This does **not** loosen the Hard Rule. "numbing" / "numbs" used as an **effect or efficacy claim** — "numbs the skin", "a numbing effect", "arriving already numbed", "numbing reduces sensation/discomfort", "how numbing fits in" — remains **banned everywhere**, including PDPs and guide pages. The noun names the product type; the moment it describes an effect on skin or sensation, it's a violation.
+
+> **Open gate (2026-06-12):** the full-site audit found live *effect-use* of "numbing/numbed" that breaches the Hard Rule. Per owner instruction that copy is **routed to MHG/legal review** and was not rewritten; it remains a pre-public-go-live gate. See `DECISIONS-LOG.md` 2026-06-12.
+
 ## Compliance Checklist (run before any user-facing copy ships)
 
 - [ ] No hard-rule phrases in headline, body, alt text, meta, or CTA

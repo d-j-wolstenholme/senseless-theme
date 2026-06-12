@@ -20,9 +20,9 @@
     background: var(--ss-bg);
     color: var(--ss-text);
   }
-  .ss-pg__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; }
+  .ss-pg__inner { max-width: 1200px; margin: 0 auto; padding-block: 96px; padding-inline: 20px; }
   .ss-pg__header { text-align: center; max-width: 60ch; margin: 0 auto 24px; display: flex; flex-direction: column; gap: 12px; }
-  .ss-pg__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 28px; line-height: 1.2; margin: 0; }
+  .ss-pg__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; margin: 0; }
   .ss-pg__body { font-family: var(--ss-sans); font-size: 17px; line-height: 1.55; color: var(--ss-body); margin: 0; }
   .ss-pg__body p { margin: 0; }
   .ss-pg__tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 auto 28px; }
@@ -40,7 +40,7 @@
   .ss-pg__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-pg__ph svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
   .ss-pg__cbody { padding: 20px; display: flex; flex-direction: column; gap: 6px; flex: 1 1 auto; }
-  .ss-pg__label { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-pg__label { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-pg__title { font-family: var(--ss-head); font-weight: 600; font-size: 18px; line-height: 1.3; margin: 0; }
   .ss-pg__price { font-family: var(--ss-sans); font-weight: 500; font-size: 16px; margin: 2px 0 0; }
   .ss-pg__cta { margin-top: auto; padding-top: 10px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
@@ -50,7 +50,9 @@
   .ss-pg__card--flagship:hover { border-color: var(--ss-purple); }
 
   @media (min-width: 768px) { .ss-pg__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
-  @media (min-width: 1024px) { .ss-pg__inner { padding: 96px 40px; } }
+  @media (min-width: 990px) { .ss-pg__inner { padding-inline: 40px; } }
+  @media (max-width: 989px) { .ss-pg__inner { padding-block: 56px; } }
+  @media (max-width: 749px) { .ss-pg__inner { padding-block: 44px; } }
   @media (prefers-reduced-motion: reduce) { .ss-pg__card, .ss-pg__tab { transition: none; } .ss-pg__card:hover { transform: none; } }
 {%- endstyle -%}
 

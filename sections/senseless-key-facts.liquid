@@ -22,22 +22,24 @@
   }
   .ss-kf--canvas { background: var(--ss-bg); }
   .ss-kf--surface { background: var(--ss-surface); border-top: 1px solid var(--ss-border); border-bottom: 1px solid var(--ss-border); }
-  .ss-kf__inner { max-width: 720px; margin: 0 auto; padding: 56px 24px; }
-  .ss-kf__heading { font-family: var(--ss-sans); font-weight: 400; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; color: var(--ss-text); margin: 0 0 20px; }
+  .ss-kf__inner { max-width: 720px; margin: 0 auto; padding-block: 96px; padding-inline: 24px; }
+  .ss-kf__heading { font-family: var(--ss-sans); font-weight: 400; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--ss-text); margin: 0 0 20px; }
   .ss-kf__list { margin: 0; display: grid; gap: 0; }
-  .ss-kf__row { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--ss-border); }
+  .ss-kf__row { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--ss-border); }
   .ss-kf__row:first-child { border-top: 1px solid var(--ss-border); }
-  .ss-kf__term { font-family: var(--ss-sans); font-weight: 600; font-size: 12px; line-height: 1.3; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-kf__term { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; line-height: 1.3; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-kf__desc { font-family: var(--ss-sans); font-weight: 400; font-size: 16px; line-height: 1.55; color: var(--ss-body); margin: 0; }
   .ss-kf__statement { font-family: var(--ss-sans); font-weight: 600; font-size: 14px; line-height: 1.5; color: var(--ss-text); margin: 22px 0 0; }
-  @media (min-width: 1024px) {
-    .ss-kf__inner { padding: 96px 24px; }
-    .ss-kf__row { grid-template-columns: 220px 1fr; gap: 28px; align-items: baseline; }
+  @media (max-width: 749px) {
+    .ss-kf__heading { line-height: 1.12; }
+    .ss-kf__row { grid-template-columns: 1fr; gap: 2px; }
   }
+  @media (max-width: 989px) { .ss-kf__inner { padding-block: 56px; } }
+  @media (max-width: 749px) { .ss-kf__inner { padding-block: 44px; } }
 {%- endstyle -%}
 
 <section class="ss-kf ss-kf--{{ section.settings.band }}" aria-labelledby="ss-kf-h-{{ section.id }}">
-  <div class="ss-kf__inner">
+  <div class="ss-kf__inner" data-ss-reveal>
     <h2 class="ss-kf__heading" id="ss-kf-h-{{ section.id }}">{% render 'senseless-accent', text: section.settings.heading, word: section.settings.accent_word %}</h2>
     {%- if section.blocks.size > 0 -%}
       <dl class="ss-kf__list">

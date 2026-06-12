@@ -144,7 +144,7 @@
             "cta_label": "Browse the range",
             "cta_url": "/collections/numbing-cream",
             "flagship": false,
-            "image_alt": "Senseless numbing cream range on a warm off-white background"
+            "image_alt": "Senseless topical preparation range on a warm off-white background"
           }
         },
         "b": {
@@ -153,6 +153,7 @@
             "label": "Clinical Strength",
             "title": "Clinical Strength Cream",
             "body": "<p>The standard most appointments start with.</p>",
+            "product": "clinical-strength-cream",
             "cta_label": "View product",
             "cta_url": "/products/clinical-strength-cream",
             "flagship": false,

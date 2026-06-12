@@ -7,10 +7,10 @@
   .ss-cc4 { --p:#6B3FA0; --ph:#5A3489; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
     --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); font-family:var(--sans); }
   .ss-cc4--surface { background:var(--surf); }
-  .ss-cc4__inner { max-width:1100px; margin:0 auto; padding:56px 20px; }
+  .ss-cc4__inner { max-width:1100px; margin:0 auto; padding-block:48px; padding-inline:20px; }
   .ss-cc4__head { max-width:62ch; margin:0 0 28px; display:flex; flex-direction:column; gap:12px; }
-  .ss-cc4__eyebrow { font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
-  .ss-cc4__headline { font-weight:400; letter-spacing:-0.02em; font-size:28px; line-height:1.2; margin:0; }
+  .ss-cc4__eyebrow { font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0; }
+  .ss-cc4__headline { font-weight:400; letter-spacing:-0.02em; font-size:clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height:1.1; margin:0; }
   .ss-cc4__grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; }
   .ss-cc4__card { box-sizing:border-box; background:var(--surf); border:1px solid var(--bd); border-radius:4px; padding:22px 20px; display:flex; flex-direction:column; gap:10px; height:100%; }
   .ss-cc4__label { font-weight:600; font-size:17px; line-height:1.3; color:var(--ink); margin:0; }
@@ -21,6 +21,8 @@
   .ss-cc4__cta a::after { content:'\2192'; }
   .ss-cc4__cta a:hover { color:var(--ph); }
   @media (min-width:860px){ .ss-cc4__grid { grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px; } }
+  @media (max-width:989px){ .ss-cc4__inner { padding-block:32px; } }
+  @media (max-width:749px){ .ss-cc4__inner { padding-block:28px; } .ss-cc4__headline { line-height:1.12; } }
 {%- endstyle -%}
 <section class="ss-cc4 ss-cc4--{{ section.settings.band | default: 'canvas' }}"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Pick the right channel' | escape }}">
   <div class="ss-cc4__inner">

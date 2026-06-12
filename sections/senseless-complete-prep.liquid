@@ -65,10 +65,10 @@
 {%- if headline != blank -%}
 {%- style -%}
   .ss-prep { background: var(--ss-bg, #f7f7f5); color: #1A1816; border-top: 1px solid #E5E2DC; }
-  .ss-prep__inner { max-width: 1100px; margin: 0 auto; padding: 56px 20px; }
+  .ss-prep__inner { max-width: 1100px; margin: 0 auto; padding-block: 96px; padding-inline: 20px; }
   .ss-prep__head { max-width: 62ch; margin: 0 auto 28px; text-align: center; display: flex; flex-direction: column; gap: 12px; }
-  .ss-prep__eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; line-height: 1.2; letter-spacing: 0.2em; text-transform: uppercase; color: #6B3FA0; margin: 0; }
-  .ss-prep__headline { font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; margin: 0; color: #1A1816; }
+  .ss-prep__eyebrow { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.75rem; line-height: 1.2; letter-spacing: 0.2em; text-transform: uppercase; color: #6B3FA0; margin: 0; }
+  .ss-prep__headline { font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0; color: #1A1816; }
   .ss-prep__body { font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.7; color: #2B2730; margin: 0; }
   .ss-prep__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
   .ss-prep__card { display: flex; align-items: center; gap: 16px; background: #ffffff; border: 1px solid #E5E2DC; border-radius: 4px; overflow: hidden; text-decoration: none; color: #1A1816; transition: transform 200ms ease-out, border-color 200ms ease-out; }
@@ -79,12 +79,13 @@
   .ss-prep__cardcue { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 13px; color: #6B3FA0; }
   .ss-prep__cardcue::after { content: ' →'; }
   .ss-prep__foot { text-align: center; margin-top: 24px; }
-  .ss-prep__cta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid #1A1816; color: #1A1816; background: transparent; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
-  .ss-prep__cta:hover { background: #1A1816; color: #f7f7f5; }
+  .ss-prep__cta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid #6B3FA0; color: #6B3FA0; background: transparent; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out; }
+  .ss-prep__cta:hover { background: #6B3FA0; border-color: #6B3FA0; color: #fff; }
   @media (min-width: 768px) {
-    .ss-prep__inner { padding: 80px 40px; }
     .ss-prep__grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   }
+  @media (max-width: 989px) { .ss-prep__inner { padding-block: 56px; } }
+  @media (max-width: 749px) { .ss-prep__inner { padding-block: 44px; } .ss-prep__headline { line-height: 1.12; } }
   @media (prefers-reduced-motion: reduce) { .ss-prep__card, .ss-prep__cta { transition: none; } .ss-prep__card:hover { transform: none; } }
 {%- endstyle -%}
 
@@ -98,7 +99,8 @@
 
     <div class="ss-prep__grid">
       {%- assign c1 = collections[card1_handle] -%}
-      <a class="ss-prep__card" href="{{ c1.url | default: '/collections/' | append: card1_handle }}">
+      {%- if c1.url != blank -%}{%- assign c1_url = c1.url -%}{%- else -%}{%- assign c1_url = '/collections/' | append: card1_handle -%}{%- endif -%}
+      <a class="ss-prep__card" href="{{ c1_url }}">
         <span class="ss-prep__media">{%- render 'senseless-card-image', collection: c1, alt: card1_label | append: ' — Senseless topical preparation on a warm off-white background', sizes: '96px' -%}</span>
         <span class="ss-prep__cardbody">
           <span class="ss-prep__cardlabel">{{ card1_label }}</span>
@@ -107,7 +109,8 @@
       </a>
 
       {%- assign c2 = collections[card2_handle] -%}
-      <a class="ss-prep__card" href="{{ c2.url | default: '/collections/' | append: card2_handle }}">
+      {%- if c2.url != blank -%}{%- assign c2_url = c2.url -%}{%- else -%}{%- assign c2_url = '/collections/' | append: card2_handle -%}{%- endif -%}
+      <a class="ss-prep__card" href="{{ c2_url }}">
         <span class="ss-prep__media">{%- render 'senseless-card-image', collection: c2, alt: card2_label | append: ' — Senseless topical preparation on a warm off-white background', sizes: '96px' -%}</span>
         <span class="ss-prep__cardbody">
           <span class="ss-prep__cardlabel">{{ card2_label }}</span>

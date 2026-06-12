@@ -21,10 +21,10 @@
     background: var(--ss-bg);
     color: var(--ss-text);
   }
-  .ss-trio__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; }
+  .ss-trio__inner { max-width: 1200px; margin: 0 auto; padding-block: 96px; padding-inline: 20px; }
   .ss-trio__header { max-width: 62ch; margin: 0 auto 28px; text-align: center; display: flex; flex-direction: column; gap: 12px; }
-  .ss-trio__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
-  .ss-trio__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 28px; line-height: 1.2; margin: 0; color: var(--ss-text); }
+  .ss-trio__eyebrow { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; line-height: 1.2; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-trio__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; margin: 0; color: var(--ss-text); }
   .ss-trio__body { font-family: var(--ss-sans); font-size: 17px; line-height: 1.55; color: var(--ss-body); margin: 0; }
   .ss-trio__body p { margin: 0; }
 
@@ -40,15 +40,15 @@
   .ss-card__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-card__placeholder svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
   .ss-card__body { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 auto; }
-  .ss-card__label { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
-  .ss-card__heading { font-family: var(--ss-head); font-weight: 600; font-size: 18px; line-height: 1.3; margin: 0; color: var(--ss-text); }
+  .ss-card__label { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; line-height: 1.2; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-card__heading { font-family: var(--ss-head); font-weight: 600; font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; letter-spacing: -0.01em; margin: 0; color: var(--ss-text); }
   .ss-card__text { font-family: var(--ss-sans); font-size: 15px; line-height: 1.55; color: var(--ss-body); margin: 0; }
   .ss-card__text p { margin: 0; }
   .ss-card__price { font-family: var(--ss-sans); font-weight: 500; font-size: 16px; margin: 2px 0 0; color: var(--ss-text); }
   .ss-card__cta { margin-top: auto; padding-top: 10px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
   .ss-card__cta::after { content: '→'; }
-  .ss-card__ctabtn { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 18px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
-  .ss-card__ctabtn:hover { background: var(--ss-text); color: var(--ss-bg); }
+  .ss-card__ctabtn { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 18px; border-radius: 14px; border: 1px solid var(--ss-purple); color: var(--ss-purple); font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-card__ctabtn:hover { background: var(--ss-purple); border-color: var(--ss-purple); color: #ffffff; }
 
   .ss-card--flagship { border: 2px solid var(--ss-purple); }
   .ss-card--flagship:hover { border-color: var(--ss-purple); }
@@ -56,22 +56,23 @@
   .ss-card--flagship .ss-card__ctabtn:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); color: #ffffff; }
 
   .ss-trio__footer { text-align: center; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
-  .ss-trio__closer { font-family: var(--ss-head); font-weight: 600; font-size: 18px; color: var(--ss-text); margin: 0; }
+  .ss-trio__closer { font-family: var(--ss-head); font-weight: 600; font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--ss-text); margin: 0; }
   .ss-trio__closerlink { color: var(--ss-purple); text-decoration: none; }
   .ss-trio__closerlink:hover { text-decoration: underline; }
-  .ss-trio__sectioncta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-text); color: var(--ss-text); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
-  .ss-trio__sectioncta:hover { background: var(--ss-text); color: var(--ss-bg); }
+  .ss-trio__sectioncta { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-purple); color: var(--ss-purple); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
+  .ss-trio__sectioncta:hover { background: var(--ss-purple); border-color: var(--ss-purple); color: #ffffff; }
 
   @media (min-width: 768px) {
     .ss-trio--cols-2 .ss-trio__grid { grid-template-columns: repeat(2, 1fr); }
     .ss-trio--cols-3 .ss-trio__grid { grid-template-columns: repeat(3, 1fr); }
     .ss-trio--cols-4 .ss-trio__grid { grid-template-columns: repeat(4, 1fr); }
-    .ss-trio__headline { font-size: 32px; }
   }
   @media (min-width: 1024px) {
-    .ss-trio__inner { padding: 96px 40px; }
+    .ss-trio__inner { padding-inline: 40px; }
     .ss-trio__grid { gap: 24px; }
   }
+  @media (max-width: 989px) { .ss-trio__inner { padding-block: 56px; } }
+  @media (max-width: 749px) { .ss-trio__inner { padding-block: 44px; } }
   @media (prefers-reduced-motion: reduce) {
     .ss-card, .ss-card__ctabtn, .ss-trio__sectioncta { transition: none; }
     .ss-card:hover { transform: none; }
@@ -81,14 +82,14 @@
 <section class="ss-trio ss-trio--cols-{{ section.settings.columns }}" aria-label="{{ section.settings.headline | default: 'Card row' | escape }}">
   <div class="ss-trio__inner">
     {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
-      <header class="ss-trio__header">
+      <header class="ss-trio__header" data-ss-reveal>
         {%- if section.settings.eyebrow != blank -%}<p class="ss-trio__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
         {%- if section.settings.headline != blank -%}<h2 class="ss-trio__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
         {%- if section.settings.body != blank -%}<div class="ss-trio__body">{{ section.settings.body }}</div>{%- endif -%}
       </header>
     {%- endif -%}
 
-    <div class="ss-trio__grid">
+    <div class="ss-trio__grid" data-ss-reveal-group>
       {%- for block in section.blocks -%}
         {%- case block.type -%}
 
@@ -99,7 +100,7 @@
                 assign tier_img = block.settings.collection.image
               endif
             -%}
-            <div class="ss-card{% if block.settings.flagship %} ss-card--flagship{% endif %}{% if tier_img == blank %} ss-card--noimg{% endif %}" {{ block.shopify_attributes }}>
+            <div class="ss-card{% if block.settings.flagship %} ss-card--flagship{% endif %}{% if tier_img == blank %} ss-card--noimg{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
               {%- comment -%} Empty-safe (§11): render the media only when collection.image (or an override) exists — no placeholder/grey box on a clean text card. {%- endcomment -%}
               {%- if tier_img != blank -%}
                 <div class="ss-card__media">
@@ -115,7 +116,7 @@
             </div>
 
           {%- when 'procedure_card' -%}
-            <a class="ss-card ss-card--procedure" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
+            <a class="ss-card ss-card--procedure" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }} data-ss-reveal>
               <div class="ss-card__media">
                 {%- render 'senseless-card-image', image: block.settings.image, collection: block.settings.collection, alt: block.settings.image_alt, sizes: '(min-width: 768px) 25vw, 50vw' -%}
               </div>
@@ -128,7 +129,7 @@
           {%- when 'product_card' -%}
             {%- assign card_product = block.settings.product -%}
             {%- if card_product != blank -%}{%- assign card_href = card_product.url -%}{%- else -%}{%- assign card_href = block.settings.cta_url | default: '#' -%}{%- endif -%}
-            <div class="ss-card ss-card--product{% if block.settings.flagship %} ss-card--flagship{% endif %}" {{ block.shopify_attributes }}>
+            <div class="ss-card ss-card--product{% if block.settings.flagship %} ss-card--flagship{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
               <a class="ss-card__cardlink" href="{{ card_href }}">
                 <div class="ss-card__media">
                   {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw' -%}
@@ -144,7 +145,7 @@
             </div>
 
           {%- when 'format_card' -%}
-            <a class="ss-card ss-card--format" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }}>
+            <a class="ss-card ss-card--format" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }} data-ss-reveal>
               <div class="ss-card__media">
                 {%- render 'senseless-card-image', image: block.settings.image, collection: block.settings.collection, alt: block.settings.image_alt, sizes: '(min-width: 768px) 50vw, 100vw' -%}
               </div>

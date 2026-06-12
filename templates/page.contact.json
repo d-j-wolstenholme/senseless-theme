@@ -164,7 +164,7 @@
             "body": "<p>Most consumer questions answered already.</p>",
             "cta_label": "Read FAQ",
             "cta_url": "/pages/faq",
-            "image_alt": "Editorial image for the FAQ"
+            "image_alt": "Senseless frequently asked questions"
           }
         },
         "strength": {
@@ -174,7 +174,7 @@
             "body": "<p>Help deciding between tiers.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
-            "image_alt": "Editorial image for the strength guide"
+            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
         "system": {
@@ -184,7 +184,7 @@
             "body": "<p>The system explained.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
-            "image_alt": "Editorial image for the system guide"
+            "image_alt": "Guide to how the Senseless system works"
           }
         }
       },

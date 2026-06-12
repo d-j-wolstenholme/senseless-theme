@@ -1,0 +1,75 @@
+{%- comment -%}
+  Senseless — scroll-reveal motion system (2026-06-12, Batch 4).
+  ONE reusable reveal: opt-in by adding `data-ss-reveal` to an element (or `data-ss-reveal-group`
+  to a container, which staggers its direct children). IntersectionObserver fades + rises the
+  element once, then unobserves. Transform/opacity only (no layout shift, no paint cost).
+
+  SAFETY CONTRACT:
+    - prefers-reduced-motion: no-preference is REQUIRED before anything hides — under
+      reduced-motion the initial hidden state never applies, so content is fully visible.
+    - No-JS / no-IntersectionObserver fallback: the hidden state is gated on the `.ss-reveal-on`
+      class, which only JS adds (and only when motion is allowed + IO is supported). Without JS
+      the class is absent → elements are visible. Nothing is ever hidden behind JS that can't run.
+    - Above-the-fold / LCP content must NOT opt in (heroes, product-hero buy box, trust bar,
+      header/footer, cookie consent, FAQ accordion). Premium = restraint.
+
+  Rendered once from layout/theme.liquid. ~1KB, deferred via DOMContentLoaded.
+{%- endcomment -%}
+{%- style -%}
+  .ss-reveal-on [data-ss-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .ss-reveal-on [data-ss-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+  /* Belt-and-braces: if the OS preference flips to reduce after load, drop all motion + reveal everything. */
+  @media (prefers-reduced-motion: reduce) {
+    .ss-reveal-on [data-ss-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+{%- endstyle -%}
+<script>
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    var mq = window.matchMedia('(prefers-reduced-motion: no-preference)');
+    if (!mq.matches) return; // reduced-motion users: never hide, never animate
+    document.documentElement.classList.add('ss-reveal-on');
+
+    function init() {
+      var els = document.querySelectorAll('[data-ss-reveal]');
+      if (!els.length) return;
+
+      // Stagger direct children of any [data-ss-reveal-group] container (cap ~320ms).
+      document.querySelectorAll('[data-ss-reveal-group]').forEach(function (group) {
+        var kids = group.querySelectorAll(':scope > [data-ss-reveal]');
+        kids.forEach(function (kid, i) {
+          kid.style.transitionDelay = Math.min(i * 60, 320) + 'ms';
+        });
+      });
+
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+      els.forEach(function (el) { io.observe(el); });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>

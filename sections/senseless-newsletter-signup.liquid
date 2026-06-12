@@ -21,15 +21,15 @@
     background: var(--ss-bg);
     color: var(--ss-text);
   }
-  .ss-news__inner { max-width: 680px; margin: 0 auto; padding: 44px 20px; text-align: center; display: flex; flex-direction: column; gap: 16px; align-items: center; }
-  .ss-news__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 28px; line-height: 1.2; margin: 0; color: var(--ss-text); }
+  .ss-news__inner { max-width: 680px; margin: 0 auto; padding-block: 96px; padding-inline: 20px; text-align: center; display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .ss-news__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; margin: 0; color: var(--ss-text); }
   .ss-news__body { font-family: var(--ss-sans); font-size: 17px; line-height: 1.55; color: var(--ss-body); margin: 0; max-width: 54ch; }
   .ss-news__body p { margin: 0; }
   .ss-news__form { width: 100%; max-width: 480px; margin-top: 8px; display: flex; flex-direction: column; gap: 10px; }
   .ss-news__row { display: flex; flex-direction: column; gap: 10px; }
   .ss-news__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-align: left; color: var(--ss-text); }
   .ss-news__label .req { color: var(--ss-error); margin-left: 2px; }
-  .ss-news__input { height: 48px; padding: 0 14px; font-family: var(--ss-sans); font-size: 16px; color: var(--ss-text); background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; width: 100%; }
+  .ss-news__input { height: 48px; padding: 0 14px; font-family: var(--ss-sans); font-size: 16px; color: var(--ss-text); background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 14px; width: 100%; }
   .ss-news__input:focus-visible { outline: 2px solid var(--ss-purple); outline-offset: 2px; border-color: var(--ss-text); }
   .ss-news__submit { height: 48px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-purple); background: var(--ss-purple); color: #fff; font-family: var(--ss-sans); font-weight: 500; font-size: 16px; cursor: pointer; transition: background-color 200ms ease-out, border-color 200ms ease-out; }
   .ss-news__submit:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
@@ -39,19 +39,20 @@
   .ss-news__msg--err { color: var(--ss-error); }
 
   @media (min-width: 768px) {
-    .ss-news__inner { padding: 96px 40px; }
     .ss-news__row { flex-direction: row; }
     .ss-news__input { flex: 1 1 auto; }
     .ss-news__submit { flex: 0 0 auto; }
     .ss-news__label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
   }
+  @media (max-width: 989px) { .ss-news__inner { padding-block: 56px; } }
+  @media (max-width: 749px) { .ss-news__inner { padding-block: 44px; } }
   @media (prefers-reduced-motion: reduce) {
     .ss-news__submit { transition: none; }
   }
 {%- endstyle -%}
 
 <section class="ss-news" aria-label="{{ section.settings.headline | default: 'Newsletter' | escape }}">
-  <div class="ss-news__inner">
+  <div class="ss-news__inner" data-ss-reveal>
     {%- if section.settings.headline != blank -%}<h2 class="ss-news__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
     {%- if section.settings.body != blank -%}<div class="ss-news__body">{{ section.settings.body }}</div>{%- endif -%}
 

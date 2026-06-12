@@ -10,8 +10,8 @@
   "name": {{ section.settings.org_name | default: 'Senseless' | json }},
   "legalName": {{ section.settings.legal_name | default: 'Matrix Health Group Ltd' | json }},
   "url": {{ request.origin | json }},
-  "email": {{ section.settings.email | default: 'hello@senseless.uk' | json }},
-  "telephone": {{ section.settings.telephone | default: '+44 333 049 5549' | json }},
+  "email": {{ section.settings.email | default: 'cs@senseless.uk' | json }},
+  "telephone": {{ section.settings.telephone | default: '+443330495549' | json }},
   "address": {
     "@type": "PostalAddress",
     "streetAddress": {{ section.settings.street | default: '128 City Road' | json }},
@@ -21,8 +21,8 @@
   },
   "contactPoint": [{
     "@type": "ContactPoint",
-    "telephone": {{ section.settings.telephone | default: '+44 333 049 5549' | json }},
-    "email": {{ section.settings.email | default: 'hello@senseless.uk' | json }},
+    "telephone": {{ section.settings.telephone | default: '+443330495549' | json }},
+    "email": {{ section.settings.email | default: 'cs@senseless.uk' | json }},
     "contactType": "customer service",
     "areaServed": "GB",
     "availableLanguage": "English"
@@ -38,8 +38,8 @@
     { "type": "paragraph", "content": "Emits Organization + ContactPoint JSON-LD (no visible output)." },
     { "type": "text", "id": "org_name", "label": "Organization name", "default": "Senseless" },
     { "type": "text", "id": "legal_name", "label": "Legal name", "default": "Matrix Health Group Ltd" },
-    { "type": "text", "id": "telephone", "label": "Telephone", "default": "+44 333 049 5549" },
-    { "type": "text", "id": "email", "label": "Email", "default": "hello@senseless.uk" },
+    { "type": "text", "id": "telephone", "label": "Telephone", "default": "+443330495549" },
+    { "type": "text", "id": "email", "label": "Email", "default": "cs@senseless.uk" },
     { "type": "text", "id": "street", "label": "Street", "default": "128 City Road" },
     { "type": "text", "id": "locality", "label": "Locality", "default": "London" },
     { "type": "text", "id": "postcode", "label": "Postcode", "default": "EC1V 2NX" }

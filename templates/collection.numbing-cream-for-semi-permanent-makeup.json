@@ -11,7 +11,7 @@
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
         "image": "shopify://shop_images/senseless-procedure-semi-permanent-makeup.jpg",
-        "image_alt": "Numbing gel and cream for semi-permanent makeup — Senseless",
+        "image_alt": "Senseless topical preparation gel and cream for semi-permanent makeup",
         "accent_word": "matched"
       }
     },
@@ -167,7 +167,9 @@
         "style": "brand",
         "heading": "Before you buy: the bit most sellers skip",
         "body": "<p>Many SPMU artists apply their own numbing as part of the sitting, and some have a specific product or routine they prefer you not to interfere with. If yours does, you may not need to bring your own — and turning up already numbed without asking can affect how the pigment takes. Self-applied prep matters most where the artist doesn't provide it, or where they're happy for you to prepare beforehand. A quick message before you book settles it.</p>",
-        "accent_word": "skip"
+        "accent_word": "skip",
+        "cta_label": "Does it hurt? Guide by treatment",
+        "cta_url": "/pages/does-it-hurt-by-treatment"
       }
     },
     "characteristics": {

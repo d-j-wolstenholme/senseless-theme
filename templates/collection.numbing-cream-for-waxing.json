@@ -11,7 +11,7 @@
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
         "image": "shopify://shop_images/senseless-procedure-waxing.jpg",
-        "image_alt": "Numbing spray and cream for waxing — Senseless",
+        "image_alt": "Senseless topical preparation spray and cream for waxing",
         "accent_word": "matched"
       }
     },
@@ -167,7 +167,9 @@
         "style": "neutral",
         "heading": "Before you buy: the bit most sellers skip",
         "body": "<p>Some waxing therapists are happy for you to prepare beforehand; others have a routine they'd rather you didn't change, and a few prefer to assess the skin themselves first. For bikini and brazilian especially, a quick message before the appointment is worth it — it tells you whether to prepare at home and how long before to apply. The therapist who knows the area and the wax they use is a better guide than a blanket rule from us.</p>",
-        "accent_word": "skip"
+        "accent_word": "skip",
+        "cta_label": "Does it hurt? Guide by treatment",
+        "cta_url": "/pages/does-it-hurt-by-treatment"
       }
     },
     "characteristics": {

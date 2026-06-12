@@ -10,16 +10,16 @@
         "primary_cta_url": "#procedure-grid",
         "secondary_cta_label": "Shop by strength",
         "secondary_cta_url": "/collections/numbing-cream",
-        "image_alt": "Editorial product still life of Senseless, no faces, no clinical setting"
+        "image_alt": "Senseless topical preparation range for aesthetic procedures on a warm off-white background"
       }
     },
     "procedures": {
       "type": "senseless-procedure-grid",
       "blocks": {
-        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Editorial image for the microneedling range" } },
-        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Editorial image for the laser treatment range" } },
-        "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Editorial image for the semi-permanent makeup range" } },
-        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Editorial image for the waxing range" } }
+        "micro": { "type": "procedure_card", "settings": { "label": "Microneedling", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image_alt": "Senseless topical preparation for microneedling" } },
+        "laser": { "type": "procedure_card", "settings": { "label": "Laser Treatment", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image_alt": "Senseless topical preparation for laser treatment" } },
+        "spmu": { "type": "procedure_card", "settings": { "label": "Semi-Permanent Makeup", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image_alt": "Senseless topical preparation for semi-permanent makeup" } },
+        "wax": { "type": "procedure_card", "settings": { "label": "Waxing", "sub_label": "", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image_alt": "Senseless topical preparation for waxing" } }
       },
       "block_order": ["micro", "laser", "spmu", "wax"],
       "settings": { "columns": "4", "anchor_id": "procedure-grid", "eyebrow": "By appointment", "headline": "Pick your procedure.", "body": "<p>Each procedure has its own collection — the recommended strength, the right format, and the products built for that kind of session.</p>" }
@@ -31,7 +31,7 @@
         "headline": "Generic numbing wasn't built for your appointment.",
         "body": "<p>A cream made for \"skin numbing\" treats every situation the same way. Aesthetic procedures don't work that way. A lip filler appointment asks something different from a session of full-face laser. Senseless is built for the procedure, not the average — three strengths, three formats, formulated to match what each kind of appointment actually demands.</p>",
         "cta_label": "How Senseless works", "cta_url": "/pages/the-senseless-system",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Senseless topical preparation cream close-up on a warm off-white background"
       }
     },
     "tiers": {
@@ -79,7 +79,7 @@
       "blocks": {
         "q1": { "type": "faq_item", "settings": { "question": "What's the difference between Senseless and a regular numbing cream?", "answer": "<p>Regular numbing creams are formulated for generic skin numbing. Senseless is built for aesthetic procedures specifically — three strengths matched to the demands of different appointments, in three formats across cream, gel, and spray.</p>" } },
         "q2": { "type": "faq_item", "settings": { "question": "Which procedures does Senseless cover?", "answer": "<p>Lip fillers, Botox, microneedling, laser, SPMU, waxing, and aesthetic injections more broadly. Each procedure has its own collection with the recommended strength and format.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Can I use Senseless for tattoos?", "answer": "<p>Senseless is formulated for aesthetic procedures. For body art, see our <a href=\"/blogs/guides/topical-numbing-for-body-art\">topical numbing for body art guide</a>.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Can I use Senseless for tattoos?", "answer": "<p>Senseless is formulated for aesthetic procedures rather than tattooing.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "Which strength should I choose?", "answer": "<p>Clinical suits most aesthetic appointments. Advanced for longer or more sensitive sessions. Professional for the most demanding indications. See the <a href=\"/pages/choosing-your-strength\">strength guide</a>.</p>" } },
         "q5": { "type": "faq_item", "settings": { "question": "Is Senseless used in clinics?", "answer": "<p>Yes. Senseless Professional is developed with practitioners and used in clinics across the UK.</p>" } },
         "q6": { "type": "faq_item", "settings": { "question": "Is this a medicine?", "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>" } }

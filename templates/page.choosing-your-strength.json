@@ -215,7 +215,8 @@
           "settings": {
             "label": "Clinical Strength",
             "title": "Cream",
-            "price": "£TBC",
+            "product": "clinical-strength-cream",
+            "price": "",
             "cta_label": "View product",
             "cta_url": "/products/clinical-strength-cream",
             "flagship": false,
@@ -227,7 +228,8 @@
           "settings": {
             "label": "Advanced Strength",
             "title": "Cream",
-            "price": "£TBC",
+            "product": "advanced-strength-cream",
+            "price": "",
             "cta_label": "View product",
             "cta_url": "/products/advanced-strength-cream",
             "flagship": false,
@@ -239,7 +241,8 @@
           "settings": {
             "label": "Professional Strength",
             "title": "Cream",
-            "price": "£TBC",
+            "product": "professional-strength-cream",
+            "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
             "flagship": true,

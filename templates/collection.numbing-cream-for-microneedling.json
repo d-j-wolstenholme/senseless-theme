@@ -11,7 +11,7 @@
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
         "image": "shopify://shop_images/senseless-procedure-microneedling.jpg",
-        "image_alt": "Numbing gel and cream for microneedling — Senseless",
+        "image_alt": "Senseless topical preparation gel and cream for microneedling",
         "accent_word": "matched"
       }
     },
@@ -167,7 +167,9 @@
         "style": "brand",
         "heading": "Before you buy: the bit most sellers skip",
         "body": "<p>Most microneedling clinics apply their own numbing as standard — it's part of the treatment. If yours does, you may not need to bring your own, and arriving already numbed without checking can get in the way of the session. Self-applied preparation matters most where the practitioner doesn't provide it, or where you want extra on top. A quick message before you book settles it.</p>",
-        "accent_word": "skip"
+        "accent_word": "skip",
+        "cta_label": "Does microneedling hurt?",
+        "cta_url": "/pages/does-microneedling-hurt"
       }
     },
     "characteristics": {

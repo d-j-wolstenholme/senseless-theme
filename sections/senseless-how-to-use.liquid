@@ -18,10 +18,10 @@
     background: var(--ss-surface);
     color: var(--ss-text);
   }
-  .ss-htu__inner { max-width: 860px; margin: 0 auto; padding: 44px 20px; }
+  .ss-htu__inner { max-width: 860px; margin: 0 auto; padding-block: 96px; padding-inline: 20px; }
   .ss-htu__header { max-width: 60ch; margin: 0 0 28px; display: flex; flex-direction: column; gap: 12px; }
-  .ss-htu__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
-  .ss-htu__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 28px; line-height: 1.2; margin: 0; }
+  .ss-htu__eyebrow { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-htu__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; margin: 0; }
 
   .ss-htu__lead { background: var(--ss-bg); border: 1px solid var(--ss-border); border-left: 3px solid var(--ss-purple); border-radius: 4px; padding: 16px 18px; margin: 0 0 24px; font-family: var(--ss-sans); font-size: 14.5px; line-height: 1.55; color: var(--ss-body); }
   .ss-htu__lead p { margin: 0 0 8px; }
@@ -32,7 +32,7 @@
   .ss-htu__step { counter-increment: ss-step; display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; }
   .ss-htu__num { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--ss-purple); color: var(--ss-purple); display: flex; align-items: center; justify-content: center; font-family: var(--ss-head); font-weight: 600; font-size: 16px; }
   .ss-htu__num::before { content: counter(ss-step); }
-  .ss-htu__stitle { font-family: var(--ss-head); font-weight: 600; font-size: 17px; margin: 0 0 4px; }
+  .ss-htu__stitle { font-family: var(--ss-head); font-weight: 600; font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 4px; }
   .ss-htu__sbody { font-family: var(--ss-sans); font-size: 15px; line-height: 1.55; color: var(--ss-body); margin: 0; }
   .ss-htu__sbody p { margin: 0; }
 
@@ -40,7 +40,12 @@
   .ss-htu__cta { margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); text-decoration: none; }
   .ss-htu__cta::after { content: '\2192'; }
 
-  @media (min-width: 1024px) { .ss-htu__inner { padding: 96px 40px; } }
+  @media (min-width: 1024px) { .ss-htu__inner { padding-inline: 40px; } }
+  @media (max-width: 989px) { .ss-htu__inner { padding-block: 56px; } }
+  @media (max-width: 749px) {
+    .ss-htu__inner { padding-block: 44px; }
+    .ss-htu__headline { line-height: 1.12; }
+  }
 {%- endstyle -%}
 
 <section class="ss-htu" aria-label="{{ section.settings.headline | default: 'How to use' | escape }}">

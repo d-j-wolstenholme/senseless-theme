@@ -4,7 +4,7 @@ You are Claude Code working on the Senseless Shopify theme. Read this file in fu
 
 ## Project Overview
 
-Senseless is a UK-based topical preparation brand for aesthetic and cosmetic procedures. Female-leaning audience. Three strength tiers (Clinical → Advanced → Professional). Four formats (Cream 30g, Cream 10g, Gel 35ml, Spray). 10 SKUs at launch. Manufactured by Matrix Health Group Ltd. Brand colour `#6B3FA0`.
+Senseless is a UK-based topical preparation brand for aesthetic and cosmetic procedures. Female-leaning audience. Three strength tiers (Clinical → Advanced → Professional). Four formats — Cream (10g/30g), Gel (15ml/35ml), Spray (100ml) — plus a Foaming Cleanser (150ml). 15 single SKUs across 10 products (14 numbing variants + cleanser), plus 5 multi-product bundles (Clinical/Advanced Starter + Ultimate, Professional Ultimate). Manufactured by Matrix Health Group Ltd. Brand colour `#6B3FA0`.
 
 This repo is the new build, started from latest Horizon as a clean base. Old theme is reference only.
 

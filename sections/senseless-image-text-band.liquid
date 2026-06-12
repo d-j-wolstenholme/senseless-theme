@@ -19,10 +19,10 @@
     background: var(--ss-bg);
     color: var(--ss-text);
   }
-  .ss-itb__inner { max-width: 1200px; margin: 0 auto; padding: 44px 20px; display: grid; gap: 28px; }
+  .ss-itb__inner { max-width: 1200px; margin: 0 auto; padding-block: 96px; padding-inline: 20px; display: grid; gap: 28px; }
   .ss-itb__text { display: flex; flex-direction: column; gap: 16px; }
-  .ss-itb__eyebrow { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
-  .ss-itb__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: 28px; line-height: 1.2; margin: 0; color: var(--ss-text); max-width: 18ch; }
+  .ss-itb__eyebrow { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; line-height: 1.2; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-itb__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; margin: 0; color: var(--ss-text); max-width: 18ch; }
   .ss-itb__body { font-family: var(--ss-sans); font-size: 17px; line-height: 1.55; color: var(--ss-body); margin: 0; max-width: 52ch; }
   .ss-itb__body p { margin: 0 0 0.75em; }
   .ss-itb__body p:last-child { margin-bottom: 0; }
@@ -35,27 +35,28 @@
   .ss-itb__placeholder svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
 
   @media (min-width: 1024px) {
-    .ss-itb__inner { grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding: 96px 40px; }
-    .ss-itb__headline { font-size: 32px; }
+    .ss-itb__inner { grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding-inline: 40px; }
     .ss-itb__body { font-size: 18px; }
     .ss-itb__media { aspect-ratio: 1 / 1; }
     .ss-itb--text-right .ss-itb__text { order: 2; }
     .ss-itb--text-right .ss-itb__media { order: 1; }
   }
+  @media (max-width: 989px) { .ss-itb__inner { padding-block: 56px; } }
+  @media (max-width: 749px) { .ss-itb__inner { padding-block: 44px; } }
   @media (prefers-reduced-motion: reduce) {
     .ss-itb__cta { transition: none; }
   }
 {%- endstyle -%}
 
 <section class="ss-itb ss-itb--{{ section.settings.direction }}" aria-label="{{ section.settings.headline | default: 'Image and text' | escape }}">
-  <div class="ss-itb__inner">
-    <div class="ss-itb__text">
+  <div class="ss-itb__inner" data-ss-reveal-group>
+    <div class="ss-itb__text" data-ss-reveal>
       {%- if section.settings.eyebrow != blank -%}<p class="ss-itb__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       {%- if section.settings.headline != blank -%}<h2 class="ss-itb__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
       {%- if section.settings.body != blank -%}<div class="ss-itb__body">{{ section.settings.body }}</div>{%- endif -%}
       {%- if section.settings.cta_label != blank -%}<a class="ss-itb__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
     </div>
-    <div class="ss-itb__media" style="aspect-ratio: {{ section.settings.image_ratio | default: '1 / 1' }};">
+    <div class="ss-itb__media" style="aspect-ratio: {{ section.settings.image_ratio | default: '1 / 1' }};" data-ss-reveal>
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 1024px) 50vw, 100vw', widths: '480, 768, 1024, 1200', alt: section.settings.image_alt }}
       {%- else -%}

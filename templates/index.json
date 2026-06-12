@@ -94,7 +94,7 @@
           "type": "procedure_card",
           "settings": {
             "collection": "numbing-cream-for-microneedling",
-            "image_alt": "Editorial image for the microneedling range",
+            "image_alt": "Senseless topical preparation for microneedling",
             "label": "Microneedling",
             "sub_label": "",
             "cta_label": "View range",
@@ -105,7 +105,7 @@
           "type": "procedure_card",
           "settings": {
             "collection": "numbing-cream-for-laser-treatment",
-            "image_alt": "Editorial image for the laser treatment range",
+            "image_alt": "Senseless topical preparation for laser treatment",
             "label": "Laser Treatment",
             "sub_label": "",
             "cta_label": "View range",
@@ -116,7 +116,7 @@
           "type": "procedure_card",
           "settings": {
             "collection": "numbing-cream-for-semi-permanent-makeup",
-            "image_alt": "Editorial image for the semi-permanent makeup range",
+            "image_alt": "Senseless topical preparation for semi-permanent makeup",
             "label": "Semi-Permanent Makeup",
             "sub_label": "",
             "cta_label": "View range",
@@ -127,7 +127,7 @@
           "type": "procedure_card",
           "settings": {
             "collection": "numbing-cream-for-waxing",
-            "image_alt": "Editorial image for the waxing range",
+            "image_alt": "Senseless topical preparation for waxing",
             "label": "Waxing",
             "sub_label": "",
             "cta_label": "View range",

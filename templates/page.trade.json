@@ -24,7 +24,7 @@
             "body": "<p>Volume pricing tiers for clinics, salons, and aesthetic practices. Specific rates discussed at the enquiry stage.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image_alt": "Editorial image for account pricing"
+            "image_alt": "Trade account pricing"
           }
         },
         "sizes": {
@@ -34,7 +34,7 @@
             "body": "<p>Bulk sizes for the products clinics use at volume. Beyond the consumer 30g and 35ml ranges. Specific SKUs discussed at the enquiry stage.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image_alt": "Editorial image for clinic sizes"
+            "image_alt": "Clinic and salon pack sizes"
           }
         },
         "supply": {
@@ -44,7 +44,7 @@
             "body": "<p>UK formulation, UK supply chain, account-level inventory visibility. The supply continuity clinics need from a long-term partner.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image_alt": "Editorial image for supply consistency"
+            "image_alt": "Consistent trade supply"
           }
         }
       },
@@ -84,7 +84,7 @@
         "body": "<p>Senseless doesn't gate Professional Strength behind practitioner credentials. Professional Strength is sold direct-to-consumer on the same site, at the same product page. That's deliberate — the system is built on transparency, not on professional-only access. Trade exists for a different reason: clinics working at volume need account pricing, bulk sizes, supply consistency, and direct support. Those operational needs are what trade actually delivers, not exclusive access to the product range.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Senseless topical preparation product close-up on a warm off-white background"
       }
     },
     "process": {
@@ -264,7 +264,7 @@
             "body": "<p>Browse the full consumer catalogue.</p>",
             "cta_label": "View collection",
             "cta_url": "/collections/aesthetic-numbing-cream",
-            "image_alt": "Editorial image for the range"
+            "image_alt": "The Senseless topical preparation range"
           }
         },
         "about": {
@@ -274,7 +274,7 @@
             "body": "<p>The brand and the company behind it.</p>",
             "cta_label": "Read more",
             "cta_url": "/pages/about",
-            "image_alt": "Editorial image for About"
+            "image_alt": "About Senseless"
           }
         },
         "contact": {
@@ -284,7 +284,7 @@
             "body": "<p>Other questions.</p>",
             "cta_label": "Contact us",
             "cta_url": "/pages/contact",
-            "image_alt": "Editorial image for Contact"
+            "image_alt": "Contact Senseless"
           }
         }
       },

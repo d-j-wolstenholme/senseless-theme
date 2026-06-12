@@ -17,17 +17,17 @@
     --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
   .ss-sl--canvas { background:var(--bg); }
   .ss-sl--surface { background:var(--surf); }
-  .ss-sl__inner { max-width:860px; margin:0 auto; padding:56px 20px; }
+  .ss-sl__inner { max-width:860px; margin:0 auto; padding-block:96px; padding-inline:20px; }
   .ss-sl__head { max-width:62ch; margin:0 0 28px; display:flex; flex-direction:column; gap:12px; }
-  .ss-sl__eyebrow { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0; }
-  .ss-sl__headline { font-family:var(--sans); font-weight: 400; letter-spacing: -0.02em; font-size:28px; line-height:1.2; margin:0; }
+  .ss-sl__eyebrow { font-family:var(--sans); font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0; }
+  .ss-sl__headline { font-family:var(--sans); font-weight: 400; letter-spacing: -0.02em; font-size:clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height:1.1; margin:0; }
   .ss-sl__intro { font-family:var(--sans); font-size:16px; line-height:1.6; color:var(--body); }
   .ss-sl__intro p { margin:0 0 8px; } .ss-sl__intro p:last-child { margin:0; }
   .ss-sl__strength { font-family:var(--sans); font-weight:600; font-size:16px; color:var(--p); margin:0; }
   .ss-sl__strengthlink { color:inherit; text-decoration:none; }
   .ss-sl__strengthlink:hover { text-decoration:underline; }
-  .ss-sl__tag { display:inline-block; margin-left:8px; font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--p); background:rgba(107,63,160,.10); border:1px solid rgba(107,63,160,.25); border-radius:999px; padding:2px 8px; vertical-align:middle; }
-  .ss-sl__matrix--rows .ss-sl__row--featured { border:2px solid var(--p); border-radius:6px; }
+  .ss-sl__tag { display:inline-block; margin-left:8px; font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--p); background:rgba(107,63,160,.10); border:1px solid rgba(107,63,160,.25); border-radius:999px; padding:2px 8px; vertical-align:middle; }
+  .ss-sl__matrix--rows .ss-sl__row--featured { border:2px solid var(--p); border-radius:4px; }
   .ss-sl__matched { font-family:var(--sans); font-size:15px; line-height:1.55; color:var(--body); margin:0; }
   .ss-sl__matched strong { color:var(--ink); font-weight:600; }
   .ss-sl__matched em { font-style:italic; }
@@ -39,33 +39,33 @@
 
   /* TILES — compact 3-up (collection pages: the at-a-glance Scale) */
   .ss-sl__matrix--tiles { display:grid; grid-template-columns:1fr; gap:12px; }
-  .ss-sl__matrix--tiles .ss-sl__row { display:block; box-sizing:border-box; border:1px solid var(--bd); border-radius:6px; background:var(--surf); padding:20px 18px; }
+  .ss-sl__matrix--tiles .ss-sl__row { display:block; box-sizing:border-box; border:1px solid var(--bd); border-radius:4px; background:var(--surf); padding:20px 18px; }
   .ss-sl__matrix--tiles .ss-sl__strength { font-size:17px; margin:0 0 8px; }
 
   /* ROWS — comprehensive list (reserved for /pages/choosing-your-strength) */
-  .ss-sl__matrix--rows { border:1px solid var(--bd); border-radius:6px; overflow:hidden; background:var(--surf); }
+  .ss-sl__matrix--rows { border:1px solid var(--bd); border-radius:4px; overflow:hidden; background:var(--surf); }
   .ss-sl__matrix--rows .ss-sl__row { display:grid; grid-template-columns:1fr; gap:4px; padding:18px 20px; border-top:1px solid var(--bd); }
   .ss-sl__matrix--rows .ss-sl__row:first-child { border-top:0; }
 
-  @media (min-width:700px) {
+  @media (min-width:750px) {
     .ss-sl__matrix--tiles { grid-template-columns:repeat(3,1fr); gap:16px; }
     .ss-sl__matrix--rows .ss-sl__row { grid-template-columns:180px 1fr; gap:24px; align-items:baseline; }
-    .ss-sl__headline { font-size:30px; }
   }
-  @media (min-width:1024px) { .ss-sl__inner { padding:80px 20px; } }
+  @media (max-width:989px) { .ss-sl__inner { padding-block:56px; } }
+  @media (max-width:749px) { .ss-sl__inner { padding-block:44px; } }
 {%- endstyle -%}
 
 <section class="ss-sl ss-sl--{{ band }}" id="{{ anchor | escape }}" aria-label="{{ section.settings.headline | default: 'Match the strength' | escape }}">
   <div class="ss-sl__inner">
     {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
-      <header class="ss-sl__head">
+      <header class="ss-sl__head" data-ss-reveal>
         {%- if section.settings.eyebrow != blank -%}<p class="ss-sl__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
         {%- if section.settings.headline != blank -%}<h2 class="ss-sl__headline">{% render 'senseless-accent', text: section.settings.headline, word: section.settings.accent_word %}</h2>{%- endif -%}
         {%- if section.settings.body != blank -%}<div class="ss-sl__intro">{{ section.settings.body }}</div>{%- endif -%}
       </header>
     {%- endif -%}
 
-    <div class="ss-sl__matrix ss-sl__matrix--{{ layout }}" role="table" aria-label="{{ section.settings.headline | default: 'Strength matrix' | escape }}">
+    <div class="ss-sl__matrix ss-sl__matrix--{{ layout }}" role="table" aria-label="{{ section.settings.headline | default: 'Strength matrix' | escape }}" data-ss-reveal-group>
       {%- comment -%}
         Single source: the strength_tier metaobject (Clinical/Advanced/Professional). When the
         toggle is on AND entries exist, iterate them by the `order` field. Falls back to manual
@@ -74,7 +74,7 @@
       {%- if section.settings.use_metaobject and metaobjects.strength_tier.values_count > 0 -%}
         {%- assign tiers = metaobjects.strength_tier.values | sort: 'order' -%}
         {%- for tier in tiers -%}
-          <div class="ss-sl__row" role="row">
+          <div class="ss-sl__row" role="row" data-ss-reveal>
             {%- if tier.name.value != blank -%}
               <p class="ss-sl__strength" role="cell"{% if tier.accent.value != blank %} style="color:{{ tier.accent.value }}"{% endif %}>
                 {%- if tier.link.value != blank -%}<a class="ss-sl__strengthlink" href="{{ tier.link.value }}">{{ tier.name.value | escape }}</a>{%- else -%}{{ tier.name.value | escape }}{%- endif -%}
@@ -85,7 +85,7 @@
         {%- endfor -%}
       {%- else -%}
         {%- for block in section.blocks -%}
-          <div class="ss-sl__row{% if block.settings.featured %} ss-sl__row--featured{% endif %}" role="row" {{ block.shopify_attributes }}>
+          <div class="ss-sl__row{% if block.settings.featured %} ss-sl__row--featured{% endif %}" role="row" {{ block.shopify_attributes }} data-ss-reveal>
             {%- if block.settings.strength != blank -%}<p class="ss-sl__strength" role="cell">{%- if block.settings.link != blank -%}<a class="ss-sl__strengthlink" href="{{ block.settings.link }}">{{ block.settings.strength | escape }}</a>{%- else -%}{{ block.settings.strength | escape }}{%- endif -%}{%- if block.settings.tag != blank -%} <span class="ss-sl__tag">{{ block.settings.tag | escape }}</span>{%- endif -%}</p>{%- endif -%}
             {%- if block.settings.matched != blank -%}<div class="ss-sl__matched" role="cell">{{ block.settings.matched }}</div>{%- endif -%}
           </div>

@@ -17,9 +17,9 @@
   .ss-sel { --p:#6B3FA0; --ph:#5A3489; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
     --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
   .ss-sel--canvas { background:var(--bg); } .ss-sel--surface { background:var(--surf); }
-  .ss-sel__inner { max-width:920px; margin:0 auto; padding:48px 20px; }
-  .ss-sel__eyebrow { font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0 0 10px; }
-  .ss-sel__headline { font-family:var(--sans); font-weight:400; letter-spacing:-0.02em; font-size:28px; line-height:1.15; margin:0 0 8px; }
+  .ss-sel__inner { max-width:920px; margin:0 auto; padding-block:96px; padding-inline:20px; }
+  .ss-sel__eyebrow { font-family:var(--sans); font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0 0 10px; }
+  .ss-sel__headline { font-family:var(--sans); font-weight:400; letter-spacing:-0.02em; font-size:clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height:1.1; margin:0 0 8px; }
   .ss-sel__intro { font-family:var(--sans); font-size:16px; line-height:1.55; color:var(--body); margin:0 0 24px; max-width:60ch; }
   .ss-sel__q { margin:0 0 18px; border:0; padding:0; }
   .ss-sel__qlabel { font-family:var(--sans); font-weight:600; font-size:14px; color:var(--ink); margin:0 0 10px; }
@@ -32,9 +32,9 @@
   .ss-sel__result { margin-top:8px; border-top:1px solid var(--bd); padding-top:24px; }
   .ss-sel__empty { font-family:var(--sans); font-size:16px; color:var(--sec); margin:0; }
   .ss-sel__cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0 0 16px; }
-  .ss-sel__card { border:1px solid var(--bd); border-radius:8px; background:var(--surf); padding:18px; }
+  .ss-sel__card { border:1px solid var(--bd); border-radius:4px; background:var(--surf); padding:18px; }
   .ss-sel__card--pro { border:2px solid var(--p); }
-  .ss-sel__cardlabel { font-family:var(--sans); font-weight:500; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--sec); margin:0 0 6px; }
+  .ss-sel__cardlabel { font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--sec); margin:0 0 6px; }
   .ss-sel__cardval { font-family:var(--sans); font-weight:600; font-size:22px; line-height:1.1; margin:0; color:var(--ink); }
   .ss-sel__card--pro .ss-sel__cardval { color:var(--p); }
   .ss-sel__line { font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--body); margin:0 0 10px; }
@@ -44,7 +44,8 @@
   .ss-sel__cta::after { content:'\2192'; }
   .ss-sel__pract { font-family:var(--sans); font-size:13px; line-height:1.5; color:var(--sec); margin:14px 0 0; }
   [hidden] { display:none !important; }
-  @media (max-width:600px){ .ss-sel__cards { grid-template-columns:1fr; } .ss-sel__headline { font-size:24px; } }
+  @media (max-width:989px){ .ss-sel__inner { padding-block:56px; } }
+  @media (max-width:749px){ .ss-sel__inner { padding-block:44px; } .ss-sel__headline { line-height:1.12; } .ss-sel__cards { grid-template-columns:1fr; } }
 {%- endstyle -%}
 <section class="ss-sel ss-sel--{{ band }}" id="{{ anchor | escape }}" aria-label="{{ section.settings.headline | default: 'The Senseless Selector' | escape }}">
   <div class="ss-sel__inner" data-selector>

@@ -6,7 +6,7 @@
         "eyebrow": "Duration of effect",
         "headline": "Long enough for the procedure you've booked.",
         "subhead": "<p>Duration depends on the procedure, the tier, and the individual. The honest answer isn't a number — it's a framework that matches the appointment. Senseless is formulated to last through the kind of session each tier is built for.</p>",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Editorial close-up of a Senseless topical preparation on a warm off-white background"
       }
     },
     "framework": {
@@ -18,7 +18,7 @@
         "body": "<p>The procedure: a 15-minute Botox session asks something different from a 90-minute microneedling appointment. The tier: Clinical, Advanced, and Professional are formulated for different session lengths. The individual: skin sensitivity, treatment area, hydration, and the specific application all change what the same product does on the same procedure for two different clients. The duration question can't be answered with a single number because none of these variables are constant.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Editorial still life of the Senseless range — the three duration-shaping variables"
       }
     },
     "cantell": {
@@ -27,7 +27,7 @@
         "direction": "text-right",
         "eyebrow": "The general framework",
         "headline": "",
-        "body": "<p>Most topical preparations for aesthetic procedures are designed to last somewhere between 60 minutes and several hours after application. That's a generic range across the broader category, not a Senseless-specific claim. Within the Senseless system, the tiers are formulated to match the session lengths they're built for — Clinical for shorter, focused appointments; Advanced for longer or more sensitive sessions; Professional for sustained or intensive bookings. The system's logic is built into the duration question, even if the specific number isn't ours to give.</p>",
+        "body": "<p>Topical preparations for aesthetic procedures are designed to cover a typical appointment window — your practitioner can advise on timing for your treatment. Within the Senseless system, the tiers are formulated to match the session lengths they're built for — Clinical for shorter, focused appointments; Advanced for longer or more sensitive sessions; Professional for sustained or intensive bookings. The system's logic is built into the duration question, even if the specific timing isn't ours to give.</p>",
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Editorial Senseless three-tier system view"
@@ -53,7 +53,7 @@
         "body": "<p>A well-matched preparation lasts the length of the procedure. The reason the Senseless system has three tiers and the recommendation matrix tells you which to pick is exactly this — too short a window for an intensive session is the most common application mistake. If your appointment runs longer than expected and you've been on the lighter side of preparation, your practitioner has options. Some reapply at the chair. Some use additional numbing during the procedure. Some pause briefly. Your practitioner knows what they can offer and what their protocol allows.</p>",
         "cta_label": "Choose your strength",
         "cta_url": "/pages/choosing-your-strength",
-        "image_alt": "Editorial product close-up of Senseless"
+        "image_alt": "Editorial detail of a Senseless preparation tube matched to session length"
       }
     },
     "callout": {
@@ -127,7 +127,7 @@
             "body": "<p>Match the tier to the procedure.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/choosing-your-strength",
-            "image_alt": "Editorial image for the strength guide"
+            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
         "onset": {
@@ -137,7 +137,7 @@
             "body": "<p>Onset timing, explained.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
-            "image_alt": "Editorial image for the onset guide"
+            "image_alt": "Guide to how long a Senseless preparation takes to work"
           }
         },
         "apply": {
@@ -147,7 +147,7 @@
             "body": "<p>The application routine.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/how-to-apply-numbing-cream",
-            "image_alt": "Editorial image for the application guide"
+            "image_alt": "Guide to applying a Senseless topical preparation"
           }
         }
       },

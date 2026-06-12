@@ -72,3 +72,16 @@ Every section schema must include:
 - A non-empty `default` on every text setting (server-side `theme push` rejects `default:""`)
 
 No hard-coded copy in section files. Everything must be editor-accessible.
+
+## Unreferenced sections (editor library — keep, do not delete)
+
+As of 2026-06-12 these four sections are not referenced by any template, header/footer group, or `settings_data.json`. They are retained as an **editor library** (each ships a preset and is available in the theme editor) — **do not delete** (owner decision, 2026-06-12):
+
+- `senseless-decision-band.liquid`
+- `senseless-pull-quote.liquid`
+- `senseless-section-statement.liquid`
+- `senseless-product-showcase.liquid`
+
+## Motion
+
+`snippets/senseless-reveal.liquid` (2026-06-12) — one reusable IntersectionObserver scroll-reveal. Opt-in via `data-ss-reveal` on an element (fade + 14px rise), or `data-ss-reveal-group` on a container to stagger its direct `data-ss-reveal` children (≤320ms). Reduced-motion- and no-JS-safe (the hidden state only applies once JS adds `.ss-reveal-on`, and only when `prefers-reduced-motion: no-preference`). Rendered once in `theme.liquid` head. Applied to: trio-card-row, procedure-grid, format-row, cross-sell, strength-ladder (staggered), image-text-band (text→media), key-facts, callout-band, pull-quote, newsletter-signup (single). Deliberately NOT applied to heroes, product-hero, collection-grid buy surface, trust-bar, FAQ, header/footer, cookie-consent (above-the-fold / LCP / critical UI).

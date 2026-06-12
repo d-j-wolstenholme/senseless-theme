@@ -46,7 +46,8 @@
             "strength": "professional",
             "label": "Professional Strength",
             "title": "Cream",
-            "price": "£TBC",
+            "product": "professional-strength-cream",
+            "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
             "flagship": true,
@@ -60,7 +61,8 @@
             "strength": "professional",
             "label": "Professional Strength",
             "title": "Gel",
-            "price": "£TBC",
+            "product": "professional-strength-gel",
+            "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-gel",
             "flagship": true,
@@ -74,7 +76,8 @@
             "strength": "professional",
             "label": "Professional Strength",
             "title": "Spray",
-            "price": "£TBC",
+            "product": "professional-strength-spray",
+            "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-spray",
             "flagship": true,
@@ -156,7 +159,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Is this the same as the strongest numbing cream for tattoos?",
-            "answer": "<p>Senseless is formulated for aesthetic procedures specifically. For tattoo preparation, see our <a href=\"/blogs/guides/topical-numbing-for-body-art\">topical numbing for body art guide</a>.</p>"
+            "answer": "<p>Senseless is formulated for aesthetic procedures specifically. For more on the range, see <a href=\"/pages/the-senseless-system\">the Senseless system</a>.</p>"
           }
         },
         "q5": {
@@ -208,7 +211,7 @@
             "body": "<p>Match the tier to the procedure.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/choosing-your-strength",
-            "image_alt": "Editorial image for the strength guide"
+            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         }
       },

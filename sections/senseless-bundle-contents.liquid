@@ -15,9 +15,9 @@
   .ss-kit { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
     --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); font-family:var(--sans); }
   .ss-kit--surface { background:var(--surf); }
-  .ss-kit__inner { max-width:760px; margin:0 auto; padding:48px 20px; }
-  .ss-kit__eyebrow { font-weight:500; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--p); margin:0 0 10px; }
-  .ss-kit__headline { font-weight:400; letter-spacing:-0.02em; font-size:26px; line-height:1.2; margin:0 0 18px; }
+  .ss-kit__inner { max-width:760px; margin:0 auto; padding-block:48px; padding-inline:20px; }
+  .ss-kit__eyebrow { font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0 0 10px; }
+  .ss-kit__headline { font-weight:400; letter-spacing:-0.02em; font-size:clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height:1.1; margin:0 0 18px; }
   .ss-kit__list { list-style:none; margin:0; padding:0; }
   .ss-kit__item { border-top:1px solid var(--bd); padding:14px 0; font-size:16px; }
   .ss-kit__item:last-child { border-bottom:1px solid var(--bd); }
@@ -25,6 +25,8 @@
   .ss-kit__item a:hover { text-decoration:underline; }
   .ss-kit__saving { margin:18px 0 0; font-size:15px; color:var(--body); }
   .ss-kit__saving strong { color:var(--ink); }
+  @media (max-width:989px){ .ss-kit__inner { padding-block:32px; } }
+  @media (max-width:749px){ .ss-kit__inner { padding-block:28px; } .ss-kit__headline { line-height:1.12; } }
 {%- endstyle -%}
 <section class="ss-kit ss-kit--{{ section.settings.band | default: 'canvas' }}" aria-label="What's in the kit">
   <div class="ss-kit__inner">
