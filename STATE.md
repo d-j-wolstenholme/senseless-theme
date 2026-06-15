@@ -7,6 +7,16 @@ Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`),
 
 ---
 
+## 2026-06-15 — Comfort vs Numbing naming (canonical rule + Phase 2 applied)
+
+Locked the rule: **"Comfort [format]"** (Comfort Cream/Gel/Spray) = Senseless **product brand name**; **"Numbing [format]"** = **SEO category descriptor** only. (COMPLIANCE.md "Product naming" sub-rule + BRAND.md + DECISIONS-LOG.md 2026-06-15.)
+
+Full read-only audit (theme repo + live Admin): **290 hits — CHANGE 12 · KEEP 247 · GREY 31**; key finding = the store never used "Numbing [format]" as a product brand name (titles are "[Tier] Strength [Format]"), so almost everything is legitimate category/SEO. SEO-protection layer cleared all 12 CHANGE; split the 31 GREY into 9 SEO-RISK + 22 GREY-SEO (all held).
+
+**Phase 2 applied (SEO-cleared CHANGE only):** 3 cream PDP product-media alts → "Senseless [Tier] Strength **Comfort Cream**" (productUpdateMedia) + 9 `image-manifest.json` cream mirror records. Gel/spray live alts already used "Comfort"; JSON-LD name derives from title (clean). Commit `270c696`; **no theme files changed → no theme deploy.**
+
+**HELD for owner ruling (no change):** 8 PDP SEO `title_tag`s + senseless-vs-ametop title (**SEO-RISK** — category keyword in the meta title; if adding Comfort, use the *additive* pattern, don't replace); 6 PDP short-descriptions, 2 bundle kit-contents, 14 manifest range/lifestyle records (**GREY-SEO**). Audit + SEO layer filed to Notion Build Reports hub.
+
 ## 2026-06-15 — Product imagery refresh (all 10 single-format PDPs)
 
 Replaced the featured image on all 10 single-product PDPs (3 cream / 3 gel / 3 spray / 1 foam) with the new `batch-all-formats` pack shots. Bundles NOT touched (no new art supplied).
