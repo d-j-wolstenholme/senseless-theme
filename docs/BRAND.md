@@ -9,6 +9,7 @@ The canonical code-side mirror of the Brand & Product System Notion page.
 - **Audience:** Female users — cosmetic and aesthetic procedure clients
 - **Headline:** Confidence Starts With Comfort
 - **Positioning:** Premium, professional, clinical-aesthetic, female-leaning, UK formulated
+- **Product naming:** Senseless products are named with **"Comfort"** — **Comfort Cream / Comfort Gel / Comfort Spray** (the brand name; describes the user experience, asserts no physiological mechanism). **"Numbing [format]"** is used only as an **SEO category descriptor** on search-facing surfaces (collections, meta keywords, guide/article body), never as the product name or in effect-attributing copy. See `docs/COMPLIANCE.md` → *Product naming — UK cosmetics compliance*.
 
 ## Colours
 

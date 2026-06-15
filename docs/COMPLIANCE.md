@@ -76,6 +76,18 @@ This does **not** loosen the Hard Rule. "numbing" / "numbs" used as an **effect 
 
 > **Open gate (2026-06-12):** the full-site audit found live *effect-use* of "numbing/numbed" that breaches the Hard Rule. Per owner instruction that copy is **routed to MHG/legal review** and was not rewritten; it remains a pre-public-go-live gate. See `DECISIONS-LOG.md` 2026-06-12.
 
+### Product naming — UK cosmetics compliance
+
+The word "numbing" must not appear as or within a Senseless product name, product description attributing an effect to the product, or any copy that implies the product produces a numbing or anaesthetic effect on the skin. This constitutes a medicinal efficacy claim under UK cosmetics law and risks reclassification of the product as a medicine requiring MHRA licensing.
+
+Senseless product names use **"Comfort"** — **Comfort Cream, Comfort Gel, Comfort Spray**. These describe the user experience without asserting a physiological mechanism.
+
+"Numbing cream/gel/spray" may appear as a **search category term** on SEO-facing surfaces (collections, meta descriptions using it as a keyword, guide body copy, article copy) where it describes consumer search intent and does not attribute a numbing effect to the Senseless product specifically.
+
+**The test:** does the copy claim or imply that the Senseless product numbs the user? If yes → rewrite. If the copy describes a search category or generic consumer intent → permitted.
+
+This rule connects to the standing "numbing" effect-claim ban already in this document. The product naming rule is its application to titles, descriptions, and brand copy.
+
 ## Compliance Checklist (run before any user-facing copy ships)
 
 - [ ] No hard-rule phrases in headline, body, alt text, meta, or CTA
