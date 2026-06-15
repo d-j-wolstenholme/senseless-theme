@@ -7,6 +7,16 @@ Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`),
 
 ---
 
+## 2026-06-15 — Collection hero images (7 procedure/injectable collections + bundles reuse)
+
+New hero photography for the 4 procedure (microneedling / laser / SPMU / waxing) + 3 injectable (lip-fillers / botox / injections) collections; bundles reuses the Professional bundle hero (no new art). Processed (Sharp 1:1 white-bg master PNG + WebP + 400/800/1200 srcset; originals in `~/senseless/processed-sources/batch-collection-and-homepage/`) → Shopify Files (staged PUT → fileCreate, all READY).
+
+**Both layers updated per collection** (the gotcha — `collection.image` cleared first, then set):
+- **`collection.image`** (API): 4 procedure replaced placeholder; 3 injectable were `null` → set; bundles was `homepage-bundle-socials.png` → reused Professional bundle CDN. All with Comfort-naming alts.
+- **Template hero**: procedure templates had an `image` key → replaced; injectable + bundles templates had **no `image` key** (only `image_alt`) → **added** `image` (`shopify://shop_images/senseless-<x>-collection-hero.png`) + Comfort alts.
+
+`image-manifest.json`: 7 new `collection-hero` records; 4 procedure photographs superseded; `senseless-professional-bundle-hero` annotated as reused for the bundles collection. Commit `21e9732`; theme deployed (8 collection templates). theme-check 0 errors (62 pre-existing warnings). Live visual spot-check pending (storefront password ON).
+
 ## 2026-06-15 — Homepage section images (hero / product / trade)
 
 3 new homepage section images wired into **`index.json` theme section settings** (not admin records): `hero` (senseless-hero-brand-led), `product` + `practitioners` (senseless-image-text-band). Inbox filenames didn't match the brief → **owner-confirmed mapping**: `homepage-hero.png`→hero, `advanced-hero-homepage.png`→product, `homepage-hero-3.png`→trade. Processed (Sharp 1:1 white-bg master + WebP + 400/800/1200 srcset) → Shopify Files (staged PUT → fileCreate, READY) → `shopify://shop_images/senseless-homepage-{hero,product,trade}.png` + Comfort alts. `image-manifest.json`: 3 new `homepage-section` records, 3 prior homepage records superseded. Commit `05a908e`; index.json deployed live; theme-check 0. Live visual spot-check pending (storefront password ON).
