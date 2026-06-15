@@ -7,6 +7,10 @@ Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`),
 
 ---
 
+## 2026-06-15 — Homepage section images (hero / product / trade)
+
+3 new homepage section images wired into **`index.json` theme section settings** (not admin records): `hero` (senseless-hero-brand-led), `product` + `practitioners` (senseless-image-text-band). Inbox filenames didn't match the brief → **owner-confirmed mapping**: `homepage-hero.png`→hero, `advanced-hero-homepage.png`→product, `homepage-hero-3.png`→trade. Processed (Sharp 1:1 white-bg master + WebP + 400/800/1200 srcset) → Shopify Files (staged PUT → fileCreate, READY) → `shopify://shop_images/senseless-homepage-{hero,product,trade}.png` + Comfort alts. `image-manifest.json`: 3 new `homepage-section` records, 3 prior homepage records superseded. Commit `05a908e`; index.json deployed live; theme-check 0. Live visual spot-check pending (storefront password ON).
+
 ## 2026-06-15 — Bundle hero images (5 bundle PDPs) — 🔓 P0 IMAGE GATE CLOSED
 
 3 new bundle hero images, **Option A** (shared tier image): `clinical-bundle` → Clinical Starter + Ultimate; `advanced-bundle` → Advanced Starter + Ultimate; `professional-bundle` → Professional Ultimate. Processed (Sharp 1:1 white-bg master PNG + WebP + 400/800/1200 srcset) → Shopify Files (staged PUT → fileCreate, READY).
