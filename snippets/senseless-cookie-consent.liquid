@@ -3,8 +3,8 @@
   UK GDPR + PECR compliant. Rendered once from layout/theme.liquid before </body>.
   GENUINELY gates non-essential cookies via Shopify's Customer Privacy / Consent Tracking API
   (window.Shopify.customerPrivacy — loadFeatures + setTrackingConsent). Analytics + Marketing
-  default to DENIED until the visitor chooses; the choice persists (localStorage + the API cookie)
-  so the banner does not re-show. Re-openable from the footer "Cookie settings" link
+  default to DENIED until the visitor chooses; consent persists via Shopify's stored state
+  (currentVisitorConsent / shouldShowGDPRBanner are the source of truth — no localStorage), so the banner does not re-show. Re-openable from the footer "Cookie settings" link
   ([data-ss-cookie-settings]). Equal-prominence Accept / Reject (PECR: reject as easy as accept).
   Policy link is interim → /policies/privacy-policy until the Stage F page lands (FLAG to repoint).
 {%- endcomment -%}
@@ -97,7 +97,6 @@
 
 <script>
   (function () {
-    var KEY = 'ss_cookie_consent_v1';
     var root = document.querySelector('[data-ss-cookie]');
     if (!root) return;
     var panel = root.querySelector('[data-ss-cookie-panel]');
@@ -105,7 +104,6 @@
     var elMarketing = root.querySelector('[data-ss-marketing]');
     var lastFocus = null;
 
-    function saved() { try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; } }
     function show() { root.hidden = false; }
     function hide() { root.hidden = true; }
 
@@ -122,14 +120,12 @@
         }
       } catch (e) {}
     }
-    function persist(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} }
-
     function openPanel() {
       lastFocus = document.activeElement;
       if (elAnalytics || elMarketing) {
-        var s = saved() || { analytics: false, marketing: false };
-        if (elAnalytics) elAnalytics.checked = !!s.analytics;
-        if (elMarketing) elMarketing.checked = !!s.marketing;
+        var c = Shopify.customerPrivacy.currentVisitorConsent();
+        if (elAnalytics) elAnalytics.checked = c.analytics === 'yes';
+        if (elMarketing) elMarketing.checked = c.marketing === 'yes';
       }
       panel.hidden = false;
       var t = panel.querySelector('[data-ss-panel-title]');
@@ -139,7 +135,7 @@
       panel.hidden = true;
       if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
     }
-    function choose(c) { setAPI(c); persist(c); closePanel(); hide(); }
+    function choose(c) { setAPI(c); closePanel(); hide(); }
 
     root.querySelector('[data-ss-accept]').addEventListener('click', function () { choose({ analytics: true, marketing: true, preferences: true }); });
     root.querySelector('[data-ss-reject]').addEventListener('click', function () { choose({ analytics: false, marketing: false, preferences: false }); });
@@ -168,14 +164,19 @@
       if (t) { e.preventDefault(); show(); openPanel(); }
     });
 
+    // Shopify's Consent Tracking API is the source of truth (no localStorage).
     function init() {
-      var s = saved();
-      if (s) {
-        // Returning visitor with a recorded choice: re-apply to the API, keep the banner hidden.
-        setAPI(s);
+      var consent = Shopify.customerPrivacy.currentVisitorConsent();
+      var shouldShow = Shopify.customerPrivacy.shouldShowGDPRBanner();
+
+      if (!shouldShow) {
+        setAPI({
+          analytics: consent.analytics === 'yes',
+          marketing: consent.marketing === 'yes',
+          preferences: consent.preferences === 'yes'
+        });
         hide();
       } else {
-        // No choice yet → DENY non-essential by default, then show the banner.
         setAPI({ analytics: false, marketing: false, preferences: false });
         show();
       }
