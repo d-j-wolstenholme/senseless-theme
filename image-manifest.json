@@ -63,7 +63,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70096767025500",
       "dimensions": "1254x1254",
       "fileSize": "102.7KB",
-      "uploadedAt": "2026-06-04T20:01:27.517Z"
+      "uploadedAt": "2026-06-04T20:01:27.517Z",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-heroes)"
     },
     {
       "name": "senseless-range-upright",
@@ -221,7 +222,8 @@
       "processedFile": "./assets/images/processed/senseless-numbing-spray-collection.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-numbing-spray-collection.jpg?v=1780768101",
       "shopifyFileId": "gid://shopify/MediaImage/70120267579740",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-heroes)"
     },
     {
       "name": "senseless-numbing-gel-collection",
@@ -232,7 +234,8 @@
       "processedFile": "./assets/images/processed/senseless-numbing-gel-collection.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-numbing-gel-collection.jpg?v=1780768106",
       "shopifyFileId": "gid://shopify/MediaImage/70120267645276",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-heroes)"
     },
     {
       "name": "senseless-clinical-starter-bundle",
@@ -331,7 +334,8 @@
       "processedFile": "./assets/images/processed/senseless-clinical-strength-collection.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-strength-collection.jpg?v=1780792157",
       "shopifyFileId": "gid://shopify/MediaImage/70123252810076",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-heroes)"
     },
     {
       "name": "senseless-advanced-strength-collection",
@@ -342,7 +346,8 @@
       "processedFile": "./assets/images/processed/senseless-advanced-strength-collection.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-advanced-strength-collection.jpg?v=1780792164",
       "shopifyFileId": "gid://shopify/MediaImage/70123253825884",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-heroes)"
     },
     {
       "name": "senseless-professional-strength-collection",
@@ -353,7 +358,8 @@
       "processedFile": "./assets/images/processed/senseless-professional-strength-collection.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-professional-strength-collection.jpg?v=1780792171",
       "shopifyFileId": "gid://shopify/MediaImage/70123254677852",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-heroes)"
     },
     {
       "name": "senseless-clinical-strength-cream-white",
@@ -451,7 +457,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70125347733852",
       "dimensions": "1254x1254",
       "fileSize": "61.3KB",
-      "uploadedAt": "2026-06-07T06:54:42.165Z"
+      "uploadedAt": "2026-06-07T06:54:42.165Z",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-heroes)"
     },
     {
       "name": "senseless-home-how-to-use",
@@ -550,6 +557,96 @@
       "dimensions": "1672x941",
       "fileSize": "84.3KB",
       "uploadedAt": "2026-06-07T07:08:05.495Z"
+    },
+    {
+      "name": "senseless-numbing-cream-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Comfort Cream range — Clinical, Advanced and Professional Strength",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-heroes/",
+      "processedFile": "~/senseless/processed-heroes/senseless-numbing-cream-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-numbing-cream-collection-hero.png?v=1781501687",
+      "shopifyFileId": "gid://shopify/MediaImage/70206777622876",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-heroes 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-cream"
+    },
+    {
+      "name": "senseless-numbing-gel-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Comfort Gel range — Clinical, Advanced and Professional Strength",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-heroes/",
+      "processedFile": "~/senseless/processed-heroes/senseless-numbing-gel-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-numbing-gel-collection-hero.png?v=1781501688",
+      "shopifyFileId": "gid://shopify/MediaImage/70206777655644",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-heroes 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-gel"
+    },
+    {
+      "name": "senseless-numbing-spray-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Comfort Spray range — Clinical, Advanced and Professional Strength",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-heroes/",
+      "processedFile": "~/senseless/processed-heroes/senseless-numbing-spray-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-numbing-spray-collection-hero.png?v=1781501688",
+      "shopifyFileId": "gid://shopify/MediaImage/70206777688412",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-heroes 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-spray"
+    },
+    {
+      "name": "senseless-clinical-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Clinical Strength range — Comfort Cream, Comfort Gel and Comfort Spray",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-heroes/",
+      "processedFile": "~/senseless/processed-heroes/senseless-clinical-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-collection-hero.png?v=1781501688",
+      "shopifyFileId": "gid://shopify/MediaImage/70206777721180",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-heroes 2026-06-15",
+      "assignedTo": "collection.image + template hero: clinical"
+    },
+    {
+      "name": "senseless-advanced-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Advanced Strength range — Comfort Cream, Comfort Gel and Comfort Spray",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-heroes/",
+      "processedFile": "~/senseless/processed-heroes/senseless-advanced-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-advanced-collection-hero.png?v=1781501689",
+      "shopifyFileId": "gid://shopify/MediaImage/70206777753948",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-heroes 2026-06-15",
+      "assignedTo": "collection.image + template hero: advanced"
+    },
+    {
+      "name": "senseless-professional-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Professional Strength range — Comfort Cream, Comfort Gel and Comfort Spray",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-heroes/",
+      "processedFile": "~/senseless/processed-heroes/senseless-professional-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-professional-collection-hero.png?v=1781501688",
+      "shopifyFileId": "gid://shopify/MediaImage/70206777786716",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-heroes 2026-06-15",
+      "assignedTo": "collection.image + template hero: professional"
     }
   ]
 }
