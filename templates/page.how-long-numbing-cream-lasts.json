@@ -149,15 +149,26 @@
             "cta_url": "/pages/how-to-apply-numbing-cream",
             "image_alt": "Guide to applying a Senseless topical preparation"
           }
+        },
+        "rel_doeswork": {
+          "type": "format_card",
+          "settings": {
+            "label": "Does numbing cream work?",
+            "body": "<p>The honest answer on whether it works.</p>",
+            "cta_label": "Read the guide",
+            "cta_url": "/pages/does-numbing-cream-work",
+            "image_alt": "Guide to whether numbing cream works"
+          }
         }
       },
       "block_order": [
         "strength",
         "onset",
-        "apply"
+        "apply",
+        "rel_doeswork"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "",
         "headline": "Decide what you need.",
         "body": "",

@@ -151,13 +151,29 @@
             "label": "Shop the range",
             "url": "/collections/numbing-cream"
           }
+        },
+        "rel_emla": {
+          "type": "link_item",
+          "settings": {
+            "label": "EMLA cream alternative",
+            "url": "/pages/best-emla-alternative-uk"
+          }
+        },
+        "rel_ametop": {
+          "type": "link_item",
+          "settings": {
+            "label": "Senseless vs Ametop",
+            "url": "/pages/senseless-vs-ametop"
+          }
         }
       },
       "block_order": [
         "r1",
         "r2",
         "r3",
-        "r4"
+        "r4",
+        "rel_emla",
+        "rel_ametop"
       ],
       "settings": {
         "band": "surface",

@@ -145,15 +145,26 @@
             "cta_url": "/collections/aesthetic-numbing-cream",
             "image_alt": "Senseless topical preparations by aesthetic procedure"
           }
+        },
+        "rel_contact": {
+          "type": "format_card",
+          "settings": {
+            "label": "Contact Senseless",
+            "body": "<p>Reach the Senseless team.</p>",
+            "cta_label": "Get in touch",
+            "cta_url": "/pages/contact",
+            "image_alt": "Contact the Senseless team"
+          }
         }
       },
       "block_order": [
         "how",
         "strength",
-        "shop"
+        "shop",
+        "rel_contact"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "",
         "headline": "Decide what you need.",
         "body": "",

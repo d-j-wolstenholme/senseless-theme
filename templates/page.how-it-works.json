@@ -100,15 +100,26 @@
             "cta_url": "/pages/how-to-apply-numbing-cream",
             "image_alt": "Guide to applying a Senseless topical preparation"
           }
+        },
+        "rel_about": {
+          "type": "format_card",
+          "settings": {
+            "label": "About Senseless",
+            "body": "<p>The brand and the company behind it.</p>",
+            "cta_label": "Read more",
+            "cta_url": "/pages/about",
+            "image_alt": "About Senseless and Matrix Health Group"
+          }
         }
       },
       "block_order": [
         "strength",
         "format",
-        "apply"
+        "apply",
+        "rel_about"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "",
         "headline": "Decide what you need.",
         "body": "",

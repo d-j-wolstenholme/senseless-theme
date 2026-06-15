@@ -149,15 +149,26 @@
             "cta_url": "/pages/how-long-numbing-cream-lasts",
             "image_alt": "Guide to how long a Senseless preparation lasts"
           }
+        },
+        "rel_doeswork": {
+          "type": "format_card",
+          "settings": {
+            "label": "Does numbing cream work?",
+            "body": "<p>The honest answer on whether it works.</p>",
+            "cta_label": "Read the guide",
+            "cta_url": "/pages/does-numbing-cream-work",
+            "image_alt": "Guide to whether numbing cream works"
+          }
         }
       },
       "block_order": [
         "strength",
         "apply",
-        "lasts"
+        "lasts",
+        "rel_doeswork"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "",
         "headline": "Decide what you need.",
         "body": "",

@@ -174,13 +174,21 @@
             "note": "Many customers report topping the spray up mid-session to help keep an area comfortable — check with your practitioner first.",
             "as_tag": true
           }
+        },
+        "rel_strongest": {
+          "type": "link_item",
+          "settings": {
+            "label": "Strongest numbing cream",
+            "url": "/pages/strongest-numbing-cream"
+          }
         }
       },
       "block_order": [
         "u1",
         "u2",
         "u3",
-        "u4"
+        "u4",
+        "rel_strongest"
       ],
       "settings": {
         "band": "surface",

@@ -260,13 +260,37 @@
             "label": "Browse by procedure",
             "url": "/pages/aesthetic-procedures"
           }
+        },
+        "rel_about": {
+          "type": "link_item",
+          "settings": {
+            "label": "About Senseless",
+            "url": "/pages/about"
+          }
+        },
+        "rel_faq": {
+          "type": "link_item",
+          "settings": {
+            "label": "Numbing cream FAQ",
+            "url": "/pages/faq"
+          }
+        },
+        "rel_contact": {
+          "type": "link_item",
+          "settings": {
+            "label": "Contact Senseless",
+            "url": "/pages/contact"
+          }
         }
       },
       "block_order": [
         "l1",
         "l2",
         "l3",
-        "l4"
+        "l4",
+        "rel_about",
+        "rel_faq",
+        "rel_contact"
       ],
       "settings": {
         "band": "canvas",
@@ -293,13 +317,45 @@
     "kfdl": {
       "type": "senseless-key-facts",
       "blocks": {
-        "c1": { "type": "fact", "settings": { "label": "Category", "value": "A topical cosmetic numbing range for aesthetic and cosmetic procedures." } },
-        "c2": { "type": "fact", "settings": { "label": "Formats", "value": "Three formats — cream, gel and spray — plus a foaming cleanser for aftercare." } },
-        "c3": { "type": "fact", "settings": { "label": "Strengths", "value": "Three strengths — Clinical, Advanced and Professional — the Senseless Scale." } },
-        "c4": { "type": "fact", "settings": { "label": "Formulated in", "value": "Formulated in the United Kingdom by Matrix Health Group Ltd." } }
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "Category",
+            "value": "A topical cosmetic numbing range for aesthetic and cosmetic procedures."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "Formats",
+            "value": "Three formats — cream, gel and spray — plus a foaming cleanser for aftercare."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "Strengths",
+            "value": "Three strengths — Clinical, Advanced and Professional — the Senseless Scale."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Formulated in",
+            "value": "Formulated in the United Kingdom by Matrix Health Group Ltd."
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
-      "settings": { "band": "surface", "heading": "Key facts" }
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
     },
     "faq": {
       "type": "senseless-faq-accordion",

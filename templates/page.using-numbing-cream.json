@@ -122,11 +122,19 @@
             "note": "An honest, by-treatment guide to comfort.",
             "url": "/pages/does-it-hurt"
           }
+        },
+        "rel_doeswork": {
+          "type": "link_item",
+          "settings": {
+            "label": "Does numbing cream work?",
+            "url": "/pages/does-numbing-cream-work"
+          }
         }
       },
       "block_order": [
         "l1",
-        "l2"
+        "l2",
+        "rel_doeswork"
       ],
       "settings": {
         "band": "white",
@@ -202,11 +210,19 @@
             "label": "Shop the range",
             "url": "/collections/numbing-cream"
           }
+        },
+        "rel_faq": {
+          "type": "link_item",
+          "settings": {
+            "label": "Numbing cream FAQ",
+            "url": "/pages/faq"
+          }
         }
       },
       "block_order": [
         "r1",
-        "r2"
+        "r2",
+        "rel_faq"
       ],
       "settings": {
         "band": "surface",

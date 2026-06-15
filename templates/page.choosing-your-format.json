@@ -236,15 +236,26 @@
             "cta_url": "/collections/numbing-spray",
             "image_alt": "Senseless spray on a warm off-white background"
           }
+        },
+        "rel_best": {
+          "type": "format_card",
+          "settings": {
+            "label": "Best numbing cream",
+            "body": "<p>How to choose the right one.</p>",
+            "cta_label": "Read the guide",
+            "cta_url": "/pages/best-numbing-cream",
+            "image_alt": "Buyer's guide to choosing numbing cream"
+          }
         }
       },
       "block_order": [
         "cream",
         "gel",
-        "spray"
+        "spray",
+        "rel_best"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "",
         "headline": "Shop by format.",
         "body": "",

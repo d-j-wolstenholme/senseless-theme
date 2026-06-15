@@ -213,15 +213,26 @@
             "cta_url": "/pages/choosing-your-strength",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
+        },
+        "rel_best": {
+          "type": "format_card",
+          "settings": {
+            "label": "Best numbing cream",
+            "body": "<p>How to choose the right one.</p>",
+            "cta_label": "Read the guide",
+            "cta_url": "/pages/best-numbing-cream",
+            "image_alt": "Buyer's guide to choosing numbing cream"
+          }
         }
       },
       "block_order": [
         "clinical",
         "advanced",
-        "compare"
+        "compare",
+        "rel_best"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "",
         "headline": "Not sure Professional is for you?",
         "body": "",

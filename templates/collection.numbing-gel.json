@@ -173,13 +173,21 @@
             "label": "Lip work",
             "note": "A contained area that needs the product to stay exactly where placed."
           }
+        },
+        "rel_best": {
+          "type": "link_item",
+          "settings": {
+            "label": "Best numbing cream",
+            "url": "/pages/best-numbing-cream"
+          }
         }
       },
       "block_order": [
         "u1",
         "u2",
         "u3",
-        "u4"
+        "u4",
+        "rel_best"
       ],
       "settings": {
         "band": "surface",

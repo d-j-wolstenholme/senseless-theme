@@ -252,15 +252,26 @@
             "cta_url": "/collections/aesthetic-numbing-cream",
             "image_alt": "Senseless topical preparations by aesthetic procedure"
           }
+        },
+        "rel_ametop": {
+          "type": "format_card",
+          "settings": {
+            "label": "Senseless vs Ametop",
+            "body": "<p>Cosmetic product, not a pharmacy medicine.</p>",
+            "cta_label": "Read the guide",
+            "cta_url": "/pages/senseless-vs-ametop",
+            "image_alt": "Senseless compared with Ametop"
+          }
         }
       },
       "block_order": [
         "strength",
         "system",
-        "procedures"
+        "procedures",
+        "rel_ametop"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "",
         "headline": "Decide what you need.",
         "body": "",

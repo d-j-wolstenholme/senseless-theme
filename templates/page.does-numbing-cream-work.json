@@ -161,15 +161,26 @@
             "cta_url": "/pages/how-to-apply-numbing-cream",
             "image_alt": "Guide to applying a Senseless topical preparation"
           }
+        },
+        "rel_howlongtakes": {
+          "type": "format_card",
+          "settings": {
+            "label": "How long does numbing cream take to work?",
+            "body": "<p>When to apply before your appointment.</p>",
+            "cta_label": "Read the guide",
+            "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
+            "image_alt": "Guide to numbing cream onset timing"
+          }
         }
       },
       "block_order": [
         "strength",
         "system",
-        "apply"
+        "apply",
+        "rel_howlongtakes"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "",
         "headline": "Decide what you need.",
         "body": "",

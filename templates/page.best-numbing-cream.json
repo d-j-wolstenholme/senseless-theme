@@ -223,15 +223,26 @@
             "cta_url": "/collections/numbing-cream",
             "image_alt": "Editorial still life of the Senseless cream range on a warm off-white background"
           }
+        },
+        "rel_strongest": {
+          "type": "format_card",
+          "settings": {
+            "label": "Strongest numbing cream",
+            "body": "<p>Our most concentrated formula.</p>",
+            "cta_label": "Read the guide",
+            "cta_url": "/pages/strongest-numbing-cream",
+            "image_alt": "Senseless Professional, the most concentrated formula"
+          }
         }
       },
       "block_order": [
         "system",
         "selector",
-        "shop"
+        "shop",
+        "rel_strongest"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "Keep going",
         "headline": "Where to go next",
         "body": "",
