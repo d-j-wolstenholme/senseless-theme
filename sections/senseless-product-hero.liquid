@@ -230,7 +230,10 @@
         }
         // Variant-linked image: swap the gallery to this variant's featured image (when it has one).
         if (main && v.featured_image && v.featured_image.src) {
-          main.src = v.featured_image.src;
+          // Cap the swapped-in image to the hero slot width (parity with the initial width:1000 render);
+          // without this the variant swap loads the full-size master.
+          var _vsrc = v.featured_image.src;
+          main.src = _vsrc + (_vsrc.indexOf('?') === -1 ? '?' : '&') + 'width=1000';
           main.removeAttribute('srcset');
           root.querySelectorAll('[data-ph-thumb]').forEach(function (b) {
             b.setAttribute('aria-current', b.getAttribute('data-full') === v.featured_image.src ? 'true' : 'false');

@@ -18,13 +18,23 @@ import path from 'path';
 import sharp from 'sharp';
 import { parseArgs } from 'util';
 
+// OUTPUT POLICY (revised 2026-06-15): photographic assets ship as WebP, NOT PNG.
+// Shopify only serves resized/WebP derivatives at the widths the theme requests; the uploaded
+// master is still the srcset fallback a crawler downloads and is served wherever no width is asked.
+// A PNG master of photographic content is therefore both the wrong format AND ships at full size.
+// Policy: photographic -> WebP q~88 (visually lossless), longest edge capped to the largest slot it
+// fills (never upscale). QUALITY-FIRST IS OVERRIDING: never lower quality to hit a target — if an
+// output exceeds its ceiling at q88 it is FLAGGED for manual review, not degraded. PNG kept only
+// where transparency is genuinely needed (logos/icons; those are SVG anyway).
 const COMPRESSION_PROFILES = {
-  photograph: { quality: 82, maxWidth: 2048, format: 'jpeg' },
-  illustration: { quality: 85, maxWidth: 2048, format: 'jpeg' },
-  hero: { quality: 87, maxWidth: 1920, format: 'jpeg' },
-  thumbnail: { quality: 72, maxWidth: 800, format: 'jpeg' },
-  'icon-badge': { format: 'png' },
-  logo: { format: 'png' }, // SVG preferred but PNG fallback
+  photograph:   { quality: 88, maxWidth: 1600, format: 'webp', ceilingKB: 300 },
+  illustration: { quality: 88, maxWidth: 1600, format: 'webp', ceilingKB: 300 },
+  hero:         { quality: 88, maxWidth: 2000, format: 'webp', ceilingKB: 400 }, // heroes/bands fill the widest slot
+  collection:   { quality: 88, maxWidth: 1600, format: 'webp', ceilingKB: 300 }, // square collection/page heroes
+  product:      { quality: 88, maxWidth: 1600, format: 'webp', ceilingKB: 300 }, // square product shots
+  thumbnail:    { quality: 82, maxWidth: 800,  format: 'webp', ceilingKB: 80 },
+  'icon-badge': { format: 'png' },  // transparency needed
+  logo:         { format: 'png' },  // SVG preferred; PNG fallback (transparency)
 };
 
 async function processImage(args) {
@@ -50,7 +60,10 @@ async function processImage(args) {
   }
 
   let outputExt;
-  if (profile.format === 'jpeg') {
+  if (profile.format === 'webp') {
+    pipeline = pipeline.webp({ quality: profile.quality });
+    outputExt = 'webp';
+  } else if (profile.format === 'jpeg') {
     pipeline = pipeline.jpeg({ quality: profile.quality, mozjpeg: true });
     outputExt = 'jpg';
   } else if (profile.format === 'png') {
@@ -62,7 +75,17 @@ async function processImage(args) {
   await pipeline.toFile(outputPath);
 
   const processedStats = await fs.stat(outputPath);
-  console.log(`   Output: ${outputPath} (${(processedStats.size / 1024).toFixed(1)}KB)`);
+  const processedKB = processedStats.size / 1024;
+  console.log(`   Output: ${outputPath} (${processedKB.toFixed(1)}KB)`);
+  if (profile.ceilingKB && processedKB > profile.ceilingKB) {
+    console.log(`   ⚠ QUALITY-FLAG: ${processedKB.toFixed(1)}KB exceeds the ${profile.ceilingKB}KB ceiling for '${type}' at q${profile.quality}. Do NOT lower quality to force the target — flag for manual review / consider a tighter crop.`);
+  }
+
+  // --local: produce the optimised file only; skip upload, manifest, and the inbox->processed move.
+  if (args.local) {
+    console.log(`\n✅ Local-only (no upload): ${outputPath}\n`);
+    return { localPath: outputPath, sizeKB: processedKB, dimensions: `${metadata.width}x${metadata.height}`, flagged: !!(profile.ceilingKB && processedKB > profile.ceilingKB) };
+  }
 
   // Upload to Shopify Files
   const shopifyResult = await uploadToShopify(outputPath, name, alt);
@@ -237,11 +260,12 @@ async function main() {
       platform: { type: 'string', default: 'shopify' },
       page: { type: 'string' },
       section: { type: 'string' },
+      local: { type: 'boolean', default: false }, // produce optimised file only; no upload/manifest/move
     },
   });
 
-  if (!values.source || !values.name || !values.type || !values.alt) {
-    console.error('Usage: node scripts/image-pipeline.mjs --source <path> --name <name> --type <type> --alt <alt> --page <page> --section <section>');
+  if (!values.source || !values.name || !values.type || (!values.alt && !values.local)) {
+    console.error('Usage: node scripts/image-pipeline.mjs --source <path> --name <name> --type <type> --alt <alt> [--page <page>] [--section <section>] [--local]');
     process.exit(1);
   }
 
