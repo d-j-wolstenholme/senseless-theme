@@ -7,6 +7,16 @@ Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`),
 
 ---
 
+## 2026-06-15 — Collection hero images (6: format + strength collections)
+
+New collection-hero photography for the 3 format (numbing-cream/gel/spray) + 3 strength (clinical/advanced/professional) collections. Processed (Sharp, 1:1 white-bg master PNG + WebP + 400/800/1200 srcset; originals in `~/senseless/processed-sources/batch-collection-heroes/`) → uploaded to Shopify Files (staged PUT → fileCreate, all READY).
+
+**Both layers updated per collection** (the gotcha — `collection.image` cleared first, then set):
+- **`collection.image`** (API) cleared → set with Comfort alts — feeds the **homepage strength tier cards** + collection thumbnails.
+- **Template hero `image` setting** (`shopify://shop_images/senseless-<x>-collection-hero.png`) + `image_alt` → Comfort alts — the on-page collection hero renders from the template, not `collection.image`.
+
+`image-manifest.json`: 6 new `collection-hero` records; 7 prior collection records marked superseded. Commit `7de0643`; theme deployed (6 collection templates). theme-check 0. Tier-card data layer confirmed (clinical/advanced/professional `collection.image` set); live visual spot-check pending (storefront password ON).
+
 ## 2026-06-15 — Comfort vs Numbing Phase 3 (GREY-SEO ruled set applied + deployed)
 
 Owner ruled the held GREY-SEO set; applied + **deployed live** (commit `b23ccf8`, theme push):
