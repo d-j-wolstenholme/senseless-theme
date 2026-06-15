@@ -7,6 +7,17 @@ Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`),
 
 ---
 
+## 2026-06-15 — Bundle hero images (5 bundle PDPs) — 🔓 P0 IMAGE GATE CLOSED
+
+3 new bundle hero images, **Option A** (shared tier image): `clinical-bundle` → Clinical Starter + Ultimate; `advanced-bundle` → Advanced Starter + Ultimate; `professional-bundle` → Professional Ultimate. Processed (Sharp 1:1 white-bg master PNG + WebP + 400/800/1200 srcset) → Shopify Files (staged PUT → fileCreate, READY).
+
+- **Cleared** the interim defective-cleanser media from all 5 bundle products (productDeleteMedia) + **assigned** the new featured image with per-product Starter/Ultimate alt (productCreateMedia). 0 errors; each bundle PDP = 1 featured media (READY).
+- `image_placeholder`: none were `true` → nothing to clear.
+- **Mega-menu Featured card** (`senseless-header.liquid:42` → `all_products['professional-numbing-kit-large'].featured_media`) auto-flows the new image — verified in place, no change.
+- `image-manifest.json`: 3 new `bundle-hero` records (Option A noted); 5 prior interim bundle records superseded. theme-check 0; **no theme files changed → no theme deploy** (bundle images live via Admin API).
+
+**🔓 Bundle P0 image gate CLOSED** — all 5 bundle PDPs now carry real featured images; the interim defective-cleanser shots are fully replaced.
+
 ## 2026-06-15 — Collection hero images (6: format + strength collections)
 
 New collection-hero photography for the 3 format (numbing-cream/gel/spray) + 3 strength (clinical/advanced/professional) collections. Processed (Sharp, 1:1 white-bg master PNG + WebP + 400/800/1200 srcset; originals in `~/senseless/processed-sources/batch-collection-heroes/`) → uploaded to Shopify Files (staged PUT → fileCreate, all READY).

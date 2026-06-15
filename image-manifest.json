@@ -246,7 +246,8 @@
       "processedFile": "./assets/images/processed/senseless-clinical-starter-bundle.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-starter-bundle.jpg?v=1780768133",
       "shopifyFileId": "gid://shopify/MediaImage/70120277344604",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by bundle-hero, 2026-06-15 (batch-bundle-heroes; interim defective-cleanser shot)"
     },
     {
       "name": "senseless-home-bundle-social-band",
@@ -290,7 +291,8 @@
       "processedFile": "./assets/images/processed/senseless-clinical-ultimate-bundle.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-ultimate-bundle.jpg?v=1780787917",
       "shopifyFileId": "gid://shopify/MediaImage/70122790027612",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by bundle-hero, 2026-06-15 (batch-bundle-heroes; interim defective-cleanser shot)"
     },
     {
       "name": "senseless-advanced-starter-bundle",
@@ -301,7 +303,8 @@
       "processedFile": "./assets/images/processed/senseless-advanced-starter-bundle.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-advanced-starter-bundle.jpg?v=1780787922",
       "shopifyFileId": "gid://shopify/MediaImage/70122790486364",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by bundle-hero, 2026-06-15 (batch-bundle-heroes; interim defective-cleanser shot)"
     },
     {
       "name": "senseless-advanced-ultimate-bundle",
@@ -312,7 +315,8 @@
       "processedFile": "./assets/images/processed/senseless-advanced-ultimate-bundle.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-advanced-ultimate-bundle.jpg?v=1780787927",
       "shopifyFileId": "gid://shopify/MediaImage/70122790715740",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by bundle-hero, 2026-06-15 (batch-bundle-heroes; interim defective-cleanser shot)"
     },
     {
       "name": "senseless-professional-ultimate-bundle",
@@ -323,7 +327,8 @@
       "processedFile": "./assets/images/processed/senseless-professional-ultimate-bundle.jpg",
       "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-professional-ultimate-bundle.jpg?v=1780787932",
       "shopifyFileId": "gid://shopify/MediaImage/70122791108956",
-      "uploadedAt": "2026-06-07"
+      "uploadedAt": "2026-06-07",
+      "superseded": "Replaced by bundle-hero, 2026-06-15 (batch-bundle-heroes; interim defective-cleanser shot)"
     },
     {
       "name": "senseless-clinical-strength-collection",
@@ -647,6 +652,54 @@
       "uploadedAt": "2026-06-15",
       "batch": "batch-collection-heroes 2026-06-15",
       "assignedTo": "collection.image + template hero: professional"
+    },
+    {
+      "name": "senseless-clinical-bundle-hero",
+      "type": "bundle-hero",
+      "page": "product",
+      "section": "hero",
+      "alt": "Senseless Clinical Bundle — Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser",
+      "sourceFile": "~/senseless/processed-sources/batch-bundle-heroes/",
+      "processedFile": "~/senseless/processed-bundles/senseless-clinical-bundle-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-clinical-bundle-hero.png?v=1781503977",
+      "shopifyFileId": "gid://shopify/MediaImage/70206878974300",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-bundle-heroes 2026-06-15",
+      "optionA": "Same source image shared across Starter + Ultimate within each tier (Clinical, Advanced); Professional Ultimate only",
+      "assignedTo": "clinical-numbing-kit-small + clinical-numbing-kit-large (Option A: shared tier image)"
+    },
+    {
+      "name": "senseless-advanced-bundle-hero",
+      "type": "bundle-hero",
+      "page": "product",
+      "section": "hero",
+      "alt": "Senseless Advanced Bundle — Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser",
+      "sourceFile": "~/senseless/processed-sources/batch-bundle-heroes/",
+      "processedFile": "~/senseless/processed-bundles/senseless-advanced-bundle-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-advanced-bundle-hero.png?v=1781503977",
+      "shopifyFileId": "gid://shopify/MediaImage/70206879007068",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-bundle-heroes 2026-06-15",
+      "optionA": "Same source image shared across Starter + Ultimate within each tier (Clinical, Advanced); Professional Ultimate only",
+      "assignedTo": "advanced-numbing-kit-small + advanced-numbing-kit-large (Option A: shared tier image)"
+    },
+    {
+      "name": "senseless-professional-bundle-hero",
+      "type": "bundle-hero",
+      "page": "product",
+      "section": "hero",
+      "alt": "Senseless Professional Bundle — Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser",
+      "sourceFile": "~/senseless/processed-sources/batch-bundle-heroes/",
+      "processedFile": "~/senseless/processed-bundles/senseless-professional-bundle-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-professional-bundle-hero.png?v=1781503977",
+      "shopifyFileId": "gid://shopify/MediaImage/70206879039836",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-bundle-heroes 2026-06-15",
+      "optionA": "Same source image shared across Starter + Ultimate within each tier (Clinical, Advanced); Professional Ultimate only",
+      "assignedTo": "professional-numbing-kit-large (Option A)"
     }
   ]
 }
