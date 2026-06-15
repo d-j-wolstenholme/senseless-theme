@@ -11,7 +11,8 @@
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Find your strength",
         "secondary_cta_url": "/pages/the-senseless-system",
-        "image_alt": "Senseless complete topical preparation kits with vanity bag"
+        "image": "shopify://shop_images/senseless-professional-bundle-hero.png",
+        "image_alt": "Senseless Professional Ultimate Bundle — Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser"
       }
     },
     "trust": {

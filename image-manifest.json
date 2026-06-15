@@ -494,7 +494,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70125431030108",
       "dimensions": "1672x941",
       "fileSize": "144.2KB",
-      "uploadedAt": "2026-06-07T07:07:40.760Z"
+      "uploadedAt": "2026-06-07T07:07:40.760Z",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-and-homepage)"
     },
     {
       "name": "senseless-procedure-waxing",
@@ -508,7 +509,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70125432275292",
       "dimensions": "1672x941",
       "fileSize": "151.5KB",
-      "uploadedAt": "2026-06-07T07:07:45.445Z"
+      "uploadedAt": "2026-06-07T07:07:45.445Z",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-and-homepage)"
     },
     {
       "name": "senseless-procedure-semi-permanent-makeup",
@@ -522,7 +524,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70125433618780",
       "dimensions": "1672x941",
       "fileSize": "152.1KB",
-      "uploadedAt": "2026-06-07T07:07:50.204Z"
+      "uploadedAt": "2026-06-07T07:07:50.204Z",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-and-homepage)"
     },
     {
       "name": "senseless-procedure-laser-hair-removal",
@@ -536,7 +539,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70125434536284",
       "dimensions": "1672x941",
       "fileSize": "148.8KB",
-      "uploadedAt": "2026-06-07T07:07:54.921Z"
+      "uploadedAt": "2026-06-07T07:07:54.921Z",
+      "superseded": "Replaced by collection-hero, 2026-06-15 (batch-collection-and-homepage)"
     },
     {
       "name": "senseless-home-how-to-use-arm",
@@ -702,7 +706,7 @@
       "uploadedAt": "2026-06-15",
       "batch": "batch-bundle-heroes 2026-06-15",
       "optionA": "Same source image shared across Starter + Ultimate within each tier (Clinical, Advanced); Professional Ultimate only",
-      "assignedTo": "professional-numbing-kit-large (Option A)"
+      "assignedTo": "professional-numbing-kit-large (Option A) + REUSED: collections/bundles collection.image + template hero (2026-06-15, batch-collection-and-homepage)"
     },
     {
       "name": "senseless-homepage-hero",
@@ -748,6 +752,111 @@
       "uploadedAt": "2026-06-15",
       "batch": "batch-homepage 2026-06-15",
       "assignedTo": "index.json practitioners section (senseless-image-text-band)"
+    },
+    {
+      "name": "senseless-microneedling-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Comfort Gel — prepared for microneedling",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-and-homepage/",
+      "processedFile": "~/senseless/processed-proc/senseless-microneedling-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-microneedling-collection-hero.png?v=1781509848",
+      "shopifyFileId": "gid://shopify/MediaImage/70207120474460",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-and-homepage 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-cream-for-microneedling"
+    },
+    {
+      "name": "senseless-laser-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Comfort Spray and Comfort Gel — laser treatment",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-and-homepage/",
+      "processedFile": "~/senseless/processed-proc/senseless-laser-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-laser-collection-hero.png?v=1781509846",
+      "shopifyFileId": "gid://shopify/MediaImage/70207120507228",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-and-homepage 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-cream-for-laser-treatment"
+    },
+    {
+      "name": "senseless-spmu-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Clinical Strength Comfort Cream and Comfort Gel — semi-permanent makeup",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-and-homepage/",
+      "processedFile": "~/senseless/processed-proc/senseless-spmu-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-spmu-collection-hero.png?v=1781509847",
+      "shopifyFileId": "gid://shopify/MediaImage/70207120539996",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-and-homepage 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-cream-for-semi-permanent-makeup"
+    },
+    {
+      "name": "senseless-waxing-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Clinical Strength Comfort Cream and Comfort Spray — waxing",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-and-homepage/",
+      "processedFile": "~/senseless/processed-proc/senseless-waxing-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-waxing-collection-hero.png?v=1781509847",
+      "shopifyFileId": "gid://shopify/MediaImage/70207120572764",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-and-homepage 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-cream-for-waxing"
+    },
+    {
+      "name": "senseless-lip-fillers-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Advanced Strength Comfort Cream and Aftercare Foam Cleanser — lip filler aftercare",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-and-homepage/",
+      "processedFile": "~/senseless/processed-proc/senseless-lip-fillers-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-lip-fillers-collection-hero.png?v=1781509847",
+      "shopifyFileId": "gid://shopify/MediaImage/70207120605532",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-and-homepage 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-cream-for-lip-fillers"
+    },
+    {
+      "name": "senseless-botox-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Professional Strength Comfort Cream and Comfort Gel — botox preparation",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-and-homepage/",
+      "processedFile": "~/senseless/processed-proc/senseless-botox-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-botox-collection-hero.png?v=1781509847",
+      "shopifyFileId": "gid://shopify/MediaImage/70207120638300",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-and-homepage 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-cream-for-botox"
+    },
+    {
+      "name": "senseless-injections-collection-hero",
+      "type": "collection-hero",
+      "page": "collection",
+      "section": "hero",
+      "alt": "Senseless Advanced Strength Comfort Cream, Comfort Gel and Comfort Spray — injectable treatments",
+      "sourceFile": "~/senseless/processed-sources/batch-collection-and-homepage/",
+      "processedFile": "~/senseless/processed-proc/senseless-injections-collection-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-injections-collection-hero.png?v=1781509846",
+      "shopifyFileId": "gid://shopify/MediaImage/70207120671068",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-collection-and-homepage 2026-06-15",
+      "assignedTo": "collection.image + template hero: numbing-cream-for-injections"
     }
   ]
 }
