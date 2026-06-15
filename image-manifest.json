@@ -857,6 +857,51 @@
       "uploadedAt": "2026-06-15",
       "batch": "batch-collection-and-homepage 2026-06-15",
       "assignedTo": "collection.image + template hero: numbing-cream-for-injections"
+    },
+    {
+      "name": "senseless-aesthetic-procedures-hero",
+      "type": "page-hero",
+      "page": "page",
+      "section": "hero (senseless-guide-hero)",
+      "alt": "Senseless product range — aesthetic treatment preparation",
+      "sourceFile": "~/senseless/processed-sources/batch-page-heroes/",
+      "processedFile": "~/senseless/processed-page-heroes/senseless-aesthetic-procedures-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-aesthetic-procedures-hero.png?v=1781512868",
+      "shopifyFileId": "gid://shopify/MediaImage/70207449006428",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-page-heroes 2026-06-15",
+      "assignedTo": "template hero image: page.aesthetic-procedures.json (net-new surface — no prior image)"
+    },
+    {
+      "name": "senseless-the-senseless-system-hero",
+      "type": "page-hero",
+      "page": "page",
+      "section": "hero (senseless-guide-hero)",
+      "alt": "Senseless Comfort Cream, Comfort Gel and Comfort Spray — the Senseless system",
+      "sourceFile": "~/senseless/processed-sources/batch-page-heroes/",
+      "processedFile": "~/senseless/processed-page-heroes/senseless-the-senseless-system-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-the-senseless-system-hero.png?v=1781512867",
+      "shopifyFileId": "gid://shopify/MediaImage/70207449039196",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-page-heroes 2026-06-15",
+      "assignedTo": "template hero image: page.the-senseless-system.json (net-new surface — no prior image)"
+    },
+    {
+      "name": "senseless-does-it-hurt-hero",
+      "type": "page-hero",
+      "page": "page",
+      "section": "hero (senseless-guide-hero)",
+      "alt": "Senseless Comfort Cream and Comfort Spray — calm preparation",
+      "sourceFile": "~/senseless/processed-sources/batch-page-heroes/",
+      "processedFile": "~/senseless/processed-page-heroes/senseless-does-it-hurt-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-does-it-hurt-hero.png?v=1781512867",
+      "shopifyFileId": "gid://shopify/MediaImage/70207449071964",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-page-heroes 2026-06-15",
+      "assignedTo": "template hero image: page.does-it-hurt.json (net-new surface — no prior image)"
     }
   ]
 }

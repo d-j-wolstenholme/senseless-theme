@@ -11,7 +11,9 @@
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "/pages/aesthetic-procedures",
         "secondary_cta_label": "Jump to the by-procedure guide",
-        "secondary_cta_url": "#matrix"
+        "secondary_cta_url": "#matrix",
+        "image": "shopify://shop_images/senseless-the-senseless-system-hero.png",
+        "image_alt": "Senseless Comfort Cream, Comfort Gel and Comfort Spray — the Senseless system"
       }
     },
     "what": {
