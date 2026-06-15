@@ -7,6 +7,14 @@ Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`),
 
 ---
 
+## 2026-06-15 — Page hero images (aesthetic-procedures / the-senseless-system / does-it-hurt)
+
+New hero photography for 3 guide pages, wired into **PAGE template image settings** (not admin records). All use the `senseless-guide-hero` section (`image` image_picker + `image_alt`). Processed (Sharp 1:1 white-bg master PNG + WebP + 400/800/1200 srcset; originals in `~/senseless/processed-sources/batch-page-heroes/`) → Shopify Files (staged PUT → fileCreate, all READY) → `shopify://shop_images/senseless-<page>-hero.png` + Comfort alts.
+
+- `page.aesthetic-procedures.json` + `page.the-senseless-system.json` had **no image** → added; `page.does-it-hurt.json` had `image_alt` only → added `image` + updated alt.
+- Inbox naming flag: aesthetic source arrived as `asthetic-proceedures-collection.png` (misspelled + `-collection` suffix though it targets a page) — mapped unambiguously by name; the unused `bundles-collection.png` from the prior batch is still in the inbox.
+- `image-manifest.json`: 3 new `page-hero` records (net-new surfaces, nothing superseded). Commit `527b85e`; theme deployed (3 page templates); theme-check 0 errors (62 pre-existing warnings). Live visual spot-check pending (storefront password ON).
+
 ## 2026-06-15 — Collection hero images (7 procedure/injectable collections + bundles reuse)
 
 New hero photography for the 4 procedure (microneedling / laser / SPMU / waxing) + 3 injectable (lip-fillers / botox / injections) collections; bundles reuses the Professional bundle hero (no new art). Processed (Sharp 1:1 white-bg master PNG + WebP + 400/800/1200 srcset; originals in `~/senseless/processed-sources/batch-collection-and-homepage/`) → Shopify Files (staged PUT → fileCreate, all READY).
