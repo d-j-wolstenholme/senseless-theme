@@ -7,6 +7,17 @@ Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`),
 
 ---
 
+## 2026-06-15 — Comfort vs Numbing Phase 3 (GREY-SEO ruled set applied + deployed)
+
+Owner ruled the held GREY-SEO set; applied + **deployed live** (commit `b23ccf8`, theme push):
+- **6 PDP short-descriptions** → "[strength]-strength **Comfort Cream/Gel/Spray**" (natural brand copy).
+- **Bundle kit-contents ×2** → "**Comfort Cream, Comfort Gel and Comfort Spray**" (legal-hold "Numbing reduces discomfort" left verbatim).
+- **image-manifest.json ×3** single-product lifestyle alts → Comfort (split rule); range / multi-format / kit records KEPT as category descriptors.
+
+**KEEP (deliberate, unchanged):** 8 PDP SEO `title_tag`s + senseless-vs-ametop title (**SEO-RISK** — category keyword in the meta title, compliance-cleared as search-category use); STATE.md history.
+
+**Migration status:** Comfort-vs-Numbing now complete across the CHANGE + GREY-SEO sets. Only the SEO-RISK meta-title surfaces remain as intentional "Numbing" (category-keyword) by design. theme-check 0.
+
 ## 2026-06-15 — Comfort vs Numbing naming (canonical rule + Phase 2 applied)
 
 Locked the rule: **"Comfort [format]"** (Comfort Cream/Gel/Spray) = Senseless **product brand name**; **"Numbing [format]"** = **SEO category descriptor** only. (COMPLIANCE.md "Product naming" sub-rule + BRAND.md + DECISIONS-LOG.md 2026-06-15.)
