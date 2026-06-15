@@ -12,7 +12,7 @@
         "secondary_cta_url": "/pages/the-senseless-system",
         "image_alt": "Senseless Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser on marble surface",
         "caption": "The Senseless range — formulated in the UK.",
-        "image": "shopify://shop_images/senseless-homepage-hero.png"
+        "image": "shopify://shop_images/senseless-homepage-hero.webp"
       }
     },
     "strength": {
@@ -203,7 +203,7 @@
         "cta_label": "How Senseless works",
         "cta_url": "/pages/the-senseless-system",
         "image_alt": "Senseless Comfort Cream, Comfort Gel and Comfort Spray — three formats",
-        "image": "shopify://shop_images/senseless-homepage-product.png"
+        "image": "shopify://shop_images/senseless-homepage-product.webp"
       }
     },
     "trust": {
@@ -254,7 +254,7 @@
         "cta_label": "Trade enquiries",
         "cta_url": "/pages/trade",
         "image_alt": "The Senseless professional range — Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser",
-        "image": "shopify://shop_images/senseless-homepage-trade.png"
+        "image": "shopify://shop_images/senseless-homepage-trade.webp"
       }
     },
     "newsletter": {
