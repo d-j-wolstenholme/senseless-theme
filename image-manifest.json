@@ -78,7 +78,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70096768172380",
       "dimensions": "1254x1254",
       "fileSize": "91.2KB",
-      "uploadedAt": "2026-06-04T20:01:32.721Z"
+      "uploadedAt": "2026-06-04T20:01:32.721Z",
+      "superseded": "Replaced by homepage section image, 2026-06-15 (batch-homepage)"
     },
     {
       "name": "senseless-range-angled",
@@ -92,7 +93,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70096769483100",
       "dimensions": "1254x1254",
       "fileSize": "80.6KB",
-      "uploadedAt": "2026-06-04T20:01:37.858Z"
+      "uploadedAt": "2026-06-04T20:01:37.858Z",
+      "superseded": "Replaced by homepage section image, 2026-06-15 (batch-homepage)"
     },
     {
       "name": "senseless-cream-spray-gel-trio",
@@ -106,7 +108,8 @@
       "shopifyFileId": "gid://shopify/MediaImage/70096770531676",
       "dimensions": "1254x1254",
       "fileSize": "94.0KB",
-      "uploadedAt": "2026-06-04T20:01:43.092Z"
+      "uploadedAt": "2026-06-04T20:01:43.092Z",
+      "superseded": "Replaced by homepage section image, 2026-06-15 (batch-homepage)"
     },
     {
       "name": "senseless-cream-spray-gel-trio-angled",
@@ -700,6 +703,51 @@
       "batch": "batch-bundle-heroes 2026-06-15",
       "optionA": "Same source image shared across Starter + Ultimate within each tier (Clinical, Advanced); Professional Ultimate only",
       "assignedTo": "professional-numbing-kit-large (Option A)"
+    },
+    {
+      "name": "senseless-homepage-hero",
+      "type": "homepage-section",
+      "page": "home",
+      "section": "image",
+      "alt": "Senseless Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser on marble surface",
+      "sourceFile": "~/senseless/processed-sources/batch-homepage/",
+      "processedFile": "~/senseless/processed-homepage/senseless-homepage-hero.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-homepage-hero.png?v=1781507401",
+      "shopifyFileId": "gid://shopify/MediaImage/70207035015516",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-homepage 2026-06-15",
+      "assignedTo": "index.json hero section (senseless-hero-brand-led)"
+    },
+    {
+      "name": "senseless-homepage-product",
+      "type": "homepage-section",
+      "page": "home",
+      "section": "image",
+      "alt": "Senseless Comfort Cream, Comfort Gel and Comfort Spray — three formats",
+      "sourceFile": "~/senseless/processed-sources/batch-homepage/",
+      "processedFile": "~/senseless/processed-homepage/senseless-homepage-product.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-homepage-product.png?v=1781507401",
+      "shopifyFileId": "gid://shopify/MediaImage/70207035048284",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-homepage 2026-06-15",
+      "assignedTo": "index.json product section (senseless-image-text-band)"
+    },
+    {
+      "name": "senseless-homepage-trade",
+      "type": "homepage-section",
+      "page": "home",
+      "section": "image",
+      "alt": "The Senseless professional range — Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser",
+      "sourceFile": "~/senseless/processed-sources/batch-homepage/",
+      "processedFile": "~/senseless/processed-homepage/senseless-homepage-trade.png (master) + .webp + -400/800/1200.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-homepage-trade.png?v=1781507403",
+      "shopifyFileId": "gid://shopify/MediaImage/70207035081052",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-15",
+      "batch": "batch-homepage 2026-06-15",
+      "assignedTo": "index.json practitioners section (senseless-image-text-band)"
     }
   ]
 }

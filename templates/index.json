@@ -10,9 +10,9 @@
         "primary_cta_url": "/collections/shop-all",
         "secondary_cta_label": "How the System works",
         "secondary_cta_url": "/pages/the-senseless-system",
-        "image_alt": "Senseless topical preparation range arranged on a warm off-white background with a purple brand accent",
+        "image_alt": "Senseless Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser on marble surface",
         "caption": "The Senseless range — formulated in the UK.",
-        "image": "shopify://shop_images/senseless-range-upright.jpg"
+        "image": "shopify://shop_images/senseless-homepage-hero.png"
       }
     },
     "strength": {
@@ -202,8 +202,8 @@
         "body": "<p>Senseless is a UK cosmetic product. Not a medicine. Not pharmacy. A topical preparation developed for the way modern aesthetic appointments actually work: short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result.</p>",
         "cta_label": "How Senseless works",
         "cta_url": "/pages/the-senseless-system",
-        "image_alt": "Editorial close-up of a Senseless topical preparation in soft warm light",
-        "image": "shopify://shop_images/senseless-cream-spray-gel-trio.jpg"
+        "image_alt": "Senseless Comfort Cream, Comfort Gel and Comfort Spray — three formats",
+        "image": "shopify://shop_images/senseless-homepage-product.png"
       }
     },
     "trust": {
@@ -253,8 +253,8 @@
         "body": "<p>Senseless is stocked in studios and professional settings across the UK. Wholesale accounts for practitioners working at volume — account pricing and the consistency a busy schedule needs from its supply.</p>",
         "cta_label": "Trade enquiries",
         "cta_url": "/pages/trade",
-        "image_alt": "Editorial countertop in a professional setting with a Senseless preparation, no faces",
-        "image": "shopify://shop_images/senseless-range-angled.jpg"
+        "image_alt": "The Senseless professional range — Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser",
+        "image": "shopify://shop_images/senseless-homepage-trade.png"
       }
     },
     "newsletter": {
