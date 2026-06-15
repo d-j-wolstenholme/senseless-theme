@@ -280,15 +280,66 @@
             "label": "Choosing",
             "value": "Cream is the all-rounder; spray covers the body; gel suits sustained work."
           }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Category",
+            "value": "UK cosmetic product, by Matrix Health Group Ltd. Not a medicine."
+          }
         }
       },
       "block_order": [
         "kf1",
-        "kf2"
+        "kf2",
+        "kf3"
       ],
       "settings": {
         "band": "surface",
         "heading": "Key facts"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Cream, gel or spray, which should I use?",
+            "answer": "<p>Cream is the all-rounder for most face appointments; gel holds in place for precise, sustained work like microneedling; spray covers larger body areas. Pick by procedure and treatment area.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does the format change the strength?",
+            "answer": "<p>No. Format and strength are independent — an Advanced cream is the same strength as an Advanced gel.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use more than one format?",
+            "answer": "<p>Yes. Many people keep a cream for the face and a spray for the body.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which format do practitioners prefer?",
+            "answer": "<p>It varies by clinic and procedure, so it's worth asking yours.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
       }
     }
   },
@@ -301,6 +352,7 @@
     "spray",
     "complementary",
     "callout",
+    "faq",
     "shop",
     "keyfacts"
   ]

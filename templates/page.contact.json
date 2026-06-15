@@ -214,6 +214,85 @@
         "name": "Contact Senseless",
         "description": "Contact Senseless — a Matrix Health Group Ltd brand. Customer service for UK aesthetic numbing preparations."
       }
+    },
+    "kf": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "f1": {
+          "type": "fact",
+          "settings": {
+            "label": "Company",
+            "value": "Matrix Health Group Ltd (company no. 17099304), the UK company behind Senseless."
+          }
+        },
+        "f2": {
+          "type": "fact",
+          "settings": {
+            "label": "Category",
+            "value": "UK cosmetic product, by Matrix Health Group Ltd. Not a medicine."
+          }
+        },
+        "f3": {
+          "type": "fact",
+          "settings": {
+            "label": "Response time",
+            "value": "Consumer enquiries answered within two working days."
+          }
+        },
+        "f4": {
+          "type": "fact",
+          "settings": {
+            "label": "Routes",
+            "value": "Separate channels for consumer, trade, press and legal/GDPR enquiries."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts",
+        "accent_word": "facts"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I contact Senseless?",
+            "answer": "<p>Use the consumer enquiry form on this page; the team responds within two working days.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How quickly will I hear back?",
+            "answer": "<p>Consumer enquiries within two working days, often sooner.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I'm a clinic, how do I open a trade account?",
+            "answer": "<p>Use the <a href=\"/pages/trade\">Trade &amp; Wholesale</a> route rather than the consumer form.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
     }
   },
   "order": [
@@ -222,6 +301,8 @@
     "form",
     "company",
     "response",
+    "kf",
+    "faq",
     "next",
     "orgschema",
     "pageschema"

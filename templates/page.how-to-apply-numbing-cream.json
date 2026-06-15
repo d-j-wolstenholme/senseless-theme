@@ -18,7 +18,7 @@
         "s4": { "type": "step", "settings": { "title": "Wipe before your procedure.", "body": "<p>Use a clean cloth or tissue at your practitioner's instruction. They may also do this themselves at the chair.</p>" } }
       },
       "block_order": ["s1", "s2", "s3", "s4"],
-      "settings": { "eyebrow": "Cream and gel", "headline": "Four steps.", "closer": "", "cta_label": "Choose your format", "cta_url": "/pages/choosing-your-format" }
+      "settings": { "eyebrow": "Cream and gel", "headline": "Four steps.", "closer": "", "cta_label": "Choose your format", "cta_url": "/pages/choosing-your-format", "emit_howto": true, "howto_name": "How to apply Senseless numbing cream" }
     },
     "spray": {
       "type": "senseless-how-to-use",
@@ -71,6 +71,18 @@
       "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
       "settings": { "headline": "Common questions." }
     },
+    "kf": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "f1": { "type": "fact", "settings": { "label": "Product", "value": "Topical preparation (cream, gel or spray), applied to clean skin before your appointment." } },
+        "f2": { "type": "fact", "settings": { "label": "Category", "value": "UK cosmetic product, by Matrix Health Group Ltd. Not a medicine." } },
+        "f3": { "type": "fact", "settings": { "label": "Application", "value": "A thin, even layer on clean, healthy, unbroken skin. More is not better." } },
+        "f4": { "type": "fact", "settings": { "label": "Timing", "value": "Apply ahead of your appointment; the window depends on the procedure and your practitioner's protocol." } },
+        "f5": { "type": "fact", "settings": { "label": "Aftercare", "value": "Wipe off at your practitioner's instruction; the Foaming Cleanser cleanses before and after." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "settings": { "band": "surface", "heading": "Key facts", "accent_word": "facts" }
+    },
     "next": {
       "type": "senseless-trio-card-row",
       "blocks": {
@@ -83,5 +95,5 @@
       "settings": { "columns": "4", "eyebrow": "", "headline": "Decide what you need.", "body": "", "closer": "", "section_cta_label": "", "section_cta_url": "" }
     }
   },
-  "order": ["hero", "creamgel", "spray", "procedures", "mistakes", "callout", "faq", "next"]
+  "order": ["hero", "creamgel", "spray", "procedures", "mistakes", "callout", "faq", "kf", "next"]
 }

@@ -166,7 +166,7 @@
         "align": "left",
         "eyebrow": "The approach",
         "headline": "Match the strength to what your appointment asks of the skin.",
-        "body": "<p>Most aesthetic appointments fall into clear tiers. Short, focused, predictable procedures — lip fillers, Botox, smaller laser zones — sit comfortably in Clinical. Longer or more sensitive sessions — microneedling, SPMU, full-face laser — call for Advanced. The most intensive bookings — full-face resurfacing, sustained SPMU sittings — sit in Professional territory. If you're between tiers, choose the higher one. The cost of going up is small. The cost of choosing too low for an intensive session is real.</p>",
+        "body": "<p>Most aesthetic appointments fall into clear tiers. Short, focused, predictable procedures like lip fillers, Botox and smaller laser zones sit comfortably in Clinical. Longer or more sensitive sessions, such as microneedling, SPMU and full-face laser, call for Advanced. The most intensive bookings, full-face resurfacing and sustained SPMU sittings, sit in Professional territory. If you're between tiers, choose the higher one — the cost of going up is small, and the cost of choosing too low for an intensive session is real.</p>",
         "cta_label": "How Senseless works",
         "cta_url": "/pages/how-it-works",
         "image_alt": "Editorial product close-up of Senseless cream"
@@ -190,7 +190,7 @@
         "direction": "text-left",
         "eyebrow": "Format vs strength",
         "headline": "Format is the next decision, after strength.",
-        "body": "<p>Once you've picked a tier, the format choice is separate. Cream is the default for most face appointments. Gel suits sustained sessions where the application stays in place — microneedling especially. Spray covers body and broader zones. Format and strength are independent — an Advanced cream is the same concentration as an Advanced gel.</p>",
+        "body": "<p>Once you've picked a tier, the format choice is separate. Cream is the default for most face appointments. Gel suits sustained sessions where the application stays in place, microneedling especially. Spray covers body and broader zones. Format and strength are independent — an Advanced cream is the same concentration as an Advanced gel.</p>",
         "cta_label": "Compare formats",
         "cta_url": "/pages/choosing-your-format",
         "image_alt": "Editorial three-format lineup of Senseless cream, gel, and spray"
@@ -282,15 +282,66 @@
             "label": "Choosing",
             "value": "Stronger is not automatically better. The right strength is the one that matches the appointment."
           }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Category",
+            "value": "UK cosmetic product, by Matrix Health Group Ltd. Not a medicine."
+          }
         }
       },
       "block_order": [
         "kf1",
-        "kf2"
+        "kf2",
+        "kf3"
       ],
       "settings": {
         "band": "surface",
         "heading": "Key facts"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which strength should I choose?",
+            "answer": "<p>Clinical for routine appointments, Advanced for longer or more sensitive sessions, Professional for the most demanding indications. Most people are on Clinical or Advanced.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is stronger better?",
+            "answer": "<p>No. Stronger isn't automatically better — the right strength is matched to the session, not the highest number.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if I'm between two strengths?",
+            "answer": "<p>For an intensive session the higher tier is the safer choice; for routine work the lower one is usually right.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Clinical the weak option?",
+            "answer": "<p>No. Clinical is the everyday standard most appointments call for, not a budget or beginner tier.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
       }
     }
   },
@@ -302,6 +353,7 @@
     "misunderstandings",
     "format",
     "callout",
+    "faq",
     "shop",
     "keyfacts"
   ]

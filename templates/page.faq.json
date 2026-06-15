@@ -78,7 +78,7 @@
           "settings": {
             "group": "Using it with treatments",
             "question": "Can I use numbing cream before treatments like microneedling or laser?",
-            "answer": "<p>Often yes, as preparation for comfort — but many practitioners apply their own as standard and have their own guidance, so always check with yours first.</p>"
+            "answer": "<p>Often yes, as preparation for comfort, though many practitioners apply their own as standard and have their own guidance, so always check with yours first.</p>"
           }
         },
         "q9": {
@@ -118,7 +118,7 @@
       "settings": {
         "background": "canvas",
         "eyebrow": "The essentials",
-        "body": "<ul><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li><li>Numbing reduces discomfort; it doesn't remove all sensation.</li><li>Apply only to clean, healthy skin, patch test, and follow the product's instructions.</li><li>Many practitioners apply their own numbing — check before your appointment.</li></ul>"
+        "body": "<ul><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom. It is not a medicine.</li><li>Numbing reduces discomfort rather than removing it.</li><li>Apply only to clean, healthy skin, patch test, and follow the product's instructions.</li><li>Many practitioners apply their own numbing, so check before your appointment.</li></ul>"
       }
     },
     "route": {

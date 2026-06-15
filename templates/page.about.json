@@ -184,6 +184,101 @@
         "description": "Senseless is a UK cosmetic brand built for aesthetic appointments. Backed by Matrix Health Group Ltd. Three strengths, three formats, formulated for the procedures aesthetic clinics run.",
         "schema_type": "AboutPage"
       }
+    },
+    "kf": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "f1": {
+          "type": "fact",
+          "settings": {
+            "label": "Brand",
+            "value": "Senseless, a UK cosmetic brand for aesthetic appointments."
+          }
+        },
+        "f2": {
+          "type": "fact",
+          "settings": {
+            "label": "Company",
+            "value": "A brand of Matrix Health Group Ltd, a UK company (company no. 17099304)."
+          }
+        },
+        "f3": {
+          "type": "fact",
+          "settings": {
+            "label": "Category",
+            "value": "UK cosmetic product, by Matrix Health Group Ltd. Not a medicine."
+          }
+        },
+        "f4": {
+          "type": "fact",
+          "settings": {
+            "label": "Range",
+            "value": "Three strengths (Clinical, Advanced, Professional) across cream, gel and spray, plus a Foaming Cleanser."
+          }
+        },
+        "f5": {
+          "type": "fact",
+          "settings": {
+            "label": "Made",
+            "value": "Formulated and produced in the United Kingdom."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts",
+        "accent_word": "facts"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who makes Senseless?",
+            "answer": "<p>Senseless is a brand of Matrix Health Group Ltd, a UK company in the personal-care and aesthetics sector.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Senseless a medicine?",
+            "answer": "<p>No. Senseless is a UK cosmetic product, not a medicine, medical device or pharmacy product.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where is Senseless made?",
+            "answer": "<p>In the United Kingdom.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who is Senseless for?",
+            "answer": "<p>Anyone preparing for an aesthetic appointment, and the practitioners who run them. The same range serves both.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
     }
   },
   "order": [
@@ -193,6 +288,8 @@
     "believe",
     "practice",
     "notice",
+    "kf",
+    "faq",
     "next",
     "orgschema",
     "schema"
