@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "For lip filler appointments",
         "headline": "Numbing cream for lip fillers",
-        "subhead": "<p>Numbing cream for lip fillers is a topical preparation applied beforehand to make the appointment more comfortable — it reduces the sensation rather than removing it. The lip is a sensitive area, so many people find numbing helps, though most practitioners apply their own as standard and often mix a numbing agent into the filler itself.</p>",
+        "subhead": "<p>Numbing cream for lip fillers is a topical preparation applied beforehand to make the appointment more comfortable. The lip is a sensitive area, so many people find numbing helps, though most practitioners apply their own as standard and often mix a numbing agent into the filler itself.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "#shop",
         "image": "shopify://shop_images/senseless-lip-fillers-collection-hero.webp",
@@ -27,7 +27,7 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "canvas", "eyebrow": "The essentials",
-        "body": "<ul><li>Numbing for lip fillers is applied beforehand to reduce discomfort; it doesn't remove all sensation.</li><li>The lip is sensitive, so the scratch and pressure are brief but noticeable.</li><li>Most practitioners numb as standard and often use filler containing a numbing agent — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+        "body": "<ul><li>Numbing for lip fillers is a topical preparation applied beforehand to support comfort.</li><li>The lip is sensitive, so the scratch and pressure are brief but noticeable.</li><li>Most practitioners numb as standard and often use filler containing a numbing agent — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
       }
     },
     "faq": {
@@ -35,7 +35,7 @@
       "blocks": {
         "q1": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before lip fillers?", "answer": "<p>Often yes, for comfort — but most practitioners numb the lips themselves and may prefer you don't apply your own, so check first.</p>" } },
         "q2": { "type": "faq_item", "settings": { "question": "What's the best numbing cream for lip fillers?", "answer": "<p>A gel suits the lip because it stays in place; a cream suits broader areas. Your practitioner can advise what's appropriate for your appointment.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Does it hurt to get lip filler with numbing?", "answer": "<p>Numbing reduces the discomfort rather than removing it — most people describe a brief scratch and pressure.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Does it hurt to get lip filler with numbing?", "answer": "<p>Numbing is a cosmetic preparation that supports comfort, not an anaesthetic — most people describe a brief scratch and pressure.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "Is numbing cream safe before lip filler?", "answer": "<p>Used as directed on clean, healthy skin it's widely used; patch test first and check with your practitioner.</p>" } }
       },
       "block_order": ["q1", "q2", "q3", "q4"],

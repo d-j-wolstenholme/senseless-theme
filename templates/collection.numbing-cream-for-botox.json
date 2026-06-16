@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "For Botox appointments",
         "headline": "Numbing cream for Botox",
-        "subhead": "<p>Numbing cream for Botox is a topical preparation some people use beforehand for comfort — though Botox uses very fine needles, so most describe a quick pinch rather than real pain, and many manage without any numbing at all. It reduces the sensation rather than removing it.</p>",
+        "subhead": "<p>Numbing cream for Botox is a topical preparation some people use beforehand for comfort — though Botox uses very fine needles, so most describe a quick pinch rather than real pain, and many manage without any numbing at all.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "#shop",
         "image": "shopify://shop_images/senseless-botox-collection-hero.webp",
@@ -27,14 +27,14 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "canvas", "eyebrow": "The essentials",
-        "body": "<ul><li>Botox uses very fine needles, so most people feel a quick pinch rather than real pain — numbing is optional.</li><li>A topical numbing preparation beforehand can add comfort; it reduces sensation, it doesn't remove it.</li><li>Many practitioners apply their own numbing or prefer to advise — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+        "body": "<ul><li>Botox uses very fine needles, so most people feel a quick pinch rather than real pain — numbing is optional.</li><li>A topical numbing preparation beforehand can add comfort.</li><li>Many practitioners apply their own numbing or prefer to advise — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
       }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
         "q1": { "type": "faq_item", "settings": { "question": "Do you need numbing cream for Botox?", "answer": "<p>No — Botox uses fine needles and many people manage without. Some prefer a numbing preparation for added comfort; it's optional.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before Botox?", "answer": "<p>Often yes, for comfort — but check with your practitioner first, as many numb the skin themselves or prefer to advise.</p>" } },
+        "q2": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before Botox?", "answer": "<p>Often yes, for comfort — but check with your practitioner first, as many apply numbing cream themselves or prefer to advise.</p>" } },
         "q3": { "type": "faq_item", "settings": { "question": "Does Botox hurt without numbing?", "answer": "<p>Most people describe a quick pinch or sting rather than real pain, because the needles are very fine.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "Is numbing cream safe before Botox?", "answer": "<p>Used as directed on clean, healthy skin it's widely used; patch test first and check with your practitioner.</p>" } }
       },

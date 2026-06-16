@@ -166,7 +166,7 @@
       "settings": {
         "style": "brand",
         "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>Most microneedling clinics apply their own numbing as standard — it's part of the treatment. If yours does, you may not need to bring your own, and arriving already numbed without checking can get in the way of the session. Self-applied preparation matters most where the practitioner doesn't provide it, or where you want extra on top. A quick message before you book settles it.</p>",
+        "body": "<p>Most microneedling clinics apply their own numbing as standard — it's part of the treatment. If yours does, you may not need to bring your own, and arriving already prepared without checking can get in the way of the session. Self-applied preparation matters most where the practitioner doesn't provide it, or where you want extra on top. A quick message before you book settles it.</p>",
         "accent_word": "skip",
         "cta_label": "Does microneedling hurt?",
         "cta_url": "/pages/does-microneedling-hurt"
@@ -237,7 +237,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Does microneedling hurt?",
-            "answer": "<p>Most people find it manageable, and numbing is there to reduce the discomfort — it doesn't remove all sensation. How it feels varies with the depth, the area, and your own sensitivity. Your practitioner can talk you through what to expect for your treatment.</p>"
+            "answer": "<p>Most people find it manageable. Numbing is a cosmetic preparation, not an anaesthetic. How it feels varies with the depth, the area, and your own sensitivity. Your practitioner can talk you through what to expect for your treatment.</p>"
           }
         },
         "q4": {

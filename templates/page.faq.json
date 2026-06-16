@@ -16,7 +16,7 @@
         "background": "white",
         "align": "left",
         "eyebrow": "Start here",
-        "body": "<p>Senseless is a UK cosmetic numbing range made for comfort before aesthetic treatments. Numbing reduces discomfort rather than removing it, it's preparation rather than part of the treatment, and your practitioner's guidance always comes first. The answers below cover the questions that come up most.</p>"
+        "body": "<p>Senseless is a UK cosmetic numbing range made for comfort before aesthetic treatments. Numbing is a cosmetic preparation, not an anaesthetic; it's used before the appointment rather than as part of the treatment, and your practitioner's guidance always comes first. The answers below cover the questions that come up most.</p>"
       }
     },
     "faq": {
@@ -27,7 +27,7 @@
           "settings": {
             "group": "About the products",
             "question": "Does numbing cream work?",
-            "answer": "<p>Topical numbing cream reduces the discomfort of many cosmetic treatments rather than removing it entirely; how noticeable that is depends on the product, the area and how it's applied.</p>"
+            "answer": "<p>Topical numbing cream is a cosmetic preparation applied before treatment, not an anaesthetic; how a treatment feels depends on the product, the area and how it's applied.</p>"
           }
         },
         "q2": {
@@ -85,7 +85,7 @@
           "type": "faq_item",
           "settings": {
             "question": "My numbing cream didn't feel like it worked — why?",
-            "answer": "<p>Comfort varies by product, area, skin and how it's applied; if it didn't suit you, your practitioner can advise on what to use and how. Numbing reduces sensation rather than removing it.</p>"
+            "answer": "<p>Comfort varies by product, area, skin and how it's applied; if it didn't suit you, your practitioner can advise on what to use and how. Numbing is a cosmetic preparation, not an anaesthetic.</p>"
           }
         },
         "q10": {
@@ -118,7 +118,7 @@
       "settings": {
         "background": "canvas",
         "eyebrow": "The essentials",
-        "body": "<ul><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom. It is not a medicine.</li><li>Numbing reduces discomfort rather than removing it.</li><li>Apply only to clean, healthy skin, patch test, and follow the product's instructions.</li><li>Many practitioners apply their own numbing, so check before your appointment.</li></ul>"
+        "body": "<ul><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom. It is not a medicine.</li><li>Numbing is a cosmetic preparation, not an anaesthetic.</li><li>Apply only to clean, healthy skin, patch test, and follow the product's instructions.</li><li>Many practitioners apply their own numbing, so check before your appointment.</li></ul>"
       }
     },
     "route": {

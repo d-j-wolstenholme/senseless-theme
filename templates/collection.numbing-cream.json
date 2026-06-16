@@ -205,7 +205,7 @@
         "background": "white",
         "align": "left",
         "headline": "Built for the procedure, not the average",
-        "body": "<p>A generic skin numbing cream treats every situation the same — the same product for a five-minute touch-up and a full-face session. Aesthetic appointments aren't the same, so Senseless isn't built that way. Three strengths, three formats, formulated for what each kind of appointment actually asks for. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>",
+        "body": "<p>A generic skin numbing cream handles every situation the same — the same product for a five-minute touch-up and a full-face session. Aesthetic appointments aren't the same, so Senseless isn't built that way. Three strengths, three formats, formulated for what each kind of appointment actually asks for. You choose by the session in front of you, not by whatever's labelled \"strongest\".</p>",
         "accent_word": "average"
       }
     },
@@ -214,7 +214,7 @@
       "settings": {
         "style": "brand",
         "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard. If yours does, you may not need to bring your own — and arriving already numbed without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>",
+        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard. If yours does, you may not need to bring your own — and arriving already prepared without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>",
         "accent_word": "skip"
       }
     },
@@ -269,7 +269,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How long before my appointment do I apply numbing cream?",
-            "answer": "<p>As a general guide, around 45–60 minutes before for cream — but this varies, so follow the product guidance and your practitioner. Customers who get on best tend to apply a thick, visible layer that sits on the surface rather than being rubbed in, then cover it (cling film or similar) until it's removed before the appointment.</p>"
+            "answer": "<p>Many customers tell us they get their best results applying around 45–60 minutes before their appointment, though this varies from person to person. Follow the product guidance and your practitioner. Customers who get on best tend to apply a thick, visible layer that sits on the surface rather than being rubbed in, then cover it (cling film or similar) until it's removed before the appointment.</p>"
           }
         },
         "q2": {

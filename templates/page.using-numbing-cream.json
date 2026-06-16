@@ -18,7 +18,7 @@
         "eyebrow": "The honest answer",
         "headline": "What numbing cream does — and what comes first",
         "accent_word": "first",
-        "body": "<p>Topical numbing cream is applied to clean skin before a treatment to make it more comfortable — it reduces the sensation rather than removing it. How long to leave it on, and how long the effect lasts, vary by product, by the area, and by how much is applied, so the product's own instructions and your practitioner's advice always come first. Many clinics apply their own numbing as standard, so it's worth checking before you bring your own.</p>"
+        "body": "<p>Topical numbing cream is applied to clean skin before a treatment to make it more comfortable. It's a cosmetic preparation, not an anaesthetic. How long to leave it on, and how long the effect lasts, vary by product, by the area, and by how much is applied, so the product's own instructions and your practitioner's advice always come first. Many clinics apply their own numbing as standard, so it's worth checking before you bring your own.</p>"
       }
     },
     "howto": {
@@ -50,7 +50,7 @@
           "type": "step",
           "settings": {
             "title": "Allow time before your appointment.",
-            "body": "<p>As a general guide, cream is applied around 45–60 minutes before the appointment — but this varies, so follow the product's instructions and your practitioner's advice (gel and spray: allow time to take effect).</p>"
+            "body": "<p>Many customers tell us they get their best results applying cream around 45–60 minutes before their appointment, though this varies from person to person. Follow the product's instructions and your practitioner's advice (gel and spray: allow time to take effect).</p>"
           }
         },
         "s4": {
@@ -148,7 +148,7 @@
       "settings": {
         "background": "canvas",
         "eyebrow": "The essentials",
-        "body": "<ul><li>Patch test about 24 hours before first use and stop if your skin reacts.</li><li>Numbing cream is applied to clean skin before treatment to reduce discomfort; it doesn't remove all sensation.</li><li>How long to leave it on and how long it lasts vary by product, area and application — follow the product's instructions.</li><li>Leaving it on longer than directed doesn't improve it and can irritate skin.</li><li>Many practitioners apply their own numbing as standard — check before bringing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+        "body": "<ul><li>Patch test about 24 hours before first use and stop if your skin reacts.</li><li>Numbing cream is a cosmetic preparation applied to clean skin before treatment to support comfort.</li><li>How long to leave it on and how long it lasts vary by product, area and application — follow the product's instructions.</li><li>Leaving it on longer than directed doesn't improve it and can irritate skin.</li><li>Many practitioners apply their own numbing as standard — check before bringing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
       }
     },
     "faq": {

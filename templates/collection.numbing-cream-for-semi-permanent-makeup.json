@@ -166,7 +166,7 @@
       "settings": {
         "style": "brand",
         "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>Many SPMU artists apply their own numbing as part of the sitting, and some have a specific product or routine they prefer you not to interfere with. If yours does, you may not need to bring your own — and turning up already numbed without asking can affect how the pigment takes. Self-applied prep matters most where the artist doesn't provide it, or where they're happy for you to prepare beforehand. A quick message before you book settles it.</p>",
+        "body": "<p>Many SPMU artists apply their own numbing as part of the sitting, and some have a specific product or routine they prefer you not to interfere with. If yours does, you may not need to bring your own — and turning up already prepared without asking can affect how the pigment takes. Self-applied prep matters most where the artist doesn't provide it, or where they're happy for you to prepare beforehand. A quick message before you book settles it.</p>",
         "accent_word": "skip",
         "cta_label": "Does it hurt? Guide by treatment",
         "cta_url": "/pages/does-it-hurt-by-treatment"
@@ -244,7 +244,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Does lip blush hurt?",
-            "answer": "<p>Lips are more sensitive than brows, so it tends to be felt more, and numbing reduces that discomfort rather than removing it entirely. Your artist will guide the prep that suits the sitting.</p>"
+            "answer": "<p>Lips are more sensitive than brows, so it tends to be felt more. Your artist will guide the prep that suits the sitting.</p>"
           }
         },
         "q5": {
