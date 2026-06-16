@@ -20,7 +20,7 @@
       "type": "senseless-editorial-band",
       "settings": {
         "background": "white", "align": "left", "eyebrow": "Good to know", "headline": "What to know",
-        "body": "<p>Lip filler usually involves a sharp scratch and some pressure as the product is placed, eased by the numbing most practitioners use. If you're preparing at home, with your practitioner's agreement, a gel suits the lip well because it stays where it's placed; a cream works for broader areas. Numbing is preparation for comfort, applied to clean skin before your appointment and removed before treatment — it isn't part of the procedure. Because clinics differ, check what yours would like you to do first.</p>"
+        "body": "<p>Lip filler usually involves a sharp scratch and some pressure as the product is placed. Most practitioners apply numbing cream as part of prep. If you're preparing at home, with your practitioner's agreement, a gel suits the lip well because it stays where it's placed; a cream works for broader areas. Numbing is preparation for comfort, applied to clean skin before your appointment and removed before treatment — it isn't part of the procedure. Because clinics differ, check what yours would like you to do first.</p>"
       }
     },
     "keyfacts": {
@@ -33,7 +33,7 @@
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before lip fillers?", "answer": "<p>Often yes, for comfort — but most practitioners numb the lips themselves and may prefer you don't apply your own, so check first.</p>" } },
+        "q1": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before lip fillers?", "answer": "<p>Often yes, for comfort — but most practitioners apply numbing cream themselves and may prefer you don't apply your own, so check first.</p>" } },
         "q2": { "type": "faq_item", "settings": { "question": "What's the best numbing cream for lip fillers?", "answer": "<p>A gel suits the lip because it stays in place; a cream suits broader areas. Your practitioner can advise what's appropriate for your appointment.</p>" } },
         "q3": { "type": "faq_item", "settings": { "question": "Does it hurt to get lip filler with numbing?", "answer": "<p>Numbing is a cosmetic preparation that supports comfort, not an anaesthetic — most people describe a brief scratch and pressure.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "Is numbing cream safe before lip filler?", "answer": "<p>Used as directed on clean, healthy skin it's widely used; patch test first and check with your practitioner.</p>" } }

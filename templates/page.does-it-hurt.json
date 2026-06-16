@@ -122,7 +122,7 @@
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Does numbing cream stop all pain?", "answer": "<p>No — numbing cream is a cosmetic preparation, not an anaesthetic. It supports comfort during many aesthetic treatments, but you may still feel pressure or movement.</p>" } },
+        "q1": { "type": "faq_item", "settings": { "question": "Does numbing cream stop all pain?", "answer": "<p>No — numbing cream is a cosmetic preparation, not an anaesthetic. It supports comfort during many aesthetic treatments, but you may feel pressure or movement.</p>" } },
         "q2": { "type": "faq_item", "settings": { "question": "Which treatments does numbing help with?", "answer": "<p>It's used before procedures such as microneedling, laser and semi-permanent makeup. Match the format and strength to the area and appointment — the Senseless Selector helps you choose.</p>" } },
         "q3": { "type": "faq_item", "settings": { "question": "Will I feel anything during my treatment?", "answer": "<p>Numbing is a cosmetic preparation, not an anaesthetic — your practitioner can advise what to expect for your specific treatment.</p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "How can I make a treatment more comfortable?", "answer": "<p>Apply to clean skin, patch test about 24 hours beforehand, and follow the product instructions and your practitioner's advice. Choosing the right strength for the appointment helps too.</p>" } }
