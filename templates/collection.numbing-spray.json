@@ -53,6 +53,14 @@
         "band": "canvas"
       }
     },
+    "during": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "eyebrow": "During your session",
+        "body": "<p>Easy to re-apply during your appointment — many customers tell us they top up with the spray through longer sessions to stay comfortable.</p>"
+      }
+    },
     "match": {
       "type": "senseless-strength-ladder",
       "blocks": {
@@ -303,7 +311,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Do I need to patch test?",
-            "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>"
+            "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Follow the product instructions, and check with your practitioner if you have sensitive skin.</p>"
           }
         },
         "qreapply": {
@@ -367,6 +375,7 @@
   "order": [
     "hero",
     "trust",
+    "during",
     "match",
     "selectorlink",
     "grid",
