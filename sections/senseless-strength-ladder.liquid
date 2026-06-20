@@ -77,7 +77,7 @@
     {%- endif -%}
 
     {%- if section.settings.show_scale -%}
-      <div class="ss-sl__scale" data-ss-reveal>{% render 'senseless-scale', descriptors: true, links: true %}</div>
+      <div class="ss-sl__scale" data-ss-reveal>{% render 'senseless-scale', current: section.settings.scale_current, links: true, desc_clinical: section.settings.scale_clinical, desc_advanced: section.settings.scale_advanced, desc_professional: section.settings.scale_professional %}</div>
     {%- endif -%}
 
     {%- if has_rows -%}
@@ -134,6 +134,10 @@
     { "type": "richtext", "id": "reassurance", "label": "Reassurance line (under the note, optional)" },
     { "type": "header", "content": "The Senseless Scale strip" },
     { "type": "checkbox", "id": "show_scale", "label": "Show the Senseless Scale strip (asterisk peer tiers)", "default": false, "info": "Renders Clinical/Advanced/Professional as distinct-but-equal peers, each with the brand asterisk + match-to-session line. Off by default — collection pages keep the existing matrix." },
+    { "type": "select", "id": "scale_current", "label": "Mark current tier (Scale strip)", "default": "", "info": "Leave as ‘None’ on pages that span tiers (the default for collections). Set only on a single-tier context.", "options": [ { "value": "", "label": "None (all peers, none marked)" }, { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" } ] },
+    { "type": "richtext", "id": "scale_clinical", "label": "Scale — Clinical line", "default": "<p>For shorter or less intensive sessions and smaller areas.</p>" },
+    { "type": "richtext", "id": "scale_advanced", "label": "Scale — Advanced line", "default": "<p>For everyday aesthetic procedures — longer or more sensitive work.</p>" },
+    { "type": "richtext", "id": "scale_professional", "label": "Scale — Professional line", "default": "<p>For the longest, most demanding and most sustained sessions.</p>" },
     { "type": "text", "id": "cta_label", "label": "CTA label (optional)" },
     { "type": "url", "id": "cta_url", "label": "CTA link (optional)" },
     { "type": "header", "content": "Source" },

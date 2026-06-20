@@ -95,6 +95,7 @@
         "r3"
       ],
       "settings": {
+        "show_scale": true,
         "use_metaobject": true,
         "layout": "tiles",
         "band": "surface",

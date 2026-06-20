@@ -87,6 +87,9 @@
         "band": "surface",
         "anchor_id": "scale",
         "show_scale": true,
+        "scale_clinical": "<p><strong>The standard.</strong> <em>Smaller areas, shorter or routine appointments, and anyone starting out.</em> Fits the majority of sessions.</p>",
+        "scale_advanced": "<p><strong>The everyday choice.</strong> <em>Larger areas, longer or more sensitive sessions.</em> The one most people settle on for regular work.</p>",
+        "scale_professional": "<p><strong>For the most demanding sessions.</strong> <em>The longest, most sustained, most intensive work.</em> More than most appointments need — and we'll tell you when.</p>",
         "eyebrow": "The Senseless Scale",
         "headline": "Selection two: the strength",
         "accent_word": "strength",
@@ -335,14 +338,14 @@
           "type": "faq_item",
           "settings": {
             "question": "What's the difference between Clinical, Advanced and Professional?",
-            "answer": "<p>Different strengths of the same range. Clinical is the standard for routine sessions, Advanced is higher for longer or more sensitive work, Professional is the highest for the most demanding appointments.</p>"
+            "answer": "<p>Different strengths of the same range — peers, not a ranking. Clinical is matched to shorter, routine sessions; Advanced to longer or more sensitive work; Professional to the longest, most demanding appointments. Each is built for a different kind of session.</p>"
           }
         },
         "q2": {
           "type": "faq_item",
           "settings": {
-            "question": "Is the strongest one always best?",
-            "answer": "<p>No. Matching the strength to the appointment matters more than reaching for the highest — for many treatments the top strength is more than you need.</p>"
+            "question": "Is one tier better than the others?",
+            "answer": "<p>No — the three tiers are peers, not a ranking. The right choice is the one matched to your appointment, not the most intensive; for many treatments, Clinical or Advanced is the match.</p>"
           }
         },
         "q3": {

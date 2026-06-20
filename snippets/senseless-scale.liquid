@@ -12,10 +12,12 @@
   Professional is deliberately the lightest-bodied so the set never reads as ascending.
 
   Params:
-    current     — '' | 'clinical' | 'advanced' | 'professional' (marks the current tier; neutral, not escalated)
-    links       — true (default) links each non-current tier to its collection; pass false for a static strip
-    descriptors — false (default); true shows each tier's match-to-session line
-    compact     — false (default); true tightens padding (homepage)
+    current           — '' | 'clinical' | 'advanced' | 'professional' (marks the current tier; neutral, not escalated)
+    links             — true (default) links each non-current tier to its collection; pass false for a static strip
+    compact           — false (default); true tightens padding
+    desc_clinical     — optional per-tier match-to-session line (HTML ok). When all three are blank, no descriptors render.
+    desc_advanced     — optional
+    desc_professional — optional
 {%- endcomment -%}
 {%- liquid
   assign cur = current | default: ''
@@ -23,7 +25,9 @@
   assign labels = 'Clinical,Advanced,Professional' | split: ','
   assign variants = 'a,b,c' | split: ','
   assign urls = '/collections/clinical,/collections/advanced,/collections/professional' | split: ','
-  assign descs = 'For shorter or less intensive sessions and smaller areas.~For everyday aesthetic procedures — longer or more sensitive work.~For the longest, most demanding and most sustained sessions.' | split: '~'
+  assign dc = desc_clinical | default: ''
+  assign da = desc_advanced | default: ''
+  assign dp = desc_professional | default: ''
 -%}
 {%- style -%}
   .ss-scale { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
@@ -40,6 +44,7 @@
   .ss-scale__mark { line-height:0; }
   .ss-scale__label { font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--ink); }
   .ss-scale__desc { font-family:var(--sans); font-weight:400; font-size:13px; line-height:1.5; color:var(--sec); }
+  .ss-scale__desc p { margin:0; } .ss-scale__desc strong { color:var(--ink); font-weight:600; } .ss-scale__desc em { font-style:italic; }
   .ss-scale__here { font-family:var(--sans); font-weight:600; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--p); }
   .ss-scale--compact .ss-scale__tier { padding:14px 12px; }
 {%- endstyle -%}
@@ -49,10 +54,12 @@
       {%- assign i = forloop.index0 -%}
       {%- assign is_current = false -%}
       {%- if cur == k -%}{%- assign is_current = true -%}{%- endif -%}
+      {%- assign d = '' -%}
+      {%- if i == 0 -%}{%- assign d = dc -%}{%- elsif i == 1 -%}{%- assign d = da -%}{%- else -%}{%- assign d = dp -%}{%- endif -%}
       {%- capture tier_inner -%}
         <span class="ss-scale__mark">{% render 'senseless-asterisk', size: 22 %}</span>
         <span class="ss-scale__label">{{ labels[i] }}</span>
-        {%- if descriptors == true -%}<span class="ss-scale__desc">{{ descs[i] }}</span>{%- endif -%}
+        {%- if d != blank -%}<div class="ss-scale__desc">{{ d }}</div>{%- endif -%}
         {%- if is_current -%}<span class="ss-scale__here">This tier</span>{%- endif -%}
       {%- endcapture -%}
       <li role="listitem">

@@ -31,66 +31,6 @@
         "cta_url": "/pages/the-senseless-system#scale"
       }
     },
-    "strength": {
-      "type": "senseless-trio-card-row",
-      "blocks": {
-        "clinical": {
-          "type": "tier_card",
-          "settings": {
-            "label": "Clinical Strength",
-            "heading": "For standard appointments",
-            "body": "<p>The baseline of the system — the formula most appointments call for. Formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>",
-            "cta_label": "Shop Clinical",
-            "cta_url": "/collections/clinical",
-            "collection": "clinical",
-            "flagship": false,
-            "image_alt": "Clinical Strength Senseless preparation on a warm off-white background"
-          }
-        },
-        "advanced": {
-          "type": "tier_card",
-          "settings": {
-            "label": "Advanced Strength",
-            "heading": "For longer or more demanding work",
-            "body": "<p>A higher-strength formula, made for longer appointments and more sensitive treatment areas. The strength studios reach for when a session asks more of the skin. For when the appointment asks more.</p>",
-            "cta_label": "Shop Advanced",
-            "cta_url": "/collections/advanced",
-            "collection": "advanced",
-            "flagship": false,
-            "image_alt": "Advanced Strength Senseless preparation on a warm off-white background"
-          }
-        },
-        "professional": {
-          "type": "tier_card",
-          "settings": {
-            "label": "Professional Strength",
-            "heading": "Our highest-strength formula",
-            "body": "<p>Developed with practitioners and used in studios across the UK. The highest strength in the system — available without restriction. Trusted at the chair.</p>",
-            "cta_label": "Shop Professional",
-            "cta_url": "/collections/professional",
-            "collection": "professional",
-            "flagship": true,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless preparation on a warm off-white background"
-          }
-        }
-      },
-      "block_order": [
-        "clinical",
-        "advanced",
-        "professional"
-      ],
-      "settings": {
-        "columns": "3",
-        "eyebrow": "The Senseless system",
-        "headline": "Match the strength to your session.",
-        "body": "<p>Strength is the first half of your selection. Clinical for routine, shorter sessions. Advanced for longer or more sensitive work. Professional for the most demanding. Not a budget ladder — each is built for a different intensity. Format is the other half: cream, gel or spray, just below.</p>",
-        "closer": "Together, they're your Senseless Selection.",
-        "section_cta_label": "",
-        "section_cta_url": "",
-        "closer_url": "/pages/the-senseless-system"
-      }
-    },
     "selectorlink": {
       "type": "senseless-callout-band",
       "settings": {
@@ -288,7 +228,6 @@
   "order": [
     "hero",
     "scale",
-    "strength",
     "selectorlink",
     "procedure",
     "formats",

@@ -95,6 +95,7 @@
         "r3"
       ],
       "settings": {
+        "show_scale": true,
         "use_metaobject": false,
         "band": "surface",
         "anchor_id": "match",
