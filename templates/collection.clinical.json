@@ -1,5 +1,22 @@
 {
   "sections": {
+    "scale": {
+      "type": "senseless-strength-ladder",
+      "settings": {
+        "use_metaobject": false,
+        "layout": "tiles",
+        "band": "canvas",
+        "anchor_id": "scale",
+        "show_scale": true,
+        "scale_current": "clinical",
+        "eyebrow": "The Senseless Scale",
+        "headline": "Three tiers, matched to the session.",
+        "accent_word": "matched",
+        "body": "<p>Clinical, Advanced and Professional — the three tiers of the Senseless Scale. Each is matched to a different kind of session, not a ranking. Choose by the appointment in front of you.</p>",
+        "cta_label": "Explore the Senseless Scale",
+        "cta_url": "/pages/the-senseless-system#scale"
+      }
+    },
     "hero": {
       "type": "senseless-collection-hero",
       "settings": {
@@ -128,6 +145,7 @@
     "hero",
     "trust",
     "grid",
+    "scale",
     "whentochoose",
     "selectorlink",
     "crosslinks"
