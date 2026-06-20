@@ -81,47 +81,18 @@
     },
     "dial2": {
       "type": "senseless-strength-ladder",
-      "blocks": {
-        "r1": {
-          "type": "ladder_row",
-          "settings": {
-            "strength": "Clinical",
-            "matched": "<p><strong>The standard.</strong> <em>Smaller areas, shorter or routine appointments, and anyone starting out.</em> Fits the majority of sessions.</p>"
-          }
-        },
-        "r2": {
-          "type": "ladder_row",
-          "settings": {
-            "strength": "Advanced",
-            "tag": "Most popular",
-            "matched": "<p><strong>The higher strength.</strong> <em>Larger areas, longer or more sensitive sessions.</em> The one most people settle on for regular work.</p>"
-          }
-        },
-        "r3": {
-          "type": "ladder_row",
-          "settings": {
-            "strength": "Professional",
-            "featured": true,
-            "matched": "<p><strong>The highest in the system.</strong> <em>The longest, most demanding, most sustained sessions.</em> More than most appointments need — and we'll tell you when.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3"
-      ],
       "settings": {
         "use_metaobject": false,
         "layout": "rows",
         "band": "surface",
         "anchor_id": "scale",
+        "show_scale": true,
         "eyebrow": "The Senseless Scale",
         "headline": "Selection two: the strength",
         "accent_word": "strength",
-        "body": "<p>Strength is separate from format — every format comes in all three. Which you need depends on the session, not the procedure name: <strong>how large the area is, how long the appointment runs, how intense it is, and how sensitive your skin is.</strong> None is \"better\" than another; each is built for a different kind of session.</p>",
-        "note": "<p>Most people don't need the top of the range. Match it to the session you're actually having — if you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
-        "reassurance": "<p>Clinical isn't a weaker version of Professional, and Advanced isn't a half-measure. The three are formulated for different sessions, not different levels of quality. Most people are on Clinical or Advanced because that's the right match for their booking — not because they're settling.</p>"
+        "body": "<p>Strength is separate from format — every format comes in all three. Which you choose depends on the session, not the procedure name: <strong>how large the area is, how long the appointment runs, how intense it is, and how sensitive your skin is.</strong> The three tiers are peers, not a ranking — each is matched to a different kind of session.</p>",
+        "note": "<p>Match the strength to the session you're actually having. If you're between two tiers, start with the one closer to your booking — you can choose differently next time.</p>",
+        "reassurance": "<p>Clinical isn't a lesser version of Professional, and Advanced isn't a half-measure. The three are matched to different sessions, not different levels of quality. Most people are on Clinical or Advanced because that's the right match for their booking.</p>"
       }
     },
     "matrix": {

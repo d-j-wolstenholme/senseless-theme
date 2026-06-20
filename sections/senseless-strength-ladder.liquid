@@ -10,6 +10,12 @@
   assign band = section.settings.band
   assign anchor = section.settings.anchor_id | default: 'match'
   assign layout = section.settings.layout | default: 'tiles'
+  assign has_rows = false
+  if section.settings.use_metaobject and metaobjects.strength_tier.values_count > 0
+    assign has_rows = true
+  elsif section.blocks.size > 0
+    assign has_rows = true
+  endif
 -%}
 
 {%- style -%}
@@ -36,6 +42,11 @@
   .ss-sl__note p { margin:0; }
   .ss-sl__reassurance { margin:18px 0 0; font-family:var(--sans); font-size:14.5px; line-height:1.6; color:var(--sec); }
   .ss-sl__reassurance p { margin:0 0 8px; } .ss-sl__reassurance p:last-child { margin:0; }
+  .ss-sl__scale { margin:0 0 28px; }
+  .ss-sl__cta { margin:24px 0 0; }
+  .ss-sl__ctabtn { display:inline-flex; align-items:center; justify-content:center; height:46px; padding:0 24px; border-radius:14px; border:1px solid var(--p); color:var(--p); background:transparent; font-family:var(--sans); font-weight:500; font-size:14px; text-decoration:none; transition:background-color .2s ease, color .2s ease; }
+  .ss-sl__ctabtn:hover { background:var(--p); color:#fff; }
+  @media (prefers-reduced-motion: reduce) { .ss-sl__ctabtn { transition:none; } }
 
   /* TILES — compact 3-up (collection pages: the at-a-glance Scale) */
   .ss-sl__matrix--tiles { display:grid; grid-template-columns:1fr; gap:12px; }
@@ -65,6 +76,11 @@
       </header>
     {%- endif -%}
 
+    {%- if section.settings.show_scale -%}
+      <div class="ss-sl__scale" data-ss-reveal>{% render 'senseless-scale', descriptors: true, links: true %}</div>
+    {%- endif -%}
+
+    {%- if has_rows -%}
     <div class="ss-sl__matrix ss-sl__matrix--{{ layout }}" role="table" aria-label="{{ section.settings.headline | default: 'Strength matrix' | escape }}" data-ss-reveal-group>
       {%- comment -%}
         Single source: the strength_tier metaobject (Clinical/Advanced/Professional). When the
@@ -92,9 +108,11 @@
         {%- endfor -%}
       {%- endif -%}
     </div>
+    {%- endif -%}
 
     {%- if section.settings.note != blank -%}<div class="ss-sl__note">{{ section.settings.note }}</div>{%- endif -%}
     {%- if section.settings.reassurance != blank -%}<div class="ss-sl__reassurance">{{ section.settings.reassurance }}</div>{%- endif -%}
+    {%- if section.settings.cta_label != blank -%}<div class="ss-sl__cta"><a class="ss-sl__ctabtn" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a></div>{%- endif -%}
   </div>
 </section>
 
@@ -114,6 +132,10 @@
     { "type": "richtext", "id": "body", "label": "Intro body" },
     { "type": "richtext", "id": "note", "label": "Anti-upsell note (under the matrix)" },
     { "type": "richtext", "id": "reassurance", "label": "Reassurance line (under the note, optional)" },
+    { "type": "header", "content": "The Senseless Scale strip" },
+    { "type": "checkbox", "id": "show_scale", "label": "Show the Senseless Scale strip (asterisk peer tiers)", "default": false, "info": "Renders Clinical/Advanced/Professional as distinct-but-equal peers, each with the brand asterisk + match-to-session line. Off by default — collection pages keep the existing matrix." },
+    { "type": "text", "id": "cta_label", "label": "CTA label (optional)" },
+    { "type": "url", "id": "cta_url", "label": "CTA link (optional)" },
     { "type": "header", "content": "Source" },
     { "type": "checkbox", "id": "use_metaobject", "label": "Source rows from the Strength tier metaobject", "default": false, "info": "On: iterate the strength_tier metaobject entries by their order field (single source). Off (or before the metaobject is populated): use the manual Strength rows below." }
   ],

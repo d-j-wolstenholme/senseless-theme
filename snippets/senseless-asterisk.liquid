@@ -1,0 +1,23 @@
+{%- comment -%}
+  Senseless — brand asterisk (identity mark).
+  EXACT geometry + colour extracted from assets/senseless-logo-header.svg — the four
+  stroked lines of the logo's asterisk mark: vertical, horizontal, and two diagonals,
+  stroke rgb(152,74,232) = #984AE8, 3.5 stroke-width, square caps (matching the logo svg).
+  This is a VECTOR mark, never a font glyph or typographic "*". Decorative by default
+  (aria-hidden) — the adjacent tier label carries the meaning.
+  Params:
+    size  — px, default 20 (square)
+    class — extra CSS classes (optional)
+{%- endcomment -%}
+{%- liquid
+  assign sz = size | default: 20
+  assign extra = class | default: ''
+-%}
+<svg class="ss-asterisk {{ extra }}" width="{{ sz }}" height="{{ sz }}" viewBox="-13 -13 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:inline-block;vertical-align:middle;flex:none;">
+  <g stroke="#984AE8" stroke-width="3.5" stroke-linecap="square">
+    <path d="M0,-11L0,11"></path>
+    <path d="M-11,0L11,0"></path>
+    <path d="M-7.8,-7.8L7.8,7.8"></path>
+    <path d="M-7.8,7.8L7.8,-7.8"></path>
+  </g>
+</svg>

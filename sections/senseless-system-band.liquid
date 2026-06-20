@@ -17,6 +17,9 @@
   .ss-sb--canvas { background:var(--bg); } .ss-sb--surface { background:var(--surf); }
   .ss-sb__inner { max-width:720px; margin:0 auto; padding-block:48px; padding-inline:20px; }
   .ss-sb__eyebrow { font-family:var(--sans); font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0 0 14px; }
+  .ss-sb__scalelead { font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--sec); margin:0 0 10px; }
+  .ss-sb__scale { margin:0 0 22px; }
+  .ss-sb__scalecap { font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--sec); margin:10px 0 0; }
   .ss-sb__grid { display:grid; grid-template-columns:auto repeat(3,1fr); gap:6px; }
   .ss-sb__ch { font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--sec); text-align:center; padding:6px 4px; }
   .ss-sb__rh { font-family:var(--sans); font-weight:600; font-size:13px; color:var(--ink); display:flex; align-items:center; padding-right:8px; }
@@ -30,6 +33,11 @@
 <section class="ss-sb ss-sb--{{ band }}" aria-label="Where this sits in the Senseless System">
   <div class="ss-sb__inner">
     <p class="ss-sb__eyebrow">The Senseless System</p>
+    <p class="ss-sb__scalelead">The Senseless Scale</p>
+    <div class="ss-sb__scale">
+      {% render 'senseless-scale', current: cur_s, links: false %}
+      <p class="ss-sb__scalecap">Three tiers, each matched to a different kind of session. You're on {{ cur_s | capitalize }}.</p>
+    </div>
     <div class="ss-sb__grid">
       <span class="ss-sb__ch" aria-hidden="true"></span>
       {%- for s in strengths -%}<span class="ss-sb__ch">{{ s | capitalize }}</span>{%- endfor -%}

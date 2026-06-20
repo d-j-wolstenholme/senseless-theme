@@ -1,0 +1,67 @@
+{%- comment -%}
+  Senseless — the Senseless Scale strip.
+  Clinical · Advanced · Professional shown as DISTINCT-BUT-EQUAL peers. Every tier carries
+  the SAME single brand asterisk (render 'senseless-asterisk' — the logo SVG mark, #984AE8)
+  plus a graded-purple PEER treatment and the tier label. The asterisk is a brand signifier
+  of "this is a Senseless Scale tier", NOT a 1-2-3 count and NOT a measure of potency.
+
+  Three peer treatments (variations on the brand purple #6B3FA0 — not a light→dark ramp):
+    a (Clinical)     — white card, 1px purple border
+    b (Advanced)     — soft purple wash, 1px purple border
+    c (Professional) — white card, 1px purple border + 3px purple top edge
+  Professional is deliberately the lightest-bodied so the set never reads as ascending.
+
+  Params:
+    current     — '' | 'clinical' | 'advanced' | 'professional' (marks the current tier; neutral, not escalated)
+    links       — true (default) links each non-current tier to its collection; pass false for a static strip
+    descriptors — false (default); true shows each tier's match-to-session line
+    compact     — false (default); true tightens padding (homepage)
+{%- endcomment -%}
+{%- liquid
+  assign cur = current | default: ''
+  assign keys = 'clinical,advanced,professional' | split: ','
+  assign labels = 'Clinical,Advanced,Professional' | split: ','
+  assign variants = 'a,b,c' | split: ','
+  assign urls = '/collections/clinical,/collections/advanced,/collections/professional' | split: ','
+  assign descs = 'For shorter or less intensive sessions and smaller areas.~For everyday aesthetic procedures — longer or more sensitive work.~For the longest, most demanding and most sustained sessions.' | split: '~'
+-%}
+{%- style -%}
+  .ss-scale { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  .ss-scale__row { display:grid; grid-template-columns:1fr; gap:10px; margin:0; padding:0; list-style:none; }
+  @media (min-width:600px){ .ss-scale__row { grid-template-columns:repeat(3,1fr); gap:14px; } }
+  .ss-scale__tier { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; gap:8px;
+    box-sizing:border-box; padding:20px 16px; border-radius:8px; background:var(--surf); border:1px solid var(--p);
+    color:var(--ink); text-decoration:none; transition:box-shadow .15s ease; }
+  .ss-scale__tier--b { background:rgba(107,63,160,.07); }
+  .ss-scale__tier--c { border-top-width:3px; }
+  a.ss-scale__tier:hover { box-shadow:0 0 0 2px rgba(107,63,160,.18); }
+  .ss-scale__tier--current { box-shadow:0 0 0 2px rgba(107,63,160,.30); }
+  .ss-scale__mark { line-height:0; }
+  .ss-scale__label { font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--ink); }
+  .ss-scale__desc { font-family:var(--sans); font-weight:400; font-size:13px; line-height:1.5; color:var(--sec); }
+  .ss-scale__here { font-family:var(--sans); font-weight:600; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--p); }
+  .ss-scale--compact .ss-scale__tier { padding:14px 12px; }
+{%- endstyle -%}
+<div class="ss-scale{% if compact == true %} ss-scale--compact{% endif %}">
+  <ul class="ss-scale__row" role="list" aria-label="The Senseless Scale — Clinical, Advanced, Professional">
+    {%- for k in keys -%}
+      {%- assign i = forloop.index0 -%}
+      {%- assign is_current = false -%}
+      {%- if cur == k -%}{%- assign is_current = true -%}{%- endif -%}
+      {%- capture tier_inner -%}
+        <span class="ss-scale__mark">{% render 'senseless-asterisk', size: 22 %}</span>
+        <span class="ss-scale__label">{{ labels[i] }}</span>
+        {%- if descriptors == true -%}<span class="ss-scale__desc">{{ descs[i] }}</span>{%- endif -%}
+        {%- if is_current -%}<span class="ss-scale__here">This tier</span>{%- endif -%}
+      {%- endcapture -%}
+      <li role="listitem">
+        {%- if links != false and is_current == false -%}
+          <a class="ss-scale__tier ss-scale__tier--{{ variants[i] }}" href="{{ urls[i] }}">{{ tier_inner }}</a>
+        {%- else -%}
+          <span class="ss-scale__tier ss-scale__tier--{{ variants[i] }}{% if is_current %} ss-scale__tier--current{% endif %}"{% if is_current %} aria-current="true"{% endif %}>{{ tier_inner }}</span>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
