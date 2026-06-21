@@ -33,10 +33,11 @@
   .ss-sel__empty { font-family:var(--sans); font-size:16px; color:var(--sec); margin:0; }
   .ss-sel__cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0 0 16px; }
   .ss-sel__card { border:1px solid var(--bd); border-radius:4px; background:var(--surf); padding:18px; }
-  .ss-sel__card--pro { border:2px solid var(--p); }
+  /* --pro escalation retired (Scale Phase 4): tier is signalled by the comfort mark, not a heavier border/colour. */
   .ss-sel__cardlabel { font-family:var(--sans); font-weight:600; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--sec); margin:0 0 6px; }
   .ss-sel__cardval { font-family:var(--sans); font-weight:600; font-size:22px; line-height:1.1; margin:0; color:var(--ink); }
-  .ss-sel__card--pro .ss-sel__cardval { color:var(--p); }
+  .ss-sel__scalepos { display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin:8px 0 0; font-family:var(--sans); font-size:13px; color:var(--sec); }
+  .ss-sel__scalelink { color:var(--sec); text-decoration:none; } .ss-sel__scalelink:hover { color:var(--p); text-decoration:underline; }
   .ss-sel__line { font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--body); margin:0 0 10px; }
   .ss-sel__note { font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--body); margin:0 0 14px; border-left:3px solid var(--p); padding:2px 0 2px 14px; }
   .ss-sel__cta { display:inline-flex; align-items:center; gap:6px; height:46px; padding:0 22px; border-radius:14px; background:var(--p); color:#fff; font-family:var(--sans); font-weight:600; font-size:15px; text-decoration:none; transition:background-color .15s; }
@@ -92,7 +93,14 @@
       <div data-cards-wrap hidden>
         <div class="ss-sel__cards">
           <div class="ss-sel__card"><p class="ss-sel__cardlabel">Format</p><p class="ss-sel__cardval" data-format-out></p></div>
-          <div class="ss-sel__card" data-strength-card><p class="ss-sel__cardlabel">Strength</p><p class="ss-sel__cardval" data-strength-out></p></div>
+          <div class="ss-sel__card" data-strength-card><p class="ss-sel__cardlabel">Strength</p><p class="ss-sel__cardval" data-strength-out></p>
+            <p class="ss-sel__scalepos">
+              <span data-mark="0" hidden>{% render 'senseless-comfort-mark', tier: 'clinical', name: false, link: false %}</span>
+              <span data-mark="1" hidden>{% render 'senseless-comfort-mark', tier: 'advanced', name: false, link: false %}</span>
+              <span data-mark="2" hidden>{% render 'senseless-comfort-mark', tier: 'professional', name: false, link: false %}</span>
+              <a class="ss-sel__scalelink" href="/pages/the-senseless-system#scale">on the Senseless Scale</a>
+            </p>
+          </div>
         </div>
         <p class="ss-sel__line" data-stepped hidden>Stepped up for sensitive skin and/or a longer session.</p>
         <p class="ss-sel__line" data-capped hidden>We'd keep it here for this treatment — more isn't needed.</p>
@@ -132,8 +140,9 @@
         var strength = STRENGTHS[final];
         fmtOut.textContent = format;
         strOut.textContent = strength;
-        var isPro = final === 2;
-        strCard.classList.toggle('ss-sel__card--pro', isPro);
+        strCard.querySelectorAll('[data-mark]').forEach(function (m) {
+          m.hidden = parseInt(m.getAttribute('data-mark'), 10) !== final;
+        });
         stepped.hidden = !(final > base);
         capped.hidden = !(raw > ceiling);
         noteOut.textContent = tx.getAttribute('data-note');
