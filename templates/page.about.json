@@ -40,6 +40,13 @@
         "image_alt": "Editorial detail of a Senseless preparation tube on a warm off-white background"
       }
     },
+    "credentials": {
+      "type": "senseless-credentials",
+      "settings": {
+        "band": "surface",
+        "align": "center"
+      }
+    },
     "believe": {
       "type": "senseless-image-text-band",
       "settings": {
@@ -285,6 +292,7 @@
     "hero",
     "what",
     "company",
+    "credentials",
     "believe",
     "practice",
     "notice",
