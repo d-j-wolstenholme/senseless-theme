@@ -161,11 +161,11 @@
           "settings": {
             "label": "Professional Strength",
             "title": "Professional Strength Gel",
-            "body": "<p>The highest strength in the system.</p>",
+            "body": "<p>Our practitioner tier — for the longest, most sustained sessions.</p>",
             "product": "professional-strength-gel",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-gel",
-            "flagship": true,
+            "flagship": false,
             "image_alt": "Professional Strength Gel on a warm off-white background"
           }
         }

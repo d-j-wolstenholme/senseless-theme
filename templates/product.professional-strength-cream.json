@@ -4,7 +4,7 @@
       "type": "senseless-product-hero",
       "settings": {
         "eyebrow": "Professional Strength · Cream",
-        "subtitle": "The highest strength in the system. Developed with practitioners.",
+        "subtitle": "Our practitioner tier — developed specifically for professional use, for the longest, most sustained sessions.",
         "trust_line": "UK formulated · Cosmetic product · CPSR assessed",
         "force_tier": "auto"
       },
@@ -71,7 +71,7 @@
           "type": "fact",
           "settings": {
             "label": "Strength",
-            "value": "Professional — the highest strength in the Senseless system. Cream format."
+            "value": "Professional — our practitioner tier, developed for professional use. Cream format."
           }
         },
         "f2": {
@@ -197,7 +197,7 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "white",
-        "body": "<p>Professional is the highest strength in the cream range — for the most demanding, sustained work. Formulated in the UK, CPSR assessed.</p>"
+        "body": "<p>Professional is our practitioner tier — developed specifically for professional use, for the longest and most sustained work. Formulated in the UK, CPSR assessed.</p>"
       }
     },
     "linksout": {

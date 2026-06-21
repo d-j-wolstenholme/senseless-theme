@@ -4,7 +4,7 @@
       "type": "senseless-product-hero",
       "settings": {
         "eyebrow": "Professional Strength · Spray",
-        "subtitle": "The highest strength, in a spray. Developed with practitioners for intensive body work.",
+        "subtitle": "Our practitioner tier, in a spray — developed for professional use, for the longest, most sustained body work.",
         "trust_line": "UK formulated · Cosmetic product · CPSR assessed",
         "force_tier": "auto"
       },
@@ -71,7 +71,7 @@
           "type": "fact",
           "settings": {
             "label": "Strength",
-            "value": "Professional — the highest strength in the Senseless system. Spray format."
+            "value": "Professional — our practitioner tier, developed for professional use. Spray format."
           }
         },
         "f2": {
@@ -197,7 +197,7 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "white",
-        "body": "<p>Professional is the highest strength in the spray range — for the most demanding body work. Formulated in the UK, CPSR assessed.</p>"
+        "body": "<p>Professional is our practitioner tier — developed for professional use, for the longest and most sustained body work. Formulated in the UK, CPSR assessed.</p>"
       }
     },
     "linksout": {

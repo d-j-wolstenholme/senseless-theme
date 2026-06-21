@@ -4,7 +4,7 @@
       "type": "senseless-product-hero",
       "settings": {
         "eyebrow": "Professional Strength · Gel",
-        "subtitle": "The highest strength, in a gel. Developed with practitioners for sustained work.",
+        "subtitle": "Our practitioner tier, in a gel — developed for professional use, for the longest, most sustained sittings.",
         "trust_line": "UK formulated · Cosmetic product · CPSR assessed",
         "force_tier": "auto"
       },
@@ -71,7 +71,7 @@
           "type": "fact",
           "settings": {
             "label": "Strength",
-            "value": "Professional — the highest strength in the Senseless system. Gel format."
+            "value": "Professional — our practitioner tier, developed for professional use. Gel format."
           }
         },
         "f2": {
@@ -205,7 +205,7 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "white",
-        "body": "<p>Professional is the highest strength in the gel range — for the most demanding precise and facial work. Formulated in the UK, CPSR assessed.</p>"
+        "body": "<p>Professional is our practitioner tier — developed for professional use, for the longest and most sustained precise and facial work. Formulated in the UK, CPSR assessed.</p>"
       }
     },
     "linksout": {

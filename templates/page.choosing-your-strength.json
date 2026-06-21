@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "The Senseless system",
         "headline": "Three strengths. | Match it to the appointment.",
-        "subhead": "<p>Clinical for routine appointments. Advanced for longer or more sensitive sessions. Professional for the most demanding indications. Most clients land on Clinical or Advanced. Professional is rarely the everyday choice — and that's the point.</p>",
+        "subhead": "<p>Clinical for routine appointments. Advanced for longer or more sensitive sessions. Professional — our practitioner tier — for the longest, most sustained sessions. Most clients land on Clinical or Advanced. Professional is rarely the everyday choice — and that's the point.</p>",
         "image_alt": "Editorial three-tier lineup of Senseless cream tubes"
       }
     },
@@ -41,10 +41,10 @@
           "settings": {
             "label": "Professional Strength",
             "heading": "Developed with practitioners",
-            "body": "<p>Our most concentrated formula, used in clinics, available without restriction. For full-face resurfacing, sustained SPMU sittings, the most demanding indications. Trusted at the chair.</p>",
+            "body": "<p>Our practitioner tier — developed specifically for professional use, available without restriction. For full-face resurfacing, sustained SPMU sittings, the longest and most sustained work. Trusted at the chair.</p>",
             "cta_label": "",
             "cta_url": "",
-            "flagship": true,
+            "flagship": false,
             "badge_text": "",
             "image_alt": "Senseless Professional Strength cream on a warm off-white background"
           }
@@ -166,7 +166,7 @@
         "align": "left",
         "eyebrow": "The approach",
         "headline": "Match the strength to what your appointment asks of the skin.",
-        "body": "<p>Most aesthetic appointments fall into clear tiers. Short, focused, predictable procedures like lip fillers, Botox and smaller laser zones sit comfortably in Clinical. Longer or more sensitive sessions, such as microneedling, SPMU and full-face laser, call for Advanced. The most intensive bookings, full-face resurfacing and sustained SPMU sittings, sit in Professional territory. If you're between tiers, choose the higher one — the cost of going up is small, and the cost of choosing too low for an intensive session is real.</p>",
+        "body": "<p>Most aesthetic appointments fall into clear tiers. Short, focused, predictable procedures like lip fillers, Botox and smaller laser zones sit comfortably in Clinical. Longer or more sensitive sessions, such as microneedling, SPMU and full-face laser, call for Advanced. The most intensive bookings, full-face resurfacing and sustained SPMU sittings, sit in Professional territory. If you're between tiers, go by the session — match the tier to how intensive the appointment is, and check with your practitioner.</p>",
         "cta_label": "How Senseless works",
         "cta_url": "/pages/how-it-works",
         "image_alt": "Editorial product close-up of Senseless cream"
@@ -245,7 +245,7 @@
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
-            "flagship": true,
+            "flagship": false,
             "badge_text": "",
             "image_alt": "Professional Strength Senseless cream on a warm off-white background"
           }
@@ -308,7 +308,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Which strength should I choose?",
-            "answer": "<p>Clinical for routine appointments, Advanced for longer or more sensitive sessions, Professional for the most demanding indications. Most people are on Clinical or Advanced.</p>"
+            "answer": "<p>Clinical for routine appointments, Advanced for longer or more sensitive sessions, Professional — our practitioner tier — for the longest, most sustained sessions. Most people are on Clinical or Advanced.</p>"
           }
         },
         "q2": {

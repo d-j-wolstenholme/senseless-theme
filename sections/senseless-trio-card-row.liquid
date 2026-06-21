@@ -1,7 +1,7 @@
 {%- comment -%}
   Senseless — Card row (trio / quad)
   Reusable workhorse. `columns` = 3 or 4. Three block types: tier_card, procedure_card, product_card.
-  Professional tier uses the flagship variant (2px purple border + filled CTA, no badge). Used 3x on the homepage.
+  All tiers render identically (Scale Phase 4) — the flagship variant is retired. Professional is the practitioner tier, signalled by the Senseless Scale comfort mark, never by visual weight.
   All copy editable in the theme editor; URLs/images wired per-instance (templates/index.json).
 {%- endcomment -%}
 
@@ -49,11 +49,7 @@
   .ss-card__cta::after { content: '→'; }
   .ss-card__ctabtn { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 18px; border-radius: 14px; border: 1px solid var(--ss-purple); color: var(--ss-purple); font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out; }
   .ss-card__ctabtn:hover { background: var(--ss-purple); border-color: var(--ss-purple); color: #ffffff; }
-
-  .ss-card--flagship { border: 2px solid var(--ss-purple); }
-  .ss-card--flagship:hover { border-color: var(--ss-purple); }
-  .ss-card--flagship .ss-card__ctabtn { background: var(--ss-purple); border-color: var(--ss-purple); color: #ffffff; }
-  .ss-card--flagship .ss-card__ctabtn:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); color: #ffffff; }
+  {%- comment -%} Flagship tier treatment retired (Scale Phase 4): tiers are equal; Professional is the practitioner tier, not visually heavier. {%- endcomment -%}
 
   .ss-trio__footer { text-align: center; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; align-items: center; }
   .ss-trio__closer { font-family: var(--ss-head); font-weight: 600; font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--ss-text); margin: 0; }
@@ -100,7 +96,7 @@
                 assign tier_img = block.settings.collection.image
               endif
             -%}
-            <div class="ss-card{% if block.settings.flagship %} ss-card--flagship{% endif %}{% if tier_img == blank %} ss-card--noimg{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
+            <div class="ss-card{% if tier_img == blank %} ss-card--noimg{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
               {%- comment -%} Empty-safe (§11): render the media only when collection.image (or an override) exists — no placeholder/grey box on a clean text card. {%- endcomment -%}
               {%- if tier_img != blank -%}
                 <div class="ss-card__media">
@@ -129,7 +125,7 @@
           {%- when 'product_card' -%}
             {%- assign card_product = block.settings.product -%}
             {%- if card_product != blank -%}{%- assign card_href = card_product.url -%}{%- else -%}{%- assign card_href = block.settings.cta_url | default: '#' -%}{%- endif -%}
-            <div class="ss-card ss-card--product{% if block.settings.flagship %} ss-card--flagship{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
+            <div class="ss-card ss-card--product" {{ block.shopify_attributes }} data-ss-reveal>
               <a class="ss-card__cardlink" href="{{ card_href }}">
                 <div class="ss-card__media">
                   {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw' -%}
@@ -199,7 +195,7 @@
         { "type": "richtext", "id": "body", "label": "Body", "default": "<p>Short description of this tier and the appointments it suits.</p>" },
         { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop" },
         { "type": "url", "id": "cta_url", "label": "CTA link" },
-        { "type": "checkbox", "id": "flagship", "label": "Professional treatment (2px purple border + filled CTA)", "default": false }
+        { "type": "checkbox", "id": "flagship", "label": "Flagship treatment (retired — no visual effect)", "default": false }
       ]
     },
     {
@@ -226,7 +222,7 @@
         { "type": "text", "id": "price", "label": "Price" },
         { "type": "text", "id": "cta_label", "label": "CTA label", "default": "View product" },
         { "type": "url", "id": "cta_url", "label": "CTA link" },
-        { "type": "checkbox", "id": "flagship", "label": "Professional treatment (2px purple border + filled CTA)", "default": false }
+        { "type": "checkbox", "id": "flagship", "label": "Flagship treatment (retired — no visual effect)", "default": false }
       ]
     },
     {

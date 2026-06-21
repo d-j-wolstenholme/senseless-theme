@@ -146,7 +146,7 @@
         "direction": "text-left",
         "eyebrow": "The system",
         "headline": "Clinical is the standard. Two more strengths sit above it.",
-        "body": "<p>Clinical Strength is the Senseless cream most clients buy. Advanced sits one step above — a higher-strength formula for longer sessions, sensitive treatment areas, or microneedling-tier procedures. Professional is our highest-strength formula, developed with practitioners. Most clients buy Clinical. Some buyers go straight to Advanced. Both are the right choice for the appointments they're built for.</p>",
+        "body": "<p>Clinical Strength is the Senseless cream most clients buy. Advanced sits one step up — for longer sessions, sensitive treatment areas, or microneedling-tier procedures. Professional is our practitioner tier, developed specifically for professional use. Most clients buy Clinical. Some buyers go straight to Advanced. Both are the right choice for the appointments they're built for.</p>",
         "cta_label": "Find your strength",
         "cta_url": "/pages/choosing-your-strength",
         "image_alt": "Editorial three-tier Senseless lineup"
@@ -282,12 +282,12 @@
           "settings": {
             "label": "Professional Strength",
             "title": "Cream",
-            "body": "<p>Our highest-strength cream, developed with practitioners.</p>",
+            "body": "<p>Our practitioner tier, developed for professional use.</p>",
             "product": "professional-strength-cream",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
-            "flagship": true,
+            "flagship": false,
             "image_alt": "Professional Strength Senseless cream on a warm off-white background"
           }
         }
