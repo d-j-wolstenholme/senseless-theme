@@ -26,7 +26,8 @@
         "primary_cta_label": "Shop Professional",
         "primary_cta_url": "#shop",
         "image_alt": "Senseless Professional Strength range \u2014 Comfort Cream, Comfort Gel and Comfort Spray",
-        "image": "shopify://shop_images/senseless-professional-collection-hero.webp"
+        "image": "shopify://shop_images/senseless-professional-collection-hero.webp",
+        "comfort_tier": "professional"
       }
     },
     "trust": {

@@ -1,28 +1,35 @@
 {%- comment -%}
   Senseless — Product hero
   Gallery + info panel (eyebrow/title/subtitle/price/body) + native variant picker + add-to-cart.
-  Pulls live product data. Tier treatment (2px purple border + filled CTA) applies when the product is
-  tagged "Professional" or metafield senseless.tier == "professional", or via the force_tier setting.
+  Pulls live product data. Tier is signalled by the Senseless Scale comfort mark (ascending logo
+  asterisks ×1/×2/×3) between the eyebrow and title — NOT by visual weight. Comfort tier resolves
+  from the force_tier setting, then metafield senseless.tier, then the strength-SKU handle.
   Variant picker uses the standard option-radio pattern synced to product.variants → hidden id input.
 {%- endcomment -%}
 
 {%- liquid
   assign p = product
-  assign tier = section.settings.force_tier
-  if tier == 'auto'
-    assign tier = p.metafields.senseless.tier | default: ''
-    if tier == blank
-      for t in p.tags
-        assign tl = t | downcase
-        if tl == 'professional'
-          assign tier = 'professional'
-        endif
-      endfor
+  comment
+    # Senseless Scale comfort tier for the hero indicator. The flagship/2px-border tier treatment
+    # is retired (Phase 4) — tier is now signalled by the comfort mark, not by visual weight.
+    # Resolve: explicit setting → metafield senseless.tier → the strength-SKU handle. Cleanser and
+    # kits resolve to blank (no comfort mark) unless their metafield sets a tier.
+  endcomment
+  assign ft = section.settings.force_tier
+  assign comfort_tier = ''
+  if ft == 'clinical' or ft == 'advanced' or ft == 'professional'
+    assign comfort_tier = ft
+  elsif ft != 'none'
+    assign mt = p.metafields.senseless.tier | default: '' | downcase
+    if mt == 'clinical' or mt == 'advanced' or mt == 'professional'
+      assign comfort_tier = mt
+    elsif p.handle contains 'clinical-strength'
+      assign comfort_tier = 'clinical'
+    elsif p.handle contains 'advanced-strength'
+      assign comfort_tier = 'advanced'
+    elsif p.handle contains 'professional-strength'
+      assign comfort_tier = 'professional'
     endif
-  endif
-  assign is_flagship = false
-  if tier == 'professional'
-    assign is_flagship = true
   endif
 -%}
 
@@ -53,8 +60,8 @@
   .ss-ph__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .ss-ph__info { display: flex; flex-direction: column; gap: 12px; }
-  .ss-ph--flagship .ss-ph__info { border: 2px solid var(--ss-purple); border-radius: 4px; padding: 24px; }
   .ss-ph__eyebrow { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-ph__comfort { margin: 2px 0 0; }
   .ss-ph__title { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem); line-height: 1.1; margin: 0; }
   .ss-ph__reviews { margin: 6px 0 2px; }
   .ss-ph__reviews:empty { display: none; }
@@ -75,8 +82,6 @@
   .ss-ph__form { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
   .ss-ph__atc { display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 24px; border-radius: 14px; border: 1px solid var(--ss-purple); background: var(--ss-purple); color: #ffffff; font-family: var(--ss-sans); font-weight: 600; font-size: 15px; cursor: pointer; transition: background-color 200ms ease-out, border-color 200ms ease-out; }
   .ss-ph__atc:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
-  .ss-ph--flagship .ss-ph__atc { background: var(--ss-purple); border-color: var(--ss-purple); color: #ffffff; }
-  .ss-ph--flagship .ss-ph__atc:hover { background: var(--ss-purple-hover); border-color: var(--ss-purple-hover); }
   .ss-ph__atc[disabled] { opacity: 0.5; cursor: not-allowed; }
   /* Add to cart + Buy it now side by side: equal width, same height, 2-col row (never stacked). */
   .ss-ph__actions { display: flex; gap: 12px; align-items: stretch; }
@@ -95,7 +100,7 @@
   @media (prefers-reduced-motion: reduce) { .ss-ph__atc, .ss-ph__opt label { transition: none; } }
 {%- endstyle -%}
 
-<section class="ss-ph{% if is_flagship %} ss-ph--flagship{% endif %}" data-ss-ph aria-label="{{ p.title | escape }}">
+<section class="ss-ph" data-ss-ph aria-label="{{ p.title | escape }}">
   <div class="ss-ph__inner">
     <div class="ss-ph__gallery">
       <div class="ss-ph__main" data-ph-main>
@@ -118,6 +123,7 @@
 
     <div class="ss-ph__info">
       {%- if section.settings.eyebrow != blank -%}<p class="ss-ph__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      {%- if comfort_tier != blank -%}<div class="ss-ph__comfort">{% render 'senseless-comfort-mark', tier: comfort_tier, name: true, link: true %}</div>{%- endif -%}
       <h1 class="ss-ph__title">{{ p.title | escape }}</h1>
       {%- comment -%} Judge.me Preview Badge app-block slot (near title, TN placement). Renders nothing
          until the Preview Badge block is added in the editor; :empty-hidden so no zero-state ships. {%- endcomment -%}
@@ -255,7 +261,7 @@
     { "type": "text", "id": "subtitle", "label": "Subtitle" },
     { "type": "text", "id": "trust_line", "label": "Trust line (below add to cart)", "default": "UK formulated · Cosmetic product" },
     { "type": "text", "id": "delivery_line", "label": "Delivery line (static, below trust line)", "info": "Static reassurance only — no live progress here. Leave blank to hide.", "default": "Free UK delivery over £40" },
-    { "type": "select", "id": "force_tier", "label": "Tier treatment", "default": "auto", "info": "Auto reads product tag 'Professional' or metafield senseless.tier. Professional gets the 2px purple border + filled CTA.", "options": [ { "value": "auto", "label": "Auto (from product)" }, { "value": "none", "label": "None" }, { "value": "professional", "label": "Professional" } ] }
+    { "type": "select", "id": "force_tier", "label": "Comfort tier (Scale mark)", "default": "auto", "info": "Sets the Senseless Scale comfort mark (ascending asterisks) shown under the eyebrow. Auto resolves from metafield senseless.tier, then the strength-SKU handle. 'None' hides the mark (e.g. cleanser).", "options": [ { "value": "auto", "label": "Auto (from product)" }, { "value": "none", "label": "None" }, { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" } ] }
   ],
   "blocks": [ { "type": "@app" } ],
   "presets": [

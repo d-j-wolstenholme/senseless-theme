@@ -54,6 +54,7 @@
   <div class="ss-chero__inner">
     <div class="ss-chero__content">
       {%- if section.settings.eyebrow != blank -%}<p class="ss-chero__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      {%- if section.settings.comfort_tier != blank -%}<div class="ss-chero__comfort">{% render 'senseless-comfort-mark', tier: section.settings.comfort_tier, name: true, link: true %}</div>{%- endif -%}
       {%- if section.settings.headline != blank -%}<h1 class="ss-chero__headline">{% render 'senseless-accent', text: section.settings.headline, word: section.settings.accent_word %}</h1>{%- endif -%}
       {%- if section.settings.subhead != blank -%}<div class="ss-chero__subhead">{{ section.settings.subhead }}</div>{%- endif -%}
       <div class="ss-chero__ctas">
@@ -86,7 +87,8 @@
     { "type": "text", "id": "secondary_cta_label", "label": "Secondary CTA label" },
     { "type": "url", "id": "secondary_cta_url", "label": "Secondary CTA link" },
     { "type": "image_picker", "id": "image", "label": "Hero image" },
-    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless range on a warm off-white background" }
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Senseless range on a warm off-white background" },
+    { "type": "select", "id": "comfort_tier", "label": "Senseless Scale comfort mark", "default": "", "info": "Shows the ascending-asterisk comfort mark between the eyebrow and headline. Set only on single-tier collections.", "options": [ { "value": "", "label": "None" }, { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" } ] }
   ],
   "presets": [ { "name": "Senseless — Coll hero" } ]
 }
