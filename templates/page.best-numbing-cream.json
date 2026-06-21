@@ -228,10 +228,10 @@
           "type": "format_card",
           "settings": {
             "label": "Strongest numbing cream",
-            "body": "<p>Our most concentrated formula.</p>",
+            "body": "<p>Our practitioner tier.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/strongest-numbing-cream",
-            "image_alt": "Senseless Professional, the most concentrated formula"
+            "image_alt": "Senseless Professional, our practitioner tier"
           }
         }
       },

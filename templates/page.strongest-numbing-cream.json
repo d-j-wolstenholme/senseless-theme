@@ -5,11 +5,11 @@
       "settings": {
         "eyebrow": "Professional Strength",
         "headline": "Senseless Professional. Our most concentrated formula.",
-        "subhead": "<p>Developed with practitioners. Used in clinics across the UK. Available to all, without restriction. If you're looking for the strongest option in the Senseless system, Professional is it.</p>",
-        "primary_cta_label": "Shop Professional",
-        "primary_cta_url": "/collections/numbing-cream?strength=professional",
-        "secondary_cta_label": "Compare all strengths",
-        "secondary_cta_url": "/pages/choosing-your-strength",
+        "subhead": "<p>Developed with practitioners. Used in clinics across the UK. Available to all, without restriction. Professional is our practitioner tier — developed specifically for professional use, for the longest and most sustained sessions.</p>",
+        "primary_cta_label": "Explore the numbing cream range",
+        "primary_cta_url": "/collections/numbing-cream",
+        "secondary_cta_label": "See the practitioner tier",
+        "secondary_cta_url": "/collections/professional",
         "image_alt": "Editorial Senseless Professional product lineup"
       }
     },
@@ -19,7 +19,7 @@
         "direction": "text-left",
         "eyebrow": "The honest version",
         "headline": "Strongest in the Senseless system. Not strongest in the UK.",
-        "body": "<p>We won't claim Senseless Professional is the strongest numbing cream in the UK. That's a comparative claim, and the cosmetic product category doesn't lend itself to those — different brands, different formulations, different regulatory contexts. What we'll claim is this: Professional is the most concentrated formula in the Senseless system, developed with practitioners specifically for the most demanding aesthetic procedures. If you want the upper limit of what Senseless makes, this is it.</p>",
+        "body": "<p>We won't claim Senseless Professional is the strongest numbing cream in the UK. That's a comparative claim, and the cosmetic product category doesn't lend itself to those — different brands, different formulations, different regulatory contexts. What we'll say is this: Professional is our practitioner tier, developed with practitioners specifically for the longest and most sustained aesthetic procedures.</p>",
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Editorial Senseless Professional product close-up"
@@ -50,7 +50,7 @@
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
-            "flagship": true,
+            "flagship": false,
             "badge_text": "",
             "image_alt": "Professional Strength Senseless cream on a warm off-white background"
           }
@@ -65,7 +65,7 @@
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-gel",
-            "flagship": true,
+            "flagship": false,
             "badge_text": "",
             "image_alt": "Professional Strength Senseless gel on a warm off-white background"
           }
@@ -80,7 +80,7 @@
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-spray",
-            "flagship": true,
+            "flagship": false,
             "badge_text": "",
             "image_alt": "Professional Strength Senseless spray on a warm off-white background"
           }
@@ -138,7 +138,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Is Professional the strongest numbing cream available in the UK?",
-            "answer": "<p>We don't make that comparative claim. Professional is the most concentrated formula in the Senseless system — that's the brand position. Different brands, different formulations, different regulatory contexts. The comparison isn't ours to make.</p>"
+            "answer": "<p>We don't make that comparative claim. Professional is our practitioner tier — developed specifically for professional use — that's the brand position. Different brands, different formulations, different regulatory contexts. The comparison isn't ours to make.</p>"
           }
         },
         "q2": {
@@ -247,8 +247,8 @@
         "kf1": {
           "type": "fact",
           "settings": {
-            "label": "Strongest",
-            "value": "Professional is the highest strength in the Senseless system. Available as cream, gel, and spray."
+            "label": "Professional",
+            "value": "Professional is our practitioner tier — developed specifically for professional use. Available as cream, gel, and spray."
           }
         },
         "kf2": {

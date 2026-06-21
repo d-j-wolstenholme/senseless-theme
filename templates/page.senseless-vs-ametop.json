@@ -80,10 +80,10 @@
           "settings": {
             "label": "Professional Strength",
             "heading": "Developed with practitioners",
-            "body": "<p>Our highest-strength formula, for the most demanding appointments.</p>",
+            "body": "<p>Our practitioner tier — developed for professional use, for the longest, most sustained appointments.</p>",
             "cta_label": "",
             "cta_url": "",
-            "flagship": true,
+            "flagship": false,
             "badge_text": "",
             "image_alt": "Senseless Professional Strength cream on a warm off-white background"
           }
