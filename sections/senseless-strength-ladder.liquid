@@ -77,7 +77,7 @@
     {%- endif -%}
 
     {%- if section.settings.show_scale -%}
-      <div class="ss-sl__scale" data-ss-reveal>{% render 'senseless-scale', current: section.settings.scale_current, links: true, desc_clinical: section.settings.scale_clinical, desc_advanced: section.settings.scale_advanced, desc_professional: section.settings.scale_professional %}</div>
+      <div class="ss-sl__scale" data-ss-reveal>{% render 'senseless-scale', current: section.settings.scale_current, links: true, desc_clinical: section.settings.scale_clinical, desc_advanced: section.settings.scale_advanced, desc_professional: section.settings.scale_professional, trade_signpost: section.settings.scale_trade_signpost, trade_url: section.settings.scale_trade_url %}</div>
     {%- endif -%}
 
     {%- if has_rows -%}
@@ -138,6 +138,8 @@
     { "type": "richtext", "id": "scale_clinical", "label": "Scale — Clinical line", "default": "<p>For shorter, lighter sessions and smaller areas.</p>" },
     { "type": "richtext", "id": "scale_advanced", "label": "Scale — Advanced line", "default": "<p>For everyday aesthetic procedures — longer or more sensitive work.</p>" },
     { "type": "richtext", "id": "scale_professional", "label": "Scale — Professional line", "default": "<p>Our practitioner tier — a formula developed specifically for professional use, for the longest and most sustained sessions.</p>" },
+    { "type": "text", "id": "scale_trade_signpost", "label": "Scale — trade signpost lead (Professional only)", "info": "Restrained line shown under the Scale. Set only on Professional surfaces." },
+    { "type": "url", "id": "scale_trade_url", "label": "Scale — trade signpost link" },
     { "type": "text", "id": "cta_label", "label": "CTA label (optional)" },
     { "type": "url", "id": "cta_url", "label": "CTA link (optional)" },
     { "type": "header", "content": "Source" },

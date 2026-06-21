@@ -9,6 +9,8 @@
         "anchor_id": "scale",
         "show_scale": true,
         "scale_current": "professional",
+        "scale_trade_signpost": "Clinics & practitioners: wholesale accounts available.",
+        "scale_trade_url": "/pages/trade",
         "eyebrow": "The Senseless Scale",
         "headline": "Three tiers, matched to the session.",
         "accent_word": "matched",

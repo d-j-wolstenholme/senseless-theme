@@ -35,7 +35,7 @@
     <p class="ss-sb__eyebrow">The Senseless System</p>
     <p class="ss-sb__scalelead">The Senseless Scale</p>
     <div class="ss-sb__scale">
-      {% render 'senseless-scale', current: cur_s, links: false %}
+      {% render 'senseless-scale', current: cur_s, links: false, trade_signpost: section.settings.trade_signpost, trade_url: section.settings.trade_url %}
       <p class="ss-sb__scalecap">Three tiers, each matched to a different kind of session. You're on {{ cur_s | capitalize }}.</p>
     </div>
     <div class="ss-sb__grid">
@@ -64,7 +64,9 @@
   "settings": [
     { "type": "select", "id": "band", "label": "Band background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas" }, { "value": "surface", "label": "Surface" } ] },
     { "type": "select", "id": "current_format", "label": "Current format", "default": "cream", "options": [ { "value": "cream", "label": "Cream" }, { "value": "gel", "label": "Gel" }, { "value": "spray", "label": "Spray" } ] },
-    { "type": "select", "id": "current_strength", "label": "Current strength", "default": "clinical", "options": [ { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" } ] }
+    { "type": "select", "id": "current_strength", "label": "Current strength", "default": "clinical", "options": [ { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" } ] },
+    { "type": "text", "id": "trade_signpost", "label": "Trade signpost lead (Professional only)", "info": "Restrained line shown under the Scale. Set only on Professional surfaces." },
+    { "type": "url", "id": "trade_url", "label": "Trade signpost link" }
   ],
   "presets": [ { "name": "Senseless — System band" } ]
 }

@@ -61,7 +61,9 @@
       "settings": {
         "band": "canvas",
         "current_format": "cream",
-        "current_strength": "professional"
+        "current_strength": "professional",
+        "trade_signpost": "Clinics & practitioners: wholesale accounts available.",
+        "trade_url": "/pages/trade"
       }
     },
     "keyfacts": {
