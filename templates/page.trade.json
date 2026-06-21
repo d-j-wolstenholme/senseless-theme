@@ -63,6 +63,13 @@
         "section_cta_url": ""
       }
     },
+    "credentials": {
+      "type": "senseless-credentials",
+      "settings": {
+        "band": "surface",
+        "align": "center"
+      }
+    },
     "fit": {
       "type": "senseless-image-text-band",
       "settings": {
@@ -80,8 +87,8 @@
       "settings": {
         "direction": "text-right",
         "eyebrow": "The position",
-        "headline": "Professional Strength is available to all. Trade is the clinic relationship.",
-        "body": "<p>Senseless doesn't gate Professional Strength behind practitioner credentials. Professional Strength is sold direct-to-consumer on the same site, at the same product page. That's deliberate — the system is built on transparency, not on professional-only access. Trade exists for a different reason: clinics working at volume need account pricing, bulk sizes, supply consistency, and direct support. Those operational needs are what trade actually delivers, not exclusive access to the product range.</p>",
+        "headline": "Most practitioners start with Professional Strength.",
+        "body": "<p>Professional Strength is where most practitioners start with Senseless — and a trade account takes it further. Wholesale pricing covers the whole range — cream, gel and spray, every strength — for clinics ordering at volume. Professional Strength stays available to everyone; trade is the ongoing supply relationship behind it.</p>",
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Senseless topical preparation product close-up on a warm off-white background"
@@ -315,6 +322,7 @@
   "order": [
     "hero",
     "offer",
+    "credentials",
     "fit",
     "position",
     "process",
