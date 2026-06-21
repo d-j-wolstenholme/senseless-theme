@@ -1,21 +1,20 @@
 {%- comment -%}
   Senseless — the Senseless Scale strip.
-  Clinical · Advanced · Professional shown as DISTINCT-BUT-EQUAL peers. Every tier carries
-  the SAME single brand asterisk (render 'senseless-asterisk' — the logo SVG mark, #984AE8)
-  plus a graded-purple PEER treatment and the tier label. The asterisk is a brand signifier
-  of "this is a Senseless Scale tier", NOT a 1-2-3 count and NOT a measure of potency.
-
-  Three peer treatments (variations on the brand purple #6B3FA0 — not a light→dark ramp):
-    a (Clinical)     — white card, 1px purple border
-    b (Advanced)     — soft purple wash, 1px purple border
-    c (Professional) — white card, 1px purple border + 3px purple top edge
-  Professional is deliberately the lightest-bodied so the set never reads as ascending.
+  Clinical · Advanced · Professional shown as EQUAL, IDENTICAL cards. The ONLY differences
+  between tiers are the ascending asterisk COUNT (Clinical ×1, Advanced ×2, Professional ×3 —
+  literal repeats of the logo SVG mark, never resized to fake a count), the tier NAME, and the
+  descriptor. Every card has the same white background, same 1px purple border, same padding +
+  radius — Professional is NOT visually heavier than Clinical. The Scale measures COMFORT matched
+  to session intensity, NOT strength/potency.
 
   Params:
     current           — '' | 'clinical' | 'advanced' | 'professional' (marks the current tier; neutral, not escalated)
     links             — true (default) links each non-current tier to its collection; pass false for a static strip
     compact           — false (default); true tightens padding
-    desc_clinical     — optional per-tier match-to-session line (HTML ok). When all three are blank, no descriptors render.
+    legend            — when truthy, render the comfort legend line above the cards
+    trade_signpost    — restrained lead text; rendered (with trade_url link) only when passed
+    trade_url         — destination for the trade signpost link (e.g. /pages/trade)
+    desc_clinical     — optional per-tier comfort/session line (HTML ok). When all three are blank, no descriptors render.
     desc_advanced     — optional
     desc_professional — optional
 {%- endcomment -%}
@@ -23,7 +22,6 @@
   assign cur = current | default: ''
   assign keys = 'clinical,advanced,professional' | split: ','
   assign labels = 'Clinical,Advanced,Professional' | split: ','
-  assign variants = 'a,b,c' | split: ','
   assign urls = '/collections/clinical,/collections/advanced,/collections/professional' | split: ','
   assign dc = desc_clinical | default: ''
   assign da = desc_advanced | default: ''
@@ -32,43 +30,55 @@
 {%- style -%}
   .ss-scale { --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
     --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  .ss-scale__vh { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .ss-scale__legend { font-family:var(--sans); font-size:13px; line-height:1.5; color:var(--sec); margin:0 0 14px; text-align:center; }
+  .ss-scale__legend a { color:var(--p); text-decoration:none; } .ss-scale__legend a:hover { text-decoration:underline; }
   .ss-scale__row { display:grid; grid-template-columns:1fr; gap:10px; margin:0; padding:0; list-style:none; }
   @media (min-width:600px){ .ss-scale__row { grid-template-columns:repeat(3,1fr); gap:14px; } }
+  /* All three tiers are IDENTICAL — no per-tier fill, bar, or weight. */
   .ss-scale__tier { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; gap:8px;
     box-sizing:border-box; padding:20px 16px; border-radius:8px; background:var(--surf); border:1px solid var(--p);
     color:var(--ink); text-decoration:none; transition:box-shadow .15s ease; }
-  .ss-scale__tier--b { background:rgba(107,63,160,.07); }
-  .ss-scale__tier--c { border-top-width:3px; }
   a.ss-scale__tier:hover { box-shadow:0 0 0 2px rgba(107,63,160,.18); }
-  .ss-scale__tier--current { box-shadow:0 0 0 2px rgba(107,63,160,.30); }
-  .ss-scale__mark { line-height:0; }
+  .ss-scale__tier--current { box-shadow:0 0 0 2px rgba(107,63,160,.28); }
+  .ss-scale__marks { display:inline-flex; align-items:center; gap:3px; line-height:0; }
   .ss-scale__label { font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--ink); }
   .ss-scale__desc { font-family:var(--sans); font-weight:400; font-size:13px; line-height:1.5; color:var(--sec); }
   .ss-scale__desc p { margin:0; } .ss-scale__desc strong { color:var(--ink); font-weight:600; } .ss-scale__desc em { font-style:italic; }
   .ss-scale__here { font-family:var(--sans); font-weight:600; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--p); }
+  .ss-scale__signpost { font-family:var(--sans); font-size:13px; line-height:1.5; color:var(--sec); margin:18px 0 0; text-align:center; }
+  .ss-scale__signpost a { color:var(--p); text-decoration:none; font-weight:600; } .ss-scale__signpost a:hover { text-decoration:underline; }
   .ss-scale--compact .ss-scale__tier { padding:14px 12px; }
 {%- endstyle -%}
 <div class="ss-scale{% if compact == true %} ss-scale--compact{% endif %}">
-  <ul class="ss-scale__row" role="list" aria-label="The Senseless Scale — Clinical, Advanced, Professional">
+  {%- if legend -%}
+    <p class="ss-scale__legend">The Senseless Scale — comfort matched to the intensity of your session. <a href="/pages/the-senseless-system#scale">How the Scale works</a></p>
+  {%- endif -%}
+  <ul class="ss-scale__row" role="list" aria-label="The Senseless Scale — Clinical, Advanced, Professional (a comfort scale, not a measure of strength)">
     {%- for k in keys -%}
       {%- assign i = forloop.index0 -%}
+      {%- assign count = i | plus: 1 -%}
       {%- assign is_current = false -%}
       {%- if cur == k -%}{%- assign is_current = true -%}{%- endif -%}
       {%- assign d = '' -%}
       {%- if i == 0 -%}{%- assign d = dc -%}{%- elsif i == 1 -%}{%- assign d = da -%}{%- else -%}{%- assign d = dp -%}{%- endif -%}
       {%- capture tier_inner -%}
-        <span class="ss-scale__mark">{% render 'senseless-asterisk', size: 22 %}</span>
+        <span class="ss-scale__marks" aria-hidden="true">{%- for n in (1..count) -%}{% render 'senseless-asterisk', size: 20 %}{%- endfor -%}</span>
         <span class="ss-scale__label">{{ labels[i] }}</span>
+        <span class="ss-scale__vh">{{ labels[i] }} — comfort level on the Senseless Scale, not a measure of strength.</span>
         {%- if d != blank -%}<div class="ss-scale__desc">{{ d }}</div>{%- endif -%}
         {%- if is_current -%}<span class="ss-scale__here">This tier</span>{%- endif -%}
       {%- endcapture -%}
       <li role="listitem">
         {%- if links != false and is_current == false -%}
-          <a class="ss-scale__tier ss-scale__tier--{{ variants[i] }}" href="{{ urls[i] }}">{{ tier_inner }}</a>
+          <a class="ss-scale__tier" href="{{ urls[i] }}">{{ tier_inner }}</a>
         {%- else -%}
-          <span class="ss-scale__tier ss-scale__tier--{{ variants[i] }}{% if is_current %} ss-scale__tier--current{% endif %}"{% if is_current %} aria-current="true"{% endif %}>{{ tier_inner }}</span>
+          <span class="ss-scale__tier{% if is_current %} ss-scale__tier--current{% endif %}"{% if is_current %} aria-current="true"{% endif %}>{{ tier_inner }}</span>
         {%- endif -%}
       </li>
     {%- endfor -%}
   </ul>
+  {%- if trade_signpost != blank and trade_url != blank -%}
+    <p class="ss-scale__signpost">{{ trade_signpost }} <a href="{{ trade_url }}">See trade &rarr;</a></p>
+  {%- endif -%}
 </div>

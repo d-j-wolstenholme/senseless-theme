@@ -1,0 +1,51 @@
+{%- comment -%}
+  Senseless — inline comfort mark (single source for the inline Scale indicator).
+  Renders the tier's ascending asterisk COUNT (Clinical ×1, Advanced ×2, Professional ×3 — literal
+  repeats of the logo SVG mark via senseless-asterisk, never resized) + optional tier name + a
+  visually-hidden meaning string, and links to the Scale explainer. The Scale measures COMFORT,
+  not strength. Used in product/collection heroes and the Selector result.
+  Params:
+    tier   — 'clinical' | 'advanced' | 'professional' (required)
+    name   — true (default) shows the tier name beside the marks; false = marks only
+    suffix — optional trailing phrase after the name (e.g. 'on the Senseless Scale')
+    size   — asterisk px (default 18)
+    link   — true (default) links to /pages/the-senseless-system#scale
+{%- endcomment -%}
+{%- liquid
+  assign t = tier | downcase
+  assign sz = size | default: 18
+  assign count = 0
+  assign label = ''
+  case t
+    when 'clinical'
+      assign count = 1
+      assign label = 'Clinical'
+    when 'advanced'
+      assign count = 2
+      assign label = 'Advanced'
+    when 'professional'
+      assign count = 3
+      assign label = 'Professional'
+  endcase
+-%}
+{%- if count > 0 -%}
+{%- style -%}
+  .ss-cmark { --p:#6B3FA0; --sec:#5C5853; --ink:#1A1816; --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none; }
+  .ss-cmark__marks { display:inline-flex; align-items:center; gap:3px; line-height:0; }
+  .ss-cmark__name { font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.02em; color:var(--ink); }
+  .ss-cmark__suffix { font-family:var(--sans); font-weight:400; font-size:13px; color:var(--sec); }
+  .ss-cmark__vh { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  a.ss-cmark:hover .ss-cmark__name { text-decoration:underline; }
+{%- endstyle -%}
+{%- capture cmark_inner -%}
+  <span class="ss-cmark__marks" aria-hidden="true">{%- for n in (1..count) -%}{% render 'senseless-asterisk', size: sz %}{%- endfor -%}</span>
+  {%- if name != false -%}<span class="ss-cmark__name">{{ label }}{%- if suffix != blank %} <span class="ss-cmark__suffix">{{ suffix }}</span>{%- endif -%}</span>{%- endif -%}
+  <span class="ss-cmark__vh">{{ label }} — comfort level on the Senseless Scale, not a measure of strength.</span>
+{%- endcapture -%}
+{%- if link != false -%}
+  <a class="ss-cmark" href="/pages/the-senseless-system#scale">{{ cmark_inner }}</a>
+{%- else -%}
+  <span class="ss-cmark">{{ cmark_inner }}</span>
+{%- endif -%}
+{%- endif -%}
