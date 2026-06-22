@@ -6,9 +6,9 @@
         "eyebrow": "Made for aesthetics",
         "headline": "Confidence starts with comfort.",
         "subhead": "<p>Senseless is a system — match the strength and the format to the appointment you've booked. Three strengths, three formats, formulated in the UK.</p>",
-        "primary_cta_label": "Shop the range",
+        "primary_cta_label": "Shop all products",
         "primary_cta_url": "/collections/shop-all",
-        "secondary_cta_label": "How the System works",
+        "secondary_cta_label": "How Senseless works",
         "secondary_cta_url": "/pages/the-senseless-system",
         "image_alt": "Senseless Comfort Cream, Comfort Gel, Comfort Spray and Aftercare Foam Cleanser on marble surface",
         "caption": "The Senseless range — formulated in the UK.",
@@ -27,8 +27,8 @@
         "headline": "Three tiers, matched to the session.",
         "accent_word": "matched",
         "body": "<p>Clinical, Advanced and Professional — the three tiers of the Senseless Scale. Each is matched to a different kind of session, not a ranking. Choose by the appointment in front of you.</p>",
-        "cta_label": "Explore the Senseless Scale",
-        "cta_url": "/pages/the-senseless-system#scale"
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "selectorlink": {
@@ -39,7 +39,7 @@
         "heading": "Not sure which to choose?",
         "accent_word": "sure",
         "body": "<p>Answer three quick questions — your treatment, your skin and how long the session runs — and we'll point you to the format and strength we'd reach for.</p>",
-        "cta_label": "Open the Selector",
+        "cta_label": "Find the right tier",
         "cta_url": "/pages/the-senseless-system#selector"
       }
     },
