@@ -902,6 +902,21 @@
       "uploadedAt": "2026-06-15",
       "batch": "batch-page-heroes 2026-06-15",
       "assignedTo": "template hero image: page.does-it-hurt.json (net-new surface — no prior image)"
+    },
+    {
+      "name": "senseless-vitamin-a-d-ointment",
+      "type": "product",
+      "page": "product",
+      "section": "product-media (featured)",
+      "alt": "Senseless Vitamin A & D emollient ointment tube",
+      "sourceFile": "assets/images/processed/senseless-vitamin-a-d-ointment-source.png",
+      "processedFile": "assets/images/processed/senseless-vitamin-a-d-ointment.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-vitamin-a-d-ointment.webp?v=1781585571",
+      "shopifyFileId": "gid://shopify/MediaImage/70214231753052",
+      "dimensions": "1254x1254",
+      "uploadedAt": "2026-06-16",
+      "batch": "ad-hoc 2026-06-16",
+      "assignedTo": "product featured media: Vitamin A & D Ointment (4 Pack) — net-new (product had no media)"
     }
   ]
 }

@@ -51,39 +51,52 @@
   assign form_id = 'SSCartOffer-' | append: section_id | append: '-' | append: offer.id
 -%}
 {%- if show -%}
+  {%- liquid
+    assign price_str = offer_variant.price | money
+  -%}
   <div class="ss-co" data-ss-cart-offer>
-    <div class="ss-co__media">
-      {%- if offer.featured_image -%}
-        <img class="ss-co__img" src="{{ offer.featured_image | image_url: width: 120 }}" alt="{{ offer.featured_image.alt | default: offer.title | escape }}" width="56" height="56" loading="lazy">
-      {%- else -%}
-        <span class="ss-co__ph" aria-hidden="true">{{ 'image' | placeholder_svg_tag }}</span>
-      {%- endif -%}
-    </div>
-    <div class="ss-co__text">
-      <p class="ss-co__eyebrow">Add to your order</p>
-      <p class="ss-co__title">{{ offer.title | escape }}</p>
-      <p class="ss-co__price">{{ offer_variant.price | money }}</p>
-    </div>
-    <product-form-component
-      data-section-id="{{ section_id }}"
-      data-product-id="{{ offer.id }}"
-      on:submit="/handleSubmit"
-      class="ss-co__form"
-    >
-      <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
-      {%- form 'product', offer, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-        <input type="hidden" name="id" ref="variantId" value="{{ offer_variant.id }}">
-        <input type="hidden" name="quantity" value="1">
-        {% render 'add-to-cart-button',
-          product: offer,
-          can_add_to_cart: true,
-          add_to_cart_text: 'Add',
-          class: 'ss-co__add',
-          id: form_id
-        %}
-      {%- endform -%}
-    </product-form-component>
     <button type="button" class="ss-co__dismiss" data-ss-cart-offer-dismiss aria-label="Dismiss this suggestion">&times;</button>
+    <div class="ss-co__head">
+      <div class="ss-co__media">
+        {%- if offer.featured_image -%}
+          <img class="ss-co__img" src="{{ offer.featured_image | image_url: width: 120 }}" alt="{{ offer.featured_image.alt | default: offer.title | escape }}" width="56" height="56" loading="lazy">
+        {%- else -%}
+          <span class="ss-co__ph" aria-hidden="true">{{ 'image' | placeholder_svg_tag }}</span>
+        {%- endif -%}
+      </div>
+      <div class="ss-co__text">
+        <p class="ss-co__eyebrow">Complete your aftercare</p>
+        <p class="ss-co__title">{{ offer.title | escape }}</p>
+        <p class="ss-co__desc">Keeps freshly treated skin comfortable and protected.</p>
+        <p class="ss-co__price">{{ price_str }} each</p>
+      </div>
+    </div>
+    <div class="ss-co__actions">
+      <div class="ss-co__qty" role="group" aria-label="Quantity">
+        <button type="button" class="ss-co__qbtn" data-ss-co-dec aria-label="Decrease quantity">&minus;</button>
+        <span class="ss-co__qval" data-ss-co-qval aria-live="polite">1</span>
+        <button type="button" class="ss-co__qbtn" data-ss-co-inc aria-label="Increase quantity">+</button>
+      </div>
+      <product-form-component
+        data-section-id="{{ section_id }}"
+        data-product-id="{{ offer.id }}"
+        on:submit="/handleSubmit"
+        class="ss-co__form"
+      >
+        <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+        {%- form 'product', offer, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+          <input type="hidden" name="id" ref="variantId" value="{{ offer_variant.id }}">
+          <input type="hidden" name="quantity" value="1" data-ss-co-qin>
+          {% render 'add-to-cart-button',
+            product: offer,
+            can_add_to_cart: true,
+            add_to_cart_text: 'Add to order',
+            class: 'ss-co__add',
+            id: form_id
+          %}
+        {%- endform -%}
+      </product-form-component>
+    </div>
   </div>
 
   <script>
@@ -106,6 +119,22 @@
         var row = btn.closest('[data-ss-cart-offer]');
         if (row) row.setAttribute('hidden', '');
       });
+      // Quantity stepper (delegated — survives cart re-renders). Writes to the
+      // form's name="quantity" input, which Horizon's add flow reads via FormData.
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest) return;
+        var dec = e.target.closest('[data-ss-co-dec]');
+        var inc = e.target.closest('[data-ss-co-inc]');
+        if (!dec && !inc) return;
+        var card = (dec || inc).closest('[data-ss-cart-offer]');
+        if (!card) return;
+        var input = card.querySelector('[data-ss-co-qin]');
+        var disp = card.querySelector('[data-ss-co-qval]');
+        var n = parseInt(input && input.value, 10) || 1;
+        n = inc ? n + 1 : Math.max(1, n - 1);
+        if (input) input.value = n;
+        if (disp) disp.textContent = n;
+      });
       // Re-apply dismissed state whenever the cart drawer/section re-renders.
       var obs = new MutationObserver(function () { apply(); });
       obs.observe(document.documentElement, { childList: true, subtree: true });
@@ -116,33 +145,52 @@
   {%- style -%}
     .ss-co {
       --ss-co-purple: #6B3FA0; --ss-co-ink: #1A1816; --ss-co-body: #2B2730;
-      --ss-co-canvas: #f7f7f5; --ss-co-border: #E5E2DC;
+      --ss-co-border: #E5E2DC;
       --ss-co-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      position: relative; display: flex; align-items: center; gap: 12px;
-      background: var(--ss-co-canvas); border: 1px solid var(--ss-co-border); border-radius: 4px;
-      padding: 12px 14px; margin: 0 0 14px; font-family: var(--ss-co-sans);
+      position: relative; display: flex; flex-direction: column; gap: 12px;
+      background: linear-gradient(180deg, #F4EEFB 0%, #FBF9FE 100%);
+      border: 1px solid rgba(107, 63, 160, 0.28); border-radius: 12px;
+      padding: 14px; margin: 0 0 14px; font-family: var(--ss-co-sans);
+      box-shadow: 0 1px 3px rgba(107, 63, 160, 0.10);
     }
     .ss-co[hidden] { display: none; }
-    .ss-co__media { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 4px; overflow: hidden; background: #fff; border: 1px solid var(--ss-co-border); }
+    .ss-co__head { display: flex; align-items: center; gap: 12px; padding-right: 20px; }
+    .ss-co__media { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 8px; overflow: hidden; background: #fff; border: 1px solid var(--ss-co-border); }
     .ss-co__img, .ss-co__media svg { width: 100%; height: 100%; object-fit: cover; display: block; }
     .ss-co__ph { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
     .ss-co__ph svg { width: 60%; opacity: 0.22; fill: var(--ss-co-purple); }
-    .ss-co__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+    .ss-co__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
     .ss-co__eyebrow { margin: 0; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-co-purple); }
-    .ss-co__title { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--ss-co-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .ss-co__price { margin: 0; font-size: 13px; font-weight: 500; color: var(--ss-co-body); }
-    .ss-co__form { flex: 0 0 auto; }
-    .ss-co .ss-co__add {
-      border-radius: 14px; border: 1px solid var(--ss-co-purple); background: var(--ss-co-purple); color: #fff;
-      font-family: var(--ss-co-sans); font-weight: 600; font-size: 13px; line-height: 1; padding: 10px 16px; cursor: pointer;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
+    .ss-co__title { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--ss-co-ink); }
+    .ss-co__desc { margin: 1px 0 0; font-size: 12.5px; font-weight: 400; line-height: 1.4; color: var(--ss-co-body); }
+    .ss-co__price { margin: 3px 0 0; font-size: 12.5px; font-weight: 600; color: var(--ss-co-purple); }
+    .ss-co__actions { display: flex; align-items: stretch; gap: 10px; }
+    .ss-co__qty {
+      flex: 0 0 auto; display: inline-flex; align-items: center; background: #fff;
+      border: 1px solid rgba(107, 63, 160, 0.30); border-radius: 14px; overflow: hidden;
     }
-    .ss-co .ss-co__add:hover { background: #5A3489; border-color: #5A3489; }
+    .ss-co__qbtn {
+      width: 36px; height: 44px; border: 0; background: transparent; color: var(--ss-co-purple);
+      font-size: 18px; line-height: 1; cursor: pointer; padding: 0;
+      transition: background-color 0.12s ease;
+    }
+    .ss-co__qbtn:hover { background: rgba(107, 63, 160, 0.08); }
+    .ss-co__qval { min-width: 26px; text-align: center; font-size: 14px; font-weight: 600; color: var(--ss-co-ink); }
+    .ss-co__form { flex: 1 1 auto; min-width: 0; }
+    .ss-co .ss-co__add {
+      width: 100%; box-sizing: border-box; min-height: 44px; display: flex; align-items: center; justify-content: center;
+      border-radius: 14px; border: 1px solid var(--ss-co-purple); background: var(--ss-co-purple); color: #fff;
+      font-family: var(--ss-co-sans); font-weight: 600; font-size: 14px; line-height: 1; padding: 0 16px; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(107, 63, 160, 0.28);
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    }
+    .ss-co .ss-co__add:hover { background: #5A3489; border-color: #5A3489; box-shadow: 0 4px 14px rgba(107, 63, 160, 0.34); }
+    .ss-co .ss-co__add:active { transform: translateY(1px); }
     .ss-co__dismiss {
-      position: absolute; top: 4px; right: 6px; width: 22px; height: 22px; border: 0; background: transparent;
-      color: var(--ss-co-body); opacity: 0.45; font-size: 18px; line-height: 1; cursor: pointer; padding: 0;
+      position: absolute; top: 8px; right: 10px; width: 22px; height: 22px; border: 0; background: transparent;
+      color: var(--ss-co-body); opacity: 0.4; font-size: 18px; line-height: 1; cursor: pointer; padding: 0; z-index: 2;
     }
     .ss-co__dismiss:hover { opacity: 0.85; }
-    @media (prefers-reduced-motion: reduce) { .ss-co .ss-co__add { transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .ss-co .ss-co__add { transition: none; transform: none; } }
   {%- endstyle -%}
 {%- endif -%}
