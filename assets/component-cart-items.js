@@ -251,7 +251,10 @@ class CartItemsComponent extends Component {
 
     const cartItemsHtml = event.detail.data.sections?.[this.sectionId];
     if (cartItemsHtml) {
-      morphSection(this.sectionId, cartItemsHtml);
+      // Drawer must morph in hydration mode (only [data-hydration-key] nodes) so the open <dialog>
+      // attribute is preserved — a full morph rewrites the section root and strips `open`, closing
+      // the drawer on any in-drawer mutation (add-from-offer, qty change). Mirrors updateQuantity().
+      morphSection(this.sectionId, cartItemsHtml, { mode: this.isDrawer ? 'hydration' : 'full' });
 
       // Update button states for all cart quantity selectors after morph
       this.#updateCartQuantitySelectorButtonStates();
