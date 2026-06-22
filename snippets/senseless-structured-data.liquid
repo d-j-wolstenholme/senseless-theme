@@ -50,7 +50,25 @@
         "priceCurrency": {{ cur | json }},
         "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
         "url": {{ base | append: variant.url | json }},
-        "seller": { "@type": "Organization", "name": {{ seller_name | json }}, "legalName": {{ seller_legal | json }} }
+        "seller": { "@type": "Organization", "name": {{ seller_name | json }}, "legalName": {{ seller_legal | json }} },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": { "@type": "MonetaryAmount", "value": "1.99", "currency": "GBP" },
+          "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+            "transitTime": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitCode": "DAY" }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "GB",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+        }
       }{%- unless forloop.last -%},{%- endunless -%}
       {%- endfor -%}
     ]
@@ -96,6 +114,8 @@
     "name": {{ seller_name | json }},
     "legalName": {{ seller_legal | json }},
     "url": {{ base | json }},
+    "logo": {{ 'senseless-logo.png' | asset_url | prepend: 'https:' | json }},
+    "address": { "@type": "PostalAddress", "streetAddress": "128 City Road", "addressLocality": "London", "postalCode": "EC1V 2NX", "addressCountry": "GB" },
     "telephone": "+443330495549",
     "areaServed": "GB",
     "contactPoint": {
