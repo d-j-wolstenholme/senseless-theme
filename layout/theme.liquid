@@ -32,7 +32,7 @@
       if template.name == 'page' and page.handle and ss_noindex_handles contains page.handle
         echo '<meta name="robots" content="noindex,follow">'
       endif
-      {%- comment -%} /collections/all is the Shopify default all-products listing — duplicate of the curated /collections/shop-all (the indexed main shop page). Noindex it. {%- endcomment -%}
+      # /collections/all is the Shopify default all-products listing — a duplicate of the curated /collections/shop-all (the indexed main shop page). Noindex it.
       if template.name == 'collection' and collection.handle == 'all'
         echo '<meta name="robots" content="noindex,follow">'
       endif
