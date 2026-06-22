@@ -20,8 +20,11 @@ Scoping notes (also printed in the .md report):
  - Non-English locale files are skipped for text checks (vendor Horizon translations).
  - Bare "numbing" is an ALLOWED capture term and is never flagged.
 
-Usage: python3 scripts/content-lint.py [--fail-on-block]
-  Exits 0 by default (WARN-only first run). With --fail-on-block, exits 2 if any BLOCK hit.
+Usage: python3 scripts/content-lint.py [--first-party] [--fail-on-block]
+  --first-party : report Senseless-authored copy only (senseless-* sections/snippets + templates/*.json);
+                  excludes locales/en.default.*, blocks/*, layout/*, and Horizon vendor sections/snippets.
+                  Writes reports/content-lint-<date>-first-party.{csv,md}. Report-only (WARN).
+  --fail-on-block : exit 2 if any BLOCK hit (default exits 0 — WARN-only).
 """
 import os, re, csv, sys, json, datetime, statistics
 
@@ -47,6 +50,20 @@ def add(fp, line, dim, rid, sev, snippet, suggestion):
 
 def rel(fp):
     return os.path.relpath(fp, ROOT)
+
+def is_first_party(relpath):
+    """Senseless-authored copy: senseless-* prefixed sections/snippets + JSON templates.
+    Everything else (locales/en.default.*, blocks/*, layout/*, Horizon vendor sections/snippets
+    such as section.liquid/header.liquid) is treated as vendor and excluded under --first-party."""
+    rp = relpath.replace("\\", "/")
+    base = rp.rsplit("/", 1)[-1]
+    if base.startswith("senseless-"):
+        return True
+    # Senseless page/collection/product/home configs (any ext, incl. page.llms-txt.liquid);
+    # excludes Horizon system templates like gift_card.liquid / robots.txt.liquid.
+    if rp.startswith("templates/") and base.split(".", 1)[0] in ("page", "collection", "product", "index"):
+        return True
+    return False
 
 def iter_scope_files():
     for d in SCOPE_DIRS:
@@ -418,11 +435,18 @@ def main():
     check_schema_geo(all_text)
     check_links(all_text)
 
+    # --first-party: report Senseless-authored copy only (link-map/geo computed over full repo above).
+    first_party = "--first-party" in sys.argv
+    if first_party:
+        findings[:] = [r for r in findings if is_first_party(r["file"])]
+    scanned = sum(1 for fp in files if is_first_party(rel(fp))) if first_party else len(files)
+
     findings.sort(key=lambda r: (r["severity"] != "BLOCK", r["dimension"], r["file"], r["line"]))
 
     os.makedirs(REPORTS, exist_ok=True)
-    csv_path = os.path.join(REPORTS, f"content-lint-{TODAY}.csv")
-    md_path = os.path.join(REPORTS, f"content-lint-{TODAY}.md")
+    suffix = "-first-party" if first_party else ""
+    csv_path = os.path.join(REPORTS, f"content-lint-{TODAY}{suffix}.csv")
+    md_path = os.path.join(REPORTS, f"content-lint-{TODAY}{suffix}.md")
     cols = ["file", "line", "dimension", "rule_id", "severity", "snippet", "suggestion"]
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
@@ -440,9 +464,15 @@ def main():
     warn_total = sum(1 for r in findings if r["severity"] == "WARN")
 
     with open(md_path, "w", encoding="utf-8") as f:
+        mode = "FIRST-PARTY (Senseless-authored copy only — vendor Horizon files excluded)" if first_party else "FULL (all in-scope files incl. Horizon vendor)"
         f.write(f"# Senseless content lint — {TODAY}\n\n")
-        f.write(f"Files scanned: **{len(files)}** · Findings: **{len(findings)}** "
-                f"(BLOCK {block_total}, WARN {warn_total})\n\n")
+        f.write(f"Mode: **{mode}**\n\n")
+        f.write(f"{'First-party files' if first_party else 'Files'} scanned: **{scanned}** · "
+                f"Findings: **{len(findings)}** (BLOCK {block_total}, WARN {warn_total})\n\n")
+        if first_party:
+            f.write("First-party = `senseless-*`-prefixed sections/snippets + `templates/*.json`. "
+                    "Excludes locales/en.default.*, blocks/*, layout/*, and non-prefixed Horizon vendor "
+                    "sections/snippets (e.g. section.liquid, header.liquid). Run without --first-party for the full set.\n\n")
         f.write("Scope: repo-resident copy only (Liquid, JSON templates, schema label/default strings, "
                 "English locales, theme JSON-LD). OUT: product/collection/page/blog bodies & admin meta "
                 "(planning chat handles via Admin API). Mechanical checks; REPORT not fix. "
@@ -463,8 +493,8 @@ def main():
             sg = r["suggestion"].replace("|", "\\|")
             f.write(f"| {r['file']} | {r['line']} | {r['dimension']} | {r['rule_id']} | {r['severity']} | {sn} | {sg} |\n")
 
-    print(f"Senseless content lint — {TODAY}")
-    print(f"  scanned {len(files)} files · {len(findings)} findings (BLOCK {block_total}, WARN {warn_total})")
+    print(f"Senseless content lint — {TODAY}" + ("  [FIRST-PARTY]" if first_party else ""))
+    print(f"  scanned {scanned} files · {len(findings)} findings (BLOCK {block_total}, WARN {warn_total})")
     for d in dims:
         print(f"    {d:12} BLOCK {summ[d]['BLOCK']:>3}  WARN {summ[d]['WARN']:>3}")
     print(f"  CSV: {rel(csv_path)}")

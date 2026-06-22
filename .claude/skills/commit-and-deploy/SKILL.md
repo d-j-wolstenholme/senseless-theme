@@ -21,7 +21,7 @@ description: Use this skill at the end of every Claude Code session. Stages all 
 
 1. Run `git status` to show all changes
 2. Ask user to confirm what's being committed
-3. **Verify BEFORE deploying (pushes hit live):** `shopify theme check` must be **0 errors**, and password-render the changed surfaces (the storefront password stays ON until public go-live, so live changes aren't public yet — but they ARE live). Also run the **content lint** (same pre-deploy slot as the Rich Results check): `python3 scripts/content-lint.py` — writes `reports/content-lint-<date>.{csv,md}`. **WARN-only for now (does NOT fail the build):** review BLOCK rows (MHRA/ASA hard-rule phrases) before pushing user-facing copy. To make compliance BLOCKs gate the deploy later, run `python3 scripts/content-lint.py --fail-on-block` (exits 2 on any BLOCK).
+3. **Verify BEFORE deploying (pushes hit live):** `shopify theme check` must be **0 errors**, and password-render the changed surfaces (the storefront password stays ON until public go-live, so live changes aren't public yet — but they ARE live). Also run the **content lint** (same pre-deploy slot as the Rich Results check): `python3 scripts/content-lint.py` — writes `reports/content-lint-<date>.{csv,md}`. **WARN-only for now (does NOT fail the build):** review BLOCK rows (MHRA/ASA hard-rule phrases) before pushing user-facing copy. Add `--first-party` to report Senseless-authored copy only (excludes Horizon vendor files — locales, blocks, vendor sections/snippets — writes `…-first-party.{csv,md}`). To make compliance BLOCKs gate the deploy later, run `python3 scripts/content-lint.py --fail-on-block` (exits 2 on any BLOCK).
 4. Stage all changes: `git add .`
 5. Commit with the provided message
 6. Push to origin **main**:
