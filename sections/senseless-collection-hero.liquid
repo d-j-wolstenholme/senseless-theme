@@ -62,9 +62,19 @@
         {%- if section.settings.secondary_cta_label != blank -%}<a class="ss-chero__btn ss-chero__btn--secondary" href="{{ section.settings.secondary_cta_url | default: '#' }}">{{ section.settings.secondary_cta_label | escape }}</a>{%- endif -%}
       </div>
     </div>
+    {%- liquid
+      # Hero image priority: section setting → collection.image → placeholder. Section pages keep
+      # their own image + image_alt unchanged; the collection fallback uses the collection's own alt.
+      assign hero_image = section.settings.image
+      assign hero_alt = section.settings.image_alt
+      if hero_image == blank and collection != blank
+        assign hero_image = collection.image
+        assign hero_alt = collection.image.alt | default: collection.title
+      endif
+    -%}
     <div class="ss-chero__media">
-      {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 1024px) 50vw, 100vw', widths: '480, 768, 1024, 1280, 1600', alt: section.settings.image_alt }}
+      {%- if hero_image != blank -%}
+        {{ hero_image | image_url: width: 1600 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 1024px) 50vw, 100vw', widths: '480, 768, 1024, 1280, 1600', alt: hero_alt }}
       {%- else -%}
         <div class="ss-chero__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
       {%- endif -%}
