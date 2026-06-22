@@ -40,7 +40,6 @@
     {%- endif -%}
     "brand": { "@type": "Brand", "name": {{ seller_name | json }} },
     "manufacturer": { "@type": "Organization", "name": {{ seller_legal | json }} },
-    {%- if product.vendor != blank -%}"vendor": {{ product.vendor | json }},{%- endif -%}
     "offers": [
       {%- for variant in product.variants -%}
       {

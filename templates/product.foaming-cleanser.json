@@ -159,14 +159,28 @@
             "flagship": false,
             "image_alt": "Clinical Strength Cream on a warm off-white background"
           }
+        },
+        "c": {
+          "type": "product_card",
+          "settings": {
+            "label": "Aftercare",
+            "title": "Vitamin A & D Ointment",
+            "body": "<p>A simple barrier balm to keep freshly treated skin comfortable after your appointment.</p>",
+            "product": "vitamin-a-d-ointment-4-pack",
+            "cta_label": "View product",
+            "cta_url": "/products/vitamin-a-d-ointment-4-pack",
+            "flagship": false,
+            "image_alt": "Senseless Vitamin A & D ointment four-pack on a warm off-white background"
+          }
         }
       },
       "block_order": [
         "a",
-        "b"
+        "b",
+        "c"
       ],
       "settings": {
-        "columns": "2",
+        "columns": "3",
         "eyebrow": "What it pairs with",
         "headline": "Before and after the cleanse."
       }
