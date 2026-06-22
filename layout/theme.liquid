@@ -40,6 +40,8 @@
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
+    {%- comment -%} Cart add-on offer behaviour — global (delegated listeners survive the AJAX-injected cart drawer; inline script in the snippet never executes). {%- endcomment -%}
+    <script src="{{ 'senseless-cart-offer.js' | asset_url }}" defer="defer"></script>
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-schemes' -%}
     {%- render 'senseless-typography' -%}
