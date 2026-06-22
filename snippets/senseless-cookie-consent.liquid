@@ -3,8 +3,10 @@
   UK GDPR + PECR compliant. Rendered once from layout/theme.liquid before </body>.
   GENUINELY gates non-essential cookies via Shopify's Customer Privacy / Consent Tracking API
   (window.Shopify.customerPrivacy — loadFeatures + setTrackingConsent). Analytics + Marketing
-  default to DENIED until the visitor chooses; consent persists via Shopify's stored state
-  (currentVisitorConsent / shouldShowGDPRBanner are the source of truth — no localStorage), so the banner does not re-show. Re-openable from the footer "Cookie settings" link
+  default to DENIED: nothing is recorded until the visitor clicks. A synchronous first-party flag
+  (localStorage 'ss_cookie_choice_v1') is the source of truth for WHETHER the banner shows — it
+  survives full page navigations, so the banner does not re-show; on init the stored choice is
+  re-asserted to the Shopify API for pixel/marketing gating. Re-openable from the footer "Cookie settings" link
   ([data-ss-cookie-settings]). Equal-prominence Accept / Reject (PECR: reject as easy as accept).
   Policy link is interim → /policies/privacy-policy until the Stage F page lands (FLAG to repoint).
 {%- endcomment -%}
@@ -103,14 +105,21 @@
     var elAnalytics = root.querySelector('[data-ss-analytics]');
     var elMarketing = root.querySelector('[data-ss-marketing]');
     var lastFocus = null;
+    var STORE_KEY = 'ss_cookie_choice_v1';
+
+    function decisionMade() { try { return !!localStorage.getItem(STORE_KEY); } catch (e) { return false; } }
+    function readDecision() { try { return JSON.parse(localStorage.getItem(STORE_KEY)); } catch (e) { return null; } }
+    function recordDecision(c) {
+      try { localStorage.setItem(STORE_KEY, JSON.stringify({ a: !!c.analytics, m: !!c.marketing, p: !!c.preferences, t: Date.now() })); } catch (e) {}
+    }
 
     function show() { root.hidden = false; }
     function hide() { root.hidden = true; }
 
-    // Wire the choice into Shopify's Consent Tracking API so pixels/marketing respect it.
+    // Pixel/marketing gating only — does NOT control whether the banner shows.
     function setAPI(c) {
       try {
-        if (window.Shopify && window.Shopify.customerPrivacy && Shopify.customerPrivacy.setTrackingConsent) {
+        if (window.Shopify && Shopify.customerPrivacy && Shopify.customerPrivacy.setTrackingConsent) {
           Shopify.customerPrivacy.setTrackingConsent({
             analytics: !!c.analytics,
             marketing: !!c.marketing,
@@ -120,13 +129,14 @@
         }
       } catch (e) {}
     }
+
     function openPanel() {
       lastFocus = document.activeElement;
-      if (elAnalytics || elMarketing) {
-        var c = Shopify.customerPrivacy.currentVisitorConsent();
-        if (elAnalytics) elAnalytics.checked = c.analytics === 'yes';
-        if (elMarketing) elMarketing.checked = c.marketing === 'yes';
-      }
+      var d = readDecision();
+      var apiC = null;
+      try { apiC = (window.Shopify && Shopify.customerPrivacy) ? Shopify.customerPrivacy.currentVisitorConsent() : null; } catch (e) {}
+      if (elAnalytics) elAnalytics.checked = d ? !!d.a : (apiC ? apiC.analytics === 'yes' : false);
+      if (elMarketing) elMarketing.checked = d ? !!d.m : (apiC ? apiC.marketing === 'yes' : false);
       panel.hidden = false;
       var t = panel.querySelector('[data-ss-panel-title]');
       if (t) t.focus();
@@ -135,7 +145,7 @@
       panel.hidden = true;
       if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
     }
-    function choose(c) { setAPI(c); closePanel(); hide(); }
+    function choose(c) { recordDecision(c); setAPI(c); closePanel(); hide(); }
 
     root.querySelector('[data-ss-accept]').addEventListener('click', function () { choose({ analytics: true, marketing: true, preferences: true }); });
     root.querySelector('[data-ss-reject]').addEventListener('click', function () { choose({ analytics: false, marketing: false, preferences: false }); });
@@ -145,7 +155,6 @@
       choose({ analytics: elAnalytics ? elAnalytics.checked : false, marketing: elMarketing ? elMarketing.checked : false, preferences: false });
     });
 
-    // ESC closes the preferences panel; basic focus containment inside the open panel.
     document.addEventListener('keydown', function (e) {
       if (panel.hidden) return;
       if (e.key === 'Escape') { e.preventDefault(); closePanel(); return; }
@@ -158,28 +167,20 @@
       }
     });
 
-    // Footer "Cookie settings" re-opens the banner + preferences panel.
     document.addEventListener('click', function (e) {
       var t = e.target.closest('[data-ss-cookie-settings]');
       if (t) { e.preventDefault(); show(); openPanel(); }
     });
 
-    // Shopify's Consent Tracking API is the source of truth (no localStorage).
+    // Local choice decides whether to SHOW. Shopify API is only for pixel gating.
     function init() {
-      var consent = Shopify.customerPrivacy.currentVisitorConsent();
-      var shouldShow = Shopify.customerPrivacy.shouldShowGDPRBanner();
-
-      if (!shouldShow) {
-        setAPI({
-          analytics: consent.analytics === 'yes',
-          marketing: consent.marketing === 'yes',
-          preferences: consent.preferences === 'yes'
-        });
+      if (decisionMade()) {
+        var d = readDecision() || {};
+        setAPI({ analytics: !!d.a, marketing: !!d.m, preferences: !!d.p });
         hide();
-      } else {
-        setAPI({ analytics: false, marketing: false, preferences: false });
-        show();
+        return;
       }
+      show(); // no decision yet — show banner, record nothing until a click
     }
 
     if (window.Shopify && window.Shopify.loadFeatures) {
