@@ -24,6 +24,13 @@
 {%- when 'product' -%}
   {%- assign pd = product.description | strip_html | strip_newlines | truncate: 480 -%}
   {%- if pd == blank -%}{%- assign pd = product.title | append: ' — a topical cosmetic preparation by Senseless.' -%}{%- endif -%}
+  {%- comment -%} Judge.me rating, synced to the reviews.* metafields. rating is a `rating`-type
+     metafield → its .value is a Rating object whose .value is the number. rating_count is a plain
+     integer. aggregateRating emitted ONLY when there are reviews (count > 0) — kits/no-review
+     products have null metafields and emit nothing (an empty/zero aggregateRating is an RRT error).
+     Rating object only — no review text. {%- endcomment -%}
+  {%- assign ss_rating = product.metafields.reviews.rating.value -%}
+  {%- assign ss_rcount = product.metafields.reviews.rating_count.value -%}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -40,6 +47,15 @@
     {%- endif -%}
     "brand": { "@type": "Brand", "name": {{ seller_name | json }} },
     "manufacturer": { "@type": "Organization", "name": {{ seller_legal | json }} },
+    {%- if ss_rcount and ss_rcount > 0 and ss_rating != blank -%}
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "{{ ss_rating.value }}",
+      "reviewCount": "{{ ss_rcount }}",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    {%- endif -%}
     "offers": [
       {%- for variant in product.variants -%}
       {
