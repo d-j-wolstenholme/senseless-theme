@@ -1,5 +1,7 @@
 # Senseless content lint — 2026-06-22
 
+Mode: **FULL (all in-scope files incl. Horizon vendor)**
+
 Files scanned: **368** · Findings: **158** (BLOCK 2, WARN 156)
 
 Scope: repo-resident copy only (Liquid, JSON templates, schema label/default strings, English locales, theme JSON-LD). OUT: product/collection/page/blog bodies & admin meta (planning chat handles via Admin API). Mechanical checks; REPORT not fix. Bare 'numbing' is allowed and never flagged.
