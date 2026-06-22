@@ -50,7 +50,7 @@
     {%- if ss_rcount and ss_rcount > 0 and ss_rating != blank -%}
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "{{ ss_rating.value }}",
+      "ratingValue": "{{ ss_rating.rating }}",
       "reviewCount": "{{ ss_rcount }}",
       "bestRating": "5",
       "worstRating": "1"
