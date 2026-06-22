@@ -29,7 +29,7 @@
           "settings": {
             "label": "Advanced Strength",
             "heading": "The considered upgrade",
-            "body": "<p>Higher concentration. For longer sessions, more sensitive treatment areas, full-face microneedling, fractional laser, SPMU. The deliberate step up.</p>",
+            "body": "<p>Higher strength. For longer sessions, more sensitive treatment areas, full-face microneedling, fractional laser, SPMU. The deliberate step up.</p>",
             "cta_label": "",
             "cta_url": "",
             "flagship": false,
@@ -190,7 +190,7 @@
         "direction": "text-left",
         "eyebrow": "Format vs strength",
         "headline": "Format is the next decision, after strength.",
-        "body": "<p>Once you've picked a tier, the format choice is separate. Cream is the default for most face appointments. Gel suits sustained sessions where the application stays in place, microneedling especially. Spray covers body and broader zones. Format and strength are independent — an Advanced cream is the same concentration as an Advanced gel.</p>",
+        "body": "<p>Once you've picked a tier, the format choice is separate. Cream is the default for most face appointments. Gel suits sustained sessions where the application stays in place, microneedling especially. Spray covers body and broader zones. Format and strength are independent — an Advanced cream is the same strength as an Advanced gel.</p>",
         "cta_label": "Compare formats",
         "cta_url": "/pages/choosing-your-format",
         "image_alt": "Editorial three-format lineup of Senseless cream, gel, and spray"

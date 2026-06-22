@@ -82,7 +82,7 @@
         "anchor_id": "electrolysis",
         "eyebrow": "Hair removal",
         "headline": "Does electrolysis hurt?",
-        "body": "<p>Electrolysis is often described as a brief heat or stinging sensation at each hair, more noticeable on sensitive areas. As it treats one follicle at a time, sessions can feel repetitive rather than intense.</p><p><strong>We'd reach for:</strong> Cream, Advanced for sensitive areas.</p><p><a href=\"/collections/numbing-cream\">Browse numbing cream</a></p>"
+        "body": "<p>Electrolysis is often described as a brief heat or stinging sensation at each hair, more noticeable on sensitive areas. As it works on one follicle at a time, sessions can feel repetitive rather than intense.</p><p><strong>We'd reach for:</strong> Cream, Advanced for sensitive areas.</p><p><a href=\"/collections/numbing-cream\">Browse numbing cream</a></p>"
       }
     },
     "keyfacts": {
@@ -181,7 +181,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Does electrolysis hurt?",
-            "answer": "<p>Electrolysis is often described as a brief heat or stinging sensation at each hair, more noticeable on sensitive areas. As it treats one follicle at a time, sessions can feel repetitive rather than intense.</p>"
+            "answer": "<p>Electrolysis is often described as a brief heat or stinging sensation at each hair, more noticeable on sensitive areas. As it works on one follicle at a time, sessions can feel repetitive rather than intense.</p>"
           }
         }
       },
