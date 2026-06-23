@@ -1,18 +1,26 @@
 {%- comment -%}
   Senseless — Trust bar
-  Horizontal strip of trust signals (icon + label). Single row on desktop, 2x2 grid on mobile.
-  No headline, no CTA. Reused on Format Collections. Trust items are blocks (icon + label), both editable.
-  When no icon image is set, a line-art placeholder renders in brand purple.
+  Horizontal strip of trust signals. Single row on desktop, wraps/stacks on mobile.
+  Two block kinds: 'stars' (renders a 5-star row filled to the genuine shop average) and 'tick'
+  (purple check glyph + label). No headline, no CTA. Also reused on Format Collections.
+
+  PENDING-BEFORE-PUBLIC (Daniel's notes — not shown on page):
+    • "230+ reviews" — review-count scope to confirm before public (count is the genuine store
+      total, 231). NOTE: Judge.me reviews are NOT verified-buyer flagged (0/54 sampled), so the
+      label is "reviews", not "verified reviews".
+    • "Trusted by UK Practitioners" — practitioner substantiation pending.
+    • "Free delivery over £40" — confirm the £40 threshold is live in checkout.
+  Star rating value is the genuine current Judge.me shop-wide average (4.88 → shown 4.9). Update the
+  block's "rating" setting if the live average drifts; do not show 5 unless 5 is true.
 {%- endcomment -%}
 
 {%- style -%}
-
   .ss-trust {
     --ss-purple: #6B3FA0;
     --ss-bg: #f7f7f5;
     --ss-surface: #ffffff;
     --ss-text: #1A1816;
-    --ss-border: rgba(26,26,26,0.10);
+    --ss-border: rgba(26,26,26,0.12);
     --ss-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: var(--ss-bg);
     color: var(--ss-text);
@@ -20,16 +28,31 @@
     border-bottom: 1px solid var(--ss-border);
   }
   .ss-trust--surface { background: var(--ss-surface); }
-  .ss-trust__inner { max-width: 1100px; margin: 0 auto; padding: 32px 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
-  .ss-trust__item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
-  .ss-trust__icon { width: 32px; height: 32px; color: var(--ss-purple); display: flex; align-items: center; justify-content: center; }
-  .ss-trust__icon img { width: 100%; height: 100%; object-fit: contain; }
-  .ss-trust__icon svg { width: 100%; height: 100%; }
-  .ss-trust__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; line-height: 1.3; color: var(--ss-text); margin: 0; }
+  .ss-trust__inner {
+    max-width: 1180px; margin: 0 auto; padding: 16px 20px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 10px 0; list-style: none;
+  }
+  .ss-trust__item {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 6px 18px; position: relative; font-family: var(--ss-sans);
+  }
+  .ss-trust__tick { color: var(--ss-purple); display: inline-flex; flex: 0 0 auto; }
+  .ss-trust__tick svg { width: 16px; height: 16px; display: block; }
+  .ss-trust__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; line-height: 1.3; color: var(--ss-text); margin: 0; white-space: nowrap; }
 
-  @media (min-width: 750px) {
-    .ss-trust__inner { grid-template-columns: repeat(4, 1fr); padding: 48px 40px; }
-    .ss-trust__item { flex-direction: row; text-align: left; gap: 12px; justify-content: center; }
+  /* Star rating — base row in light ink, fill overlay in brand purple clipped to the average. */
+  .ss-trust__stars { position: relative; display: inline-block; font-size: 16px; line-height: 1; letter-spacing: 2px; }
+  .ss-trust__stars-base { color: rgba(26,26,26,0.20); }
+  .ss-trust__stars-fill { position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: var(--ss-purple); }
+  .ss-trust__rating { font-family: var(--ss-sans); font-weight: 600; font-size: 14px; color: var(--ss-text); }
+
+  @media (min-width: 900px) {
+    .ss-trust__inner { flex-wrap: nowrap; padding: 14px 32px; }
+    .ss-trust__item + .ss-trust__item::before {
+      content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+      height: 20px; width: 1px; background: var(--ss-border);
+    }
   }
 {%- endstyle -%}
 
@@ -37,14 +60,20 @@
   <ul class="ss-trust__inner" role="list">
     {%- for block in section.blocks -%}
       <li class="ss-trust__item" {{ block.shopify_attributes }}>
-        <span class="ss-trust__icon" aria-hidden="true">
-          {%- if block.settings.icon != blank -%}
-            {{ block.settings.icon | image_url: width: 64 | image_tag: loading: 'lazy', widths: '32, 64', alt: '' }}
-          {%- else -%}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg>
-          {%- endif -%}
-        </span>
-        {%- if block.settings.label != blank -%}<p class="ss-trust__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+        {%- if block.settings.kind == 'stars' -%}
+          {%- assign ss_r = block.settings.rating | default: 5.0 -%}
+          {%- assign ss_pct = ss_r | times: 20.0 -%}
+          <span class="ss-trust__stars" role="img" aria-label="Rated {{ ss_r }} out of 5">
+            <span class="ss-trust__stars-base" aria-hidden="true">★★★★★</span>
+            <span class="ss-trust__stars-fill" aria-hidden="true" style="width: {{ ss_pct }}%;">★★★★★</span>
+          </span>
+          <span class="ss-trust__rating">{{ ss_r }}</span>
+        {%- else -%}
+          <span class="ss-trust__tick" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.3"/></svg>
+          </span>
+          {%- if block.settings.label != blank -%}<p class="ss-trust__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+        {%- endif -%}
       </li>
     {%- endfor -%}
   </ul>
@@ -57,15 +86,16 @@
   "class": "senseless-section senseless-trust-bar",
   "max_blocks": 6,
   "settings": [
-    { "type": "select", "id": "band", "label": "Band background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas (off-white)" }, { "value": "surface", "label": "Surface (white)" } ] }
+    { "type": "select", "id": "band", "label": "Band background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas (grey)" }, { "value": "surface", "label": "Surface (white)" } ] }
   ],
   "blocks": [
     {
       "type": "trust_item",
       "name": "Trust signal",
       "settings": [
-        { "type": "image_picker", "id": "icon", "label": "Icon", "info": "Line-art, brand purple. Leave blank for a placeholder icon." },
-        { "type": "text", "id": "label", "label": "Label", "default": "UK formulated" }
+        { "type": "select", "id": "kind", "label": "Kind", "default": "tick", "options": [ { "value": "tick", "label": "Tick + label" }, { "value": "stars", "label": "Star rating" } ] },
+        { "type": "text", "id": "label", "label": "Label", "default": "UK Formulated", "info": "Used when Kind = Tick + label." },
+        { "type": "text", "id": "rating", "label": "Star rating value", "default": "4.9", "info": "Used when Kind = Star rating. The genuine shop-wide average (do not show 5 unless 5 is true)." }
       ]
     }
   ],
@@ -73,10 +103,12 @@
     {
       "name": "Senseless — Trust bar",
       "blocks": [
-        { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        { "type": "trust_item", "settings": { "label": "Made for aesthetics" } }
+        { "type": "trust_item", "settings": { "kind": "stars", "rating": "4.9" } },
+        { "type": "trust_item", "settings": { "kind": "tick", "label": "230+ reviews" } },
+        { "type": "trust_item", "settings": { "kind": "tick", "label": "UK Formulated" } },
+        { "type": "trust_item", "settings": { "kind": "tick", "label": "CPSR Assessed" } },
+        { "type": "trust_item", "settings": { "kind": "tick", "label": "Trusted by UK Practitioners" } },
+        { "type": "trust_item", "settings": { "kind": "tick", "label": "Free delivery over £40" } }
       ]
     }
   ]

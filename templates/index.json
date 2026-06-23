@@ -165,39 +165,59 @@
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": {
+        "t-stars": {
           "type": "trust_item",
           "settings": {
-            "label": "UK formulated"
+            "kind": "stars",
+            "rating": "4.9"
           }
         },
         "t-cos": {
           "type": "trust_item",
           "settings": {
-            "label": "Cosmetic product"
+            "kind": "tick",
+            "label": "230+ reviews"
+          }
+        },
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "kind": "tick",
+            "label": "UK Formulated"
           }
         },
         "t2": {
           "type": "trust_item",
           "settings": {
-            "label": "CPSR assessed"
+            "kind": "tick",
+            "label": "CPSR Assessed"
           }
         },
         "t3": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "kind": "tick",
+            "label": "Trusted by UK Practitioners"
+          }
+        },
+        "t-delivery": {
+          "type": "trust_item",
+          "settings": {
+            "kind": "tick",
+            "label": "Free delivery over £40"
           }
         }
       },
       "block_order": [
-        "t1",
+        "t-stars",
         "t-cos",
+        "t1",
         "t2",
-        "t3"
+        "t3",
+        "t-delivery"
       ],
       "settings": {
-        "band": "surface"
+        "band": "canvas"
       }
     },
     "practitioners": {
@@ -223,16 +243,58 @@
         "fine_print": "Double opt-in — we'll email you to confirm. Unsubscribe anytime.",
         "success_text": "Thanks — check your inbox to confirm your subscription."
       }
+    },
+    "practitionercards": {
+      "type": "senseless-practitioner-cards",
+      "settings": {
+        "heading": "Trusted by UK practitioners",
+        "caption": "Sample layout — verified practitioner content in collection"
+      },
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "monogram": "PN",
+            "name": "Practitioner name",
+            "clinic": "Aesthetic clinic · City",
+            "quote": "[Practitioner testimonial — pending collection. One short line.]"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "monogram": "PN",
+            "name": "Practitioner name",
+            "clinic": "Aesthetic clinic · City",
+            "quote": "[Practitioner testimonial — pending collection. Two lines so spacing and rhythm can be judged.]"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "monogram": "PN",
+            "name": "Practitioner name",
+            "clinic": "Aesthetic clinic · City",
+            "quote": "[Practitioner testimonial — pending collection. Three lines to show how the tallest card sets row height and the grid equalises.]"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ]
     }
   },
   "order": [
     "hero",
+    "trust",
+    "procedure",
+    "practitionercards",
     "scale",
     "selectorlink",
-    "procedure",
     "formats",
     "product",
-    "trust",
     "practitioners",
     "newsletter"
   ]
