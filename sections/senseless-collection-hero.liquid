@@ -71,10 +71,37 @@
         assign hero_image = collection.image
         assign hero_alt = collection.image.alt | default: collection.title
       endif
+      # Clamp responsive widths to the image's native width so the CDN never upscales — an undersized
+      # source served at a larger width bloats the file (e.g. a 1254px source requested at 1600).
+      # Largest variant = min(1600, native); sources >= 1600 (the other heroes) are unaffected.
+      assign hero_max = 1600
+      if hero_image.width and hero_image.width < 1600
+        assign hero_max = hero_image.width
+      endif
+      assign hero_widths = ''
+      assign hero_top = 0
+      for w in '480,768,1024,1280,1600' | split: ','
+        assign wn = w | times: 1
+        if wn <= hero_max
+          if hero_widths == blank
+            assign hero_widths = wn | append: ''
+          else
+            assign hero_widths = hero_widths | append: ',' | append: wn
+          endif
+          assign hero_top = wn
+        endif
+      endfor
+      if hero_top < hero_max
+        if hero_widths == blank
+          assign hero_widths = hero_max | append: ''
+        else
+          assign hero_widths = hero_widths | append: ',' | append: hero_max
+        endif
+      endif
     -%}
     <div class="ss-chero__media">
       {%- if hero_image != blank -%}
-        {{ hero_image | image_url: width: 1600 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 1024px) 50vw, 100vw', widths: '480, 768, 1024, 1280, 1600', alt: hero_alt }}
+        {{ hero_image | image_url: width: hero_max | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 1024px) 50vw, 100vw', widths: hero_widths, alt: hero_alt }}
       {%- else -%}
         <div class="ss-chero__placeholder">{{ 'image' | placeholder_svg_tag }}</div>
       {%- endif -%}
