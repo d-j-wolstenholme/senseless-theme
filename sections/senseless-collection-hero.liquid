@@ -80,7 +80,8 @@
       endif
       assign hero_widths = ''
       assign hero_top = 0
-      for w in '480,768,1024,1280,1600' | split: ','
+      assign hero_candidates = '480,768,1024,1280,1600' | split: ','
+      for w in hero_candidates
         assign wn = w | times: 1
         if wn <= hero_max
           if hero_widths == blank
