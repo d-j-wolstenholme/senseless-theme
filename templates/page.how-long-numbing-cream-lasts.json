@@ -52,7 +52,7 @@
         "headline": "Most appointments are timed to fit.",
         "body": "<p>A well-matched preparation lasts the length of the procedure. The reason the Senseless system has three tiers and the recommendation matrix tells you which to pick is exactly this — too short a window for an intensive session is the most common application mistake. If your appointment runs longer than expected and you've been on the lighter side of preparation, your practitioner has options. Some reapply at the chair. Some use additional numbing during the procedure. Some pause briefly. Your practitioner knows what they can offer and what their protocol allows.</p>",
         "cta_label": "Choose your strength",
-        "cta_url": "/pages/choosing-your-strength",
+        "cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial detail of a Senseless preparation tube matched to session length"
       }
     },
@@ -126,7 +126,7 @@
             "label": "Choose your strength",
             "body": "<p>Match the tier to the procedure.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/choosing-your-strength",
+            "cta_url": "/pages/the-senseless-system",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },

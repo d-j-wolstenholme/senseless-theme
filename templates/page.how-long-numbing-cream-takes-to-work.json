@@ -17,7 +17,7 @@
         "headline": "Three things decide the window.",
         "body": "<p>The procedure shapes the window. A lip filler appointment doesn't ask the same of preparation as a microneedling session. The tier shapes the window. Clinical, Advanced, and Professional are formulated differently — different strengths mean different recommended timing. The individual shapes the window. Skin sensitivity, treatment area, hydration level — these all change what the same product does on the same procedure for two different clients. One number can't cover all three variables.</p>",
         "cta_label": "Choose your strength",
-        "cta_url": "/pages/choosing-your-strength",
+        "cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial still life of the Senseless range — the three onset-shaping variables"
       }
     },
@@ -63,7 +63,7 @@
         "headline": "Tier and format both affect timing.",
         "body": "<p>Within the Senseless system, Advanced and Professional are formulated for longer or more sustained sessions. The timing window for a Professional application may differ from a Clinical one. The format also matters — gel sits differently on the skin than cream, and spray covers ground both differently. Specific windows still come down to your practitioner's protocol, but the system has internal logic that affects what the right window looks like.</p>",
         "cta_label": "Choose your format",
-        "cta_url": "/pages/choosing-your-format",
+        "cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial Senseless system view"
       }
     },
@@ -126,7 +126,7 @@
             "label": "Choose your strength",
             "body": "<p>Clinical, Advanced, Professional.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/choosing-your-strength",
+            "cta_url": "/pages/the-senseless-system",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },

@@ -373,6 +373,15 @@
         "headline": "Common questions",
         "anchor_id": "faq"
       }
+    },
+    "salvage": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "surface",
+        "eyebrow": "What it's for",
+        "headline": "What the product is built to support.",
+        "body": "<p>Senseless is a topical preparation that supports comfort during your aesthetic appointment. Specific experience varies between clients — sensitivity, treatment area, procedure type, practitioner protocol. Many find prepared skin more comfortable than unprepared. The product isn't a substitute for a practitioner's care during your booking; it's the preparation step that sits before it.</p><p>You'll notice we don't lead with the active ingredient. Senseless is a UK cosmetic product, and the formulation details that matter are on the packaging and in the regulatory documentation that sits behind each SKU. What matters at the point of purchase is the system — strength matched to procedure, format matched to treatment area, brand built for aesthetics. The product specifics support that; they don't lead it.</p>"
+      }
     }
   },
   "order": [
@@ -383,6 +392,7 @@
     "dial2",
     "matrix",
     "honest",
+    "salvage",
     "keyfacts",
     "kfdl",
     "faq",

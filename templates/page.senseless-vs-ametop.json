@@ -226,10 +226,10 @@
         "strength": {
           "type": "format_card",
           "settings": {
-            "label": "Choose your strength",
-            "body": "<p>Clinical, Advanced, Professional.</p>",
-            "cta_label": "Read guide",
-            "cta_url": "/pages/the-senseless-system",
+            "label": "Reviews",
+            "body": "<p>What customers say.</p>",
+            "cta_label": "Read reviews",
+            "cta_url": "/pages/reviews",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },

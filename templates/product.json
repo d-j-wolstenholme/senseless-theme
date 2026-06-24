@@ -91,7 +91,7 @@
         "eyebrow": "Suited for",
         "headline": "The standard appointment.",
         "cta_label": "Find your strength",
-        "cta_url": "/pages/choosing-your-strength"
+        "cta_url": "/pages/the-senseless-system"
       }
     },
     "howtouse": {
@@ -148,7 +148,7 @@
         "headline": "Clinical is the standard. Two more strengths sit above it.",
         "body": "<p>Clinical Strength is the Senseless cream most clients buy. Advanced sits one step up — for longer sessions, sensitive treatment areas, or microneedling-tier procedures. Professional is our practitioner tier, developed specifically for professional use. Most clients buy Clinical. Some buyers go straight to Advanced. Both are the right choice for the appointments they're built for.</p>",
         "cta_label": "Find your strength",
-        "cta_url": "/pages/choosing-your-strength",
+        "cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial three-tier Senseless lineup"
       }
     },
@@ -307,7 +307,7 @@
       "type": "senseless-complete-prep",
       "settings": {
         "variant": "auto",
-        "compare_url": "/pages/choosing-your-format"
+        "compare_url": "/pages/the-senseless-system"
       }
     },
     "aftercare": {

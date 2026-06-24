@@ -29,7 +29,7 @@
         "headline": "Three strengths. Three formats. One framework.",
         "body": "<p>The Senseless system has two axes — strength and format. Strength matches the procedure: Clinical for routine appointments, Advanced for longer or more sensitive sessions, Professional — our practitioner tier — for the longest, most sustained sessions. Format matches the treatment area and the session length: cream for most face appointments, gel for sustained sessions, spray for body and broader zones. Together they answer two separate questions, not one.</p>",
         "cta_label": "Choose your strength",
-        "cta_url": "/pages/choosing-your-strength",
+        "cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial Senseless system view — all formats and tiers"
       }
     },
@@ -77,7 +77,7 @@
             "label": "Choose your strength",
             "body": "<p>Clinical, Advanced, Professional. The decision matrix by procedure.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/choosing-your-strength",
+            "cta_url": "/pages/the-senseless-system",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
@@ -87,7 +87,7 @@
             "label": "Choose your format",
             "body": "<p>Cream, gel, spray. Decided by procedure and treatment area.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/choosing-your-format",
+            "cta_url": "/pages/the-senseless-system#selector",
             "image_alt": "Senseless format guide — cream, gel and spray"
           }
         },

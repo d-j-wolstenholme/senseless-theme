@@ -29,7 +29,7 @@
         "headline": "Three things change what \"works\" means for you.",
         "body": "<p>The procedure matters. A lip filler appointment, a microneedling session, and a laser resurfacing all ask different things from preparation — the same product delivers a different experience across them. The tier matters. Clinical, Advanced, and Professional are formulated for different procedures and session lengths — picking the wrong tier for the procedure is the most common reason a client says \"it didn't work for me.\" The individual matters. Skin sensitivity, treatment area, hydration, and how well the application protocol was followed — these all change the outcome. \"Does it work\" is three questions in one. The answer depends on getting all three right.</p>",
         "cta_label": "Match the tier to the procedure",
-        "cta_url": "/pages/choosing-your-strength",
+        "cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial Senseless system view"
       }
     },
@@ -53,7 +53,7 @@
         "headline": "Three common reasons.",
         "body": "<p><strong>The tier didn't match the procedure.</strong> Clinical Strength applied before a 90-minute microneedling session won't deliver what Advanced would. Picking the wrong tier is the most common reason clients say a preparation didn't work.</p><p><strong>The application window was off.</strong> Too early and the preparation runs its course before the procedure. Too late and it doesn't reach its full effect. Specific timing matters more than most clients realise.</p><p><strong>Expectation set too high.</strong> Some clients expect topical preparation to remove all sensation from a procedure. That's not what this category is for. Clients who go in expecting comfort during the appointment tend to be more satisfied than clients who expect complete absence of sensation.</p>",
         "cta_label": "Choose your strength",
-        "cta_url": "/pages/choosing-your-strength",
+        "cta_url": "/pages/the-senseless-system",
         "image_alt": "Editorial close-up of the three Senseless strength tiers side by side"
       }
     },
@@ -135,10 +135,10 @@
         "strength": {
           "type": "format_card",
           "settings": {
-            "label": "Choose your strength",
-            "body": "<p>Match the tier to the procedure.</p>",
-            "cta_label": "Read guide",
-            "cta_url": "/pages/choosing-your-strength",
+            "label": "Reviews",
+            "body": "<p>What customers say.</p>",
+            "cta_label": "Read reviews",
+            "cta_url": "/pages/reviews",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
@@ -148,7 +148,7 @@
             "label": "How Senseless works",
             "body": "<p>The system, in plain terms.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/how-it-works",
+            "cta_url": "/pages/the-senseless-system",
             "image_alt": "Guide to how the Senseless system works"
           }
         },
