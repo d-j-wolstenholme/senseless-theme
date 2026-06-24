@@ -281,33 +281,39 @@
     },
     "highlights": {
       "type": "senseless-product-highlights",
+      "settings": {
+        "eyebrow": "Popular picks",
+        "headline": "Where to start.",
+        "accent_word": "start",
+        "band": "canvas"
+      },
       "blocks": {
-        "b1": {
-          "type": "box",
+        "c1": {
+          "type": "card",
           "settings": {
-            "heading": "Best Value",
-            "product_1": "advanced-numbing-kit-large"
+            "label": "Best Value",
+            "product": "advanced-numbing-kit-large"
           }
         },
-        "b2": {
-          "type": "box",
+        "c2": {
+          "type": "card",
           "settings": {
-            "heading": "Practitioner's Choice",
-            "product_1": "professional-numbing-kit-large"
+            "label": "Practitioner's Choice",
+            "product": "professional-numbing-kit-large"
           }
         },
-        "b3": {
-          "type": "box",
+        "c3": {
+          "type": "card",
           "settings": {
-            "heading": "Most Popular",
-            "product_1": "professional-strength-cream"
+            "label": "Most Popular",
+            "product": "professional-strength-cream"
           }
         }
       },
       "block_order": [
-        "b1",
-        "b2",
-        "b3"
+        "c1",
+        "c2",
+        "c3"
       ]
     }
   },
