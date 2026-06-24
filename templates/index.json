@@ -248,7 +248,8 @@
       "type": "senseless-practitioner-cards",
       "settings": {
         "heading": "Trusted by UK practitioners",
-        "caption": ""
+        "caption": "",
+        "eyebrow": "Practitioner voices"
       },
       "blocks": {
         "c1": {
