@@ -248,34 +248,34 @@
       "type": "senseless-practitioner-cards",
       "settings": {
         "heading": "Trusted by UK practitioners",
-        "caption": "Sample layout — verified practitioner content in collection"
+        "caption": ""
       },
       "blocks": {
         "c1": {
           "type": "card",
           "settings": {
-            "monogram": "PN",
-            "name": "Practitioner name",
-            "clinic": "Aesthetic clinic · City",
-            "quote": "[Practitioner testimonial — pending collection. One short line.]"
+            "monogram": "A",
+            "name": "Ashley",
+            "clinic": "Kent",
+            "quote": "I have been using various differnt creams over the years, some have worked and others where just aweful, but this stuff from Senseless is on another level and I've now opened a trade account with them so I won't buy anywhere else 😄💋"
           }
         },
         "c2": {
           "type": "card",
           "settings": {
-            "monogram": "PN",
-            "name": "Practitioner name",
-            "clinic": "Aesthetic clinic · City",
-            "quote": "[Practitioner testimonial — pending collection. Two lines so spacing and rhythm can be judged.]"
+            "monogram": "L",
+            "name": "Libby",
+            "clinic": "Bristol",
+            "quote": "Having used TKTX for about 3 years now I've found it to be hit and miss if it works because there are so many fakes out there, at least with these guys you know it's the real deal and all tested and registered plus all my clients love it 😍"
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "monogram": "PN",
-            "name": "Practitioner name",
-            "clinic": "Aesthetic clinic · City",
-            "quote": "[Practitioner testimonial — pending collection. Three lines to show how the tallest card sets row height and the grid equalises.]"
+            "monogram": "L",
+            "name": "Lucy",
+            "clinic": "Manchester",
+            "quote": "My sister has her own studio and swears by this stuff so I've started stocking it to OMG it is so much easier to work on clients when using this stuff.... wouldn't go without it now."
           }
         }
       },
