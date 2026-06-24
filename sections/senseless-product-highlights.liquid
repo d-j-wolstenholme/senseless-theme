@@ -1,0 +1,137 @@
+{%- comment -%}
+  Senseless — Product highlights ("new way to shop", Peter override 2026-06-24)
+  Up to 3 "box" blocks; each box = an editable heading (blank until a claim is signed off) + up to
+  3 product pickers. Renders a box only if it has ≥1 product; the whole section outputs nothing if no
+  box has any product (safe to place before curation). Server-rendered Liquid only — no JS injection.
+  REUSES (does not redefine): snippets/senseless-card-image (media; lazy + intrinsic dims) and
+  snippets/senseless-quick-add (variant select + qty + add-to-cart → existing cart drawer, its own
+  global stylesheet). The card shell mirrors the trio-card-row `ss-card--product` pattern but with
+  section-scoped styles, since that markup is inline in trio-card-row and its styles are not global.
+  NO Product/Offer structured data here (PDP only).
+{%- endcomment -%}
+
+{%- liquid
+  # Does any box have at least one product? If not, render nothing at all.
+  assign ss_has_content = false
+  for block in section.blocks
+    if block.settings.product_1 != blank or block.settings.product_2 != blank or block.settings.product_3 != blank
+      assign ss_has_content = true
+      break
+    endif
+  endfor
+-%}
+
+{%- if ss_has_content -%}
+{%- style -%}
+  .ss-ph {
+    --ss-purple: #6B3FA0;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-ink: #1A1816;
+    --ss-body: #2B2730;
+    --ss-border: #E5E2DC;
+    --ss-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--ss-bg);
+    color: var(--ss-ink);
+    font-family: var(--ss-sans);
+  }
+  .ss-ph__inner { max-width: 1200px; margin: 0 auto; padding: 64px 20px; display: flex; flex-direction: column; gap: 48px; }
+  .ss-ph__box { display: flex; flex-direction: column; gap: 20px; }
+  .ss-ph__boxhead { font-family: var(--ss-sans); font-weight: 600; font-size: clamp(1.375rem, 1.1rem + 1vw, 1.75rem); line-height: 1.15; letter-spacing: -0.01em; color: var(--ss-ink); margin: 0; text-align: center; }
+  .ss-ph__grid { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: stretch; }
+
+  .ss-ph__card { display: flex; flex-direction: column; height: 100%; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-ph__card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
+  .ss-ph__cardlink { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+  .ss-ph__media { aspect-ratio: 1 / 1; background: var(--ss-bg); position: relative; }
+  .ss-ph__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-ph__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .ss-ph__placeholder svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
+  .ss-ph__cbody { padding: 18px 20px 0; display: flex; flex-direction: column; gap: 4px; }
+  .ss-ph__title { font-family: var(--ss-sans); font-weight: 600; font-size: 1rem; line-height: 1.3; letter-spacing: -0.01em; color: var(--ss-ink); margin: 0; }
+  .ss-ph__price { font-family: var(--ss-sans); font-weight: 500; font-size: 16px; color: var(--ss-body); margin: 0; }
+  .ss-ph__qa { padding: 0 20px 20px; margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) { .ss-ph__card { transition: none; } .ss-ph__card:hover { transform: none; } }
+  @media (min-width: 750px) {
+    .ss-ph__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  }
+{%- endstyle -%}
+
+<section class="ss-ph">
+  <div class="ss-ph__inner">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign box_products = ''
+        for n in (1..3)
+          assign key = 'product_' | append: n
+          assign p = block.settings[key]
+          if p != blank
+            assign box_products = box_products | append: p.id | append: ','
+          endif
+        endfor
+      -%}
+      {%- if box_products != blank -%}
+        <div class="ss-ph__box" {{ block.shopify_attributes }}>
+          {%- if block.settings.heading != blank -%}
+            <h2 class="ss-ph__boxhead">{{ block.settings.heading | escape }}</h2>
+          {%- endif -%}
+          <div class="ss-ph__grid" role="list">
+            {%- for n in (1..3) -%}
+              {%- assign key = 'product_' | append: n -%}
+              {%- assign p = block.settings[key] -%}
+              {%- if p != blank -%}
+                <div class="ss-ph__card" role="listitem">
+                  <a class="ss-ph__cardlink" href="{{ p.url }}">
+                    <div class="ss-ph__media">
+                      {%- render 'senseless-card-image', product: p, alt: p.title, sizes: '(min-width: 750px) 33vw, 100vw', ph_class: 'ss-ph__placeholder' -%}
+                    </div>
+                    <div class="ss-ph__cbody">
+                      <h3 class="ss-ph__title">{{ p.title | escape }}</h3>
+                      {%- if p.price > 0 -%}<p class="ss-ph__price">{{ p.price | money }}</p>{%- endif -%}
+                    </div>
+                  </a>
+                  <div class="ss-ph__qa">
+                    {%- render 'senseless-quick-add', product: p, section_id: section.id, uid: block.id | append: '-' | append: n -%}
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Senseless — Product highlights",
+  "tag": "section",
+  "class": "senseless-section senseless-product-highlights",
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "box",
+      "name": "Highlight box",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Box heading — leave blank until claim signed off", "default": "" },
+        { "type": "product", "id": "product_1", "label": "Product 1" },
+        { "type": "product", "id": "product_2", "label": "Product 2" },
+        { "type": "product", "id": "product_3", "label": "Product 3" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Senseless — Product highlights",
+      "blocks": [
+        { "type": "box" },
+        { "type": "box" },
+        { "type": "box" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -278,12 +278,41 @@
         "c2",
         "c3"
       ]
+    },
+    "highlights": {
+      "type": "senseless-product-highlights",
+      "blocks": {
+        "b1": {
+          "type": "box",
+          "settings": {
+            "heading": ""
+          }
+        },
+        "b2": {
+          "type": "box",
+          "settings": {
+            "heading": ""
+          }
+        },
+        "b3": {
+          "type": "box",
+          "settings": {
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
     }
   },
   "order": [
     "hero",
     "trust",
     "procedure",
+    "highlights",
     "practitionercards",
     "scale",
     "selectorlink",
