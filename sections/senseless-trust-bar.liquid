@@ -1,80 +1,104 @@
 {%- comment -%}
   Senseless — Trust bar
-  Horizontal strip of trust signals. Single row on desktop, wraps/stacks on mobile.
-  Two block kinds: 'stars' (renders a 5-star row filled to the genuine shop average) and 'tick'
-  (purple check glyph + label). No headline, no CTA. Also reused on Format Collections.
+  Rating-led trust strip, styled as a family with the practitioner cards. Two block kinds:
+    • 'stars' — the rating cluster (anchor): violet→purple gradient star fill to the genuine shop
+      average, "4.9 / 5", and the review count grouped beneath it.
+    • 'tick'  — refined purple check glyph + label.
+  Single row on desktop with soft hairline dividers; on mobile the rating cluster takes its own row
+  (stays prominent) and the ticks wrap beneath.
 
   PENDING-BEFORE-PUBLIC (Daniel's notes — not shown on page):
-    • "230+ reviews" — review-count scope to confirm before public (count is the genuine store
-      total, 231). NOTE: Judge.me reviews are NOT verified-buyer flagged (0/54 sampled), so the
-      label is "reviews", not "verified reviews".
+    • Review count "230+" — genuine store total (231); reviews are NOT verified-buyer (0/54 sampled),
+      so the label is "reviews", not "verified reviews".
     • "Trusted by UK Practitioners" — practitioner substantiation pending.
     • "Free delivery over £40" — confirm the £40 threshold is live in checkout.
-  Star rating value is the genuine current Judge.me shop-wide average (4.88 → shown 4.9). Update the
+  Star value is the genuine current Judge.me shop-wide average (4.88 → shown 4.9). Update the stars
   block's "rating" setting if the live average drifts; do not show 5 unless 5 is true.
 {%- endcomment -%}
 
 {%- style -%}
   .ss-trust {
     --ss-purple: #6B3FA0;
+    --ss-violet: #984AE8;
     --ss-bg: #f7f7f5;
     --ss-surface: #ffffff;
-    --ss-text: #1A1816;
-    --ss-border: rgba(26,26,26,0.12);
+    --ss-ink: #1A1816;
+    --ss-muted: #8E8A82;
+    --ss-divider: rgba(26,26,26,0.09);
     --ss-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: var(--ss-bg);
-    color: var(--ss-text);
-    border-top: 1px solid var(--ss-border);
-    border-bottom: 1px solid var(--ss-border);
+    color: var(--ss-ink);
+    border-top: 1px solid var(--ss-divider);
+    border-bottom: 1px solid var(--ss-divider);
   }
   .ss-trust--surface { background: var(--ss-surface); }
   .ss-trust__inner {
     max-width: 1180px; margin: 0 auto; padding: 16px 20px;
     display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-    gap: 10px 0; list-style: none;
+    gap: 12px 0; list-style: none;
   }
   .ss-trust__item {
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 6px 18px; position: relative; font-family: var(--ss-sans);
+    padding: 4px 22px; position: relative; font-family: var(--ss-sans);
   }
-  .ss-trust__tick { color: var(--ss-purple); display: inline-flex; flex: 0 0 auto; }
-  .ss-trust__tick svg { width: 16px; height: 16px; display: block; }
-  .ss-trust__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; line-height: 1.3; color: var(--ss-text); margin: 0; white-space: nowrap; }
 
-  /* Star rating — base row in light ink, fill overlay in brand purple clipped to the average. */
-  .ss-trust__stars { position: relative; display: inline-block; font-size: 16px; line-height: 1; letter-spacing: 2px; }
-  .ss-trust__stars-base { color: rgba(26,26,26,0.20); }
-  .ss-trust__stars-fill { position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: var(--ss-purple); }
-  .ss-trust__rating { font-family: var(--ss-sans); font-weight: 600; font-size: 14px; color: var(--ss-text); }
+  /* Rating cluster — the visual anchor */
+  .ss-trust__rating { flex-direction: column; gap: 2px; }
+  .ss-trust__rating-top { display: flex; align-items: center; gap: 9px; }
+  .ss-trust__stars { position: relative; display: inline-block; font-size: 18px; line-height: 1; letter-spacing: 2px; }
+  .ss-trust__stars-base { color: rgba(26,26,26,0.16); }
+  .ss-trust__stars-fill {
+    position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap;
+    background: linear-gradient(90deg, var(--ss-purple), var(--ss-violet));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .ss-trust__rating-num { font-family: var(--ss-sans); font-weight: 600; font-size: 16px; color: var(--ss-ink); }
+  .ss-trust__rating-denom { font-weight: 500; font-size: 13px; color: var(--ss-muted); }
+  .ss-trust__rating-count { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; color: var(--ss-muted); letter-spacing: 0.01em; }
+
+  /* Tick items */
+  .ss-trust__tick { color: var(--ss-purple); display: inline-flex; flex: 0 0 auto; }
+  .ss-trust__tick svg { width: 15px; height: 15px; display: block; }
+  .ss-trust__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; line-height: 1.3; color: var(--ss-ink); white-space: nowrap; }
 
   @media (min-width: 900px) {
-    .ss-trust__inner { flex-wrap: nowrap; padding: 14px 32px; }
+    .ss-trust__inner { flex-wrap: nowrap; gap: 0; padding: 14px 32px; }
     .ss-trust__item + .ss-trust__item::before {
       content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-      height: 20px; width: 1px; background: var(--ss-border);
+      height: 26px; width: 1px; background: var(--ss-divider);
     }
+  }
+  @media (max-width: 899px) {
+    .ss-trust__rating { flex-basis: 100%; padding-bottom: 4px; }
   }
 {%- endstyle -%}
 
 <section class="ss-trust ss-trust--{{ section.settings.band | default: 'canvas' }}" aria-label="Trust signals">
   <ul class="ss-trust__inner" role="list">
     {%- for block in section.blocks -%}
-      <li class="ss-trust__item" {{ block.shopify_attributes }}>
-        {%- if block.settings.kind == 'stars' -%}
-          {%- assign ss_r = block.settings.rating | default: 5.0 -%}
-          {%- assign ss_pct = ss_r | times: 20.0 -%}
-          <span class="ss-trust__stars" role="img" aria-label="Rated {{ ss_r }} out of 5">
-            <span class="ss-trust__stars-base" aria-hidden="true">★★★★★</span>
-            <span class="ss-trust__stars-fill" aria-hidden="true" style="width: {{ ss_pct }}%;">★★★★★</span>
+      {%- if block.settings.kind == 'stars' -%}
+        {%- assign ss_r = block.settings.rating | default: 5.0 -%}
+        {%- assign ss_pct = ss_r | times: 20.0 -%}
+        <li class="ss-trust__item ss-trust__rating" {{ block.shopify_attributes }}>
+          <span class="ss-trust__rating-top">
+            <span class="ss-trust__stars" role="img" aria-label="Rated {{ ss_r }} out of 5">
+              <span class="ss-trust__stars-base" aria-hidden="true">★★★★★</span>
+              <span class="ss-trust__stars-fill" aria-hidden="true" style="width: {{ ss_pct }}%;">★★★★★</span>
+            </span>
+            <span class="ss-trust__rating-num">{{ ss_r }}<span class="ss-trust__rating-denom"> / 5</span></span>
           </span>
-          <span class="ss-trust__rating">{{ ss_r }}</span>
-        {%- else -%}
+          {%- if block.settings.rating_count != blank -%}
+            <span class="ss-trust__rating-count">{{ block.settings.rating_count | escape }}</span>
+          {%- endif -%}
+        </li>
+      {%- else -%}
+        <li class="ss-trust__item" {{ block.shopify_attributes }}>
           <span class="ss-trust__tick" aria-hidden="true">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.3"/></svg>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.3"/></svg>
           </span>
-          {%- if block.settings.label != blank -%}<p class="ss-trust__label">{{ block.settings.label | escape }}</p>{%- endif -%}
-        {%- endif -%}
-      </li>
+          {%- if block.settings.label != blank -%}<span class="ss-trust__label">{{ block.settings.label | escape }}</span>{%- endif -%}
+        </li>
+      {%- endif -%}
     {%- endfor -%}
   </ul>
 </section>
@@ -93,9 +117,10 @@
       "type": "trust_item",
       "name": "Trust signal",
       "settings": [
-        { "type": "select", "id": "kind", "label": "Kind", "default": "tick", "options": [ { "value": "tick", "label": "Tick + label" }, { "value": "stars", "label": "Star rating" } ] },
+        { "type": "select", "id": "kind", "label": "Kind", "default": "tick", "options": [ { "value": "tick", "label": "Tick + label" }, { "value": "stars", "label": "Rating cluster" } ] },
         { "type": "text", "id": "label", "label": "Label", "default": "UK Formulated", "info": "Used when Kind = Tick + label." },
-        { "type": "text", "id": "rating", "label": "Star rating value", "default": "4.9", "info": "Used when Kind = Star rating. The genuine shop-wide average (do not show 5 unless 5 is true)." }
+        { "type": "text", "id": "rating", "label": "Star rating value", "default": "4.9", "info": "Used when Kind = Rating cluster. The genuine shop-wide average (do not show 5 unless 5 is true)." },
+        { "type": "text", "id": "rating_count", "label": "Review count", "default": "230+ reviews", "info": "Used when Kind = Rating cluster. Shown beneath the stars." }
       ]
     }
   ],
@@ -103,8 +128,7 @@
     {
       "name": "Senseless — Trust bar",
       "blocks": [
-        { "type": "trust_item", "settings": { "kind": "stars", "rating": "4.9" } },
-        { "type": "trust_item", "settings": { "kind": "tick", "label": "230+ reviews" } },
+        { "type": "trust_item", "settings": { "kind": "stars", "rating": "4.9", "rating_count": "230+ reviews" } },
         { "type": "trust_item", "settings": { "kind": "tick", "label": "UK Formulated" } },
         { "type": "trust_item", "settings": { "kind": "tick", "label": "CPSR Assessed" } },
         { "type": "trust_item", "settings": { "kind": "tick", "label": "Trusted by UK Practitioners" } },

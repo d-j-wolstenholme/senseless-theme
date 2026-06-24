@@ -169,14 +169,8 @@
           "type": "trust_item",
           "settings": {
             "kind": "stars",
-            "rating": "4.9"
-          }
-        },
-        "t-cos": {
-          "type": "trust_item",
-          "settings": {
-            "kind": "tick",
-            "label": "230+ reviews"
+            "rating": "4.9",
+            "rating_count": "230+ reviews"
           }
         },
         "t1": {
@@ -210,7 +204,6 @@
       },
       "block_order": [
         "t-stars",
-        "t-cos",
         "t1",
         "t2",
         "t3",
