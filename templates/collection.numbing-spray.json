@@ -57,8 +57,8 @@
       "type": "senseless-callout-band",
       "settings": {
         "style": "brand",
-        "eyebrow": "During your session",
-        "body": "<p>Easy to re-apply during your appointment — many customers tell us they top up with the spray through longer sessions to stay comfortable.</p>"
+        "eyebrow": "Before and during",
+        "body": "<p>Quick and even to apply on clean, unbroken skin, with no layer to work in by hand. Use it ahead of your appointment, and for a longer appointment it re-applies easily where your practitioner is happy for you to top up.</p>"
       }
     },
     "match": {
@@ -180,7 +180,7 @@
           "type": "link_item",
           "settings": {
             "label": "During-session use",
-            "note": "Many customers report topping the spray up mid-session to help keep an area comfortable — check with your practitioner first.",
+            "note": "The spray is quick to re-apply on clean, unbroken skin. Check with your practitioner before you top up.",
             "as_tag": true
           }
         },
@@ -291,7 +291,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Is spray stronger than cream or gel?",
-            "answer": "<p>Strength isn't set by the format — it's the tier you choose (Clinical, Advanced, Professional), and every format comes in all three. Pick the format for the area: the spray suits larger or broader areas and is easy to re-apply — many customers tell us they top up with it during longer sessions.</p>"
+            "answer": "<p>Strength isn't set by the format — it's the tier you choose (Clinical, Advanced, Professional), and every format comes in all three. Pick the format for the area. The spray suits larger or broader areas and goes on fast, before and through a longer appointment on clean, unbroken skin.</p>"
           }
         },
         "q4": {
@@ -318,8 +318,8 @@
         "qreapply": {
           "type": "faq_item",
           "settings": {
-            "question": "Can I re-apply numbing spray during my session?",
-            "answer": "<p>Many customers report re-applying the spray during a longer session to help extend comfort where their practitioner is happy for them to — its quick, hands-off application makes it easy to top up mid-appointment without disturbing the area. Always check with your practitioner first, as not every procedure allows re-application mid-session.</p>"
+            "question": "Can I re-apply the spray during a longer appointment?",
+            "answer": "<p>Yes, on clean, unbroken skin and with your practitioner's agreement. The spray is quick and even to apply, so topping up through a longer appointment is easy. Your practitioner decides whether and when to top up, as not every procedure allows it.</p>"
           }
         },
         "qinj": {
