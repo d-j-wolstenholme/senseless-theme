@@ -285,19 +285,22 @@
         "b1": {
           "type": "box",
           "settings": {
-            "heading": ""
+            "heading": "Best Value",
+            "product_1": "advanced-numbing-kit-large"
           }
         },
         "b2": {
           "type": "box",
           "settings": {
-            "heading": ""
+            "heading": "Practitioner's Choice",
+            "product_1": "professional-numbing-kit-large"
           }
         },
         "b3": {
           "type": "box",
           "settings": {
-            "heading": ""
+            "heading": "Most Popular",
+            "product_1": "professional-strength-cream"
           }
         }
       },
