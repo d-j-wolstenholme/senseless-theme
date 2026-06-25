@@ -14,10 +14,10 @@
     "procedures": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "p1": { "type": "format_card", "settings": { "label": "Microneedling", "body": "<p>Collagen-induction needling across the face.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image": "shopify://shop_images/senseless-procedure-microneedling.jpg", "image_alt": "Senseless topical preparation for microneedling" } },
-        "p2": { "type": "format_card", "settings": { "label": "Laser hair removal", "body": "<p>Light-based hair removal, body and face.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image": "shopify://shop_images/senseless-procedure-laser-hair-removal.jpg", "image_alt": "Senseless topical preparation for laser hair removal" } },
-        "p3": { "type": "format_card", "settings": { "label": "Semi-permanent makeup", "body": "<p>Brows, lip blush and microblading — precise facial work.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image": "shopify://shop_images/senseless-procedure-semi-permanent-makeup.jpg", "image_alt": "Senseless topical preparation for semi-permanent makeup" } },
-        "p4": { "type": "format_card", "settings": { "label": "Waxing", "body": "<p>From a quick tidy to full body waxing.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image": "shopify://shop_images/senseless-procedure-waxing.jpg", "image_alt": "Senseless topical preparation for waxing" } }
+        "p1": { "type": "format_card", "settings": { "label": "Microneedling", "body": "<p>Collagen-induction needling across the face.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-microneedling", "image": "shopify://shop_images/senseless-asterisk.svg", "image_alt": "Senseless topical preparation for microneedling" } },
+        "p2": { "type": "format_card", "settings": { "label": "Laser hair removal", "body": "<p>Light-based hair removal, body and face.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-laser-treatment", "image": "shopify://shop_images/senseless-asterisk.svg", "image_alt": "Senseless topical preparation for laser hair removal" } },
+        "p3": { "type": "format_card", "settings": { "label": "Semi-permanent makeup", "body": "<p>Brows, lip blush and microblading — precise facial work.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup", "image": "shopify://shop_images/senseless-asterisk.svg", "image_alt": "Senseless topical preparation for semi-permanent makeup" } },
+        "p4": { "type": "format_card", "settings": { "label": "Waxing", "body": "<p>From a quick tidy to full body waxing.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream-for-waxing", "image": "shopify://shop_images/senseless-asterisk.svg", "image_alt": "Senseless topical preparation for waxing" } }
       },
       "block_order": ["p1", "p2", "p3", "p4"],
       "settings": { "columns": "4", "eyebrow": "By procedure", "headline": "Find your treatment", "body": "" }
@@ -25,9 +25,9 @@
     "formats": {
       "type": "senseless-trio-card-row",
       "blocks": {
-        "f1": { "type": "format_card", "settings": { "label": "Numbing Cream", "body": "<p>Broad coverage for most appointments.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream", "image": "shopify://shop_images/senseless-numbing-cream-collection.jpg", "image_alt": "Senseless topical preparation cream" } },
-        "f2": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>Stays where it's placed — precise, facial work.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image": "shopify://shop_images/senseless-numbing-gel-collection.jpg", "image_alt": "Senseless topical preparation gel" } },
-        "f3": { "type": "format_card", "settings": { "label": "Numbing Spray", "body": "<p>Even cover for larger or awkward areas.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray", "image": "shopify://shop_images/senseless-numbing-spray-collection.jpg", "image_alt": "Senseless topical preparation spray" } }
+        "f1": { "type": "format_card", "settings": { "label": "Numbing Cream", "body": "<p>Broad coverage for most appointments.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-cream", "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp", "image_alt": "Senseless topical preparation cream" } },
+        "f2": { "type": "format_card", "settings": { "label": "Numbing Gel", "body": "<p>Stays where it's placed — precise, facial work.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-gel", "image": "shopify://shop_images/senseless-numbing-gel-collection-hero.webp", "image_alt": "Senseless topical preparation gel" } },
+        "f3": { "type": "format_card", "settings": { "label": "Numbing Spray", "body": "<p>Even cover for larger or awkward areas.</p>", "cta_label": "View range", "cta_url": "/collections/numbing-spray", "image": "shopify://shop_images/senseless-numbing-spray-collection-hero.webp", "image_alt": "Senseless topical preparation spray" } }
       },
       "block_order": ["f1", "f2", "f3"],
       "settings": { "columns": "3", "eyebrow": "By format", "headline": "Browse by format", "body": "" }

@@ -22,7 +22,7 @@
         "body": "<p>We won't claim to be the strongest cream on the market — here's how to actually choose. That's a comparative claim, and the cosmetic product category doesn't lend itself to those — different brands, different formulations, different regulatory contexts. What we'll say is this: Professional is our practitioner tier, developed with practitioners specifically for the longest and most sustained aesthetic procedures.</p>",
         "cta_label": "Explore the numbing cream range",
         "cta_url": "/collections/numbing-cream",
-        "image": "shopify://shop_images/senseless-professional-strength-cream.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial Senseless Professional product close-up"
       }
     },
@@ -35,7 +35,7 @@
         "body": "<p>Professional is formulated for full-face resurfacing, sustained SPMU sittings, intensive microneedling, and the most demanding clinic procedures. If you're booking lip fillers, Botox, a routine microneedling session, or smaller-area laser — Professional is more than the appointment asks for. Advanced is the considered upgrade most consumers find sufficient. Clinical is the everyday default. The system works because each tier matches the procedure, not because the highest tier is always the best choice.</p>",
         "cta_label": "Choose your strength",
         "cta_url": "/pages/the-senseless-system",
-        "image": "shopify://shop_images/senseless-range-upright.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial Senseless three-tier system view"
       }
     },
@@ -130,7 +130,7 @@
         "body": "<p>Senseless Professional is the formulation developed with practitioners and used in clinics across the UK. Wholesale accounts are available — clinic sizes, account pricing, and the consistency clinics need from their supply.</p>",
         "cta_label": "Trade enquiries",
         "cta_url": "/pages/trade",
-        "image": "shopify://shop_images/senseless-professional-strength-collection.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial clinic countertop with Senseless product, no faces"
       }
     },
@@ -194,7 +194,7 @@
             "body": "<p>The everyday Senseless. For routine appointments.</p>",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream?strength=clinical",
-            "image": "shopify://shop_images/senseless-clinical-strength-collection.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless Clinical Strength on a warm off-white background"
           }
         },
@@ -205,7 +205,7 @@
             "body": "<p>The considered upgrade. For longer or more sensitive sessions.</p>",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream?strength=advanced",
-            "image": "shopify://shop_images/senseless-advanced-strength-collection.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless Advanced Strength on a warm off-white background"
           }
         },
@@ -216,7 +216,7 @@
             "body": "<p>Match the tier to the procedure.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
-            "image": "shopify://shop_images/senseless-numbing-cream-trio.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
@@ -227,7 +227,7 @@
             "body": "<p>How to choose the right one.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/best-numbing-cream",
-            "image": "shopify://shop_images/senseless-numbing-cream-collection.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Buyer's guide to choosing numbing cream"
           }
         }

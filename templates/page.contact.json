@@ -141,7 +141,7 @@
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Editorial Senseless brand mark composition",
-        "image": "shopify://shop_images/senseless-editorial-head.jpg"
+        "image": "shopify://shop_images/senseless-asterisk.svg"
       }
     },
     "response": {
@@ -166,7 +166,7 @@
             "cta_label": "Read FAQ",
             "cta_url": "/pages/faq",
             "image_alt": "Senseless frequently asked questions",
-            "image": "shopify://shop_images/senseless-editorial-head.jpg"
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         },
         "strength": {
@@ -177,7 +177,7 @@
             "cta_label": "Read reviews",
             "cta_url": "/pages/reviews",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional",
-            "image": "shopify://shop_images/senseless-range-upright.jpg"
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         },
         "system": {
@@ -188,7 +188,7 @@
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
             "image_alt": "Guide to how the Senseless system works",
-            "image": "shopify://shop_images/senseless-numbing-cream-trio.jpg"
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         }
       },

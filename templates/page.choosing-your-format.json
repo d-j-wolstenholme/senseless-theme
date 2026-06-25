@@ -6,7 +6,7 @@
         "eyebrow": "The format choice",
         "headline": "Cream, Gel, and Spray. | Matched to the appointment.",
         "subhead": "<p>Format is independent of strength — an Advanced Cream is the same strength as an Advanced Gel. Which one you reach for comes down to the procedure, the treatment area, and your practitioner's protocol. Cream is where most clients start, and it covers the majority of appointments. Gel and Spray each work on their own too — and because different appointments call for different formats, plenty of clients keep more than one.</p>",
-        "image": "shopify://shop_images/senseless-cream-spray-gel-trio.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial three-format composition of Senseless cream, gel, and spray"
       }
     },
@@ -155,7 +155,7 @@
         "body": "<p>Cream is the format most clients buy and most procedures call for. It's focused, controlled, suited to face and smaller treatment areas, and the format aesthetic clinics work with most often. If you're booking lip fillers, Botox, smaller laser zones, brow or lip waxing, or SPMU — cream is almost certainly the right choice.</p>",
         "cta_label": "Shop the cream range",
         "cta_url": "/collections/numbing-cream",
-        "image": "shopify://shop_images/senseless-clinical-strength-cream-warm.jpg",
+        "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp",
         "image_alt": "Editorial Senseless cream texture detail"
       }
     },
@@ -168,7 +168,7 @@
         "body": "<p>Gel sits differently on skin than cream. It spreads further, stays in place across longer sessions, and suits procedures where the preparation needs to last through sustained contact. Microneedling is the procedure where gel most clearly earns its place. Some longer laser sessions and SPMU sittings also suit gel. The strengths and indications carry across from cream — gel isn't stronger or weaker, it's a different application.</p>",
         "cta_label": "Shop the gel range",
         "cta_url": "/collections/numbing-gel",
-        "image": "shopify://shop_images/senseless-advanced-strength-gel.jpg",
+        "image": "shopify://shop_images/senseless-numbing-gel-collection-hero.webp",
         "image_alt": "Editorial Senseless gel texture detail"
       }
     },
@@ -181,7 +181,7 @@
         "body": "<p>Spray covers ground the other two formats can't. Body laser, brazilian and bikini waxing, broader injection coverage — anywhere the treatment area is large enough that cream or gel would be impractical. Spray starts at Advanced Strength, not Clinical, because the procedures that benefit from spray format already sit past entry-tier territory.</p>",
         "cta_label": "Shop the spray range",
         "cta_url": "/collections/numbing-spray",
-        "image": "shopify://shop_images/senseless-advanced-strength-spray.jpg",
+        "image": "shopify://shop_images/senseless-numbing-spray-collection-hero.webp",
         "image_alt": "Editorial Senseless spray bottle detail"
       }
     },
@@ -194,7 +194,7 @@
         "body": "<p>Cream covers the majority of appointments, which is why it's where most people begin. But few clients book only one kind of treatment. If your diary runs from lip fillers to body laser, or microneedling to waxing, the format that suits one isn't always the one that suits the next. Spray covers the broad, body-scale work. Gel suits the longer, sustained sittings. Cream stays the everyday default. Each works perfectly well on its own — and plenty of clients keep more than one, so they're ready for the next appointment rather than ordering again the week before.</p>",
         "cta_label": "Shop the full range",
         "cta_url": "/collections/aesthetic-numbing-cream",
-        "image": "shopify://shop_images/senseless-cream-spray-gel-trio-angled.jpg",
+        "image": "shopify://shop_images/senseless-homepage-hero.webp",
         "image_alt": "Editorial three-format composition of Senseless Cream, Gel, and Spray on a warm off-white background"
       }
     },
@@ -219,7 +219,7 @@
             "body": "",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream",
-            "image": "shopify://shop_images/senseless-numbing-cream-collection.jpg",
+            "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp",
             "image_alt": "Senseless cream on a warm off-white background"
           }
         },
@@ -230,7 +230,7 @@
             "body": "",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-gel",
-            "image": "shopify://shop_images/senseless-numbing-gel-collection.jpg",
+            "image": "shopify://shop_images/senseless-numbing-gel-collection-hero.webp",
             "image_alt": "Senseless gel on a warm off-white background"
           }
         },
@@ -241,7 +241,7 @@
             "body": "",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-spray",
-            "image": "shopify://shop_images/senseless-numbing-spray-collection.jpg",
+            "image": "shopify://shop_images/senseless-numbing-spray-collection-hero.webp",
             "image_alt": "Senseless spray on a warm off-white background"
           }
         },
@@ -252,7 +252,7 @@
             "body": "<p>How to choose the right one.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/best-numbing-cream",
-            "image": "shopify://shop_images/senseless-clinical-strength-cream.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Buyer's guide to choosing numbing cream"
           }
         }

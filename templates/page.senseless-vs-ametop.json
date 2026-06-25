@@ -22,7 +22,7 @@
         "body": "<p>Ametop is a medicine, classified and regulated as such in the UK. Senseless is a cosmetic product, classified and regulated as such. They sit in different categories with different purposes, different regulatory frameworks, and different commercial contexts. We won't pretend Senseless is a direct medical substitute for Ametop — different categories don't substitute for each other. What Senseless offers: a cosmetic preparation purpose-built for aesthetic procedures, with a three-tier system matched to the kind of appointments aesthetic clinics actually run.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image": "shopify://shop_images/senseless-editorial-head.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial close-up of a Senseless topical preparation on a warm off-white background"
       }
     },
@@ -35,7 +35,7 @@
         "body": "<p>The procedures Senseless is formulated for: lip fillers, Botox, microneedling, laser, SPMU, waxing — the aesthetic catalogue. The brand position: cosmetic product, available to all without prescription, three strengths matched to procedure intensity, three formats matched to treatment area. If you're preparing for an aesthetic appointment and you want a product purpose-built for that context, Senseless is the direct answer.</p>",
         "cta_label": "Shop by procedure",
         "cta_url": "/collections/aesthetic-numbing-cream",
-        "image": "shopify://shop_images/senseless-range-angled.jpg",
+        "image": "shopify://shop_images/senseless-homepage-hero.webp",
         "image_alt": "Editorial still life of the Senseless range on a warm off-white background"
       }
     },
@@ -116,7 +116,7 @@
             "sub_label": "Advanced Strength Cream or Gel.",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-microneedling",
-            "image": "shopify://shop_images/senseless-procedure-microneedling.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless topical preparation for microneedling"
           }
         },
@@ -127,7 +127,7 @@
             "sub_label": "Advanced Strength. Cream for face, spray for body.",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-laser-treatment",
-            "image": "shopify://shop_images/senseless-procedure-laser-hair-removal.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless topical preparation for laser treatment"
           }
         },
@@ -138,7 +138,7 @@
             "sub_label": "Advanced or Professional Cream.",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
-            "image": "shopify://shop_images/senseless-procedure-semi-permanent-makeup.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless topical preparation for semi-permanent makeup"
           }
         },
@@ -149,7 +149,7 @@
             "sub_label": "Advanced Spray for body. Cream for smaller zones.",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-waxing",
-            "image": "shopify://shop_images/senseless-procedure-waxing.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless topical preparation for waxing"
           }
         }
@@ -236,7 +236,7 @@
             "body": "<p>What customers say.</p>",
             "cta_label": "Read reviews",
             "cta_url": "/pages/reviews",
-            "image": "shopify://shop_images/senseless-range-upright.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
@@ -247,7 +247,7 @@
             "body": "<p>The system, in plain terms.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
-            "image": "shopify://shop_images/senseless-the-senseless-system-hero.webp",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Guide to how the Senseless system works"
           }
         },
@@ -258,7 +258,7 @@
             "body": "<p>Every appointment Senseless covers.</p>",
             "cta_label": "View collection",
             "cta_url": "/collections/aesthetic-numbing-cream",
-            "image": "shopify://shop_images/senseless-procedure-band.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless topical preparations by aesthetic procedure"
           }
         },
@@ -269,7 +269,7 @@
             "body": "<p>The aesthetic-product alternative to EMLA.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/best-emla-alternative-uk",
-            "image": "shopify://shop_images/senseless-range-angled.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless as an alternative to EMLA"
           }
         }

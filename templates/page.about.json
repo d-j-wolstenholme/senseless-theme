@@ -11,7 +11,7 @@
         "secondary_cta_label": "",
         "secondary_cta_url": "",
         "image_alt": "Editorial Senseless brand still life on a warm off-white background, no faces",
-        "image": "shopify://shop_images/senseless-range-upright.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "caption": ""
       }
     },
@@ -25,7 +25,7 @@
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Senseless topical preparation range on a marble counter in a calm treatment setting",
-        "image": "shopify://shop_images/senseless-about-brand-band.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_ratio": "3 / 2"
       }
     },
@@ -39,7 +39,7 @@
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Editorial detail of a Senseless preparation tube on a warm off-white background",
-        "image": "shopify://shop_images/senseless-clinical-strength-cream-white.jpg"
+        "image": "shopify://shop_images/senseless-asterisk.svg"
       }
     },
     "credentials": {
@@ -59,7 +59,7 @@
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Editorial three-tier Senseless lineup on a warm off-white background",
-        "image": "shopify://shop_images/senseless-range-angled.jpg"
+        "image": "shopify://shop_images/senseless-asterisk.svg"
       }
     },
     "practice": {
@@ -72,7 +72,7 @@
         "cta_label": "Trade enquiries",
         "cta_url": "/pages/trade",
         "image_alt": "Editorial clinic-context image, no faces",
-        "image": "shopify://shop_images/senseless-professional-strength-collection.jpg"
+        "image": "shopify://shop_images/senseless-asterisk.svg"
       }
     },
     "notice": {
@@ -138,7 +138,7 @@
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
             "image_alt": "Guide to how the Senseless system works",
-            "image": "shopify://shop_images/senseless-numbing-cream-trio.jpg"
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         },
         "strength": {
@@ -149,7 +149,7 @@
             "cta_label": "Read reviews",
             "cta_url": "/pages/reviews",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional",
-            "image": "shopify://shop_images/senseless-editorial-head.jpg"
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         },
         "shop": {
@@ -160,7 +160,7 @@
             "cta_label": "View collection",
             "cta_url": "/collections/aesthetic-numbing-cream",
             "image_alt": "Senseless topical preparations by aesthetic procedure",
-            "image": "shopify://shop_images/senseless-procedure-band.jpg"
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         },
         "rel_contact": {

@@ -30,7 +30,7 @@
             "body": "<p>How intensive is it? A quick, surface procedure and a longer, deeper one ask different things of the skin. Strength is matched to the treatment, not to a leaderboard.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image": "shopify://shop_images/senseless-clinical-strength-cream.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Editorial close-up of a Senseless topical preparation matched to the treatment"
           }
         },
@@ -41,7 +41,7 @@
             "body": "<p>Where on the body? A small, precise area suits a different format than a broad one — a gel stays where it's placed, a cream covers, a spray suits larger zones.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image": "shopify://shop_images/senseless-cream-spray-gel-trio.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Editorial still life of Senseless cream, gel and spray formats for different treatment areas"
           }
         },
@@ -52,7 +52,7 @@
             "body": "<p>Your own sensitivity matters. Two people, same treatment, can want different levels of preparation. The \"best\" is personal, which is exactly why one product can't be best for everyone.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image": "shopify://shop_images/senseless-numbing-cream-trio.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Editorial three-tier Senseless lineup on a warm off-white background"
           }
         }
@@ -204,7 +204,7 @@
             "body": "<p>How the matching works.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
-            "image": "shopify://shop_images/senseless-the-senseless-system-hero.webp",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Guide to how the Senseless system works"
           }
         },
@@ -215,7 +215,7 @@
             "body": "<p>Answer a few questions.</p>",
             "cta_label": "Open the Selector",
             "cta_url": "/pages/the-senseless-system#selector",
-            "image": "shopify://shop_images/senseless-cream-spray-gel-trio-angled.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "The Senseless Selector — find your format and strength"
           }
         },
@@ -226,7 +226,7 @@
             "body": "<p>Browse the cream range.</p>",
             "cta_label": "View collection",
             "cta_url": "/collections/numbing-cream",
-            "image": "shopify://shop_images/senseless-numbing-cream-collection.jpg",
+            "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp",
             "image_alt": "Editorial still life of the Senseless cream range on a warm off-white background"
           }
         },
@@ -237,7 +237,7 @@
             "body": "<p>Our practitioner tier.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/strongest-numbing-cream",
-            "image": "shopify://shop_images/senseless-professional-strength-cream.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless Professional, our practitioner tier"
           }
         }

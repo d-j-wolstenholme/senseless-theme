@@ -18,7 +18,7 @@
         "body": "<p>The procedure: a 15-minute Botox session asks something different from a 90-minute microneedling appointment. The tier: Clinical, Advanced, and Professional are formulated for different session lengths. The individual: skin sensitivity, treatment area, hydration, and the specific application all change what the same product does on the same procedure for two different clients. The duration question can't be answered with a single number because none of these variables are constant.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image": "shopify://shop_images/senseless-range-upright.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial still life of the Senseless range — the three duration-shaping variables"
       }
     },
@@ -31,7 +31,7 @@
         "body": "<p>Topical preparations for aesthetic procedures are designed to cover a typical appointment window — your practitioner can advise on timing for your treatment. Within the Senseless system, the tiers are formulated to match the session lengths they're built for — Clinical for shorter, focused appointments; Advanced for longer or more sensitive sessions; Professional for sustained or intensive bookings. The system's logic is built into the duration question, even if the specific timing isn't ours to give.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image": "shopify://shop_images/senseless-cream-spray-gel-trio-angled.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial Senseless three-tier system view"
       }
     },
@@ -55,7 +55,7 @@
         "body": "<p>A well-matched preparation lasts the length of the procedure. The reason the Senseless system has three tiers and the recommendation matrix tells you which to pick is exactly this — too short a window for an intensive session is the most common application mistake. If your appointment runs longer than expected and you've been on the lighter side of preparation, your practitioner has options. Some reapply at the chair. Some use additional numbing during the procedure. Some pause briefly. Your practitioner knows what they can offer and what their protocol allows.</p>",
         "cta_label": "Choose your strength",
         "cta_url": "/pages/the-senseless-system",
-        "image": "shopify://shop_images/senseless-editorial-head.jpg",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial detail of a Senseless preparation tube matched to session length"
       }
     },
@@ -130,7 +130,7 @@
             "body": "<p>Match the tier to the procedure.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
-            "image": "shopify://shop_images/senseless-range-upright.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
@@ -141,7 +141,7 @@
             "body": "<p>Onset timing, explained.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
-            "image": "shopify://shop_images/senseless-editorial-head.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Guide to how long a Senseless preparation takes to work"
           }
         },
@@ -152,7 +152,7 @@
             "body": "<p>The application routine.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/how-to-apply-numbing-cream",
-            "image": "shopify://shop_images/senseless-home-how-to-use-arm.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Guide to applying a Senseless topical preparation"
           }
         },
@@ -163,7 +163,7 @@
             "body": "<p>The honest answer on whether it works.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/does-numbing-cream-work",
-            "image": "shopify://shop_images/senseless-numbing-cream-collection.jpg",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Guide to whether numbing cream works"
           }
         }
