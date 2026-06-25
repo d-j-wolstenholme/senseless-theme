@@ -11,3 +11,7 @@ node_modules/
 .idea/
 assets/images/inbox/*
 !assets/images/inbox/.gitkeep
+
+# Transient working dirs (not theme files)
+_audit_live/
+outputs/

@@ -8,7 +8,8 @@
           "settings": {
             "title": "Does it hurt? Pain by treatment",
             "url": "/pages/does-it-hurt-by-treatment",
-            "body": "How much each aesthetic treatment tends to hurt, treatment by treatment."
+            "body": "How much each aesthetic treatment tends to hurt, treatment by treatment.",
+            "image": "shopify://shop_images/senseless-clinical-strength-cream.jpg"
           }
         },
         "g2": {
@@ -16,7 +17,8 @@
           "settings": {
             "title": "Does microneedling hurt?",
             "url": "/pages/does-microneedling-hurt",
-            "body": "What microneedling feels like and how to prepare."
+            "body": "What microneedling feels like and how to prepare.",
+            "image": "shopify://shop_images/senseless-clinical-strength-gel.jpg"
           }
         },
         "g3": {
@@ -24,7 +26,8 @@
           "settings": {
             "title": "Does laser hair removal hurt?",
             "url": "/pages/does-laser-hair-removal-hurt",
-            "body": "What laser hair removal feels like and how to prepare."
+            "body": "What laser hair removal feels like and how to prepare.",
+            "image": "shopify://shop_images/senseless-clinical-strength-spray.jpg"
           }
         }
       },

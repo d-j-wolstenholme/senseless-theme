@@ -53,6 +53,12 @@
         "type": "image_picker",
         "id": "favicon",
         "label": "t:settings.favicon"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Default social sharing image",
+        "info": "Used for og:image / Twitter card on pages without their own image (homepage, content/guide pages). 1200×630 recommended."
       }
     ]
   },

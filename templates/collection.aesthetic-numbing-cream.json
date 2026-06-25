@@ -23,6 +23,7 @@
             "sub_label": "",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-microneedling",
+            "image": "shopify://shop_images/senseless-procedure-microneedling.jpg",
             "image_alt": "Senseless topical preparation for microneedling"
           }
         },
@@ -33,6 +34,7 @@
             "sub_label": "",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-laser-treatment",
+            "image": "shopify://shop_images/senseless-procedure-laser-hair-removal.jpg",
             "image_alt": "Senseless topical preparation for laser treatment"
           }
         },
@@ -43,6 +45,7 @@
             "sub_label": "",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
+            "image": "shopify://shop_images/senseless-procedure-semi-permanent-makeup.jpg",
             "image_alt": "Senseless topical preparation for semi-permanent makeup"
           }
         },
@@ -53,6 +56,7 @@
             "sub_label": "",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-waxing",
+            "image": "shopify://shop_images/senseless-procedure-waxing.jpg",
             "image_alt": "Senseless topical preparation for waxing"
           }
         }
@@ -80,6 +84,7 @@
         "body": "<p>A cream made for \"skin numbing\" handles every situation the same way. Aesthetic procedures don't work that way. A lip filler appointment asks something different from a session of full-face laser. Senseless is built for the procedure, not the average — three strengths, three formats, formulated to match what each kind of appointment actually demands.</p>",
         "cta_label": "How Senseless works",
         "cta_url": "/pages/the-senseless-system",
+        "image": "shopify://shop_images/senseless-advanced-strength-cream-white.jpg",
         "image_alt": "Senseless topical preparation cream close-up on a warm off-white background"
       }
     },
@@ -243,6 +248,7 @@
         "body": "<p>Most aesthetic appointments end with a treated area that needs gentle handling. The Senseless Foaming Cleanser is built for the hours after. An antibacterial cleansing foam that respects what you just had done.</p>",
         "cta_label": "View Foaming Cleanser",
         "cta_url": "/products/foaming-cleanser",
+        "image": "shopify://shop_images/senseless-foaming-cleanser.jpg",
         "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
       }
     },
@@ -314,6 +320,7 @@
             "body": "<p>Three strengths and two sizes.</p>",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream",
+            "image": "shopify://shop_images/senseless-numbing-cream-collection.jpg",
             "image_alt": "Senseless cream on a warm off-white background"
           }
         },
@@ -324,6 +331,7 @@
             "body": "<p>Two strengths — Advanced and Professional.</p>",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-gel",
+            "image": "shopify://shop_images/senseless-numbing-gel-collection.jpg",
             "image_alt": "Senseless gel on a warm off-white background"
           }
         },
@@ -334,6 +342,7 @@
             "body": "<p>Advanced and Professional, for body areas.</p>",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-spray",
+            "image": "shopify://shop_images/senseless-numbing-spray-collection.jpg",
             "image_alt": "Senseless spray on a warm off-white background"
           }
         }

@@ -32,5 +32,5 @@ REPO | blocks/review.liquid | product.metafields.reviews.rating
 # --- LIVE: rendered widgets that must survive every deploy ---
 LIVE | https://senseless.uk/pages/reviews | jdgm-widget
 LIVE | https://senseless.uk/pages/reviews | jdgm-histogram
-LIVE | https://senseless.uk/products/clinical-strength-cream | jdgm-review-snippet-widget
+LIVE | https://senseless.uk/products/clinical-strength-cream | jdgm-preview-badge
 LIVE | https://senseless.uk/products/clinical-strength-cream | jdgm-widget

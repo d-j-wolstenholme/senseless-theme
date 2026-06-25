@@ -18,6 +18,7 @@
         "body": "<p>Senseless sits in the cosmetic product category. Not a medicine. Not a pharmacy product. A topical preparation formulated specifically for the way modern aesthetic appointments run — short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result. The category matters because it shapes what the product is built for and how it's regulated.</p>",
         "cta_label": "",
         "cta_url": "",
+        "image": "shopify://shop_images/senseless-clinical-strength-cream-warm.jpg",
         "image_alt": "Editorial close-up of a Senseless topical preparation, the UK cosmetic category"
       }
     },
@@ -30,6 +31,7 @@
         "body": "<p>The Senseless system has two axes — strength and format. Strength matches the procedure: Clinical for routine appointments, Advanced for longer or more sensitive sessions, Professional — our practitioner tier — for the longest, most sustained sessions. Format matches the treatment area and the session length: cream for most face appointments, gel for sustained sessions, spray for body and broader zones. Together they answer two separate questions, not one.</p>",
         "cta_label": "Choose your strength",
         "cta_url": "/pages/the-senseless-system",
+        "image": "shopify://shop_images/senseless-range-upright.jpg",
         "image_alt": "Editorial Senseless system view — all formats and tiers"
       }
     },
@@ -42,6 +44,7 @@
         "body": "<p>Senseless is applied before your appointment, at home or wherever you're preparing. Clean the treatment area, apply a thin layer, leave it for the time your practitioner recommends, wipe before the procedure starts. Specific timing varies by procedure, by tier, and by clinic — your practitioner is the best guide for the appointment you've actually booked.</p>",
         "cta_label": "Full application guide",
         "cta_url": "/pages/how-to-apply-numbing-cream",
+        "image": "shopify://shop_images/senseless-home-how-to-use-arm.jpg",
         "image_alt": "Editorial Senseless product-in-use shot, no faces"
       }
     },
@@ -54,6 +57,7 @@
         "body": "<p>Senseless is a topical preparation that supports comfort during your aesthetic appointment. Specific experience varies between clients — sensitivity, treatment area, procedure type, practitioner protocol. Many find prepared skin more comfortable than unprepared. The product isn't a substitute for a practitioner's care during your booking; it's the preparation step that sits before it.</p>",
         "cta_label": "",
         "cta_url": "",
+        "image": "shopify://shop_images/senseless-numbing-cream-trio.jpg",
         "image_alt": "Editorial still life of the Senseless range supporting appointment comfort"
       }
     },
@@ -78,6 +82,7 @@
             "body": "<p>Clinical, Advanced, Professional. The decision matrix by procedure.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
+            "image": "shopify://shop_images/senseless-range-upright.jpg",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
@@ -88,6 +93,7 @@
             "body": "<p>Cream, gel, spray. Decided by procedure and treatment area.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system#selector",
+            "image": "shopify://shop_images/senseless-cream-spray-gel-trio.jpg",
             "image_alt": "Senseless format guide — cream, gel and spray"
           }
         },
@@ -98,6 +104,7 @@
             "body": "<p>The application routine, step by step.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/how-to-apply-numbing-cream",
+            "image": "shopify://shop_images/senseless-home-how-to-use-arm.jpg",
             "image_alt": "Guide to applying a Senseless topical preparation"
           }
         },
@@ -108,6 +115,7 @@
             "body": "<p>The brand and the company behind it.</p>",
             "cta_label": "Read more",
             "cta_url": "/pages/about",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "About Senseless and Matrix Health Group"
           }
         }

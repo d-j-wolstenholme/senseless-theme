@@ -123,6 +123,7 @@
         "body": "<p><strong>Applying too much.</strong> A thin layer works better than a thick one. Overloading the skin doesn't improve the preparation — it usually just wastes product.</p><p><strong>Applying too early or too late.</strong> Specific timing matters. Apply at the wrong window and the preparation may not match the procedure. Your practitioner is the best guide.</p><p><strong>Skipping the wipe step.</strong> Most procedures need the product removed before the practitioner starts work. Skipping this step can interfere with the appointment.</p>",
         "cta_label": "",
         "cta_url": "",
+        "image": "shopify://shop_images/senseless-home-how-to-use-arm.jpg",
         "image_alt": "Editorial detail of a Senseless preparation tube during application"
       }
     },
@@ -257,6 +258,7 @@
             "body": "<p>What customers say.</p>",
             "cta_label": "Read reviews",
             "cta_url": "/pages/reviews",
+            "image": "shopify://shop_images/senseless-home-how-to-use.jpg",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
@@ -267,6 +269,7 @@
             "body": "<p>Cream, gel, spray. Decided by procedure and treatment area.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
+            "image": "shopify://shop_images/senseless-cream-spray-gel-trio.jpg",
             "image_alt": "Senseless format guide — cream, gel and spray"
           }
         },
@@ -277,6 +280,7 @@
             "body": "<p>Every appointment Senseless covers.</p>",
             "cta_label": "View collection",
             "cta_url": "/collections/aesthetic-numbing-cream",
+            "image": "shopify://shop_images/senseless-procedure-band.jpg",
             "image_alt": "Senseless range shown by aesthetic procedure"
           }
         },
@@ -287,6 +291,7 @@
             "body": "<p>When to apply before your appointment.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
+            "image": "shopify://shop_images/senseless-numbing-cream-collection.jpg",
             "image_alt": "Guide to numbing cream onset timing"
           }
         }

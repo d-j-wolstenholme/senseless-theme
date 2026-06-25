@@ -24,6 +24,7 @@
             "body": "<p>Volume pricing tiers for clinics, salons, and aesthetic practices. Specific rates discussed at the enquiry stage.</p>",
             "cta_label": "",
             "cta_url": "",
+            "image": "shopify://shop_images/senseless-range-upright.jpg",
             "image_alt": "Trade account pricing"
           }
         },
@@ -34,6 +35,7 @@
             "body": "<p>Bulk sizes for the products clinics use at volume. Beyond the consumer 30g and 35ml ranges. Specific SKUs discussed at the enquiry stage.</p>",
             "cta_label": "",
             "cta_url": "",
+            "image": "shopify://shop_images/senseless-range-angled.jpg",
             "image_alt": "Clinic and salon pack sizes"
           }
         },
@@ -44,6 +46,7 @@
             "body": "<p>UK formulation, UK supply chain, account-level inventory visibility. The supply continuity clinics need from a long-term partner.</p>",
             "cta_label": "",
             "cta_url": "",
+            "image": "shopify://shop_images/senseless-cream-spray-gel-trio.jpg",
             "image_alt": "Consistent trade supply"
           }
         }
@@ -79,6 +82,7 @@
         "body": "<p>Senseless is formulated for aesthetic procedures. The product range, the recommendation system, and the trade infrastructure are all built around that specialism. The practitioners Senseless trade suits: aesthetic clinics running injectables, microneedling, and laser; SPMU artists working sustained sittings; waxing salons handling regular body work; and dermatology-adjacent practices using topical preparation for their procedures. If you're a medical or general healthcare practice using numbing for non-aesthetic procedures, Senseless isn't formulated for that context — Emla, Ametop, or another medical preparation is the right product.</p>",
         "cta_label": "",
         "cta_url": "",
+        "image": "shopify://shop_images/senseless-range-upright.jpg",
         "image_alt": "Clinic-context image, no faces"
       }
     },
@@ -91,6 +95,7 @@
         "body": "<p>Professional Strength is where most practitioners start with Senseless — and a trade account takes it further. Wholesale pricing covers the whole range — cream, gel and spray, every strength — for clinics ordering at volume. Professional Strength stays available to everyone; trade is the ongoing supply relationship behind it.</p>",
         "cta_label": "",
         "cta_url": "",
+        "image": "shopify://shop_images/senseless-professional-strength-cream.jpg",
         "image_alt": "Senseless topical preparation product close-up on a warm off-white background"
       }
     },
@@ -271,6 +276,7 @@
             "body": "<p>Browse the full consumer catalogue.</p>",
             "cta_label": "View collection",
             "cta_url": "/collections/shop-all",
+            "image": "shopify://shop_images/senseless-range-angled.jpg",
             "image_alt": "The Senseless topical preparation range"
           }
         },
@@ -281,6 +287,7 @@
             "body": "<p>The brand and the company behind it.</p>",
             "cta_label": "Read more",
             "cta_url": "/pages/about",
+            "image": "shopify://shop_images/senseless-about-brand-band.jpg",
             "image_alt": "About Senseless"
           }
         },
@@ -291,6 +298,7 @@
             "body": "<p>Other questions.</p>",
             "cta_label": "Contact us",
             "cta_url": "/pages/contact",
+            "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Contact Senseless"
           }
         }

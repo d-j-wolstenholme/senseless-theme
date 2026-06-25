@@ -6,6 +6,7 @@
         "eyebrow": "Does it work?",
         "headline": "Yes, with a few honest caveats.",
         "subhead": "<p>Senseless is a topical preparation that supports comfort during aesthetic procedures. The product works in the sense that it does what a cosmetic preparation in this category is designed to do. The honest version of \"yes\" includes the variables that change what \"works\" means for any specific client.</p>",
+        "image": "shopify://shop_images/senseless-clinical-strength-cream.jpg",
         "image_alt": "Editorial close-up of a Senseless topical preparation tube on a warm off-white background"
       }
     },
@@ -18,6 +19,7 @@
         "body": "<p>Topical numbing preparations sit in a specific category. They're cosmetic products applied to the skin before a procedure. They support comfort during the appointment — that's their purpose, and it's the language regulators recognise. They're not anaesthetics. They're not medicines. They're not designed to remove all sensation from a procedure. What they do is meaningful, but the category itself is honest about what that is.</p>",
         "cta_label": "",
         "cta_url": "",
+        "image": "shopify://shop_images/senseless-clinical-strength-cream-white.jpg",
         "image_alt": "Editorial still life of a Senseless topical preparation, presented as a cosmetic product"
       }
     },
@@ -30,6 +32,7 @@
         "body": "<p>The procedure matters. A lip filler appointment, a microneedling session, and a laser resurfacing all ask different things from preparation — the same product delivers a different experience across them. The tier matters. Clinical, Advanced, and Professional are formulated for different procedures and session lengths — picking the wrong tier for the procedure is the most common reason a client says \"it didn't work for me.\" The individual matters. Skin sensitivity, treatment area, hydration, and how well the application protocol was followed — these all change the outcome. \"Does it work\" is three questions in one. The answer depends on getting all three right.</p>",
         "cta_label": "Match the tier to the procedure",
         "cta_url": "/pages/the-senseless-system",
+        "image": "shopify://shop_images/senseless-range-upright.jpg",
         "image_alt": "Editorial Senseless system view"
       }
     },
@@ -42,6 +45,7 @@
         "body": "<p>That's the general observation across the category. Many clients find their aesthetic appointment more comfortable with topical preparation than without. The experience varies — sometimes meaningfully, sometimes subtly. Senseless doesn't promise a specific sensation outcome because that's not the brand's to promise. What the brand promises is a UK-formulated cosmetic preparation built for the kind of sessions modern aesthetic clinics actually run. The experience that follows depends on the procedure, the tier, and you.</p>",
         "cta_label": "",
         "cta_url": "",
+        "image": "shopify://shop_images/senseless-home-how-to-use-arm.jpg",
         "image_alt": "Editorial detail of a Senseless topical preparation ready for an aesthetic appointment"
       }
     },
@@ -54,6 +58,7 @@
         "body": "<p><strong>The tier didn't match the procedure.</strong> Clinical Strength applied before a 90-minute microneedling session won't deliver what Advanced would. Picking the wrong tier is the most common reason clients say a preparation didn't work.</p><p><strong>The application window was off.</strong> Too early and the preparation runs its course before the procedure. Too late and it doesn't reach its full effect. Specific timing matters more than most clients realise.</p><p><strong>Expectation set too high.</strong> Some clients expect topical preparation to remove all sensation from a procedure. That's not what this category is for. Clients who go in expecting comfort during the appointment tend to be more satisfied than clients who expect complete absence of sensation.</p>",
         "cta_label": "Choose your strength",
         "cta_url": "/pages/the-senseless-system",
+        "image": "shopify://shop_images/senseless-advanced-strength-collection.jpg",
         "image_alt": "Editorial close-up of the three Senseless strength tiers side by side"
       }
     },
@@ -139,6 +144,7 @@
             "body": "<p>What customers say.</p>",
             "cta_label": "Read reviews",
             "cta_url": "/pages/reviews",
+            "image": "shopify://shop_images/senseless-editorial-head.jpg",
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
@@ -149,6 +155,7 @@
             "body": "<p>The system, in plain terms.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
+            "image": "shopify://shop_images/senseless-range-angled.jpg",
             "image_alt": "Guide to how the Senseless system works"
           }
         },
@@ -159,6 +166,7 @@
             "body": "<p>The application routine.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/how-to-apply-numbing-cream",
+            "image": "shopify://shop_images/senseless-home-how-to-use-arm.jpg",
             "image_alt": "Guide to applying a Senseless topical preparation"
           }
         },
@@ -169,6 +177,7 @@
             "body": "<p>When to apply before your appointment.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
+            "image": "shopify://shop_images/senseless-numbing-cream-collection.jpg",
             "image_alt": "Guide to numbing cream onset timing"
           }
         }

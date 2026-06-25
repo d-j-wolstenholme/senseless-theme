@@ -11,6 +11,7 @@
         "secondary_cta_label": "",
         "secondary_cta_url": "",
         "image_alt": "Editorial Senseless brand still life on a warm off-white background, no faces",
+        "image": "shopify://shop_images/senseless-range-upright.jpg",
         "caption": ""
       }
     },
@@ -37,7 +38,8 @@
         "body": "<p>Senseless is a brand of Matrix Health Group Ltd, a UK company in the personal-care and aesthetics sector. The parent company gives Senseless the regulatory, manufacturing, and quality infrastructure to operate as a UK cosmetic brand at the standard the category demands. Matrix Health Group provides the operational scaffolding. Senseless is the brand built on top of it, focused entirely on aesthetic topical preparation.</p><p>Enquiries: <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> &middot; <a href=\"tel:+443330495549\">0333&nbsp;049&nbsp;5549</a></p>",
         "cta_label": "",
         "cta_url": "",
-        "image_alt": "Editorial detail of a Senseless preparation tube on a warm off-white background"
+        "image_alt": "Editorial detail of a Senseless preparation tube on a warm off-white background",
+        "image": "shopify://shop_images/senseless-clinical-strength-cream-white.jpg"
       }
     },
     "credentials": {
@@ -56,7 +58,8 @@
         "body": "<p>The aesthetics category deserves a product range built specifically for it — not generic skin preparation stretched to fit. Most aesthetic appointments need a specific tier and format. A single-product approach can't match every booking, so Senseless doesn't try. The three-tier, three-format system is the answer. And we'd rather tell a buyer when Professional is overkill, when Clinical is enough, or when Senseless isn't the right product at all — than convert a sale that doesn't suit the appointment.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image_alt": "Editorial three-tier Senseless lineup on a warm off-white background"
+        "image_alt": "Editorial three-tier Senseless lineup on a warm off-white background",
+        "image": "shopify://shop_images/senseless-range-angled.jpg"
       }
     },
     "practice": {
@@ -68,7 +71,8 @@
         "body": "<p>Senseless Professional is used in clinics across the UK for the most demanding procedures the system is built for. Senseless Clinical and Advanced are bought direct by clients preparing for their own appointments. The two audiences sit on the same product range, with the same formulation system, in different tier strengths. The clinic credibility supports the consumer purchase. The consumer purchase isn't a watered-down version of the clinic one. The system is the same.</p>",
         "cta_label": "Trade enquiries",
         "cta_url": "/pages/trade",
-        "image_alt": "Editorial clinic-context image, no faces"
+        "image_alt": "Editorial clinic-context image, no faces",
+        "image": "shopify://shop_images/senseless-professional-strength-collection.jpg"
       }
     },
     "notice": {
@@ -81,7 +85,8 @@
             "body": "<p>Strength matches procedure. Format matches treatment area. The recommendations are matrix-driven, not marketing-driven.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image_alt": "Editorial illustration of the Senseless matrix-driven system"
+            "image_alt": "Editorial illustration of the Senseless matrix-driven system",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         },
         "honesty": {
@@ -91,7 +96,8 @@
             "body": "<p>We tell buyers when a product is overkill for their procedure. We refuse comparative efficacy claims against other brands. We don't gate Professional behind practitioner credentials.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image_alt": "Editorial image representing the Senseless honest approach"
+            "image_alt": "Editorial image representing the Senseless honest approach",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         },
         "voice": {
@@ -101,7 +107,8 @@
             "body": "<p>Restrained, declarative, evidence-led. The brand's job is to be useful at the point of purchase. We don't oversell.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image_alt": "Editorial image representing the Senseless brand voice"
+            "image_alt": "Editorial image representing the Senseless brand voice",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         }
       },
@@ -130,7 +137,8 @@
             "body": "<p>The system explained.</p>",
             "cta_label": "Read guide",
             "cta_url": "/pages/the-senseless-system",
-            "image_alt": "Guide to how the Senseless system works"
+            "image_alt": "Guide to how the Senseless system works",
+            "image": "shopify://shop_images/senseless-numbing-cream-trio.jpg"
           }
         },
         "strength": {
@@ -140,7 +148,8 @@
             "body": "<p>What customers say.</p>",
             "cta_label": "Read reviews",
             "cta_url": "/pages/reviews",
-            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
+            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional",
+            "image": "shopify://shop_images/senseless-editorial-head.jpg"
           }
         },
         "shop": {
@@ -150,7 +159,8 @@
             "body": "<p>Browse the range.</p>",
             "cta_label": "View collection",
             "cta_url": "/collections/aesthetic-numbing-cream",
-            "image_alt": "Senseless topical preparations by aesthetic procedure"
+            "image_alt": "Senseless topical preparations by aesthetic procedure",
+            "image": "shopify://shop_images/senseless-procedure-band.jpg"
           }
         },
         "rel_contact": {
@@ -160,7 +170,8 @@
             "body": "<p>Reach the Senseless team.</p>",
             "cta_label": "Get in touch",
             "cta_url": "/pages/contact",
-            "image_alt": "Contact the Senseless team"
+            "image_alt": "Contact the Senseless team",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         }
       },
