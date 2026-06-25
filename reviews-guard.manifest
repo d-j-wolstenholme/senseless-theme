@@ -1,0 +1,36 @@
+# reviews-guard.manifest — the Judge.me review-widget CONTRACT.
+# deploy.sh enforces this on every run. It changes ONLY when a widget change is intended
+# (then re-run deploy.sh with --reviews-changed and commit the updated reviews-guard.lock).
+#
+# Format (pipe-delimited, spaces around the pipes):
+#   REPO | <repo file path>        | <required marker substring proving the embed/accessor is present>
+#   LIVE | <rendered url>          | <required marker substring that must appear in the served HTML>
+#
+# REPO markers prove the embed is wired in the theme SOURCE (so a deploy can't silently drop it).
+# LIVE markers prove the widget actually renders after deploy.
+
+# --- REPO: source files carrying a Judge.me embed or the reviews.rating accessor ---
+REPO | templates/page.reviews.json | all_reviews_page
+REPO | templates/product.json | preview_badge
+REPO | templates/product.clinical-strength-cream.json | preview_badge
+REPO | templates/product.clinical-strength-gel.json | preview_badge
+REPO | templates/product.clinical-strength-spray.json | preview_badge
+REPO | templates/product.advanced-strength-cream.json | preview_badge
+REPO | templates/product.advanced-strength-gel.json | preview_badge
+REPO | templates/product.advanced-strength-spray.json | preview_badge
+REPO | templates/product.professional-strength-cream.json | preview_badge
+REPO | templates/product.professional-strength-gel.json | preview_badge
+REPO | templates/product.professional-strength-spray.json | preview_badge
+REPO | templates/product.foaming-cleanser.json | preview_badge
+REPO | templates/product.bundle.json | preview_badge
+REPO | sections/senseless-reviews.liquid | @app
+REPO | sections/senseless-product-hero.liquid | @app
+REPO | sections/senseless-collection-grid.liquid | judgeme
+REPO | snippets/senseless-structured-data.liquid | product.metafields.reviews.rating
+REPO | blocks/review.liquid | product.metafields.reviews.rating
+
+# --- LIVE: rendered widgets that must survive every deploy ---
+LIVE | https://senseless.uk/pages/reviews | jdgm-widget
+LIVE | https://senseless.uk/pages/reviews | jdgm-histogram
+LIVE | https://senseless.uk/products/clinical-strength-cream | jdgm-review-snippet-widget
+LIVE | https://senseless.uk/products/clinical-strength-cream | jdgm-widget

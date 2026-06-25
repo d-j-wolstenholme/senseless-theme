@@ -1,28 +1,110 @@
 #!/usr/bin/env bash
-# Senseless — one-command scoped deploy (live theme only, via the durable CLI token-auth path).
+# Senseless — one-command scoped deploy (live theme only) with the Judge.me reviews guard.
 #
-# Authenticates `shopify theme push` non-interactively with the write_themes-scoped shpca_ Admin
-# token (SHOPIFY_CLI_THEME_TOKEN=$SHOPIFY_ACCESS_TOKEN). The deploy runs ENTIRELY through the Shopify
-# CLI — it does NOT use the Admin Asset API (Hard Rule #11 bars Asset-API deploys, not CLI token-auth).
+# Auth: SHOPIFY_CLI_THEME_TOKEN=$SHOPIFY_ACCESS_TOKEN (write_themes-scoped shpca_). Deploy runs
+# entirely through `shopify theme push` (CLI), never the Admin Asset API (Hard Rule #11). The guard
+# READS live via the Admin Asset API, which is read-only and permitted.
 #
-# Scoped pushes ONLY: every path arg becomes an --only flag. No args => usage + exit 1 (never a blind
-# whole-theme push).
+# Scoped pushes ONLY — each path arg becomes an --only flag. No file args => usage + exit 1.
+#
+# REVIEWS GUARD (reviews-guard.manifest is the contract; reviews-guard.lock pins checksums):
+#   (a) REPO assertion  — every REPO file must still contain its marker (blocks removal from repo).
+#   (b) LIVE-vs-deploy  — a deployed REPO file must not drop a marker the live copy currently has.
+#   (c) change surfacing— REPO files are checksum-locked; a change prints a diff and REQUIRES
+#                         --reviews-changed (then the lock is rewritten — commit it with the change).
+#   (4) post-deploy     — every LIVE marker must render after the push (4–6x, varied UA, cache-bust),
+#                         else deploy.sh exits non-zero LOUDLY.
 #
 # USAGE:
 #   ./scripts/deploy.sh sections/foo.liquid templates/index.json
+#   ./scripts/deploy.sh templates/page.reviews.json --reviews-changed   # when a widget change is intended
 #
 set -euo pipefail
 
 STORE="senseless-numbing.myshopify.com"
 THEME="199324434780"   # live "Senseless Dev"
+MANIFEST="reviews-guard.manifest"
+LOCK="reviews-guard.lock"
 
-# Run from repo root (so ./scripts/refresh-token.sh + its relative `source .env` resolve).
 cd "$(dirname "$0")/.."
 
-# Require at least one file path — never push the whole theme.
-if [[ $# -eq 0 ]]; then
-  echo "usage: ./scripts/deploy.sh <file> [<file> ...]" >&2
+# Parse args: --reviews-changed flag + file paths.
+REVIEWS_CHANGED=0
+files=()
+for a in "$@"; do
+  case "$a" in
+    --reviews-changed) REVIEWS_CHANGED=1 ;;
+    *) files+=("$a") ;;
+  esac
+done
+if [[ ${#files[@]} -eq 0 ]]; then
+  echo "usage: ./scripts/deploy.sh <file> [<file> ...] [--reviews-changed]" >&2
   echo "  e.g. ./scripts/deploy.sh sections/foo.liquid templates/index.json" >&2
+  exit 1
+fi
+[[ -f "$MANIFEST" ]] || { echo "deploy: $MANIFEST missing — reviews guard not configured" >&2; exit 1; }
+[[ -f "$LOCK" ]] || { echo "deploy: $LOCK missing — reviews guard not configured" >&2; exit 1; }
+
+# ---------- GATE (a): REPO marker assertion ----------
+echo "guard(a): asserting REPO markers present in repo source..."
+if ! python3 - "$MANIFEST" <<'PYEOF'
+import sys
+miss=[]
+for ln in open(sys.argv[1]):
+    s=ln.strip()
+    if not (s.startswith('REPO|') or s.startswith('REPO ')): continue
+    _,path,marker=[x.strip() for x in s.split('|')]
+    try: ok = marker in open(path,encoding='utf-8').read()
+    except FileNotFoundError: ok=False
+    if not ok: miss.append((path,marker)); print(f"  guard(a) FAIL: {path} missing marker «{marker}»")
+sys.exit(1 if miss else 0)
+PYEOF
+then
+  echo "deploy: ABORT — a Judge.me embed marker is missing from the repo (see above). Restore it before deploying." >&2
+  exit 1
+fi
+
+# ---------- GATE (c): checksum lock — surface (and gate) any change to REPO files ----------
+echo "guard(c): checking review-file checksums against $LOCK..."
+if ! python3 - "$MANIFEST" "$LOCK" "$REVIEWS_CHANGED" <<'PYEOF'
+import sys,hashlib,subprocess
+manifest,lock,changed_flag=sys.argv[1],sys.argv[2],sys.argv[3]=='1'
+files=[]
+for ln in open(manifest):
+    s=ln.strip()
+    if s.startswith('REPO|') or s.startswith('REPO '):
+        files.append([x.strip() for x in s.split('|')][1])
+locked={}
+for ln in open(lock):
+    ln=ln.strip()
+    if not ln or ln.startswith('#'): continue
+    h,p=ln.split(None,1); locked[p.strip()]=h
+changed=[p for p in files if locked.get(p)!=hashlib.sha256(open(p,'rb').read()).hexdigest()]
+if not changed:
+    print("  guard(c): no review-file changes."); sys.exit(0)
+print("  guard(c): REVIEW SOURCE CHANGED since the lock:")
+for p in changed: print(f"     - {p}")
+try: print(subprocess.run(['git','diff','--'] + changed,capture_output=True,text=True).stdout[:4000])
+except Exception: pass
+if not changed_flag:
+    # allow interactive ack if a TTY is attached; otherwise require the flag
+    if sys.stdin.isatty():
+        ans=input("  guard(c): intended review-widget change? type 'y' to proceed: ").strip().lower()
+        if ans!='y':
+            print("  guard(c): not confirmed — aborting."); sys.exit(1)
+    else:
+        print("  guard(c): refusing a silent review change. Re-run with --reviews-changed and commit the updated lock.")
+        sys.exit(1)
+# confirmed → rewrite the lock
+hdr=["# reviews-guard.lock — sha256 of each REPO file in reviews-guard.manifest.",
+     "# Regenerated by deploy.sh --reviews-changed when a widget change is intentional; commit alongside the change."]
+body=[f"{hashlib.sha256(open(p,'rb').read()).hexdigest()}  {p}" for p in files]
+open(lock,'w').write("\n".join(hdr+body)+"\n")
+print("  guard(c): change CONFIRMED → reviews-guard.lock rewritten. COMMIT reviews-guard.lock with this change.")
+sys.exit(0)
+PYEOF
+then
+  echo "deploy: ABORT — unacknowledged change to a review file (guard c). Re-run with --reviews-changed if intended." >&2
   exit 1
 fi
 
@@ -32,29 +114,94 @@ fi
 # 2. Load it.
 set -a; source .env; set +a
 
-# 3. Guard: token must be present after refresh.
+# 3. Guard: token present.
 if [[ -z "${SHOPIFY_ACCESS_TOKEN:-}" ]]; then
   echo "deploy: no token after refresh (SHOPIFY_ACCESS_TOKEN empty)" >&2
   exit 1
 fi
 
-# Build --only flags (array => safe with spaces and multiple flags).
-only=()
-for f in "$@"; do
-  only+=(--only "$f")
-done
+# ---------- GATE (b): LIVE-vs-deploy — a deployed REPO file must not drop a marker live has ----------
+echo "guard(b): comparing deploy versions vs live for review markers..."
+if ! SHOPIFY_STORE="$STORE" python3 - "$MANIFEST" "${files[@]}" <<'PYEOF'
+import sys,os,json,urllib.request,urllib.parse
+manifest=sys.argv[1]; deploy=set(sys.argv[2:])
+store=os.environ['SHOPIFY_STORE']; token=os.environ['SHOPIFY_ACCESS_TOKEN']
+repo={}
+for ln in open(manifest):
+    s=ln.strip()
+    if s.startswith('REPO|') or s.startswith('REPO '):
+        _,p,m=[x.strip() for x in s.split('|')]; repo.setdefault(p,[]).append(m)
+def live(path):
+    u=f"https://{store}/admin/api/2024-10/themes/199324434780/assets.json?asset%5Bkey%5D="+urllib.parse.quote(path)
+    try: return json.load(urllib.request.urlopen(urllib.request.Request(u,headers={"X-Shopify-Access-Token":token}),timeout=40))['asset']['value']
+    except Exception: return None
+fail=[]
+for p in deploy:
+    if p not in repo: continue
+    lv=live(p); src=open(p,encoding='utf-8').read()
+    if lv is None: continue
+    for m in repo[p]:
+        if (m in lv) and (m not in src):
+            fail.append((p,m)); print(f"  guard(b) FAIL: deploying {p} would DROP marker «{m}» that live currently has")
+sys.exit(1 if fail else 0)
+PYEOF
+then
+  echo "deploy: ABORT — the version about to deploy would remove a live Judge.me widget (guard b)." >&2
+  exit 1
+fi
 
-# 4. Show exactly what's about to push.
+# 4. Show what's about to push.
 echo "deploy: store=$STORE theme=$THEME (live)"
-echo "deploy: pushing ${#} file(s):"
-for f in "$@"; do echo "  - $f"; done
+echo "deploy: pushing ${#files[@]} file(s):"
+for f in "${files[@]}"; do echo "  - $f"; done
 
-# 5. Push (CLI token-auth). Surface the raw error and exit non-zero on failure.
-if SHOPIFY_CLI_THEME_TOKEN="$SHOPIFY_ACCESS_TOKEN" shopify theme push \
+# 5. Build --only flags + push (CLI token-auth).
+only=()
+for f in "${files[@]}"; do only+=(--only "$f"); done
+if ! SHOPIFY_CLI_THEME_TOKEN="$SHOPIFY_ACCESS_TOKEN" shopify theme push \
      --store "$STORE" --theme "$THEME" --allow-live "${only[@]}"; then
-  echo "deploy: success"
-else
   rc=$?
   echo "deploy: shopify theme push FAILED (exit $rc)" >&2
   exit "$rc"
 fi
+
+# ---------- STEP 4: post-deploy LIVE verify ----------
+echo "verify: confirming LIVE review markers render (multi-pull, varied UA, cache-bust)..."
+if ! python3 - "$MANIFEST" <<'PYEOF'
+import sys,urllib.request,time
+from collections import defaultdict
+byurl=defaultdict(list)
+for ln in open(sys.argv[1]):
+    s=ln.strip()
+    if s.startswith('LIVE|') or s.startswith('LIVE '):
+        _,u,m=[x.strip() for x in s.split('|')]; byurl[u].append(m)
+UAS=['Mozilla/5.0 (Macintosh)','Mozilla/5.0 (Windows NT 10.0) Chrome/124','Mozilla/5.0 (iPhone) Safari','curl/8.4','Googlebot/2.1']
+fail=[]
+for u,markers in byurl.items():
+    hits={m:0 for m in markers}
+    for i in range(5):
+        sep='&' if '?' in u else '?'
+        req=urllib.request.Request(f"{u}{sep}cb={int(time.time())}_{i}",headers={'User-Agent':UAS[i%len(UAS)],'Cache-Control':'no-cache'})
+        try:
+            h=urllib.request.urlopen(req,timeout=25).read().decode('utf-8','replace')
+            for m in markers:
+                if m in h: hits[m]+=1
+        except Exception as e:
+            print(f"  verify: fetch error {u}: {e}")
+        time.sleep(0.3)
+    for m in markers:
+        ok = hits[m] > 0
+        print(f"  verify {u} «{m}»: {'present' if ok else 'MISSING'} ({hits[m]}/5 pulls)")
+        if not ok: fail.append((u,m))
+if fail:
+    print("  *** POST-DEPLOY VERIFY FAILED — review widget(s) GONE from live: ***")
+    for u,m in fail: print(f"     !! {u} no longer contains «{m}»")
+    sys.exit(1)
+sys.exit(0)
+PYEOF
+then
+  echo "deploy: PUSH SUCCEEDED but POST-DEPLOY VERIFY FAILED — a Judge.me widget is missing from live (see above). Investigate immediately." >&2
+  exit 1
+fi
+
+echo "deploy: success"
