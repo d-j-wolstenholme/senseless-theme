@@ -1,0 +1,14 @@
+<svg style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300" height="100%" width="100%">
+    <g transform="matrix(-11.363636,0,0,11.363636,150,150)">
+        <path style="fill:none;fill-rule:nonzero;stroke:rgb(152,74,232);stroke-width:3.5px;" d="M0,-11L0,11"></path>
+    </g>
+    <g transform="matrix(-11.363636,0,0,11.363636,150,150)">
+        <path style="fill:none;fill-rule:nonzero;stroke:rgb(152,74,232);stroke-width:3.5px;" d="M-11,0L11,0"></path>
+    </g>
+    <g transform="matrix(-11.363636,0,0,11.363636,150,150)">
+        <path style="fill:none;fill-rule:nonzero;stroke:rgb(152,74,232);stroke-width:3.5px;" d="M-7.8,-7.8L7.8,7.8"></path>
+    </g>
+    <g transform="matrix(-11.363636,0,0,11.363636,150,150)">
+        <path style="fill:none;fill-rule:nonzero;stroke:rgb(152,74,232);stroke-width:3.5px;" d="M-7.8,7.8L7.8,-7.8"></path>
+    </g>
+</svg>
