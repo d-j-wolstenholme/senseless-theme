@@ -116,7 +116,7 @@
             "sub_label": "Advanced Strength Cream or Gel.",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-microneedling",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-microneedling-collection-hero.webp",
             "image_alt": "Senseless topical preparation for microneedling"
           }
         },
@@ -127,7 +127,7 @@
             "sub_label": "Advanced Strength. Cream for face, spray for body.",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-laser-treatment",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-laser-collection-hero.webp",
             "image_alt": "Senseless topical preparation for laser treatment"
           }
         },
@@ -138,7 +138,7 @@
             "sub_label": "Advanced or Professional Cream.",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-spmu-collection-hero.webp",
             "image_alt": "Senseless topical preparation for semi-permanent makeup"
           }
         },
@@ -149,7 +149,7 @@
             "sub_label": "Advanced Spray for body. Cream for smaller zones.",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-waxing",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-waxing-collection-hero.webp",
             "image_alt": "Senseless topical preparation for waxing"
           }
         }
