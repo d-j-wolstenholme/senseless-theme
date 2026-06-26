@@ -1239,6 +1239,20 @@
       "dimensions": "1306x1205",
       "fileSize": "83.1KB",
       "uploadedAt": "2026-06-26T14:15:31.897Z"
+    },
+    {
+      "name": "senseless-about-system",
+      "type": "illustration",
+      "page": "about",
+      "section": "what",
+      "alt": "The Senseless system — strength matched to procedure, format matched to treatment area",
+      "sourceFile": "/private/tmp/claude-501/-Users-matrix-code-senseless-theme/69d664f5-35f0-4afb-8eb5-b71e3305b8ef/scratchpad/senseless-about-system.png",
+      "processedFile": "assets/images/processed/senseless-about-system.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-about-system.webp?v=1782484723",
+      "shopifyFileId": "gid://shopify/MediaImage/70311021642076",
+      "dimensions": "1402x1122",
+      "fileSize": "114.2KB",
+      "uploadedAt": "2026-06-26T14:38:45.213Z"
     }
   ]
 }
