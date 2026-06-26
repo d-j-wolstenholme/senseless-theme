@@ -10,8 +10,8 @@
         "primary_cta_url": "",
         "secondary_cta_label": "",
         "secondary_cta_url": "",
-        "image_alt": "Editorial Senseless brand still life on a warm off-white background, no faces",
-        "image": "shopify://shop_images/senseless-asterisk.svg",
+        "image_alt": "Senseless aesthetic range — Comfort Cream, Comfort Gel, Comfort Spray and Foam Cleanser on a marble surface",
+        "image": "shopify://shop_images/senseless-about-uk-brand.webp",
         "caption": ""
       }
     },
@@ -38,8 +38,9 @@
         "body": "<p>Senseless is a brand of Matrix Health Group Ltd, a UK company in the personal-care and aesthetics sector. The parent company gives Senseless the regulatory, manufacturing, and quality infrastructure to operate as a UK cosmetic brand at the standard the category demands. Matrix Health Group provides the operational scaffolding. Senseless is the brand built on top of it, focused entirely on aesthetic topical preparation.</p><p>Enquiries: <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> &middot; <a href=\"tel:+443330495549\">0333&nbsp;049&nbsp;5549</a></p>",
         "cta_label": "",
         "cta_url": "",
-        "image_alt": "Editorial detail of a Senseless preparation tube on a warm off-white background",
-        "image": "shopify://shop_images/senseless-asterisk.svg"
+        "image_alt": "The Senseless aesthetic range, a Matrix Health Group Ltd brand",
+        "image": "shopify://shop_images/senseless-about-matrix-health.webp",
+        "image_ratio": "3 / 2"
       }
     },
     "credentials": {
@@ -58,8 +59,9 @@
         "body": "<p>The aesthetics category deserves a product range built specifically for it — not generic skin preparation stretched to fit. Most aesthetic appointments need a specific tier and format. A single-product approach can't match every booking, so Senseless doesn't try. The three-tier, three-format system is the answer. And we'd rather tell a buyer when Professional is overkill, when Clinical is enough, or when Senseless isn't the right product at all — than convert a sale that doesn't suit the appointment.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image_alt": "Editorial three-tier Senseless lineup on a warm off-white background",
-        "image": "shopify://shop_images/senseless-asterisk.svg"
+        "image_alt": "Senseless aesthetic range arranged on a marble ledge",
+        "image": "shopify://shop_images/senseless-about-specialism.webp",
+        "image_ratio": "3 / 2"
       }
     },
     "practice": {
@@ -96,8 +98,8 @@
             "body": "<p>We tell buyers when a product is overkill for their procedure. We refuse comparative efficacy claims against other brands. We don't gate Professional behind practitioner credentials.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image_alt": "Editorial image representing the Senseless honest approach",
-            "image": "shopify://shop_images/senseless-asterisk.svg"
+            "image_alt": "An aesthetics practitioner discussing Senseless products with a client",
+            "image": "shopify://shop_images/senseless-about-honesty.webp"
           }
         },
         "voice": {
@@ -107,8 +109,8 @@
             "body": "<p>Restrained, declarative, evidence-led. The brand's job is to be useful at the point of purchase. We don't oversell.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image_alt": "Editorial image representing the Senseless brand voice",
-            "image": "shopify://shop_images/senseless-asterisk.svg"
+            "image_alt": "A calm, modern aesthetic treatment room",
+            "image": "shopify://shop_images/senseless-about-voice.webp"
           }
         }
       },
