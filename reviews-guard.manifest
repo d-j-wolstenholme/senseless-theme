@@ -29,8 +29,20 @@ REPO | sections/senseless-collection-grid.liquid | judgeme
 REPO | snippets/senseless-structured-data.liquid | product.metafields.reviews.rating
 REPO | blocks/review.liquid | product.metafields.reviews.rating
 
+# --- REPO: app embeds in config/settings_data.json. A settings_data push whose repo copy LACKS
+#     these block types STRIPS the live embeds (happened 2026-06-26: og/share_image push removed
+#     Judge.me, Klaviyo, Google & YouTube and Dondy). Gate-a now blocks deploying without them. ---
+REPO | config/settings_data.json | judge-me-reviews
+REPO | config/settings_data.json | klaviyo
+REPO | config/settings_data.json | google-youtube
+REPO | config/settings_data.json | dondy
+
 # --- LIVE: rendered widgets that must survive every deploy ---
 LIVE | https://senseless.uk/pages/reviews | jdgm-widget
 LIVE | https://senseless.uk/pages/reviews | jdgm-histogram
 LIVE | https://senseless.uk/products/clinical-strength-cream | jdgm-preview-badge
 LIVE | https://senseless.uk/products/clinical-strength-cream | jdgm-widget
+
+# --- LIVE: Google tags (GA4 + Google Tag) injected by the Google & YouTube embed — must survive every deploy ---
+LIVE | https://senseless.uk/ | G-N6XKMWQ92N
+LIVE | https://senseless.uk/ | GT-WF6JZF4Z
