@@ -27,14 +27,17 @@
   .ss-fr__intro p { margin: 0; }
 
   .ss-fr__grid { display: grid; grid-template-columns: 1fr; gap: 16px; justify-content: center; }
-  .ss-fr__item { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--ss-text); overflow: hidden; transition: border-color 200ms ease-out, transform 200ms ease-out; }
+  .ss-fr__item { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--ss-text); overflow: hidden; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
   .ss-fr__item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--ss-purple); }
-  .ss-fr__item:hover { transform: translateY(-2px); border-color: rgba(107,63,160,0.4); }
+  .ss-fr__item:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(107,63,160,.14); border-color: #6B3FA0; }
+  .ss-fr__item:hover .ss-fr__name { color: #6B3FA0; text-decoration: underline; }
   .ss-fr__name { font-family: var(--ss-head); font-weight: 600; font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; letter-spacing: -0.01em; margin: 4px 0 0; }
   .ss-fr__desc { font-family: var(--ss-sans); font-size: 15px; line-height: 1.55; color: var(--ss-secondary); margin: 0; flex: 1 1 auto; }
   .ss-fr__desc p { margin: 0; }
-  .ss-fr__link { margin-top: 8px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
-  .ss-fr__link::after { content: '\2192'; }
+  .ss-fr__link { margin-top: 8px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; opacity: .75; transform: translateY(2px); transition: opacity .2s ease, transform .2s ease, gap .2s ease; }
+  .ss-fr__link::after { content: '\2192'; transition: transform .2s ease; }
+  .ss-fr__item:hover .ss-fr__link { opacity: 1; transform: translateY(0); gap: 10px; }
+  .ss-fr__item:hover .ss-fr__link::after { transform: translateX(2px); }
   .ss-fr__footer { text-align: center; margin: 28px 0 0; }
   .ss-fr__footerlink { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
   .ss-fr__footerlink::after { content: '\2192'; }
@@ -42,7 +45,7 @@
   @media (min-width: 768px) { .ss-fr__grid { grid-template-columns: repeat(auto-fit, minmax(260px, 340px)); gap: 20px; } }
   @media (max-width: 989px) { .ss-fr__inner { padding-block: 56px; } }
   @media (max-width: 749px) { .ss-fr__inner { padding-block: 44px; } }
-  @media (prefers-reduced-motion: reduce) { .ss-fr__item { transition: none; } .ss-fr__item:hover { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .ss-fr__item, .ss-fr__link, .ss-fr__link::after { transition: none; } .ss-fr__item:hover { transform: none; } .ss-fr__link { opacity: 1; transform: none; } }
 {%- endstyle -%}
 
 <section class="ss-fr" aria-label="{{ section.settings.headline | default: 'Formats' | escape }}">
@@ -56,11 +59,18 @@
     {%- endif -%}
     <div class="ss-fr__grid" data-ss-reveal-group>
       {%- for block in section.blocks -%}
-        <a class="ss-fr__item" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }} data-ss-reveal>
-          {%- if block.settings.label != blank -%}<h3 class="ss-fr__name">{{ block.settings.label | escape }}</h3>{%- endif -%}
-          {%- if block.settings.body != blank -%}<div class="ss-fr__desc">{{ block.settings.body }}</div>{%- endif -%}
-          {%- if block.settings.cta_label != blank -%}<span class="ss-fr__link">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
-        </a>
+        {%- if block.settings.cta_url != blank -%}
+          <a class="ss-fr__item" href="{{ block.settings.cta_url }}" {{ block.shopify_attributes }} data-ss-reveal>
+            {%- if block.settings.label != blank -%}<h3 class="ss-fr__name">{{ block.settings.label | escape }}</h3>{%- endif -%}
+            {%- if block.settings.body != blank -%}<div class="ss-fr__desc">{{ block.settings.body }}</div>{%- endif -%}
+            <span class="ss-fr__link" aria-hidden="true">{{ block.settings.cta_label | default: 'View range' | escape }}</span>
+          </a>
+        {%- else -%}
+          <div class="ss-fr__item" {{ block.shopify_attributes }} data-ss-reveal>
+            {%- if block.settings.label != blank -%}<h3 class="ss-fr__name">{{ block.settings.label | escape }}</h3>{%- endif -%}
+            {%- if block.settings.body != blank -%}<div class="ss-fr__desc">{{ block.settings.body }}</div>{%- endif -%}
+          </div>
+        {%- endif -%}
       {%- endfor -%}
     </div>
     {%- if section.settings.footer_label != blank -%}

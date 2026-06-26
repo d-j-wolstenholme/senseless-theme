@@ -28,10 +28,14 @@
 
   .ss-procg__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
-  .ss-procg__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
-  .ss-procg__card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
+  .ss-procg__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .ss-procg__card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(107,63,160,.14); border-color: var(--ss-purple); }
+  .ss-procg__card:hover .ss-procg__title { color: var(--ss-purple); text-decoration: underline; }
   .ss-procg__media { aspect-ratio: 1 / 1; background: var(--ss-bg); position: relative; }
-  .ss-procg__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-procg__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+  .ss-procg__card:hover .ss-procg__media img { transform: scale(1.05); }
+  .ss-procg__view { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 14px 10px; background: linear-gradient(to top, rgba(26,24,22,.72), rgba(26,24,22,0)); color: #fff; font-family: var(--ss-sans, 'Montserrat'); font-weight: 600; font-size: 13px; letter-spacing: .02em; opacity: 0; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+  .ss-procg__card:hover .ss-procg__view { opacity: 1; transform: translateY(0); }
   .ss-procg__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-procg__ph svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
   .ss-procg__cbody { padding: 20px; display: flex; flex-direction: column; gap: 6px; flex: 1 1 auto; }
@@ -53,7 +57,7 @@
   @media (min-width: 1024px) { .ss-procg__inner { padding-inline: 40px; } }
   @media (max-width: 989px) { .ss-procg__inner { padding-block: 56px; } }
   @media (max-width: 749px) { .ss-procg__inner { padding-block: 44px; } }
-  @media (prefers-reduced-motion: reduce) { .ss-procg__card { transition: none; } .ss-procg__card:hover { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .ss-procg__card, .ss-procg__media img, .ss-procg__view { transition: none; } .ss-procg__card:hover { transform: none; } .ss-procg__card:hover .ss-procg__media img { transform: none; } }
 {%- endstyle -%}
 
 <section class="ss-procg ss-procg--cols-{{ section.settings.columns }}" id="{{ section.settings.anchor_id | default: 'procedure-grid' | escape }}" aria-label="{{ section.settings.headline | default: 'Procedures' | escape }}">
@@ -71,6 +75,7 @@
         <a class="ss-procg__card" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }} data-ss-reveal>
           <div class="ss-procg__media">
             {%- render 'senseless-card-image', image: block.settings.image, collection: block.settings.collection, alt: block.settings.image_alt, sizes: '(min-width: 768px) 25vw, 50vw', ph_class: 'ss-procg__ph' -%}
+            {%- if block.settings.cta_url != blank -%}<span class="ss-procg__view" aria-hidden="true">{{ block.settings.cta_label | default: 'View range' | escape }} &rarr;</span>{%- endif -%}
           </div>
           <div class="ss-procg__cbody">
             {%- if block.settings.label != blank -%}<h3 class="ss-procg__title">{{ block.settings.label | escape }}</h3>{%- endif -%}

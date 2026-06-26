@@ -140,8 +140,9 @@
         "body": "<p>Senseless is a brand of <strong>Matrix Health Group Ltd</strong>, a UK company in the personal-care and aesthetics sector.</p><ul><li>Company name: Matrix Health Group Ltd</li><li>Company number: 17099304</li><li>Registered address: 128 City Road, London, EC1V 2NX</li><li>Phone: <a href=\"tel:+443330495549\">0333 049 5549</a></li></ul><p>For consumer enquiries, please use the form above or the appropriate channel above. The registered company address isn't a consumer support address.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image_alt": "Editorial Senseless brand mark composition",
-        "image": "shopify://shop_images/senseless-asterisk.svg"
+        "image_alt": "Matrix Health Group Ltd office wall with the company logo",
+        "image": "shopify://shop_images/senseless-trade-mhg.webp",
+        "image_ratio": "1 / 1"
       }
     },
     "response": {
