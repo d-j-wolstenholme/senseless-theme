@@ -33,6 +33,9 @@
 
   .ss-card { position: relative; box-sizing: border-box; height: 100%; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
   .ss-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(107,63,160,.14); border-color: var(--ss-purple); }
+  /* Static (non-linking) editorial cards get no lift/zoom — they're not clickable. */
+  .ss-card--static, .ss-card--static:hover { transform: none; box-shadow: none; border-color: var(--ss-border); cursor: default; }
+  .ss-card--static:hover .ss-card__media img { transform: none; }
   .ss-card:hover .ss-card__heading { color: var(--ss-purple); text-decoration: underline; }
   .ss-card__cardlink { display: flex; flex-direction: column; text-decoration: none; color: inherit; flex: 1 1 auto; }
   .ss-card--product .ss-qa { padding: 0 20px 20px; margin-top: 0; }
@@ -110,7 +113,7 @@
                 {%- if block.settings.cta_url != blank -%}
                   <a class="ss-card__media" href="{{ block.settings.cta_url }}">
                     {{ tier_img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '400, 600, 800', alt: block.settings.image_alt }}
-                    <span class="ss-card__view" aria-hidden="true">{{ block.settings.cta_label | default: 'View range' | escape }} &rarr;</span>
+                    {%- if block.settings.cta_url != blank -%}<span class="ss-card__view" aria-hidden="true">{{ block.settings.cta_label | default: 'View' | escape }} &rarr;</span>{%- endif -%}
                   </a>
                 {%- else -%}
                   <div class="ss-card__media">
@@ -130,7 +133,7 @@
             <a class="ss-card ss-card--procedure" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }} data-ss-reveal>
               <div class="ss-card__media">
                 {%- render 'senseless-card-image', image: block.settings.image, collection: block.settings.collection, alt: block.settings.image_alt, sizes: '(min-width: 768px) 25vw, 50vw' -%}
-                <span class="ss-card__view" aria-hidden="true">{{ block.settings.cta_label | default: 'View range' | escape }} &rarr;</span>
+                {%- if block.settings.cta_url != blank -%}<span class="ss-card__view" aria-hidden="true">{{ block.settings.cta_label | default: 'View' | escape }} &rarr;</span>{%- endif -%}
               </div>
               <div class="ss-card__body">
                 {%- if block.settings.label != blank -%}<h3 class="ss-card__heading">{{ block.settings.label | escape }}</h3>{%- endif -%}
@@ -147,7 +150,7 @@
               <a class="ss-card__cardlink" href="{{ card_href }}">
                 <div class="ss-card__media">
                   {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw' -%}
-                  <span class="ss-card__view" aria-hidden="true">{% if card_product != blank %}View product &rarr;{% else %}{{ block.settings.cta_label | default: 'View range' | escape }} &rarr;{% endif %}</span>
+                  {%- if card_product != blank or block.settings.cta_url != blank -%}<span class="ss-card__view" aria-hidden="true">{% if card_product != blank %}View product &rarr;{% else %}{{ block.settings.cta_label | default: 'View' | escape }} &rarr;{% endif %}</span>{%- endif -%}
                 </div>
                 <div class="ss-card__body">
                   {%- if block.settings.label != blank -%}<p class="ss-card__label">{{ block.settings.label | escape }}</p>{%- endif -%}
@@ -162,17 +165,22 @@
             </div>
 
           {%- when 'format_card' -%}
-            <a class="ss-card ss-card--format" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }} data-ss-reveal>
+            {%- capture fmt_inner -%}
               <div class="ss-card__media">
                 {%- render 'senseless-card-image', image: block.settings.image, collection: block.settings.collection, alt: block.settings.image_alt, sizes: '(min-width: 768px) 50vw, 100vw' -%}
-                <span class="ss-card__view" aria-hidden="true">{{ block.settings.cta_label | default: 'View range' | escape }} &rarr;</span>
+                {%- if block.settings.cta_url != blank -%}<span class="ss-card__view" aria-hidden="true">{{ block.settings.cta_label | default: 'View' | escape }} &rarr;</span>{%- endif -%}
               </div>
               <div class="ss-card__body">
                 {%- if block.settings.label != blank -%}<h3 class="ss-card__heading">{{ block.settings.label | escape }}</h3>{%- endif -%}
                 {%- if block.settings.body != blank -%}<div class="ss-card__text">{{ block.settings.body }}</div>{%- endif -%}
-                {%- if block.settings.cta_label != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
+                {%- if block.settings.cta_label != blank and block.settings.cta_url != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
               </div>
-            </a>
+            {%- endcapture -%}
+            {%- if block.settings.cta_url != blank -%}
+              <a class="ss-card ss-card--format" href="{{ block.settings.cta_url }}" {{ block.shopify_attributes }} data-ss-reveal>{{ fmt_inner }}</a>
+            {%- else -%}
+              <div class="ss-card ss-card--format ss-card--static" {{ block.shopify_attributes }} data-ss-reveal>{{ fmt_inner }}</div>
+            {%- endif -%}
 
         {%- endcase -%}
       {%- endfor -%}

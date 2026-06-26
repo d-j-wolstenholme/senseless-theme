@@ -16,7 +16,7 @@
           "type": "contact_card",
           "settings": {
             "label": "Customer enquiries",
-            "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below or <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>",
+            "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below.</p>",
             "cta_label": "Contact form",
             "cta_url": "#contact-form"
           }
@@ -34,7 +34,7 @@
           "type": "contact_card",
           "settings": {
             "label": "Media and partnerships",
-            "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. <a href=\"mailto:info@matrixhealthgroup.co.uk\">info@matrixhealthgroup.co.uk</a>.</p>",
+            "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations.</p>",
             "cta_label": "Email press team",
             "cta_url": "mailto:info@matrixhealthgroup.co.uk"
           }
@@ -43,7 +43,7 @@
           "type": "contact_card",
           "settings": {
             "label": "Data, privacy, legal",
-            "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. <a href=\"mailto:info@matrixhealthgroup.co.uk\">info@matrixhealthgroup.co.uk</a>.</p>",
+            "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions.</p>",
             "cta_label": "Email legal team",
             "cta_url": "mailto:info@matrixhealthgroup.co.uk"
           }

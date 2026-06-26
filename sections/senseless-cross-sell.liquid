@@ -80,12 +80,12 @@
         {%- comment -%} Resolve comfort tier from the linked product's tags (product cards only). {%- endcomment -%}
         {%- assign card_tier = '' -%}{%- if card_product != blank -%}{%- for t in card_product.tags -%}{%- assign tl = t | downcase -%}{%- if tl == 'clinical' or tl == 'advanced' or tl == 'professional' -%}{%- assign card_tier = tl -%}{%- endif -%}{%- endfor -%}{%- endif -%}
         {%- comment -%} Hover cue: "View product" for real products, "View range" for editorial/category links. {%- endcomment -%}
-        {%- if card_product != blank -%}{%- assign card_view = 'View product &rarr;' -%}{%- else -%}{%- assign card_view = block.settings.cta_label | default: 'View range' | escape | append: ' &rarr;' -%}{%- endif -%}
+        {%- if card_product != blank -%}{%- assign card_view = 'View product &rarr;' -%}{%- elsif block.settings.cta_url != blank -%}{%- assign card_view = block.settings.cta_label | default: 'View' | escape | append: ' &rarr;' -%}{%- else -%}{%- assign card_view = '' -%}{%- endif -%}
         <div class="ss-xs__card{% if block.settings.flagship %} ss-xs__card--flagship{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
           <a class="ss-xs__cardlink" href="{{ card_href }}">
             <div class="ss-xs__media">
               {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw', ph_class: 'ss-xs__ph' -%}
-              <span class="ss-xs__view" aria-hidden="true">{{ card_view }}</span>
+              {%- if card_view != blank -%}<span class="ss-xs__view" aria-hidden="true">{{ card_view }}</span>{%- endif -%}
             </div>
             <div class="ss-xs__cbody">
               {%- if block.settings.label != blank -%}<p class="ss-xs__label">{{ block.settings.label | escape }}</p>{%- endif -%}
