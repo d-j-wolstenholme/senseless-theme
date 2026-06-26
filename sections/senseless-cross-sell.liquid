@@ -80,7 +80,7 @@
         {%- comment -%} Resolve comfort tier from the linked product's tags (product cards only). {%- endcomment -%}
         {%- assign card_tier = '' -%}{%- if card_product != blank -%}{%- for t in card_product.tags -%}{%- assign tl = t | downcase -%}{%- if tl == 'clinical' or tl == 'advanced' or tl == 'professional' -%}{%- assign card_tier = tl -%}{%- endif -%}{%- endfor -%}{%- endif -%}
         {%- comment -%} Hover cue: "View product" for real products, "View range" for editorial/category links. {%- endcomment -%}
-        {%- if card_product != blank -%}{%- assign card_view = 'View product &rarr;' -%}{%- else -%}{%- assign card_view = 'View range &rarr;' -%}{%- endif -%}
+        {%- if card_product != blank -%}{%- assign card_view = 'View product &rarr;' -%}{%- else -%}{%- assign card_view = block.settings.cta_label | default: 'View range' | escape | append: ' &rarr;' -%}{%- endif -%}
         <div class="ss-xs__card{% if block.settings.flagship %} ss-xs__card--flagship{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
           <a class="ss-xs__cardlink" href="{{ card_href }}">
             <div class="ss-xs__media">

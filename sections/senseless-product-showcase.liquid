@@ -87,7 +87,7 @@
         {%- assign card_tier = '' -%}
         {%- if card_product != blank -%}{%- for t in card_product.tags -%}{%- assign tl = t | downcase -%}{%- if tl == 'clinical' or tl == 'advanced' or tl == 'professional' -%}{%- assign card_tier = tl -%}{%- endif -%}{%- endfor -%}{%- endif -%}
         {%- comment -%} Cue text: "View product" for real products, "View range" for a category/editorial card linking elsewhere. {%- endcomment -%}
-        {%- if card_product != blank -%}{%- assign card_cue = 'View product' -%}{%- else -%}{%- assign card_cue = 'View range' -%}{%- endif -%}
+        {%- if card_product != blank -%}{%- assign card_cue = 'View product' -%}{%- else -%}{%- assign card_cue = block.settings.cta_label | default: 'View range' | escape -%}{%- endif -%}
         <div class="ss-ps__item{% if block.settings.flagship %} ss-ps__item--flagship{% endif %}{% cycle '', ' ss-ps__item--reverse' %}" {{ block.shopify_attributes }}>
           {%- if card_href != blank -%}
             <a class="ss-ps__media" href="{{ card_href }}"{% if card_product != blank %} aria-label="{{ card_product.title | escape }}"{% endif %}>
