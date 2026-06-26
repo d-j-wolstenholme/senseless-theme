@@ -1,16 +1,15 @@
 {%- doc -%}
   Senseless — inline quick-add control for product cards (storefront-wide).
-  Renders an inline variant <select> (only when the product has >1 variant — Senseless sizes
-  are variants), Horizon's quantity stepper, and an add-to-cart button inside a Horizon
-  <product-form-component> (AJAX add to /cart/add → opens the existing cart drawer; never
-  leaves the page). Reuses Horizon patterns: product-form-component + add-to-cart-button +
-  quantity-selector.
+  Mirrors senseless-collection-grid's card buy-controls EXACTLY so every product card across the
+  site is consistent: size CHIPS (radio; active = solid purple fill) when the product has >1
+  variant, a quantity stepper, and add-to-cart — all inside Horizon's <product-form-component>
+  (AJAX add to /cart/add → opens the cart drawer; never leaves the page). The chips drive a hidden
+  name="id" ref="variantId" input via ONE delegated listener (handles every instance on the page).
 
-  Renders NOTHING unless a real, purchasable-capable product object is passed — so editorial /
-  navigation cards (procedure/format/guide → collections/pages) stay plain links. Respects
-  inventory: out-of-stock variants are not addable and the control stays inert/disabled while
-  the product is £TBC / 0 stock, auto-enabling once price + stock are set (driven by live
-  variant.available — nothing hardcoded). Must be placed OUTSIDE the card's <a> (no forms in anchors).
+  Renders NOTHING unless a real product object is passed — so editorial / nav cards stay plain
+  links. Respects inventory: unavailable variants are struck through + un-addable; the control is
+  disabled while the product is £TBC / 0 stock and auto-enables once price + stock are set.
+  Must be placed OUTSIDE the card's <a> (no forms in anchors).
 
   @param {object} product - linked Shopify product (required; renders nothing if blank)
   @param {string} [section_id] - host section id (wires product-form-component)
@@ -25,7 +24,6 @@
     if variant.available
       assign can_add = true
     endif
-    assign add_to_cart_text = 'actions.add_to_cart' | t
   -%}
   <product-form-component
     data-section-id="{{ section_id }}"
@@ -35,39 +33,90 @@
   >
     <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
     {%- form 'product', product, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+      <input type="hidden" name="id" ref="variantId" value="{{ variant.id }}" data-qa-vid>
       {%- if product.variants_count > 1 -%}
-        <label class="visually-hidden" for="{{ form_id }}-variant">{{ product.options_with_values.first.name | default: 'Option' | escape }}</label>
-        <select id="{{ form_id }}-variant" class="ss-qa__variant" name="id" ref="variantId">
+        <div class="ss-qa__opts" role="radiogroup" aria-label="{{ product.options_with_values.first.name | default: 'Size' | escape }}">
           {%- for v in product.variants -%}
-            <option value="{{ v.id }}"{% unless v.available %} disabled{% endunless %}>{{ v.title | escape }}{% if v.price > 0 %} — {{ v.price | money }}{% endif %}</option>
+            <input type="radio" id="{{ form_id }}-v{{ v.id }}" name="ssqa-opt-{{ form_id }}" class="ss-qa__optin" data-qa-opt data-vid="{{ v.id }}" data-avail="{{ v.available }}"{% if v.id == variant.id %} checked{% endif %}>
+            <label class="ss-qa__chip" for="{{ form_id }}-v{{ v.id }}">{{ v.title | escape }}</label>
           {%- endfor -%}
-        </select>
-      {%- else -%}
-        <input type="hidden" name="id" ref="variantId" value="{{ variant.id }}"{% unless variant.available %} disabled{% endunless %}>
+        </div>
       {%- endif -%}
-      <div class="ss-qa__row">
-        {% render 'quantity-selector', product: product, can_update_quantity: can_add %}
-        {% render 'add-to-cart-button',
-          product: product,
-          can_add_to_cart: can_add,
-          add_to_cart_text: add_to_cart_text,
-          class: 'ss-qa__btn',
-          id: form_id
-        %}
+      <div class="ss-qa__buy">
+        <div class="ss-qa__qty" data-qa-qty>
+          <button type="button" class="ss-qa__qbtn" data-qa-dec aria-label="Decrease quantity">&minus;</button>
+          <span class="ss-qa__qval" data-qa-qval>1</span>
+          <button type="button" class="ss-qa__qbtn" data-qa-inc aria-label="Increase quantity">&plus;</button>
+          <input type="hidden" name="quantity" value="1" data-qa-qin>
+        </div>
+        <button type="submit" name="add" class="ss-qa__add" data-qa-add{% unless can_add %} disabled{% endunless %}>
+          {% if can_add %}{{ 'actions.add_to_cart' | t }}{% else %}Sold out{% endif %}
+        </button>
       </div>
     {%- endform -%}
   </product-form-component>
+  <script>
+    (function () {
+      if (window.__ssQaInit) return;
+      window.__ssQaInit = true;
+      // Variant chips → update the hidden ref="variantId" + add-button availability
+      document.addEventListener('change', function (e) {
+        var opt = e.target;
+        if (!opt || !opt.matches || !opt.matches('.ss-qa__optin[data-qa-opt]')) return;
+        var form = opt.closest('form');
+        if (!form) return;
+        var vid = form.querySelector('[data-qa-vid]');
+        if (vid) vid.value = opt.getAttribute('data-vid');
+        var add = form.querySelector('[data-qa-add]');
+        if (add) {
+          var avail = opt.getAttribute('data-avail') === 'true';
+          add.disabled = !avail;
+          if (!avail) { add.dataset.label = add.dataset.label || add.textContent.trim(); add.textContent = 'Sold out'; }
+          else if (add.dataset.label) { add.textContent = add.dataset.label; }
+        }
+      });
+      // Quantity steppers
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest ? e.target.closest('[data-qa-dec],[data-qa-inc]') : null;
+        if (!btn) return;
+        var qty = btn.closest('[data-qa-qty]');
+        if (!qty) return;
+        var qin = qty.querySelector('[data-qa-qin]'), qval = qty.querySelector('[data-qa-qval]');
+        var n = (parseInt(qin && qin.value, 10) || 1) + (btn.hasAttribute('data-qa-inc') ? 1 : -1);
+        n = Math.max(1, n);
+        if (qin) qin.value = n;
+        if (qval) qval.textContent = n;
+      });
+    })();
+  </script>
 {%- endif -%}
 
 {% stylesheet %}
   .ss-qa { display: block; margin-top: 10px; }
-  .ss-qa__variant {
-    width: 100%; box-sizing: border-box; margin-bottom: 8px;
+  .ss-qa__opts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+  .ss-qa__opts input { position: absolute; opacity: 0; pointer-events: none; }
+  .ss-qa__chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 54px; height: 38px; padding: 0 14px;
+    border: 1px solid #E5E2DC; border-radius: 14px; background: #fff;
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px; color: #1A1816; background: #fff;
-    border: 1px solid #E5E2DC; border-radius: 4px; padding: 9px 12px;
+    font-size: 13px; color: #1A1816; cursor: pointer;
+    transition: background-color .12s ease, border-color .12s ease, color .12s ease;
   }
-  .ss-qa__row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .ss-qa__row .quantity-selector-wrapper { flex: 0 0 auto; }
-  .ss-qa__btn { flex: 1 1 auto; border-radius: 14px; }
+  .ss-qa__opts input:checked + .ss-qa__chip { background: #6B3FA0; border-color: #6B3FA0; color: #fff; }
+  .ss-qa__opts input[data-avail="false"] + .ss-qa__chip { opacity: .55; text-decoration: line-through; }
+  .ss-qa__opts input:focus-visible + .ss-qa__chip { outline: 2px solid #6B3FA0; outline-offset: 2px; }
+  .ss-qa__buy { display: flex; gap: 10px; align-items: stretch; }
+  .ss-qa__qty { display: inline-flex; align-items: center; border: 1px solid #E5E2DC; border-radius: 14px; overflow: hidden; flex: 0 0 auto; }
+  .ss-qa__qbtn { width: 34px; height: 42px; border: 0; background: #fff; color: #1A1816; font-size: 18px; line-height: 1; cursor: pointer; }
+  .ss-qa__qbtn:focus-visible { outline: 2px solid #6B3FA0; outline-offset: -2px; }
+  .ss-qa__qval { min-width: 30px; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; }
+  .ss-qa__add {
+    flex: 1 1 auto; height: 42px; border-radius: 14px;
+    border: 1px solid #6B3FA0; background: #6B3FA0; color: #fff;
+    font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 14px; cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease;
+  }
+  .ss-qa__add:hover { background: #5A3489; border-color: #5A3489; }
+  .ss-qa__add[disabled] { opacity: .5; cursor: not-allowed; }
 {% endstylesheet %}
