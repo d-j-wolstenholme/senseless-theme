@@ -32,6 +32,25 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-decision-band.liquid` | Decision/choice band ("find your strength/format") | Homepage (1) |
 | `senseless-newsletter-signup.liquid` | Single-field email signup (Shopify customer form, GDPR double opt-in) | Homepage (1) |
 | `senseless-pull-quote.liquid` | Editorial pull quote | Homepage (1) |
+| `senseless-strength-ladder.liquid` | Clinical → Advanced → Professional strength ladder (tier explainer) | 16 templates |
+| `senseless-strength-links.liquid` | Strength-tier link row (links to the three strength collections/guides) | 10 templates |
+| `senseless-system-band.liquid` | "The Senseless System" promo band (links into the System guide) | 9 templates |
+| `senseless-collection-grid.liquid` | Collection product grid with Judge.me rating badges (collection hosts) | 15 templates |
+| `senseless-link-row.liquid` | Inline related-links row for first-mention / cross-link navigation | 26 templates |
+| `senseless-page-schema.liquid` | Per-page WebPage + BreadcrumbList JSON-LD (GEO/schema) | 12 templates |
+| `senseless-org-schema.liquid` | Organization JSON-LD (Matrix Health Group org node) | 2 templates |
+| `senseless-comfort-compare.liquid` | Qualitative comfort-by-procedure comparison block | 2 templates |
+| `senseless-credentials.liquid` | Credentials / trust strip (CPSR-assessed, UK-formulated, etc.) | 2 templates |
+| `senseless-contact-cards.liquid` | Contact-channel cards (4-up) for the Contact page | contact (1) |
+| `senseless-product-highlights.liquid` | Homepage 3-card product highlights (Best Value / Practitioner's Choice / Most Popular) | homepage (1) |
+| `senseless-practitioner-cards.liquid` | Practitioner testimonial cards (verbatim quotes, brand-violet accent) | homepage (1) |
+| `senseless-selector.liquid` | The Senseless Selector — interactive format/strength chooser | the-senseless-system (1) |
+| `senseless-bundle-contents.liquid` | Bundle "what's inside" contents list for bundle PDPs | bundle (1) |
+| `senseless-articles-hub.liquid` | Articles hub — auto-lists Guides-blog articles + curated guide_link cards | articles (1) |
+| `senseless-article-hub.liquid` | Article-hub variant — curated guide/article cards | 1 template |
+| `senseless-article.liquid` | Blog article body / layout | article (1) |
+| `senseless-policy-page.liquid` | Metafield-driven legal/policy page layout (shared template) | policy (1) |
+| `senseless-404.liquid` | 404 error-page content | 404 (1) |
 
 ## Header / Footer
 
