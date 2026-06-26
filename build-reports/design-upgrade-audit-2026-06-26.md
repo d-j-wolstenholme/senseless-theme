@@ -54,3 +54,30 @@ All on-brand = restrained, single-play, `prefers-reduced-motion`-safe. The theme
 
 ---
 *Genuine findings ≈ 30 across the 9 reviewers; full per-reviewer detail in the workflow output. Top quick-win batches: P1 (a11y) + P2 (mobile) are ~9 small edits with outsized impact.*
+
+---
+
+## Deployment addendum — 2026-06-26 (MacBook Pro)
+
+The design-upgrade batch (commit `8b14fe4`) was reviewed, fixed, deployed to the **live** theme (`#199324434780`), and verified. Plus the two pending manual edits.
+
+### Review fixes before deploy
+- **Reveal grid-stagger (`snippets/senseless-reveal.liquid`, commit `57d3741`)** — the committed M3 used a hardcoded 3-column assumption with an uncapped 200ms row step. Every reveal-group grid is responsive/settings-driven (`cols-2/3/4`, single-column at mobile), so the 3-col assumption mis-rowed the cascade and deep cards could wait too long after entering view. Now derives the column count from the *rendered* `grid-template-columns` (falls back to `data-cols`, then 3) and caps the delay at 360ms (row 120ms + col 60ms).
+- **Trust-bar count-up, shipping-banner pulse, callout-band `cta_style`** — reviewed, no changes needed. Count-up: IO-gated, reduced-motion-safe, double-init guarded, decimals derived from the source string. Pulse: `prevTier` tracks upward crossings only, no pulse on first paint, resets on empty cart, restart-safe reflow. Callout-band: `--ss-purple-hover` confirmed in scope, default `secondary` preserves existing outline rendering.
+
+### Deployed (scripts/deploy.sh, batched; live marker verify passed each time)
+1. **Guarded** (`--reviews-changed`, lock re-pinned commit `217ad13`): `senseless-product-hero`, `senseless-collection-grid` — both were in the reviews manifest (markers `@app` / `judgeme`); changes were pure focus/hover/mobile CSS, markers intact.
+2. **Normal batch**: callout-band, contact-form, hero-brand-led, practitioner-cards, trust-bar, cart-offer, reveal, scale, shipping-banner, typography.
+3. **Manual edits** (commit `fcd0422`):
+   - **3a** `templates/index.json` — Selector callout `cta_style: "primary"` ("Find the right tier" now a filled CTA).
+   - **3b** `templates/product.*.json` (all 11 PDPs) — reviews section moved to immediately after the core-info block (`keyfacts`, or `system` on the bundle), above FAQ + outbound link rows. **Assumption logged:** applied to all PDPs for consistency (brief said "…cream.json *etc.*"); deterministic anchor rule, not just the one named template.
+
+### Live verification (curl, live theme serving)
+- Home: `ss-cb__cta--primary` + "Find the right tier" present; trust-bar `data-count-to="4.9"` + `ssTrustCountUpInit` wired; `ss-scale__tier--pro` tint present.
+- PDP (`clinical-strength-cream`): section render order now `…keyfacts → reviews → linksout → faq…` (reviews lifted from after-FAQ); `ss-ph__atc:focus-visible`, `ss-ph__opt-values` (mobile 2-col chips), `ss-ph__thumb:focus-visible`, disabled-variant CSS all present.
+- theme-check: **0 errors** (1819 pre-existing Horizon-base warnings, unchanged).
+- **Not visually confirmed:** animation playback (count-up easing, focus-ring on Tab, pulse on threshold) — Chrome extension wasn't connected this session. Code paths all present in live HTML + reviewed; a browser pass is the only outstanding check.
+
+### Deferred to a later session
+- **M2 — staggered section headers** (eyebrow → headline → body cascade). Not started.
+- Browser visual QA of the motion set once the Chrome extension is connected.
