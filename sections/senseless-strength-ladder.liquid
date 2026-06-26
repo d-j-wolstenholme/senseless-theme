@@ -80,7 +80,8 @@
       <div class="ss-sl__scale" data-ss-reveal>{% render 'senseless-scale', current: section.settings.scale_current, links: true, desc_clinical: section.settings.scale_clinical, desc_advanced: section.settings.scale_advanced, desc_professional: section.settings.scale_professional, trade_signpost: section.settings.scale_trade_signpost, trade_url: section.settings.scale_trade_url %}</div>
     {%- endif -%}
 
-    {%- if has_rows -%}
+    {%- comment -%} The Scale strip and the matrix are redundant (same three tiers). When the Scale is shown it REPLACES the matrix. {%- endcomment -%}
+    {%- if has_rows and section.settings.show_scale != true -%}
     <div class="ss-sl__matrix ss-sl__matrix--{{ layout }}" role="table" aria-label="{{ section.settings.headline | default: 'Strength matrix' | escape }}" data-ss-reveal-group>
       {%- comment -%}
         Single source: the strength_tier metaobject (Clinical/Advanced/Professional). When the
@@ -133,7 +134,7 @@
     { "type": "richtext", "id": "note", "label": "Anti-upsell note (under the matrix)" },
     { "type": "richtext", "id": "reassurance", "label": "Reassurance line (under the note, optional)" },
     { "type": "header", "content": "The Senseless Scale strip" },
-    { "type": "checkbox", "id": "show_scale", "label": "Show the Senseless Scale strip (asterisk peer tiers)", "default": false, "info": "Renders Clinical/Advanced/Professional as distinct-but-equal peers, each with the brand asterisk + match-to-session line. Off by default — collection pages keep the existing matrix." },
+    { "type": "checkbox", "id": "show_scale", "label": "Show the Senseless Scale strip (asterisk peer tiers)", "default": false, "info": "Renders Clinical/Advanced/Professional as distinct-but-equal peers with the brand asterisk + match-to-session line. When ON it REPLACES the matrix rows below (they're redundant). Off = the matrix shows instead." },
     { "type": "select", "id": "scale_current", "label": "Mark current tier (Scale strip)", "default": "", "info": "Leave as ‘None’ on pages that span tiers (the default for collections). Set only on a single-tier context.", "options": [ { "value": "", "label": "None (all peers, none marked)" }, { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" } ] },
     { "type": "richtext", "id": "scale_clinical", "label": "Scale — Clinical line", "default": "<p>For shorter, lighter sessions and smaller areas.</p>" },
     { "type": "richtext", "id": "scale_advanced", "label": "Scale — Advanced line", "default": "<p>For longer sessions and more sensitive areas.</p>" },
