@@ -12,7 +12,7 @@
     --text-primary: #1A1816;   /* headings / display (H1–H3) */
     --text-body: #2B2730;      /* primary running body — TODO(guides): optionally swap to Inter for article body only; ships Montserrat now */
     --text-secondary: #5C5853; /* lead / intro, captions, helpers */
-    --text-muted: #8E8A82;     /* disabled / tertiary only */
+    --text-muted: #6E6A63;     /* disabled / tertiary only — AA-legible on canvas (was #8E8A82, ~3.2:1) */
     --brand-primary: #6B3FA0;  /* eyebrows + sparing emphasis (accent only) */
     --bg-canvas: #f7f7f5;
     --bg-surface: #ffffff;
@@ -37,9 +37,9 @@
   .ss-h1, h1.senseless { font-size: clamp(2.5rem, 1.5rem + 4vw, 4rem); line-height: 1.06; font-weight: 400; letter-spacing: -0.02em; color: var(--text-primary); }
   .ss-h2, h2.senseless { font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; color: var(--text-primary); }
   .ss-h3, h3.senseless { font-size: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem); line-height: 1.25; font-weight: 600; letter-spacing: -0.01em; color: var(--text-primary); }
-  @media (max-width: 749px) { .ss-h1, h1.senseless { line-height: 1.08; } .ss-h2, h2.senseless { line-height: 1.12; } }
+  @media (max-width: 749px) { .ss-h1, h1.senseless { line-height: 1.08; } .ss-h2, h2.senseless { line-height: 1.12; } .ss-h3, h3.senseless { line-height: 1.35; } }
 
-  .eyebrow { font-family: var(--font-sans); font-size: 0.75rem; line-height: 1.2; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand-primary); }
+  .eyebrow { font-family: var(--font-sans); font-size: clamp(0.625rem, 0.55rem + 0.2vw, 0.875rem); line-height: 1.2; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand-primary); }
   .lead { font-family: var(--font-sans); font-size: clamp(1.125rem, 0.95rem + 0.8vw, 1.375rem); line-height: 1.55; font-weight: 400; color: var(--text-secondary); }
   .body-small { font-size: 0.875rem; line-height: 1.6; font-weight: 400; color: var(--text-body); }
   .caption { font-size: 0.8125rem; line-height: 1.45; font-weight: 400; color: var(--text-secondary); }
@@ -51,7 +51,7 @@
      blocks blur together. Add a subtle hairline between adjacent content sections — mobile only,
      desktop unchanged. The first section (hero) has no preceding sibling, so it gets no line. */
   @media (max-width: 749px) {
-    #MainContent .shopify-section + .shopify-section { border-top: 1px solid rgba(26, 24, 22, 0.07); }
+    #MainContent .shopify-section + .shopify-section { border-top: 1px solid rgba(26, 24, 22, 0.15); }
   }
 
   /* Brand-mark tiles (2026-06-25): the Senseless asterisk is used as the image for non-product

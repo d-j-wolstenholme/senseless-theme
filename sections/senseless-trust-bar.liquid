@@ -23,6 +23,7 @@
     --ss-bg: #f7f7f5;
     --ss-surface: #ffffff;
     --ss-ink: #1A1816;
+    --ss-secondary: #5C5853;
     --ss-muted: #8E8A82;
     --ss-divider: rgba(26,26,26,0.09);
     --ss-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -54,7 +55,7 @@
   }
   .ss-trust__rating-num { font-family: var(--ss-sans); font-weight: 600; font-size: 16px; color: var(--ss-ink); }
   .ss-trust__rating-denom { font-weight: 500; font-size: 13px; color: var(--ss-muted); }
-  .ss-trust__rating-count { font-family: var(--ss-sans); font-weight: 500; font-size: 12px; color: var(--ss-muted); letter-spacing: 0.01em; }
+  .ss-trust__rating-count { font-family: var(--ss-sans); font-weight: 500; font-size: 13px; color: var(--ss-secondary); letter-spacing: 0.01em; }
 
   /* Tick items */
   .ss-trust__tick { color: var(--ss-purple); display: inline-flex; flex: 0 0 auto; }
@@ -71,6 +72,11 @@
   @media (max-width: 899px) {
     .ss-trust__rating { flex-basis: 100%; padding-bottom: 4px; }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* No motion: the rating count-up is skipped in JS; value renders at its final number immediately. */
+    .ss-trust__rating-value { transition: none; }
+  }
 {%- endstyle -%}
 
 <section class="ss-trust ss-trust--{{ section.settings.band | default: 'canvas' }}" aria-label="Trust signals">
@@ -85,7 +91,7 @@
               <span class="ss-trust__stars-base" aria-hidden="true">★★★★★</span>
               <span class="ss-trust__stars-fill" aria-hidden="true" style="width: {{ ss_pct }}%;">★★★★★</span>
             </span>
-            <span class="ss-trust__rating-num">{{ ss_r }}<span class="ss-trust__rating-denom"> / 5</span></span>
+            <span class="ss-trust__rating-num"><span class="ss-trust__rating-value" data-count-to="{{ ss_r }}">{{ ss_r }}</span><span class="ss-trust__rating-denom"> / 5</span></span>
           </span>
           {%- if block.settings.rating_count != blank -%}
             <span class="ss-trust__rating-count">{{ block.settings.rating_count | escape }}</span>
@@ -102,6 +108,70 @@
     {%- endfor -%}
   </ul>
 </section>
+
+<script>
+  (function () {
+    if (window.ssTrustCountUpInit) { return; }
+    window.ssTrustCountUpInit = true;
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function run(el) {
+      var target = parseFloat(el.getAttribute('data-count-to'));
+      if (isNaN(target)) { return; }
+      var raw = el.getAttribute('data-count-to');
+      var dot = raw.indexOf('.');
+      var decimals = dot === -1 ? 0 : (raw.length - dot - 1);
+
+      if (reduce) {
+        el.textContent = target.toFixed(decimals);
+        return;
+      }
+
+      var duration = 800;
+      var start = null;
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+      function step(now) {
+        if (start === null) { start = now; }
+        var p = Math.min((now - start) / duration, 1);
+        el.textContent = (target * easeOut(p)).toFixed(decimals);
+        if (p < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target.toFixed(decimals);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function init() {
+      var nodes = document.querySelectorAll('.ss-trust__rating-value[data-count-to]');
+      if (!nodes.length) { return; }
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        for (var i = 0; i < nodes.length; i++) { run(nodes[i]); }
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            run(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      for (var j = 0; j < nodes.length; j++) { io.observe(nodes[j]); }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
 
 {% schema %}
 {

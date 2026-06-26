@@ -46,11 +46,16 @@
       var els = document.querySelectorAll('[data-ss-reveal]');
       if (!els.length) return;
 
-      // Stagger direct children of any [data-ss-reveal-group] container (cap ~320ms).
+      // Stagger direct children of any [data-ss-reveal-group] container by row, so each
+      // row leads the next (geometric: row offset * 200ms + column offset * 60ms).
+      // Columns read from data-cols when set, else default to 3.
       document.querySelectorAll('[data-ss-reveal-group]').forEach(function (group) {
+        var cols = parseInt(group.getAttribute('data-cols'), 10);
+        if (!cols || cols < 1) cols = 3;
         var kids = group.querySelectorAll(':scope > [data-ss-reveal]');
         kids.forEach(function (kid, i) {
-          kid.style.transitionDelay = Math.min(i * 60, 320) + 'ms';
+          var delay = Math.floor(i / cols) * 200 + (i % cols) * 60;
+          kid.style.transitionDelay = delay + 'ms';
         });
       });
 

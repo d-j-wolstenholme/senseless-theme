@@ -36,7 +36,7 @@
   .ss-scale__legend { font-family:var(--sans); font-size:13px; line-height:1.5; color:var(--sec); margin:0 0 14px; text-align:center; }
   .ss-scale__legend a { color:var(--p); text-decoration:none; } .ss-scale__legend a:hover { text-decoration:underline; }
   .ss-scale__row { display:grid; grid-template-columns:1fr; gap:10px; margin:0; padding:0; list-style:none; }
-  @media (min-width:600px){ .ss-scale__row { grid-template-columns:repeat(3,1fr); gap:14px; } }
+  @media (min-width:750px){ .ss-scale__row { grid-template-columns:repeat(3,1fr); gap:14px; } }
   /* All three tiers are IDENTICAL — no per-tier fill, bar, or weight. */
   .ss-scale__tier { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; gap:8px; height:100%;
     box-sizing:border-box; padding:20px 16px; border-radius:8px; background:var(--surf); border:1px solid var(--p);
@@ -45,8 +45,8 @@
   a.ss-scale__tier:hover .ss-scale__label { color:var(--p); }
   @media (prefers-reduced-motion: reduce){ .ss-scale__tier { transition:none; } a.ss-scale__tier:hover { transform:none; } }
   .ss-scale__tier--current { box-shadow:0 0 0 2px rgba(107,63,160,.28); }
-  /* Professional = the practitioner/premium tier — sitewide 2px standout (BRAND.md). Border-marker only, no purple fill, not a "strongest" claim. */
-  .ss-scale__tier--pro { border-width:2px; box-shadow:0 8px 24px rgba(107,63,160,.10); }
+  /* Professional = the practitioner/premium tier — sitewide 2px standout (BRAND.md). Border-marker + faint tint only, no large purple fill, not a "strongest" claim. */
+  .ss-scale__tier--pro { border-width:2px; background:rgba(107,63,160,.025); box-shadow:0 8px 24px rgba(107,63,160,.10); }
   .ss-scale__marks { display:inline-flex; align-items:center; gap:3px; line-height:0; }
   .ss-scale__label { font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--ink); }
   .ss-scale__desc { font-family:var(--sans); font-weight:400; font-size:13px; line-height:1.5; color:var(--sec); }

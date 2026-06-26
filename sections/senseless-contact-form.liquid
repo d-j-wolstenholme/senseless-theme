@@ -27,13 +27,17 @@
   .ss-cf__body { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); }
   .ss-cf__body p { margin: 0 0 10px; }
   .ss-cf__success { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-text); background: rgba(107,63,160,0.08); border: 1px solid rgba(107,63,160,0.25); border-radius: 4px; padding: 18px 20px; margin: 0 0 24px; }
-  .ss-cf__errors { font-family: var(--ss-sans); font-size: 15px; color: #8a1f1f; background: rgba(138,31,31,0.06); border: 1px solid rgba(138,31,31,0.25); border-radius: 4px; padding: 14px 18px; margin: 0 0 20px; }
+  .ss-cf__errors { font-family: var(--ss-sans); font-size: 15px; color: #8a1f1f; background: rgba(138,31,31,0.06); border: 1px solid rgba(138,31,31,0.25); border-radius: 4px; padding: 14px 18px; margin: 0 0 20px; display: flex; align-items: flex-start; gap: 10px; }
+  .ss-cf__errors-icon { flex: 0 0 auto; width: 20px; height: 20px; margin-top: 1px; }
+  .ss-cf__errors-prefix { font-weight: 700; }
+  .ss-cf__errors-body > * { margin: 0; }
   .ss-cf__form { display: flex; flex-direction: column; gap: 16px; }
   .ss-cf__field { display: flex; flex-direction: column; gap: 6px; }
   .ss-cf__label { font-family: var(--ss-sans); font-weight: 500; font-size: 14px; }
   .ss-cf__req { color: var(--ss-purple); }
   .ss-cf__input, .ss-cf__select, .ss-cf__textarea { font-family: var(--ss-sans); font-size: 16px; color: var(--ss-text); background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 14px; padding: 12px 14px; width: 100%; box-sizing: border-box; }
   .ss-cf__input:focus, .ss-cf__select:focus, .ss-cf__textarea:focus { outline: 2px solid var(--ss-purple); outline-offset: 1px; border-color: var(--ss-purple); }
+  .ss-cf__input:focus-visible, .ss-cf__select:focus-visible, .ss-cf__textarea:focus-visible { outline: 2px solid var(--ss-purple); outline-offset: 1px; border-color: var(--ss-purple); }
   .ss-cf__textarea { min-height: 120px; resize: vertical; }
   .ss-cf__check { display: flex; gap: 10px; align-items: flex-start; }
   .ss-cf__check input { margin-top: 3px; }
@@ -60,7 +64,14 @@
       {%- if form.posted_successfully? -%}
         <p class="ss-cf__success">{{ section.settings.success_message | default: 'Thanks — your message has been sent. We&rsquo;ll be in touch.' }}</p>
       {%- elsif form.errors -%}
-        <div class="ss-cf__errors">{{ form.errors | default_errors }}</div>
+        <div class="ss-cf__errors" role="alert">
+          <svg class="ss-cf__errors-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
+            <circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+            <path d="M10 5.5v5.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="10" cy="14" r="1.05" fill="currentColor"></circle>
+          </svg>
+          <div class="ss-cf__errors-body"><span class="ss-cf__errors-prefix">Error:</span> {{ form.errors | default_errors }}</div>
+        </div>
       {%- endif -%}
 
       {%- for block in section.blocks -%}

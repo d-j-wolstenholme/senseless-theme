@@ -15,10 +15,17 @@
   .ss-shipbar__msg { margin:0; font-size:12.5px; font-weight:600; line-height:1.35; color:#1A1816; }
   .ss-shipbar__bar { position:relative; width:100%; max-width:420px; height:6px; border-radius:999px; background:#ECEAE6; overflow:hidden; }
   .ss-shipbar__fill { position:absolute; left:0; top:0; bottom:0; width:0%; background:#6B3FA0; border-radius:999px; transition:width 300ms ease-out; }
+  /* One-shot pulse when a free-delivery threshold is newly crossed; pairs with the width transition (different property, no double-animate). */
+  .ss-shipbar__fill[data-pulse] { animation:ss-shipbar-pulse 500ms ease-out; }
+  /* Inset glow (parent .ss-shipbar__bar has overflow:hidden, so an outward spread would be clipped). */
+  @keyframes ss-shipbar-pulse {
+    0%   { box-shadow:inset 0 0 0 6px rgba(255,255,255,0.85); }
+    100% { box-shadow:inset 0 0 0 6px rgba(255,255,255,0); }
+  }
   .ss-shipbar__mid { position:absolute; left:50%; top:-2px; bottom:-2px; width:2px; background:#ffffff; box-shadow:0 0 0 1px rgba(26,24,22,0.18); z-index:1; }
   .ss-shipbar__same { margin:0; font-size:11.5px; line-height:1.35; color:#5C5853; }
   [hidden] { display:none !important; }
-  @media (prefers-reduced-motion: reduce){ .ss-shipbar__fill { transition:none; } }
+  @media (prefers-reduced-motion: reduce){ .ss-shipbar__fill { transition:none; animation:none; } }
 {%- endstyle -%}
 <div class="ss-shipbar" data-shipbar role="region" aria-label="Delivery information">
   <div class="ss-shipbar__inner">
@@ -34,7 +41,16 @@
   (function () {
     if (window.__ssShipbar) { window.__ssShipbar(); return; }
     var T1 = 4000, T2 = 8000; // pence (£40 / £80)
+    var prevTier = null; // 0 = below £40, 1 = free standard unlocked, 2 = free next-day unlocked
     function money(p) { var n = p / 100; return '£' + (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2)); }
+    // One-shot pulse on the fill when a threshold is newly crossed; restart-safe (remove → reflow → re-add).
+    function pulse(fill) {
+      if (!fill) return;
+      fill.removeAttribute('data-pulse');
+      void fill.offsetWidth; // force reflow so the animation re-triggers on a repeat crossing
+      fill.setAttribute('data-pulse', '');
+      setTimeout(function () { fill.removeAttribute('data-pulse'); }, 600);
+    }
     function render(cart) {
       // Re-query each time: the header may be morphed/restored, so cached refs can go stale.
       var empty = document.querySelector('[data-shipbar-empty]'),
@@ -45,15 +61,18 @@
       if (!empty || !prog) return;
       var n = (cart && cart.item_count) || 0;
       var sub = (cart && cart.items_subtotal_price != null) ? cart.items_subtotal_price : ((cart && cart.total_price) || 0);
-      if (n === 0) { empty.hidden = false; prog.hidden = true; return; }
+      if (n === 0) { empty.hidden = false; prog.hidden = true; prevTier = 0; return; }
       empty.hidden = true; prog.hidden = false;
-      var pct, m, showSame = true;
-      if (sub < T1) { pct = sub / T2 * 100; m = "You're " + money(T1 - sub) + " away from free standard delivery"; }
-      else if (sub < T2) { pct = sub / T2 * 100; m = "Free standard delivery unlocked — " + money(T2 - sub) + " more for free next-day"; }
-      else { pct = 100; m = "Free next-day delivery unlocked — order before 1pm for same-day dispatch"; showSame = false; }
+      var pct, m, showSame = true, tier;
+      if (sub < T1) { tier = 0; pct = sub / T2 * 100; m = "You're " + money(T1 - sub) + " away from free standard delivery"; }
+      else if (sub < T2) { tier = 1; pct = sub / T2 * 100; m = "Free standard delivery unlocked — " + money(T2 - sub) + " more for free next-day"; }
+      else { tier = 2; pct = 100; m = "Free next-day delivery unlocked — order before 1pm for same-day dispatch"; showSame = false; }
       if (msg) msg.textContent = m;
       if (fill) fill.style.width = Math.min(Math.max(pct, 0), 100) + '%';
       if (same) same.hidden = !showSame;
+      // Pulse only when a free-delivery threshold (£40 / £80) is NEWLY crossed upward; not on first paint.
+      if (prevTier != null && tier > prevTier) pulse(fill);
+      prevTier = tier;
     }
     // Cache-busted fetch so a previously-cached empty /cart.js can't keep the banner stuck on the empty state.
     function refresh(retry) {
