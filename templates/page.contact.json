@@ -16,7 +16,7 @@
           "type": "contact_card",
           "settings": {
             "label": "Customer enquiries",
-            "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below.</p>",
+            "body": "<p>Product questions, order issues, returns, general enquiries. Use the form below or <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>",
             "cta_label": "Contact form",
             "cta_url": "#contact-form"
           }
