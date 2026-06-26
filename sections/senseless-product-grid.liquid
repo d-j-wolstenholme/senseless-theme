@@ -42,8 +42,6 @@
   .ss-pg__cbody { padding: 20px; display: flex; flex-direction: column; gap: 6px; flex: 1 1 auto; }
   .ss-pg__label { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
   .ss-pg__title { font-family: var(--ss-head); font-weight: 600; font-size: 18px; line-height: 1.3; margin: 0; }
-  .ss-pg__comfort { margin: 2px 0 8px; }
-  .ss-pg__stars { margin: 2px 0 12px; padding: 0 14px; min-height: 16px; }
   .ss-pg__price { font-family: var(--ss-sans); font-weight: 500; font-size: 16px; margin: 2px 0 0; }
   .ss-pg__cta { margin-top: auto; padding-top: 10px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); display: inline-flex; align-items: center; gap: 6px; }
   .ss-pg__cta::after { content: '\2192'; }
@@ -93,14 +91,11 @@
             </div>
             <div class="ss-pg__cbody">
               {%- if block.settings.label != blank -%}<p class="ss-pg__label">{{ block.settings.label | escape }}</p>{%- endif -%}
-              {%- assign card_tier = block.settings.strength | default: '' | downcase -%}
-              {%- if card_tier == 'clinical' or card_tier == 'advanced' or card_tier == 'professional' -%}<div class="ss-pg__comfort">{% render 'senseless-comfort-mark', tier: card_tier, name: false, size: 15, link: false %}</div>{%- endif -%}
               {%- if block.settings.title != blank -%}<h3 class="ss-pg__title">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-pg__title">{{ card_product.title | escape }}</h3>{%- endif -%}
               {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-pg__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-pg__price">{{ block.settings.price | escape }}</p>{%- endif -%}
               {%- if card_product == blank and block.settings.cta_label != blank -%}<span class="ss-pg__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
             </div>
           </a>
-          {%- if card_product != blank -%}<div class="jdgm-widget jdgm-preview-badge ss-pg__stars" data-id="{{ card_product.id }}" data-template="senseless-card"></div>{%- endif -%}
           {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
         </div>
       {%- endfor -%}
