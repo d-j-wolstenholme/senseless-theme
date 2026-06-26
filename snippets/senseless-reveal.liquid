@@ -47,15 +47,22 @@
       if (!els.length) return;
 
       // Stagger direct children of any [data-ss-reveal-group] container by row, so each
-      // row leads the next (geometric: row offset * 200ms + column offset * 60ms).
-      // Columns read from data-cols when set, else default to 3.
+      // row leads the next. Column count is read from data-cols when set, else derived from
+      // the *rendered* grid (responsive-aware: single-column at mobile, 2/3/4 at desktop),
+      // falling back to 3. Delay is capped so deep cards never wait too long after entering view.
       document.querySelectorAll('[data-ss-reveal-group]').forEach(function (group) {
         var cols = parseInt(group.getAttribute('data-cols'), 10);
-        if (!cols || cols < 1) cols = 3;
+        if (!cols || cols < 1) {
+          try {
+            var tpl = window.getComputedStyle(group).gridTemplateColumns;
+            var n = tpl && tpl !== 'none' ? tpl.split(' ').filter(function (s) { return s.trim().length; }).length : 0;
+            cols = n > 0 ? n : 3;
+          } catch (e) { cols = 3; }
+        }
         var kids = group.querySelectorAll(':scope > [data-ss-reveal]');
         kids.forEach(function (kid, i) {
-          var delay = Math.floor(i / cols) * 200 + (i % cols) * 60;
-          kid.style.transitionDelay = delay + 'ms';
+          var delay = Math.floor(i / cols) * 120 + (i % cols) * 60;
+          kid.style.transitionDelay = Math.min(delay, 360) + 'ms';
         });
       });
 
