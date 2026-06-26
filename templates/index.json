@@ -40,7 +40,8 @@
         "accent_word": "sure",
         "body": "<p>Answer three quick questions — your treatment, your skin and how long the session runs — and we'll point you to the format and strength we'd reach for.</p>",
         "cta_label": "Find the right tier",
-        "cta_url": "/pages/the-senseless-system#selector"
+        "cta_url": "/pages/the-senseless-system#selector",
+        "cta_style": "primary"
       }
     },
     "procedure": {
