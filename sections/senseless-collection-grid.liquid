@@ -54,11 +54,18 @@
   .ss-cg__tab[aria-selected="true"] { background:var(--p); border-color:var(--p); color:#fff; }
   .ss-cg__tab:focus-visible { outline:2px solid var(--p); outline-offset:2px; }
   .ss-cg__grid { display:grid; grid-template-columns:1fr; gap:16px; }
-  .ss-cg__card { box-sizing:border-box; background:var(--surf); border:1px solid var(--bd); border-radius:4px; overflow:hidden; display:flex; flex-direction:column; }
+  .ss-cg__card { box-sizing:border-box; background:var(--surf); border:1px solid var(--bd); border-radius:4px; overflow:hidden; display:flex; flex-direction:column; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
   .ss-cg__card--pro { border:2px solid var(--p); }
   .ss-cg__card[hidden] { display:none; }
-  .ss-cg__media { aspect-ratio:1/1; background:var(--bg); display:block; }
-  .ss-cg__media img { width:100%; height:100%; object-fit:cover; display:block; }
+  /* Click-through affordance: the card lifts, the image zooms, and a "View product" cue + title underline make the link target to the real PDP unmistakable. */
+  .ss-cg__card:hover { transform:translateY(-4px); box-shadow:0 14px 34px rgba(107,63,160,.14); border-color:var(--p); }
+  .ss-cg__card:hover .ss-cg__title a { color:var(--p); text-decoration:underline; }
+  .ss-cg__media { position:relative; aspect-ratio:1/1; background:var(--bg); display:block; }
+  .ss-cg__media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease; }
+  .ss-cg__card:hover .ss-cg__media img { transform:scale(1.05); }
+  .ss-cg__view { position:absolute; left:0; right:0; bottom:0; padding:18px 14px 10px; background:linear-gradient(to top, rgba(26,24,22,.72), rgba(26,24,22,0)); color:#fff; font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.02em; opacity:0; transform:translateY(6px); transition:opacity .2s ease, transform .2s ease; pointer-events:none; }
+  .ss-cg__card:hover .ss-cg__view { opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .ss-cg__card, .ss-cg__media img, .ss-cg__view { transition:none; } .ss-cg__card:hover { transform:none; } .ss-cg__card:hover .ss-cg__media img { transform:none; } }
   .ss-cg__ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
   .ss-cg__ph svg { width:38%; opacity:.22; fill:var(--p); }
   .ss-cg__cbody { padding:18px; display:flex; flex-direction:column; gap:8px; flex:1 1 auto; }
@@ -148,6 +155,7 @@
             {%- else -%}
               <span class="ss-cg__ph">{{ 'product-1' | placeholder_svg_tag }}</span>
             {%- endif -%}
+            <span class="ss-cg__view" aria-hidden="true">View product &rarr;</span>
           </a>
           <div class="ss-cg__cbody">
             {%- if strength != blank -%}<p class="ss-cg__label">{{ strength | capitalize }} Strength</p>{%- endif -%}
