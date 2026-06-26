@@ -24,10 +24,14 @@
       "type": "senseless-collection-grid",
       "settings": { "eyebrow": "By format", "headline": "Numbing Spray", "show_filters": false, "format": "spray", "anchor_id": "spray" }
     },
+    "bundles": {
+      "type": "senseless-collection-grid",
+      "settings": { "eyebrow": "Bundles", "headline": "Buy as a set", "show_filters": false, "format": "bundle", "anchor_id": "bundles" }
+    },
     "aftercare": {
       "type": "senseless-collection-grid",
       "settings": { "eyebrow": "Aftercare", "headline": "After your appointment", "show_filters": false, "format": "cleanser", "anchor_id": "aftercare" }
     }
   },
-  "order": ["hero", "cream", "gel", "spray", "aftercare"]
+  "order": ["hero", "cream", "gel", "spray", "aftercare", "bundles"]
 }
