@@ -43,9 +43,9 @@
           "type": "contact_card",
           "settings": {
             "label": "Data, privacy, legal",
-            "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>",
+            "body": "<p>Data subject requests under UK GDPR, legal enquiries, regulatory questions. <a href=\"mailto:info@matrixhealthgroup.co.uk\">info@matrixhealthgroup.co.uk</a>.</p>",
             "cta_label": "Email legal team",
-            "cta_url": "mailto:cs@senseless.uk"
+            "cta_url": "mailto:info@matrixhealthgroup.co.uk"
           }
         }
       },
