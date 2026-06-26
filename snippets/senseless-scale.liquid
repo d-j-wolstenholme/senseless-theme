@@ -40,8 +40,10 @@
   /* All three tiers are IDENTICAL — no per-tier fill, bar, or weight. */
   .ss-scale__tier { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; gap:8px; height:100%;
     box-sizing:border-box; padding:20px 16px; border-radius:8px; background:var(--surf); border:1px solid var(--p);
-    color:var(--ink); text-decoration:none; transition:box-shadow .15s ease; }
-  a.ss-scale__tier:hover { box-shadow:0 0 0 2px rgba(107,63,160,.18); }
+    color:var(--ink); text-decoration:none; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  a.ss-scale__tier:hover { transform:translateY(-4px); box-shadow:0 14px 34px rgba(107,63,160,.16); border-color:var(--p); }
+  a.ss-scale__tier:hover .ss-scale__label { color:var(--p); }
+  @media (prefers-reduced-motion: reduce){ .ss-scale__tier { transition:none; } a.ss-scale__tier:hover { transform:none; } }
   .ss-scale__tier--current { box-shadow:0 0 0 2px rgba(107,63,160,.28); }
   /* Professional = the practitioner/premium tier — sitewide 2px standout (BRAND.md). Border-marker only, no purple fill, not a "strongest" claim. */
   .ss-scale__tier--pro { border-width:2px; box-shadow:0 8px 24px rgba(107,63,160,.10); }
