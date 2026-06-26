@@ -280,7 +280,7 @@
             "body": "<p>Browse the full consumer catalogue.</p>",
             "cta_label": "View collection",
             "cta_url": "/collections/shop-all",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-trade-range.webp",
             "image_alt": "The Senseless topical preparation range"
           }
         },
@@ -291,7 +291,7 @@
             "body": "<p>The brand and the company behind it.</p>",
             "cta_label": "Read more",
             "cta_url": "/pages/about",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-trade-about.webp",
             "image_alt": "About Senseless"
           }
         },
@@ -302,7 +302,7 @@
             "body": "<p>Other questions.</p>",
             "cta_label": "Contact us",
             "cta_url": "/pages/contact",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-trade-contact-card.webp",
             "image_alt": "Contact Senseless"
           }
         }

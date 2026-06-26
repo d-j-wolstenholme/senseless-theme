@@ -1197,6 +1197,48 @@
       "dimensions": "1536x1024",
       "fileSize": "103.0KB",
       "uploadedAt": "2026-06-26T10:44:11.043Z"
+    },
+    {
+      "name": "senseless-trade-range",
+      "type": "illustration",
+      "page": "trade",
+      "section": "next",
+      "alt": "The Senseless topical preparation range",
+      "sourceFile": "/private/tmp/claude-501/-Users-matrix-code-senseless-theme/69d664f5-35f0-4afb-8eb5-b71e3305b8ef/scratchpad/senseless-trade-range.png",
+      "processedFile": "assets/images/processed/senseless-trade-range.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-trade-range.webp?v=1782483323",
+      "shopifyFileId": "gid://shopify/MediaImage/70310908330332",
+      "dimensions": "1536x1024",
+      "fileSize": "103.0KB",
+      "uploadedAt": "2026-06-26T14:15:23.788Z"
+    },
+    {
+      "name": "senseless-trade-about",
+      "type": "illustration",
+      "page": "trade",
+      "section": "next",
+      "alt": "The company behind Senseless",
+      "sourceFile": "/private/tmp/claude-501/-Users-matrix-code-senseless-theme/69d664f5-35f0-4afb-8eb5-b71e3305b8ef/scratchpad/senseless-trade-about.png",
+      "processedFile": "assets/images/processed/senseless-trade-about.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-trade-about.webp?v=1782483327",
+      "shopifyFileId": "gid://shopify/MediaImage/70310908363100",
+      "dimensions": "1254x1254",
+      "fileSize": "70.0KB",
+      "uploadedAt": "2026-06-26T14:15:28.057Z"
+    },
+    {
+      "name": "senseless-trade-contact-card",
+      "type": "illustration",
+      "page": "trade",
+      "section": "next",
+      "alt": "Contact the Senseless trade team",
+      "sourceFile": "/private/tmp/claude-501/-Users-matrix-code-senseless-theme/69d664f5-35f0-4afb-8eb5-b71e3305b8ef/scratchpad/senseless-trade-contact-card.png",
+      "processedFile": "assets/images/processed/senseless-trade-contact-card.webp",
+      "cdnUrl": "https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-trade-contact-card.webp?v=1782483331",
+      "shopifyFileId": "gid://shopify/MediaImage/70310908461404",
+      "dimensions": "1306x1205",
+      "fileSize": "83.1KB",
+      "uploadedAt": "2026-06-26T14:15:31.897Z"
     }
   ]
 }
