@@ -121,6 +121,7 @@
       ],
       "settings": {
         "columns": "3",
+        "media_ratio": "3 / 2",
         "eyebrow": "",
         "headline": "A few things about how we work.",
         "body": "",

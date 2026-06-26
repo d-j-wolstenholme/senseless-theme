@@ -35,7 +35,7 @@
   .ss-card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
   .ss-card__cardlink { display: flex; flex-direction: column; text-decoration: none; color: inherit; flex: 1 1 auto; }
   .ss-card--product .ss-qa { padding: 0 20px 20px; margin-top: 0; }
-  .ss-card__media { aspect-ratio: 1 / 1; background: var(--ss-bg); position: relative; }
+  .ss-card__media { aspect-ratio: var(--ss-card-ratio, 1 / 1); background: var(--ss-bg); position: relative; }
   .ss-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .ss-card__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-card__placeholder svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
@@ -75,7 +75,7 @@
   }
 {%- endstyle -%}
 
-<section class="ss-trio ss-trio--cols-{{ section.settings.columns }}" aria-label="{{ section.settings.headline | default: 'Card row' | escape }}">
+<section class="ss-trio ss-trio--cols-{{ section.settings.columns }}" style="--ss-card-ratio: {{ section.settings.media_ratio | default: '1 / 1' }};" aria-label="{{ section.settings.headline | default: 'Card row' | escape }}">
   <div class="ss-trio__inner">
     {%- if section.settings.eyebrow != blank or section.settings.headline != blank or section.settings.body != blank -%}
       <header class="ss-trio__header" data-ss-reveal>
@@ -173,6 +173,7 @@
   "max_blocks": 4,
   "settings": [
     { "type": "select", "id": "columns", "label": "Cards per row (desktop)", "default": "3", "options": [ { "value": "2", "label": "2 (dual)" }, { "value": "3", "label": "3 (trio)" }, { "value": "4", "label": "4 (quad)" } ] },
+    { "type": "select", "id": "media_ratio", "label": "Card image ratio", "default": "1 / 1", "info": "Set to match the card images so they aren't centre-cropped.", "options": [ { "value": "1 / 1", "label": "Square (1:1)" }, { "value": "4 / 3", "label": "Landscape (4:3)" }, { "value": "3 / 2", "label": "Landscape (3:2)" }, { "value": "16 / 9", "label": "Wide (16:9)" } ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Optional. Leave blank to hide." },
     { "type": "text", "id": "headline", "label": "Headline" },
     { "type": "richtext", "id": "body", "label": "Intro body" },

@@ -75,7 +75,7 @@
       {%- endif -%}
     </div>
     {%- if section.settings.image != blank -%}
-      <div class="ss-gh__media">{{ section.settings.image | image_url: width: 900 | image_tag: loading: 'eager', sizes: '(min-width: 900px) 45vw, 100vw', widths: '400, 700, 900', alt: section.settings.image_alt }}</div>
+      <div class="ss-gh__media" style="aspect-ratio: {{ section.settings.image_ratio | default: '1 / 1' }};">{{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', sizes: '(min-width: 900px) 45vw, 100vw', widths: '400, 700, 900, 1200', alt: section.settings.image_alt }}</div>
     {%- endif -%}
   </div>
 </section>
@@ -92,6 +92,7 @@
     { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional — first beat only)" },
     { "type": "richtext", "id": "subhead", "label": "Subhead" },
     { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "select", "id": "image_ratio", "label": "Image ratio", "default": "1 / 1", "info": "Set to match the source so it isn't centre-cropped.", "options": [ { "value": "1 / 1", "label": "Square (1:1)" }, { "value": "4 / 3", "label": "Landscape (4:3)" }, { "value": "3 / 2", "label": "Landscape (3:2)" }, { "value": "16 / 9", "label": "Wide (16:9)" } ] },
     { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Editorial Senseless product image" },
     { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label" },
     { "type": "url", "id": "primary_cta_url", "label": "Primary CTA link" },
