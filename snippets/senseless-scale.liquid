@@ -41,6 +41,8 @@
     color:var(--ink); text-decoration:none; transition:box-shadow .15s ease; }
   a.ss-scale__tier:hover { box-shadow:0 0 0 2px rgba(107,63,160,.18); }
   .ss-scale__tier--current { box-shadow:0 0 0 2px rgba(107,63,160,.28); }
+  /* Professional = the practitioner/premium tier — sitewide 2px standout (BRAND.md). Border-marker only, no purple fill, not a "strongest" claim. */
+  .ss-scale__tier--pro { border-width:2px; box-shadow:0 8px 24px rgba(107,63,160,.10); }
   .ss-scale__marks { display:inline-flex; align-items:center; gap:3px; line-height:0; }
   .ss-scale__label { font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--ink); }
   .ss-scale__desc { font-family:var(--sans); font-weight:400; font-size:13px; line-height:1.5; color:var(--sec); }
@@ -60,6 +62,8 @@
       {%- assign count = i | plus: 1 -%}
       {%- assign is_current = false -%}
       {%- if cur == k -%}{%- assign is_current = true -%}{%- endif -%}
+      {%- assign is_pro = false -%}
+      {%- if k == 'professional' -%}{%- assign is_pro = true -%}{%- endif -%}
       {%- assign d = '' -%}
       {%- if i == 0 -%}{%- assign d = dc -%}{%- elsif i == 1 -%}{%- assign d = da -%}{%- else -%}{%- assign d = dp -%}{%- endif -%}
       {%- capture tier_inner -%}
@@ -71,9 +75,9 @@
       {%- endcapture -%}
       <li role="listitem">
         {%- if links != false and is_current == false -%}
-          <a class="ss-scale__tier" href="{{ urls[i] }}">{{ tier_inner }}</a>
+          <a class="ss-scale__tier{% if is_pro %} ss-scale__tier--pro{% endif %}" href="{{ urls[i] }}">{{ tier_inner }}</a>
         {%- else -%}
-          <span class="ss-scale__tier{% if is_current %} ss-scale__tier--current{% endif %}"{% if is_current %} aria-current="true"{% endif %}>{{ tier_inner }}</span>
+          <span class="ss-scale__tier{% if is_current %} ss-scale__tier--current{% endif %}{% if is_pro %} ss-scale__tier--pro{% endif %}"{% if is_current %} aria-current="true"{% endif %}>{{ tier_inner }}</span>
         {%- endif -%}
       </li>
     {%- endfor -%}
