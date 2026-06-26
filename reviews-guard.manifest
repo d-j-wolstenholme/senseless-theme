@@ -26,6 +26,10 @@ REPO | templates/product.bundle.json | preview_badge
 REPO | sections/senseless-reviews.liquid | @app
 REPO | sections/senseless-product-hero.liquid | @app
 REPO | sections/senseless-collection-grid.liquid | judgeme
+REPO | sections/senseless-product-highlights.liquid | jdgm-preview-badge
+REPO | sections/senseless-cross-sell.liquid | jdgm-preview-badge
+REPO | sections/senseless-product-showcase.liquid | jdgm-preview-badge
+REPO | sections/senseless-trio-card-row.liquid | jdgm-preview-badge
 REPO | snippets/senseless-structured-data.liquid | product.metafields.reviews.rating
 REPO | blocks/review.liquid | product.metafields.reviews.rating
 
