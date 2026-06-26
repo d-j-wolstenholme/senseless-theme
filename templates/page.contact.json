@@ -34,9 +34,9 @@
           "type": "contact_card",
           "settings": {
             "label": "Media and partnerships",
-            "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>",
+            "body": "<p>Press enquiries, interviews, brand partnerships, content collaborations. <a href=\"mailto:info@matrixhealthgroup.co.uk\">info@matrixhealthgroup.co.uk</a>.</p>",
             "cta_label": "Email press team",
-            "cta_url": "mailto:cs@senseless.uk"
+            "cta_url": "mailto:info@matrixhealthgroup.co.uk"
           }
         },
         "legal": {
