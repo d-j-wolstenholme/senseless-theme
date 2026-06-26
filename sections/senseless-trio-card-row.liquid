@@ -31,12 +31,19 @@
   .ss-trio__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
   .ss-trio--cols-4 .ss-trio__grid { grid-template-columns: repeat(2, 1fr); }
 
-  .ss-card { position: relative; box-sizing: border-box; height: 100%; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
-  .ss-card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
+  .ss-card { position: relative; box-sizing: border-box; height: 100%; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ss-text); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .ss-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(107,63,160,.14); border-color: var(--ss-purple); }
+  .ss-card:hover .ss-card__heading { color: var(--ss-purple); text-decoration: underline; }
   .ss-card__cardlink { display: flex; flex-direction: column; text-decoration: none; color: inherit; flex: 1 1 auto; }
   .ss-card--product .ss-qa { padding: 0 20px 20px; margin-top: 0; }
-  .ss-card__media { aspect-ratio: var(--ss-card-ratio, 1 / 1); background: var(--ss-bg); position: relative; }
-  .ss-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-card__media { aspect-ratio: var(--ss-card-ratio, 1 / 1); background: var(--ss-bg); position: relative; display: block; }
+  .ss-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+  .ss-card:hover .ss-card__media img { transform: scale(1.05); }
+  .ss-card__view { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 14px 10px; background: linear-gradient(to top, rgba(26,24,22,.72), rgba(26,24,22,0)); color: #fff; font-family: var(--ss-sans, 'Montserrat'); font-weight: 600; font-size: 13px; letter-spacing: .02em; opacity: 0; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+  .ss-card:hover .ss-card__view { opacity: 1; transform: translateY(0); }
+  .ss-card__comfort { margin: 4px 0 6px; }
+  .ss-card__stars { padding: 0 20px; margin: -8px 0 8px; min-height: 16px; }
+  .ss-card__stars:empty { display: none; }
   .ss-card__placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-card__placeholder svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
   .ss-card__body { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 auto; }
@@ -70,8 +77,9 @@
   @media (max-width: 989px) { .ss-trio__inner { padding-block: 56px; } }
   @media (max-width: 749px) { .ss-trio__inner { padding-block: 44px; } }
   @media (prefers-reduced-motion: reduce) {
-    .ss-card, .ss-card__ctabtn, .ss-trio__sectioncta { transition: none; }
+    .ss-card, .ss-card__media img, .ss-card__view, .ss-card__ctabtn, .ss-trio__sectioncta { transition: none; }
     .ss-card:hover { transform: none; }
+    .ss-card:hover .ss-card__media img { transform: none; }
   }
 {%- endstyle -%}
 
@@ -99,9 +107,16 @@
             <div class="ss-card{% if tier_img == blank %} ss-card--noimg{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
               {%- comment -%} Empty-safe (§11): render the media only when collection.image (or an override) exists — no placeholder/grey box on a clean text card. {%- endcomment -%}
               {%- if tier_img != blank -%}
-                <div class="ss-card__media">
-                  {{ tier_img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '400, 600, 800', alt: block.settings.image_alt }}
-                </div>
+                {%- if block.settings.cta_url != blank -%}
+                  <a class="ss-card__media" href="{{ block.settings.cta_url }}">
+                    {{ tier_img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '400, 600, 800', alt: block.settings.image_alt }}
+                    <span class="ss-card__view" aria-hidden="true">View range &rarr;</span>
+                  </a>
+                {%- else -%}
+                  <div class="ss-card__media">
+                    {{ tier_img | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 33vw, 100vw', widths: '400, 600, 800', alt: block.settings.image_alt }}
+                  </div>
+                {%- endif -%}
               {%- endif -%}
               <div class="ss-card__body">
                 {%- if block.settings.label != blank -%}<p class="ss-card__label">{{ block.settings.label | escape }}</p>{%- endif -%}
@@ -115,6 +130,7 @@
             <a class="ss-card ss-card--procedure" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }} data-ss-reveal>
               <div class="ss-card__media">
                 {%- render 'senseless-card-image', image: block.settings.image, collection: block.settings.collection, alt: block.settings.image_alt, sizes: '(min-width: 768px) 25vw, 50vw' -%}
+                <span class="ss-card__view" aria-hidden="true">View range &rarr;</span>
               </div>
               <div class="ss-card__body">
                 {%- if block.settings.label != blank -%}<h3 class="ss-card__heading">{{ block.settings.label | escape }}</h3>{%- endif -%}
@@ -125,18 +141,23 @@
           {%- when 'product_card' -%}
             {%- assign card_product = block.settings.product -%}
             {%- if card_product != blank -%}{%- assign card_href = card_product.url -%}{%- else -%}{%- assign card_href = block.settings.cta_url | default: '#' -%}{%- endif -%}
+            {%- assign card_tier = '' -%}
+            {%- if card_product != blank -%}{%- for t in card_product.tags -%}{%- assign tl = t | downcase -%}{%- if tl == 'clinical' or tl == 'advanced' or tl == 'professional' -%}{%- assign card_tier = tl -%}{%- endif -%}{%- endfor -%}{%- endif -%}
             <div class="ss-card ss-card--product" {{ block.shopify_attributes }} data-ss-reveal>
               <a class="ss-card__cardlink" href="{{ card_href }}">
                 <div class="ss-card__media">
                   {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw' -%}
+                  <span class="ss-card__view" aria-hidden="true">{% if card_product != blank %}View product &rarr;{% else %}View range &rarr;{% endif %}</span>
                 </div>
                 <div class="ss-card__body">
                   {%- if block.settings.label != blank -%}<p class="ss-card__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+                  {%- if card_tier != blank -%}<div class="ss-card__comfort">{% render 'senseless-comfort-mark', tier: card_tier, name: false, size: 15, link: false %}</div>{%- endif -%}
                   {%- if block.settings.title != blank -%}<h3 class="ss-card__heading">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-card__heading">{{ card_product.title | escape }}</h3>{%- endif -%}
                   {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-card__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-card__price">{{ block.settings.price | escape }}</p>{%- endif -%}
                   {%- if card_product == blank and block.settings.cta_label != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
                 </div>
               </a>
+              {%- if card_product != blank -%}<div class="ss-card__stars jdgm-widget jdgm-preview-badge" data-id="{{ card_product.id }}" data-template="senseless-card"></div>{%- endif -%}
               {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
             </div>
 
@@ -144,6 +165,7 @@
             <a class="ss-card ss-card--format" href="{{ block.settings.cta_url | default: '#' }}" {{ block.shopify_attributes }} data-ss-reveal>
               <div class="ss-card__media">
                 {%- render 'senseless-card-image', image: block.settings.image, collection: block.settings.collection, alt: block.settings.image_alt, sizes: '(min-width: 768px) 50vw, 100vw' -%}
+                <span class="ss-card__view" aria-hidden="true">View range &rarr;</span>
               </div>
               <div class="ss-card__body">
                 {%- if block.settings.label != blank -%}<h3 class="ss-card__heading">{{ block.settings.label | escape }}</h3>{%- endif -%}

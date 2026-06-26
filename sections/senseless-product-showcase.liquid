@@ -28,18 +28,29 @@
   .ss-ps__intro p { margin: 0; }
 
   .ss-ps__list { display: flex; flex-direction: column; gap: 20px; }
-  .ss-ps__item { background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: grid; grid-template-columns: 1fr; }
+  .ss-ps__item { background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: grid; grid-template-columns: 1fr; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
   .ss-ps__item--flagship { border: 2px solid var(--ss-purple); }
-  .ss-ps__media { aspect-ratio: 1 / 1; background: var(--ss-bg); }
-  .ss-ps__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Click-through affordance: the row lifts, the image zooms, and a "View product" cue + title underline make the link target to the real PDP unmistakable. */
+  .ss-ps__item:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(107,63,160,.14); border-color: #6B3FA0; }
+  .ss-ps__item:hover .ss-ps__title a { color: #6B3FA0; text-decoration: underline; }
+  .ss-ps__media { position: relative; aspect-ratio: 1 / 1; background: var(--ss-bg); display: block; }
+  .ss-ps__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+  .ss-ps__item:hover .ss-ps__media img { transform: scale(1.05); }
+  .ss-ps__view { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 14px 10px; background: linear-gradient(to top, rgba(26,24,22,.72), rgba(26,24,22,0)); color: #fff; font-family: var(--ss-sans, 'Montserrat'); font-weight: 600; font-size: 13px; letter-spacing: .02em; opacity: 0; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+  .ss-ps__item:hover .ss-ps__view { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .ss-ps__item, .ss-ps__media img, .ss-ps__view { transition: none; } .ss-ps__item:hover { transform: none; } .ss-ps__item:hover .ss-ps__media img { transform: none; } }
   .ss-ps__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-ps__ph svg { width: 32%; opacity: 0.2; fill: var(--ss-purple); }
   .ss-ps__body { padding: 28px 24px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
   .ss-ps__label { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-ps__comfort { margin: 4px 0 6px; }
   .ss-ps__title { font-family: var(--ss-head); font-weight: 600; font-size: 22px; line-height: 1.2; margin: 0; }
+  .ss-ps__title a { color: inherit; text-decoration: none; }
   .ss-ps__text { font-family: var(--ss-sans); font-size: 15px; line-height: 1.6; color: var(--ss-secondary); margin: 2px 0 0; }
   .ss-ps__text p { margin: 0; }
   .ss-ps__price { font-family: var(--ss-sans); font-weight: 500; font-size: 17px; margin: 6px 0 0; }
+  .ss-ps__stars { margin: 2px 0 8px; min-height: 16px; }
+  .ss-ps__stars:empty { display: none; }
   .ss-ps__cta { margin-top: 14px; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border-radius: 14px; border: 1px solid var(--ss-purple); color: var(--ss-purple); background: transparent; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; text-decoration: none; transition: background-color 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out; }
   .ss-ps__cta:hover { background: var(--ss-purple); color: #fff; border-color: var(--ss-purple); }
   .ss-ps__item--flagship .ss-ps__cta { background: var(--ss-purple); border-color: var(--ss-purple); color: #fff; }
@@ -69,16 +80,33 @@
     {%- endif -%}
     <div class="ss-ps__list">
       {%- for block in section.blocks -%}
+        {%- assign card_product = block.settings.product -%}
+        {%- comment -%} Destination for the card media link: real product first, else the block's CTA url. {%- endcomment -%}
+        {%- assign card_href = card_product.url | default: block.settings.cta_url -%}
+        {%- comment -%} Resolve the comfort tier from the linked product's tags (PRODUCT cards only). {%- endcomment -%}
+        {%- assign card_tier = '' -%}
+        {%- if card_product != blank -%}{%- for t in card_product.tags -%}{%- assign tl = t | downcase -%}{%- if tl == 'clinical' or tl == 'advanced' or tl == 'professional' -%}{%- assign card_tier = tl -%}{%- endif -%}{%- endfor -%}{%- endif -%}
+        {%- comment -%} Cue text: "View product" for real products, "View range" for a category/editorial card linking elsewhere. {%- endcomment -%}
+        {%- if card_product != blank -%}{%- assign card_cue = 'View product' -%}{%- else -%}{%- assign card_cue = 'View range' -%}{%- endif -%}
         <div class="ss-ps__item{% if block.settings.flagship %} ss-ps__item--flagship{% endif %}{% cycle '', ' ss-ps__item--reverse' %}" {{ block.shopify_attributes }}>
-          <div class="ss-ps__media">
-            {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 45vw, 100vw', widths: '400, 700, 900', ph_class: 'ss-ps__ph', ph_icon: 'product-1' -%}
-          </div>
-          {%- assign card_product = block.settings.product -%}
+          {%- if card_href != blank -%}
+            <a class="ss-ps__media" href="{{ card_href }}"{% if card_product != blank %} aria-label="{{ card_product.title | escape }}"{% endif %}>
+              {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 45vw, 100vw', widths: '400, 700, 900', ph_class: 'ss-ps__ph', ph_icon: 'product-1' -%}
+              <span class="ss-ps__view" aria-hidden="true">{{ card_cue }} &rarr;</span>
+            </a>
+          {%- else -%}
+            <div class="ss-ps__media">
+              {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 45vw, 100vw', widths: '400, 700, 900', ph_class: 'ss-ps__ph', ph_icon: 'product-1' -%}
+            </div>
+          {%- endif -%}
           <div class="ss-ps__body">
             {%- if block.settings.label != blank -%}<p class="ss-ps__label">{{ block.settings.label | escape }}</p>{%- endif -%}
-            {%- if block.settings.title != blank -%}<h3 class="ss-ps__title">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-ps__title">{{ card_product.title | escape }}</h3>{%- endif -%}
+            {%- if card_tier != blank -%}<div class="ss-ps__comfort">{% render 'senseless-comfort-mark', tier: card_tier, name: false, size: 15, link: false %}</div>{%- endif -%}
+            {%- assign card_title = block.settings.title | default: card_product.title -%}
+            {%- if card_title != blank -%}<h3 class="ss-ps__title">{% if card_href != blank %}<a href="{{ card_href }}">{{ card_title | escape }}</a>{% else %}{{ card_title | escape }}{% endif %}</h3>{%- endif -%}
             {%- if block.settings.body != blank -%}<div class="ss-ps__text">{{ block.settings.body }}</div>{%- endif -%}
             {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-ps__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-ps__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+            {%- if card_product != blank -%}<div class="ss-ps__stars jdgm-widget jdgm-preview-badge" data-id="{{ card_product.id }}" data-template="senseless-card"></div>{%- endif -%}
             {%- if block.settings.cta_label != blank -%}<a class="ss-ps__cta" href="{{ card_product.url | default: block.settings.cta_url | default: '#' }}">{{ block.settings.cta_label | escape }}</a>{%- endif -%}
             {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
           </div>

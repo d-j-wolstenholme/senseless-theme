@@ -25,18 +25,26 @@
   .ss-xs__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; margin: 0; }
 
   .ss-xs__grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-  .ss-xs__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; color: var(--ss-text); transition: transform 200ms ease-out, border-color 200ms ease-out; }
+  .ss-xs__card { position: relative; box-sizing: border-box; background: var(--ss-surface); border: 1px solid var(--ss-border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; color: var(--ss-text); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
   .ss-xs__cardlink { display: flex; flex-direction: column; text-decoration: none; color: inherit; flex: 1 1 auto; }
   .ss-xs__card .ss-qa { padding: 0 20px 20px; margin-top: 0; }
-  .ss-xs__card:hover { transform: translateY(-2px); border-color: rgba(26,26,26,0.28); }
+  /* Click-through affordance: the card lifts, the image zooms, and a "View product" cue + title underline make the link target to the real PDP unmistakable. */
+  .ss-xs__card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(107,63,160,.14); border-color: var(--ss-purple); }
+  .ss-xs__card:hover .ss-xs__title { color: var(--ss-purple); text-decoration: underline; }
   .ss-xs__card--flagship { border: 2px solid var(--ss-purple); }
   .ss-xs__card--flagship:hover { border-color: var(--ss-purple); }
-  .ss-xs__media { aspect-ratio: 1 / 1; background: var(--ss-bg); }
-  .ss-xs__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ss-xs__media { position: relative; aspect-ratio: 1 / 1; background: var(--ss-bg); }
+  .ss-xs__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+  .ss-xs__card:hover .ss-xs__media img { transform: scale(1.05); }
+  .ss-xs__view { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 14px 10px; background: linear-gradient(to top, rgba(26,24,22,.72), rgba(26,24,22,0)); color: #fff; font-family: var(--ss-sans); font-weight: 600; font-size: 13px; letter-spacing: .02em; opacity: 0; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+  .ss-xs__card:hover .ss-xs__view { opacity: 1; transform: translateY(0); }
   .ss-xs__ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   .ss-xs__ph svg { width: 38%; opacity: 0.22; fill: var(--ss-purple); }
   .ss-xs__cbody { padding: 20px; display: flex; flex-direction: column; gap: 6px; flex: 1 1 auto; }
   .ss-xs__label { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-purple); margin: 0; }
+  .ss-xs__comfort { margin: 4px 0 6px; }
+  .ss-xs__stars { padding: 0 20px; margin: -10px 0 8px; min-height: 16px; }
+  .ss-xs__stars:empty { display: none; margin: 0; }
   .ss-xs__title { font-family: var(--ss-head); font-weight: 600; font-size: 18px; line-height: 1.3; margin: 0; }
   .ss-xs__text { font-family: var(--ss-sans); font-size: 14px; line-height: 1.5; color: var(--ss-body); margin: 0; }
   .ss-xs__text p { margin: 0; }
@@ -53,7 +61,7 @@
   @media (min-width: 990px) { .ss-xs__inner { padding-inline: 40px; } }
   @media (max-width: 989px) { .ss-xs__inner { padding-block: 56px; } }
   @media (max-width: 749px) { .ss-xs__inner { padding-block: 44px; } }
-  @media (prefers-reduced-motion: reduce) { .ss-xs__card { transition: none; } .ss-xs__card:hover { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .ss-xs__card, .ss-xs__media img, .ss-xs__view { transition: none; } .ss-xs__card:hover { transform: none; } .ss-xs__card:hover .ss-xs__media img { transform: none; } }
 {%- endstyle -%}
 
 <section class="ss-xs ss-xs--cols-{{ section.settings.columns }}" aria-label="{{ section.settings.headline | default: 'Complete the system' | escape }}">
@@ -69,19 +77,27 @@
       {%- for block in section.blocks -%}
         {%- assign card_product = block.settings.product -%}
         {%- if card_product != blank -%}{%- assign card_href = card_product.url -%}{%- else -%}{%- assign card_href = block.settings.cta_url | default: '#' -%}{%- endif -%}
+        {%- comment -%} Resolve comfort tier from the linked product's tags (product cards only). {%- endcomment -%}
+        {%- assign card_tier = '' -%}{%- if card_product != blank -%}{%- for t in card_product.tags -%}{%- assign tl = t | downcase -%}{%- if tl == 'clinical' or tl == 'advanced' or tl == 'professional' -%}{%- assign card_tier = tl -%}{%- endif -%}{%- endfor -%}{%- endif -%}
+        {%- comment -%} Hover cue: "View product" for real products, "View range" for editorial/category links. {%- endcomment -%}
+        {%- if card_product != blank -%}{%- assign card_view = 'View product &rarr;' -%}{%- else -%}{%- assign card_view = 'View range &rarr;' -%}{%- endif -%}
         <div class="ss-xs__card{% if block.settings.flagship %} ss-xs__card--flagship{% endif %}" {{ block.shopify_attributes }} data-ss-reveal>
           <a class="ss-xs__cardlink" href="{{ card_href }}">
             <div class="ss-xs__media">
               {%- render 'senseless-card-image', image: block.settings.image, product: block.settings.product, alt: block.settings.image_alt, sizes: '(min-width: 768px) 33vw, 100vw', ph_class: 'ss-xs__ph' -%}
+              <span class="ss-xs__view" aria-hidden="true">{{ card_view }}</span>
             </div>
             <div class="ss-xs__cbody">
               {%- if block.settings.label != blank -%}<p class="ss-xs__label">{{ block.settings.label | escape }}</p>{%- endif -%}
+              {%- if card_tier != blank -%}<div class="ss-xs__comfort">{% render 'senseless-comfort-mark', tier: card_tier, name: false, size: 15, link: false %}</div>{%- endif -%}
               {%- if block.settings.title != blank -%}<h3 class="ss-xs__title">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-xs__title">{{ card_product.title | escape }}</h3>{%- endif -%}
               {%- if block.settings.body != blank -%}<div class="ss-xs__text">{{ block.settings.body }}</div>{%- endif -%}
               {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-xs__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-xs__price">{{ block.settings.price | escape }}</p>{%- endif -%}
               {%- if card_product == blank and block.settings.cta_label != blank -%}<span class="ss-xs__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
             </div>
           </a>
+          {%- comment -%} Judge.me preview badge — OUTSIDE .ss-xs__cardlink so its star links never nest inside the card anchor. Populated by the site-wide loader; :empty-hidden until reviews exist. {%- endcomment -%}
+          {%- if card_product != blank -%}<div class="ss-xs__stars jdgm-widget jdgm-preview-badge" data-id="{{ card_product.id }}" data-template="senseless-card"></div>{%- endif -%}
           {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
         </div>
       {%- endfor -%}
