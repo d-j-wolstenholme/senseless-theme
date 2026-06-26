@@ -11,7 +11,9 @@
         "primary_cta_url": "#enquiry-form",
         "secondary_cta_label": "See the consumer range",
         "secondary_cta_url": "/collections/aesthetic-numbing-cream",
-        "image_alt": "Clean clinic countertop with Senseless product, no faces"
+        "image": "shopify://shop_images/senseless-trade-contact.webp",
+        "image_alt": "Senseless trade reception desk with the product range",
+        "image_ratio": "4 / 3"
       }
     },
     "offer": {
@@ -24,7 +26,7 @@
             "body": "<p>Volume pricing tiers for clinics, salons, and aesthetic practices. Specific rates discussed at the enquiry stage.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-trade-account-pricing.webp",
             "image_alt": "Trade account pricing"
           }
         },
@@ -35,7 +37,7 @@
             "body": "<p>Bulk sizes for the products clinics use at volume. Beyond the consumer 30g and 35ml ranges. Specific SKUs discussed at the enquiry stage.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-trade-clinic-sizes.webp",
             "image_alt": "Clinic and salon pack sizes"
           }
         },
@@ -46,7 +48,7 @@
             "body": "<p>UK formulation, UK supply chain, account-level inventory visibility. The supply continuity clinics need from a long-term partner.</p>",
             "cta_label": "",
             "cta_url": "",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image": "shopify://shop_images/senseless-trade-supply.webp",
             "image_alt": "Consistent trade supply"
           }
         }
@@ -58,6 +60,7 @@
       ],
       "settings": {
         "columns": "3",
+        "media_ratio": "5 / 4",
         "eyebrow": "",
         "headline": "The trade proposition.",
         "body": "",
@@ -82,8 +85,9 @@
         "body": "<p>Senseless is formulated for aesthetic procedures. The product range, the recommendation system, and the trade infrastructure are all built around that specialism. The practitioners Senseless trade suits: aesthetic clinics running injectables, microneedling, and laser; SPMU artists working sustained sittings; waxing salons handling regular body work; and dermatology-adjacent practices using topical preparation for their procedures. If you're a medical or general healthcare practice using numbing for non-aesthetic procedures, Senseless isn't formulated for that context — Emla, Ametop, or another medical preparation is the right product.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image": "shopify://shop_images/senseless-asterisk.svg",
-        "image_alt": "Clinic-context image, no faces"
+        "image": "shopify://shop_images/senseless-about-practice.webp",
+        "image_alt": "The Senseless range in a treatment room",
+        "image_ratio": "3 / 2"
       }
     },
     "position": {
@@ -95,8 +99,8 @@
         "body": "<p>Professional Strength is where most practitioners start with Senseless — and a trade account takes it further. Wholesale pricing covers the whole range — cream, gel and spray, every strength — for clinics ordering at volume. Professional Strength stays available to everyone; trade is the ongoing supply relationship behind it.</p>",
         "cta_label": "",
         "cta_url": "",
-        "image": "shopify://shop_images/senseless-professional-collection-hero.webp",
-        "image_alt": "Senseless topical preparation product close-up on a warm off-white background"
+        "image": "shopify://shop_images/senseless-trade-mhg.webp",
+        "image_alt": "Matrix Health Group Ltd, the company behind Senseless"
       }
     },
     "process": {

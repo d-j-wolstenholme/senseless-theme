@@ -73,8 +73,9 @@
         "body": "<p>Senseless Professional is used in clinics across the UK for the most demanding procedures the system is built for. Senseless Clinical and Advanced are bought direct by clients preparing for their own appointments. The two audiences sit on the same product range, with the same formulation system, in different tier strengths. The clinic credibility supports the consumer purchase. The consumer purchase isn't a watered-down version of the clinic one. The system is the same.</p>",
         "cta_label": "Trade enquiries",
         "cta_url": "/pages/trade",
-        "image_alt": "Editorial clinic-context image, no faces",
-        "image": "shopify://shop_images/senseless-asterisk.svg"
+        "image_alt": "The Senseless range in a treatment room",
+        "image": "shopify://shop_images/senseless-about-practice.webp",
+        "image_ratio": "3 / 2"
       }
     },
     "notice": {
