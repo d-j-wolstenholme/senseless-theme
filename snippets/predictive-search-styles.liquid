@@ -258,6 +258,11 @@
 
   .predictive-search-results__card--product,
   .recently-viewed-wrapper .predictive-search-results__card--product {
+    /* The card cell is the query container for resource-card's `width: 80cqi` image.
+       Without this, 80cqi resolves against .predictive-search-results__inner (the whole
+       modal) and the image balloons. Mirrors blocks/_card.liquid + card-gallery.liquid. */
+    container-type: inline-size;
+
     &:active {
       transform: scale(0.97);
       transition: transform 100ms var(--animation-timing-active);
