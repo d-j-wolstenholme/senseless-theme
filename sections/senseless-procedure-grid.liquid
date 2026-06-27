@@ -78,7 +78,8 @@
             {%- if block.settings.cta_url != blank -%}<span class="ss-procg__view" aria-hidden="true">{{ block.settings.cta_label | default: 'View range' | escape }} &rarr;</span>{%- endif -%}
           </div>
           <div class="ss-procg__cbody">
-            {%- if block.settings.label != blank -%}<h3 class="ss-procg__title">{{ block.settings.label | escape }}</h3>{%- endif -%}
+            {%- comment -%} Soft hyphen in "Microneedling" so the long single word breaks cleanly as "Micro-needling" when the card is too narrow (mobile 2-up); invisible on wider cards where it fits on one line. {%- endcomment -%}
+            {%- if block.settings.label != blank -%}<h3 class="ss-procg__title">{{ block.settings.label | escape | replace: 'Microneedling', 'Micro&shy;needling' }}</h3>{%- endif -%}
             {%- if block.settings.sub_label != blank -%}<p class="ss-procg__sub">{{ block.settings.sub_label | escape }}</p>{%- endif -%}
             {%- if block.settings.cta_label != blank -%}<span class="ss-procg__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
           </div>
