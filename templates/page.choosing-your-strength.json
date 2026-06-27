@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -16,38 +25,37 @@
         "clinical": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Clinical Strength cream on a warm off-white background",
             "label": "Clinical Strength",
             "heading": "The everyday formula",
             "body": "<p>The Senseless default. Used for top-ups, routine microneedling, smaller laser zones, semi-permanent makeup retouches, lip fillers, Botox. The tier most clients land on. Quietly capable.</p>",
             "cta_label": "",
             "cta_url": "",
-            "flagship": false,
-            "image_alt": "Senseless Clinical Strength cream on a warm off-white background"
+            "flagship": false
           }
         },
         "advanced": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Advanced Strength cream on a warm off-white background",
             "label": "Advanced Strength",
             "heading": "The considered upgrade",
             "body": "<p>Higher strength. For longer sessions, more sensitive treatment areas, full-face microneedling, fractional laser, SPMU. The deliberate step up.</p>",
             "cta_label": "",
             "cta_url": "",
-            "flagship": false,
-            "image_alt": "Senseless Advanced Strength cream on a warm off-white background"
+            "flagship": false
           }
         },
         "professional": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Professional Strength cream on a warm off-white background",
             "label": "Professional Strength",
             "heading": "Developed with practitioners",
             "body": "<p>Our practitioner tier — developed specifically for professional use, available without restriction. For full-face resurfacing, sustained SPMU sittings, the longest and most sustained work. Trusted at the chair.</p>",
             "cta_label": "",
             "cta_url": "",
-            "flagship": false,
-            "badge_text": "",
-            "image_alt": "Senseless Professional Strength cream on a warm off-white background"
+            "flagship": false
           }
         }
       },
@@ -169,8 +177,7 @@
         "headline": "Match the strength to what your appointment asks of the skin.",
         "body": "<p>Most aesthetic appointments fall into clear tiers. Short, focused, predictable procedures like lip fillers, Botox and smaller laser zones sit comfortably in Clinical. Longer or more sensitive sessions, such as microneedling, SPMU and full-face laser, call for Advanced. The most intensive bookings, full-face resurfacing and sustained SPMU sittings, sit in Professional territory. If you're between tiers, go by the session — match the tier to how intensive the appointment is, and check with your practitioner.</p>",
         "cta_label": "How Senseless works",
-        "cta_url": "/pages/the-senseless-system",
-        "image_alt": "Editorial product close-up of Senseless cream"
+        "cta_url": "/pages/the-senseless-system"
       }
     },
     "misunderstandings": {
@@ -216,41 +223,40 @@
         "s30cl": {
           "type": "product_card",
           "settings": {
+            "product": "clinical-strength-cream",
+            "image_alt": "Clinical Strength Senseless cream on a warm off-white background",
             "label": "Clinical Strength",
             "title": "Cream",
-            "product": "clinical-strength-cream",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/clinical-strength-cream",
-            "flagship": false,
-            "image_alt": "Clinical Strength Senseless cream on a warm off-white background"
+            "flagship": false
           }
         },
         "s30ad": {
           "type": "product_card",
           "settings": {
+            "product": "advanced-strength-cream",
+            "image_alt": "Advanced Strength Senseless cream on a warm off-white background",
             "label": "Advanced Strength",
             "title": "Cream",
-            "product": "advanced-strength-cream",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/advanced-strength-cream",
-            "flagship": false,
-            "image_alt": "Advanced Strength Senseless cream on a warm off-white background"
+            "flagship": false
           }
         },
         "s30pr": {
           "type": "product_card",
           "settings": {
+            "product": "professional-strength-cream",
+            "image_alt": "Professional Strength Senseless cream on a warm off-white background",
             "label": "Professional Strength",
             "title": "Cream",
-            "product": "professional-strength-cream",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
-            "flagship": false,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless cream on a warm off-white background"
+            "flagship": false
           }
         }
       },

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,11 +15,11 @@
         "eyebrow": "Senseless vs Ametop",
         "headline": "Senseless and Ametop: a different category, a different purpose.",
         "subhead": "<p>Senseless is a UK cosmetic product, formulated for aesthetic procedures. Ametop is a medicine, sold through pharmacies. The comparison is across categories — not the same kind of product, not built for the same kind of buyer.</p>",
+        "image_alt": "Editorial Senseless system view",
         "primary_cta_label": "Shop the Senseless system",
         "primary_cta_url": "/collections/numbing-cream",
         "secondary_cta_label": "Find your strength",
-        "secondary_cta_url": "/pages/the-senseless-system",
-        "image_alt": "Editorial Senseless system view"
+        "secondary_cta_url": "/pages/the-senseless-system"
       }
     },
     "framing": {
@@ -56,38 +65,37 @@
         "clinical": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Clinical Strength cream on a warm off-white background",
             "label": "Clinical Strength",
             "heading": "The standard-strength formula",
             "body": "<p>The Senseless default. Used for top-ups, routine microneedling, smaller laser zones, and the appointments most clients book most often. Quietly capable.</p>",
             "cta_label": "",
             "cta_url": "",
-            "flagship": false,
-            "image_alt": "Senseless Clinical Strength cream on a warm off-white background"
+            "flagship": false
           }
         },
         "advanced": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Advanced Strength cream on a warm off-white background",
             "label": "Advanced Strength",
             "heading": "The step up",
             "body": "<p>A higher-strength formula. For longer sessions, more sensitive treatment areas, full-face microneedling, SPMU.</p>",
             "cta_label": "",
             "cta_url": "",
-            "flagship": false,
-            "image_alt": "Senseless Advanced Strength cream on a warm off-white background"
+            "flagship": false
           }
         },
         "professional": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Professional Strength cream on a warm off-white background",
             "label": "Professional Strength",
             "heading": "Developed with practitioners",
             "body": "<p>Our practitioner tier — developed for professional use, for the longest, most sustained appointments.</p>",
             "cta_label": "",
             "cta_url": "",
-            "flagship": false,
-            "badge_text": "",
-            "image_alt": "Senseless Professional Strength cream on a warm off-white background"
+            "flagship": false
           }
         }
       },
@@ -112,45 +120,45 @@
         "micro": {
           "type": "procedure_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-microneedling-collection-hero.webp",
+            "image_alt": "Senseless topical preparation for microneedling",
             "label": "Microneedling",
             "sub_label": "Advanced Strength Cream or Gel.",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-microneedling",
-            "image": "shopify://shop_images/senseless-microneedling-collection-hero.webp",
-            "image_alt": "Senseless topical preparation for microneedling"
+            "cta_url": "/collections/numbing-cream-for-microneedling"
           }
         },
         "laser": {
           "type": "procedure_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-laser-collection-hero.webp",
+            "image_alt": "Senseless topical preparation for laser treatment",
             "label": "Laser",
             "sub_label": "Advanced Strength. Cream for face, spray for body.",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-laser-treatment",
-            "image": "shopify://shop_images/senseless-laser-collection-hero.webp",
-            "image_alt": "Senseless topical preparation for laser treatment"
+            "cta_url": "/collections/numbing-cream-for-laser-treatment"
           }
         },
         "spmu": {
           "type": "procedure_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-spmu-collection-hero.webp",
+            "image_alt": "Senseless topical preparation for semi-permanent makeup",
             "label": "SPMU",
             "sub_label": "Advanced or Professional Cream.",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
-            "image": "shopify://shop_images/senseless-spmu-collection-hero.webp",
-            "image_alt": "Senseless topical preparation for semi-permanent makeup"
+            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup"
           }
         },
         "wax": {
           "type": "procedure_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-waxing-collection-hero.webp",
+            "image_alt": "Senseless topical preparation for waxing",
             "label": "Waxing",
             "sub_label": "Advanced Spray for body. Cream for smaller zones.",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-waxing",
-            "image": "shopify://shop_images/senseless-waxing-collection-hero.webp",
-            "image_alt": "Senseless topical preparation for waxing"
+            "cta_url": "/collections/numbing-cream-for-waxing"
           }
         }
       },
@@ -232,45 +240,45 @@
         "strength": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional",
             "label": "Reviews",
             "body": "<p>What customers say.</p>",
             "cta_label": "Read reviews",
-            "cta_url": "/pages/reviews",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
+            "cta_url": "/pages/reviews"
           }
         },
         "system": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image_alt": "Guide to how the Senseless system works",
             "label": "How Senseless works",
             "body": "<p>The system, in plain terms.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/the-senseless-system",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Guide to how the Senseless system works"
+            "cta_url": "/pages/the-senseless-system"
           }
         },
         "procedures": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image_alt": "Senseless topical preparations by aesthetic procedure",
             "label": "Shop by procedure",
             "body": "<p>Every appointment Senseless covers.</p>",
             "cta_label": "View collection",
-            "cta_url": "/collections/aesthetic-numbing-cream",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Senseless topical preparations by aesthetic procedure"
+            "cta_url": "/collections/aesthetic-numbing-cream"
           }
         },
         "rel_emla": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image_alt": "Senseless as an alternative to EMLA",
             "label": "EMLA cream alternative",
             "body": "<p>The aesthetic-product alternative to EMLA.</p>",
             "cta_label": "Read the guide",
-            "cta_url": "/pages/best-emla-alternative-uk",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Senseless as an alternative to EMLA"
+            "cta_url": "/pages/best-emla-alternative-uk"
           }
         }
       },

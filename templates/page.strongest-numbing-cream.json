@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,11 +15,11 @@
         "eyebrow": "Professional Strength",
         "headline": "Senseless Professional. Our most concentrated formula.",
         "subhead": "<p>Developed with practitioners. Used in clinics across the UK. Available to all, without restriction. Professional is our practitioner tier — developed specifically for professional use, for the longest and most sustained sessions.</p>",
+        "image_alt": "Editorial Senseless Professional product lineup",
         "primary_cta_label": "Explore the numbing cream range",
         "primary_cta_url": "/collections/numbing-cream",
         "secondary_cta_label": "See the practitioner tier",
-        "secondary_cta_url": "/collections/professional",
-        "image_alt": "Editorial Senseless Professional product lineup"
+        "secondary_cta_url": "/collections/professional"
       }
     },
     "meaning": {
@@ -45,46 +54,43 @@
         "s30pr": {
           "type": "product_item",
           "settings": {
+            "product": "professional-strength-cream",
+            "image_alt": "Professional Strength Senseless cream on a warm off-white background",
             "strength": "professional",
             "label": "Professional Strength",
             "title": "Cream",
-            "product": "professional-strength-cream",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
-            "flagship": false,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless cream on a warm off-white background"
+            "flagship": false
           }
         },
         "sg35pr": {
           "type": "product_item",
           "settings": {
+            "product": "professional-strength-gel",
+            "image_alt": "Professional Strength Senseless gel on a warm off-white background",
             "strength": "professional",
             "label": "Professional Strength",
             "title": "Gel",
-            "product": "professional-strength-gel",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-gel",
-            "flagship": false,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless gel on a warm off-white background"
+            "flagship": false
           }
         },
         "ssppr": {
           "type": "product_item",
           "settings": {
+            "product": "professional-strength-spray",
+            "image_alt": "Professional Strength Senseless spray on a warm off-white background",
             "strength": "professional",
             "label": "Professional Strength",
             "title": "Spray",
-            "product": "professional-strength-spray",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-spray",
-            "flagship": false,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless spray on a warm off-white background"
+            "flagship": false
           }
         }
       },
@@ -190,45 +196,45 @@
         "clinical": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image_alt": "Senseless Clinical Strength on a warm off-white background",
             "label": "Clinical Strength",
             "body": "<p>The everyday Senseless. For routine appointments.</p>",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream?strength=clinical",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Senseless Clinical Strength on a warm off-white background"
+            "cta_url": "/collections/numbing-cream?strength=clinical"
           }
         },
         "advanced": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image_alt": "Senseless Advanced Strength on a warm off-white background",
             "label": "Advanced Strength",
             "body": "<p>The considered upgrade. For longer or more sensitive sessions.</p>",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream?strength=advanced",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Senseless Advanced Strength on a warm off-white background"
+            "cta_url": "/collections/numbing-cream?strength=advanced"
           }
         },
         "compare": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional",
             "label": "Compare all three",
             "body": "<p>Match the tier to the procedure.</p>",
             "cta_label": "Read guide",
-            "cta_url": "/pages/the-senseless-system",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
+            "cta_url": "/pages/the-senseless-system"
           }
         },
         "rel_best": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-asterisk.svg",
+            "image_alt": "Buyer's guide to choosing numbing cream",
             "label": "Best numbing cream",
             "body": "<p>How to choose the right one.</p>",
             "cta_label": "Read the guide",
-            "cta_url": "/pages/best-numbing-cream",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Buyer's guide to choosing numbing cream"
+            "cta_url": "/pages/best-numbing-cream"
           }
         }
       },

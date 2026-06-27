@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -19,45 +28,45 @@
         "micro": {
           "type": "procedure_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-microneedling-collection-hero.webp",
+            "image_alt": "Senseless topical preparation for microneedling",
             "label": "Microneedling",
             "sub_label": "",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-microneedling",
-            "image": "shopify://shop_images/senseless-microneedling-collection-hero.webp",
-            "image_alt": "Senseless topical preparation for microneedling"
+            "cta_url": "/collections/numbing-cream-for-microneedling"
           }
         },
         "laser": {
           "type": "procedure_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-laser-collection-hero.webp",
+            "image_alt": "Senseless topical preparation for laser treatment",
             "label": "Laser Treatment",
             "sub_label": "",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-laser-treatment",
-            "image": "shopify://shop_images/senseless-laser-collection-hero.webp",
-            "image_alt": "Senseless topical preparation for laser treatment"
+            "cta_url": "/collections/numbing-cream-for-laser-treatment"
           }
         },
         "spmu": {
           "type": "procedure_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-spmu-collection-hero.webp",
+            "image_alt": "Senseless topical preparation for semi-permanent makeup",
             "label": "Semi-Permanent Makeup",
             "sub_label": "",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup",
-            "image": "shopify://shop_images/senseless-spmu-collection-hero.webp",
-            "image_alt": "Senseless topical preparation for semi-permanent makeup"
+            "cta_url": "/collections/numbing-cream-for-semi-permanent-makeup"
           }
         },
         "wax": {
           "type": "procedure_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-waxing-collection-hero.webp",
+            "image_alt": "Senseless topical preparation for waxing",
             "label": "Waxing",
             "sub_label": "",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream-for-waxing",
-            "image": "shopify://shop_images/senseless-waxing-collection-hero.webp",
-            "image_alt": "Senseless topical preparation for waxing"
+            "cta_url": "/collections/numbing-cream-for-waxing"
           }
         }
       },
@@ -94,38 +103,37 @@
         "clinical": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Clinical Strength cream on a warm off-white background",
             "label": "Clinical Strength",
             "heading": "For routine appointments",
             "body": "<p>The standard-strength Senseless. Used for top-ups, routine microneedling, smaller laser zones, and the appointments most clients book most often. Quietly capable.</p>",
             "cta_label": "Shop Clinical",
             "cta_url": "/collections/numbing-cream?strength=clinical",
-            "flagship": false,
-            "image_alt": "Senseless Clinical Strength cream on a warm off-white background"
+            "flagship": false
           }
         },
         "advanced": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Advanced Strength cream on a warm off-white background",
             "label": "Advanced Strength",
             "heading": "For longer or more demanding sessions",
             "body": "<p>The step up for longer or more demanding sessions. A higher-strength formula for longer sessions and more sensitive indications. Chosen by clients who know what their appointment will ask of them.</p>",
             "cta_label": "Shop Advanced",
             "cta_url": "/collections/numbing-cream?strength=advanced",
-            "flagship": false,
-            "image_alt": "Senseless Advanced Strength cream on a warm off-white background"
+            "flagship": false
           }
         },
         "professional": {
           "type": "tier_card",
           "settings": {
+            "image_alt": "Senseless Professional Strength cream on a warm off-white background",
             "label": "Professional Strength",
             "heading": "Developed with practitioners",
             "body": "<p>Our practitioner tier — a formula developed specifically for professional use, for the longest and most sustained appointments.</p>",
             "cta_label": "Shop Professional",
             "cta_url": "/collections/numbing-cream?strength=professional",
-            "flagship": false,
-            "badge_text": "",
-            "image_alt": "Senseless Professional Strength cream on a warm off-white background"
+            "flagship": false
           }
         }
       },
@@ -186,41 +194,40 @@
         "s30cl": {
           "type": "product_card",
           "settings": {
+            "product": "clinical-strength-cream",
+            "image_alt": "Clinical Strength Senseless cream on a warm off-white background",
             "label": "Clinical Strength",
             "title": "Cream",
-            "product": "clinical-strength-cream",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/clinical-strength-cream",
-            "flagship": false,
-            "image_alt": "Clinical Strength Senseless cream on a warm off-white background"
+            "flagship": false
           }
         },
         "s30ad": {
           "type": "product_card",
           "settings": {
+            "product": "advanced-strength-cream",
+            "image_alt": "Advanced Strength Senseless cream on a warm off-white background",
             "label": "Advanced Strength",
             "title": "Cream",
-            "product": "advanced-strength-cream",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/advanced-strength-cream",
-            "flagship": false,
-            "image_alt": "Advanced Strength Senseless cream on a warm off-white background"
+            "flagship": false
           }
         },
         "s30pr": {
           "type": "product_card",
           "settings": {
+            "product": "professional-strength-cream",
+            "image_alt": "Professional Strength Senseless cream on a warm off-white background",
             "label": "Professional Strength",
             "title": "Cream",
-            "product": "professional-strength-cream",
             "price": "",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
-            "flagship": false,
-            "badge_text": "",
-            "image_alt": "Professional Strength Senseless cream on a warm off-white background"
+            "flagship": false
           }
         }
       },
@@ -316,34 +323,34 @@
         "cream": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp",
+            "image_alt": "Senseless cream on a warm off-white background",
             "label": "Numbing Cream",
             "body": "<p>Three strengths and two sizes.</p>",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-cream",
-            "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp",
-            "image_alt": "Senseless cream on a warm off-white background"
+            "cta_url": "/collections/numbing-cream"
           }
         },
         "gel": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-numbing-gel-collection-hero.webp",
+            "image_alt": "Senseless gel on a warm off-white background",
             "label": "Numbing Gel",
             "body": "<p>Two strengths — Advanced and Professional.</p>",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-gel",
-            "image": "shopify://shop_images/senseless-numbing-gel-collection-hero.webp",
-            "image_alt": "Senseless gel on a warm off-white background"
+            "cta_url": "/collections/numbing-gel"
           }
         },
         "spray": {
           "type": "format_card",
           "settings": {
+            "image": "shopify://shop_images/senseless-numbing-spray-collection-hero.webp",
+            "image_alt": "Senseless spray on a warm off-white background",
             "label": "Numbing Spray",
             "body": "<p>Advanced and Professional, for body areas.</p>",
             "cta_label": "View range",
-            "cta_url": "/collections/numbing-spray",
-            "image": "shopify://shop_images/senseless-numbing-spray-collection-hero.webp",
-            "image_alt": "Senseless spray on a warm off-white background"
+            "cta_url": "/collections/numbing-spray"
           }
         }
       },
