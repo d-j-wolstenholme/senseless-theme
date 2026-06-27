@@ -33,7 +33,7 @@ The main-site FAQ (`templates/page.faq.json`) was **authored by Peter + the MHG 
 
 **Authority + scope:** the legal team's sign-off governs **this FAQ copy** and supersedes the "Works in X minutes" / "Lasts X hours" Hard Rules and the 16 June time-to-effect ban **for `page.faq.json` only**. The Hard Rules remain in force on **every other surface** (PDPs, collections, guides, ads, social, alt text, meta). **Do NOT propagate this onset/duration/effectiveness wording to other surfaces** without explicit legal sign-off for those surfaces.
 
-> **Open (for Daniel / MHG):** decide whether this override extends sitewide or stays FAQ-scoped; confirm `support@senseless.uk` is a live inbox (the rest of the site uses `cs@senseless.uk`); and confirm the 4 substantiation flags (comfort-duration data; all-SKU unbranded packaging; direct-to-client clinic retail; injectables references are organic-only).
+> **Open (for Daniel / MHG):** decide whether this override extends sitewide or stays FAQ-scoped; and confirm the 4 substantiation flags (comfort-duration data; all-SKU unbranded packaging; direct-to-client clinic retail; injectables references are organic-only). **Resolved 2026-06-27:** FAQ contact email switched from Peter's `support@` to `cs@senseless.uk` (site standard); Royal Mail confirmed as carrier.
 
 ## Approved Language Patterns
 

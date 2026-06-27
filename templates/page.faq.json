@@ -35,7 +35,7 @@
           "settings": {
             "group": "Shipping",
             "question": "Royal Mail says my order has been delivered, but I can’t find it.",
-            "answer": "<p>Our parcels are designed to fit through a standard letterbox whenever possible. Please check with anyone else at the property and any safe places where the parcel may have been left.</p><p>If you’re still unable to locate it, contact us at <a href=\"mailto:support@senseless.uk\">support@senseless.uk</a> and we’ll investigate with Royal Mail.</p>"
+            "answer": "<p>Our parcels are designed to fit through a standard letterbox whenever possible. Please check with anyone else at the property and any safe places where the parcel may have been left.</p><p>If you’re still unable to locate it, contact us at <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> and we’ll investigate with Royal Mail.</p>"
           }
         },
         "q3": {
@@ -83,7 +83,7 @@
           "settings": {
             "group": "Products",
             "question": "Why didn’t it work as well as I expected?",
-            "answer": "<p>The most common reasons include:</p><ul><li>Applying too little product.</li><li>Not leaving it on long enough.</li><li>Failing to cover it where recommended.</li><li>Individual skin differences.</li><li>The type of procedure being performed.</li></ul><p>If you feel your experience wasn’t as expected, contact <a href=\"mailto:support@senseless.uk\">support@senseless.uk</a> and we’ll help identify what may have affected the result.</p>"
+            "answer": "<p>The most common reasons include:</p><ul><li>Applying too little product.</li><li>Not leaving it on long enough.</li><li>Failing to cover it where recommended.</li><li>Individual skin differences.</li><li>The type of procedure being performed.</li></ul><p>If you feel your experience wasn’t as expected, contact <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> and we’ll help identify what may have affected the result.</p>"
           }
         },
         "q9": {
@@ -219,7 +219,7 @@
           "settings": {
             "group": "Orders & Returns",
             "question": "Can I return my order?",
-            "answer": "<p>Yes. You have 30 days from receiving your order to request a return. Products must be unopened, unused and returned in their original packaging. Contact <a href=\"mailto:support@senseless.uk\">support@senseless.uk</a> with your order number and we’ll guide you through the returns process.</p>"
+            "answer": "<p>Yes. You have 30 days from receiving your order to request a return. Products must be unopened, unused and returned in their original packaging. Contact <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> with your order number and we’ll guide you through the returns process.</p>"
           }
         },
         "q26": {
