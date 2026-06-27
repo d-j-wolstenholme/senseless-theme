@@ -23,6 +23,18 @@ Any claim implying a medicinal purpose (treating, preventing, curing, relieving 
 - Before/after imagery implying medicinal outcome
 - "As strong as Emla" (direct efficacy comparison to a lidocaine product)
 
+## Documented exception — legal-approved FAQ copy (2026-06-27)
+
+The main-site FAQ (`templates/page.faq.json`) was **authored by Peter + the MHG legal team** and is published with their wording **verbatim**, per Daniel's instruction (2026-06-27). That copy contains phrasings the Hard Rules above and the 16 June "time-to-effect banned in every voice" decision would otherwise restrict:
+
+- **Onset** — "Most users begin noticing the effects after approximately 30–45 minutes, with optimal comfort typically achieved after around 45–60 minutes…" (*How long does it take to work?*)
+- **Duration** — "customer feedback suggests comfort typically lasts between one and three hours…" (*How long does the effect last?*)
+- **Performance/effectiveness** — "reduce the perceived effectiveness of topical numbing products" / "reduced performance" (*alcohol & caffeine; how much to apply*)
+
+**Authority + scope:** the legal team's sign-off governs **this FAQ copy** and supersedes the "Works in X minutes" / "Lasts X hours" Hard Rules and the 16 June time-to-effect ban **for `page.faq.json` only**. The Hard Rules remain in force on **every other surface** (PDPs, collections, guides, ads, social, alt text, meta). **Do NOT propagate this onset/duration/effectiveness wording to other surfaces** without explicit legal sign-off for those surfaces.
+
+> **Open (for Daniel / MHG):** decide whether this override extends sitewide or stays FAQ-scoped; confirm `support@senseless.uk` is a live inbox (the rest of the site uses `cs@senseless.uk`); and confirm the 4 substantiation flags (comfort-duration data; all-SKU unbranded packaging; direct-to-client clinic retail; injectables references are organic-only).
+
 ## Approved Language Patterns
 
 | Don't write | Do write |

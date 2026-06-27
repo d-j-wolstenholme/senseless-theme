@@ -16,7 +16,7 @@
         "background": "white",
         "align": "left",
         "eyebrow": "Start here",
-        "body": "<p>Every Senseless page includes guidance relevant to that product or topic. This page brings together the questions we’re asked most often — about shipping, products, application, safety, trade accounts and orders.</p><p>Senseless is a cosmetic preparation used before treatment, not an anaesthetic, and your practitioner’s guidance always comes first.</p>"
+        "body": "<p>Every page on Senseless includes guidance relevant to that product or topic. This page brings together the questions we’re asked most often about shipping, products, application, safety, trade accounts and orders.</p>"
       }
     },
     "faq": {
@@ -27,7 +27,7 @@
           "settings": {
             "group": "Shipping",
             "question": "Where is my order?",
-            "answer": "<p>You’ll receive an email with your Royal Mail tracking number as soon as your order is dispatched. If you can’t find it, please check your junk or spam folder. You can also track your parcel using the <a href=\"https://www.royalmail.com/track-your-item\">Royal Mail tracking service</a>.</p>"
+            "answer": "<p>You’ll receive an email containing your Royal Mail tracking number as soon as your order has been dispatched. If you can’t find it, please check your junk or spam folder. You can also track your parcel using the <a href=\"https://www.royalmail.com/track-your-item\">Royal Mail tracking service</a>.</p>"
           }
         },
         "q2": {
@@ -35,7 +35,7 @@
           "settings": {
             "group": "Shipping",
             "question": "Royal Mail says my order has been delivered, but I can’t find it.",
-            "answer": "<p>Our parcels are designed to fit through a standard letterbox wherever possible. Please check with anyone else at the property and any safe places the parcel may have been left. If you still can’t locate it, contact us at <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> and we’ll investigate with Royal Mail.</p>"
+            "answer": "<p>Our parcels are designed to fit through a standard letterbox whenever possible. Please check with anyone else at the property and any safe places where the parcel may have been left.</p><p>If you’re still unable to locate it, contact us at <a href=\"mailto:support@senseless.uk\">support@senseless.uk</a> and we’ll investigate with Royal Mail.</p>"
           }
         },
         "q3": {
@@ -43,7 +43,7 @@
           "settings": {
             "group": "Shipping",
             "question": "Is my order shipped in discreet packaging?",
-            "answer": "<p>Yes. Every order is dispatched in plain, unbranded packaging — nothing on the outside identifies the contents.</p>"
+            "answer": "<p>Yes. Every order is dispatched in plain, unbranded packaging for complete discretion.</p>"
           }
         },
         "q4": {
@@ -51,7 +51,7 @@
           "settings": {
             "group": "Products",
             "question": "Is Senseless designed for professional aesthetic treatments?",
-            "answer": "<p>Yes. Senseless was developed specifically for aesthetic practitioners. The range is designed for use before procedures such as injectables, microneedling, laser treatments, skin rejuvenation, permanent makeup (SPMU) and waxing. Clinics also stock Senseless for clients preparing for their appointments.</p>"
+            "answer": "<p>Yes. Senseless was developed specifically for aesthetic practitioners. The range is designed for use before procedures such as injectables, microneedling, laser treatments, skin rejuvenation, permanent makeup (SPMU), waxing and similar aesthetic services.</p><p>Many clinics also retail Senseless directly to clients preparing for their appointments.</p>"
           }
         },
         "q5": {
@@ -59,7 +59,7 @@
           "settings": {
             "group": "Products",
             "question": "Which strength should I choose?",
-            "answer": "<p>Senseless comes in three strengths because different treatments and clients have different requirements — stronger isn’t automatically better. Our <a href=\"/pages/the-senseless-system\">recommendation tool</a> will guide you to the most appropriate option for your planned procedure. If you’re unsure, contact our team before ordering and we’ll be glad to advise.</p>"
+            "answer": "<p>Senseless is available in multiple strengths because different treatments and clients have different requirements. Our <a href=\"/pages/the-senseless-system\">recommendation system</a> will guide you to the most appropriate option based on your planned procedure. If you’re unsure, contact our team before ordering and we’ll happily advise.</p>"
           }
         },
         "q6": {
@@ -67,23 +67,23 @@
           "settings": {
             "group": "Products",
             "question": "Can I use Senseless alongside another numbing cream?",
-            "answer": "<p>No. We don’t recommend combining topical preparations. Using more than one product increases the likelihood of skin irritation and makes it harder to identify the cause of any reaction. Use Senseless on its own and follow the application guidance.</p>"
+            "answer": "<p>No. We do not recommend combining multiple topical numbing products. Using more than one product increases the likelihood of skin irritation and makes it difficult to identify the cause of any reaction. For best results, use Senseless on its own and follow the application instructions.</p>"
           }
         },
         "q7": {
           "type": "faq_item",
           "settings": {
             "group": "Products",
-            "question": "Do alcohol or caffeine make a difference?",
-            "answer": "<p>They can. Many practitioners suggest avoiding alcohol and limiting caffeine for at least 24 hours before treatment, as both can affect how comfortable a treatment feels.</p>"
+            "question": "Does alcohol or caffeine affect performance?",
+            "answer": "<p>They can. Many practitioners recommend avoiding alcohol and limiting caffeine for at least 24 hours before treatment, as both may reduce the perceived effectiveness of topical numbing products.</p>"
           }
         },
         "q8": {
           "type": "faq_item",
           "settings": {
             "group": "Products",
-            "question": "Why didn’t I feel as comfortable as I expected?",
-            "answer": "<p>The most common reasons include:</p><ul><li>Applying too little product.</li><li>Removing it sooner than the application guidance recommends.</li><li>Not covering it where recommended.</li><li>Individual differences in skin.</li><li>The type of procedure.</li></ul><p>If your experience wasn’t what you expected, contact <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> and we’ll help identify what may have affected it.</p>"
+            "question": "Why didn’t it work as well as I expected?",
+            "answer": "<p>The most common reasons include:</p><ul><li>Applying too little product.</li><li>Not leaving it on long enough.</li><li>Failing to cover it where recommended.</li><li>Individual skin differences.</li><li>The type of procedure being performed.</li></ul><p>If you feel your experience wasn’t as expected, contact <a href=\"mailto:support@senseless.uk\">support@senseless.uk</a> and we’ll help identify what may have affected the result.</p>"
           }
         },
         "q9": {
@@ -91,7 +91,7 @@
           "settings": {
             "group": "Products",
             "question": "Are Senseless products compliant?",
-            "answer": "<p>Yes. Every Senseless product complies with UK cosmetic legislation and is supported by its own Cosmetic Product Safety Report (CPSR), completed by an independent, qualified safety assessor.</p>"
+            "answer": "<p>Yes. Every Senseless product complies with UK cosmetic legislation and is supported by its own Cosmetic Product Safety Report (CPSR) completed by an independent qualified safety assessor.</p>"
           }
         },
         "q10": {
@@ -99,7 +99,7 @@
           "settings": {
             "group": "Using Senseless",
             "question": "How do I apply Senseless correctly?",
-            "answer": "<p>Clean and thoroughly dry the treatment area. Apply a thick, even layer across the whole area to be treated, and cover with occlusive film (such as cling film) where recommended to aid absorption. Allow approximately 45–60 minutes before your procedure unless your practitioner advises otherwise. Full instructions are on our <a href=\"/pages/how-to-apply-numbing-cream\">How to Apply</a> page.</p>"
+            "answer": "<p>Clean and thoroughly dry the treatment area. Apply a thick, even layer across the entire area to be treated. Cover with occlusive film (such as cling film) where recommended to improve absorption. Leave for approximately 45–60 minutes before your procedure unless your practitioner advises otherwise. Full instructions are available on our <a href=\"/pages/how-to-apply-numbing-cream\">How to Apply</a> page.</p>"
           }
         },
         "q11": {
@@ -107,23 +107,23 @@
           "settings": {
             "group": "Using Senseless",
             "question": "How much should I apply?",
-            "answer": "<p>Apply a generous, clearly visible layer over the complete treatment area. Using too little is one of the most common reasons people find it less comfortable than expected.</p>"
+            "answer": "<p>Apply a generous, clearly visible layer over the complete treatment area. Using too little product is one of the most common reasons for reduced performance.</p>"
           }
         },
         "q12": {
           "type": "faq_item",
           "settings": {
             "group": "Using Senseless",
-            "question": "How long before treatment should I apply it?",
-            "answer": "<p>Allow approximately 45–60 minutes before your procedure, unless your practitioner advises otherwise. Apply it ahead of your appointment rather than at the time of treatment, and always follow your practitioner’s guidance.</p>"
+            "question": "How long does it take to work?",
+            "answer": "<p>Most users begin noticing the effects after approximately 30–45 minutes, with optimal comfort typically achieved after around 45–60 minutes when applied correctly.</p>"
           }
         },
         "q13": {
           "type": "faq_item",
           "settings": {
             "group": "Using Senseless",
-            "question": "How long does the comfort last?",
-            "answer": "<p>Experiences vary, but customers typically describe feeling comfortable for around one to three hours, depending on the product, how it’s applied, skin type and the treatment.</p>"
+            "question": "How long does the effect last?",
+            "answer": "<p>Individual experiences vary, but customer feedback suggests comfort typically lasts between one and three hours, depending on the product used, application method, skin type and treatment.</p>"
           }
         },
         "q14": {
@@ -131,7 +131,7 @@
           "settings": {
             "group": "Using Senseless",
             "question": "Can I use Senseless before anti-wrinkle injections or dermal fillers?",
-            "answer": "<p>Yes. Many practitioners use Senseless before injectable treatments to help clients feel more comfortable throughout the procedure. Always follow the advice of your treating practitioner.</p>"
+            "answer": "<p>Yes. Many practitioners recommend Senseless before injectable treatments to help improve comfort throughout the procedure. Always follow the advice of your treating practitioner.</p>"
           }
         },
         "q15": {
@@ -139,7 +139,7 @@
           "settings": {
             "group": "Using Senseless",
             "question": "Is Senseless suitable for microneedling?",
-            "answer": "<p>Yes. Microneedling is one of the most common procedures Senseless is used before, in clinics and in independent practice alike.</p>"
+            "answer": "<p>Yes. Microneedling is one of the most common procedures Senseless is used before, both in clinics and by trained practitioners.</p>"
           }
         },
         "q16": {
@@ -147,7 +147,7 @@
           "settings": {
             "group": "Using Senseless",
             "question": "Can I use Senseless before laser treatments?",
-            "answer": "<p>Yes. Senseless is commonly used before laser procedures, including laser hair removal and various skin-rejuvenation treatments.</p>"
+            "answer": "<p>Yes. Senseless is commonly used before laser procedures, including laser hair removal and various skin rejuvenation treatments.</p>"
           }
         },
         "q17": {
@@ -155,7 +155,7 @@
           "settings": {
             "group": "Using Senseless",
             "question": "Is it suitable before permanent makeup (SPMU)?",
-            "answer": "<p>Yes. Many SPMU artists use Senseless to help clients feel more comfortable during longer procedures.</p>"
+            "answer": "<p>Yes. Many SPMU artists use Senseless to help improve client comfort during longer procedures.</p>"
           }
         },
         "q18": {
@@ -163,7 +163,7 @@
           "settings": {
             "group": "Safety & Skin",
             "question": "Do I need to perform a patch test?",
-            "answer": "<p>Yes. Before your first use, carry out a patch test at least 24 hours beforehand. Apply a small amount to the inside of your wrist or elbow and leave it for 24 hours. If any irritation occurs, do not continue to full application.</p>"
+            "answer": "<p>Yes. Before your first use, carry out a patch test at least 24 hours beforehand. Apply a small amount to the inside of your wrist or elbow and leave it for 24 hours. If irritation occurs, do not continue with full application.</p>"
           }
         },
         "q19": {
@@ -171,7 +171,7 @@
           "settings": {
             "group": "Safety & Skin",
             "question": "Can I use Senseless during pregnancy?",
-            "answer": "<p>Speak to your GP, midwife or healthcare professional before using any topical preparation during pregnancy. Do not use it without appropriate medical advice.</p>"
+            "answer": "<p>Speak to your GP, midwife or healthcare professional before using any topical numbing product during pregnancy. Do not use without appropriate medical advice.</p>"
           }
         },
         "q20": {
@@ -179,7 +179,7 @@
           "settings": {
             "group": "Safety & Skin",
             "question": "Is Senseless suitable for sensitive skin?",
-            "answer": "<p>If you have sensitive skin, a patch test is especially important. If redness, itching or irritation develops during the patch test, discontinue use. Anyone with an existing skin condition should seek medical advice before use.</p>"
+            "answer": "<p>If you have sensitive skin, a patch test is particularly important. If redness, itching or irritation develops during the patch test, discontinue use. Anyone with an existing skin condition should seek medical advice before use.</p>"
           }
         },
         "q21": {
@@ -187,7 +187,7 @@
           "settings": {
             "group": "Safety & Skin",
             "question": "What should I do if I experience a reaction?",
-            "answer": "<p>Stop using the product immediately and wash the area thoroughly with clean water. If symptoms persist or worsen, seek medical advice. Don’t use the product again until a healthcare professional advises it’s appropriate.</p>"
+            "answer": "<p>Stop using the product immediately and wash the area thoroughly with clean water. If symptoms persist or worsen, seek medical advice. Do not use the product again until advised by a healthcare professional.</p>"
           }
         },
         "q22": {
@@ -203,7 +203,7 @@
           "settings": {
             "group": "Trade Accounts",
             "question": "Do you offer clinic pricing?",
-            "answer": "<p>Yes. Senseless offers professional trade accounts for aesthetic clinics, practitioners and studios. Approved partners receive:</p><ul><li>Trade pricing.</li><li>Volume discounts.</li><li>Clinic support.</li><li>Marketing resources.</li><li>Priority product launches.</li><li>Practitioner education.</li></ul><p>Visit our <a href=\"/pages/trade\">Trade Accounts</a> page to apply.</p>"
+            "answer": "<p>Yes. Senseless has been built around professional trade accounts for aesthetic clinics, practitioners and studios.</p><p>Approved partners receive:</p><ul><li>Trade pricing.</li><li>Volume discounts.</li><li>Clinic support.</li><li>Marketing resources.</li><li>Priority product launches.</li><li>Practitioner education.</li></ul><p>Visit our <a href=\"/pages/trade\">Trade Accounts</a> page to apply.</p>"
           }
         },
         "q24": {
@@ -211,7 +211,7 @@
           "settings": {
             "group": "Trade Accounts",
             "question": "Is there a minimum order?",
-            "answer": "<p>Most trade accounts have no minimum order value, and larger volume discounts become available as your purchasing increases.</p>"
+            "answer": "<p>No. There is no minimum order value for most trade accounts, although larger volume discounts are available as your purchasing increases.</p>"
           }
         },
         "q25": {
@@ -219,7 +219,7 @@
           "settings": {
             "group": "Orders & Returns",
             "question": "Can I return my order?",
-            "answer": "<p>Yes. You have 30 days from receiving your order to request a return. Products must be unopened, unused and returned in their original packaging. Contact <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> with your order number and we’ll guide you through the returns process.</p>"
+            "answer": "<p>Yes. You have 30 days from receiving your order to request a return. Products must be unopened, unused and returned in their original packaging. Contact <a href=\"mailto:support@senseless.uk\">support@senseless.uk</a> with your order number and we’ll guide you through the returns process.</p>"
           }
         },
         "q26": {
@@ -227,7 +227,7 @@
           "settings": {
             "group": "Orders & Returns",
             "question": "How quickly do you dispatch orders?",
-            "answer": "<p>Orders placed before our daily dispatch cut-off (1pm on working days) are normally dispatched the same working day. Delivery times then depend on the shipping option chosen at checkout.</p>"
+            "answer": "<p>Orders placed before our published daily dispatch cut-off are normally dispatched the same working day. Delivery times depend on the shipping option selected at checkout.</p>"
           }
         }
       },
