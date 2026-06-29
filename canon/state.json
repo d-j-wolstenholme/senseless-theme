@@ -1,0 +1,10 @@
+{
+  "canon_version": "v2.15",
+  "project": "Senseless",
+  "last_verified": "2026-06-29",
+  "freshness_days": 7,
+  "store": "senseless-numbing.myshopify.com",
+  "live_theme": "199324434780",
+  "sync_status": "CC bundle present + verified",
+  "_note": "Local mirror of the State Surface (Notion 38e58bc3-75ea-81ad-87eb-e20fcfc22406). Read by scripts/reconcile.sh for freshness; updated deliberately at task boundaries, not on every run. The State Surface in Notion is the source of truth."
+}

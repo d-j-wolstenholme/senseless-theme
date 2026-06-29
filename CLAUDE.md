@@ -1,119 +1,35 @@
-# Senseless — Claude Code Rules
+# Senseless — Claude Code instructions
 
-You are Claude Code working on the Senseless Shopify theme. Read this file in full at the start of every session. The four docs (`docs/BRAND.md`, `docs/COMPLIANCE.md`, `docs/SECTIONS.md`, `docs/ARCHITECTURE.md`) and the `DECISIONS-LOG.md` mirror at the repo root are also canonical and must be loaded before any work begins.
+Thin front door. **Notion is the single source of truth** — structure lives in the **Project Instance** (`38e58bc3-75ea-8198-9ed7-de73bc48f2b5`), current state in the **State Surface** (`38e58bc3-75ea-81ad-87eb-e20fcfc22406`), blueprints in the **Canonical Reference Library v2.15** (`38158bc3-75ea-81ef-abd2-ded10fd726a7`). Don't restate their structure here.
 
-## Project Overview
+## On session start, before any work
+1. **Run `scripts/reconcile.sh`** — establishes ground truth (machine, git `main` local+remote, live theme, store), then checks Notion against it. Review the report before acting. (Auto-runs via the SessionStart hook.)
+2. Read the **Project Instance** — DB registry, repo/env, how live state is read.
+3. Read the **State Surface** header — what's true now.
+4. Follow Reference Library blueprints **01 Structure · 02 Interaction · 03 Lifecycle · 04 Integration**.
 
-Senseless is a UK-based topical preparation brand for aesthetic and cosmetic procedures. Female-leaning audience. Three strength tiers (Clinical → Advanced → Professional). Four formats — Cream (10g/30g), Gel (15ml/35ml), Spray (100ml) — plus a Foaming Cleanser (150ml). 15 single SKUs across 10 products (14 numbing variants + cleanser), plus 5 multi-product bundles (Clinical/Advanced Starter + Ultimate, Professional Ultimate). Manufactured by Matrix Health Group Ltd. Brand colour `#6B3FA0`.
+## Rules (enforced by hooks — see `.claude/settings.json`)
+- Write **outcomes, not plans**; write back to Notion at each task boundary.
+- **Reconcile on change:** update the canonical record in place + sweep the blast radius.
+- Memory points to Notion; never treat a private copy as truth.
+- **One task per session.**
+- On `/compact`, preserve: decisions + rationale, outcomes (what's live, commit hashes), modified files, open blockers.
+- A `PreToolUse` hook validates writes against `.claude/schema-contract.json`; a `Stop`/`SessionEnd` hook flags a missing write-back or a decision that landed without a chore-file update.
 
-This repo is the new build, started from latest Horizon as a clean base. Old theme is reference only.
+## Senseless specifics (detail in `.claude/rules/`)
+- **Verify-store gate (first, every Shopify action):** Shopify MCP `get-shop-info` **must** equal `senseless-numbing.myshopify.com` — the MCP/CLI default is **Totally Numb**; mismatch ⇒ **STOP**. CLI always `--store senseless-numbing.myshopify.com`. → `.claude/rules/deploy-and-store.md`
+- **Deploy = `scripts/deploy.sh` only** (Shopify CLI; token-refresh + `--allow-live` + scoped `--only`). A **`git push` does NOT deploy** — nothing reaches the theme without `deploy.sh`. Verify (theme-check 0 + Asset-API diff + live curl) before every push.
+- **Branches:** `main` is the single working branch → it **is** the live theme. Live theme = **Senseless Dev `#199324434780`** (MAIN). **No rollback theme** — old Horizon `#199321977180` is **deleted**; rollback = git history / re-deploy.
+- **Reviews-guard:** `reviews-guard.manifest`/`.lock` gate every deploy (Judge.me markers must survive); editing review files needs `--reviews-changed` + a lock commit.
+- **Two-auditor split:** chat/Daniel audits the source (copy, SEO, intent); Claude Code audits the render (UI, a11y, deploy) — never claim a render fact you can't observe live.
+- **Compliance (UK, [Regulated] — non-negotiable):** MHRA/ASA/CPSR Hard Rules; no medicinal/effect/time-to-effect claims; "numbing" is a category noun only. Run `compliance-check` before any user-facing copy; honour the Compliance Holds DB. → `.claude/rules/compliance.md`
+- **Range:** 15 single SKUs + Foaming Cleanser (**35ml**) + 5 bundles (three strengths × three formats). Brand `#6B3FA0`.
+- **Machine (hard rule #1):** ask which machine (Mac mini / MacBook Pro) at session start; reconcile prints it.
 
-## Hard Rules
+## Response style
+Concise; lead with the answer; one or two steps at a time. Define any system term once.
 
-1. **Always ask which machine I'm on at session start.** Mac mini or MacBook Pro. Log it in the session report.
-2. **Always run `/session-start` before any work.** Pulls latest, runs drift check, fetches Notion priorities.
-3. **Always run `/session-end` before closing.** Commits and pushes to both GitHub (`main`) and the Shopify live theme. No exceptions.
-4. **`main` deploys to the LIVE theme.** As of launch (7 June 2026) **Senseless Dev `#199324434780` is the published LIVE theme** on `senseless-numbing`; day-to-day commits on `main` deploy straight to it via the CLI. The storefront password stays ON until public go-live, so live-theme changes aren't publicly visible yet — **but they ARE the live theme**: verify (theme-check 0 + render) before every push. The old dev-staging / never-publish model is retired.
-5. **Never edit BRAND.md, COMPLIANCE.md, ARCHITECTURE.md silently.** When a decision changes the design system, compliance rules, or architecture, update the relevant doc in the same session and surface the update in the build report.
-6. **Never default silently when ambiguous.** If a task isn't fully resolved by CLAUDE.md, the four docs, or `DECISIONS-LOG.md`, ask me before proceeding. Or proceed with an explicit assumption logged in the build report's Open Questions section.
-7. **Always use the `senseless-` prefix on new section files.** No exceptions.
-8. **Always run `compliance-check` before producing user-facing copy.** UK compliance is non-negotiable.
-9. **Always log strategic decisions in `DECISIONS-LOG.md`** with ISO 8601 timestamp in BST. Surface them in the build report so the planning chat (Claude) can mirror them to Notion.
-10. **Never put credentials in committed files.** `.env` is gitignored. Tokens stay in `.env` only.
-11. **Theme deploys go through Shopify CLI only** (`shopify theme push --store $SHOPIFY_STORE --theme $SHOPIFY_DEV_THEME_ID`). **Always pass `--store senseless-numbing.myshopify.com`** — the CLI's default store is a different account (Totally Numb, `matrix-group-totally-numb`), so omitting `--store` pushes to the wrong store. Keep theme deploys in the CLI; never use the API token for theme push operations. The API token is for products, collections, metafields, files, and content only. Canonical Senseless theme: "Senseless Dev" `#199324434780` — **now the published LIVE theme** (`SHOPIFY_DEV_THEME_ID` in `.env` points to it).
-12. **All work happens on `main`.** `main` is the single working branch and deploys directly to the live theme; commit + push to `main` every session. (The `dev`-staging / milestone-merge model is retired as of 7 June 2026 at launch.)
+## Session handoff
+At task end, after write-back, write `NEXT_SESSION.md` (done · next Work Item · gotcha); a `Stop` hook flags if missing. Situational rules live in `.claude/rules/*.md` — keep this file thin.
 
-## Branching Strategy
-
-*(Updated 7 June 2026 at launch — the `dev`-staging + milestone-merge model is retired.)*
-
-- **`main`** — the single working branch. All build work commits to `main` and deploys directly to the **live** Shopify theme (`#199324434780`).
-- `/session-start` checks out `main`, pulls latest (`git pull origin main`), then runs drift-check.
-- `/session-end` commits to `main`, pushes to `main` + the live theme, then generates the build report.
-- Feature/fix branches (`feature/<desc>`, `fix/<desc>`) are optional; branch off `main` and merge back into `main`.
-
-## Naming Conventions
-
-- **Section files:** `senseless-<purpose>.liquid` in `/sections/` (e.g. `senseless-home-hero.liquid`)
-- **Snippet files:** `senseless-<purpose>.liquid` in `/snippets/`
-- **Image files:** `senseless-[page-or-context]-[descriptor]` (e.g. `senseless-home-hero-products`). See `docs/BRAND.md` Image Pipeline section.
-- **Branch names:** `feature/<short-description>`, `fix/<short-description>`
-- **Commit messages:** Imperative mood, short, descriptive (e.g. `Add senseless-home-hero section`)
-
-## Design Tokens
-
-See `docs/BRAND.md` for the canonical design system. Quick reference:
-
-- **Brand purple (`--brand-primary`):** `#6B3FA0`
-- **Background canvas (`--bg-canvas`):** `#f7f7f5`
-- **Background surface (`--bg-surface`):** `#ffffff`
-- **Text primary (`--text-primary`):** `#1A1816` — headings
-- **Text body (`--text-body`):** `#2B2730` — running body
-- **Text secondary (`--text-secondary`):** `#5C5853` — leads, captions
-- **Text muted (`--text-muted`):** `#8E8A82`
-- **Border subtle:** `#E5E2DC`
-- **Typeface:** Montserrat, self-hosted via Shopify font CDN (no Google Fonts requests). **Headings (reweight 2026-06-02, Strand 1): display/H1 + H2 = 400** (tracking -0.02em; line-height 1.06/1.08 H1, 1.1/1.12 H2); **H3 / card titles = 600**; body 400; eyebrow/labels 600; **italic accent = 500** (`.ss-accent` / `.t-em` — one emphasis word per head, same colour as the head, never the keyword). Type scale is fluid `clamp()` — see `snippets/senseless-typography.liquid` + `docs/BRAND.md`.
-- **Button radius:** 14px
-- **Card radius:** 4px
-- **Page width:** narrow
-
-## Skills Available
-
-In `.claude/skills/`:
-
-| Skill | Purpose |
-|---|---|
-| create-section | Generate a Liquid section + schema using brand tokens |
-| content-brief | Pull a content brief from Notion's Master Page Database |
-| compliance-check | Run draft copy against banned phrases, suggest alternatives |
-| seo-meta | Generate compliant meta title (≤60 chars) and description (≤155 chars) |
-| commit-and-deploy | Session-end: commit, push to GitHub (`main`), push to the Shopify live theme, build report |
-| image-process | Run the image pipeline end-to-end (compress → upload → manifest → integrate) |
-| metafield-populator | Create/update Shopify metafield definitions and values via API |
-| page-builder | Chain content-brief → create-section → seo-meta → image-process |
-| redirects | Manage 301 redirects via Shopify API |
-| drift-check | Compare code against docs and DECISIONS-LOG, surface discrepancies |
-
-## Slash Commands
-
-In `.claude/commands/`:
-
-- `/session-start` — Pull latest, drift check, fetch today's Notion priorities
-- `/session-end` — Run commit-and-deploy
-- `/build-page` — End-to-end page build (uses page-builder skill)
-- `/drift-check` — On-demand sync audit
-
-## Build Report Format
-
-Every session ends with a build report containing:
-
-1. **Machine** — Which machine this session was on
-2. **Session duration** — Approximate hours
-3. **Tasks completed** — What was done
-4. **Docs updated** — Which of CLAUDE.md / BRAND.md / COMPLIANCE.md / SECTIONS.md / ARCHITECTURE.md / DECISIONS-LOG.md were changed
-5. **Decisions logged this session** — Operational decisions made
-6. **Open questions** — Anything ambiguous, unresolved, or needs my decision
-7. **To push to Notion** — Strategic items to mirror to the Notion Decisions Log
-8. **Sync status** — Pass/Warn flags from drift check
-9. **Next steps** — Suggested next session priorities
-
-Paste this report into the planning chat (Claude conversation) after every session.
-
-## What NOT to Touch
-
-- The old **Horizon** theme (`#199321977180`, now unpublished) — kept as the rollback / reference theme; don't edit or republish it without instruction. (Live theme is now Senseless Dev `#199324434780` — see Hard Rule #4.)
-- `.env` file contents (set up once, never committed)
-- The four `[ARCHIVED]` or `[DELETE]` Notion pages
-- Old Senseless-Horizon theme files (reference only — don't pull from them)
-
-## Source of Truth
-
-- **Strategy:** Notion Senseless — Site Build OS (parent page: `https://www.notion.so/36c58bc375ea812c9682ca2aa0bc1950`)
-- **Decisions:** Notion Decisions Log (Vol 1 active: `https://www.notion.so/36d58bc375ea81708d1ac0fe0724d445`)
-- **Code:** This repo + GitHub `d-j-wolstenholme/senseless-theme`
-- **Live state:** Shopify store `senseless-numbing.myshopify.com` (live theme: Senseless Dev `#199324434780`; storefront password ON until public go-live)
-- **Local mirror:** `DECISIONS-LOG.md` at repo root (active volume only)
-
-## References
-
-- **Site-wide Standards (Notion):** consolidated human-facing index of site-wide standards — `https://www.notion.so/36f58bc375ea8100bc2af19a9dd3747d`. This is a **pointer only**. Canonical values live in the Strands and in this repo's `BRAND.md` / `CLAUDE.md` / `COMPLIANCE.md`. If they ever conflict, the repo docs and Strands win.
+*This file is regenerated from the Project Instance at Bootstrap-parity (Decision #41). It maps 1:1 to that page; change config there, not here.*

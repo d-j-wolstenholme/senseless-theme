@@ -1,0 +1,192 @@
+{
+  "_meta": {
+    "purpose": "Machine-readable structure spec for the Senseless Notion canon. Validated by the PreToolUse(Edit|Write|MultiEdit) hook (.claude/hooks/guard-write.py). Authored by the CC bundle per Decision #41.",
+    "canon_version": "v2.15",
+    "project": "Senseless",
+    "generated": "2026-06-29",
+    "source": "Project Instance §2 (Notion 38e58bc3-75ea-8198-9ed7-de73bc48f2b5); fields harvested live from each data source on 2026-06-29",
+    "read_order": ["State Surface", "Decisions", "Work Items"],
+    "write_rule": "Writes target the data_source_id (not the page id). Use the exact field names below; each database's title field is marked title_field."
+  },
+  "canon_version": "v2.15",
+  "frozen_globs": ["canon/blueprints/*", "canon/decisions.json"],
+  "file_bindings": [],
+  "pages": {
+    "State Surface": { "page_id": "38e58bc3-75ea-81ad-87eb-e20fcfc22406", "role": "single first-read; header overwritten in place, log append-only" },
+    "Research Repository": { "page_id": "38e58bc3-75ea-8141-9fa6-ee01a686a6a9", "role": "one living doc per concept" },
+    "Maintenance & Reconciliation Checklist": { "page_id": "38e58bc3-75ea-8114-954a-e8b716dd4712" }
+  },
+  "databases": {
+    "Decisions": {
+      "data_source_id": "655c296e-c6aa-428c-9f8e-0a8e7ef0bd3d",
+      "page_id": "d5ce9514-257c-4e02-aced-acba800e89d9",
+      "title_field": "Title",
+      "fields": [
+        { "name": "Title", "type": "title" },
+        { "name": "Decision", "type": "rich_text" },
+        { "name": "Context", "type": "rich_text" },
+        { "name": "Rationale", "type": "rich_text" },
+        { "name": "Alternatives considered", "type": "rich_text" },
+        { "name": "Consequences", "type": "rich_text" },
+        { "name": "Legacy #", "type": "rich_text" },
+        { "name": "Date", "type": "date" },
+        { "name": "Status", "type": "select" },
+        { "name": "Area", "type": "select" },
+        { "name": "Supersedes", "type": "relation" },
+        { "name": "Superseded by", "type": "relation" }
+      ]
+    },
+    "Confirmed Facts": {
+      "data_source_id": "7f28356a-6d90-4b76-bb9f-26b18b6a303a",
+      "page_id": "902902dd-f51b-4b16-a33e-54c12915db20",
+      "title_field": "Fact",
+      "fields": [
+        { "name": "Fact", "type": "title" },
+        { "name": "Source", "type": "rich_text" },
+        { "name": "Value", "type": "rich_text" },
+        { "name": "Verified", "type": "checkbox" },
+        { "name": "Blocking", "type": "checkbox" },
+        { "name": "Category", "type": "select" },
+        { "name": "Date", "type": "date" }
+      ]
+    },
+    "Work Items": {
+      "data_source_id": "4190cb51-116d-495f-b3de-8356d8d0e826",
+      "page_id": "c6f1a2f6-9fdf-4a25-b42c-725003589bf1",
+      "title_field": "Name",
+      "fields": [
+        { "name": "Name", "type": "title" },
+        { "name": "Status", "type": "select" },
+        { "name": "Owner", "type": "select" },
+        { "name": "Phase / Area", "type": "rich_text" },
+        { "name": "Blocked-by", "type": "rich_text" },
+        { "name": "Dependencies", "type": "relation" },
+        { "name": "Dependents", "type": "relation" },
+        { "name": "Sessions", "type": "relation" }
+      ]
+    },
+    "Session Log": {
+      "data_source_id": "37b14860-2152-4813-ac8f-1a9e2034564c",
+      "page_id": "74046c57-c69b-41db-84c7-065bf6caf797",
+      "title_field": "Session",
+      "fields": [
+        { "name": "Session", "type": "title" },
+        { "name": "Date", "type": "date" },
+        { "name": "Environment", "type": "select" },
+        { "name": "Goal", "type": "rich_text" },
+        { "name": "Issues", "type": "rich_text" },
+        { "name": "Live now (+ commit)", "type": "rich_text" },
+        { "name": "Next step", "type": "rich_text" },
+        { "name": "Tests", "type": "rich_text" },
+        { "name": "Verified", "type": "checkbox" },
+        { "name": "Advanced", "type": "relation" }
+      ]
+    },
+    "Stakeholder Actions": {
+      "data_source_id": "c523a313-0686-4867-be0e-0fb576366619",
+      "page_id": "47db0c55-7345-4cc4-90df-d244c0d8986a",
+      "title_field": "Action",
+      "fields": [
+        { "name": "Action", "type": "title" },
+        { "name": "Blocking", "type": "checkbox" },
+        { "name": "Notes", "type": "rich_text" },
+        { "name": "Owner", "type": "select" },
+        { "name": "Status", "type": "select" }
+      ]
+    },
+    "Open Threads": {
+      "data_source_id": "7a0243d4-e349-4be8-957a-c8573a526487",
+      "page_id": "394b9365-df2f-4f73-8647-e33ec80b260a",
+      "title_field": "Question / Thread",
+      "fields": [
+        { "name": "Question / Thread", "type": "title" },
+        { "name": "Status", "type": "select" },
+        { "name": "Date", "type": "date" },
+        { "name": "Notes", "type": "rich_text" },
+        { "name": "Area", "type": "rich_text" }
+      ]
+    },
+    "Pages": {
+      "data_source_id": "9438318c-d818-49b2-b854-7e86f551d571",
+      "page_id": "e094fca4-3e68-47f6-980d-1ad754c96521",
+      "title_field": "Page name",
+      "fields": [
+        { "name": "Page name", "type": "title" },
+        { "name": "Primary keyword", "type": "rich_text" },
+        { "name": "H1", "type": "rich_text" },
+        { "name": "Secondary keywords", "type": "rich_text" },
+        { "name": "URL slug", "type": "rich_text" },
+        { "name": "Status", "type": "select" },
+        { "name": "Data last verified", "type": "date" },
+        { "name": "Components", "type": "relation" },
+        { "name": "Internal links in", "type": "relation" },
+        { "name": "Internal links out", "type": "relation" },
+        { "name": "Linked products", "type": "relation" }
+      ]
+    },
+    "Components": {
+      "data_source_id": "372151ae-5cf5-471f-a78e-8ce3d8094324",
+      "page_id": "e9639a70-398a-4fad-b877-fa723f9a8794",
+      "title_field": "Component name",
+      "fields": [
+        { "name": "Component name", "type": "title" },
+        { "name": "Description", "type": "rich_text" },
+        { "name": "Used on", "type": "relation" }
+      ]
+    },
+    "Code Library": {
+      "data_source_id": "6f931d2d-f59f-4b56-be55-03aa33026ee5",
+      "page_id": "d9edc314-ac0d-4e79-94ab-d6d4b18d5882",
+      "title_field": "Component name",
+      "scope_note": "custom components only (Scope field)",
+      "fields": [
+        { "name": "Component name", "type": "title" },
+        { "name": "Description", "type": "rich_text" },
+        { "name": "File path", "type": "rich_text" },
+        { "name": "Scope", "type": "select" }
+      ]
+    },
+    "Products": {
+      "data_source_id": "ee4ea698-6d27-48d7-8bb3-80248c0a1514",
+      "page_id": "84b4dec5-5bdd-45b3-996e-8ab231d07597",
+      "module": "[Commerce]",
+      "title_field": "Product name",
+      "fields": [
+        { "name": "Product name", "type": "title" },
+        { "name": "Size", "type": "rich_text" },
+        { "name": "System role", "type": "rich_text" },
+        { "name": "Format", "type": "select" },
+        { "name": "Tier", "type": "select" },
+        { "name": "Compliance status", "type": "select" },
+        { "name": "Pages", "type": "relation" }
+      ]
+    },
+    "Handle Registry": {
+      "data_source_id": "9719ac78-7e7c-4362-8ea1-0af5ac0232c2",
+      "page_id": "4168f0a0-2104-41a2-ae57-da3994afc8a7",
+      "module": "[Commerce]",
+      "title_field": "Product name",
+      "fields": [
+        { "name": "Product name", "type": "title" },
+        { "name": "Verified live handle", "type": "rich_text" },
+        { "name": "GID", "type": "rich_text" },
+        { "name": "Variant GIDs", "type": "rich_text" },
+        { "name": "Verified", "type": "checkbox" },
+        { "name": "Date", "type": "date" }
+      ]
+    },
+    "Compliance Holds": {
+      "data_source_id": "6b005ef4-548a-470d-8c7e-34fdf4b95db7",
+      "page_id": "2bdbe423-d543-4ecb-9e6b-c0852fad6dd2",
+      "module": "[Regulated]",
+      "title_field": "Page / component",
+      "fields": [
+        { "name": "Page / component", "type": "title" },
+        { "name": "Status", "type": "select" },
+        { "name": "Hold type", "type": "rich_text" },
+        { "name": "Cleared-by", "type": "rich_text" },
+        { "name": "Cleared-date", "type": "date" }
+      ]
+    }
+  }
+}
