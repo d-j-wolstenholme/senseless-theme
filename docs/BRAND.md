@@ -31,9 +31,14 @@ Purple is an **accent only** by default — not used as a large area background.
 
 ## Typography
 
-Typeface is **Montserrat**, self-hosted via the Shopify font CDN (no `fonts.googleapis.com` / `gstatic.com` requests). Wired through Horizon's font settings: body `montserrat_n4` (400), subheading `montserrat_n6` (600), heading `montserrat_n7` (700), accent `montserrat_n6`. Weight **500** (`montserrat_n5`, medium) is also self-hosted — emitted via `font_modify: 'weight', '500'` + `font_face` in `senseless-typography.liquid` — so the working weights are **400 / 500 / 600** (700 retained only for the header wordmark, footer column labels, and the pull-quote glyph). Head weights now load 400 (body) + 500 (medium/accent) — see the reweight note below.
+Typeface is **Montserrat**, self-hosted via the Shopify font CDN (no `fonts.googleapis.com` / `gstatic.com` requests). Wired through Horizon's font settings: body `montserrat_n4` (400), subheading `montserrat_n6` (600), heading `montserrat_n7` (700), accent `montserrat_n6`. Weight **500** (`montserrat_n5`, medium) is also self-hosted — emitted via `font_modify: 'weight', '500'` + `font_face` in `senseless-typography.liquid` — so the working weights are **400 / 500 / 600** (700 retained only for the header wordmark, footer column labels, the pull-quote glyph, and the FAQ-accordion group labels — see the FAQ override note below). Head weights now load 400 (body) + 500 (medium/accent) — see the reweight note below.
 
 **Reweight — 2026-06-02 (Strand 1):** display/section heads dropped from 700 → **400** (700 read poster-like). Tracking → -0.02em; line-height 1.06/1.08 (H1), 1.1/1.12 (H2). H3/card titles + eyebrow **unchanged (600)**. Italic accent → **500**.
+
+**FAQ-accordion override — 2026-06-28 (edited on the live theme, Mac mini; in repo via commit `67dc679`):** `senseless-faq-accordion` carries a **bespoke** type treatment, intentionally distinct from the global H3 / eyebrow specs below — questions lighter and smaller, group labels heavier and larger ("calmer question type + bolder eyebrows for clearer hierarchy"). This is a component-scoped exception to "H3/card titles = 600"; the global H3/eyebrow rows in the Type Scale table are **unchanged**.
+- **Group label** (`.ss-faq__group`): weight **700**, `0.8125rem`, letter-spacing `0.18em`, uppercase, brand-primary, margin `44px 0 14px` (vs the eyebrow's 600 / `0.75rem` / `0.2em`).
+- **Question** (`.ss-faq__q`): weight **500**, `clamp(1.0625rem, 1.01rem + 0.25vw, 1.125rem)`, line-height `1.35`, letter-spacing `-0.005em`, padding `18px` block (vs the H3 600 / `1.25–1.375rem` / `1.25` / `-0.01em` it previously inherited).
+- **Toggle glyph** (`.ss-faq__q::after`): `19px`.
 
 - **Headings:** Montserrat **400** (H1/H2), 600 (H3 / card titles), no text-transform
 - **Body:** Montserrat 400, line-height 1.7
