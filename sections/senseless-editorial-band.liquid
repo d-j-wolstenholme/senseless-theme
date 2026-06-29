@@ -45,7 +45,7 @@
   @media (prefers-reduced-motion: reduce) { .ss-ed__cta { transition: none; } }
 {%- endstyle -%}
 
-<section class="ss-ed ss-ed--{{ section.settings.background }}{% if section.settings.align == 'center' %} ss-ed--center{% endif %}" aria-label="{{ section.settings.headline | default: 'Editorial' | escape }}">
+<section class="ss-ed ss-ed--{{ section.settings.background }}{% if section.settings.align == 'center' %} ss-ed--center{% endif %}"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Editorial' | escape }}">
   <div class="ss-ed__inner" data-ss-reveal>
     {%- if section.settings.eyebrow != blank -%}<p class="ss-ed__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     {%- if section.settings.headline != blank -%}
@@ -66,6 +66,7 @@
   "settings": [
     { "type": "select", "id": "background", "label": "Background", "default": "white", "options": [ { "value": "canvas", "label": "Canvas (warm)" }, { "value": "white", "label": "White" } ] },
     { "type": "select", "id": "align", "label": "Alignment", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Centred" } ] },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID (optional, for deep-links)" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline", "info": "Add ' | ' to break into a smaller subordinate second beat.", "default": "Editorial headline" },
     { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional — first beat only)" },

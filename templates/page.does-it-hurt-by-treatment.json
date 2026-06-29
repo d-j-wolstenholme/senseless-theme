@@ -36,6 +36,7 @@
       "settings": {
         "background": "canvas",
         "align": "left",
+        "anchor_id": "lip-filler",
         "eyebrow": "Injectables",
         "headline": "Does lip filler hurt?",
         "accent_word": "brief",
@@ -67,6 +68,7 @@
       "settings": {
         "background": "white",
         "align": "left",
+        "anchor_id": "lip-blush",
         "eyebrow": "Semi-permanent makeup",
         "headline": "Does lip blush hurt?",
         "accent_word": "uncomfortable",
