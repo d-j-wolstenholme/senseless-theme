@@ -35,9 +35,9 @@
   @media (max-width:749px){ .ss-art__faq-head { line-height:1.12; } }
   .ss-art__item { border-bottom:1px solid var(--bd); }
   .ss-art__item:first-of-type { border-top:1px solid var(--bd); }
-  .ss-art__q { font-weight:600; font-size:17px; line-height:1.4; color:var(--ink); cursor:pointer; list-style:none; padding:18px 36px 18px 0; position:relative; }
+  .ss-art__q { font-weight:500; font-size:clamp(1.0625rem, 1.01rem + 0.25vw, 1.125rem); line-height:1.35; letter-spacing:-0.005em; color:var(--ink); cursor:pointer; list-style:none; padding:18px 36px 18px 0; position:relative; }
   .ss-art__q::-webkit-details-marker { display:none; }
-  .ss-art__q::after { content:'+'; position:absolute; right:4px; top:50%; transform:translateY(-50%); font-size:22px; color:var(--p); line-height:1; }
+  .ss-art__q::after { content:'+'; position:absolute; right:4px; top:50%; transform:translateY(-50%); font-size:19px; font-weight:400; color:var(--p); line-height:1; transition:transform 200ms ease-out; }
   .ss-art__item[open] .ss-art__q::after { content:'\2212'; }
   .ss-art__a { font-size:16px; line-height:1.6; color:var(--body); padding:0 0 18px; }
   .ss-art__a p { margin:0 0 .6em; } .ss-art__a p:last-child { margin:0; } .ss-art__a a { color:var(--p); }
@@ -45,6 +45,7 @@
   .ss-art__back { color:var(--p); text-decoration:none; font-weight:600; font-size:15px; }
   .ss-art__back:hover { text-decoration:underline; }
   @media (max-width:749px){ .ss-art__title { line-height:1.08; } }
+  @media (prefers-reduced-motion: reduce){ .ss-art__q::after { transition:none; } }
 {%- endstyle -%}
 <article class="ss-art">
   <header class="ss-art__head">
