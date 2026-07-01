@@ -26,15 +26,15 @@ CLN="Foaming Cleanser (150ml)|/products/foaming-cleanser"
 
 BUNDLES=[
  dict(sku="SBUN-CL-S",tier="Clinical",size="Small",title="Clinical Numbing Kit — Small",handle="clinical-numbing-kit-small",
-      price="75.96",compare="79.96",contents=[f"Clinical Strength Cream (10g)|{CL}",f"Clinical Strength Gel (15ml)|{CG}",f"Clinical Strength Spray (100ml)|{CS}",CLN]),
+      price="75.96",compare="79.96",contents=[f"Clinical Strength Cream (10g)|{CL}",f"Clinical Strength Gel (15ml)|{CG}",f"Clinical Strength Spray (35ml)|{CS}",CLN]),
  dict(sku="SBUN-CL-L",tier="Clinical",size="Large",title="Clinical Numbing Kit — Large",handle="clinical-numbing-kit-large",
-      price="113.96",compare="119.96",contents=[f"Clinical Strength Cream (30g)|{CL}",f"Clinical Strength Gel (35ml)|{CG}",f"Clinical Strength Spray (100ml)|{CS}",CLN]),
+      price="113.96",compare="119.96",contents=[f"Clinical Strength Cream (30g)|{CL}",f"Clinical Strength Gel (35ml)|{CG}",f"Clinical Strength Spray (35ml)|{CS}",CLN]),
  dict(sku="SBUN-AD-S",tier="Advanced",size="Small",title="Advanced Numbing Kit — Small",handle="advanced-numbing-kit-small",
-      price="90.21",compare="94.96",contents=[f"Advanced Strength Cream (10g)|{AL}",f"Advanced Strength Gel (15ml)|{AG}",f"Advanced Strength Spray (100ml)|{AS}",CLN]),
+      price="90.21",compare="94.96",contents=[f"Advanced Strength Cream (10g)|{AL}",f"Advanced Strength Gel (15ml)|{AG}",f"Advanced Strength Spray (35ml)|{AS}",CLN]),
  dict(sku="SBUN-AD-L",tier="Advanced",size="Large",title="Advanced Numbing Kit — Large",handle="advanced-numbing-kit-large",
-      price="128.21",compare="134.96",contents=[f"Advanced Strength Cream (30g)|{AL}",f"Advanced Strength Gel (35ml)|{AG}",f"Advanced Strength Spray (100ml)|{AS}",CLN]),
+      price="128.21",compare="134.96",contents=[f"Advanced Strength Cream (30g)|{AL}",f"Advanced Strength Gel (35ml)|{AG}",f"Advanced Strength Spray (35ml)|{AS}",CLN]),
  dict(sku="SBUN-PR-L",tier="Professional",size="Large",title="Professional Numbing Kit — Large",handle="professional-numbing-kit-large",
-      price="143.41",compare="150.96",contents=[f"Professional Strength Cream (30g)|{PL}",f"Professional Strength Gel (35ml)|{PG}",f"Professional Strength Spray (100ml)|{PS}",CLN]),
+      price="143.41",compare="150.96",contents=[f"Professional Strength Cream (30g)|{PL}",f"Professional Strength Gel (35ml)|{PG}",f"Professional Strength Spray (35ml)|{PS}",CLN]),
 ]
 
 def desc(b):
