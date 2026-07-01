@@ -388,7 +388,10 @@
   }
 
   .cart-drawer__close-button {
-    margin-right: calc(var(--padding-sm) * -1);
+    /* Senseless: positive inset (stock was -0.7rem) — the touch-device focus
+       ring clipped off the right screen edge on mobile; ~20px aligns with the
+       drawer header's 20px padding. */
+    margin-right: var(--margin-2xs);
     top: var(--margin-sm);
 
     @media screen and (max-width: 749px) {

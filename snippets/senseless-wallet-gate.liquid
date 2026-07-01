@@ -1,0 +1,72 @@
+{%- comment -%}
+  Senseless wallet gate — device-appropriate express wallets (2026-07-01).
+
+  Problem: Shopify's accelerated-checkout component offers every enabled wallet
+  the browser can technically run, so Apple-Pay-capable devices also get a
+  Google Pay button (GPay works in Safari via redirect). Daniel's call: one
+  wallet per OS — Apple Pay on Apple devices, Google Pay elsewhere. Apple Pay
+  never renders on non-Apple devices (Shopify handles that), so the only gate
+  needed is: Apple-Pay-capable ⇒ drop Google Pay.
+
+  How: an inline (parse-time) MutationObserver rewrites `wallet-configs` on
+  <shopify-accelerated-checkout-cart> and removes <shopify-google-pay-button>
+  BEFORE the component's deferred module upgrades it, so the shadow layout is
+  built for the remaining wallets (no half-width orphan button). The CSS rule
+  is a belt-and-braces fallback: if Shopify renames its internals the filter
+  no-ops and, at worst, both wallets show again (current behaviour).
+
+  Scope: theme surfaces only (cart drawer + cart page). The Shopify-hosted
+  /checkout page cannot be modified from the theme on this plan — wallet
+  display there is Shopify-controlled (global toggles only, in admin
+  Settings → Payments).
+{%- endcomment -%}
+<script>
+  (function () {
+    var canApplePay = false;
+    try {
+      canApplePay = !!(window.ApplePaySession && window.ApplePaySession.canMakePayments());
+    } catch (e) {
+      /* cross-origin frame or Payment API quirk — treat as non-Apple device */
+    }
+    if (!canApplePay) return;
+    document.documentElement.classList.add('senseless-apple-pay-device');
+
+    function scrub(node) {
+      if (!node || node.nodeType !== 1) return;
+      var tag = node.tagName ? node.tagName.toLowerCase() : '';
+      if (tag === 'shopify-google-pay-button') {
+        node.remove();
+        return;
+      }
+      if (node.hasAttribute && node.hasAttribute('wallet-configs')) {
+        try {
+          var cfg = JSON.parse(node.getAttribute('wallet-configs'));
+          var kept = cfg.filter(function (w) {
+            return String(w && w.name).toLowerCase().indexOf('google') === -1;
+          });
+          if (kept.length !== cfg.length) node.setAttribute('wallet-configs', JSON.stringify(kept));
+        } catch (e) { /* unexpected config shape — leave untouched */ }
+      }
+      if (node.querySelectorAll) {
+        node.querySelectorAll('shopify-google-pay-button').forEach(function (b) { b.remove(); });
+        node.querySelectorAll('[wallet-configs]').forEach(function (w) { if (w !== node) scrub(w); });
+      }
+    }
+
+    new MutationObserver(function (mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var added = mutations[i].addedNodes;
+        for (var j = 0; j < added.length; j++) scrub(added[j]);
+      }
+    }).observe(document.documentElement, { childList: true, subtree: true });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      scrub(document.body);
+    });
+  })();
+</script>
+{% style %}
+  html.senseless-apple-pay-device shopify-google-pay-button {
+    display: none !important;
+  }
+{% endstyle %}

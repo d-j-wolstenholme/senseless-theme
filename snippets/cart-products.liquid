@@ -437,28 +437,23 @@
     margin-bottom: var(--margin-lg);
   }
 
-  /* Cart drawer: separate grid areas for variants and unit price */
+  /* Cart drawer: the details column holds title/variants/unit price as normal
+     block flow. (Was `display: contents` on the <td> with per-child grid areas —
+     iOS Safari drops the grid placement of the promoted children, losing the
+     title row entirely. Block layout renders identically and is engine-proof.) */
   .cart-drawer .cart-items__table-row--full-width-variants {
     grid-template-columns: clamp(2.5rem, 15cqi, 7.5rem) minmax(0, 1fr) auto;
-    grid-template-rows: repeat(4, min-content) 1fr;
+    grid-template-rows: repeat(2, min-content) 1fr;
     grid-template-areas:
       'media details price'
-      'media variants variants'
-      'media unit_price unit_price'
       'media quantity quantity'
       'media error error';
 
     .cart-items__details {
-      display: contents;
-    }
-
-    .cart-items__product-info {
-      grid-area: details;
+      display: block;
     }
 
     .cart-items__variants-wrapper {
-      grid-area: variants;
-
       &:empty {
         display: none;
       }
@@ -469,7 +464,6 @@
     }
 
     .cart-items__unit-price-wrapper {
-      grid-area: unit_price;
       font-size: var(--font-size--sm);
     }
 
