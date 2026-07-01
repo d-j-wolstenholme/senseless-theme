@@ -54,7 +54,7 @@ The main-site FAQ (`templates/page.faq.json`) was **authored by Peter + the MHG 
 | Tier | Approved | Avoid |
 |---|---|---|
 | Clinical Strength | "For shorter or less intensive treatments" | "Mild numbing", "low strength" |
-| Advanced Strength | "For everyday aesthetic procedures" | "Medium-strength numbing" |
+| Advanced Strength | "For longer or more sensitive sessions" | "Medium-strength numbing", "everyday" (belongs to Clinical) |
 | Professional Strength | "Our most concentrated formula" | "Strongest numbing", "max strength" |
 
 ## SEO vs Body Copy Rule
