@@ -810,6 +810,28 @@
     --shopify-accelerated-checkout-row-gap: var(--checkout-button-gap, 10px);
   }
 
+  /* Senseless: line-item quantity stepper matches the site's quick-add style
+     (14px radius, warm #E5E2DC border, white fill) — cart page + drawer. */
+  .cart-items .quantity-selector {
+    border: 1px solid #E5E2DC;
+    border-radius: 14px;
+    background-color: #fff;
+  }
+
+  .cart-items .quantity-selector:hover {
+    background-color: #fff;
+  }
+
+  .cart-items .quantity-selector .quantity-minus,
+  .cart-items .quantity-selector .quantity-plus {
+    border-radius: 14px;
+  }
+
+  .cart-items .quantity-selector input {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
   /* Remove animation */
   .remove-icon-bottom,
   .remove-icon-top {
