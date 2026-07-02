@@ -18,71 +18,8 @@
         "eyebrow": "The honest answer",
         "headline": "What numbing cream does — and what comes first",
         "accent_word": "first",
-        "body": "<p>Topical numbing cream is applied to clean skin before a treatment to make it more comfortable. It's a cosmetic preparation, not an anaesthetic. How long to leave it on, and how long the effect lasts, vary by product, by the area, and by how much is applied, so the product's own instructions and your practitioner's advice always come first. Many clinics apply their own numbing as standard, so it's worth checking before you bring your own.</p>"
+        "body": "<p>Numbing cream is a topical cosmetic preparation applied to clean skin before a treatment to support comfort. It is not an anaesthetic and not a medicine. How long to leave it on varies by product and appointment — the product's own instructions and your practitioner's advice always come first. Many clinics apply their own as standard, so check before bringing yours.</p>"
       }
-    },
-    "howto": {
-      "type": "senseless-how-to-use",
-      "settings": {
-        "eyebrow": "Application",
-        "headline": "How to use it",
-        "lead": "<p>A patch test comes first — about 24 hours before your first use, apply a small amount to your inner wrist or behind the ear and check for any reaction. Don't use it if your skin reacts.</p>",
-        "closer": "<p>When in doubt, ask your practitioner first — many prefer to advise on what you use and how.</p>",
-        "cta_label": "The Senseless System",
-        "cta_url": "/pages/the-senseless-system"
-      },
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "title": "Start with clean, dry skin.",
-            "body": "<p>Begin on clean, dry skin before you apply anything.</p>"
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "title": "Apply an even layer.",
-            "body": "<p>Apply an even layer to the area being treated — follow the amount the product specifies.</p>"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "title": "Allow time before your appointment.",
-            "body": "<p>Many customers tell us they get their best results applying cream around 45–60 minutes before their appointment, though this varies from person to person. Follow the product's instructions and your practitioner's advice (gel and spray: allow time to take effect).</p>"
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "title": "Cover the area if advised.",
-            "body": "<p>If your practitioner advises, cover the area — for example with cling film — while it takes effect.</p>"
-          }
-        },
-        "s5": {
-          "type": "step",
-          "settings": {
-            "title": "Leave it on as directed.",
-            "body": "<p>Leave it on for the time stated in the product's instructions (don't guess, and don't leave it longer to \"boost\" it).</p>"
-          }
-        },
-        "s6": {
-          "type": "step",
-          "settings": {
-            "title": "Remove it cleanly before treatment.",
-            "body": "<p>Remove it cleanly before your treatment begins, unless your practitioner tells you otherwise.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6"
-      ]
     },
     "leaveon": {
       "type": "senseless-editorial-band",
@@ -172,7 +109,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How do you use numbing cream?",
-            "answer": "<p>Apply an even layer to clean, dry skin, leave it for the time the product specifies, then remove it cleanly before treatment — and check with your practitioner first, as many advise on what to use.</p>"
+            "answer": "<p>Clean, dry skin; a generous, visible layer without rubbing in; leave it on for the window your practitioner sets; remove it fully before treatment. The step-by-step routine is <a href=\"/pages/how-to-apply-numbing-cream\">here</a>.</p>"
           }
         },
         "q4": {
@@ -236,12 +173,28 @@
         "name": "Using numbing cream",
         "description": "How to use numbing cream, how long to leave it on, and how long it lasts — a clear, honest guide. Always follow the product instructions and your practitioner."
       }
+    },
+    "routine": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "body": "<p><strong>The routine, in one line each</strong> — Clean, dry skin → a generous, visible layer, never rubbed in → covered only if your practitioner advises → removed fully before treatment.</p><p><a href=\"/pages/how-to-apply-numbing-cream\">The full routine, step by step →</a></p>"
+      }
+    },
+    "patchtest": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "Before first use",
+        "body": "<p>First time with any product? Patch test 24 hours ahead — a small amount on the inner wrist or behind the ear. If your skin reacts, don't use it, wash the area, and seek medical advice if the reaction continues.</p>"
+      }
     }
   },
   "order": [
     "hero",
     "honest",
-    "howto",
+    "routine",
+    "patchtest",
     "leaveon",
     "lasts",
     "choosing",

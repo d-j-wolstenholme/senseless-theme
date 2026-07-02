@@ -4,8 +4,8 @@
       "type": "senseless-guide-hero",
       "settings": {
         "eyebrow": "Application",
-        "headline": "A short routine ahead of your appointment.",
-        "subhead": "<p>Four steps for cream and gel. A different routine for spray. Specific timing depends on the procedure, the tier, and your practitioner's protocol — what follows is the framework, not the prescription.</p>",
+        "headline": "How to apply, step by step.",
+        "subhead": "<p>Five steps for cream and gel, four for spray. Your practitioner owns the timing — these are the steps either side of it.</p>",
         "image_alt": "Editorial Senseless application sequence still life, no faces"
       }
     },
@@ -15,29 +15,36 @@
         "s1": {
           "type": "step",
           "settings": {
-            "title": "Clean the treatment area.",
-            "body": "<p>Use a gentle cleanser — the Senseless Foaming Cleanser works, or any mild non-stripping option. Pat dry. No rubbing.</p>"
+            "title": "Start with clean, dry skin.",
+            "body": "<p>Cleanse the treatment area — the Foaming Cleanser or any mild, non-stripping cleanser — and pat dry.</p>"
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "title": "Apply a thin, even layer.",
-            "body": "<p>Cover the treatment area without overloading the skin. A pea-sized amount per zone is typical for cream. Gel spreads further, so apply a thinner layer.</p>"
+            "title": "Apply a generous, visible layer.",
+            "body": "<p>Cover the whole treatment area so the layer sits on the skin. Don't rub it in — rubbing works against even coverage.</p>"
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "title": "Leave it.",
-            "body": "<p>Follow your practitioner's specific timing guidance for the procedure you've booked. The right window varies by appointment.</p>"
+            "title": "Cover it if your practitioner advises.",
+            "body": "<p>Some recommend covering the area — cling film is common — to hold the layer in place. Only add this step if they've asked for it.</p>"
           }
         },
         "s4": {
           "type": "step",
           "settings": {
-            "title": "Wipe before your procedure.",
-            "body": "<p>Use a clean cloth or tissue at your practitioner's instruction. They may also do this themselves at the chair.</p>"
+            "title": "Leave it on for the window your practitioner sets.",
+            "body": "<p>Timing varies by procedure and protocol — ask when you book, and work to their number, not a guess.</p>"
+          }
+        },
+        "s5": {
+          "type": "step",
+          "settings": {
+            "title": "Remove it fully before treatment.",
+            "body": "<p>Wipe the area clean with a clean cloth or tissue. Many practitioners prefer to do this themselves at the chair.</p>"
           }
         }
       },
@@ -45,16 +52,18 @@
         "s1",
         "s2",
         "s3",
-        "s4"
+        "s4",
+        "s5"
       ],
       "settings": {
         "eyebrow": "Cream and gel",
-        "headline": "Four steps.",
+        "headline": "Five steps.",
         "closer": "",
         "cta_label": "Choose your format",
         "cta_url": "/pages/the-senseless-system",
         "emit_howto": true,
-        "howto_name": "How to apply Senseless numbing cream"
+        "howto_name": "How to apply Senseless numbing cream",
+        "lead": "<p>First time with any product? Patch test 24 hours ahead — a small amount on the inner wrist or behind the ear. If your skin reacts, don't use it, wash the area, and seek medical advice if the reaction continues.</p>"
       }
     },
     "spray": {
@@ -63,29 +72,29 @@
         "s1": {
           "type": "step",
           "settings": {
-            "title": "Clean the treatment area.",
+            "title": "Start with clean, dry skin.",
             "body": "<p>Same starting point as cream and gel. Pat dry.</p>"
           }
         },
         "s2": {
           "type": "step",
           "settings": {
-            "title": "Spray evenly across the area.",
-            "body": "<p>Hold the bottle approximately 10–15cm from the skin. Apply a thin, even coverage. Spray covers more ground than cream — don't over-apply.</p>"
+            "title": "Spray an even coverage from 10–15cm.",
+            "body": "<p>Hold the bottle 10–15cm from the skin and cover the area evenly. Spray goes further than cream — stop at full, even coverage.</p>"
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "title": "Wait the window your practitioner recommends.",
-            "body": "<p>Spray is used for body procedures with their own protocols. Your practitioner knows the timing for the booking you've made.</p>"
+            "title": "Leave it on for the window your practitioner sets.",
+            "body": "<p>Spray suits body procedures, and each has its own protocol — your practitioner knows the one for your booking.</p>"
           }
         },
         "s4": {
           "type": "step",
           "settings": {
-            "title": "Wipe before your appointment.",
-            "body": "<p>Clean cloth or tissue, at your practitioner's instruction.</p>"
+            "title": "Remove it fully before your appointment.",
+            "body": "<p>Clean cloth or tissue, at their instruction.</p>"
           }
         }
       },
@@ -120,7 +129,7 @@
         "direction": "text-left",
         "eyebrow": "What to avoid",
         "headline": "Three application mistakes that come up.",
-        "body": "<p><strong>Applying too much.</strong> A thin layer works better than a thick one. Overloading the skin doesn't improve the preparation — it usually just wastes product.</p><p><strong>Applying too early or too late.</strong> Specific timing matters. Apply at the wrong window and the preparation may not match the procedure. Your practitioner is the best guide.</p><p><strong>Skipping the wipe step.</strong> Most procedures need the product removed before the practitioner starts work. Skipping this step can interfere with the appointment.</p>",
+        "body": "<p><strong>Rubbing it in.</strong> The layer should sit on the skin — visible, even, unrubbed.</p><p><strong>Guessing the timing.</strong> The window varies by procedure and protocol. Ask your practitioner rather than working to a number.</p><p><strong>Skipping the removal.</strong> Most procedures need the product fully removed before work starts.</p>",
         "cta_label": "",
         "cta_url": "",
         "image": "shopify://shop_images/senseless-asterisk.svg",
@@ -151,8 +160,8 @@
         "q2": {
           "type": "faq_item",
           "settings": {
-            "question": "Can I apply too much?",
-            "answer": "<p>Yes. A thin layer suits all three formats. Overloading the skin doesn't improve the preparation.</p>"
+            "question": "How much should I apply?",
+            "answer": "<p>A generous, visible layer that covers the whole treatment area — enough that it sits on the skin rather than disappearing into it.</p>"
           }
         },
         "q3": {
@@ -166,7 +175,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What if I apply too early?",
-            "answer": "<p>The preparation window can pass before the procedure starts, which may reduce the effect. If you're early, ask your practitioner whether to reapply or wait.</p>"
+            "answer": "<p>The window can pass before your appointment starts. If you're running early, ask your practitioner whether to reapply or wait.</p>"
           }
         },
         "q5": {
@@ -217,7 +226,7 @@
           "type": "fact",
           "settings": {
             "label": "Application",
-            "value": "A thin, even layer on clean, healthy, unbroken skin. More is not better."
+            "value": "A generous, visible, unrubbed layer on clean, healthy, unbroken skin — covering the whole treatment area."
           }
         },
         "f4": {
