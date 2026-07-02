@@ -8,10 +8,9 @@ Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + 
   - **About 'made' fix LIVE** — "Formulated / In the United Kingdom" + "Where is Senseless formulated?"; Compliance Hold → **Cleared**.
   - **Review-card 404 fixed** — re-uploaded the source jpg under the exact old Files name (Judge.me cached URL, ~80 refs healed, HTTP 200).
   - Verified: store gate · compliance PASS · theme-check 0 · guard 5/5 · Asset-API remote diff 14/14 · live curls per-variant.
-- **How-to pages rewrite DRAFTED (not deployed)** — full stepped redraft on Work Item 39158bc3-75ea-81e6… (TN-reference method; dedupe: how-to-apply = canonical steps, using = framework). 3 flagged calls incl. thick-vs-thin resolution + removed live "45–60 min" breach. **Awaiting Daniel sign-off.**
+- **How-to pages rewrite SIGNED OFF + IMPLEMENTED + LIVE** (commit `686a213`) — canonical steps on how-to-apply (5 cream/gel + 4 spray, patch-test lead), using page deduped to framework (routine one-liner + patch-test band; 45–60min line removed from this page ONLY). **Scope guard honoured: PDPs untouched** (45–60 line stays there per Decision 39158bc3-75ea-81f7). About tidy: "formulated for". Work Item → Built.
 
 ## Next Work Item
-- **On Daniel's sign-off:** implement the how-to draft in `page.how-to-apply-numbing-cream` + `page.using-numbing-cream` templates + deploy.
 - Launch-gate: **MHRA classification is the only open blocker** (Daniel/MHG).
 - Backlog: ntn write-back wiring · Phase 12 nav/link wiring · Phase 10 photography · optional GPay-at-checkout payment-customization function (Daniel undecided).
 
