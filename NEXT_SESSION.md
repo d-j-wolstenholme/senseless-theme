@@ -11,7 +11,7 @@ Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + 
 - **How-to pages rewrite SIGNED OFF + IMPLEMENTED + LIVE** (commit `686a213`) — canonical steps on how-to-apply (5 cream/gel + 4 spray, patch-test lead), using page deduped to framework (routine one-liner + patch-test band; 45–60min line removed from this page ONLY). **Scope guard honoured: PDPs untouched** (45–60 line stays there per Decision 39158bc3-75ea-81f7). About tidy: "formulated for". Work Item → Built.
 
 ## Next Work Item
-- Launch-gate: **MHRA classification is the only open blocker** (Daniel/MHG).
+- Launch-gate: **CLEAR** — MHRA closed 2 Jul (product is a cosmetic; Decision 39158bc3-75ea-8194). Launch may proceed 3 Jul. Ongoing duty: keep efficacy/onset/duration claims off brand-authored surfaces (existing Hard Rules).
 - Backlog: ntn write-back wiring · Phase 12 nav/link wiring · Phase 10 photography · optional GPay-at-checkout payment-customization function (Daniel undecided).
 
 ## Gotchas

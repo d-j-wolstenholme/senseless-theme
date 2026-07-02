@@ -15,5 +15,5 @@ Senseless is a UK **cosmetic** topical preparation (Matrix Health Group Ltd) —
 - Honour the **Compliance Holds** state machine — held copy stays held until cleared by the named owner; never ship a held item.
 - **Documented exception (FAQ only):** the main-site FAQ (`templates/page.faq.json`) ships legal-team-verbatim copy that contains onset/duration phrasings; the legal sign-off supersedes the Hard Rules **for that page only**. Do NOT propagate that wording to any other surface.
 
-## Open launch-gates (do not treat as cleared)
-MHRA medicines classification · CPSRs for all SKUs · core safety warnings on PDPs · reviews banned-phrase scrub. See the State Surface + Stakeholder Actions DB.
+## Launch-gates — ALL CLEARED 2 Jul 2026 (launch gate CLEAR)
+MHRA medicines classification (closed — cosmetic, Decision 39158bc3-75ea-8194) · CPSRs all SKUs (done, Confirmed Fact) · core safety warnings on PDPs (built + live, `senseless-safety-warnings`) · reviews banned-phrase scrub (legal: leave published reviews as-is, Decision logged). Ongoing duty: Hard Rules stay enforced on all brand-authored surfaces. Current state lives in the State Surface — always re-verify there.
