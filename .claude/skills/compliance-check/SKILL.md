@@ -18,7 +18,7 @@ description: Use this skill before any user-facing copy is shipped, committed, o
 
 ## Process
 
-1. Read `docs/COMPLIANCE.md` for banned phrases and approved patterns
+1. Read `docs/COMPLIANCE.md` for banned phrases and approved patterns — **including the documented exceptions/carve-outs** (legal-signed FAQ verbatim; application-timing directions-for-use in application guides, Decision 39158bc3-75ea-8181)
 2. Scan input copy for hard-rule violations
 3. For each violation:
    - Flag the exact phrase
@@ -39,3 +39,4 @@ description: Use this skill before any user-facing copy is shipped, committed, o
 - Never override a FAIL. Rewrite is mandatory.
 - Don't ship copy without running this skill at least once.
 - If unsure whether a phrase passes, default to flagging it for review.
+- **Carve-out (do not re-flag):** on application-guide pages (how-to/application surfaces, e.g. `page.how-to-apply-numbing-cream`), application timing framed as a direction for use — "as a general guide, allow 45–60 minutes… your practitioner's window takes precedence" — is operator-approved (Decision 39158bc3-75ea-8181, 2 Jul 2026). Effect claims ("works in X minutes", "lasts X hours") remain FAIL everywhere outside the legal-signed FAQ. The PDP customer-attributed 45–60 line is likewise operator-accepted (Decision 39158bc3-75ea-81f7) — not a regression.

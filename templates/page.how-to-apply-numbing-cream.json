@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Application",
         "headline": "How to apply, step by step.",
-        "subhead": "<p>Five steps for cream and gel, four for spray. Your practitioner owns the timing — these are the steps either side of it.</p>",
+        "subhead": "<p>Cream, gel and spray each have their own routine — the layer, the covering, the window, the removal. This is the complete guide.</p>",
         "image_alt": "Editorial Senseless application sequence still life, no faces"
       }
     },
@@ -16,35 +16,35 @@
           "type": "step",
           "settings": {
             "title": "Start with clean, dry skin.",
-            "body": "<p>Cleanse the treatment area — the Foaming Cleanser or any mild, non-stripping cleanser — and pat dry.</p>"
+            "body": "<p>Cleanse the treatment area — the Foaming Cleanser or any mild, non-stripping cleanser — and pat fully dry. The layer needs direct contact with clean skin; anything left on the surface gets in the way.</p>"
           }
         },
         "s2": {
           "type": "step",
           "settings": {
             "title": "Apply a generous, visible layer.",
-            "body": "<p>Cover the whole treatment area so the layer sits on the skin. Don't rub it in — rubbing works against even coverage.</p>"
+            "body": "<p>Around 2–3mm — enough that it sits visibly on the skin. Cover the whole treatment area. Don't rub it in; the layer should rest on the surface, not disappear into it.</p>"
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "title": "Cover it if your practitioner advises.",
-            "body": "<p>Some recommend covering the area — cling film is common — to hold the layer in place. Only add this step if they've asked for it.</p>"
+            "title": "Cover with cling film.",
+            "body": "<p>It keeps the layer in place and in contact with the skin. Seal the edges. If your practitioner prefers the area uncovered, their instruction wins.</p>"
           }
         },
         "s4": {
           "type": "step",
           "settings": {
-            "title": "Leave it on for the window your practitioner sets.",
-            "body": "<p>Timing varies by procedure and protocol — ask when you book, and work to their number, not a guess.</p>"
+            "title": "Leave it in place for the full window.",
+            "body": "<p>As a general guide, allow 45–60 minutes between applying and your appointment. If your practitioner has set a window, theirs is the number that counts.</p>"
           }
         },
         "s5": {
           "type": "step",
           "settings": {
-            "title": "Remove it fully before treatment.",
-            "body": "<p>Wipe the area clean with a clean cloth or tissue. Many practitioners prefer to do this themselves at the chair.</p>"
+            "title": "Remove it fully just before treatment.",
+            "body": "<p>Wipe clean with a clean cloth or tissue — many practitioners prefer to do this themselves at the chair. Tell them in advance that you've applied numbing cream; some adjust their skin prep when it's been used.</p>"
           }
         }
       },
@@ -56,7 +56,7 @@
         "s5"
       ],
       "settings": {
-        "eyebrow": "Cream and gel",
+        "eyebrow": "Cream",
         "headline": "Five steps.",
         "closer": "",
         "cta_label": "Choose your format",
@@ -73,21 +73,21 @@
           "type": "step",
           "settings": {
             "title": "Start with clean, dry skin.",
-            "body": "<p>Same starting point as cream and gel. Pat dry.</p>"
+            "body": "<p>Same starting point. Pat dry.</p>"
           }
         },
         "s2": {
           "type": "step",
           "settings": {
             "title": "Spray an even coverage from 10–15cm.",
-            "body": "<p>Hold the bottle 10–15cm from the skin and cover the area evenly. Spray goes further than cream — stop at full, even coverage.</p>"
+            "body": "<p>2–3 short bursts per area, a moment to settle, then top up only where coverage is thin. Spray goes further than cream — stop at full, even coverage.</p>"
           }
         },
         "s3": {
           "type": "step",
           "settings": {
-            "title": "Leave it on for the window your practitioner sets.",
-            "body": "<p>Spray suits body procedures, and each has its own protocol — your practitioner knows the one for your booking.</p>"
+            "title": "Leave it in place for the window.",
+            "body": "<p>Spray suits body procedures — waxing, laser, larger zones. The same general guide applies; work to your practitioner's protocol where they've set one.</p>"
           }
         },
         "s4": {
@@ -129,7 +129,7 @@
         "direction": "text-left",
         "eyebrow": "What to avoid",
         "headline": "Three application mistakes that come up.",
-        "body": "<p><strong>Rubbing it in.</strong> The layer should sit on the skin — visible, even, unrubbed.</p><p><strong>Guessing the timing.</strong> The window varies by procedure and protocol. Ask your practitioner rather than working to a number.</p><p><strong>Skipping the removal.</strong> Most procedures need the product fully removed before work starts.</p>",
+        "body": "<p><strong>Rubbing it in.</strong> The layer should sit visibly on the skin — even and unrubbed.</p><p><strong>Applying too thin.</strong> A layer you can't see is a layer that's short. 2–3mm, whole area.</p><p><strong>Cutting the window fine.</strong> Applying in the car park isn't a window. Allow the full window before your appointment.</p><p><strong>Skipping the removal.</strong> The product should be fully off the skin before work starts.</p>",
         "cta_label": "",
         "cta_url": "",
         "image": "shopify://shop_images/senseless-asterisk.svg",
@@ -154,21 +154,21 @@
           "type": "faq_item",
           "settings": {
             "question": "How long before my appointment should I apply?",
-            "answer": "<p>Specific timing depends on the procedure, the tier, and your practitioner's protocol. Most aesthetic appointments have a recommended window — ask your practitioner before your booking.</p>"
+            "answer": "<p>As a general guide, 45–60 minutes before. Procedures and practitioners vary — if yours has set a window, use theirs.</p>"
           }
         },
         "q2": {
           "type": "faq_item",
           "settings": {
             "question": "How much should I apply?",
-            "answer": "<p>A generous, visible layer that covers the whole treatment area — enough that it sits on the skin rather than disappearing into it.</p>"
+            "answer": "<p>A generous, visible layer, around 2–3mm — covering the whole treatment area, sitting on the skin rather than rubbed into it.</p>"
           }
         },
         "q3": {
           "type": "faq_item",
           "settings": {
             "question": "Should I cover the area with cling film or anything else?",
-            "answer": "<p>Some practitioners recommend covering for specific procedures. Most don't. Follow your practitioner's specific guidance — don't add a step they haven't recommended.</p>"
+            "answer": "<p>Yes, unless your practitioner says otherwise — cling film with sealed edges keeps the layer in place.</p>"
           }
         },
         "q4": {
@@ -191,11 +191,19 @@
             "question": "Is this a medicine?",
             "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
           }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I apply it the night before?",
+            "answer": "<p>No. It's applied on the day, within the window before your appointment.</p>"
+          }
         }
       },
       "block_order": [
         "q1",
         "q2",
+        "q7",
         "q3",
         "q4",
         "q5",
@@ -226,14 +234,14 @@
           "type": "fact",
           "settings": {
             "label": "Application",
-            "value": "A generous, visible, unrubbed layer on clean, healthy, unbroken skin — covering the whole treatment area."
+            "value": "A generous, visible layer (around 2–3mm) on clean, healthy, unbroken skin — covered with cling film, whole treatment area."
           }
         },
         "f4": {
           "type": "fact",
           "settings": {
             "label": "Timing",
-            "value": "Apply ahead of your appointment; the window depends on the procedure and your practitioner's protocol."
+            "value": "As a general guide, 45–60 minutes ahead — your practitioner's window takes precedence."
           }
         },
         "f5": {
@@ -320,12 +328,32 @@
         "section_cta_label": "",
         "section_cta_url": ""
       }
+    },
+    "gel": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "Gel",
+        "headline": "The targeted routine.",
+        "body": "<p>Same five steps as cream, one difference: gel suits smaller, more precise zones — lips, brows, compact treatment areas. Apply where the work is happening rather than broadly, keep the same generous visible layer, and cover if your window is longer.</p>"
+      }
+    },
+    "checklist": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "white",
+        "eyebrow": "Before you leave",
+        "headline": "The one-glance check.",
+        "body": "<ul><li>Skin was clean and dry before applying</li><li>A generous, visible layer — not rubbed in</li><li>Covered, edges sealed</li><li>The full window allowed</li><li>Your practitioner knows you've applied it</li></ul>"
+      }
     }
   },
   "order": [
     "hero",
     "creamgel",
+    "gel",
     "spray",
+    "checklist",
     "procedures",
     "mistakes",
     "callout",

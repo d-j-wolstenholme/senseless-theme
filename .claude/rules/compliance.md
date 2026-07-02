@@ -4,7 +4,7 @@ Senseless is a UK **cosmetic** topical preparation (Matrix Health Group Ltd) —
 
 ## Hard Rules (banned in every voice, incl. testimonials/reviews)
 - **No medicinal / anaesthetic claims:** never "numbs", "pain relief", "anaesthetic", "blocks/stops pain", "blocks/reduces sensation".
-- **No time-to-effect or duration as a brand claim:** no "works in X minutes" / "lasts X hours" (16 Jun decision — banned in every voice).
+- **No time-to-effect or duration as a brand claim:** no "works in X minutes" / "lasts X hours" (16 Jun decision — banned in every voice). **Carve-out (Decision 39158bc3-75ea-8181, 2 Jul):** concrete application timing framed as a DIRECTION FOR USE ("as a general guide, allow 45–60 minutes between applying and your appointment; your practitioner's window takes precedence") is permitted **in application guides only** (how-to/application surfaces). The 16 Jun rule is narrowed to effect claims, not superseded — "works in X minutes"/"lasts X hours" stay banned everywhere outside the legal-signed FAQ. Extending directions-timing to PDP direction blocks needs its own decision.
 - **"Numbing" is a category/SEO noun only** — never an effect claim. Allowed in slugs, titles, meta, collection/guide bodies as the product-type word; never "it numbs".
 - **No before/after or efficacy framing** implying a medicinal effect.
 - Subjective experience → **customer-attributed** framing only ("many customers tell us…"), genuine + substantiable; attribution never licenses an effect or safety claim.
