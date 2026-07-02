@@ -98,7 +98,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How do I apply it?",
-            "answer": "<p>Start with clean, dry skin, hold the spray around 10–15cm away and apply full, even coverage across the area. Allow time to take effect ahead of your appointment — follow the product guidance and your practitioner. Patch test 24 hours ahead first. Apply to clean, unbroken skin before your appointment, and top up through it only with your practitioner's agreement.</p>"
+            "answer": "<p>Start with clean, dry skin, hold the spray around 10–15cm away and apply full, even coverage across the area. Allow time to take effect ahead of your appointment — follow the product guidance and your practitioner. Apply to clean, unbroken skin before your appointment, and top up through it only with your practitioner's agreement.</p>"
           }
         },
         "q2": {
@@ -254,6 +254,13 @@
         "eyebrow": "The range",
         "band": "surface"
       }
+    },
+    "safetywarnings": {
+      "type": "senseless-safety-warnings",
+      "settings": {
+        "variant": "numbing",
+        "band": "surface"
+      }
     }
   },
   "order": [
@@ -263,6 +270,7 @@
     "shortdesc",
     "system",
     "keyfacts",
+    "safetywarnings",
     "reviews",
     "linksout",
     "faq",

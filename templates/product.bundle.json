@@ -129,11 +129,19 @@
       "settings": {
         "headline": "What clients say"
       }
+    },
+    "safetywarnings": {
+      "type": "senseless-safety-warnings",
+      "settings": {
+        "variant": "numbing",
+        "band": "surface"
+      }
     }
   },
   "order": [
     "hero",
     "contents",
+    "safetywarnings",
     "trust",
     "system",
     "reviews",

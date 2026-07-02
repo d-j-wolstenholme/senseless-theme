@@ -1,0 +1,91 @@
+{%- comment -%}
+  Senseless — Safety warnings (PDP core safety block)
+  Launch-gate compliance block (Work Item 38e58bc3-75ea-81a1-877e-d88928d3472c; spec finalized
+  2 Jul 2026 — Decision "PDP safety warnings: standard core set, aftercare exempt from
+  broken-skin line"). Copy is HARDCODED per variant and non-editable so the warnings always
+  render exactly as approved — no efficacy or repair claims in this block, ever.
+  Variants:
+    numbing  — all 9 cream/gel/spray SKUs + the 5 kit PDPs (kits render the same block)
+    cleanser — Foaming Cleanser (broken-skin use is intended: no prohibition line)
+    ointment — Vitamin A & D Ointment (broken-skin use is intended: no prohibition line)
+  The former standalone PDP "patch test 24 hours" line is folded into this block — the
+  how-to-apply FAQ answers no longer carry it (do not re-add there; no duplication).
+{%- endcomment -%}
+
+{%- liquid
+  case section.settings.variant
+    when 'cleanser'
+      assign warnings = 'External use only.|Suitable for use before treatment and on freshly treated skin.|Avoid direct contact with eyes.|Keep out of reach of children.|If irritation develops or persists, stop use.' | split: '|'
+    when 'ointment'
+      assign warnings = 'External use only.|For aftercare on freshly treated or broken skin.|Avoid contact with eyes.|Keep out of reach of children.|If irritation worsens or persists, stop use.' | split: '|'
+    else
+      assign warnings = 'External use only.|Apply to clean, unbroken skin.|Patch test 24 hours before first use.|Avoid contact with eyes and mucous membranes.|Keep out of reach of children.|If irritation occurs, remove the product and stop use.' | split: '|'
+  endcase
+-%}
+
+{%- style -%}
+  .ss-sw {
+    --ss-purple: #6B3FA0;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1A1816;
+    --ss-body: #2B2730;
+    --ss-border: rgba(26,26,26,0.10);
+    --ss-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ss-text);
+  }
+  .ss-sw--canvas { background: var(--ss-bg); }
+  .ss-sw--surface { background: var(--ss-surface); border-top: 1px solid var(--ss-border); border-bottom: 1px solid var(--ss-border); }
+  .ss-sw__inner { max-width: 720px; margin: 0 auto; padding-block: 56px; padding-inline: 24px; }
+  .ss-sw__eyebrow { font-family: var(--ss-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 10px; }
+  .ss-sw__heading { font-family: var(--ss-sans); font-weight: 400; font-size: clamp(1.375rem, 1rem + 1.6vw, 1.75rem); line-height: 1.15; letter-spacing: -0.01em; color: var(--ss-text); margin: 0 0 16px; }
+  .ss-sw__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .ss-sw__item { font-family: var(--ss-sans); font-weight: 400; font-size: 15px; line-height: 1.55; color: var(--ss-body); padding: 10px 0; border-bottom: 1px solid var(--ss-border); margin: 0; }
+  .ss-sw__item:first-child { border-top: 1px solid var(--ss-border); }
+  @media (max-width: 749px) { .ss-sw__inner { padding-block: 40px; } }
+{%- endstyle -%}
+
+<section class="ss-sw ss-sw--{{ section.settings.band }}" aria-labelledby="ss-sw-h-{{ section.id }}">
+  <div class="ss-sw__inner" data-ss-reveal>
+    <p class="ss-sw__eyebrow">Safety</p>
+    <h2 class="ss-sw__heading" id="ss-sw-h-{{ section.id }}">Safety information</h2>
+    <ul class="ss-sw__list">
+      {%- for line in warnings -%}
+        <li class="ss-sw__item">{{ line }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless safety warnings",
+  "settings": [
+    {
+      "type": "select",
+      "id": "variant",
+      "label": "Product variant",
+      "default": "numbing",
+      "options": [
+        { "value": "numbing", "label": "Numbing products (cream / gel / spray / kits)" },
+        { "value": "cleanser", "label": "Foaming Cleanser (aftercare + prep)" },
+        { "value": "ointment", "label": "Vitamin A & D Ointment (aftercare)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "band",
+      "label": "Band background",
+      "default": "surface",
+      "options": [
+        { "value": "canvas", "label": "Canvas (off-white)" },
+        { "value": "surface", "label": "Surface (white, hairline border)" }
+      ]
+    },
+    { "type": "paragraph", "content": "Warning copy is fixed per variant (compliance-locked, spec 2 Jul 2026) and cannot be edited here. Aftercare variants intentionally carry no broken-skin prohibition — broken-skin use is their intended purpose." }
+  ],
+  "presets": [
+    { "name": "Senseless safety warnings" }
+  ]
+}
+{% endschema %}

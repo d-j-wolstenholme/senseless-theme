@@ -21,6 +21,7 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-how-to-use.liquid` | Numbered application/how-to-use steps | 4 templates |
 | `senseless-strength-matrix.liquid` | Suitability / strength-by-procedure matrix | 3 templates |
 | `senseless-key-facts.liquid` | Machine-extractable "Key facts" GEO block — semantic `<dl>` of label/value facts + a fixed, non-editable compliance line ("UK cosmetic product, by Matrix Health Group Ltd. Not a medicine."). Per-page facts seeded from each page's Notion v2 Key Facts. | product, 3 format collections, 6 guides, 4 landings (14) |
+| `senseless-safety-warnings.liquid` | PDP core safety warnings (launch-gate, spec 2 Jul 2026). Copy HARDCODED per variant select — numbing (full core set incl. patch-test + unbroken-skin lines) / cleanser / ointment (aftercare: intentionally NO broken-skin prohibition — broken-skin use is intended). Non-editable in the editor; no efficacy/repair claims. The old standalone PDP patch-test FAQ line is folded in here. | 9 strength PDPs, bundle (5 kits), foaming-cleanser, vitamin-a-d-ointment (12 templates / 16 PDPs) |
 | `senseless-editorial-band.liquid` | Long-form editorial band | 2 templates |
 | `senseless-contact-form.liquid` | Contact / enquiry form | contact, trade (2) |
 | `senseless-cross-sell.liquid` | Related-product cross-sell row (1:1 linked images, Professional border) | product, foaming-cleanser (2) |

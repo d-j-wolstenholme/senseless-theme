@@ -100,7 +100,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How do I apply it?",
-            "answer": "<p>Start with clean, dry skin and apply a thick, visible layer that sits on the surface rather than being rubbed in. Cover it if your preparation window is longer. Allow time to take effect ahead of your appointment — follow the product guidance and your practitioner. Patch test 24 hours ahead first, and remove before your appointment.</p>"
+            "answer": "<p>Start with clean, dry skin and apply a thick, visible layer that sits on the surface rather than being rubbed in. Cover it if your preparation window is longer. Allow time to take effect ahead of your appointment — follow the product guidance and your practitioner. Remove before your appointment.</p>"
           }
         },
         "q2": {
@@ -264,6 +264,13 @@
         "eyebrow": "The range",
         "band": "surface"
       }
+    },
+    "safetywarnings": {
+      "type": "senseless-safety-warnings",
+      "settings": {
+        "variant": "numbing",
+        "band": "surface"
+      }
     }
   },
   "order": [
@@ -273,6 +280,7 @@
     "shortdesc",
     "system",
     "keyfacts",
+    "safetywarnings",
     "reviews",
     "linksout",
     "faq",

@@ -1,0 +1,406 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-product-hero",
+      "settings": {
+        "eyebrow": "",
+        "subtitle": "",
+        "trust_line": "UK formulated · Cosmetic product · CPSR assessed",
+        "force_tier": "auto"
+      },
+      "blocks": {
+        "judgeme_preview_badge": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judgeme_preview_badge"
+      ]
+    },
+    "matrix": {
+      "type": "senseless-strength-matrix",
+      "blocks": {
+        "r1": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Lip Fillers",
+            "recommendation": "Recommended",
+            "level": "recommended"
+          }
+        },
+        "r2": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Botox",
+            "recommendation": "Recommended",
+            "level": "recommended"
+          }
+        },
+        "r3": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Microneedling",
+            "recommendation": "Possible — Advanced often suits better",
+            "level": "possible"
+          }
+        },
+        "r4": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Laser (face, small zones)",
+            "recommendation": "Recommended",
+            "level": "recommended"
+          }
+        },
+        "r5": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "SPMU (microblading, lip blush)",
+            "recommendation": "Not recommended — Advanced or Professional",
+            "level": "not"
+          }
+        },
+        "r6": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Waxing (small zones — lip, brow)",
+            "recommendation": "Recommended",
+            "level": "recommended"
+          }
+        },
+        "r7": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Waxing (bikini, brazilian, body)",
+            "recommendation": "Not recommended — Advanced spray",
+            "level": "not"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7"
+      ],
+      "settings": {
+        "eyebrow": "Suited for",
+        "headline": "The standard appointment.",
+        "cta_label": "Find your strength",
+        "cta_url": "/pages/the-senseless-system"
+      }
+    },
+    "howtouse": {
+      "type": "senseless-how-to-use",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Clean the area.",
+            "body": "<p>Use a gentle cleanser. Pat dry — no rubbing.</p>"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Apply a thin layer.",
+            "body": "<p>Cover the treatment area evenly. A pea-sized amount per zone is usually enough.</p>"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Leave it.",
+            "body": "<p>Follow your practitioner's timing guidance for the procedure you've booked.</p>"
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Remove before your appointment.",
+            "body": "<p>Wipe with a clean cloth or tissue at the practitioner's instruction.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "eyebrow": "Application",
+        "headline": "A short routine ahead of your appointment.",
+        "closer": "<p>Your practitioner is the best guide for application timing specific to your booking. The four steps above are the standard preparation routine — your specific appointment may vary.</p>",
+        "cta_label": "How Senseless works",
+        "cta_url": "/pages/the-senseless-system"
+      }
+    },
+    "system": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left",
+        "eyebrow": "The system",
+        "headline": "Clinical is the standard. Two more strengths sit above it.",
+        "body": "<p>Clinical Strength is the Senseless cream most clients buy. Advanced sits one step up — for longer sessions, sensitive treatment areas, or microneedling-tier procedures. Professional is our practitioner tier, developed specifically for professional use. Most clients buy Clinical. Some buyers go straight to Advanced. Both are the right choice for the appointments they're built for.</p>",
+        "cta_label": "Find your strength",
+        "cta_url": "/pages/the-senseless-system",
+        "image": "shopify://shop_images/senseless-homepage-hero.webp",
+        "image_alt": "Editorial three-tier Senseless lineup"
+      }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for aesthetics"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the difference between Clinical and Advanced Strength?",
+            "answer": "<p>Clinical is the standard-strength formula — built for routine aesthetic appointments. Advanced is a higher-strength formula for longer or more sensitive sessions. Same system, different appointment context.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Clinical Strength enough for lip fillers?",
+            "answer": "<p>Yes. Lip filler appointments sit comfortably in Clinical territory. Advanced only if your lips are particularly sensitive or your session runs longer than a quick top-up.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What about microneedling?",
+            "answer": "<p>Microneedling typically calls for Advanced Strength — longer session, broader treatment area. Clinical may suit smaller microneedling zones, but Advanced is the standard recommendation for full-face appointments.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's in it?",
+            "answer": "<p>A UK-formulated cosmetic preparation. Full ingredients list available on the packaging and below.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does it last?",
+            "answer": "<p>Senseless is designed for use ahead of a specific appointment. Specific duration varies by client and by application protocol — your practitioner is the best guide.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "headline": "Common questions."
+      }
+    },
+    "crosssell": {
+      "type": "senseless-cross-sell",
+      "blocks": {
+        "c1": {
+          "type": "product_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "title": "Cream",
+            "body": "<p>The standard-strength cream. Available in 30g and 10g.</p>",
+            "product": "clinical-strength-cream",
+            "price": "",
+            "cta_label": "View product",
+            "cta_url": "/products/clinical-strength-cream",
+            "flagship": false,
+            "image_alt": "Clinical Strength Senseless cream on a warm off-white background"
+          }
+        },
+        "c2": {
+          "type": "product_card",
+          "settings": {
+            "label": "Advanced Strength",
+            "title": "Cream",
+            "body": "<p>For longer or more sensitive sessions.</p>",
+            "product": "advanced-strength-cream",
+            "price": "",
+            "cta_label": "View product",
+            "cta_url": "/products/advanced-strength-cream",
+            "flagship": false,
+            "image_alt": "Advanced Strength Senseless cream on a warm off-white background"
+          }
+        },
+        "c3": {
+          "type": "product_card",
+          "settings": {
+            "label": "Professional Strength",
+            "title": "Cream",
+            "body": "<p>Our practitioner tier, developed for professional use.</p>",
+            "product": "professional-strength-cream",
+            "price": "",
+            "cta_label": "View product",
+            "cta_url": "/products/professional-strength-cream",
+            "flagship": false,
+            "image_alt": "Professional Strength Senseless cream on a warm off-white background"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "The rest of the range",
+        "headline": "The rest of the cream range."
+      }
+    },
+    "completeprep": {
+      "type": "senseless-complete-prep",
+      "settings": {
+        "variant": "auto",
+        "compare_url": "/pages/the-senseless-system"
+      }
+    },
+    "aftercare": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-right",
+        "eyebrow": "Aftercare",
+        "headline": "What comes next.",
+        "body": "<p>After your appointment, the Senseless Foaming Cleanser is built for treated skin. An antibacterial cleansing foam that respects what you just had done.</p>",
+        "cta_label": "View Foaming Cleanser",
+        "cta_url": "/products/foaming-cleanser",
+        "image": "shopify://shop_images/senseless-homepage-hero.webp",
+        "image_alt": "Editorial image of the Senseless Foaming Cleanser on a clean countertop"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "Category",
+            "value": "Topical cosmetic preparation"
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Strengths",
+            "value": "Clinical, Advanced, Professional"
+          }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Formats",
+            "value": "Cream, gel and spray"
+          }
+        },
+        "kf4": {
+          "type": "fact",
+          "settings": {
+            "label": "Formulated in",
+            "value": "United Kingdom"
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2",
+        "kf3",
+        "kf4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
+    },
+    "strengths": {
+      "type": "senseless-strength-links",
+      "settings": {
+        "eyebrow": "The range",
+        "band": "surface"
+      }
+    },
+    "reviews": {
+      "type": "senseless-reviews",
+      "settings": {
+        "headline": "What clients say"
+      }
+    },
+    "safetywarnings": {
+      "type": "senseless-safety-warnings",
+      "settings": {
+        "variant": "ointment",
+        "band": "surface"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "matrix",
+    "strengths",
+    "howtouse",
+    "system",
+    "trust",
+    "faq",
+    "reviews",
+    "keyfacts",
+    "safetywarnings",
+    "crosssell",
+    "completeprep",
+    "aftercare"
+  ]
+}

@@ -229,6 +229,13 @@
         "style": "neutral",
         "body": "<p>The Foaming Cleanser sits outside the strength range — it's aftercare, used before and after, never numbing.</p>"
       }
+    },
+    "safetywarnings": {
+      "type": "senseless-safety-warnings",
+      "settings": {
+        "variant": "cleanser",
+        "band": "surface"
+      }
     }
   },
   "order": [
@@ -237,6 +244,7 @@
     "shortdesc",
     "system",
     "keyfacts",
+    "safetywarnings",
     "reviews",
     "linksout",
     "faq",

@@ -241,8 +241,8 @@
         "f5": {
           "type": "fact",
           "settings": {
-            "label": "Made",
-            "value": "Formulated and produced in the United Kingdom."
+            "label": "Formulated",
+            "value": "In the United Kingdom."
           }
         }
       },
@@ -279,7 +279,7 @@
         "q3": {
           "type": "faq_item",
           "settings": {
-            "question": "Where is Senseless made?",
+            "question": "Where is Senseless formulated?",
             "answer": "<p>In the United Kingdom.</p>"
           }
         },
