@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# scripts/reconcile.sh — SessionStart ground-truth reconcile (Senseless · Canon v2.15).
+# scripts/reconcile.sh — SessionStart ground-truth reconcile (Senseless · Canon v2.19).
 #
 # Per Project Instance §4/§6. Establishes ground truth (machine; git main local+remote;
 # live MAIN theme #199324434780 via Shopify CLI; store canary), checks the Notion
@@ -16,7 +16,7 @@ STATE_SURFACE="38e58bc3-75ea-81ad-87eb-e20fcfc22406"
 PROJECT_INSTANCE="38e58bc3-75ea-8198-9ed7-de73bc48f2b5"
 LIBRARY="38158bc3-75ea-81ef-abd2-ded10fd726a7"
 
-echo "## Reconcile — ground truth before acting (Canon v2.15)"
+echo "## Reconcile — ground truth before acting (Canon v2.19)"
 echo "- Machine: $(hostname 2>/dev/null || echo unknown)  ·  confirm which machine if unsure (hard rule #1)"
 
 # --- Git: main, local + remote (report-only; never auto-sync) ---

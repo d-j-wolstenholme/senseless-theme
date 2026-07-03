@@ -1,6 +1,6 @@
 # Senseless — Claude Code instructions
 
-Thin front door. **Notion is the single source of truth** — structure lives in the **Project Instance** (`38e58bc3-75ea-8198-9ed7-de73bc48f2b5`), current state in the **State Surface** (`38e58bc3-75ea-81ad-87eb-e20fcfc22406`), blueprints in the **Canonical Reference Library v2.15** (`38158bc3-75ea-81ef-abd2-ded10fd726a7`). Don't restate their structure here.
+Thin front door. **Notion is the single source of truth** — structure lives in the **Project Instance** (`38e58bc3-75ea-8198-9ed7-de73bc48f2b5`), current state in the **State Surface** (`38e58bc3-75ea-81ad-87eb-e20fcfc22406`), blueprints in the **Canonical Reference Library v2.19** (`38158bc3-75ea-81ef-abd2-ded10fd726a7`). Don't restate their structure here.
 
 ## On session start, before any work
 1. **Run `scripts/reconcile.sh`** — establishes ground truth (machine, git `main` local+remote, live theme, store), then checks Notion against it. Review the report before acting. (Auto-runs via the SessionStart hook.)
