@@ -131,7 +131,7 @@ PRIVACY_BODY = """
 
 TERMS_BODY = """
 <h2>Introduction</h2>
-<p>These terms govern your use of the Senseless website and your purchase of products from us. By accessing the site or placing an order, you agree to them. Senseless is a trading name of Matrix Health Group Ltd, a company registered in England and Wales (company number 17099304). Registered address: 128 City Road, London, EC1V 2NX.</p>
+<p>These terms govern your use of the Senseless website and your purchase of products from us. By accessing the site or placing an order, you agree to them. Senseless is a trading name of Matrix Health Group Ltd, a company registered in England and Wales (company number 17099304). Registered address: Paddock Business Centre, Paddock Road, Skelmersdale, WN8 9PL.</p>
 <h2>Using the site</h2>
 <p>You must be at least 18 to purchase. Use the site only for lawful purposes; do not interfere with its operation, transmit harmful code, or access it through automated means without permission. We may withdraw or restrict access at any time without notice.</p>
 <h2>Orders &amp; payment</h2>
@@ -201,7 +201,7 @@ PAGES = {
   "terms-conditions": {
     "body": TERMS_BODY,
     "faq": [
-      {"question": "Who operates this website?", "answer": "<p>Senseless, a trading name of Matrix Health Group Ltd (17099304), 128 City Road, London, EC1V 2NX.</p>"},
+      {"question": "Who operates this website?", "answer": "<p>Senseless, a trading name of Matrix Health Group Ltd (17099304), Paddock Business Centre, Paddock Road, Skelmersdale, WN8 9PL.</p>"},
       {"question": "How do I contact you about these terms?", "answer": "<p><a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>"},
       {"question": "What law applies?", "answer": "<p>England and Wales.</p>"},
       {"question": "Can I use content from the site?", "answer": "<p>No — written permission required.</p>"},
