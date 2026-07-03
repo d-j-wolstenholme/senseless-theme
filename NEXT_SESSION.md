@@ -2,22 +2,30 @@
 
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
 
-## Done last session (2026-07-03, MacBook Pro — canon re-stamp → v2.19)
-- **Repo canon stamp bumped to v2.19**, closing the repo side of the re-stamp. Notion (Project Instance, State Surface, Front Door — Source of Record) was already moved to v2.19 by chat; this session matched the repo. Text/version-label only — **no logic or structure change**.
-  - **Front door:** `CLAUDE.md:3` → "Canonical Reference Library v2.19".
-  - **Machine-canon layer:** `canon/state.json` `canon_version`; `.claude/schema-contract.json` `canon_version` ×2 (lines 4, 11); `scripts/reconcile.sh` header comment (line 2) + banner (line 19) — all → v2.19.
-  - **`.claude/rules/*.md`** carry no version marker — nothing to change.
-- **Verified:** the prior canon-version stamp no longer appears in any tracked file (grep-clean); both JSON files parse; `reconcile.sh` prints "Canon v2.19" on both the hardcoded banner (line 19) and the dynamic `state.json` read (line 56) — no split. The only remaining bare `2.17` substrings are non-version data (SVG path coords in `snippets/icon.liquid` + `assets/senseless-logo-header.svg`; audit ID `P2.17` in `docs/AUDIT-2026-06-12.md`) — correctly left untouched.
-- **No theme files touched — nothing to deploy.** Staged for the next commit-and-deploy flow (version labels only).
-- **Prior work remains live:** how-to Revision 2 (commit `956a55c`) — 2–3mm layer, cling film standard, 45–60 general-guide window (approved directions-for-use carve-out, Decision `39158bc3-75ea-8181`); launch-gate triple (`d62cc13`): PDP safety warnings, About 'made' fix, review-card 404 heal.
+## Done last session (2026-07-03, MacBook Pro)
+Two tasks landed:
 
-## Next Work Item
-- Launch-gate: **CLEAR** — MHRA closed 2 Jul (product is a cosmetic; Decision `39158bc3-75ea-8194`). Ongoing duty: keep efficacy/onset/duration claims off brand-authored surfaces (existing Hard Rules).
-- Backlog: ntn write-back wiring · Phase 12 nav/link wiring · Phase 10 photography · optional GPay-at-checkout payment-customization function (Daniel undecided).
+**1. Canon re-stamp v2.17 → v2.19** (commit `ee9959c`) — repo stamps bumped to match Notion; label-only, no theme change.
+
+**2. Registered address → Skelmersdale** (commit `d5f3e67`, deployed live) — Companies House registered office moved `128 City Road, London EC1V 2NX` → `Paddock Business Centre, Paddock Road, Skelmersdale, WN8 9PL`. Updated **every brand-authored Senseless location**:
+- **Theme (deployed #199324434780):** footer legal bar · Contact page company details · llms.txt company line · **Organization JSON-LD ×2** (org-schema section + structured-data snippet) — schema/rich-results PostalAddress validated live on homepage + Contact.
+- **Live via Admin API:** terms-conditions page metafields (`prose_policy_body` + `faq`, `last_updated`→2026-07-03) · native **TERMS_OF_SERVICE** + **CONTACT_INFORMATION** shop policies.
+- **Generator:** `scripts/policy-metafields.py` Terms body + FAQ.
+- **Notion source-of-truth:** Project Instance §1 · Confirmed Facts "Parent company" · Terms & Conditions master page.
+- **Verified:** full-surface Shopify sweep (pages/policies/metaobjects/shop-mf/articles/16 products/collections) = **0 remaining hits**; live curls show new address, 0 old; reviews-guard 5/5 markers intact (`reviews-guard.lock` checksum bumped for structured-data snippet).
+
+## Open follow-ups (flagged, NOT done — need decision / separate pass)
+- **Cross-brand carriers still show the OLD address** (same legal entity, but separate stores/sites — need their own store-gated pass, do NOT edit from a Senseless session):
+  - **Totally Numb** — /pages/about §5, /pages/terms-conditions §2+§10 (Notion Content DB + the TN store `matrix-group-totally-numb`).
+  - **MHG Holding Site** (matrixhealthgroup.co.uk) — Website Content Plan, Director's Brief, README; MHG Confirmed Facts "Legal entity".
+- **Store billing/registered-address setting** = `2 Paddock Road, Skelmersdale, WN8 9PL` (line-1 differs from the `Paddock Business Centre, Paddock Road` wording used on pages). Decide the canonical Companies House format and reconcile the two. Not editable via the pages pass — Settings → General.
+- **Notion Contact brief** (`36c58bc3-75ea-8160-…`) still has `Registered address: ⚠ TBC` placeholders — now resolvable to the Skelmersdale address (left as-is: it's a planning brief; live page already correct).
+- Historical `build-reports/*` + `DECISIONS-LOG.md` retain the old address by design (history — do not rewrite).
+
+## Backlog (unchanged)
+- ntn write-back wiring · Phase 12 nav/link wiring · Phase 10 photography · optional GPay-at-checkout payment-customization function (Daniel undecided). Launch-gate: **CLEAR**.
 
 ## Gotchas
-- Canon is uniform at **v2.19** across front door + machine-canon layer + Notion — no split. `reconcile.sh` banner prints "Canon v2.19".
-- This was a label-only bump of two minor versions to v2.19; no v2.18 intermediate stamp exists in the repo — the previous repo stamp jumped straight to v2.19 to match Notion.
-- Safety-warnings copy is HARDCODED in the section (compliance-locked) — variant select only; don't move copy into editor settings.
-- totally-numb.co.uk is password-locked (unlaunched rebuild) — the trading TN site is **totally-numb.com**; almost all its copy breaches Senseless Hard Rules, reference its *structure* only.
-- Historical docs still say spray = 100ml by design; admin variants are size truth (35ml). No rollback theme. Store gate: MCP/CLI default is Totally Numb — verify `senseless-numbing.myshopify.com` first.
+- `.env` Admin token expires (401s) — run `./scripts/refresh-token.sh` (non-interactive client-credentials) before any Admin-API script; the MCP Shopify connector works independently.
+- Policies live in **two places**: native shop policies (`/policies/*`, checkout) AND page metafields (`/pages/*`, `policy` namespace). Change both.
+- Safety-warnings copy is HARDCODED in the section (compliance-locked). No rollback theme. Store gate: MCP/CLI default is Totally Numb — verify `senseless-numbing.myshopify.com` first.
