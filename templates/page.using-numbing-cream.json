@@ -178,7 +178,10 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "white",
-        "body": "<p><strong>The routine, in one line each</strong> — Clean, dry skin → a generous, visible layer, never rubbed in → covered only if your practitioner advises → removed fully before treatment.</p><p><a href=\"/pages/how-to-apply-numbing-cream\">The full routine, step by step →</a></p>"
+        "body": "<p><strong>The routine, in one line each</strong> — Clean, dry skin → a generous, visible layer, never rubbed in → covered only if your practitioner advises → removed fully before treatment.</p>",
+        "cta_label": "The full routine, step by step",
+        "cta_url": "/pages/how-to-apply-numbing-cream",
+        "cta_style": "button"
       }
     },
     "patchtest": {

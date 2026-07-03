@@ -34,6 +34,9 @@
   .ss-rt__body a { color: var(--ss-purple); }
   .ss-rt__cta { margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-family: var(--ss-sans); font-weight: 500; font-size: 14px; color: var(--ss-purple); text-decoration: none; align-self: flex-start; }
   .ss-rt__cta::after { content: '\2192'; }
+  .ss-rt__cta--button { background: var(--ss-purple); color: #fff; padding: 13px 24px; border-radius: 999px; font-weight: 600; font-size: 15px; transition: background 150ms ease, transform 150ms ease; }
+  .ss-rt__cta--button:hover { background: #5A3488; transform: translateY(-1px); }
+  .ss-rt__cta--button:focus-visible { outline: 2px solid var(--ss-purple); outline-offset: 3px; }
 
   @media (min-width: 1024px) {
     .ss-rt__inner { padding-inline: 40px; }
@@ -50,7 +53,7 @@
     {%- if section.settings.eyebrow != blank -%}<p class="ss-rt__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     {%- if section.settings.headline != blank -%}<h2 class="ss-rt__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
     {%- if section.settings.body != blank -%}<div class="ss-rt__body">{{ section.settings.body }}</div>{%- endif -%}
-    {%- if section.settings.cta_label != blank -%}<a class="ss-rt__cta" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
+    {%- if section.settings.cta_label != blank -%}<a class="ss-rt__cta{% if section.settings.cta_style == 'button' %} ss-rt__cta--button{% endif %}" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_label | escape }}</a>{%- endif -%}
   </div>
 </section>
 
@@ -66,7 +69,8 @@
     { "type": "text", "id": "headline", "label": "Headline" },
     { "type": "richtext", "id": "body", "label": "Body" },
     { "type": "text", "id": "cta_label", "label": "CTA label" },
-    { "type": "url", "id": "cta_url", "label": "CTA link" }
+    { "type": "url", "id": "cta_url", "label": "CTA link" },
+    { "type": "select", "id": "cta_style", "label": "CTA style", "default": "link", "options": [ { "value": "link", "label": "Text link" }, { "value": "button", "label": "Button (filled)" } ] }
   ],
   "presets": [
     { "name": "Senseless — Rich text", "settings": { "headline": "Section heading", "body": "<p>Body copy.</p>" } }

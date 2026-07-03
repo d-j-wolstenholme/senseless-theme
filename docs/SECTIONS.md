@@ -16,7 +16,8 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-faq-accordion.liquid` | Accessible FAQ accordion (question/answer blocks) | 24 templates |
 | `senseless-guide-hero.liquid` | Guide/article hero for system + SEO pages | 15 templates |
 | `senseless-callout-band.liquid` | CTA callout band (heading + body + button) | 10 templates |
-| `senseless-rich-text.liquid` | Editorial rich-text block, ~60–65ch measure | 8 templates |
+| `senseless-rich-text.liquid` | Editorial rich-text block, ~60–65ch measure; optional CTA as text-link or filled button (`cta_style`) | 9 templates |
+| `senseless-rewards.liquid` | Public Rewards/loyalty explainer: how-it-works steps · rates list (app-only tags) · app-vs-web comparison table · small-print terms. Block-driven (step/rate/compare); composed with guide-hero + faq-accordion + callout-band | rewards (1) |
 | `senseless-procedure-grid.liquid` | Procedure cards grid (1:1 linked collection images) | 4 templates |
 | `senseless-how-to-use.liquid` | Numbered application/how-to-use steps | 4 templates |
 | `senseless-strength-matrix.liquid` | Suitability / strength-by-procedure matrix | 3 templates |

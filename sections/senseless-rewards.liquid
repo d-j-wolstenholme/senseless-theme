@@ -1,0 +1,184 @@
+{%- comment -%}
+  Senseless — Rewards / loyalty explainer
+  Public storefront marketing surface for the points programme (backend: Cloudflare Workers + D1,
+  Senseless App project). NO live balance / redeem here — link out to the hosted account page (Decision
+  39258bc3-75ea-814c). Three parts: how-it-works steps · rates list · app-vs-web comparison + small print.
+  Copy must stay honest about app-only perks and must not imply redemption is proven end-to-end.
+{%- endcomment -%}
+
+{%- style -%}
+  .ss-rw {
+    --ss-purple: #6B3FA0;
+    --ss-purple-dark: #5A3488;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-line: #e7e4e0;
+    --ss-text: #1A1816;
+    --ss-body: #2B2730;
+    --ss-muted: #6b6672;
+    --ss-head: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--ss-surface); color: var(--ss-text);
+  }
+  .ss-rw__inner { max-width: 940px; margin: 0 auto; padding-block: 88px; padding-inline: 20px; }
+  .ss-rw__eyebrow { font-family: var(--ss-head); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 10px; }
+  .ss-rw__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.75rem, 1.2rem + 2.6vw, 2.5rem); line-height: 1.12; margin: 0 0 14px; }
+  .ss-rw__intro { font-family: var(--ss-head); font-weight: 400; font-size: 17px; line-height: 1.6; color: var(--ss-body); max-width: 640px; margin: 0; }
+
+  /* steps */
+  .ss-rw__steps { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .ss-rw__step { margin: 0; padding: 22px 20px; background: var(--ss-bg); border-radius: 14px; }
+  .ss-rw__stepnum { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 999px; background: rgba(107,63,160,0.10); color: var(--ss-purple); font-family: var(--ss-head); font-weight: 600; font-size: 13px; margin-bottom: 12px; }
+  .ss-rw__steptitle { font-family: var(--ss-head); font-weight: 600; font-size: 1rem; margin: 0 0 6px; color: var(--ss-text); }
+  .ss-rw__steptext { font-family: var(--ss-head); font-weight: 400; font-size: 14px; line-height: 1.55; color: var(--ss-body); margin: 0; }
+
+  /* block heading shared */
+  .ss-rw__subhead { font-family: var(--ss-head); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.01em; margin: 56px 0 18px; color: var(--ss-text); }
+
+  /* rates list */
+  .ss-rw__rates { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ss-line); }
+  .ss-rw__rate { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--ss-line); }
+  .ss-rw__rateterm { font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-text); flex: 0 0 180px; }
+  .ss-rw__ratedetail { font-family: var(--ss-head); font-weight: 400; font-size: 15px; line-height: 1.5; color: var(--ss-body); flex: 1 1 300px; }
+  .ss-rw__apponly { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ss-purple); background: rgba(107,63,160,0.10); border-radius: 999px; padding: 2px 9px; vertical-align: 1px; }
+
+  /* comparison table */
+  .ss-rw__compare { width: 100%; border-collapse: collapse; margin-top: 4px; font-family: var(--ss-head); }
+  .ss-rw__compare th, .ss-rw__compare td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--ss-line); font-size: 15px; vertical-align: top; }
+  .ss-rw__compare thead th { font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ss-muted); border-bottom: 1px solid var(--ss-line); }
+  .ss-rw__compare tbody th { font-weight: 500; color: var(--ss-body); }
+  .ss-rw__compare .ss-rw__col--app { background: rgba(107,63,160,0.05); color: var(--ss-text); font-weight: 600; }
+  .ss-rw__compare thead .ss-rw__col--app { color: var(--ss-purple); }
+  .ss-rw__comptable-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .ss-rw__compnote { font-family: var(--ss-head); font-size: 13px; color: var(--ss-muted); margin: 12px 0 0; }
+
+  /* small print */
+  .ss-rw__terms { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--ss-line); font-family: var(--ss-head); font-size: 12.5px; line-height: 1.6; color: var(--ss-muted); }
+  .ss-rw__terms p { margin: 0 0 8px; }
+  .ss-rw__terms p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 749px) {
+    .ss-rw__inner { padding-block: 56px; }
+    .ss-rw__rateterm { flex-basis: 100%; }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign steps = section.blocks | where: 'type', 'step'
+  assign rates = section.blocks | where: 'type', 'rate'
+  assign rows = section.blocks | where: 'type', 'compare'
+-%}
+
+<section class="ss-rw"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Rewards' | escape }}">
+  <div class="ss-rw__inner" data-ss-reveal>
+    {%- if section.settings.eyebrow != blank -%}<p class="ss-rw__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.headline != blank -%}<h2 class="ss-rw__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+    {%- if section.settings.intro != blank -%}<p class="ss-rw__intro">{{ section.settings.intro | escape }}</p>{%- endif -%}
+
+    {%- if steps.size > 0 -%}
+      <ol class="ss-rw__steps">
+        {%- for block in steps -%}
+          <li class="ss-rw__step" {{ block.shopify_attributes }}>
+            <span class="ss-rw__stepnum" aria-hidden="true">{{ forloop.index }}</span>
+            <h3 class="ss-rw__steptitle">{{ block.settings.title | escape }}</h3>
+            <p class="ss-rw__steptext">{{ block.settings.text | escape }}</p>
+          </li>
+        {%- endfor -%}
+      </ol>
+    {%- endif -%}
+
+    {%- if rates.size > 0 -%}
+      {%- if section.settings.rates_heading != blank -%}<h3 class="ss-rw__subhead">{{ section.settings.rates_heading | escape }}</h3>{%- endif -%}
+      <ul class="ss-rw__rates">
+        {%- for block in rates -%}
+          <li class="ss-rw__rate" {{ block.shopify_attributes }}>
+            <span class="ss-rw__rateterm">{{ block.settings.term | escape }}</span>
+            <span class="ss-rw__ratedetail">{{ block.settings.detail | escape }}{% if block.settings.app_only %}<span class="ss-rw__apponly">App only</span>{% endif %}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if rows.size > 0 -%}
+      {%- if section.settings.compare_heading != blank -%}<h3 class="ss-rw__subhead">{{ section.settings.compare_heading | escape }}</h3>{%- endif -%}
+      <div class="ss-rw__comptable-wrap">
+        <table class="ss-rw__compare">
+          <thead>
+            <tr>
+              <th scope="col">{{ section.settings.compare_feature_label | default: 'What you get' | escape }}</th>
+              <th scope="col">{{ section.settings.compare_web_label | default: 'Website' | escape }}</th>
+              <th scope="col" class="ss-rw__col--app">{{ section.settings.compare_app_label | default: 'Senseless app' | escape }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in rows -%}
+              <tr {{ block.shopify_attributes }}>
+                <th scope="row">{{ block.settings.feature | escape }}</th>
+                <td>{{ block.settings.web | escape }}</td>
+                <td class="ss-rw__col--app">{{ block.settings.app | escape }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+      {%- if section.settings.compare_note != blank -%}<p class="ss-rw__compnote">{{ section.settings.compare_note | escape }}</p>{%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.terms != blank -%}
+      <div class="ss-rw__terms">{{ section.settings.terms }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Rewards",
+  "tag": "section",
+  "class": "senseless-section senseless-rewards",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID (optional, for deep-links)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "text", "id": "intro", "label": "Intro line" },
+    { "type": "header", "content": "Rates" },
+    { "type": "text", "id": "rates_heading", "label": "Rates heading", "default": "The points, in full" },
+    { "type": "header", "content": "App vs web comparison" },
+    { "type": "text", "id": "compare_heading", "label": "Comparison heading", "default": "App vs website" },
+    { "type": "text", "id": "compare_feature_label", "label": "Feature column label", "default": "What you get" },
+    { "type": "text", "id": "compare_web_label", "label": "Web column label", "default": "Website" },
+    { "type": "text", "id": "compare_app_label", "label": "App column label", "default": "Senseless app" },
+    { "type": "text", "id": "compare_note", "label": "Comparison note (small, under table)" },
+    { "type": "header", "content": "Small print" },
+    { "type": "richtext", "id": "terms", "label": "Terms / small print" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "How-it-works step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Step" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Short description of this step." }
+      ]
+    },
+    {
+      "type": "rate",
+      "name": "Rate row",
+      "settings": [
+        { "type": "text", "id": "term", "label": "Term", "default": "Earn rate" },
+        { "type": "text", "id": "detail", "label": "Detail", "default": "1 point per £1 spent." },
+        { "type": "checkbox", "id": "app_only", "label": "Tag as app-only", "default": false }
+      ]
+    },
+    {
+      "type": "compare",
+      "name": "Comparison row",
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Feature", "default": "Points per £1" },
+        { "type": "text", "id": "web", "label": "Website value", "default": "1×" },
+        { "type": "text", "id": "app", "label": "App value", "default": "2×" }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [ { "name": "Senseless — Rewards" } ]
+}
+{% endschema %}

@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "schema_type": "WebPage",
+        "name": "Senseless Rewards",
+        "description": "How Senseless Rewards works — earn 1 point per £1 in the app or on the website, redeem 100 points for £1 off, with double points and a welcome bonus in the app."
+      }
+    },
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "Senseless Rewards",
+        "headline": "Earn points every time you shop.",
+        "accent_word": "points",
+        "subhead": "<p>Collect points on every order — in the app or on the website — and turn them into money off. It's automatic once you have an account; you just need to be signed in.</p>",
+        "primary_cta_label": "Create an account",
+        "primary_cta_url": "/account",
+        "secondary_cta_label": "See how it works",
+        "secondary_cta_url": "#how-rewards-work"
+      }
+    },
+    "rewards": {
+      "type": "senseless-rewards",
+      "blocks": {
+        "step1": { "type": "step", "settings": { "title": "Sign in", "text": "Create an account or sign in — in the app or on the website. There's no separate sign-up; points start collecting straight away." } },
+        "step2": { "type": "step", "settings": { "title": "Spend and earn", "text": "Earn 1 point for every £1 you spend. Points land on any order placed while you're signed in." } },
+        "step3": { "type": "step", "settings": { "title": "Redeem", "text": "Turn points into money off your next order — 100 points = £1 off, applied from your account." } },
+        "rate1": { "type": "rate", "settings": { "term": "Earn rate", "detail": "1 point for every £1 spent — app and website.", "app_only": false } },
+        "rate2": { "type": "rate", "settings": { "term": "App bonus", "detail": "Double points (2×) on orders placed in the Senseless app.", "app_only": true } },
+        "rate3": { "type": "rate", "settings": { "term": "Welcome bonus", "detail": "200 points the first time you sign in on the app.", "app_only": true } },
+        "rate4": { "type": "rate", "settings": { "term": "Redeem", "detail": "100 points = £1 off, applied from your account.", "app_only": false } },
+        "rate5": { "type": "rate", "settings": { "term": "Expiry", "detail": "None — your points don't expire.", "app_only": false } },
+        "rate6": { "type": "rate", "settings": { "term": "Guest checkout", "detail": "Doesn't earn points. Sign in to collect.", "app_only": false } },
+        "cmp1": { "type": "compare", "settings": { "feature": "Points per £1", "web": "1×", "app": "2×" } },
+        "cmp2": { "type": "compare", "settings": { "feature": "200-point welcome bonus", "web": "—", "app": "Yes" } },
+        "cmp3": { "type": "compare", "settings": { "feature": "See balance & redeem", "web": "In your account", "app": "Built in" } },
+        "cmp4": { "type": "compare", "settings": { "feature": "Points expiry", "web": "None", "app": "None" } }
+      },
+      "block_order": ["step1", "step2", "step3", "rate1", "rate2", "rate3", "rate4", "rate5", "rate6", "cmp1", "cmp2", "cmp3", "cmp4"],
+      "settings": {
+        "anchor_id": "how-rewards-work",
+        "eyebrow": "How it works",
+        "headline": "Spend, earn, redeem.",
+        "intro": "Three steps. No cards, no codes — points are tied to your account and collect automatically whenever you're signed in.",
+        "rates_heading": "The points, in full",
+        "compare_heading": "App vs website",
+        "compare_feature_label": "What you get",
+        "compare_web_label": "Website",
+        "compare_app_label": "Senseless app",
+        "compare_note": "Same account, same points — the app just earns faster.",
+        "terms": "<p>Points have no cash value and can't be exchanged for cash. Points earned on an order are removed if that order is later refunded. App-only perks — double points and the 200-point welcome bonus — require the Senseless app. This is version 1 of the programme and its terms may change.</p>"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "faq1": { "type": "faq_item", "settings": { "question": "Do my points expire?", "answer": "<p>No. In this first version of the programme, your points don't expire.</p>" } },
+        "faq2": { "type": "faq_item", "settings": { "question": "What happens to my points if I return an order?", "answer": "<p>Points earned on an order are removed if that order is refunded, in line with the refund.</p>" } },
+        "faq3": { "type": "faq_item", "settings": { "question": "Does guest checkout earn points?", "answer": "<p>No — points are tied to your account, so you need to be signed in (in the app or on the web). Guest checkout doesn't collect points.</p>" } },
+        "faq4": { "type": "faq_item", "settings": { "question": "How do I redeem points?", "answer": "<p>Your balance and redeem option are on your account page. 100 points = £1 off — sign in to view and redeem.</p>" } },
+        "faq5": { "type": "faq_item", "settings": { "question": "Where do I see my balance?", "answer": "<p>Your live balance lives on your account page — sign in to view it. This page is just the overview.</p>" } }
+      },
+      "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5"],
+      "settings": {
+        "headline": "Rewards questions.",
+        "anchor_id": "rewards-faq"
+      }
+    },
+    "cta": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "eyebrow": "Start earning",
+        "heading": "Points start the moment you sign in.",
+        "body": "<p>Create an account or sign in, then shop as usual — in the app or on the web. Your balance and redeem option live on your account page.</p>",
+        "cta_label": "Sign in or create an account",
+        "cta_url": "/account",
+        "cta_style": "primary"
+      }
+    }
+  },
+  "order": ["schema", "hero", "rewards", "faq", "cta"]
+}
