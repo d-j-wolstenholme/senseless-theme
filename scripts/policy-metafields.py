@@ -3,7 +3,7 @@
 Senseless — policy metafield definition creation + value population (Strand 5, the TN way).
 Creates PAGE metafield definitions in the `policy` namespace, ports the vetted policy copy
 into rich_text_field / json values, applies the £40/£80 free-shipping reconciliation on the
-Shipping page, and assigns all 5 policy pages to the custom `policy` template.
+Shipping page, and assigns all 6 policy pages to the custom `policy` template.
 
 Run:  python3 scripts/policy-metafields.py [--dry]
 """
@@ -13,7 +13,8 @@ DRY = "--dry" in sys.argv
 TOKEN = os.environ["SHOPIFY_ACCESS_TOKEN"]
 STORE = "senseless-numbing.myshopify.com"
 URL = f"https://{STORE}/admin/api/2024-10/graphql.json"
-TODAY = "2026-06-04"
+TODAY = "2026-06-04"  # fallback default ONLY — each PAGES entry's "last_updated" overrides it.
+# Live dates differ per page; do NOT run this whole script blindly or you will regress them.
 
 def gq(query, variables=None):
     body = json.dumps({"query": query, "variables": variables or {}}).encode()
@@ -163,6 +164,56 @@ COOKIE_BODY = """
 <p>Our site uses services from Shopify, and may include integrations with payment processors and analytics providers that set their own cookies. We do not control these cookies. For information on their use, refer to the relevant provider's cookie or privacy policy.</p>
 """
 
+# Rewards programme legal terms (Notion "current, revised 4 Jul 2026" §1-17, verbatim).
+REWARDS_BODY = """
+<h2>1. Overview</h2>
+<p>The Senseless Rewards Programme (“Rewards Programme”) is operated by Matrix Health Group Ltd (“Senseless”, “we”, “our”, or “us”) and is designed to reward customers for shopping with Senseless. By joining the Rewards Programme, you agree to these Terms &amp; Conditions in addition to our general <a href="/pages/terms-conditions">Website Terms &amp; Conditions</a> and <a href="/pages/privacy-policy">Privacy Policy</a>. Participation is free and voluntary.</p>
+<h2>2. Eligibility</h2>
+<ul>
+<li>You must be at least 18 years of age.</li>
+<li>You must create a Senseless customer account.</li>
+<li>Only one Rewards account is permitted per individual.</li>
+<li>Business, trade or wholesale accounts may be excluded from earning or redeeming rewards unless otherwise agreed in writing.</li>
+</ul>
+<h2>3. Earning Rewards</h2>
+<p>Members currently earn points through:</p>
+<ul>
+<li>Purchasing eligible products</li>
+<li>Ordering through the Senseless app (double points)</li>
+<li>A one-time welcome bonus on first sign-in to the app</li>
+</ul>
+<p>Further ways to earn — birthday rewards, referring friends, following Senseless on social media, and product reviews — are planned and will be added to this policy once they go live. The number of points awarded for each activity is displayed within the Rewards page and may change without notice.</p>
+<h2>4. Eligible Purchases</h2>
+<p>Points are normally awarded on the value of eligible products purchased. Points are not normally awarded on: shipping charges; gift cards; taxes or VAT where applicable; cancelled orders; refunded orders; fraudulent transactions. Certain products or promotional offers may be excluded from earning points.</p>
+<h2>5. Redeeming Points</h2>
+<p>Points may be exchanged for rewards, discounts or promotional vouchers available within the Rewards Programme. Rewards: have no cash value; cannot be exchanged for cash; cannot be transferred to another customer; cannot be sold. Only one rewards voucher may normally be used per order unless otherwise stated. Minimum spend requirements may apply.</p>
+<h2>6. Referrals — not yet active</h2>
+<p>This section will apply once referral rewards are introduced.</p>
+<h2>7. Birthday Rewards — not yet active</h2>
+<p>This section will apply once birthday rewards are introduced.</p>
+<h2>8. Product Reviews — not yet active</h2>
+<p>This section will apply once review rewards are introduced.</p>
+<h2>9. Expiry of Points</h2>
+<p>Points do not expire.</p>
+<h2>10. Refunds and Returns</h2>
+<p>If an order is refunded, cancelled or returned, any points earned from that purchase may be deducted from your Rewards balance. If points from that purchase have already been redeemed, we reserve the right to: deduct the equivalent value from your account; reduce future rewards; cancel any associated reward.</p>
+<h2>11. Account Misuse</h2>
+<p>We reserve the right to suspend or permanently close any Rewards account where we reasonably believe there has been: fraud; abuse of promotions; multiple accounts created to gain rewards; false referrals; manipulation of the programme; any activity that breaches these Terms. Any points or rewards may be removed without compensation.</p>
+<h2>12. Changes to the Programme</h2>
+<p>We may amend, suspend or withdraw the Rewards Programme at any time. This includes changing: earning rates; redemption values; eligible products; qualifying activities; expiry periods; available rewards. Where practical, changes will be published on our website before taking effect.</p>
+<h2>13. Programme Termination</h2>
+<p>If the Rewards Programme is discontinued, members will be given reasonable notice where possible to redeem existing points. Unused points remaining after the programme closes may be forfeited.</p>
+<h2>14. Limitation of Liability</h2>
+<p>To the fullest extent permitted by law, Matrix Health Group Ltd shall not be liable for any loss arising from participation in the Rewards Programme, including technical issues, account errors or delays in awarding points. Our total liability shall not exceed the value of any valid Rewards points held within your account.</p>
+<h2>15. Privacy</h2>
+<p>Personal information used in connection with the Rewards Programme will be processed in accordance with our <a href="/pages/privacy-policy">Privacy Policy</a>.</p>
+<h2>16. Governing Law</h2>
+<p>These Terms &amp; Conditions are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+<h2>17. Contact</h2>
+<p>Senseless Rewards is operated by Matrix Health Group Ltd (registered in England and Wales, company number 17099304), registered address Paddock Business Centre, 2 Paddock Road, Skelmersdale, Lancashire, WN8 9PL.</p>
+<p>Senseless — Email: <a href="mailto:cs@senseless.uk">cs@senseless.uk</a> — Telephone: 0333 049 5549</p>
+"""
+
 PAGES = {
   "shipping-delivery": {
     "body": SHIPPING_BODY,
@@ -174,6 +225,7 @@ PAGES = {
       {"question": "Order hasn't arrived?", "answer": "<p>Check tracking first; if the window has passed with no update, contact <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a> with your order number.</p>"},
     ],
     "see_also": [{"label": "Returns & Refunds", "url": "/pages/returns-refunds"}],
+    "last_updated": "2026-06-04",
   },
   "returns-refunds": {
     "body": RETURNS_BODY,
@@ -186,6 +238,7 @@ PAGES = {
       {"question": "Do you ship to the EU?", "answer": "<p>UK only at present; if that changes, EU customers get the additional 14-day cooling-off period.</p>"},
     ],
     "see_also": [{"label": "Shipping & Delivery", "url": "/pages/shipping-delivery"}],
+    "last_updated": "2026-07-03",
   },
   "privacy-policy": {
     "body": PRIVACY_BODY,
@@ -197,6 +250,7 @@ PAGES = {
       {"question": "Where can I complain?", "answer": "<p>Contact us first; if unsatisfied, the ICO at <a href=\"https://ico.org.uk\">ico.org.uk</a>.</p>"},
     ],
     "see_also": [{"label": "Cookie Policy", "url": "/pages/cookie-policy"}, {"label": "Terms & Conditions", "url": "/pages/terms-conditions"}],
+    "last_updated": "2026-06-04",
   },
   "terms-conditions": {
     "body": TERMS_BODY,
@@ -206,7 +260,8 @@ PAGES = {
       {"question": "What law applies?", "answer": "<p>England and Wales.</p>"},
       {"question": "Can I use content from the site?", "answer": "<p>No — written permission required.</p>"},
     ],
-    "see_also": [{"label": "Privacy Policy", "url": "/pages/privacy-policy"}, {"label": "Cookie Policy", "url": "/pages/cookie-policy"}],
+    "see_also": [{"label": "Privacy Policy", "url": "/pages/privacy-policy"}, {"label": "Cookie Policy", "url": "/pages/cookie-policy"}, {"label": "Rewards Terms & Conditions", "url": "/pages/rewards-terms"}],
+    "last_updated": "2026-07-03",
   },
   "cookie-policy": {
     "body": COOKIE_BODY,
@@ -216,6 +271,16 @@ PAGES = {
       {"question": "How do I withdraw my cookie consent?", "answer": "<p>You can change your preferences at any time through the cookie consent banner on the site, or by clearing cookies in your browser settings.</p>"},
     ],
     "see_also": [{"label": "Privacy Policy", "url": "/pages/privacy-policy"}, {"label": "Terms & Conditions", "url": "/pages/terms-conditions"}],
+    "last_updated": "2026-06-04",
+  },
+  # 6th policy page. Published 2026-07-04 via the canonical RT pipeline (page created + policy.*
+  # metafields set on senseless-numbing). Definitions already existed; page also carries
+  # global.title_tag / global.description_tag / seo.hidden=1 like its siblings.
+  "rewards-terms": {
+    "body": REWARDS_BODY,
+    "faq": [],
+    "see_also": [{"label": "Senseless Rewards", "url": "/pages/rewards"}, {"label": "Terms & Conditions", "url": "/pages/terms-conditions"}],
+    "last_updated": "2026-07-04",
   },
 }
 
@@ -278,7 +343,7 @@ def populate():
             {"ownerId": gid, "namespace": "policy", "key": "prose_policy_body", "type": "rich_text_field", "value": rt},
             {"ownerId": gid, "namespace": "policy", "key": "faq", "type": "json", "value": json.dumps(content["faq"], ensure_ascii=False)},
             {"ownerId": gid, "namespace": "policy", "key": "see_also", "type": "json", "value": json.dumps(content["see_also"], ensure_ascii=False)},
-            {"ownerId": gid, "namespace": "policy", "key": "last_updated", "type": "date", "value": TODAY},
+            {"ownerId": gid, "namespace": "policy", "key": "last_updated", "type": "date", "value": content.get("last_updated", TODAY)},
         ]
         if DRY:
             print(f"  [dry] /{handle}: rt {len(rt)}b, {len(content['faq'])} faq, suffix->policy"); continue
