@@ -40,6 +40,8 @@
   .ss-rw__rateterm { font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-text); flex: 0 0 180px; }
   .ss-rw__ratedetail { font-family: var(--ss-head); font-weight: 400; font-size: 15px; line-height: 1.5; color: var(--ss-body); flex: 1 1 300px; }
   .ss-rw__apponly { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ss-purple); background: rgba(107,63,160,0.10); border-radius: 999px; padding: 2px 9px; vertical-align: 1px; }
+  .ss-rw__soon { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ss-muted); background: transparent; border: 1px solid var(--ss-line); border-radius: 999px; padding: 2px 9px; vertical-align: 1px; }
+  .ss-rw__rate--soon .ss-rw__rateterm { color: var(--ss-body); }
 
   /* comparison table */
   .ss-rw__compare { width: 100%; border-collapse: collapse; margin-top: 4px; font-family: var(--ss-head); }
@@ -87,15 +89,45 @@
     {%- endif -%}
 
     {%- if rates.size > 0 -%}
-      {%- if section.settings.rates_heading != blank -%}<h3 class="ss-rw__subhead">{{ section.settings.rates_heading | escape }}</h3>{%- endif -%}
-      <ul class="ss-rw__rates">
-        {%- for block in rates -%}
-          <li class="ss-rw__rate" {{ block.shopify_attributes }}>
-            <span class="ss-rw__rateterm">{{ block.settings.term | escape }}</span>
-            <span class="ss-rw__ratedetail">{{ block.settings.detail | escape }}{% if block.settings.app_only %}<span class="ss-rw__apponly">App only</span>{% endif %}</span>
-          </li>
-        {%- endfor -%}
-      </ul>
+      {%- liquid
+        assign earn_count = 0
+        assign rule_count = 0
+        for block in rates
+          if block.settings.group == 'rule'
+            assign rule_count = rule_count | plus: 1
+          else
+            assign earn_count = earn_count | plus: 1
+          endif
+        endfor
+      -%}
+
+      {%- if earn_count > 0 -%}
+        {%- if section.settings.earn_heading != blank -%}<h3 class="ss-rw__subhead">{{ section.settings.earn_heading | escape }}</h3>{%- endif -%}
+        <ul class="ss-rw__rates">
+          {%- for block in rates -%}
+            {%- unless block.settings.group == 'rule' -%}
+              <li class="ss-rw__rate{% if block.settings.coming_soon %} ss-rw__rate--soon{% endif %}" {{ block.shopify_attributes }}>
+                <span class="ss-rw__rateterm">{{ block.settings.term | escape }}</span>
+                <span class="ss-rw__ratedetail">{{ block.settings.detail | escape }}{% if block.settings.coming_soon %}<span class="ss-rw__soon">Coming soon</span>{% elsif block.settings.app_only %}<span class="ss-rw__apponly">App only</span>{% endif %}</span>
+              </li>
+            {%- endunless -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if rule_count > 0 -%}
+        {%- if section.settings.rules_heading != blank -%}<h3 class="ss-rw__subhead">{{ section.settings.rules_heading | escape }}</h3>{%- endif -%}
+        <ul class="ss-rw__rates">
+          {%- for block in rates -%}
+            {%- if block.settings.group == 'rule' -%}
+              <li class="ss-rw__rate" {{ block.shopify_attributes }}>
+                <span class="ss-rw__rateterm">{{ block.settings.term | escape }}</span>
+                <span class="ss-rw__ratedetail">{{ block.settings.detail | escape }}{% if block.settings.app_only %}<span class="ss-rw__apponly">App only</span>{% endif %}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
     {%- endif -%}
 
     {%- if rows.size > 0 -%}
@@ -139,8 +171,9 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "headline", "label": "Headline" },
     { "type": "text", "id": "intro", "label": "Intro line" },
-    { "type": "header", "content": "Rates" },
-    { "type": "text", "id": "rates_heading", "label": "Rates heading", "default": "The points, in full" },
+    { "type": "header", "content": "Ways to earn / rules" },
+    { "type": "text", "id": "earn_heading", "label": "Ways-to-earn heading", "default": "Ways to earn" },
+    { "type": "text", "id": "rules_heading", "label": "Redeeming & rules heading", "default": "Redeeming & the rules" },
     { "type": "header", "content": "App vs web comparison" },
     { "type": "text", "id": "compare_heading", "label": "Comparison heading", "default": "App vs website" },
     { "type": "text", "id": "compare_feature_label", "label": "Feature column label", "default": "What you get" },
@@ -165,7 +198,9 @@
       "settings": [
         { "type": "text", "id": "term", "label": "Term", "default": "Earn rate" },
         { "type": "text", "id": "detail", "label": "Detail", "default": "1 point per £1 spent." },
-        { "type": "checkbox", "id": "app_only", "label": "Tag as app-only", "default": false }
+        { "type": "select", "id": "group", "label": "Group", "options": [ { "value": "earn", "label": "Ways to earn" }, { "value": "rule", "label": "Redeeming & rules" } ], "default": "earn" },
+        { "type": "checkbox", "id": "app_only", "label": "Tag as app-only", "default": false },
+        { "type": "checkbox", "id": "coming_soon", "label": "Tag as coming soon", "default": false }
       ]
     },
     {
