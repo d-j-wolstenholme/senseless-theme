@@ -32,7 +32,7 @@
         "earn1": { "type": "rate", "settings": { "term": "1 point per £1", "detail": "On every order — in the app or on the website.", "group": "earn", "app_only": false, "coming_soon": false } },
         "earn2": { "type": "rate", "settings": { "term": "Double points in the app", "detail": "Orders placed in the Senseless app earn 2× points.", "group": "earn", "app_only": true, "coming_soon": false } },
         "earn3": { "type": "rate", "settings": { "term": "Welcome bonus", "detail": "200 points the first time you sign in on the app.", "group": "earn", "app_only": true, "coming_soon": false } },
-        "earn4": { "type": "rate", "settings": { "term": "Birthday points", "detail": "100 points on your birthday, once a year.", "group": "earn", "app_only": true, "coming_soon": true } },
+        "earn4": { "type": "rate", "settings": { "term": "Birthday points", "detail": "100 points on your birthday, once a year.", "group": "earn", "app_only": true, "coming_soon": false } },
         "earn5": { "type": "rate", "settings": { "term": "Refer a friend", "detail": "Earn points when someone you refer makes their first order.", "group": "earn", "app_only": false, "coming_soon": true } },
         "earn6": { "type": "rate", "settings": { "term": "Product reviews", "detail": "Earn points for reviewing what you've bought.", "group": "earn", "app_only": false, "coming_soon": true } },
         "earn7": { "type": "rate", "settings": { "term": "Follow us", "detail": "Earn points for following Senseless on social.", "group": "earn", "app_only": false, "coming_soon": true } },
@@ -43,10 +43,11 @@
 
         "cmp1": { "type": "compare", "settings": { "feature": "Points per £1", "web": "1×", "app": "2×" } },
         "cmp2": { "type": "compare", "settings": { "feature": "200-point welcome bonus", "web": "—", "app": "Yes" } },
+        "cmp5": { "type": "compare", "settings": { "feature": "Birthday points", "web": "—", "app": "100 pts / year" } },
         "cmp3": { "type": "compare", "settings": { "feature": "See balance & redeem", "web": "In your account", "app": "Built in" } },
         "cmp4": { "type": "compare", "settings": { "feature": "Points expiry", "web": "None", "app": "None" } }
       },
-      "block_order": ["step1", "step2", "step3", "earn1", "earn2", "earn3", "earn4", "earn5", "earn6", "earn7", "rule1", "rule2", "rule3", "cmp1", "cmp2", "cmp3", "cmp4"],
+      "block_order": ["step1", "step2", "step3", "earn1", "earn2", "earn3", "earn4", "earn5", "earn6", "earn7", "rule1", "rule2", "rule3", "cmp1", "cmp2", "cmp5", "cmp3", "cmp4"],
       "settings": {
         "anchor_id": "how-rewards-work",
         "eyebrow": "How it works",
@@ -59,7 +60,7 @@
         "compare_web_label": "Website",
         "compare_app_label": "Senseless app",
         "compare_note": "Same account, same points — the app just earns faster. Points marked “coming soon” aren't active yet; they'll start earning once they're live.",
-        "terms": "<p>Points have no cash value and can't be exchanged for cash. Points earned on an order are removed if that order is later refunded. App-only perks — double points and the 200-point welcome bonus — require the Senseless app. Ways to earn marked “coming soon” are planned and not yet active. This is version 1 of the programme and its terms may change. See the <a href=\"/pages/rewards-terms\">full Rewards Terms &amp; Conditions</a>.</p>"
+        "terms": "<p>Points have no cash value and can't be exchanged for cash. Points earned on an order are removed if that order is later refunded. App-only perks — double points, the 200-point welcome bonus, and birthday points — require the Senseless app. Ways to earn marked “coming soon” are planned and not yet active. This is version 1 of the programme and its terms may change. See the <a href=\"/pages/rewards-terms\">full Rewards Terms &amp; Conditions</a>.</p>"
       }
     },
     "faq": {
@@ -70,7 +71,7 @@
         "faq3": { "type": "faq_item", "settings": { "question": "Does guest checkout earn points?", "answer": "<p>No — points are tied to your account, so you need to be signed in (in the app or on the web). Guest checkout doesn't collect points.</p>" } },
         "faq4": { "type": "faq_item", "settings": { "question": "How do I redeem points?", "answer": "<p>Your balance and redeem option are on your account page. 100 points = £1 off — sign in to view and redeem.</p>" } },
         "faq5": { "type": "faq_item", "settings": { "question": "Where do I see my balance?", "answer": "<p>Your live balance lives on your account page — sign in to view it. This page is just the overview.</p>" } },
-        "faq6": { "type": "faq_item", "settings": { "question": "Are more ways to earn coming?", "answer": "<p>Yes — birthday points, referrals, product reviews and following us on social are on the way. They're marked “coming soon” on this page and will start earning once they're live.</p>" } }
+        "faq6": { "type": "faq_item", "settings": { "question": "Are more ways to earn coming?", "answer": "<p>Yes — referrals, product reviews and following us on social are on the way. They're marked “coming soon” on this page and will start earning once they're live.</p>" } }
       },
       "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6"],
       "settings": {
