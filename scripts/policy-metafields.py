@@ -210,7 +210,7 @@ REWARDS_BODY = """
 <h2>16. Governing Law</h2>
 <p>These Terms &amp; Conditions are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
 <h2>17. Contact</h2>
-<p>Senseless Rewards is operated by Matrix Health Group Ltd (registered in England and Wales, company number 17099304), registered address Paddock Business Centre, 2 Paddock Road, Skelmersdale, Lancashire, WN8 9PL.</p>
+<p>Senseless Rewards is operated by Matrix Health Group Ltd (registered in England and Wales, company number 17099304), registered address Paddock Business Centre, 2 Paddock Road, Skelmersdale, WN8 9PL.</p>
 <p>Senseless — Email: <a href="mailto:cs@senseless.uk">cs@senseless.uk</a> — Telephone: 0333 049 5549</p>
 """
 
