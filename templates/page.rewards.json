@@ -32,7 +32,7 @@
         "earn1": { "type": "rate", "settings": { "term": "1 point per £1", "detail": "On every order — in the app or on the website.", "group": "earn", "app_only": false, "coming_soon": false } },
         "earn2": { "type": "rate", "settings": { "term": "Double points in the app", "detail": "Orders placed in the Senseless app earn 2× points.", "group": "earn", "app_only": true, "coming_soon": false } },
         "earn3": { "type": "rate", "settings": { "term": "Welcome bonus", "detail": "200 points the first time you sign in on the app.", "group": "earn", "app_only": true, "coming_soon": false } },
-        "earn4": { "type": "rate", "settings": { "term": "Birthday points", "detail": "100 points on your birthday, once a year.", "group": "earn", "app_only": false, "coming_soon": true } },
+        "earn4": { "type": "rate", "settings": { "term": "Birthday points", "detail": "100 points on your birthday, once a year.", "group": "earn", "app_only": true, "coming_soon": true } },
         "earn5": { "type": "rate", "settings": { "term": "Refer a friend", "detail": "Earn points when someone you refer makes their first order.", "group": "earn", "app_only": false, "coming_soon": true } },
         "earn6": { "type": "rate", "settings": { "term": "Product reviews", "detail": "Earn points for reviewing what you've bought.", "group": "earn", "app_only": false, "coming_soon": true } },
         "earn7": { "type": "rate", "settings": { "term": "Follow us", "detail": "Earn points for following Senseless on social.", "group": "earn", "app_only": false, "coming_soon": true } },

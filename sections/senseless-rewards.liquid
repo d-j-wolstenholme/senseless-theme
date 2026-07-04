@@ -108,7 +108,7 @@
             {%- unless block.settings.group == 'rule' -%}
               <li class="ss-rw__rate{% if block.settings.coming_soon %} ss-rw__rate--soon{% endif %}" {{ block.shopify_attributes }}>
                 <span class="ss-rw__rateterm">{{ block.settings.term | escape }}</span>
-                <span class="ss-rw__ratedetail">{{ block.settings.detail | escape }}{% if block.settings.coming_soon %}<span class="ss-rw__soon">Coming soon</span>{% elsif block.settings.app_only %}<span class="ss-rw__apponly">App only</span>{% endif %}</span>
+                <span class="ss-rw__ratedetail">{{ block.settings.detail | escape }}{% if block.settings.app_only %}<span class="ss-rw__apponly">App only</span>{% endif %}{% if block.settings.coming_soon %}<span class="ss-rw__soon">Coming soon</span>{% endif %}</span>
               </li>
             {%- endunless -%}
           {%- endfor -%}
