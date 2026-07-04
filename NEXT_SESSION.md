@@ -2,31 +2,32 @@
 
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
 
-## Done last session (2026-07-03 → 04, MacBook Pro)
-Long multi-task session. Commits (newest first): `68e8926`, `801786b`, `0f138b0`, `d5f3e67`, `ee9959c`.
+## Done last session (2026-07-04, MacBook Pro)
+**Rewards T&C published as a live policy page + cross-linked everywhere** (commit `6e485e1`, deployed + live-verified). Work Item `39358bc3-75ea-8152` → **Built**.
 
-**1. Canon re-stamp v2.17 → v2.19** (`ee9959c`) — repo stamps matched to Notion; label-only.
-
-**2. Registered address → Skelmersdale, then corrected to full form** (`d5f3e67` + `801786b`) — Companies House registered office moved. Final canonical address, live everywhere: **`Paddock Business Centre, 2 Paddock Road, Skelmersdale, WN8 9PL`** (the first pass omitted the `2`; corrected). Updated + live-verified across: footer · Contact page · llms.txt · Organization JSON-LD ×2 (schema/rich-results validated) · `scripts/policy-metafields.py` (Terms + FAQ + Returns) · live Shopify metafields (terms + returns pages) · native TERMS_OF_SERVICE / CONTACT_INFORMATION / REFUND_POLICY shop policies · Notion (Project Instance §1, Confirmed Facts, Terms master). Full Shopify sweep = 0 stale hits.
-
-**3. Rewards/loyalty page** (`68e8926`) — new `/pages/rewards` live (Work Item `39258bc3-75ea-8130` → **Built**; Decision `-814c`). Hero + how-it-works + rates table + app-vs-web comparison + FAQ + terms + sign-in CTA; **no live balance** (link-out to hosted account page). Rates per Senseless App ADR-009 (1pt/£1, 2× app, 200pt app welcome, 100pt=£1, no expiry, guest doesn't earn). New `senseless-rewards` section (block-driven). New top-level **Rewards** nav in `senseless-main`. **compliance-check PASS.**
-
-**4. Header + guide button** (`68e8926`) — `how-to-apply` added as the **lead** item in the header Application-guides group (desktop + mobile); `senseless-rich-text` gained a filled-button CTA variant (`cta_style`) and the using-numbing-cream "full routine" link is now a standout button.
-
-**5. Store business address (Settings → General)** — saved via admin UI: company → `Matrix Health Group Ltd`, address → `Paddock Business Centre, 2 Paddock Road`, Skelmersdale WN8 9PL. API-verified.
+- **New page `/pages/rewards-terms`** — reuses the existing policy pattern (`page.policy.json` → `senseless-policy-page`, `policy.*` metafields); published; noindexed like the other 5 legal pages (`seo.hidden=1` + handle added to `ss_noindex_handles` in `layout/theme.liquid`). Page id `gid://shopify/Page/712303313244`.
+- **Copy** = Notion "current, revised 4 Jul 2026" §1–17 **verbatim** (the superseded 12-month-expiry / unbuilt-earning-methods draft was ignored). `prose_policy_body` render-verified (17 headings / 4 links / 7 list-items), `see_also` = Senseless Rewards + Terms & Conditions, `last_updated` 2026-07-04, `faq` []. `global.title_tag`/`description_tag` set (provisional — SEO is Daniel's axis).
+- **Cross-links — all three:** ① marketing `/pages/rewards` small-print → "full Rewards Terms & Conditions"; ② main T&C `see_also` → +Rewards Terms & Conditions; ③ footer **Help** menu (`senseless-footer-help`) → "Rewards terms" (Help-column tier, not the strict legal bar).
+- **How it was set:** metafields written via the RT converter **directly** on senseless-numbing (scratchpad script) — the `policy-metafields.py` *record* was updated (rewards-terms = 6th page) but NOT run wholesale (would regress the other pages' `last_updated`); added per-page `last_updated` support to the script to remove that footgun.
+- Gates: store ✓ · compliance PASS · theme-check 0 · deploy.sh guard 5/5 · Asset-API semantic diff MATCH + live curl of all 4 surfaces ✓.
 
 ## Open follow-ups / flags
-- **Store province = "England" (should be Lancashire) — UNFIXABLE via admin UI or API.** Neither the Store-address form nor the Business-details entity form exposes a county field (UK addresses don't), and there's no shop-address Admin-API mutation. The value is **never rendered** (no county line in the address display) → invisible, harmless. Only Shopify Support can amend the underlying record. Left as-is.
-- **Business-details legal entity** address is split differently (`2 Paddock Road` + `Paddock Business Centre` as apartment) vs the Store address. Left alone — editing the legal/tax entity can trigger Shopify business-verification.
-- **Cross-brand carriers still on the OLD London address** (same legal entity, separate stores/sites → own gated pass, don't edit from a Senseless session): **Totally Numb** (store + /about + /terms) and **MHG Holding Site** (Content Plan, Director's Brief, README; MHG Confirmed Facts "Legal entity").
-- **Rewards fast-follow (deferred, needs its own decision):** live-balance teaser on `/pages/rewards` — would call GET /summary but needs an auth-bridge (the storefront lacks the hosted-account auth context). Not built.
-- Header mis-links (pre-existing): the "How long it takes to work" / "How long it lasts" items in the Application-guides menu still point to `/pages/using-numbing-cream` rather than the dedicated `how-long-*` pages. Not in scope this session.
+- **Rewards T&C legal review (MHG/legal) — recommended before "Final".** Source flags §6–8 placeholder numbering + "flag to a lawyer before publishing regardless." Daniel aware, non-blocking; page is live. Status left at **Built** (not Final) for this reason.
+- **`rewards-terms` §17 keeps "Lancashire"** (verbatim from source: "…Skelmersdale, Lancashire, WN8 9PL") whereas the other legal pages/policies still OMIT the county — this is the older open **Lancashire content gap** (footer, 3 native shop policies, T&C page all read "…Skelmersdale, WN8 9PL"). Still fixable (plain content edit, no platform limit); never actioned. Decide: add Lancashire everywhere, or drop it from rewards-terms for consistency.
+- **Rewards page link-out destination not working** (Daniel, 3 Jul): signed-in hosted account page shows no points/balance — Customer Account UI Extension may not be installed/active on `senseless-numbing`. Handoff issued to the Senseless App project; blocks the "your balance lives on your account page" promise on `/pages/rewards`.
+- **Rewards fast-follow (deferred, needs its own decision):** live-balance teaser on `/pages/rewards` — needs an auth-bridge (storefront lacks hosted-account auth). Not built. Also: an OS-aware mobile-only "get the app" prompt on the Rewards page (flagged, not built).
+- **Store province = "England" (should be Lancashire) — UNFIXABLE** via admin UI/API (no county field, no shop-address mutation). Never rendered → harmless. Only Shopify Support can amend.
+- **Cross-brand carriers on the OLD London address** (same legal entity, separate gated pass — don't edit from a Senseless session): Totally Numb (store + /about + /terms), MHG Holding Site.
+- Header mis-links (pre-existing): "How long it takes to work" / "How long it lasts" in the Application-guides menu still point to `/pages/using-numbing-cream`, not the dedicated `how-long-*` pages.
 
 ## Backlog (unchanged)
 - ntn write-back wiring · Phase 12 nav/link wiring · Phase 10 photography · optional GPay-at-checkout payment-customization function (Daniel undecided). Launch-gate: **CLEAR**.
 
 ## Gotchas
-- `.env` Admin token expires (401s) — run `./scripts/refresh-token.sh` (non-interactive client-credentials) before any Admin-API script; the MCP Shopify connector works independently.
-- Policies live in **two places**: native shop policies (`/policies/*`, checkout) AND page metafields (`/pages/*`, `policy` namespace). Change both.
-- Reviews-guard: editing `senseless-structured-data.liquid` needs `deploy.sh --reviews-changed` (rewrites `reviews-guard.lock` — commit it).
-- Canonical registered address string: **`Paddock Business Centre, 2 Paddock Road, Skelmersdale, WN8 9PL`** (footer variant drops the comma before the postcode). Store gate: MCP/CLI default is Totally Numb — verify `senseless-numbing.myshopify.com` first. No rollback theme.
+- **Adding another policy page** = (1) `pageCreate` handle + `templateSuffix: policy` + `isPublished`; (2) set `policy.prose_policy_body` (rich_text_field — build via the `RT` HTML→richtext converter in `scripts/policy-metafields.py`, NOT hand-JSON), `policy.see_also` (json `[{label,url}]`, literal strings), `policy.last_updated` (date), optional `policy.faq`; (3) `global.title_tag`/`description_tag` + `seo.hidden=1`; (4) add the handle to `ss_noindex_handles` in `layout/theme.liquid` (deploy). No new template/section needed.
+- **Shopify normalizes `rich_text_field` on store** (strips empty `title`/`target` on link nodes) → a byte-compare of sent-vs-stored will differ (~5%); verify **semantically** (node counts + rendered text), not by length.
+- `.env` Admin token expires (401s) — run `./scripts/refresh-token.sh` (client-credentials) then `set -a; source .env; set +a` before any Admin-API script. The token has full write scopes (content/pages/navigation/products/themes). The MCP Shopify connector works independently.
+- Policies live in **two places**: native shop policies (`/policies/*`, checkout) AND page metafields (`/pages/*`, `policy` namespace). The rewards T&C is metafield-page-only (it's a programme policy, not a checkout policy).
+- Footer columns are **Shopify nav menus** (`senseless-footer-{shop,explore,help,company}`), NOT theme code — add/reorder footer links via `menuUpdate`, no deploy. The strict legal bar (Privacy/Terms/Cookie) IS hardcoded in `senseless-footer.liquid` — different tier, don't touch for programme-specific links.
+- Reviews-guard: editing `senseless-structured-data.liquid` / product templates / `settings_data.json` needs `deploy.sh --reviews-changed` (rewrites `reviews-guard.lock` — commit it). Policy pages + footer/theme.liquid edits are NOT guarded.
+- Canonical registered address string: **`Paddock Business Centre, 2 Paddock Road, Skelmersdale, WN8 9PL`** (rewards-terms §17 additionally carries "Lancashire" — verbatim, see flag above). Store gate: MCP/CLI default is Totally Numb — verify `senseless-numbing.myshopify.com` first. No rollback theme.
