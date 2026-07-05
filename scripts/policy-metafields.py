@@ -181,16 +181,17 @@ REWARDS_BODY = """
 <li>Purchasing eligible products</li>
 <li>Ordering through the Senseless app (double points)</li>
 <li>A one-time welcome bonus on first sign-in to the app</li>
+<li>A birthday reward, for members who add their date of birth in the Senseless app</li>
 </ul>
-<p>Further ways to earn — birthday rewards, referring friends, following Senseless on social media, and product reviews — are planned and will be added to this policy once they go live. The number of points awarded for each activity is displayed within the Rewards page and may change without notice.</p>
+<p>Further ways to earn — referring friends, following Senseless on social media, and product reviews — are planned and will be added to this policy once they go live. The number of points awarded for each activity is displayed within the Rewards page and may change without notice.</p>
 <h2>4. Eligible Purchases</h2>
 <p>Points are normally awarded on the value of eligible products purchased. Points are not normally awarded on: shipping charges; gift cards; taxes or VAT where applicable; cancelled orders; refunded orders; fraudulent transactions. Certain products or promotional offers may be excluded from earning points.</p>
 <h2>5. Redeeming Points</h2>
 <p>Points may be exchanged for rewards, discounts or promotional vouchers available within the Rewards Programme. Rewards: have no cash value; cannot be exchanged for cash; cannot be transferred to another customer; cannot be sold. Only one rewards voucher may normally be used per order unless otherwise stated. Minimum spend requirements may apply.</p>
 <h2>6. Referrals — not yet active</h2>
 <p>This section will apply once referral rewards are introduced.</p>
-<h2>7. Birthday Rewards — not yet active</h2>
-<p>This section will apply once birthday rewards are introduced.</p>
+<h2>7. Birthday Rewards</h2>
+<p>Members who add their date of birth in the Senseless app receive a one-time reward of 100 points around their birthday each year. Only one birthday reward is available per member each calendar year. Birthday rewards are currently only available to members using the Senseless app — not yet available to members who use the Senseless website only. Birthday points do not expire (see Section 9).</p>
 <h2>8. Product Reviews — not yet active</h2>
 <p>This section will apply once review rewards are introduced.</p>
 <h2>9. Expiry of Points</h2>
@@ -280,7 +281,7 @@ PAGES = {
     "body": REWARDS_BODY,
     "faq": [],
     "see_also": [{"label": "Senseless Rewards", "url": "/pages/rewards"}, {"label": "Terms & Conditions", "url": "/pages/terms-conditions"}],
-    "last_updated": "2026-07-04",
+    "last_updated": "2026-07-05",
   },
 }
 
