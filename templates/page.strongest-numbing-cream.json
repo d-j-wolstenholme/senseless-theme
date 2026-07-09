@@ -27,8 +27,8 @@
       "settings": {
         "direction": "text-left",
         "eyebrow": "The honest version",
-        "headline": "Looking for the strongest numbing cream?",
-        "body": "<p>We won't claim to be the strongest cream on the market — here's how to actually choose. That's a comparative claim, and the cosmetic product category doesn't lend itself to those — different brands, different formulations, different regulatory contexts. What we'll say is this: Professional is our practitioner tier, developed with practitioners specifically for the longest and most sustained aesthetic procedures.</p>",
+        "headline": "Looking for the best or strongest numbing cream?",
+        "body": "<p>We won't claim to be the strongest cream on the market — here's how to actually choose. That's a comparative claim, and the cosmetic product category doesn't lend itself to those — different brands, different formulations, different regulatory contexts. What we'll say is this: Professional is our practitioner tier, developed with practitioners specifically for the longest and most sustained aesthetic procedures.</p><p>Searching for the best numbing cream lands you in the same place. There's no single best — the most suitable choice is the one matched to your treatment, the area being worked on, and your own sensitivity. Matching beats maxing, and your practitioner's guidance comes first.</p>",
         "cta_label": "Explore the numbing cream range",
         "cta_url": "/collections/numbing-cream",
         "image": "shopify://shop_images/senseless-asterisk.svg",
@@ -143,6 +143,13 @@
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
+        "qbest": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the best numbing cream?",
+            "answer": "<p>There isn't one single best — the most suitable numbing cream is the one matched to your treatment, the area being worked on, and your own sensitivity. A stronger product isn't automatically more suitable, and your practitioner's guidance comes first.</p>"
+          }
+        },
         "q1": {
           "type": "faq_item",
           "settings": {
@@ -180,6 +187,7 @@
         }
       },
       "block_order": [
+        "qbest",
         "q1",
         "q2",
         "q3",
@@ -229,12 +237,12 @@
         "rel_best": {
           "type": "format_card",
           "settings": {
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Buyer's guide to choosing numbing cream",
-            "label": "Best numbing cream",
-            "body": "<p>How to choose the right one.</p>",
-            "cta_label": "Read the guide",
-            "cta_url": "/pages/best-numbing-cream"
+            "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp",
+            "image_alt": "The Senseless numbing cream range on a warm off-white background",
+            "label": "Shop numbing cream",
+            "body": "<p>Browse the range by strength.</p>",
+            "cta_label": "View the range",
+            "cta_url": "/collections/numbing-cream"
           }
         }
       },
