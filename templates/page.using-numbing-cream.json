@@ -36,8 +36,8 @@
       "type": "senseless-rich-text",
       "settings": {
         "background": "canvas",
-        "eyebrow": "How long it lasts",
-        "headline": "How long it lasts",
+        "eyebrow": "Timing",
+        "headline": "Timing depends on your appointment",
         "body": "<p>How long the comfort lasts varies by product, area, and how it was applied — so plan around your appointment time and your practitioner's guidance rather than a fixed figure. If you're timing application before a clinic visit, ask them when they'd like it applied.</p>"
       }
     },
@@ -66,12 +66,28 @@
             "label": "Does numbing cream work?",
             "url": "/pages/does-numbing-cream-work"
           }
+        },
+        "rel_onset": {
+          "type": "link_item",
+          "settings": {
+            "label": "How long it takes to work",
+            "url": "/pages/how-long-numbing-cream-takes-to-work"
+          }
+        },
+        "rel_lasts": {
+          "type": "link_item",
+          "settings": {
+            "label": "How long it lasts",
+            "url": "/pages/how-long-numbing-cream-lasts"
+          }
         }
       },
       "block_order": [
         "l1",
         "l2",
-        "rel_doeswork"
+        "rel_doeswork",
+        "rel_onset",
+        "rel_lasts"
       ],
       "settings": {
         "band": "white",
