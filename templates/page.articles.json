@@ -6,7 +6,7 @@
         "g1": {
           "type": "guide_link",
           "settings": {
-            "title": "Does it hurt? Pain by treatment",
+            "title": "How much each treatment hurts",
             "url": "/pages/does-it-hurt-by-treatment",
             "body": "How much each aesthetic treatment tends to hurt, treatment by treatment.",
             "image": "shopify://shop_images/senseless-asterisk.svg"
@@ -29,12 +29,72 @@
             "body": "What laser hair removal feels like and how to prepare.",
             "image": "shopify://shop_images/senseless-asterisk.svg"
           }
+        },
+        "g4": {
+          "type": "guide_link",
+          "settings": {
+            "title": "Does it hurt?",
+            "url": "/pages/does-it-hurt",
+            "body": "An honest, by-treatment guide to how much aesthetic treatments hurt.",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
+          }
+        },
+        "g5": {
+          "type": "guide_link",
+          "settings": {
+            "title": "Does numbing cream work?",
+            "url": "/pages/does-numbing-cream-work",
+            "body": "The honest answer on whether numbing cream works.",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
+          }
+        },
+        "g6": {
+          "type": "guide_link",
+          "settings": {
+            "title": "How to apply numbing cream",
+            "url": "/pages/how-to-apply-numbing-cream",
+            "body": "The step-by-step application routine.",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
+          }
+        },
+        "g7": {
+          "type": "guide_link",
+          "settings": {
+            "title": "How long numbing cream takes to work",
+            "url": "/pages/how-long-numbing-cream-takes-to-work",
+            "body": "Onset timing, explained honestly.",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
+          }
+        },
+        "g8": {
+          "type": "guide_link",
+          "settings": {
+            "title": "How long numbing cream lasts",
+            "url": "/pages/how-long-numbing-cream-lasts",
+            "body": "Duration, matched to the appointment you've booked.",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
+          }
+        },
+        "g9": {
+          "type": "guide_link",
+          "settings": {
+            "title": "Using numbing cream",
+            "url": "/pages/using-numbing-cream",
+            "body": "The complete overview: prepare, apply, and time it around your appointment.",
+            "image": "shopify://shop_images/senseless-asterisk.svg"
+          }
         }
       },
       "block_order": [
         "g1",
         "g2",
-        "g3"
+        "g3",
+        "g4",
+        "g5",
+        "g6",
+        "g7",
+        "g8",
+        "g9"
       ],
       "settings": {
         "eyebrow": "Read",

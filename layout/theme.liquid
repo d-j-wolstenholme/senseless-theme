@@ -36,6 +36,10 @@
       if template.name == 'collection' and collection.handle == 'all'
         echo '<meta name="robots" content="noindex,follow">'
       endif
+      # /blogs/guides is the guides BLOG INDEX — a competing index over the same articles as the canonical /pages/articles hub (Decision 9-Jul). Noindex the INDEX only; individual articles render under template.name 'article' and stay indexed.
+      if template.name == 'blog' and blog.handle == 'guides'
+        echo '<meta name="robots" content="noindex,follow">'
+      endif
     -%}
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}

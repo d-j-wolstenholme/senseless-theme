@@ -14,7 +14,7 @@
       "settings": {
         "background": "canvas",
         "eyebrow": "An honest guide",
-        "headline": "Does it hurt? Pain by treatment",
+        "headline": "How much each treatment hurts",
         "subhead": "<p>Most aesthetic treatments cause brief, manageable discomfort rather than real pain — and it varies by treatment, area and person. Here's an honest guide, treatment by treatment.</p>",
         "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial Senseless topical preparation range on a warm off-white background"
@@ -204,7 +204,7 @@
         "q6"
       ],
       "settings": {
-        "headline": "Does it hurt? — by treatment",
+        "headline": "Common questions",
         "anchor_id": "faq"
       }
     },
@@ -231,12 +231,44 @@
             "label": "Shop by procedure",
             "url": "/pages/aesthetic-procedures"
           }
+        },
+        "sp1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Does microneedling hurt?",
+            "url": "/pages/does-microneedling-hurt"
+          }
+        },
+        "sp2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Does laser hair removal hurt?",
+            "url": "/pages/does-laser-hair-removal-hurt"
+          }
+        },
+        "sp3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Does Botox hurt?",
+            "url": "/blogs/guides/does-botox-hurt"
+          }
+        },
+        "sp4": {
+          "type": "link_item",
+          "settings": {
+            "label": "Do lip fillers hurt?",
+            "url": "/blogs/guides/do-lip-fillers-hurt"
+          }
         }
       },
       "block_order": [
         "l1",
         "l2",
-        "l3"
+        "l3",
+        "sp1",
+        "sp2",
+        "sp3",
+        "sp4"
       ],
       "settings": {
         "band": "canvas",
@@ -247,7 +279,7 @@
     "schema": {
       "type": "senseless-page-schema",
       "settings": {
-        "name": "Does it hurt? Pain by treatment",
+        "name": "How much each treatment hurts — pain by procedure",
         "description": "How much do common aesthetic treatments hurt? Honest, by-treatment answers for lip filler, Botox, microblading, lip blush, waxing and electrolysis."
       }
     }
