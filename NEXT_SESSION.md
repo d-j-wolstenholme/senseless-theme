@@ -3,7 +3,14 @@
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
 **Machine last used:** MacBook Pro (`Daniels-MacBook-Pro.local`) — confirm at session start.
 
-## Done last session (2026-07-09 pm, Claude Code · Opus) — Cannibalisation phase 2
+## Done last session (2026-07-09 late, Claude Code · Opus) — Cannibalisation phase 3
+**Guides-hub canonical + does-it-hurt disambiguation** — Work Item `39858bc3-75ea-8116` → **Built**; Decision `39858bc3-75ea-812f`. Commit **`065052c`**. Metadata/linking/indexing only.
+- **Fix A:** `/blogs/guides` **INDEX** set `noindex,follow` in `layout/theme.liquid` (guarded `template.name == 'blog' and blog.handle == 'guides'`) — **articles under it stay indexed** (they render as `template 'article'`; verified live: index noindex=1, `does-botox-hurt`/`do-lip-fillers-hurt` articles noindex=0). Blog index links up to `/pages/articles`; the `/pages/articles` hub (auto-lists all blog articles) got the education-cluster guide cards added so it's comprehensive.
+- **Fix B:** `does-it-hurt` hub's lip-filler/botox cards repointed → the blog spokes (hub now links all 4 procedure spokes + product/collection); `does-it-hurt-by-treatment` retitled off the bare "Does it hurt?" → `<title>` "How Much Does Each Treatment Hurt? Pain by Procedure", H1 "How much each treatment hurts", schema/FAQ headings updated, route row → 4-spoke router. `title_tag` + `page.title` updated Admin-side.
+- **Watch:** by-treatment **breadcrumb** JSON-LD still shows the old page.title live — page-resource cache lag (NOT theme-deploy-bustable), self-heals on TTL; `<title>`+H1 are live-correct. Recheck ~1h.
+- **Judgment call (Daniel):** `/pages/articles` "every guide" = the education cluster (6 cards added); flagship/system pages (`the-senseless-system`, `choosing-*`) left to nav. Easy to widen/narrow.
+
+## Earlier same day — Cannibalisation phase 2
 **Cannibalisation fixes phase 2 (title/heading/anchor disambiguation)** — Work Item `39858bc3-75ea-8139` → **Built**; commit `3e95454`. Titles/headings/meta/anchors only — no rewrites/redirects/merges.
 - Collection `<title>` metafields now lead with the head term: Numbing Cream/Spray/Gel "… UK — Three Strengths | Senseless".
 - `using-numbing-cream` → overview hub: SEO title off "How to Use / How Long It Lasts" → "The Complete Guide"; the competing "How long it lasts" H2 → "Timing depends on your appointment"; now links to BOTH how-long guides. (how-long lasts vs takes-to-work titles were already distinct.)
