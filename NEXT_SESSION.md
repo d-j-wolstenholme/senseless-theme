@@ -3,7 +3,15 @@
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
 **Machine last used:** MacBook Pro (`Daniels-MacBook-Pro.local`) — confirm at session start.
 
-## Done last session (2026-07-09, Claude Code · Opus)
+## Done last session (2026-07-09 pm, Claude Code · Opus) — Cannibalisation phase 2
+**Cannibalisation fixes phase 2 (title/heading/anchor disambiguation)** — Work Item `39858bc3-75ea-8139` → **Built**; commit `3e95454`. Titles/headings/meta/anchors only — no rewrites/redirects/merges.
+- Collection `<title>` metafields now lead with the head term: Numbing Cream/Spray/Gel "… UK — Three Strengths | Senseless".
+- `using-numbing-cream` → overview hub: SEO title off "How to Use / How Long It Lasts" → "The Complete Guide"; the competing "How long it lasts" H2 → "Timing depends on your appointment"; now links to BOTH how-long guides. (how-long lasts vs takes-to-work titles were already distinct.)
+- `best-emla` FAQ anchor "how long does numbing cream last" repointed `/pages/using-numbing-cream` → `/pages/how-long-numbing-cream-lasts` — also fixes the how-long-lasts orphan.
+- Laser collection "microneedling" mention hyperlinked → microneedling collection (bleed fix + interlink; reciprocal skipped to protect the #2 page).
+- **⚑ FLAGGED for Daniel (EXCLUDE, not executed):** (1) `/pages/does-it-hurt` vs `/pages/does-it-hurt-by-treatment` — recommend does-it-hurt = hub, by-treatment = retitled detail spoke, interlink; NO merge. (2) `/blogs/guides` vs `/pages/articles` — recommend ONE canonical hub; needs an IA call. aesthetic-numbing-cream (SEO-only) + shop-all (canonical) left untouched per the 22-Jun hub Decision.
+
+## Earlier same day (2026-07-09 am, Claude Code · Opus)
 **Merge best-numbing-cream → strongest-numbing-cream (301 + keyword consolidation)** — Work Item `39858bc3-75ea-812f` → **Built**; Decision `39858bc3-75ea-811b` (Accepted 9-Jul). Commit **`fd50656`** (main, pushed). Session Log `39858bc3-75ea-81b9`.
 - **301** `/pages/best-numbing-cream` → `/pages/strongest-numbing-cream` (UrlRedirect `1692265578844`); **best page unpublished** (retired, not deleted — reversible). Origin 301 6/6.
 - **Keep-the-keyword on strongest:** "best numbing cream" folded into H2 + `meaning` body + new FAQ ("What's the best numbing cream?"); SEO `title_tag`="Best & Strongest Numbing Cream UK | Senseless" + new `description_tag`. "strongest numbing cream" retained (NOT de-optimised off "numbing cream"). Funnel CTA → `/collections/numbing-cream` intact.
