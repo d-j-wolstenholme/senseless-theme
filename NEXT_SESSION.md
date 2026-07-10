@@ -3,7 +3,15 @@
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
 **Machine last used:** MacBook Pro (`Daniels-MacBook-Pro.local`) — confirm at session start.
 
-## Done last session (2026-07-09 late, Claude Code · Opus) — Cannibalisation phase 3
+## Done last session (2026-07-10, Claude Code · Opus) — Injectables organic wiring
+**Injectable collections: organic inbound links + header mis-link fix** — Decision `39958bc3-75ea-81a8` (10-Jul, Accepted); commit `1fa8678`. From Daniel's "why are the injectables missing from `/pages/aesthetic-procedures`" investigation.
+- **Root cause:** they were **never** in the hub — **by design** (Phase 8: organic-only, "injectable-clean, advertisable"). Not a regression; git confirms no add/remove. But they were *orphaned* (0 GSC impressions) while linked non-injectable collections get 15–77 → the real bug was zero internal links.
+- **Fix (organic-only, links-only — no new page, no merge, no noindex change):** `does-it-hurt-by-treatment` (organic, not in chrome) — Botox/lip-filler anchors → their specific collections; intro → `numbing-cream-for-injections` (the **1,200-vol / KD2 / TP-14k** prize, previously zero inbound). Header Application-guides **mis-links fixed** → `how-long-numbing-cream-takes-to-work` / `-lasts` / `does-numbing-cream-work` (were → `using-numbing-cream` / `faq`).
+- **Ad-clean preserved:** verified **0 injectable links in header/homepage**. The 2 injectable blog articles already link their own collections (Admin).
+- **Open for Daniel:** (1) **botox fold-vs-keep** — 50-vol satellite of the injections topic; kept as a thin satellite, but 301-merge into injections may be optimal (irreversible → deferred). (2) optional: add "see also: numbing cream for injections" nods to the 2 blog articles.
+- **Watch (GSC):** injectable collections — esp. `numbing-cream-for-injections` — should move off 0 impressions now they have internal links.
+
+## Earlier — Cannibalisation phase 3 (2026-07-09 late, Claude Code · Opus)
 **Guides-hub canonical + does-it-hurt disambiguation** — Work Item `39858bc3-75ea-8116` → **Built**; Decision `39858bc3-75ea-812f`. Commit **`065052c`**. Metadata/linking/indexing only.
 - **Fix A:** `/blogs/guides` **INDEX** set `noindex,follow` in `layout/theme.liquid` (guarded `template.name == 'blog' and blog.handle == 'guides'`) — **articles under it stay indexed** (they render as `template 'article'`; verified live: index noindex=1, `does-botox-hurt`/`do-lip-fillers-hurt` articles noindex=0). Blog index links up to `/pages/articles`; the `/pages/articles` hub (auto-lists all blog articles) got the education-cluster guide cards added so it's comprehensive.
 - **Fix B:** `does-it-hurt` hub's lip-filler/botox cards repointed → the blog spokes (hub now links all 4 procedure spokes + product/collection); `does-it-hurt-by-treatment` retitled off the bare "Does it hurt?" → `<title>` "How Much Does Each Treatment Hurt? Pain by Procedure", H1 "How much each treatment hurts", schema/FAQ headings updated, route row → 4-spoke router. `title_tag` + `page.title` updated Admin-side.
