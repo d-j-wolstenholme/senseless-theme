@@ -3,7 +3,18 @@
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
 **Machine last used:** MacBook Pro (`Daniels-MacBook-Pro.local`) — confirm at session start.
 
-## Done last session (2026-07-10, Claude Code · Opus) — Injectables organic wiring
+## Done last session (2026-07-12, Claude Code · Opus) — Footer: Matrix Health Group logo
+**Parent-company logo in the footer → holding company** — from Daniel: "totally-numb.co.uk has the Matrix Health logo in the footer linking to the holding company; we need the same on Senseless."
+- **Shipped:** MHG logo added to the footer legal bar (`sections/senseless-footer.liquid`), sat **above the © company line**, linking `https://matrixhealthgroup.co.uk` (new tab, `rel=noopener noreferrer`). Commit **`508d399`** (main, pushed). Deployed live via `deploy.sh` (scoped: section + asset); reviews-guard ✓; Asset-API diff identical (13769B); render audited live on senseless.uk — reads cleanly on the light band.
+- **Asset choice (render call):** used MHG's **own canonical horizontal lockup** (their site header/footer + Organization schema `logo` = `mhg-global-logo.png`) → downscaled to `assets/matrix-health-group-logo.webp` (449×132, 17.5KB). **NOT** TN's compact M-monogram (`matrix-health-group-logo.png`): that monogram is a **teal→white gradient** that reads on TN's *dark* footer but half-vanishes on Senseless's light (`sunken`) band. Daniel chose the full lockup when asked.
+- **Editor-controllable:** new "Parent company" settings on the *Senseless — Footer* section — `mhg_show` (default on), `mhg_url`, `mhg_label`, `mhg_logo_height` (26px default).
+- **Closes a long-standing flag:** the "MHG logo asset missing" gap (GEO/schema layer + the dormant `blocks/footer-copyright.liquid` comment *"no MHG logo asset yet — text link"*) is now resolved.
+
+### Next / watch (this task)
+- **Daniel (branding axis):** sign off full-lockup vs monogram. Consider deleting the unused `blocks/footer-copyright.liquid` (Horizon leftover, NOT wired into `footer-group.json`, carries a dormant `mhg_url` default) so there's one source of truth.
+- **Gotcha:** the lockup is a **light-background asset** (charcoal "MATRIX" wordmark + teal). If the footer `band` is ever switched to `ink` (dark), the wordmark won't read — that would need a reversed/white MHG lockup.
+
+## Earlier — Injectables organic wiring (2026-07-10, Claude Code · Opus)
 **Injectable collections: organic inbound links + header mis-link fix** — Decision `39958bc3-75ea-81a8` (10-Jul, Accepted); commit `1fa8678`. From Daniel's "why are the injectables missing from `/pages/aesthetic-procedures`" investigation.
 - **Root cause:** they were **never** in the hub — **by design** (Phase 8: organic-only, "injectable-clean, advertisable"). Not a regression; git confirms no add/remove. But they were *orphaned* (0 GSC impressions) while linked non-injectable collections get 15–77 → the real bug was zero internal links.
 - **Fix (organic-only, links-only — no new page, no merge, no noindex change):** `does-it-hurt-by-treatment` (organic, not in chrome) — Botox/lip-filler anchors → their specific collections; intro → `numbing-cream-for-injections` (the **1,200-vol / KD2 / TP-14k** prize, previously zero inbound). Header Application-guides **mis-links fixed** → `how-long-numbing-cream-takes-to-work` / `-lasts` / `does-numbing-cream-work` (were → `using-numbing-cream` / `faq`).
@@ -57,6 +68,6 @@ Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + 
 - **Deploy order: SECTION (schema) BEFORE the TEMPLATE using new schema settings** — a combined push makes Shopify validate the template against the old schema and silently STRIP unknown block-settings. Verify block settings via Asset API after.
 - **Shopify metafield-value cache is NOT theme-deploy-bustable** — a rendered metafield value can lag minutes after `metafieldsSet`; verify the *stored* value via Admin API, render self-heals. (Theme-FILE changes DO bust their page cache.)
 - **Adding a policy page:** `pageCreate` (handle + `templateSuffix: policy` + `isPublished`) → `policy.*` metafields via the `RT` converter in `scripts/policy-metafields.py` (never hand-JSON) → `global.title_tag`/`description_tag` + `seo.hidden=1` → add handle to `ss_noindex_handles` in `layout/theme.liquid`.
-- **Footer tiers:** 4 columns (Shop/Learn/Help/Company) are Shopify nav menus (`senseless-footer-*`, `menuUpdate`, no deploy); the bottom **legal bar** (Privacy/Terms/Cookie/Rewards Terms) is **hardcoded** in `sections/senseless-footer.liquid`.
+- **Footer tiers:** 4 columns (Shop/Learn/Help/Company) are Shopify nav menus (`senseless-footer-*`, `menuUpdate`, no deploy); the bottom **legal bar** (Privacy/Terms/Cookie/Rewards Terms) is **hardcoded** in `sections/senseless-footer.liquid`. The legal bar also carries the **MHG parent-company logo** above the © line — settings-driven (`mhg_*`), asset `assets/matrix-health-group-logo.webp` → `https://matrixhealthgroup.co.uk`.
 - **Intermittent 503s under rapid curls** (rate-limiting) can falsely trip `deploy.sh`'s post-deploy reviews-guard — space out re-checks before treating a guard-fail as real.
 - `.env` Admin token expires — `./scripts/refresh-token.sh` then `set -a; source .env; set +a`. No rollback theme.
