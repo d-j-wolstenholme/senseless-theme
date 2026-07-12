@@ -17,6 +17,10 @@
   assign help_menu = linklists[col3_handle]
   assign company_menu = linklists[col4_handle]
   assign logo_h = section.settings.logo_height | default: 40
+  assign mhg_show = section.settings.mhg_show
+  assign mhg_url = section.settings.mhg_url | default: 'https://matrixhealthgroup.co.uk'
+  assign mhg_label = section.settings.mhg_label | default: 'Matrix Health Group Ltd — parent company of Senseless'
+  assign mhg_h = section.settings.mhg_logo_height | default: 26
 -%}
 
 {%- style -%}
@@ -59,6 +63,11 @@
   .ss-ft__social { display: flex; gap: 16px; }
   .ss-ft__social a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ss-muted); text-decoration: none; }
   .ss-ft__social a:hover { color: var(--ss-purple); }
+
+  /* Parent-company (Matrix Health Group) mark — light-band lockup, sits above the company line. */
+  .ss-ft__mhg { display: inline-flex; align-items: center; line-height: 0; opacity: 0.9; transition: opacity 0.15s ease; }
+  .ss-ft__mhg:hover { opacity: 1; }
+  .ss-ft__mhg img { display: block; height: {{ mhg_h }}px; width: auto; max-width: 100%; }
 
   @media (max-width: 990px) {
     .ss-ft__top { grid-template-columns: 1fr; gap: 32px; }
@@ -151,6 +160,12 @@
 
     <div class="ss-ft__legal">
       <div class="ss-ft__legalleft">
+        {%- comment -%} Parent-company logo → holding company (matches Totally Numb). Links out; new tab. {%- endcomment -%}
+        {%- if mhg_show and mhg_url != blank -%}
+          <a class="ss-ft__mhg" href="{{ mhg_url | escape }}" target="_blank" rel="noopener noreferrer" title="{{ mhg_label | escape }}">
+            <img src="{{ 'matrix-health-group-logo.webp' | asset_url }}" alt="{{ mhg_label | escape }}" width="449" height="132" loading="lazy">
+          </a>
+        {%- endif -%}
         <span class="ss-ft__company">&copy; Matrix Health Group Ltd {{ 'now' | date: '%Y' }} &middot; Company no. 17099304 &middot; Paddock Business Centre, 2 Paddock Road, Skelmersdale WN8 9PL</span>
         <span class="ss-ft__policies">
           <a href="/pages/privacy-policy">Privacy Policy</a>
@@ -194,6 +209,11 @@
     { "type": "link_list", "id": "col3_menu", "label": "Column 3 menu", "info": "Defaults to senseless-footer-help." },
     { "type": "text", "id": "col4_heading", "label": "Column 4 heading", "default": "Company" },
     { "type": "link_list", "id": "col4_menu", "label": "Column 4 menu", "info": "Defaults to senseless-footer-company." },
+    { "type": "header", "content": "Parent company" },
+    { "type": "checkbox", "id": "mhg_show", "label": "Show parent-company logo", "default": true },
+    { "type": "text", "id": "mhg_url", "label": "Parent company link", "default": "https://matrixhealthgroup.co.uk", "info": "Opens in a new tab." },
+    { "type": "text", "id": "mhg_label", "label": "Parent company label (alt / title)", "default": "Matrix Health Group Ltd — parent company of Senseless" },
+    { "type": "range", "id": "mhg_logo_height", "label": "Parent-company logo height", "min": 18, "max": 44, "step": 2, "unit": "px", "default": 26, "info": "Lockup is built for the light footer bands (charcoal wordmark)." },
     { "type": "header", "content": "Legal bar" },
     { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
     { "type": "url", "id": "tiktok_url", "label": "TikTok URL" },
