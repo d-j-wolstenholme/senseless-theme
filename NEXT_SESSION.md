@@ -11,7 +11,8 @@ Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + 
 - **Closes a long-standing flag:** the "MHG logo asset missing" gap (GEO/schema layer + the dormant `blocks/footer-copyright.liquid` comment *"no MHG logo asset yet — text link"*) is now resolved.
 
 ### Next / watch (this task)
-- **Daniel (branding axis):** sign off full-lockup vs monogram. Consider deleting the unused `blocks/footer-copyright.liquid` (Horizon leftover, NOT wired into `footer-group.json`, carries a dormant `mhg_url` default) so there's one source of truth.
+- **Daniel (branding axis):** sign off full-lockup vs monogram.
+- **Done (single source of truth):** deleted the unused `blocks/footer-copyright.liquid` (Horizon leftover with dormant `mhg_url`) + removed its two refs from the orphaned `sections/footer-utilities.liquid` (commit `a0b099d`). Repo-only — **not deployed** (footer-utilities is not in the live render path; the live footer is `senseless-footer`). NOTE: the live theme still physically carries `blocks/footer-copyright.liquid` as an **inert orphan** — scoped `deploy.sh` can't delete remote files and Asset-API delete is barred (Hard Rule #11); it clears on a future full theme re-sync. Harmless (referenced/rendered by nothing).
 - **Gotcha:** the lockup is a **light-background asset** (charcoal "MATRIX" wordmark + teal). If the footer `band` is ever switched to `ink` (dark), the wordmark won't read — that would need a reversed/white MHG lockup.
 
 ## Earlier — Injectables organic wiring (2026-07-10, Claude Code · Opus)
