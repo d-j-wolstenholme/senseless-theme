@@ -67,13 +67,6 @@
             "url": "/pages/does-numbing-cream-work"
           }
         },
-        "rel_onset": {
-          "type": "link_item",
-          "settings": {
-            "label": "How long it takes to work",
-            "url": "/pages/how-long-numbing-cream-takes-to-work"
-          }
-        },
         "rel_lasts": {
           "type": "link_item",
           "settings": {
@@ -86,7 +79,6 @@
         "l1",
         "l2",
         "rel_doeswork",
-        "rel_onset",
         "rel_lasts"
       ],
       "settings": {
