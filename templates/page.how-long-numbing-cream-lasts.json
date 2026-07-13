@@ -4,7 +4,7 @@
       "type": "senseless-guide-hero",
       "settings": {
         "eyebrow": "Duration of effect",
-        "headline": "Long enough for the procedure you've booked.",
+        "headline": "How long does numbing cream last?",
         "subhead": "<p>Duration depends on the procedure, the tier, and the individual. The honest answer isn't a number — it's a framework that matches the appointment. Senseless is formulated to last through the kind of session each tier is built for.</p>",
         "image_alt": "Editorial close-up of a Senseless topical preparation on a warm off-white background"
       }
@@ -33,6 +33,17 @@
         "cta_url": "",
         "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial Senseless three-tier system view"
+      }
+    },
+    "onsettiming": {
+      "type": "senseless-rich-text",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "Onset timing",
+        "headline": "How long does it take to work?",
+        "body": "<p>Onset is a separate question from duration, and it has the same honest answer: it depends on the procedure, the tier, and your practitioner's protocol. Anyone quoting a single number for every appointment is over-simplifying. The application window is set by the person doing your treatment — ask them how far in advance to prepare, and let their guidance take precedence.</p><p>Within the Senseless system the tier is matched to the session, and your practitioner's timing is matched to your booking. That's the framework, and the routing back to the person who knows your procedure.</p>",
+        "cta_label": "",
+        "cta_url": ""
       }
     },
     "procedures": {
@@ -134,17 +145,6 @@
             "image_alt": "Senseless strength guide — choosing between Clinical, Advanced and Professional"
           }
         },
-        "onset": {
-          "type": "format_card",
-          "settings": {
-            "label": "How long it takes to work",
-            "body": "<p>Onset timing, explained.</p>",
-            "cta_label": "Read guide",
-            "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
-            "image": "shopify://shop_images/senseless-asterisk.svg",
-            "image_alt": "Guide to how long a Senseless preparation takes to work"
-          }
-        },
         "apply": {
           "type": "format_card",
           "settings": {
@@ -170,12 +170,11 @@
       },
       "block_order": [
         "strength",
-        "onset",
         "apply",
         "rel_doeswork"
       ],
       "settings": {
-        "columns": "4",
+        "columns": "3",
         "eyebrow": "",
         "headline": "Decide what you need.",
         "body": "",
@@ -216,6 +215,7 @@
     "hero",
     "framework",
     "cantell",
+    "onsettiming",
     "procedures",
     "runsout",
     "callout",

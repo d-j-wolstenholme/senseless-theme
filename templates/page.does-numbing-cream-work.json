@@ -4,7 +4,7 @@
       "type": "senseless-guide-hero",
       "settings": {
         "eyebrow": "Does it work?",
-        "headline": "Yes, with a few honest caveats.",
+        "headline": "Does numbing cream work? Yes — with a few honest caveats.",
         "subhead": "<p>Senseless is a topical preparation that supports comfort during aesthetic procedures. The product works in the sense that it does what a cosmetic preparation in this category is designed to do. The honest version of \"yes\" includes the variables that change what \"works\" means for any specific client.</p>",
         "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "Editorial close-up of a Senseless topical preparation tube on a warm off-white background"
@@ -176,7 +176,7 @@
             "label": "How long does numbing cream take to work?",
             "body": "<p>When to apply before your appointment.</p>",
             "cta_label": "Read the guide",
-            "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
+            "cta_url": "/pages/how-long-numbing-cream-lasts",
             "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Guide to numbing cream onset timing"
           }

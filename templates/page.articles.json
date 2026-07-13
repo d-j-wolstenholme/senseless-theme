@@ -57,15 +57,6 @@
             "image": "shopify://shop_images/senseless-asterisk.svg"
           }
         },
-        "g7": {
-          "type": "guide_link",
-          "settings": {
-            "title": "How long numbing cream takes to work",
-            "url": "/pages/how-long-numbing-cream-takes-to-work",
-            "body": "Onset timing, explained honestly.",
-            "image": "shopify://shop_images/senseless-asterisk.svg"
-          }
-        },
         "g8": {
           "type": "guide_link",
           "settings": {
@@ -92,7 +83,6 @@
         "g4",
         "g5",
         "g6",
-        "g7",
         "g8",
         "g9"
       ],

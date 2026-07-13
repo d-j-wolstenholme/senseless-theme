@@ -4,7 +4,7 @@
       "type": "senseless-guide-hero",
       "settings": {
         "eyebrow": "Application",
-        "headline": "How to apply, step by step.",
+        "headline": "How to apply numbing cream, step by step.",
         "subhead": "<p>Cream, gel and spray each have their own routine — the layer, the covering, the window, the removal. This is the complete guide.</p>",
         "image_alt": "Editorial Senseless application sequence still life, no faces"
       }
@@ -307,7 +307,7 @@
             "label": "How long does numbing cream take to work?",
             "body": "<p>When to apply before your appointment.</p>",
             "cta_label": "Read the guide",
-            "cta_url": "/pages/how-long-numbing-cream-takes-to-work",
+            "cta_url": "/pages/how-long-numbing-cream-lasts",
             "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Guide to numbing cream onset timing"
           }
