@@ -22,7 +22,7 @@ Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + 
 - **MHG footer logo** (12 Jul, commit `508d399`): Daniel to sign off full-lockup vs monogram. Lockup is a light-background asset — won't read if the footer band ever flips to `ink`.
 - **Injectables** (10 Jul, `1fa8678`): botox fold-vs-keep (301-merge call, Daniel, deferred); GSC watch — `numbing-cream-for-injections` should move off 0 impressions.
 - **Cannibalisation** (9 Jul, `fd50656`/`3e95454`/`065052c`): GSC watch — strongest absorbs "best numbing cream" via 301; next SEO fix = spray/gel format-cluster splits (audit ranks 2–3). `/pages/articles` scope = education cluster (Daniel can widen).
-- **Live theme carries inert orphan** `blocks/footer-copyright.liquid` (scoped deploys can't delete remote files; Asset-API delete barred) — clears on a future full re-sync; harmless.
+- **Live theme carries TWO inert orphans** (scoped deploys can't delete remote files; Asset-API delete barred): `blocks/footer-copyright.liquid` + `templates/page.how-long-numbing-cream-takes-to-work.json` (left by the takes-to-work merge `64fcfdc`; page unpublished, template unreferenced). Full remote-vs-local inventory 17 Jul: every git-tracked theme file present on live (560/560) — remote = 560 + these 2; nothing ever removed. Clears on a future full re-sync; harmless.
 
 ## Carried forward — open from 2026-07-04 rewards session (still open)
 - **⚠️ Coming-soon earn methods on `/pages/rewards` are Daniel's explicit call — do NOT revert as a compliance regression** (framed "coming soon", not claimed active). Only birthday has a decided value (100pt); referral/reviews/social have NO decided values — don't invent numbers.
