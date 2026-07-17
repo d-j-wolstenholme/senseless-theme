@@ -28,7 +28,7 @@
     {%- render 'meta-tags' -%}
     {%- comment -%} Theme-side noindex for Contact + the legal/policy pages (Phase 13: belt-and-braces, independent of admin SEO flags). {%- endcomment -%}
     {%- liquid
-      assign ss_noindex_handles = 'contact,privacy-policy,returns-refunds,shipping-delivery,terms-conditions,rewards-terms,cookie-policy,llms-txt' | split: ','
+      assign ss_noindex_handles = 'contact,privacy-policy,returns-refunds,shipping-delivery,terms-conditions,rewards-terms,cookie-policy,delete-account,llms-txt' | split: ','
       if template.name == 'page' and page.handle and ss_noindex_handles contains page.handle
         echo '<meta name="robots" content="noindex,follow">'
       endif

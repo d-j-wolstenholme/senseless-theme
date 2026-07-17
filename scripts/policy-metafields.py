@@ -3,7 +3,7 @@
 Senseless — policy metafield definition creation + value population (Strand 5, the TN way).
 Creates PAGE metafield definitions in the `policy` namespace, ports the vetted policy copy
 into rich_text_field / json values, applies the £40/£80 free-shipping reconciliation on the
-Shipping page, and assigns all 6 policy pages to the custom `policy` template.
+Shipping page, and assigns all 7 policy pages to the custom `policy` template.
 
 Run:  python3 scripts/policy-metafields.py [--dry]
 """
@@ -125,7 +125,7 @@ PRIVACY_BODY = """
 <h2>Cookies</h2>
 <p>We use cookies to operate the site, remember preferences, and understand usage. Full detail in our <a href="/pages/cookie-policy">Cookie Policy</a>.</p>
 <h2>Your rights</h2>
-<p>Under UK GDPR you can access, correct, or delete your data, restrict or object to processing, and request portability. Contact <a href="mailto:cs@senseless.uk">cs@senseless.uk</a>; we respond within 30 days. You may also complain to the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk">ico.org.uk</a>.</p>
+<p>Under UK GDPR you can access, correct, or delete your data, restrict or object to processing, and request portability. If you have a Senseless app account, you can delete it yourself at any time — see <a href="/pages/delete-account">Delete your account</a>. Contact <a href="mailto:cs@senseless.uk">cs@senseless.uk</a>; we respond within 30 days. You may also complain to the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk">ico.org.uk</a>.</p>
 <h2>Data retention</h2>
 <p>Held only as long as necessary for the purposes collected, including legal, accounting, or reporting requirements. Order data is retained for six years per UK tax and accounting obligations.</p>
 """
@@ -215,6 +215,26 @@ REWARDS_BODY = """
 <p>Senseless — Email: <a href="mailto:cs@senseless.uk">cs@senseless.uk</a> — Telephone: 0333 049 5549</p>
 """
 
+# Google Play data-safety requirement: a public web page for account deletion (app-side spec:
+# senseless-app/docs/delete-account-page-spec.md). Copy mirrors the app's shipped confirmation
+# dialog (SettingsView.swift) — operator-approved 17 Jul 2026. No FAQ by design (like rewards-terms).
+DELETE_ACCOUNT_BODY = """
+<p>This page explains how to delete your account for the <strong>Senseless app</strong>.</p>
+<h2>Delete in the app (quickest)</h2>
+<ol>
+<li>Open the Senseless app and go to the <strong>Account</strong> tab.</li>
+<li>Tap <strong>Settings</strong>, then <strong>Delete account</strong>.</li>
+<li>Confirm. You'll be signed out and your account is erased.</li>
+</ol>
+<h2>If you can't use the app</h2>
+<p>Email <a href="mailto:cs@senseless.uk">cs@senseless.uk</a> from the email address on your account with the subject "Delete my account", and we'll do it for you.</p>
+<h2>What gets deleted</h2>
+<p>Your rewards account — your points balance and birthday — and we ask the store to erase your customer details.</p>
+<h2>What we keep</h2>
+<p>Records of past orders that the law requires us to keep (for example, for tax).</p>
+<p>This can't be undone.</p>
+"""
+
 PAGES = {
   "shipping-delivery": {
     "body": SHIPPING_BODY,
@@ -247,11 +267,11 @@ PAGES = {
       {"question": "Who is the data controller?", "answer": "<p>Matrix Health Group Ltd, registered in England and Wales (17099304). Contact: <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>"},
       {"question": "Do you sell my data?", "answer": "<p>No. Never to third parties.</p>"},
       {"question": "How do I opt out of marketing?", "answer": "<p>Use the unsubscribe link in any marketing email, or contact <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>.</p>"},
-      {"question": "How do I request deletion?", "answer": "<p>Email <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>; we respond within 30 days.</p>"},
+      {"question": "How do I request deletion?", "answer": "<p>Senseless app accounts can be deleted in the app (Account → Settings → Delete account) or via <a href=\"/pages/delete-account\">Delete your account</a>. For anything else, email <a href=\"mailto:cs@senseless.uk\">cs@senseless.uk</a>; we respond within 30 days.</p>"},
       {"question": "Where can I complain?", "answer": "<p>Contact us first; if unsatisfied, the ICO at <a href=\"https://ico.org.uk\">ico.org.uk</a>.</p>"},
     ],
-    "see_also": [{"label": "Cookie Policy", "url": "/pages/cookie-policy"}, {"label": "Terms & Conditions", "url": "/pages/terms-conditions"}],
-    "last_updated": "2026-06-04",
+    "see_also": [{"label": "Cookie Policy", "url": "/pages/cookie-policy"}, {"label": "Terms & Conditions", "url": "/pages/terms-conditions"}, {"label": "Delete your account", "url": "/pages/delete-account"}],
+    "last_updated": "2026-07-17",
   },
   "terms-conditions": {
     "body": TERMS_BODY,
@@ -282,6 +302,15 @@ PAGES = {
     "faq": [],
     "see_also": [{"label": "Senseless Rewards", "url": "/pages/rewards"}, {"label": "Terms & Conditions", "url": "/pages/terms-conditions"}],
     "last_updated": "2026-07-05",
+  },
+  # 7th policy page. Created + published 2026-07-17 via the canonical RT pipeline (page +
+  # policy.* values + global.title_tag / global.description_tag / seo.hidden=1 like its
+  # siblings). Required public URL for Google Play's Data-safety form.
+  "delete-account": {
+    "body": DELETE_ACCOUNT_BODY,
+    "faq": [],
+    "see_also": [{"label": "Privacy Policy", "url": "/pages/privacy-policy"}, {"label": "Contact", "url": "/pages/contact"}],
+    "last_updated": "2026-07-17",
   },
 }
 
