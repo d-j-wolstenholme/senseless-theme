@@ -72,9 +72,10 @@
         "faq3": { "type": "faq_item", "settings": { "question": "Does guest checkout earn points?", "answer": "<p>No — points are tied to your account, so you need to be signed in (in the app or on the web). Guest checkout doesn't collect points.</p>" } },
         "faq4": { "type": "faq_item", "settings": { "question": "How do I redeem points?", "answer": "<p>Your balance and redeem option are on your account page. 100 points = £1 off — sign in to view and redeem.</p>" } },
         "faq5": { "type": "faq_item", "settings": { "question": "Where do I see my balance?", "answer": "<p>Your live balance lives on your account page — sign in to view it. This page is just the overview.</p>" } },
-        "faq6": { "type": "faq_item", "settings": { "question": "Are more ways to earn coming?", "answer": "<p>Yes — referrals, product reviews and following us on social are on the way. They're marked “coming soon” on this page and will start earning once they're live.</p>" } }
+        "faq6": { "type": "faq_item", "settings": { "question": "Are more ways to earn coming?", "answer": "<p>Yes — referrals, product reviews and following us on social are on the way. They're marked “coming soon” on this page and will start earning once they're live.</p>" } },
+        "faq7": { "type": "faq_item", "settings": { "question": "How do I get the app?", "answer": "<p>The Senseless app is free for iPhone and Android — <a href=\"/pages/app\">download it here</a>. It uses the same account as the website, so your points and orders stay in one place.</p>" } }
       },
-      "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6"],
+      "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6", "faq7"],
       "settings": {
         "headline": "Rewards questions.",
         "anchor_id": "rewards-faq"
@@ -86,7 +87,7 @@
         "style": "brand",
         "eyebrow": "Start earning",
         "heading": "Points start the moment you sign in.",
-        "body": "<p>Create an account or sign in, then shop as usual — in the app or on the web. Your balance and redeem option live on your account page.</p>",
+        "body": "<p>Create an account or sign in, then shop as usual — in the app or on the web. Your balance and redeem option live on your account page.</p><p>Not got the app yet? <a href=\"/pages/app\">Get the Senseless app</a> — it's free, and app orders earn double points.</p>",
         "cta_label": "Sign in or create an account",
         "cta_url": "/account",
         "cta_style": "primary"
