@@ -13,6 +13,7 @@ Both apps are approved and public: **iOS** `apps.apple.com/gb/app/senseless/id67
 - **Cart line-item images no longer cropped** — `templates/cart.json` had `image_ratio: portrait` (0.8) vs 1:1 photography → sides clipped. Now `adapt`.
 
 ### Gotchas earned this session (don't re-derive)
+- **The app 10% discount covers the whole catalogue.** Its summary reads "10% off **Shop All**", which looks scoped but Shop All = **16 of 16** products. That is what makes the cart banner's flat `× 0.9` maths legitimate — if a product is ever added outside Shop All, the banner overstates the saving and both it and the rewards compare row need revisiting.
 - **Cart banner is mobile-layout only (≤749px) — Daniel's explicit call.** An earlier reviewer-suggested "OR any `ss-os` device" rule was reverted. **Do NOT re-raise "iPads report 768px+, so tablets are excluded" as a bug** — it is deliberate.
 - **A PRODUCT-class discount leaves `cart.cart_level_discount_applications` EMPTY** while `cart.total_discount` is set. The app 10% is product-class, so any "is a discount applied?" check must test **both** — testing only the former fails open. (This is why the banner's misleading-price guard checks both.)
 - **The cart drawer and the cart PAGE do not share block settings.** `header-actions` renders `cart-products` with none, so it falls back to the snippet's `ratio = 1` default; the cart page passes `templates/cart.json`'s value. A drawer-only check will miss cart-page-only image bugs (exactly how the crop survived).
@@ -24,7 +25,7 @@ Both apps are approved and public: **iOS** `apps.apple.com/gb/app/senseless/id67
 ### Next / watch (this task)
 - **Daniel: encode the packaging/QR download URL as `https://senseless.uk/app`** — live and 301-ing now.
 - ~~`/pages/app` not linked from any menu~~ — **DONE 28 Jul:** "Get the app" added to `senseless-footer-company` (footer **Company** column, after About / Trade & wholesale) via `menuUpdate`, no deploy. Verified in-browser on the live homepage.
-- **`/pages/rewards` omits the 10% app discount** from its app-vs-web comparison while the new surfaces lead with it. A clarifying row/sentence would remove the inconsistency — **not changed without sign-off** (rewards copy is approved).
+- ~~`/pages/rewards` omits the 10% app discount~~ — **DONE 28 Jul (Daniel approved), commit `eea6e6b`:** new first compare row "10% off your order" (web `—` / app "Applied automatically"), plus `compare_note` + `terms` stating it's a discount **separate from points**. **Deliberately NOT in the "Ways to earn" rates list** — it's a discount, not a points earn method. No `coming_soon` states touched.
 - Optional: the badge store URLs are hard-coded in the banner but editor-settable on the page — two sources of truth if a listing URL ever changes.
 
 ## Carried forward — open flags (compressed from 9–17 Jul sessions; detail in Session Log)
