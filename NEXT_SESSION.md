@@ -24,7 +24,7 @@ Both apps are approved and public: **iOS** `apps.apple.com/gb/app/senseless/id67
 
 ### Next / watch (this task)
 - **Daniel: encode the packaging/QR download URL as `https://senseless.uk/app`** — live and 301-ing now.
-- ~~`/pages/app` not linked from any menu~~ — **DONE 28 Jul:** "Get the app" added to `senseless-footer-company` (footer **Company** column, after About / Trade & wholesale) via `menuUpdate`, no deploy. Verified in-browser on the live homepage.
+- ~~`/pages/app` not linked from any menu~~ — **DONE 28 Jul:** "Get the app" added to `senseless-footer-company` (footer **Company** column) via `menuUpdate`, no deploy. **Then de-orphaned properly** (`211cb44`): a link audit showed every page had exactly one link (the footer) and **zero in-body links sitewide**, while `/pages/rewards` mentioned the app **24 times with no route to it**. Added an FAQ item "How do I get the app?" + a callout-band line there → 3 routes, browser-verified. **`templates/page.faq.json` deliberately untouched** (legal-verbatim copy). Header nav deliberately not used (already 6 items).
 - ~~`/pages/rewards` omits the 10% app discount~~ — **DONE 28 Jul (Daniel approved), commit `eea6e6b`:** new first compare row "10% off your order" (web `—` / app "Applied automatically"), plus `compare_note` + `terms` stating it's a discount **separate from points**. **Deliberately NOT in the "Ways to earn" rates list** — it's a discount, not a points earn method. No `coming_soon` states touched.
 - Optional: the badge store URLs are hard-coded in the banner but editor-settable on the page — two sources of truth if a listing URL ever changes.
 
