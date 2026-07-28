@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "main": {
+      "type": "senseless-app-download",
+      "blocks": {
+        "perk_discount": {
+          "type": "perk",
+          "settings": {
+            "title": "10% off in the app",
+            "text": "Applied automatically at the cart on every app order."
+          }
+        },
+        "perk_points": {
+          "type": "perk",
+          "settings": {
+            "title": "Double points",
+            "text": "Orders placed in the Senseless app earn 2× points."
+          }
+        },
+        "perk_welcome": {
+          "type": "perk",
+          "settings": {
+            "title": "200-point welcome bonus",
+            "text": "The first time you sign in on the app, 200 points land in your account."
+          }
+        },
+        "perk_account": {
+          "type": "perk",
+          "settings": {
+            "title": "One account, everywhere",
+            "text": "Same sign-in as the website — your points, orders and details stay in step."
+          }
+        }
+      },
+      "block_order": ["perk_discount", "perk_points", "perk_welcome", "perk_account"],
+      "settings": {
+        "eyebrow": "The Senseless app",
+        "heading": "Get the Senseless app",
+        "intro": "Shop the full range, track your orders and collect rewards on the go — free for iPhone and Android.",
+        "qr_note": "Scanned a QR code to get here? You're in the right place — download below.",
+        "ios_url": "https://apps.apple.com/gb/app/senseless/id6792059702",
+        "android_url": "https://play.google.com/store/apps/details?id=uk.senseless.app"
+      }
+    }
+  },
+  "order": ["main"]
+}

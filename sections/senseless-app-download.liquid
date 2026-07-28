@@ -1,0 +1,209 @@
+{%- comment -%}
+  Senseless — app download page (2026-07-28). The stable web home for the app:
+  the fail-safe destination behind the packaging/QR download route, and the
+  page store badges elsewhere on the site can deep-link to.
+
+  OS-aware, zero section JS: senseless-os-class.liquid (theme head) stamps
+  ss-os-ios / ss-os-android on <html>; this section's CSS then shows the
+  matching store badge large with a textual cross-link to the other store.
+  Unclassified devices (desktop / no-JS) get both badges, equal weight.
+
+  Copy is loyalty-programme fact only (mirrors live /pages/rewards, ADR-009).
+  Badge artwork + alt text are the official Apple / Google marks — do not
+  reword the alt text.
+{%- endcomment -%}
+
+{%- liquid
+  assign ios_url = section.settings.ios_url
+  assign android_url = section.settings.android_url
+-%}
+
+<section class="ss-appdl">
+  <div class="ss-appdl__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="ss-appdl__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    <h1 class="ss-appdl__headline">{{ section.settings.heading | escape }}</h1>
+    {%- if section.settings.intro != blank -%}
+      <p class="ss-appdl__intro">{{ section.settings.intro | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.qr_note != blank -%}
+      <p class="ss-appdl__qrnote">{{ section.settings.qr_note | escape }}</p>
+    {%- endif -%}
+
+    {%- if ios_url != blank or android_url != blank -%}
+      <div class="ss-appdl__stores">
+        {%- if ios_url != blank -%}
+          <p class="ss-appdl__oslabel ss-appdl__oslabel--ios">For your iPhone or iPad</p>
+        {%- endif -%}
+        {%- if android_url != blank -%}
+          <p class="ss-appdl__oslabel ss-appdl__oslabel--android">For your Android device</p>
+        {%- endif -%}
+        {% render 'senseless-app-badges',
+          ios_url: ios_url,
+          android_url: android_url,
+          badge_class: 'ss-appdl__badges',
+          loading: 'eager'
+        %}
+        {%- if android_url != blank -%}
+          <p class="ss-appdl__also ss-appdl__also--ios">
+            Also available for Android &mdash; <a href="{{ android_url }}" target="_blank" rel="noopener">get it on Google Play<span class="visually-hidden"> (opens in a new tab)</span></a>.
+          </p>
+        {%- endif -%}
+        {%- if ios_url != blank -%}
+          <p class="ss-appdl__also ss-appdl__also--android">
+            Also available for iPhone &mdash; <a href="{{ ios_url }}" target="_blank" rel="noopener">download it on the App Store<span class="visually-hidden"> (opens in a new tab)</span></a>.
+          </p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <h2 class="ss-appdl__subhead">Why the app</h2>
+      <ul class="ss-appdl__perks" role="list">
+        {%- for block in section.blocks -%}
+          <li class="ss-appdl__perk" {{ block.shopify_attributes }}>
+            <p class="ss-appdl__perktitle">{{ block.settings.title | escape }}</p>
+            <p class="ss-appdl__perktext">{{ block.settings.text | escape }}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <div class="ss-appdl__smallprint">
+      <p>
+        The app is free, and it uses the same account as the website &mdash;
+        your points and orders stay in one place.
+        <a href="/pages/rewards">See how rewards work</a>.
+      </p>
+      <p>
+        The app&rsquo;s 10% discount is applied automatically at the cart in
+        the app; it&rsquo;s a discount on the order, separate from reward points.
+      </p>
+      <p class="ss-appdl__legal">
+        Apple, the Apple logo and App Store are trademarks of Apple Inc.
+        Google Play and the Google Play logo are trademarks of Google LLC.
+      </p>
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  .ss-appdl {
+    --ss-purple: #6B3FA0;
+    --ss-purple-dark: #5A3488;
+    --ss-bg: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-line: #e7e4e0;
+    --ss-text: #1A1816;
+    --ss-body: #2B2730;
+    --ss-muted: #6b6672;
+    --ss-head: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--ss-surface);
+    color: var(--ss-text);
+  }
+  .ss-appdl__inner { max-width: 720px; margin: 0 auto; padding-block: 88px; padding-inline: 20px; }
+  .ss-appdl__eyebrow { font-family: var(--ss-head); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 10px; }
+  .ss-appdl__headline { font-family: var(--ss-head); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.75rem, 1.2rem + 2.6vw, 2.5rem); line-height: 1.12; margin: 0 0 14px; }
+  .ss-appdl__intro { font-family: var(--ss-head); font-weight: 400; font-size: 17px; line-height: 1.6; color: var(--ss-body); max-width: 560px; margin: 0; }
+  .ss-appdl__qrnote { font-family: var(--ss-head); font-weight: 400; font-size: 14px; line-height: 1.55; color: var(--ss-muted); margin: 10px 0 0; }
+
+  /* stores */
+  .ss-appdl__stores { margin-top: 36px; padding: 28px 24px; background: var(--ss-bg); border-radius: 14px; }
+  .ss-appdl__oslabel { display: none; font-family: var(--ss-head); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ss-muted); margin: 0 0 14px; }
+  .ss-appdl__badges { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+  .ss-appdl__badges .ss-appbadges__img { display: block; width: auto; height: 52px; }
+  .ss-appdl__also { display: none; font-family: var(--ss-head); font-weight: 400; font-size: 13.5px; line-height: 1.5; color: var(--ss-muted); margin: 14px 0 0; }
+  .ss-appdl__also a { color: var(--ss-purple); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* classified device: matching badge large + label, other store as text link.
+     The hide/emphasis rules only make sense when BOTH stores are configured —
+     with a single URL set, every visitor keeps the one available badge. */
+  {%- if ios_url != blank and android_url != blank %}
+  html.ss-os-ios .ss-appdl__oslabel--ios,
+  html.ss-os-android .ss-appdl__oslabel--android { display: block; }
+  html.ss-os-ios .ss-appdl__also--ios,
+  html.ss-os-android .ss-appdl__also--android { display: block; }
+  html.ss-os-ios .ss-appdl__badges .ss-appbadges__link--android,
+  html.ss-os-android .ss-appdl__badges .ss-appbadges__link--ios { display: none; }
+  html.ss-os-ios .ss-appdl__badges .ss-appbadges__img,
+  html.ss-os-android .ss-appdl__badges .ss-appbadges__img { height: 60px; }
+  {%- endif %}
+
+  /* perks */
+  .ss-appdl__subhead { font-family: var(--ss-head); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.01em; margin: 48px 0 14px; color: var(--ss-text); }
+  .ss-appdl__perks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ss-line); }
+  .ss-appdl__perk { padding: 16px 0; border-bottom: 1px solid var(--ss-line); }
+  .ss-appdl__perktitle { font-family: var(--ss-head); font-weight: 600; font-size: 15px; color: var(--ss-text); margin: 0 0 4px; }
+  .ss-appdl__perktext { font-family: var(--ss-head); font-weight: 400; font-size: 15px; line-height: 1.5; color: var(--ss-body); margin: 0; }
+
+  /* small print */
+  .ss-appdl__smallprint { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--ss-line); font-family: var(--ss-head); font-size: 13px; line-height: 1.6; color: var(--ss-muted); }
+  .ss-appdl__smallprint p { margin: 0 0 8px; }
+  .ss-appdl__smallprint p:last-child { margin-bottom: 0; }
+  .ss-appdl__smallprint a { color: var(--ss-purple); text-decoration: underline; text-underline-offset: 2px; }
+  .ss-appdl__legal { font-size: 11.5px; }
+
+  @media (max-width: 749px) {
+    .ss-appdl__inner { padding-block: 56px; }
+    .ss-appdl__stores { padding: 22px 18px; }
+    .ss-appdl__badges .ss-appbadges__img { height: 48px; }
+    html.ss-os-ios .ss-appdl__badges .ss-appbadges__img,
+    html.ss-os-android .ss-appdl__badges .ss-appbadges__img { height: 56px; }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Senseless — App download",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Senseless app"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get the Senseless app"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Shop the full range, track your orders and collect rewards on the go — free for iPhone and Android."
+    },
+    {
+      "type": "text",
+      "id": "qr_note",
+      "label": "QR note",
+      "default": "Scanned a QR code to get here? You're in the right place — download below.",
+      "info": "Shown under the intro. Clear it to hide."
+    },
+    {
+      "type": "url",
+      "id": "ios_url",
+      "label": "App Store URL (iOS)"
+    },
+    {
+      "type": "url",
+      "id": "android_url",
+      "label": "Google Play URL (Android)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "perk",
+      "name": "Perk",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [ { "name": "Senseless — App download" } ]
+}
+{% endschema %}

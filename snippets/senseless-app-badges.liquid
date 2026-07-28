@@ -1,0 +1,60 @@
+{%- doc -%}
+  Senseless — official store-badge pair (App Store + Google Play), OS-aware.
+
+  Renders BOTH badges in markup; visibility is pure CSS keyed off the
+  ss-os-ios / ss-os-android classes that senseless-os-class.liquid stamps on
+  <html> in the head. No inline JS here — this snippet is AJAX-injected into
+  the cart drawer on re-render, where inline scripts never execute (see
+  senseless-cart-offer). Unclassified devices (desktop / no-JS) show both.
+
+  Artwork is the official Apple / Google badge art (assets/senseless-badge-*,
+  Play PNG cropped full-bleed to 564x168 so equal CSS heights give equal
+  visible heights). Alt text is the badges' official trademark phrasing —
+  do not reword.
+
+  @param {string} ios_url - App Store listing URL
+  @param {string} android_url - Google Play listing URL
+  @param {string} [badge_class] - extra class for the wrapper (surface-scoped sizing)
+  @param {boolean} [os_pick] - when true, a classified OS shows ONLY its own
+                               badge (cart banner); default keeps both visible
+  @param {string} [loading] - img loading attr; default 'lazy' (cart drawer),
+                              pass 'eager' where badges are the above-the-fold CTA
+{%- enddoc -%}
+<div class="ss-appbadges {{ badge_class }}{% if os_pick %} ss-appbadges--pick{% endif %}">
+  {%- if ios_url != blank -%}
+    <a
+      class="ss-appbadges__link ss-appbadges__link--ios"
+      href="{{ ios_url }}"
+      target="_blank"
+      rel="noopener"
+    >
+      <img
+        class="ss-appbadges__img ss-appbadges__img--ios"
+        src="{{ 'senseless-badge-app-store.svg' | asset_url }}"
+        alt="Download on the App Store"
+        width="120"
+        height="40"
+        loading="{{ loading | default: 'lazy' }}"
+      >
+      <span class="visually-hidden">(opens in a new tab)</span>
+    </a>
+  {%- endif -%}
+  {%- if android_url != blank -%}
+    <a
+      class="ss-appbadges__link ss-appbadges__link--android"
+      href="{{ android_url }}"
+      target="_blank"
+      rel="noopener"
+    >
+      <img
+        class="ss-appbadges__img ss-appbadges__img--android"
+        src="{{ 'senseless-badge-google-play.png' | asset_url }}"
+        alt="Get it on Google Play"
+        width="134"
+        height="40"
+        loading="{{ loading | default: 'lazy' }}"
+      >
+      <span class="visually-hidden">(opens in a new tab)</span>
+    </a>
+  {%- endif -%}
+</div>

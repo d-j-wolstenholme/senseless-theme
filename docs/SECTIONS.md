@@ -53,6 +53,7 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-article.liquid` | Blog article body / layout | article (1) |
 | `senseless-policy-page.liquid` | Metafield-driven legal/policy page layout (shared template) | policy (1) |
 | `senseless-404.liquid` | 404 error-page content | 404 (1) |
+| `senseless-app-download.liquid` | **NEW (28 Jul 2026).** App download page (`/pages/app`, `/app` redirect) — the stable web fail-safe behind the packaging/QR download route. Official App Store + Google Play badges, OS-aware via `senseless-os-class` root classes (matched badge large + textual cross-link; both equal on desktop/no-JS); perk blocks (10% in-app, 2× points, 200-pt welcome, one account — all live-verified facts); trademark small print. | app (1) |
 
 ## Header / Footer
 
@@ -73,6 +74,9 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-header-footer.liquid` | Brand styling + structural overrides for the configured Horizon header (mega menu, accordion drawer). Footer styling now lives in the bespoke `senseless-footer.liquid` section. |
 | `senseless-structured-data.liquid` | JSON-LD dispatcher rendered in `theme.liquid` head. Emits Product+Offer (PDPs) and CollectionPage+ItemList (collections) via the `json` filter (live price/availability/currency; seller legalName "Matrix Health Group Ltd"; claim-free). Dispatches on `request.page_type`; does **not** duplicate Organization/FAQPage/Article schema emitted elsewhere. |
 | `senseless-breadcrumbs-jsonld.liquid` | BreadcrumbList JSON-LD for product / collection / page, reflecting the real hierarchy (Home → [collection] → Product, etc.). Rendered by `senseless-structured-data`. |
+| `senseless-os-class.liquid` | Head snippet (theme.liquid, beside wallet-gate): stamps `ss-os-ios` / `ss-os-android` on `<html>` at parse time (UA + iPadOS touch check). Lets app-badge surfaces be pure CSS — required because inline scripts never execute when AJAX-injected into the cart drawer. Unclassified/no-JS ⇒ no class ⇒ both badges show. |
+| `senseless-app-badges.liquid` | Official App Store + Google Play badge pair (assets `senseless-badge-app-store.svg` / `senseless-badge-google-play.png`, official alt text — do not reword). Visibility keyed off `ss-os-*` root classes; `os_pick: true` shows only the matching store's badge on classified devices. Used by `senseless-app-banner` + `senseless-app-download`. |
+| `senseless-app-banner.liquid` | Cart app banner, rendered from `cart-summary.liquid` so it appears in drawer + cart page, directly above the checkout CTAs (TN-cart placement). Shown on viewports ≤749px OR any `ss-os-*` classified device (so iPads/Android tablets aren't width-excluded); never on unclassified desktop. 10% price maths (was/now, integer pence) — suppressed when the cart already carries any discount (misleading-price guard); double-points + welcome-bonus-on-app-sign-in line; OS-picked store badge. All claims live-verified (discount ACTIVE via Admin API; loyalty facts = live rewards page). |
 
 > Header and footer are both bespoke `senseless-` sections (`senseless-header`, `senseless-footer`) — neither uses Horizon's native `header.liquid` / `footer.liquid`. Nav menus are set in Shopify admin: `senseless-main` (header), `senseless-footer-shop` / `-explore` / `-company` (footer columns Shop / The system / Brand). **Footer menus must be kept injectable-clean (no Botox/filler/injection links) when wired in Stage D.**
 

@@ -1,0 +1,31 @@
+{%- comment -%}
+  Senseless OS class — stamps ss-os-ios / ss-os-android on <html> once, in the
+  head (2026-07-28). Companion to senseless-wallet-gate (same placement).
+
+  Why a root class and not per-component JS: the cart drawer is AJAX-injected on
+  every cart re-render, and inline <script> inserted as HTML never executes
+  (same constraint documented in senseless-cart-offer). The device OS never
+  changes mid-session, so one parse-time classification lets every app-badge
+  surface (cart banner, /pages/app) be pure CSS — no re-run needed.
+
+  Classification: iPhone/iPad/iPod UA ⇒ ios; "Macintosh" + multi-touch ⇒ ios
+  (iPadOS 13+ masquerades as macOS Safari); Android UA ⇒ android. Desktop and
+  anything unrecognised gets neither class — surfaces then show BOTH store
+  badges, which is the correct no-JS fallback too.
+{%- endcomment -%}
+<script>
+  (function () {
+    try {
+      var ua = navigator.userAgent || '';
+      var cls = '';
+      if (/iPhone|iPad|iPod/.test(ua)) {
+        cls = 'ss-os-ios';
+      } else if (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) {
+        cls = 'ss-os-ios';
+      } else if (/Android/.test(ua)) {
+        cls = 'ss-os-android';
+      }
+      if (cls) document.documentElement.classList.add(cls);
+    } catch (e) { /* leave unclassified — both badges render */ }
+  })();
+</script>

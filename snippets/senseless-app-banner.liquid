@@ -1,0 +1,89 @@
+{%- doc -%}
+  Senseless — cart app banner. Sits at the foot of the cart summary, directly
+  above the checkout CTAs, in BOTH the drawer and the cart page (rendered from
+  cart-summary.liquid, same host as senseless-cart-offer).
+
+  Placement mirrors the Totally Numb cart app banner (tn-cart.liquid): the app
+  offer is the last thing seen before checkout. Shown when the viewport is
+  mobile (≤749px) OR the device carries an ss-os class — so phones always get
+  it and app-installable tablets (iPad reports 768px+) aren't width-excluded —
+  and never on unclassified desktop. On a classified device only the matching
+  store badge shows (os_pick); unclassified mobile shows both.
+
+  Copy is verified store fact only: the app-exclusive 10% (discount
+  ZK7QF3M9N2X8WB4D6PLA, ACTIVE, auto-applied by the app — re-verified via
+  Admin API 28 Jul) and the loyalty facts mirroring the live /pages/rewards
+  page (ADR-009: 2x points on app orders · 200-point welcome bonus on first
+  app sign-in). Both are also in the public App Store promotional text.
+  The was/now price pair is suppressed whenever the cart already carries any
+  discount (code or automatic): cart.total_price is then already reduced, and
+  a flat ×0.9 strike-through would promise stacking we can't guarantee
+  (CPRs/ASA misleading-price risk). No effect claims, no urgency.
+{%- enddoc -%}
+{%- unless cart == empty -%}
+  {%- liquid
+    # 10% off maths, TN-style (integer pence: × 90 ÷ 100)
+    assign ss_appbn_total = cart.total_price | times: 90 | divided_by: 100
+    assign ss_appbn_show_prices = true
+    if cart.cart_level_discount_applications.size > 0 or cart.total_discount > 0
+      assign ss_appbn_show_prices = false
+    endif
+  -%}
+  <div class="ss-appbn">
+    <p class="ss-appbn__eyebrow">Senseless app &middot; 10% off</p>
+    <p class="ss-appbn__heading">10% off this order in the app</p>
+    {%- if ss_appbn_show_prices -%}
+      <p class="ss-appbn__prices">
+        <s class="ss-appbn__was"><span class="visually-hidden">Website price</span>{{ cart.total_price | money }}</s>
+        <span class="ss-appbn__now"><span class="visually-hidden">App price</span>{{ ss_appbn_total | money }} in the app</span>
+      </p>
+    {%- endif -%}
+    <p class="ss-appbn__body">
+      Applied automatically at the cart &mdash; plus double points on every app
+      order and a 200-point welcome bonus the first time you sign in on the app.
+    </p>
+    {% render 'senseless-app-badges',
+      ios_url: 'https://apps.apple.com/gb/app/senseless/id6792059702',
+      android_url: 'https://play.google.com/store/apps/details?id=uk.senseless.app',
+      badge_class: 'ss-appbn__badges',
+      os_pick: true
+    %}
+  </div>
+
+  {%- style -%}
+    /* Hidden by default; shown on mobile viewports OR any ss-os-classified
+       (app-installable) device, so unclassified desktop never flashes it. */
+    .ss-appbn {
+      --ss-appbn-purple: #6B3FA0;
+      --ss-appbn-ink: #1A1816;
+      --ss-appbn-body: #2B2730;
+      --ss-appbn-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: linear-gradient(180deg, #F4EEFB 0%, #FBF9FE 100%);
+      border: 1px solid rgba(107, 63, 160, 0.28);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 14px 0 0;
+      font-family: var(--ss-appbn-sans);
+      box-shadow: 0 1px 3px rgba(107, 63, 160, 0.10);
+    }
+    html.ss-os-ios .ss-appbn,
+    html.ss-os-android .ss-appbn { display: flex; }
+    @media (max-width: 749px) {
+      .ss-appbn { display: flex; }
+    }
+    .ss-appbn__eyebrow { margin: 0; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ss-appbn-purple); }
+    .ss-appbn__heading { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--ss-appbn-ink); }
+    .ss-appbn__prices { margin: 2px 0 0; display: flex; align-items: baseline; gap: 8px; font-size: 13px; }
+    .ss-appbn__was { color: var(--ss-appbn-body); text-decoration: line-through; opacity: 0.7; }
+    .ss-appbn__now { font-weight: 600; color: var(--ss-appbn-purple); }
+    .ss-appbn__body { margin: 1px 0 0; font-size: 12.5px; font-weight: 400; line-height: 1.45; color: var(--ss-appbn-body); }
+    .ss-appbn__badges { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+    .ss-appbn__badges .ss-appbadges__img { display: block; width: auto; height: 40px; }
+    /* os_pick: a classified OS shows only its own store's badge */
+    html.ss-os-ios .ss-appbadges--pick .ss-appbadges__link--android { display: none; }
+    html.ss-os-android .ss-appbadges--pick .ss-appbadges__link--ios { display: none; }
+  {%- endstyle -%}
+{%- endunless -%}
