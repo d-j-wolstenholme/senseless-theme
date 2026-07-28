@@ -4,11 +4,14 @@
   cart-summary.liquid, same host as senseless-cart-offer).
 
   Placement mirrors the Totally Numb cart app banner (tn-cart.liquid): the app
-  offer is the last thing seen before checkout. Shown when the viewport is
-  mobile (≤749px) OR the device carries an ss-os class — so phones always get
-  it and app-installable tablets (iPad reports 768px+) aren't width-excluded —
-  and never on unclassified desktop. On a classified device only the matching
-  store badge shows (os_pick); unclassified mobile shows both.
+  offer is the last thing seen before checkout. MOBILE-LAYOUT ONLY — shown
+  strictly at ≤749px, the theme's mobile breakpoint, so it tracks "the mobile
+  version of the site" rather than "device could install the app".
+  Tablets and phones in landscape (>749px) are KNOWINGLY excluded — they get
+  the desktop layout, so the banner stays off (Daniel's call, 28 Jul 2026;
+  don't re-raise the "iPads report 768px+" observation as a bug). Desktop
+  never renders it at all. On a classified device only the matching store
+  badge shows (os_pick); unclassified mobile shows both.
 
   Copy is verified store fact only: the app-exclusive 10% (discount
   ZK7QF3M9N2X8WB4D6PLA, ACTIVE, auto-applied by the app — re-verified via
@@ -51,8 +54,9 @@
   </div>
 
   {%- style -%}
-    /* Hidden by default; shown on mobile viewports OR any ss-os-classified
-       (app-installable) device, so unclassified desktop never flashes it. */
+    /* Hidden by default, shown ONLY at the mobile breakpoint — so desktop
+       never renders or flashes it, and tablets/landscape phones on the
+       desktop layout don't get it either (deliberate; see doc above). */
     .ss-appbn {
       --ss-appbn-purple: #6B3FA0;
       --ss-appbn-ink: #1A1816;
@@ -69,8 +73,6 @@
       font-family: var(--ss-appbn-sans);
       box-shadow: 0 1px 3px rgba(107, 63, 160, 0.10);
     }
-    html.ss-os-ios .ss-appbn,
-    html.ss-os-android .ss-appbn { display: flex; }
     @media (max-width: 749px) {
       .ss-appbn { display: flex; }
     }
