@@ -3,6 +3,27 @@
     "main": {
       "type": "senseless-app-download",
       "blocks": {
+        "shot_shop": {
+          "type": "screenshot",
+          "settings": {
+            "asset": "senseless-app-shot-shop.webp",
+            "caption": "Shop the full range, by strength or format."
+          }
+        },
+        "shot_guide": {
+          "type": "screenshot",
+          "settings": {
+            "asset": "senseless-app-shot-guide.webp",
+            "caption": "A guided walkthrough for applying it at home."
+          }
+        },
+        "shot_cart": {
+          "type": "screenshot",
+          "settings": {
+            "asset": "senseless-app-shot-cart.webp",
+            "caption": "Your 10% app price, shown at the cart."
+          }
+        },
         "perk_discount": {
           "type": "perk",
           "settings": {
@@ -32,7 +53,7 @@
           }
         }
       },
-      "block_order": ["perk_discount", "perk_points", "perk_welcome", "perk_account"],
+      "block_order": ["shot_shop", "shot_guide", "shot_cart", "perk_discount", "perk_points", "perk_welcome", "perk_account"],
       "settings": {
         "eyebrow": "The Senseless app",
         "heading": "Get the Senseless app",
