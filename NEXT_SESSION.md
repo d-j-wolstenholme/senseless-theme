@@ -23,7 +23,7 @@ Both apps are approved and public: **iOS** `apps.apple.com/gb/app/senseless/id67
 
 ### Next / watch (this task)
 - **Daniel: encode the packaging/QR download URL as `https://senseless.uk/app`** — live and 301-ing now.
-- **`/pages/app` is not linked from any menu** — reachable only by direct URL/QR. Decide whether it wants a footer or Help-menu entry (needs a `menuUpdate`, no deploy).
+- ~~`/pages/app` not linked from any menu~~ — **DONE 28 Jul:** "Get the app" added to `senseless-footer-company` (footer **Company** column, after About / Trade & wholesale) via `menuUpdate`, no deploy. Verified in-browser on the live homepage.
 - **`/pages/rewards` omits the 10% app discount** from its app-vs-web comparison while the new surfaces lead with it. A clarifying row/sentence would remove the inconsistency — **not changed without sign-off** (rewards copy is approved).
 - Optional: the badge store URLs are hard-coded in the banner but editor-settable on the page — two sources of truth if a listing URL ever changes.
 
@@ -44,7 +44,8 @@ Both apps are approved and public: **iOS** `apps.apple.com/gb/app/senseless/id67
 
 ## Carried-forward gotchas (still valid)
 - **Store gate recurring:** the Shopify MCP connector can silently point at **Totally Numb** — gate every session on `senseless-numbing.myshopify.com`. Reliable CLI path: `scripts/refresh-token.sh` + `deploy.sh` (both store-pinned).
-- **`senseless-numbing.myshopify.com` 301s to `senseless.uk`** — always `-L`. The senseless.uk edge normalises `?cb=`; theme-FILE deploys bust page caches, `metafieldsSet` does not.
+- **`senseless-numbing.myshopify.com` 301s to `senseless.uk`** — always `-L`.
+- **Cache-busting a live check: use `?_fd=0`, NOT `?cb=`.** The edge normalises `?cb=` away and serves a cached snapshot, so you get a convincing **false negative**. (28 Jul: ten `?cb=` polls over 150s said a new footer link was missing; `?_fd=0` and a real browser both showed it instantly.) The cache is **per URL + per variant** — a stale desktop homepage can sit alongside a fresh mobile homepage and four fresh pages, so check several URLs and finish in the browser before concluding a change failed. Theme-FILE deploys bust page caches on their own; admin-side changes (`menuUpdate`, `metafieldsSet`) do not.
 - **Adding a policy page:** `pageCreate` (handle + `templateSuffix: policy` + `isPublished`) → `policy.*` metafields via the `RT` converter in `scripts/policy-metafields.py` (never hand-JSON) → `global.title_tag`/`description_tag` + `seo.hidden=1` → add handle to `ss_noindex_handles` in `layout/theme.liquid` (+ deploy). Never run the script wholesale (per-page `last_updated` regresses).
 - **Deploy order: SECTION (schema) BEFORE the TEMPLATE using new schema settings** — a combined push makes Shopify validate against the old schema and silently STRIP unknown block-settings. Verify via Asset API after. (Held correctly on 28 Jul: section pushed stage 1, template stage 2, all 4 blocks intact.)
 - **Footer tiers:** 4 columns are Shopify nav menus (`senseless-footer-*`, `menuUpdate`, no deploy); the bottom **legal bar** is **hardcoded** in `sections/senseless-footer.liquid`.
