@@ -41,13 +41,14 @@
         "rule2": { "type": "rate", "settings": { "term": "No expiry", "detail": "Your points don't expire.", "group": "rule", "app_only": false, "coming_soon": false } },
         "rule3": { "type": "rate", "settings": { "term": "Signed in only", "detail": "Guest checkout doesn't earn — sign in to collect.", "group": "rule", "app_only": false, "coming_soon": false } },
 
+        "cmp0": { "type": "compare", "settings": { "feature": "10% off your order", "web": "—", "app": "Applied automatically" } },
         "cmp1": { "type": "compare", "settings": { "feature": "Points per £1", "web": "1×", "app": "2×" } },
         "cmp2": { "type": "compare", "settings": { "feature": "200-point welcome bonus", "web": "—", "app": "Yes" } },
         "cmp5": { "type": "compare", "settings": { "feature": "Birthday points", "web": "—", "app": "100 pts / year" } },
         "cmp3": { "type": "compare", "settings": { "feature": "See balance & redeem", "web": "In your account", "app": "Built in" } },
         "cmp4": { "type": "compare", "settings": { "feature": "Points expiry", "web": "None", "app": "None" } }
       },
-      "block_order": ["step1", "step2", "step3", "earn1", "earn2", "earn3", "earn4", "earn5", "earn6", "earn7", "rule1", "rule2", "rule3", "cmp1", "cmp2", "cmp5", "cmp3", "cmp4"],
+      "block_order": ["step1", "step2", "step3", "earn1", "earn2", "earn3", "earn4", "earn5", "earn6", "earn7", "rule1", "rule2", "rule3", "cmp0", "cmp1", "cmp2", "cmp5", "cmp3", "cmp4"],
       "settings": {
         "anchor_id": "how-rewards-work",
         "eyebrow": "How it works",
@@ -59,8 +60,8 @@
         "compare_feature_label": "What you get",
         "compare_web_label": "Website",
         "compare_app_label": "Senseless app",
-        "compare_note": "Same account, same points — the app just earns faster. Points marked “coming soon” aren't active yet; they'll start earning once they're live.",
-        "terms": "<p>Points have no cash value and can't be exchanged for cash. Points earned on an order are removed if that order is later refunded. App-only perks — double points, the 200-point welcome bonus, and birthday points — require the Senseless app. Ways to earn marked “coming soon” are planned and not yet active. This is version 1 of the programme and its terms may change. See the <a href=\"/pages/rewards-terms\">full Rewards Terms &amp; Conditions</a>.</p>"
+        "compare_note": "Same account, same points — the app just earns faster. The 10% is a discount applied to your order in the app; it's separate from points, so you collect points as normal on top. Points marked “coming soon” aren't active yet; they'll start earning once they're live.",
+        "terms": "<p>Points have no cash value and can't be exchanged for cash. Points earned on an order are removed if that order is later refunded. App-only perks — the 10% app discount, double points, the 200-point welcome bonus, and birthday points — require the Senseless app. The 10% is a discount on the order, not a points offer, and is applied automatically in the app. Ways to earn marked “coming soon” are planned and not yet active. This is version 1 of the programme and its terms may change. See the <a href=\"/pages/rewards-terms\">full Rewards Terms &amp; Conditions</a>.</p>"
       }
     },
     "faq": {
