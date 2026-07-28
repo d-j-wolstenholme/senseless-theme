@@ -157,9 +157,9 @@
   html.ss-os-android .ss-appdl__badges .ss-appbadges__img { height: 60px; }
   {%- endif %}
 
-  /* screenshots */
-  .ss-appdl__shots { list-style: none; margin: 0; padding: 0 0 6px; display: flex; gap: 18px; }
-  .ss-appdl__shot { flex: 1 1 0; min-width: 0; margin: 0; }
+  /* screenshots — 2x2 grid on desktop, one per row on mobile */
+  .ss-appdl__shots { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
+  .ss-appdl__shot { min-width: 0; margin: 0; }
   .ss-appdl__shotimg { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--ss-line); background: var(--ss-bg); }
   .ss-appdl__shotcap { font-family: var(--ss-head); font-weight: 400; font-size: 13px; line-height: 1.45; color: var(--ss-muted); margin: 10px 0 0; }
 
@@ -180,13 +180,11 @@
   @media (max-width: 749px) {
     .ss-appdl__inner { padding-block: 56px; }
     .ss-appdl__stores { padding: 22px 18px; }
-    /* scroll rather than shrink — three tall phone shots side by side stop being readable */
-    .ss-appdl__shots {
-      margin-inline: -20px; padding-inline: 20px; gap: 14px;
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-    }
-    .ss-appdl__shot { flex: 0 0 62%; scroll-snap-align: start; }
+    /* one screenshot per row; width-capped so a 1391px-tall phone shot doesn't
+       turn the page into an endless scroll */
+    .ss-appdl__shots { grid-template-columns: 1fr; gap: 30px; justify-items: center; }
+    .ss-appdl__shot { max-width: 320px; width: 100%; }
+    .ss-appdl__shotcap { text-align: center; }
     .ss-appdl__badges .ss-appbadges__img { height: 48px; }
     html.ss-os-ios .ss-appdl__badges .ss-appbadges__img,
     html.ss-os-android .ss-appdl__badges .ss-appbadges__img { height: 56px; }
