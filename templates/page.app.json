@@ -10,6 +10,13 @@
             "caption": "Shop the full range, by strength or format."
           }
         },
+        "shot_product": {
+          "type": "screenshot",
+          "settings": {
+            "asset": "senseless-app-shot-product.webp",
+            "caption": "Every product, with sizes and stock."
+          }
+        },
         "shot_guide": {
           "type": "screenshot",
           "settings": {
@@ -53,7 +60,7 @@
           }
         }
       },
-      "block_order": ["shot_shop", "shot_guide", "shot_cart", "perk_discount", "perk_points", "perk_welcome", "perk_account"],
+      "block_order": ["shot_shop", "shot_product", "shot_guide", "shot_cart", "perk_discount", "perk_points", "perk_welcome", "perk_account"],
       "settings": {
         "eyebrow": "The Senseless app",
         "heading": "Get the Senseless app",
