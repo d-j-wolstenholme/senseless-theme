@@ -26,6 +26,20 @@
     {% endif %}
 
     {%- render 'meta-tags' -%}
+    {%- comment -%}
+      Apple Smart App Banner (Safari on iOS only — ignored everywhere else).
+      Shows "OPEN" if the Senseless app is installed, "VIEW" if not, so it also
+      drives installs. NOT sticky: it sits above the page, scrolls away on first
+      scroll, and has its own dismiss control — so it never competes with the
+      sticky header the way the shipping bar does.
+      This is a stopgap. The reason totally-numb.com shows a native "open in
+      app" prompt and senseless.uk doesn't is Universal Links: Shopify serves
+      /.well-known/apple-app-site-association with an EMPTY applinks.details for
+      this domain, and the iOS app has no associated-domains entitlement. Fixing
+      that properly is App-project + store config, not a theme change.
+    {%- endcomment -%}
+    <meta name="apple-itunes-app" content="app-id=6792059702">
+
     {%- comment -%} Theme-side noindex for Contact + the legal/policy pages (Phase 13: belt-and-braces, independent of admin SEO flags). {%- endcomment -%}
     {%- liquid
       assign ss_noindex_handles = 'contact,privacy-policy,returns-refunds,shipping-delivery,terms-conditions,rewards-terms,cookie-policy,delete-account,llms-txt' | split: ','
