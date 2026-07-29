@@ -160,6 +160,9 @@
   /* screenshots — 2x2 grid on desktop, one per row on mobile */
   .ss-appdl__shots { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
   .ss-appdl__shot { min-width: 0; margin: 0; }
+  /* An odd count leaves a lone final tile — centre it across both columns
+     rather than letting it hang in the left one. */
+  .ss-appdl__shot:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; max-width: calc(50% - 12px); }
   .ss-appdl__shotimg { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--ss-line); background: var(--ss-bg); }
   .ss-appdl__shotcap { font-family: var(--ss-head); font-weight: 400; font-size: 13px; line-height: 1.45; color: var(--ss-muted); margin: 10px 0 0; }
 
