@@ -24,14 +24,33 @@
   }
   .ss-shipbar__mid { position:absolute; left:50%; top:-2px; bottom:-2px; width:2px; background:#ffffff; box-shadow:0 0 0 1px rgba(26,24,22,0.18); z-index:1; }
   .ss-shipbar__same { margin:0; font-size:11.5px; line-height:1.35; color:#5C5853; }
+  /* Long/short copy pair: both are in the DOM and CSS picks one, so no resize
+     listener and no re-render on rotation. Short wins at the mobile breakpoint. */
+  .ss-shipbar__short { display:none; }
+  @media (max-width:749px) {
+    .ss-shipbar__inner { padding:5px 16px; }
+    .ss-shipbar__long { display:none; }
+    .ss-shipbar__short { display:inline; }
+    .ss-shipbar__empty, .ss-shipbar__msg { font-size:11.5px; line-height:1.3; }
+    .ss-shipbar__progress { gap:4px; }
+    /* the same-day line is supplementary — it's what pushed the bar to two lines */
+    .ss-shipbar__same { display:none; }
+    .ss-shipbar__bar { height:5px; max-width:280px; }
+  }
   [hidden] { display:none !important; }
   @media (prefers-reduced-motion: reduce){ .ss-shipbar__fill { transition:none; animation:none; } }
 {%- endstyle -%}
 <div class="ss-shipbar" data-shipbar role="region" aria-label="Delivery information">
   <div class="ss-shipbar__inner">
-    <p class="ss-shipbar__empty" data-shipbar-empty>Free UK standard delivery over £40 · Free next-day over £80 · Order before 1pm for same-day dispatch</p>
+    <p class="ss-shipbar__empty" data-shipbar-empty>
+      <span class="ss-shipbar__long">Free UK standard delivery over £40 · Free next-day over £80 · Order before 1pm for same-day dispatch</span>
+      <span class="ss-shipbar__short">Free delivery over £40 · Free next-day over £80</span>
+    </p>
     <div class="ss-shipbar__progress" data-shipbar-progress hidden aria-live="polite">
-      <p class="ss-shipbar__msg" data-shipbar-msg></p>
+      <p class="ss-shipbar__msg">
+        <span class="ss-shipbar__long" data-shipbar-msg></span>
+        <span class="ss-shipbar__short" data-shipbar-msg-short></span>
+      </p>
       <div class="ss-shipbar__bar"><span class="ss-shipbar__mid" aria-hidden="true"></span><span class="ss-shipbar__fill" data-shipbar-fill></span></div>
       <p class="ss-shipbar__same" data-shipbar-same>Order before 1pm for same-day dispatch</p>
     </div>
@@ -56,6 +75,7 @@
       var empty = document.querySelector('[data-shipbar-empty]'),
           prog  = document.querySelector('[data-shipbar-progress]'),
           msg   = document.querySelector('[data-shipbar-msg]'),
+          msgS  = document.querySelector('[data-shipbar-msg-short]'),
           fill  = document.querySelector('[data-shipbar-fill]'),
           same  = document.querySelector('[data-shipbar-same]');
       if (!empty || !prog) return;
@@ -63,11 +83,24 @@
       var sub = (cart && cart.items_subtotal_price != null) ? cart.items_subtotal_price : ((cart && cart.total_price) || 0);
       if (n === 0) { empty.hidden = false; prog.hidden = true; prevTier = 0; return; }
       empty.hidden = true; prog.hidden = false;
-      var pct, m, showSame = true, tier;
-      if (sub < T1) { tier = 0; pct = sub / T2 * 100; m = "You're " + money(T1 - sub) + " away from free standard delivery"; }
-      else if (sub < T2) { tier = 1; pct = sub / T2 * 100; m = "Free standard delivery unlocked — " + money(T2 - sub) + " more for free next-day"; }
-      else { tier = 2; pct = 100; m = "Free next-day delivery unlocked — order before 1pm for same-day dispatch"; showSame = false; }
+      // Each tier carries a long (desktop) and short (mobile) phrasing; CSS shows one.
+      var pct, m, mShort, showSame = true, tier;
+      if (sub < T1) {
+        tier = 0; pct = sub / T2 * 100;
+        m = "You're " + money(T1 - sub) + " away from free standard delivery";
+        mShort = money(T1 - sub) + " away from free delivery";
+      } else if (sub < T2) {
+        tier = 1; pct = sub / T2 * 100;
+        m = "Free standard delivery unlocked — " + money(T2 - sub) + " more for free next-day";
+        mShort = "Free delivery unlocked · " + money(T2 - sub) + " to next-day";
+      } else {
+        tier = 2; pct = 100;
+        m = "Free next-day delivery unlocked — order before 1pm for same-day dispatch";
+        mShort = "Free next-day delivery unlocked";
+        showSame = false;
+      }
       if (msg) msg.textContent = m;
+      if (msgS) msgS.textContent = mShort;
       if (fill) fill.style.width = Math.min(Math.max(pct, 0), 100) + '%';
       if (same) same.hidden = !showSame;
       // Pulse only when a free-delivery threshold (£40 / £80) is NEWLY crossed upward; not on first paint.
