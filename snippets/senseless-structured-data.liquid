@@ -17,6 +17,12 @@
   assign base = shop.url
   assign seller_name = 'Senseless'
   assign seller_legal = 'Matrix Health Group Ltd'
+  comment
+    VAT identification number (ECR 2002 reg 6(1)(g)). Unspaced with the GB national prefix per the
+    schema.org vatID convention — the visible surfaces (footer, contact, llms.txt) use the spaced
+    human form "GB 523 781 682". That divergence is deliberate; don't "align" them.
+  endcomment
+  assign seller_vat = 'GB523781682'
   assign cur = cart.currency.iso_code | default: shop.currency
 -%}
 {%- case request.page_type -%}
@@ -129,6 +135,7 @@
     "@type": "Organization",
     "name": {{ seller_name | json }},
     "legalName": {{ seller_legal | json }},
+    "vatID": {{ seller_vat | json }},
     "url": {{ base | json }},
     "logo": {{ 'senseless-logo.png' | asset_url | prepend: 'https:' | json }},
     "address": { "@type": "PostalAddress", "streetAddress": "Paddock Business Centre, 2 Paddock Road", "addressLocality": "Skelmersdale", "postalCode": "WN8 9PL", "addressCountry": "GB" },
