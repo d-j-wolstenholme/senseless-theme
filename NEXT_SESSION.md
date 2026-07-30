@@ -1,63 +1,57 @@
 # Next session — Senseless (Canon v2.19)
 
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
-**Machine last used:** MacBook Pro — confirmed 28 Jul. NOTE: hostname can display as `Daniels-MBP.Home` (network-dependent); canon's `Daniels-MacBook-Pro.local` is the same machine.
+**Machine last used:** MacBook Pro — confirmed 30 Jul. NOTE: hostname can display as `Daniels-MBP.Home` (network-dependent); canon's `Daniels-MacBook-Pro.local` is the same machine.
 
-## Done last session (2026-07-28, Claude Code · Fable 5) — app-store badges live + local↔live reconcile
-Both apps are approved and public: **iOS** `apps.apple.com/gb/app/senseless/id6792059702` (Apple approved 28 Jul 14:41; listing verified 200 — closes the App project's "confirm it went live" question) · **Android** `play.google.com/store/apps/details?id=uk.senseless.app` (1.0.1 since 24 Jul).
+## Done last session (2026-07-30, Claude Code · Opus 5) — VAT number GB 523 781 682 added site-wide
 
-- **Local↔live reconciled FIRST** (Daniel: live is the most up-to-date version; don't lose add-ons). Full semantic diff found **one real delta** — live carried a **Shopify Inbox chat app block** in `config/settings_data.json` added via admin. Adopted live verbatim (`96e6427`) so no future push wipes it. Everything else was editor noise. `sections/footer-utilities.liquid` was the reverse (local ahead — `64fcfdc` cleanup never deployed); now deployed. 2 known inert orphans unchanged.
-- **NEW `/pages/app`** — page gid `713221013852`, template `page.app.json` + `sections/senseless-app-download.liquid`, published, meta set, **not** `seo.hidden` (a real public destination). **`/app` → `/pages/app` 301** created (gid `1707295768924`) as the short URL for QR encoding. This page is the **QR fail-safe**.
-- **OS detection** — `snippets/senseless-os-class.liquid` (head) stamps `ss-os-ios`/`ss-os-android` on `<html>`; badge visibility is then pure CSS. Live-verified: classified → own badge only (60px) + cross-link; unclassified/no-JS → both at equal 52px. No zero-badge state.
-- **Cart app banner** — `snippets/senseless-app-banner.liquid` via `cart-summary.liquid` (drawer + cart page), above the checkout CTAs. Live 10% app discount (`ZK7QF3M9N2X8WB4D6PLA`, ACTIVE) with was/now maths + double points + 200-pt welcome.
-- **Cart line-item images no longer cropped** — `templates/cart.json` had `image_ratio: portrait` (0.8) vs 1:1 photography → sides clipped. Now `adapt`.
+Commit `6ba73a1`, pushed to `origin/main`, deployed to live `#199324434780`.
+
+**Parity check FIRST, before any edit** (Daniel: live is the most up-to-date; don't lose add-ons). Store verified `senseless-numbing.myshopify.com`. Pulled live, semantic diff vs local: **0 real diffs**. The 104 raw file diffs were 100% Shopify's auto-generated header comment (366 bytes prepended to every `templates/*.json` and `locales/*.json`) — cosmetic, not drift. `config/settings_data.json` byte-identical, so all 6 app embeds intact (Klaviyo, Judge.me ×2, Dondy WhatsApp, Google/YouTube, Inbox).
+
+**Legal basis** (verified against legislation.gov.uk, adversarially checked): **Electronic Commerce (EC Directive) Regulations 2002, reg 6(1)(g)** — a VAT-registered service provider must make its VAT number "easily, directly and permanently accessible" on the website. The duty is **conditional on being registered**: it did not apply before, and does now. The statute prescribes **no location**; a site-wide footer satisfies it.
+
+*Checked and do NOT require a VAT number — don't cite them:* Companies Act 2006 s.82 / Trading Disclosures Regs 2015 (company number + registered office only — already satisfied), Consumer Contracts Regs 2013 (VAT-**inclusive prices**, not a number), Price Marking Order 2004. VAT Regs 1995 reg 13 requires it on a VAT **invoice**, but only B2B — a B2C store has no standing duty to issue one.
+
+**Theme (5 files, deployed):**
+- `sections/senseless-footer.liquid:169` — site-wide legal band. **This is the placement that discharges the duty**; the rest is consistency.
+- `templates/page.contact.json:140` — statutory details list. Closes the P1 in `build-reports/phase13-full-site-audit.md`.
+- `snippets/senseless-structured-data.liquid` — homepage Organization `vatID`.
+- `sections/senseless-org-schema.liquid` — about/contact Organization `vatID` + editable `vat_id` setting.
+- `templates/page.llms-txt.liquid:33` — machine-readable company record.
+
+**Admin (NOT theme — written via Admin API this session):**
+- Native shop policies `CONTACT_INFORMATION` + `TERMS_OF_SERVICE`. **These render at checkout, which the theme cannot reach**, and are a *separate record set* from the `/pages/*` metafields — they drift silently. Worth re-checking whenever company details change.
+- Page metafields `policy.prose_policy_body` + `policy.faq` on `terms-conditions`, `prose_policy_body` on `rewards-terms`. The 7 legal pages are metafield-driven, so theme edits alone would not have touched them.
+- `scripts/policy-metafields.py` updated to match so the repo's record of policy copy doesn't rot.
+
+**Format:** `GB 523 781 682` visible / `GB523781682` unspaced in JSON-LD (schema.org `vatID` convention). **The divergence is deliberate — don't "align" them in a future audit.**
+
+**Not touched, on purpose:** compliance-locked copy (`senseless-key-facts.liquid:57`, `senseless-credentials.liquid:20` — MHRA/CPSR statements); privacy policy (data-controller identity only; a VAT number has no place in a privacy notice); `page.contact.json:230` Key Facts (same page → would print the number twice); per-variant `Offer.seller` nodes (would repeat 2–3× per PDP).
+
+## Next Work Item
+
+**Shopify admin UI — the one thing left, and it cannot be done by API or theme:**
+`Settings → Taxes and duties → Tax regions → United Kingdom → VAT collection → Collect VAT → VAT number: GB523781682 → Collect VAT.`
+Nothing in the theme reads this — there is no `shop.vat_number` Liquid object. It drives tax rates and the VAT ID on Shopify-generated invoices.
+
+While in there: check `Settings → General` legal business name reads **Matrix Health Group Ltd**, not "Senseless". Shopify's auto-generated VAT invoice falls back to the store name, which would print a trading name rather than the registered entity.
+
+Optional, convention not law: order-confirmation email (`Settings → Notifications`) and packing slips have no VAT variable — they'd need hardcoding.
 
 ### Gotchas earned this session (don't re-derive)
-- **A Smart App Banner is now live** (`<meta name="apple-itunes-app" content="app-id=6792059702">` in `layout/theme.liquid`). Safari-iOS only, dismissible, non-sticky. Daniel approved it as a **removable trial** — "we can always remove it if I don't like it". Deleting that one line reverts it.
-- **"Open in app" on iOS = Universal Links, NOT Apple's Smart App Banner.** Neither theme has an `apple-itunes-app` meta tag. The difference is the Shopify-served `/.well-known/apple-app-site-association`: `totally-numb.com` lists appID `K5VJ4449L8.com.totallynumb` with paths `/*`; **`senseless.uk` serves `applinks.details: []` — empty**. The iOS app also has **no `associated-domains` key** in `ios/Senseless/Senseless.entitlements`. Broken at both ends; the fix is App-project + Shopify config, **not a theme change**. (A theme-side `<meta name="apple-itunes-app" content="app-id=6792059702">` would give a Smart App Banner instead — offered to Daniel, not added, since it adds top-of-viewport clutter.)
-- **A stuck browser viewport is fixed by opening a NEW tab.** A tab whose `innerWidth` sticks at 1440 and ignores `resize_window` will not recover; `tabs_create_mcp` then resizing gives a working narrow viewport. Cost a mobile verification last session — don't repeat it.
-- **App screenshot masters live in the App project, not the stores:** `~/code/senseless-app/docs/store-listings/{ios,android}/` (6 each at 1320×2868, plus Play feature graphic + icon). The **iTunes lookup API returns 0 screenshots** for this app, so don't try to scrape the listings. `/pages/app` uses 3 of them as theme assets (`senseless-app-shot-*.webp`).
-- **`03-hub.png` is now LIVE on `/pages/app` — the earlier compliance flag was over-cautious, don't re-raise it.** It carries "Numbing timing — When to apply and how long it lasts", but the site **already publishes that concept**: `/pages/how-long-numbing-cream-lasts` is live (title "How Long Does Numbing Cream Last?") and the homepage uses the phrase "How long it lasts". The Hard Rule bans **specific durations** ("lasts X hours"), not the topic. Cleared by Daniel 29 Jul. `06-chat.png` remains unused, on quality grounds only — it's a near-empty screen.
-- **The product screenshot bakes in a price.** `senseless-app-shot-product.webp` shows Clinical Strength Cream 30g at **£44.99** — correct as of 28 Jul (verified against the live variant). **If prices change, that screenshot silently goes stale** and must be re-exported from the App project.
-- **`loading="lazy"` images can report `naturalWidth 0` and empty `currentSrc` forever in a background/automated tab**, even after `scrollIntoView` — they look broken but aren't. Confirm by forcing `loading='eager'`, fetching the CDN URL, or a real scrolled render before diagnosing. Also: Shopify's CDN serves theme `.webp` assets as `image/jpeg` (transcoding, not a fault).
-- **The app 10% discount covers the whole catalogue.** Its summary reads "10% off **Shop All**", which looks scoped but Shop All = **16 of 16** products. That is what makes the cart banner's flat `× 0.9` maths legitimate — if a product is ever added outside Shop All, the banner overstates the saving and both it and the rewards compare row need revisiting.
-- **Cart banner is mobile-layout only (≤749px) — Daniel's explicit call.** An earlier reviewer-suggested "OR any `ss-os` device" rule was reverted. **Do NOT re-raise "iPads report 768px+, so tablets are excluded" as a bug** — it is deliberate.
-- **A PRODUCT-class discount leaves `cart.cart_level_discount_applications` EMPTY** while `cart.total_discount` is set. The app 10% is product-class, so any "is a discount applied?" check must test **both** — testing only the former fails open. (This is why the banner's misleading-price guard checks both.)
-- **The cart drawer and the cart PAGE do not share block settings.** `header-actions` renders `cart-products` with none, so it falls back to the snippet's `ratio = 1` default; the cart page passes `templates/cart.json`'s value. A drawer-only check will miss cart-page-only image bugs (exactly how the crop survived).
-- **Official Google Play badge art ships with a ~41px transparent border baked in** (opaque 564×168 inside 646×250). Under equal CSS heights it renders at 67% of the Apple badge → breaks Google's own parity guidance. The repo copy `assets/senseless-badge-google-play.png` is **already cropped full-bleed**; if you ever re-import from Google, re-crop.
-- **`reviews-guard` guard(c) trips on `config/settings_data.json`** whenever it's synced from live, even though it is never deployed (the guard checksums repo files regardless of the push set). Verify the 4 markers match live (judge-me-reviews 2 · klaviyo 1 · google-youtube 1 · dondy 1), then `--reviews-changed` + commit the rewritten lock.
-- **Shopify MCP connector is STILL invalid** (`get-shop-info` → token expired; unchanged since 27 Jul) — **Daniel needs to reconnect it**. The CLI + Admin-API-token path (`scripts/refresh-token.sh`, `deploy.sh`) is unaffected; use that.
-- `templates/page.app.json` byte-differs from live on the Asset API (Shopify reformats template JSON) but is **semantically identical** — compare parsed JSON, not bytes, before calling it a failed push.
 
-### Next / watch (this task)
-- **Daniel: encode the packaging/QR download URL as `https://senseless.uk/app`** — live and 301-ing now.
-- ~~`/pages/app` not linked from any menu~~ — **DONE 28 Jul:** "Get the app" added to `senseless-footer-company` (footer **Company** column) via `menuUpdate`, no deploy. **Then de-orphaned properly** (`211cb44`): a link audit showed every page had exactly one link (the footer) and **zero in-body links sitewide**, while `/pages/rewards` mentioned the app **24 times with no route to it**. Added an FAQ item "How do I get the app?" + a callout-band line there → 3 routes, browser-verified. **`templates/page.faq.json` deliberately untouched** (legal-verbatim copy). Header nav deliberately not used (already 6 items).
-- ~~`/pages/rewards` omits the 10% app discount~~ — **DONE 28 Jul (Daniel approved), commit `eea6e6b`:** new first compare row "10% off your order" (web `—` / app "Applied automatically"), plus `compare_note` + `terms` stating it's a discount **separate from points**. **Deliberately NOT in the "Ways to earn" rates list** — it's a discount, not a points earn method. No `coming_soon` states touched.
-- Optional: the badge store URLs are hard-coded in the banner but editor-settable on the page — two sources of truth if a listing URL ever changes.
+1. **`snippets/senseless-structured-data.liquid` is a reviews-guard file** (carries `product.metafields.reviews.rating`). Editing it blocks the first deploy — that is the guard working correctly, not a bug. Confirm the reviews accessor is untouched, then re-run with `--reviews-changed` and commit the rewritten `reviews-guard.lock`. Post-deploy verify confirmed all 6 live markers (Judge.me ×4, GA4, Google Tag) still render.
 
-## Carried forward — open flags (compressed from 9–17 Jul sessions; detail in Session Log)
-- **`mobile-app-privacy-policy`** still missing here (wrong-store casualty); store listings currently use `/pages/privacy-policy`. Needs a decision.
-- **MHG footer logo** (12 Jul, `508d399`): Daniel to sign off full-lockup vs monogram. Lockup is a light-background asset.
-- **Injectables** (10 Jul, `1fa8678`): botox fold-vs-keep (301-merge call, deferred); GSC watch — `numbing-cream-for-injections` should move off 0 impressions.
-- **Cannibalisation** (9 Jul): GSC watch — strongest absorbs "best numbing cream" via 301; next SEO fix = spray/gel format-cluster splits.
-- **Live theme carries TWO inert orphans** (scoped deploys can't delete remote files; Asset-API delete barred): `blocks/footer-copyright.liquid` + `templates/page.how-long-numbing-cream-takes-to-work.json`. Harmless; clears on a full re-sync.
-- **If totally-numb.com recovers** (503 on 17 Jul): delete the stray 16-Jul `delete-account`/`mobile-app-privacy-policy` pages there — they name the Senseless app.
+2. **Two live-only orphans — deliberately deleted from the repo, left alone on purpose. Do NOT "restore" them:**
+   - `blocks/footer-copyright.liquid` — removed in `313f788` ("unused, single source of truth"); bespoke `senseless-footer` replaced it.
+   - `templates/page.how-long-numbing-cream-takes-to-work.json` — removed in `64fcfdc` (takes-to-work merge); the URL 301-redirects.
+   Stale live leftovers, not content drift. Deleting them from live would be tidier but is destructive and wasn't in scope.
 
-## Carried forward — open from 2026-07-04 rewards session (still open)
-- **⚠️ Coming-soon earn methods on `/pages/rewards` are Daniel's explicit call — do NOT revert as a compliance regression.** Only birthday has a decided value (100pt); referral/reviews/social have NO decided values — don't invent numbers.
-- **4 planned earn methods NOT built** (App project): birthday · referral · social (blocked) · reviews. When any ships: flip `coming_soon` off + set the real value.
-- **Rewards T&C legal review (MHG/legal)** — §6–8 placeholder numbering flagged; Status Built (not Final).
-- **Rewards link-out** (3 Jul): hosted account page showed no balance; Customer Account UI Extension handed to the App project.
-- **Store province "England"** (should be Lancashire) — UNFIXABLE via UI/API; never rendered.
+3. **The VAT number passes the UK mod-97-55 checksum** (weighted sum 154 + 82 + 55 = 291 = 97×3), so the format is valid — but that only proves internal consistency, **not** that HMRC issued it to Matrix Health Group Ltd. HMRC's lookup API needs auth (returns `MISSING_CREDENTIALS` unauthenticated); confirm at https://www.gov.uk/check-uk-vat-number if not already done.
 
-## Carried-forward gotchas (still valid)
-- **Store gate recurring:** the Shopify MCP connector can silently point at **Totally Numb** — gate every session on `senseless-numbing.myshopify.com`. Reliable CLI path: `scripts/refresh-token.sh` + `deploy.sh` (both store-pinned).
-- **`senseless-numbing.myshopify.com` 301s to `senseless.uk`** — always `-L`.
-- **Cache-busting a live check: use `?_fd=0`, NOT `?cb=`.** The edge normalises `?cb=` away and serves a cached snapshot, so you get a convincing **false negative**. (28 Jul: ten `?cb=` polls over 150s said a new footer link was missing; `?_fd=0` and a real browser both showed it instantly.) The cache is **per URL + per variant** — a stale desktop homepage can sit alongside a fresh mobile homepage and four fresh pages, so check several URLs and finish in the browser before concluding a change failed. Theme-FILE deploys bust page caches on their own; admin-side changes (`menuUpdate`, `metafieldsSet`) do not.
-- **Adding a policy page:** `pageCreate` (handle + `templateSuffix: policy` + `isPublished`) → `policy.*` metafields via the `RT` converter in `scripts/policy-metafields.py` (never hand-JSON) → `global.title_tag`/`description_tag` + `seo.hidden=1` → add handle to `ss_noindex_handles` in `layout/theme.liquid` (+ deploy). Never run the script wholesale (per-page `last_updated` regresses).
-- **Deploy order: SECTION (schema) BEFORE the TEMPLATE using new schema settings** — a combined push makes Shopify validate against the old schema and silently STRIP unknown block-settings. Verify via Asset API after. (Held correctly on 28 Jul: section pushed stage 1, template stage 2, all 4 blocks intact.)
-- **Footer tiers:** 4 columns are Shopify nav menus (`senseless-footer-*`, `menuUpdate`, no deploy); the bottom **legal bar** is **hardcoded** in `sections/senseless-footer.liquid`.
-- **Never set `seo.hidden` on a BLOG to tidy the sitemap** — it cascades to its articles (tested live 17 Jul, reverted). The `/blogs/guides` conflict is structural; accept the GSC warning. Child sitemaps need their `?from=&to=` params.
-- **Retiring a page via 301 needs an UNPUBLISH** (a redirect is inert while the page resolves 200).
-- **Intermittent 503s under rapid curls** can falsely trip the post-deploy reviews-guard — space out re-checks before treating it as real.
-- `.env` Admin token expires — `./scripts/refresh-token.sh` then `set -a; source .env; set +a`. No rollback theme.
+4. **`templates/page.contact.json` is theme-editor editable.** If anyone adds VAT copy in admin, the next `deploy.sh` overwrites it. Repo is source of truth.
+
+5. **Locale/template files pulled from live always carry a 366-byte Shopify auto-gen header comment.** Strip it before diffing (regex `^\s*/\*.*?\*/\s*`) or you get ~100 phantom diffs and will wrongly conclude local and live have drifted.
+
+6. **`ShopPolicyInput` has no `id` field** — `shopPolicyUpdate` takes `{type, body}` only. Passing `id` fails with `INVALID_VARIABLE`.
