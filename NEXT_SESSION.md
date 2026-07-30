@@ -1,7 +1,13 @@
-# Next session — Senseless (Canon v2.19)
+# Next session — Senseless (Canon v2.20)
 
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
 **Machine last used:** MacBook Pro — confirmed 30 Jul. NOTE: hostname can display as `Daniels-MBP.Home` (network-dependent); canon's `Daniels-MacBook-Pro.local` is the same machine.
+
+**Canon is now v2.20 — the update completed 30 Jul.** Front door pasted (Daniel), `CLAUDE.md` + `reconcile.sh` re-stamped, both Notion canaries re-stamped, invariant holds. The **Project Registry row is home-owned and was deliberately left** for the home backstop sweep — don't try to write it from here.
+
+## Two framing corrections from Daniel (30 Jul) — don't repeat them
+1. **An expired Shopify MCP connector is NOT a blocker and NOT a Daniel action.** Run `scripts/refresh-token.sh`, then CLI + Admin API — that covers every Shopify action in this project and needs nothing from him. It had been logged as "Daniel needs to reconnect" on 27, 28 and 30 Jul. `.claude/rules/deploy-and-store.md` now lists all three ways to satisfy the verify-store gate, so don't read the CLAUDE.md one-liner as making the gate unperformable when MCP is down.
+2. **Check what's actually yours before handing work back.** The v2.20 upgrade was reported as blocked on Daniel when only the Cowork Settings paste was his — `CLAUDE.md`, the `.md` files and every Notion record were Claude Code's, and the front-door master had already been rebuilt on 22 Jul. Read the Upgrade Note and the source page before calling something outstanding.
 
 ## Done last session (2026-07-30, Claude Code · Opus 5) — VAT number GB 523 781 682 added site-wide
 
