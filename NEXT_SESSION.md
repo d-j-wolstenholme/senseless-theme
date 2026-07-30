@@ -29,15 +29,19 @@ Commit `6ba73a1`, pushed to `origin/main`, deployed to live `#199324434780`.
 
 **Not touched, on purpose:** compliance-locked copy (`senseless-key-facts.liquid:57`, `senseless-credentials.liquid:20` — MHRA/CPSR statements); privacy policy (data-controller identity only; a VAT number has no place in a privacy notice); `page.contact.json:230` Key Facts (same page → would print the number twice); per-variant `Offer.seller` nodes (would repeat 2–3× per PDP).
 
+**HMRC VERIFIED (30 Jul, gov.uk checker):** `523781682` returns **Valid UK VAT number** · registered business name **MATRIX HEALTH GROUP LTD** · registered address Paddock Business Centre, 2 Paddock Road, Skelmersdale, WN8 9PL. Name and address match the footer exactly. The number is confirmed genuine and correctly attributed — no need to re-check.
+
+**Shopify tax registration DONE (30 Jul, admin UI via Chrome):** `Settings → Taxes and duties → United Kingdom → VAT collection` flipped from **"Below threshold" → "Collecting"**, VAT number stored as `GB523781682` (verified by reopening Edit). `Settings → General` business details already read **Matrix Health Group Ltd** — no change was needed there.
+
+Post-change check: `taxesIncluded` still `true` and live prices unchanged (£19.99 is still £19.99). VAT is now broken out **of** the inclusive price, not added on top — customer-facing prices did not move, but net revenue per order now excludes the VAT portion. Expected and correct for a VAT-registered business.
+
 ## Next Work Item
 
-**Shopify admin UI — the one thing left, and it cannot be done by API or theme:**
-`Settings → Taxes and duties → Tax regions → United Kingdom → VAT collection → Collect VAT → VAT number: GB523781682 → Collect VAT.`
-Nothing in the theme reads this — there is no `shop.vat_number` Liquid object. It drives tax rates and the VAT ID on Shopify-generated invoices.
+**No blocking item — the VAT work is complete across theme, admin and tax settings.**
 
-While in there: check `Settings → General` legal business name reads **Matrix Health Group Ltd**, not "Senseless". Shopify's auto-generated VAT invoice falls back to the store name, which would print a trading name rather than the registered entity.
-
-Optional, convention not law: order-confirmation email (`Settings → Notifications`) and packing slips have no VAT variable — they'd need hardcoding.
+Optional, still open (convention not law — deliberately not enabled without a decision):
+- **VAT invoices toggle** — `Settings → Taxes and duties → United Kingdom → VAT invoices → "Generate and display invoices when orders are placed"` is currently **OFF**. Not legally required for B2C (VAT Regs 1995 reg 13 only compels an invoice B2B; reg 16 relieves retailers except on request from a VAT-registered customer). Turning it on shows an invoice on the **order status page only — it is not emailed**. Worth enabling if trade/practitioner customers start asking.
+- Order-confirmation email (`Settings → Notifications`) and packing slips have no VAT Liquid variable — they'd need hardcoding.
 
 ### Gotchas earned this session (don't re-derive)
 
