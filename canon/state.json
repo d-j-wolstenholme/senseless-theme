@@ -5,6 +5,6 @@
   "freshness_days": 7,
   "store": "senseless-numbing.myshopify.com",
   "live_theme": "199324434780",
-  "sync_status": "CC 30 Jul 2026 (MacBook Pro) — full live reconcile PASS: 0 semantic diffs local↔live (104 raw diffs were all Shopify's 366-byte auto-gen header); settings_data.json byte-identical, 6/6 app embeds intact; main == origin/main, clean (VAT work 6ba73a1..535bc28). Shopify MCP connector still invalidated — CLI + Admin-API path used.",
+  "sync_status": "CC 30 Jul 2026 (MacBook Pro) — full live reconcile PASS: 0 semantic diffs local↔live (104 raw diffs were all Shopify's 366-byte auto-gen header); settings_data.json byte-identical, 6/6 app embeds intact; main == origin/main, clean (VAT work 6ba73a1..535bc28). Shopify MCP expired (NOT a blocker, not a Daniel action — refresh-token.sh + CLI/Admin API is the supported path and was used throughout). Canon v2.20 pending ONLY Daniel's Cowork front-door paste; CLAUDE.md already re-stamped v2.20 — canaries stay v2.19 until the paste (don't stamp ahead of reality).",
   "_note": "Local mirror of the State Surface (Notion 38e58bc3-75ea-81ad-87eb-e20fcfc22406). Read by scripts/reconcile.sh for freshness; updated deliberately at task boundaries, not on every run. The State Surface in Notion is the source of truth."
 }
