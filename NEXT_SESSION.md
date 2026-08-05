@@ -1,67 +1,64 @@
 # Next session — Senseless (Canon v2.20)
 
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
-**Machine last used:** MacBook Pro — confirmed 30 Jul. NOTE: hostname can display as `Daniels-MBP.Home` (network-dependent); canon's `Daniels-MacBook-Pro.local` is the same machine.
+**Machine last used:** MacBook Pro — confirmed 5 Aug (`Daniels-MacBook-Pro.local`). Hostname can display as `Daniels-MBP.Home` (network-dependent); same machine.
 
-**Canon is now v2.20 — the update completed 30 Jul.** Front door pasted (Daniel), `CLAUDE.md` + `reconcile.sh` re-stamped, both Notion canaries re-stamped, invariant holds. The **Project Registry row is home-owned and was deliberately left** for the home backstop sweep — don't try to write it from here.
+## Done last session (2026-08-05, Claude Code · Opus 5) — commit `81ae8b7`, deployed + live-verified
 
-## Two framing corrections from Daniel (30 Jul) — don't repeat them
-1. **An expired Shopify MCP connector is NOT a blocker and NOT a Daniel action.** Run `scripts/refresh-token.sh`, then CLI + Admin API — that covers every Shopify action in this project and needs nothing from him. It had been logged as "Daniel needs to reconnect" on 27, 28 and 30 Jul. `.claude/rules/deploy-and-store.md` now lists all three ways to satisfy the verify-store gate, so don't read the CLAUDE.md one-liner as making the gate unperformable when MCP is down.
-2. **Check what's actually yours before handing work back.** The v2.20 upgrade was reported as blocked on Daniel when only the Cowork Settings paste was his — `CLAUDE.md`, the `.md` files and every Notion record were Claude Code's, and the front-door master had already been rebuilt on 22 Jul. Read the Upgrade Note and the source page before calling something outstanding.
+Daniel supplied a 23-page agency **SEO Audit** PDF and an **On-Page Recommendations** Google Doc and asked for every issue verified and fixed.
 
-## Done last session (2026-07-30, Claude Code · Opus 5) — VAT number GB 523 781 682 added site-wide
+### The audit is mostly wrong — do not re-litigate these
+Verified live, claim by claim:
 
-Commit `6ba73a1`, pushed to `origin/main`, deployed to live `#199324434780`.
+| Agency claim | Reality |
+|---|---|
+| Product / FAQ / Article / Review / WebSite schema **missing** | **False.** 34 valid JSON-LD blocks across 12 URLs. They tested the homepage only, where Product/Article legitimately don't belong. |
+| Site has **LocalBusiness** schema | **False — no such node exists anywhere.** Google's test tool labels our address-bearing `Organization` as "Local businesses". That's their screenshot. |
+| TTFB 658 ms | **False.** Measured median **117 ms** over 5 runs. FCP 954 ms / LCP 1.4 s are *good* CWV, which they list as defects. |
+| Some articles lack featured images | **False.** 5 of 5 have images (1600×900 WebP, alt set). |
+| 77 blocked internal resources | **One** — a stock Shopify `/checkouts/` preload. The "77" is the homepage resource count re-reported per page. |
+| 77 blocked external resources | Real but **vendor-owned**: `cdn.judge.me/robots.txt` is `Disallow: /`. Unfixable, and irrelevant to indexing our pages. |
+| 11 pages blocked from crawling | **True and all deliberate** — our 11 intentional noindexes (`layout/theme.liquid:43-57`). |
+| 77 pages low text-HTML ratio | True as a measurement, **not a content problem**: ~80% of every page is inline script/CSS/SVG. Main-content word counts are 381–1,416. Not a ranking factor. |
+| CTAs "limited and inconsistent" | **False.** 21 anchors + 4 buttons on the homepage; labels already consistent by destination ("View range" 7/7, "View product" 3/3, "Add to cart" 3/3). Their own Recommendation line says "No Action Required". |
+| "Update and resubmit the XML sitemap" | **Impossible.** Shopify generates it; the file says so itself. |
 
-**Parity check FIRST, before any edit** (Daniel: live is the most up-to-date; don't lose add-ons). Store verified `senseless-numbing.myshopify.com`. Pulled live, semantic diff vs local: **0 real diffs**. The 104 raw file diffs were 100% Shopify's auto-generated header comment (366 bytes prepended to every `templates/*.json` and `locales/*.json`) — cosmetic, not drift. `config/settings_data.json` byte-identical, so all 6 app embeds intact (Klaviyo, Judge.me ×2, Dondy WhatsApp, Google/YouTube, Inbox).
+**True:** Bing Webmaster tag absent · zero social links anywhere · nav says "Help" while the page is `/pages/faq` · nothing published in 61 days · homepage thin in *answer-shaped fact* (690 words is normal — what's missing is range/sizes/delivery facts, not word count).
 
-**Legal basis** (verified against legislation.gov.uk, adversarially checked): **Electronic Commerce (EC Directive) Regulations 2002, reg 6(1)(g)** — a VAT-registered service provider must make its VAT number "easily, directly and permanently accessible" on the website. The duty is **conditional on being registered**: it did not apply before, and does now. The statute prescribes **no location**; a site-wide footer satisfies it.
+### Shipped (theme, live-verified)
+- `sections/senseless-article.liquid` — **related-guides module**. Guides were reachable only from `/pages/articles`; two had a single indexable inbound link. The window is offset from each article's own index and **wraps**, so all 5 give 3 and receive 3 (verified live: 3/3 each). Anchor text = article titles verbatim, so no new claim surface.
+- `sections/senseless-articles-hub.liquid` — the 8 square asterisk cards were `object-fit:cover` in a 16:9 frame, clipping ~44% of the mark. Now contained.
+- `sections/senseless-article-hub.liquid` — `/blogs/guides` framed 1600×900 photos at `1/1`. Now `16/9`.
+- `snippets/scripts.liquid` — duplicate `fly-to-cart.js` script tag removed (the global one already covers PDPs).
 
-*Checked and do NOT require a VAT number — don't cite them:* Companies Act 2006 s.82 / Trading Disclosures Regs 2015 (company number + registered office only — already satisfied), Consumer Contracts Regs 2013 (VAT-**inclusive prices**, not a number), Price Marking Order 2004. VAT Regs 1995 reg 13 requires it on a VAT **invoice**, but only B2B — a B2C store has no standing duty to issue one.
+### Canon drift found by an independent parity/canary pass, fixed in the same commit
+- `.claude/schema-contract.json` still read **v2.19** — the version invariant was broken and nothing caught it.
+- `commit-and-deploy/SKILL.md` + `STATE.md` both said the storefront password is **ON**. It is **OFF**; the store has been public since 7 Jun. The skill was telling future sessions their live deploys weren't customer-visible.
+- `CLAUDE.md` range double-counted the cleanser. Live re-count: **16 products / 21 variants = 14 single SKUs + Foaming Cleanser (15)**, plus the Vitamin A&D 4-pack cart add-on and 5 bundles.
 
-**Theme (5 files, deployed):**
-- `sections/senseless-footer.liquid:169` — site-wide legal band. **This is the placement that discharges the duty**; the rest is consistency.
-- `templates/page.contact.json:140` — statutory details list. Closes the P1 in `build-reports/phase13-full-site-audit.md`.
-- `snippets/senseless-structured-data.liquid` — homepage Organization `vatID`.
-- `sections/senseless-org-schema.liquid` — about/contact Organization `vatID` + editable `vat_id` setting.
-- `templates/page.llms-txt.liquid:33` — machine-readable company record.
+## Next Work Item — put these to Daniel, in this order
 
-**Admin (NOT theme — written via Admin API this session):**
-- Native shop policies `CONTACT_INFORMATION` + `TERMS_OF_SERVICE`. **These render at checkout, which the theme cannot reach**, and are a *separate record set* from the `/pages/*` metafields — they drift silently. Worth re-checking whenever company details change.
-- Page metafields `policy.prose_policy_body` + `policy.faq` on `terms-conditions`, `prose_policy_body` on `rewards-terms`. The 7 legal pages are metafield-driven, so theme edits alone would not have touched them.
-- `scripts/policy-metafields.py` updated to match so the repo's record of policy copy doesn't rot.
+**1. TWO LIVE COMPLIANCE BREACHES (regulatory, outranks every SEO item).** Found during verification; the agency missed both. Deliberately **not** edited — `.claude/rules/compliance.md` reserves content-language calls to the founder.
+   - **(a) All 5 kit product descriptions** carry: *"Numbing reduces discomfort rather than removing it — follow the product instructions and your practitioner's guidance."* This makes "numbing" the subject of an effect verb and asserts discomfort reduction. A mitigating clause is still a claim. It is being broadcast **machine-readably** into SERPs and answer engines via the Product JSON-LD. Admin-owned (`body_html`), no theme change.
+   - **(b) PDP + collection FAQ blocks** carry *"while it takes effect"* and *"so it's working through the part that matters"*, and apply the 45–60-minute timing outside its carve-out. Decision `39158bc3-75ea-8181` (2 Jul) permits concrete timing **in application guides only** and states that extending it to PDP direction blocks *"needs its own decision"* — no such decision exists. Files: `templates/product.{clinical,advanced,professional}-strength-*.json` (~:101/:108/:115) and `templates/collection.numbing-cream.json:273,280`. ⚠️ Editing `product.*.json` requires `--reviews-changed` + a lock commit.
 
-**Format:** `GB 523 781 682` visible / `GB523781682` unspaced in JSON-LD (schema.org `vatID` convention). **The divergence is deliberate — don't "align" them in a future audit.**
+**2. 10 of 16 products have an entirely empty `body_html`** (all 9 cream/gel/spray SKUs + foaming cleanser), so their Product JSON-LD description falls back to `"<title> — a topical cosmetic preparation by Senseless."` The Product node is the highest-value LLM-extraction surface on the site and says nothing about 10 of 16 products. Admin-owned; picked up automatically once written. Ask whether Daniel drafts or Claude drafts to the CPSR envelope for his sign-off.
 
-**Not touched, on purpose:** compliance-locked copy (`senseless-key-facts.liquid:57`, `senseless-credentials.liquid:20` — MHRA/CPSR statements); privacy policy (data-controller identity only; a VAT number has no place in a privacy notice); `page.contact.json:230` Key Facts (same page → would print the number twice); per-variant `Offer.seller` nodes (would repeat 2–3× per PDP).
+**3. Questions only Daniel can answer** (each blocks a real fix):
+   - Which official social profiles exist, exact URLs? Footer already has Instagram/TikTok/Facebook settings wired (`sections/senseless-footer.liquid:180-184`) and they're empty. Adding `sameAs` to both Organization nodes is the defensible version of the agency's "thin entity data" point. **Do not add placeholder links.**
+   - Rename nav "Help" → "FAQ" (menu item `835629973852`, admin-only, no deploy), or keep "Help" as a dropdown parent with FAQ/Contact/Shipping/Returns under it? UX call.
+   - Judge.me's floating reviews tab injects **~90 KB into every page** including the FAQ and cart (17–23% of each document). Disabling `reviews_tab` (`config/settings_data.json:106`) keeps PDP reviews and star badges. Best byte-win available. Willing to lose the tab?
+   - Three chat widgets run at once (Dondy WhatsApp, Shopify Inbox, Google store widget). Which one do you actually answer?
+   - Bing: try **BWT → "Import from Google Search Console"** — GSC is already verified so it needs no code at all.
+   - GSC → Page Indexing → export "Discovered/Crawled – currently not indexed". Nothing on the site blocks indexing (58 indexable URLs, all 200, canonicals clean), so only GSC can settle the "17 pages indexed" claim.
 
-**HMRC VERIFIED (30 Jul, gov.uk checker):** `523781682` returns **Valid UK VAT number** · registered business name **MATRIX HEALTH GROUP LTD** · registered address Paddock Business Centre, 2 Paddock Road, Skelmersdale, WN8 9PL. Name and address match the footer exactly. The number is confirmed genuine and correctly attributed — no need to re-check.
+## Gotchas earned this session (don't re-derive)
 
-**Shopify tax registration DONE (30 Jul, admin UI via Chrome):** `Settings → Taxes and duties → United Kingdom → VAT collection` flipped from **"Below threshold" → "Collecting"**, VAT number stored as `GB523781682` (verified by reopening Edit). `Settings → General` business details already read **Matrix Health Group Ltd** — no change was needed there.
-
-Post-change check: `taxesIncluded` still `true` and live prices unchanged (£19.99 is still £19.99). VAT is now broken out **of** the inclusive price, not added on top — customer-facing prices did not move, but net revenue per order now excludes the VAT portion. Expected and correct for a VAT-registered business.
-
-## Next Work Item
-
-**No blocking item — the VAT work is complete across theme, admin and tax settings.**
-
-Optional, still open (convention not law — deliberately not enabled without a decision):
-- **VAT invoices toggle** — `Settings → Taxes and duties → United Kingdom → VAT invoices → "Generate and display invoices when orders are placed"` is currently **OFF**. Not legally required for B2C (VAT Regs 1995 reg 13 only compels an invoice B2B; reg 16 relieves retailers except on request from a VAT-registered customer). Turning it on shows an invoice on the **order status page only — it is not emailed**. Worth enabling if trade/practitioner customers start asking.
-- Order-confirmation email (`Settings → Notifications`) and packing slips have no VAT Liquid variable — they'd need hardcoding.
-
-### Gotchas earned this session (don't re-derive)
-
-1. **`snippets/senseless-structured-data.liquid` is a reviews-guard file** (carries `product.metafields.reviews.rating`). Editing it blocks the first deploy — that is the guard working correctly, not a bug. Confirm the reviews accessor is untouched, then re-run with `--reviews-changed` and commit the rewritten `reviews-guard.lock`. Post-deploy verify confirmed all 6 live markers (Judge.me ×4, GA4, Google Tag) still render.
-
-2. **Two live-only orphans — deliberately deleted from the repo, left alone on purpose. Do NOT "restore" them:**
-   - `blocks/footer-copyright.liquid` — removed in `313f788` ("unused, single source of truth"); bespoke `senseless-footer` replaced it.
-   - `templates/page.how-long-numbing-cream-takes-to-work.json` — removed in `64fcfdc` (takes-to-work merge); the URL 301-redirects.
-   Stale live leftovers, not content drift. Deleting them from live would be tidier but is destructive and wasn't in scope.
-
-3. **The VAT number passes the UK mod-97-55 checksum** (weighted sum 154 + 82 + 55 = 291 = 97×3), so the format is valid — but that only proves internal consistency, **not** that HMRC issued it to Matrix Health Group Ltd. HMRC's lookup API needs auth (returns `MISSING_CREDENTIALS` unauthenticated); confirm at https://www.gov.uk/check-uk-vat-number if not already done.
-
-4. **`templates/page.contact.json` is theme-editor editable.** If anyone adds VAT copy in admin, the next `deploy.sh` overwrites it. Repo is source of truth.
-
-5. **Locale/template files pulled from live always carry a 366-byte Shopify auto-gen header comment.** Strip it before diffing (regex `^\s*/\*.*?\*/\s*`) or you get ~100 phantom diffs and will wrongly conclude local and live have drifted.
-
-6. **`ShopPolicyInput` has no `id` field** — `shopPolicyUpdate` takes `{type, body}` only. Passing `id` fails with `INVALID_VARIABLE`.
+1. **`assets/images/**` DOES deploy.** The standing assumption that those working dirs never reach the theme is **false** — 18 of them (~7.5 MB of unreferenced source PNGs) are live theme assets, uploaded 1–6 Jun. Any checksum verifier built on that premise mis-counts. Cleanup is a deliberate, destructive act — not done.
+2. **Verify local↔live with the Admin Asset API, not just `theme pull`.** `GET /admin/api/2024-10/themes/199324434780/assets.json` returns an MD5 `checksum` per asset. Strip the leading `/* */` header and normalise `\/` escaping first or you get 4 phantom diffs (only 4 JSON files carry a committed pull header; the other 69 don't).
+3. **One cheap check replaces a full re-audit:** `themes.json` → `updated_at`. If it hasn't moved since the last verified parity, no Theme-Editor write happened and the previous verdict still holds.
+4. **The version invariant has no repo-side enforcement.** `.claude/hooks/guard-write.py:47` only asserts `canon_version` is truthy — it never compares it to `canon/state.json`. That's why `schema-contract.json` sat at v2.19 through a version sweep. Worth wiring properly.
+5. **Liquid raises on a nil comparison.** `image.aspect_ratio` can be nil for SVGs, so `{% if img.aspect_ratio < 1.2 %}` renders a `Liquid error` inline. Guard with `| default: 0`, and detect SVGs off the `image_url` string.
+6. **The clinical gel SKUs are the anomaly, not the docs.** Live: `S15CL`/`S35CL`, while both other gels are `SG15AD`/`SG35AD` and `SG15PR`/`SG35PR`. `docs/ARCHITECTURE.md` is internally consistent; "correcting" it to match live would codify a data-entry slip. Daniel decides whether live gets renamed.
+7. **Two repo scripts are destructive if re-run** (found by the parity pass, not fixed — they are records, and fixing them is its own task): `scripts/policy-menus-redirects.py` does a full `menuUpdate` replace against a stale record and would **wipe Articles + Rewards from the primary nav**; `scripts/policy-metafields.py` would publish shipping prices **£1 under** what checkout actually charges (repo says £2.99/£7.99, checkout charges £3.99/£8.99).
+8. **The State Surface log is past its rollover point** — 64 entries against Blueprint 01 §4.7's ~20 (last rolled over 3 Jul). It is ~29k tokens, 94% of the page, and every session pays to read it. The operator deliberately deferred the existing backlog at v2.19; worth raising again.
