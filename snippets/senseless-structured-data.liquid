@@ -28,7 +28,14 @@
 {%- case request.page_type -%}
 
 {%- when 'product' -%}
-  {%- assign pd = product.description | strip_html | strip_newlines | truncate: 480 -%}
+  {%- comment -%}
+    1200, not 480. At 480 every strength SKU's description was cut mid-sentence with an ellipsis, so the
+    text Google and the answer engines read lost the sizes and the "Formulated in the UK, CPSR assessed"
+    credential — and, before the copy was restructured, the "not a medicine" classification too. Product
+    schema has no strict length limit and the Merchant Center feed already takes the body whole, so this
+    aligns the two ad-facing surfaces. The cap stays as a guard against an oversized paste.
+  {%- endcomment -%}
+  {%- assign pd = product.description | strip_html | strip_newlines | truncate: 1200 -%}
   {%- if pd == blank -%}{%- assign pd = product.title | append: ' — a topical cosmetic preparation by Senseless.' -%}{%- endif -%}
   {%- comment -%} Judge.me rating, synced to the reviews.* metafields. rating is a `rating`-type
      metafield → its .value is a Rating object whose .value is the number. rating_count is a plain

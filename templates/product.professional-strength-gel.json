@@ -203,13 +203,6 @@
         "headline": "After your appointment"
       }
     },
-    "shortdesc": {
-      "type": "senseless-rich-text",
-      "settings": {
-        "background": "white",
-        "body": "<p>Professional is our practitioner tier — developed for professional use, for the longest and most sustained precise and facial work. Formulated in the UK, CPSR assessed.</p>"
-      }
-    },
     "linksout": {
       "type": "senseless-link-row",
       "blocks": {
@@ -277,7 +270,6 @@
     "hero",
     "strengths",
     "trust",
-    "shortdesc",
     "system",
     "keyfacts",
     "safetywarnings",

@@ -186,13 +186,6 @@
         "headline": "Before and after the cleanse."
       }
     },
-    "shortdesc": {
-      "type": "senseless-rich-text",
-      "settings": {
-        "background": "white",
-        "body": "<p>An antibacterial foaming cleanser for aftercare — cleanses the skin before and after your appointment. Not a numbing product. Formulated in the UK, CPSR assessed.</p>"
-      }
-    },
     "linksout": {
       "type": "senseless-link-row",
       "blocks": {
@@ -241,7 +234,6 @@
   "order": [
     "hero",
     "trust",
-    "shortdesc",
     "system",
     "keyfacts",
     "safetywarnings",
