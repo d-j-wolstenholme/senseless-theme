@@ -1,14 +1,14 @@
 {
   "_meta": {
     "purpose": "Machine-readable structure spec for the Senseless Notion canon. Validated by the PreToolUse(Edit|Write|MultiEdit) hook (.claude/hooks/guard-write.py). Authored by the CC bundle per Decision #41.",
-    "canon_version": "v2.19",
+    "canon_version": "v2.20",
     "project": "Senseless",
     "generated": "2026-06-29",
     "source": "Project Instance §2 (Notion 38e58bc3-75ea-8198-9ed7-de73bc48f2b5); fields harvested live from each data source on 2026-06-29",
     "read_order": ["State Surface", "Decisions", "Work Items"],
     "write_rule": "Writes target the data_source_id (not the page id). Use the exact field names below; each database's title field is marked title_field."
   },
-  "canon_version": "v2.19",
+  "canon_version": "v2.20",
   "frozen_globs": ["canon/blueprints/*", "canon/decisions.json"],
   "file_bindings": [],
   "pages": {

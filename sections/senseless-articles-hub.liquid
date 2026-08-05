@@ -31,6 +31,9 @@
   .ss-ah__media { aspect-ratio:16/9; background:var(--bg); display:block; position:relative; }
   .ss-ah__media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease; }
   .ss-ah__card:hover .ss-ah__media img { transform:scale(1.05); }
+  {%- comment -%} Square brand marks (the asterisk) are contained, not cropped — object-fit:cover on a 1:1 mark in a 16:9 frame clips ~44% of it. {%- endcomment -%}
+  .ss-ah__media--mark img { object-fit:contain; padding:13%; box-sizing:border-box; }
+  .ss-ah__card:hover .ss-ah__media--mark img { transform:scale(1.03); }
   .ss-ah__ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
   .ss-ah__ph svg { width:34%; opacity:.18; fill:var(--p); }
   .ss-ah__view { position:absolute; left:0; right:0; bottom:0; padding:18px 14px 10px; background:linear-gradient(to top, rgba(26,24,22,.72), rgba(26,24,22,0)); color:#fff; font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:.02em; opacity:0; transform:translateY(6px); transition:opacity .2s ease, transform .2s ease; pointer-events:none; }
@@ -85,7 +88,20 @@
         {%- for block in section.blocks -%}
           {%- if block.settings.url != blank -%}
             <article class="ss-ah__card" {{ block.shopify_attributes }}>
-              <a class="ss-ah__media" href="{{ block.settings.url }}" aria-label="{{ block.settings.title | escape }}">
+              {%- liquid
+                # Square brand marks get contained, not cropped. Two signals because Shopify does not always
+                # report intrinsic dimensions for an SVG — aspect_ratio can be nil, and a nil comparison
+                # raises in Liquid, hence the `default: 0` guard.
+                assign mark_class = ''
+                assign mark_src = block.settings.image | image_url: width: 40
+                assign mark_ar = block.settings.image.aspect_ratio | default: 0
+                if mark_src contains '.svg'
+                  assign mark_class = ' ss-ah__media--mark'
+                elsif mark_ar > 0 and mark_ar < 1.2
+                  assign mark_class = ' ss-ah__media--mark'
+                endif
+              -%}
+              <a class="ss-ah__media{{ mark_class }}" href="{{ block.settings.url }}" aria-label="{{ block.settings.title | escape }}">
                 {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '(min-width:700px) 33vw, 100vw', widths: '300,600', alt: block.settings.title | escape }}<span class="ss-ah__view" aria-hidden="true">Read article &rarr;</span>
                 {%- else -%}<span class="ss-ah__ph">{{ 'image' | placeholder_svg_tag }}</span>{%- endif -%}
               </a>

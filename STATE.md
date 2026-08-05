@@ -3,7 +3,7 @@
 Repo-side mirror of the Notion 📍 STATE page (`37358bc375ea81ac9451f6b07bdf4e6e`). Newest update at top.
 Created 2026-06-15 (the mirror was previously missing — see DECISIONS-LOG / audit 2026-06-12).
 
-Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`), live theme **Senseless Dev #199324434780**, branch `main`. Storefront password ON (pre-public).
+Canonical: live store `senseless-numbing.myshopify.com` (domain `senseless.uk`), live theme **Senseless Dev #199324434780**, branch `main`. Storefront password **OFF** — the store is public (live since the 7 Jun 2026 launch; re-verified 2026-08-05 via `shop.json` → `password_enabled: false`).
 
 ---
 

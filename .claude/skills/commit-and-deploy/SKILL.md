@@ -21,7 +21,7 @@ description: Use this skill at the end of every Claude Code session. Stages all 
 
 1. Run `git status` to show all changes
 2. Ask user to confirm what's being committed
-3. **Verify BEFORE deploying (pushes hit live):** `shopify theme check` must be **0 errors**, and password-render the changed surfaces (the storefront password stays ON until public go-live, so live changes aren't public yet — but they ARE live). Also run the **content lint** (same pre-deploy slot as the Rich Results check): `python3 scripts/content-lint.py` — writes `reports/content-lint-<date>.{csv,md}`. **WARN-only for now (does NOT fail the build):** review BLOCK rows (MHRA/ASA hard-rule phrases) before pushing user-facing copy. Add `--first-party` to report Senseless-authored copy only (excludes Horizon vendor files — locales, blocks, vendor sections/snippets — writes `…-first-party.{csv,md}`). To make compliance BLOCKs gate the deploy later, run `python3 scripts/content-lint.py --fail-on-block` (exits 2 on any BLOCK).
+3. **Verify BEFORE deploying (pushes hit live):** `shopify theme check` must be **0 errors**, and render-verify the changed surfaces live (the storefront password is **OFF** — the site has been public since the 7 Jun launch, so anything deployed is immediately visible to customers). Also run the **content lint** (same pre-deploy slot as the Rich Results check): `python3 scripts/content-lint.py` — writes `reports/content-lint-<date>.{csv,md}`. **WARN-only for now (does NOT fail the build):** review BLOCK rows (MHRA/ASA hard-rule phrases) before pushing user-facing copy. Add `--first-party` to report Senseless-authored copy only (excludes Horizon vendor files — locales, blocks, vendor sections/snippets — writes `…-first-party.{csv,md}`). To make compliance BLOCKs gate the deploy later, run `python3 scripts/content-lint.py --fail-on-block` (exits 2 on any BLOCK).
 4. Stage all changes: `git add .`
 5. Commit with the provided message
 6. Push to origin **main**:
@@ -79,7 +79,7 @@ description: Use this skill at the end of every Claude Code session. Stages all 
 ## Constraints
 
 - Never skip the build report.
-- **Pushes deploy to the LIVE theme** (`#199324434780` on `senseless-numbing.myshopify.com`) — run `shopify theme check` (0 errors) + password-render the changed surfaces BEFORE pushing.
-- **Keep the storefront password ON** until public go-live (don't unpublish/expose the store as part of session-end).
+- **Deploys hit the LIVE theme** (`#199324434780` on `senseless-numbing.myshopify.com`) — run `shopify theme check` (0 errors) + render-verify the changed surfaces BEFORE deploying. (A `git push` alone does NOT deploy; only `scripts/deploy.sh` does.)
+- **The storefront password is OFF and the store is public** (since the 7 Jun launch). There is no password curtain — every deploy is customer-visible the moment it lands. Never turn the password back on as part of session-end.
 - `--allow-live` is mandatory on `shopify theme push` (the theme is published); after pushing, Asset-API-verify the changed files (the combined push has silently skipped template JSON).
 - If any drift-check warnings exist, flag in the report but don't block the push.

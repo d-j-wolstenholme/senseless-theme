@@ -44,6 +44,11 @@
   .ss-art__foot { max-width:740px; margin:0 auto; padding:28px 20px 56px; }
   .ss-art__back { color:var(--p); text-decoration:none; font-weight:600; font-size:15px; }
   .ss-art__back:hover { text-decoration:underline; }
+  .ss-art__related { max-width:760px; margin:40px auto 0; padding:0 20px; }
+  .ss-art__related-head { font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0 0 14px; }
+  .ss-art__related-list { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+  .ss-art__related-list a { color:var(--body); text-decoration:none; font-weight:600; font-size:17px; line-height:1.35; border-bottom:1px solid var(--bd); display:block; padding:0 0 10px; }
+  .ss-art__related-list a:hover { color:var(--p); }
   @media (max-width:749px){ .ss-art__title { line-height:1.08; } }
   @media (prefers-reduced-motion: reduce){ .ss-art__q::after { transition:none; } }
 {%- endstyle -%}
@@ -68,6 +73,40 @@
         {%- endfor -%}
       </div>
     </section>
+  {%- endif -%}
+
+  {%- comment -%}
+    Reciprocal internal links. Guides were previously reachable only from /pages/articles, leaving two of
+    them on a single indexable inbound link. The window is offset from this article's own position and
+    wraps, so every article both gives and receives the same number of links instead of all of them
+    pointing at the same first three. Anchor text is the article title verbatim — no new claim surface.
+  {%- endcomment -%}
+  {%- liquid
+    assign total = blog.articles.size
+    assign here = 0
+    for art in blog.articles
+      if art.id == article.id
+        assign here = forloop.index0
+        break
+      endif
+    endfor
+    assign want = 3
+    assign max_want = total | minus: 1
+    if max_want < want
+      assign want = max_want
+    endif
+  -%}
+  {%- if want > 0 -%}
+    <nav class="ss-art__related" aria-label="More guides">
+      <h2 class="ss-art__related-head">More guides</h2>
+      <ul class="ss-art__related-list">
+        {%- for i in (1..want) -%}
+          {%- assign j = here | plus: i | modulo: total -%}
+          {%- assign rel = blog.articles[j] -%}
+          <li><a href="{{ rel.url }}">{{ rel.title | escape }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
   {%- endif -%}
 
   <div class="ss-art__foot"><a class="ss-art__back" href="{{ blog.url }}">← All guides</a></div>

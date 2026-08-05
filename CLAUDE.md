@@ -23,7 +23,7 @@ Thin front door. **Notion is the single source of truth** — structure lives in
 - **Reviews-guard:** `reviews-guard.manifest`/`.lock` gate every deploy (Judge.me markers must survive); editing review files needs `--reviews-changed` + a lock commit.
 - **Two-auditor split:** chat/Daniel audits the source (copy, SEO, intent); Claude Code audits the render (UI, a11y, deploy) — never claim a render fact you can't observe live.
 - **Compliance (UK, [Regulated] — non-negotiable):** MHRA/ASA/CPSR Hard Rules; no medicinal/effect/time-to-effect claims; "numbing" is a category noun only. Run `compliance-check` before any user-facing copy; honour the Compliance Holds DB. → `.claude/rules/compliance.md`
-- **Range:** 15 single SKUs + Foaming Cleanser (**35ml**) + 5 bundles (three strengths × three formats). Brand `#6B3FA0`.
+- **Range** (re-counted live 2026-08-05 — 16 products / 21 variants): **15 single SKUs incl. the Foaming Cleanser** — 14 across three strengths × three formats (creams 10g+30g, *Professional cream 30g only*; gels 15ml+35ml; sprays 35ml only) + Foaming Cleanser (**35ml**) — plus the **Vitamin A&D ointment 4-pack** cart add-on and **5 bundles** (Clinical/Advanced Starter · Clinical/Advanced/Professional Ultimate). Brand `#6B3FA0`.
 - **Machine (hard rule #1):** ask which machine (Mac mini / MacBook Pro) at session start; reconcile prints it.
 
 ## Response style

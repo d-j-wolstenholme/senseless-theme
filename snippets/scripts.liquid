@@ -257,11 +257,7 @@
 {% endif %}
 
 {% if template == 'product' or template.name == 'product' or request.page_type == 'product' %}
-  <script
-    src="{{ 'fly-to-cart.js' | asset_url }}"
-    type="module"
-    fetchpriority="low"
-  ></script>
+  {%- comment -%} fly-to-cart.js is already loaded globally above (quick-add fires it on collection cards too) — the product-scoped copy here was a duplicate tag. {%- endcomment -%}
   <script
     src="{{ 'sticky-add-to-cart.js' | asset_url }}"
     type="module"
