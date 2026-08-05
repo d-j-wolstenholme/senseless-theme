@@ -156,7 +156,27 @@
         {{ v.price | money }}
       </p>
 
-      {%- if p.description != blank -%}<div class="ss-ph__desc">{{ p.description }}</div>{%- endif -%}
+      {%- comment -%}
+        Buy-box copy is capped at the first two paragraphs. The FULL description still reaches the Product
+        JSON-LD and the Merchant Center feed — both take body_html whole — so this costs nothing in SEO or
+        GEO terms; it only controls how much text sits above the size selector and Add to cart. Measured
+        before the cap: 126–142 words on the strength SKUs vs 68 on the kits, which have worked this way
+        since June. Every product except the nine strength SKUs is already two paragraphs or fewer, so this
+        trims only their third paragraph — application steps and credentials that repeat in How to use and
+        Key facts further down the page. Falls back to the whole description if it carries no <p> markup.
+      {%- endcomment -%}
+      {%- if p.description != blank -%}
+        <div class="ss-ph__desc">
+          {%- if p.description contains '</p>' -%}
+            {%- assign ss_desc_parts = p.description | split: '</p>' -%}
+            {%- for ss_part in ss_desc_parts limit: 2 -%}
+              {%- if ss_part contains '<p' -%}{{ ss_part }}</p>{%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {{ p.description }}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
 
       <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ p.id }}" on:submit="/handleSubmit">
       <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
