@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Duration of effect",
         "headline": "How long does numbing cream last?",
-        "subhead": "<p>Duration depends on the procedure, the tier, and the individual. The honest answer isn't a number — it's a framework that matches the appointment. Senseless is formulated to last through the kind of session each tier is built for.</p>",
+        "subhead": "<p>Duration depends on the procedure, the tier, and the individual. The honest answer isn't a number — it's a framework that matches the appointment. Senseless tiers are formulated to match the session lengths they're built for.</p>",
         "image_alt": "Editorial close-up of a Senseless topical preparation on a warm off-white background"
       }
     },
@@ -63,7 +63,7 @@
         "direction": "text-left",
         "eyebrow": "A real consideration",
         "headline": "Most appointments are timed to fit.",
-        "body": "<p>A well-matched preparation lasts the length of the procedure. The reason the Senseless system has three tiers and the recommendation matrix tells you which to pick is exactly this — too short a window for an intensive session is the most common application mistake. If your appointment runs longer than expected and you've been on the lighter side of preparation, your practitioner has options. Some reapply at the chair. Some use additional numbing during the procedure. Some pause briefly. Your practitioner knows what they can offer and what their protocol allows.</p>",
+        "body": "<p>A well-matched preparation is chosen for the length of the procedure. The reason the Senseless system has three tiers and the recommendation matrix tells you which to pick is exactly this — too short a window for an intensive session is the most common application mistake. If your appointment runs longer than expected and you've been on the lighter side of preparation, your practitioner has options. Some reapply at the chair. Some use additional numbing during the procedure. Some pause briefly. Your practitioner knows what they can offer and what their protocol allows.</p>",
         "cta_label": "Choose your strength",
         "cta_url": "/pages/the-senseless-system",
         "image": "shopify://shop_images/senseless-asterisk.svg",
@@ -88,7 +88,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Will it last through my whole appointment?",
-            "answer": "<p>If you've matched the tier to the procedure, yes — that's the system's design. If you've chosen a lighter tier than the procedure asks for, the window may not cover the full session. Pick the tier the procedure calls for.</p>"
+            "answer": "<p>If you've matched the tier to the procedure, that's what the system is designed for. If you've chosen a lighter tier than the procedure asks for, the window may not cover the full session. Pick the tier the procedure calls for.</p>"
           }
         },
         "q2": {

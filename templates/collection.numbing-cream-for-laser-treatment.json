@@ -224,7 +224,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Does laser hair removal hurt?",
-            "answer": "<p>Most people feel a quick sting or a hot-elastic-band snap with each pulse, and numbing is there to reduce that discomfort — it doesn't remove all sensation. How much you feel varies with the area, the machine, your skin and the coarseness of the hair. Many find prepared skin more comfortable than unprepared, but check with your technician first — some prefer you to arrive without numbing applied.</p>"
+            "answer": "<p>Most people feel a quick sting or a hot-elastic-band snap with each pulse, and numbing is a cosmetic preparation that supports comfort, not an anaesthetic. How much you feel varies with the area, the machine, your skin and the coarseness of the hair. Many find prepared skin more comfortable than unprepared, but check with your technician first — some prefer you to arrive without numbing applied.</p>"
           }
         },
         "q2": {
@@ -252,7 +252,7 @@
           "type": "faq_item",
           "settings": {
             "question": "When do I apply it?",
-            "answer": "<p>Ahead of your appointment, allowing time for it to take effect — follow the product guidance and your practitioner's protocol for the laser they use.</p>"
+            "answer": "<p>Ahead of your appointment, leaving it on for the window your practitioner sets — follow the product guidance and your practitioner's protocol for the laser they use.</p>"
           }
         },
         "q6": {

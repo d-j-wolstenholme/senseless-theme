@@ -118,7 +118,7 @@
             "image_alt": "Senseless Advanced Strength cream on a warm off-white background",
             "label": "Advanced Strength",
             "heading": "For longer or more demanding sessions",
-            "body": "<p>The step up for longer or more demanding sessions. A higher-strength formula for longer sessions and more sensitive indications. Chosen by clients who know what their appointment will ask of them.</p>",
+            "body": "<p>The step up for longer or more demanding sessions. A higher-strength formula for longer sessions and more sensitive areas. Chosen by clients who know what their appointment will ask of them.</p>",
             "cta_label": "Shop Advanced",
             "cta_url": "/collections/numbing-cream?strength=advanced",
             "flagship": false
@@ -287,7 +287,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Which strength should I choose?",
-            "answer": "<p>Clinical suits most aesthetic appointments. Advanced for longer or more sensitive sessions. Professional for the most demanding indications. See the <a href=\"/pages/the-senseless-system\">strength guide</a>.</p>"
+            "answer": "<p>Clinical suits most aesthetic appointments. Advanced for longer or more sensitive sessions. Professional for the most demanding appointments. See the <a href=\"/pages/the-senseless-system\">strength guide</a>.</p>"
           }
         },
         "q5": {
