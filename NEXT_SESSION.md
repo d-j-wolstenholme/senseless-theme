@@ -37,6 +37,16 @@ Empty since 1 June, so their Product JSON-LD was boilerplate. Now written, adver
 - `shortdesc` section removed from all 10 templates — it duplicated the description's opening sentence verbatim.
 - **"Antibacterial" on the cleanser is substantiated** (Daniel, 6 Aug; Confirmed Fact logged). Do not re-raise.
 
+## ⏳ PUT THE VANITY BAG BACK WHEN STOCK ARRIVES
+
+Daniel confirmed (6 Aug) the bag **does** ship with all five bundles, but stock had not landed while the bundles were on sale with 19–20 units each — so every bundle sold was promising something that couldn't be supplied. His call was to remove it until stock lands, rather than qualify it or pause sales.
+
+**To restore:** `git revert db6d6fc`, or re-add *"and a reusable vanity bag"* to the three prose strings in `templates/product.bundle.json` (:71, :83) and `templates/collection.bundles.json` (:25), and restore the label at `product.bundle.json:45` to *"Cream, gel, spray, cleanser + vanity bag"*.
+
+**Do this at the same time:** add the bag to the `senseless.bundle_contents` metafield on all five kits. It currently lists four items — that mismatch is exactly what surfaced the problem. Get data and copy agreeing from the start this time.
+
+Note `:83` is also the source of the FAQPage JSON-LD, so the claim reaches Google as well as the page.
+
 ## Next Work Item — open, needs Daniel
 
 1. **Social profile URLs** — footer settings already wired (`senseless-footer.liquid:180-184`) and empty. Then add `sameAs` to both Organization nodes. **Do not add placeholder links.**
