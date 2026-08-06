@@ -15,6 +15,17 @@
   if fmt != 'all'
     assign typename = fmt | capitalize
     assign typed = collection.products | where: 'type', typename
+    comment
+      # The aftercare row is set to format:cleanser, but the Vitamin A&D 4-pack carries
+      # product_type "Aftercare", so a plain type match dropped it from every browse page — including
+      # /collections/shop-all, whose own JSON-LD declared 16 items while the DOM rendered 15. It is
+      # also the only SKU that bridges a £39.98 basket to the £40 free-delivery threshold, so it has
+      # to be reachable. Fold Aftercare into the cleanser row rather than adding a one-product row.
+    endcomment
+    if fmt == 'cleanser'
+      assign aftercare = collection.products | where: 'type', 'Aftercare'
+      assign typed = typed | concat: aftercare
+    endif
     assign ordered = '' | split: ''
     assign ranks = 'Clinical,Advanced,Professional' | split: ','
     for r in ranks
@@ -101,6 +112,9 @@
   @media (min-width:990px) { .ss-cg__inner { padding-inline:40px; } }
   @media (max-width:989px) { .ss-cg__inner { padding-block:56px; } }
   @media (max-width:749px) { .ss-cg__inner { padding-block:44px; } .ss-cg__grid { gap:12px; } .ss-cg__cbody { padding:16px; } }
+  .ss-ph__atc-error, .ss-atc-error { display:flex; align-items:flex-start; gap:6px; flex:1 0 100%; margin:0 0 8px; color:#B3261E; font-size:14px; line-height:1.4; }
+  .ss-ph__atc-error.hidden, .ss-atc-error.hidden { display:none; }
+  .ss-ph__atc-error .svg-wrapper svg, .ss-atc-error .svg-wrapper svg { width:16px; height:16px; }
 {%- endstyle -%}
 
 <section class="ss-cg" id="{{ section.settings.anchor_id | default: 'shop' | escape }}" aria-label="{{ section.settings.headline | default: 'Shop' | escape }}">
@@ -169,6 +183,8 @@
 
             <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ product.id }}" on:submit="/handleSubmit" data-cg-form>
               <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+              {%- comment -%} Without this ref, product-form.js returns early and a failed add shows nothing. {%- endcomment -%}
+              <span class="ss-atc-error hidden" ref="addToCartTextError" role="alert"><span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span></span>
               {%- form 'product', product, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                 <input type="hidden" name="id" ref="variantId" value="{{ v0.id }}" data-cg-vid>
                 {%- if product.variants.size > 1 -%}

@@ -18,141 +18,6 @@
         "judgeme_preview_badge"
       ]
     },
-    "matrix": {
-      "type": "senseless-strength-matrix",
-      "blocks": {
-        "r1": {
-          "type": "suitability_row",
-          "settings": {
-            "procedure": "Lip Fillers",
-            "recommendation": "Recommended",
-            "level": "recommended"
-          }
-        },
-        "r2": {
-          "type": "suitability_row",
-          "settings": {
-            "procedure": "Botox",
-            "recommendation": "Recommended",
-            "level": "recommended"
-          }
-        },
-        "r3": {
-          "type": "suitability_row",
-          "settings": {
-            "procedure": "Microneedling",
-            "recommendation": "Possible — Advanced often suits better",
-            "level": "possible"
-          }
-        },
-        "r4": {
-          "type": "suitability_row",
-          "settings": {
-            "procedure": "Laser (face, small zones)",
-            "recommendation": "Recommended",
-            "level": "recommended"
-          }
-        },
-        "r5": {
-          "type": "suitability_row",
-          "settings": {
-            "procedure": "SPMU (microblading, lip blush)",
-            "recommendation": "Not recommended — Advanced or Professional",
-            "level": "not"
-          }
-        },
-        "r6": {
-          "type": "suitability_row",
-          "settings": {
-            "procedure": "Waxing (small zones — lip, brow)",
-            "recommendation": "Recommended",
-            "level": "recommended"
-          }
-        },
-        "r7": {
-          "type": "suitability_row",
-          "settings": {
-            "procedure": "Waxing (bikini, brazilian, body)",
-            "recommendation": "Not recommended — Advanced spray",
-            "level": "not"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5",
-        "r6",
-        "r7"
-      ],
-      "settings": {
-        "eyebrow": "Suited for",
-        "headline": "The standard appointment.",
-        "cta_label": "Find your strength",
-        "cta_url": "/pages/the-senseless-system"
-      }
-    },
-    "howtouse": {
-      "type": "senseless-how-to-use",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "title": "Clean the area.",
-            "body": "<p>Use a gentle cleanser. Pat dry — no rubbing.</p>"
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "title": "Apply a thin layer.",
-            "body": "<p>Cover the treatment area evenly. A pea-sized amount per zone is usually enough.</p>"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "title": "Leave it.",
-            "body": "<p>Follow your practitioner's timing guidance for the procedure you've booked.</p>"
-          }
-        },
-        "s4": {
-          "type": "step",
-          "settings": {
-            "title": "Remove before your appointment.",
-            "body": "<p>Wipe with a clean cloth or tissue at the practitioner's instruction.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
-      ],
-      "settings": {
-        "eyebrow": "Application",
-        "headline": "A short routine ahead of your appointment.",
-        "closer": "<p>Your practitioner is the best guide for application timing specific to your booking. The four steps above are the standard preparation routine — your specific appointment may vary.</p>",
-        "cta_label": "How Senseless works",
-        "cta_url": "/pages/the-senseless-system"
-      }
-    },
-    "system": {
-      "type": "senseless-image-text-band",
-      "settings": {
-        "direction": "text-left",
-        "eyebrow": "The system",
-        "headline": "Clinical is the standard. Two more strengths sit above it.",
-        "body": "<p>Clinical Strength is the Senseless cream most clients buy. Advanced sits one step up — for longer sessions, sensitive treatment areas, or microneedling-tier procedures. Professional is our practitioner tier, developed specifically for professional use. Most clients buy Clinical. Some buyers go straight to Advanced. Both are the right choice for the appointments they're built for.</p>",
-        "cta_label": "Find your strength",
-        "cta_url": "/pages/the-senseless-system",
-        "image": "shopify://shop_images/senseless-homepage-hero.webp",
-        "image_alt": "Editorial three-tier Senseless lineup"
-      }
-    },
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
@@ -188,64 +53,6 @@
         "t4"
       ],
       "settings": {}
-    },
-    "faq": {
-      "type": "senseless-faq-accordion",
-      "blocks": {
-        "q1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's the difference between Clinical and Advanced Strength?",
-            "answer": "<p>Clinical is the standard-strength formula — built for routine aesthetic appointments. Advanced is a higher-strength formula for longer or more sensitive sessions. Same system, different appointment context.</p>"
-          }
-        },
-        "q2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is Clinical Strength enough for lip fillers?",
-            "answer": "<p>Yes. Lip filler appointments sit comfortably in Clinical territory. Advanced only if your lips are particularly sensitive or your session runs longer than a quick top-up.</p>"
-          }
-        },
-        "q3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What about microneedling?",
-            "answer": "<p>Microneedling typically calls for Advanced Strength — longer session, broader treatment area. Clinical may suit smaller microneedling zones, but Advanced is the standard recommendation for full-face appointments.</p>"
-          }
-        },
-        "q4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What's in it?",
-            "answer": "<p>A UK-formulated cosmetic preparation. Full ingredients list available on the packaging and below.</p>"
-          }
-        },
-        "q5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How long does it last?",
-            "answer": "<p>Senseless is designed for use ahead of a specific appointment. Specific duration varies by client and by application protocol — your practitioner is the best guide.</p>"
-          }
-        },
-        "q6": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5",
-        "q6"
-      ],
-      "settings": {
-        "headline": "Common questions."
-      }
     },
     "crosssell": {
       "type": "senseless-cross-sell",
@@ -367,13 +174,6 @@
         "heading": "Key facts"
       }
     },
-    "strengths": {
-      "type": "senseless-strength-links",
-      "settings": {
-        "eyebrow": "The range",
-        "band": "surface"
-      }
-    },
     "reviews": {
       "type": "senseless-reviews",
       "settings": {
@@ -390,12 +190,7 @@
   },
   "order": [
     "hero",
-    "matrix",
-    "strengths",
-    "howtouse",
-    "system",
     "trust",
-    "faq",
     "reviews",
     "keyfacts",
     "safetywarnings",

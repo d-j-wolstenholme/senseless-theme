@@ -32,6 +32,8 @@
     class="ss-qa"
   >
     <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+              {%- comment -%} Without this ref, product-form.js returns early and a failed add shows nothing. {%- endcomment -%}
+              <span class="ss-atc-error hidden" ref="addToCartTextError" role="alert"><span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span></span>
     {%- form 'product', product, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
       <input type="hidden" name="id" ref="variantId" value="{{ variant.id }}" data-qa-vid>
       {%- if product.variants_count > 1 -%}
@@ -119,4 +121,7 @@
   }
   .ss-qa__add:hover { background: #5A3489; border-color: #5A3489; }
   .ss-qa__add[disabled] { opacity: .5; cursor: not-allowed; }
+  .ss-atc-error { display:flex; align-items:flex-start; gap:6px; flex:1 0 100%; margin:0 0 8px; color:#B3261E; font-size:13px; line-height:1.4; }
+  .ss-atc-error.hidden { display:none; }
+  .ss-atc-error .svg-wrapper svg { width:15px; height:15px; }
 {% endstylesheet %}

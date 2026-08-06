@@ -454,9 +454,14 @@ class ProductFormComponent extends Component {
 
           // Add aria-live region to inform screen readers that the item was added
           // Get the added text from any add-to-cart button
+          // Senseless: the Horizon <add-to-cart-component> wrapper is not used by any Senseless
+          // template (all 13 product templates use senseless-product-hero), so allAddToCartContainers
+          // is always empty here and the old `if (anyAddToCartButton)` gate meant the success
+          // announcement never fired on ANY add path. Fall back to the default "added" translation
+          // instead of skipping the announcement.
           const anyAddToCartButton = allAddToCartContainers[0]?.refs.addToCartButton;
-          if (anyAddToCartButton) {
-            const addedTextElement = anyAddToCartButton.querySelector('.add-to-cart-text--added');
+          {
+            const addedTextElement = anyAddToCartButton?.querySelector('.add-to-cart-text--added');
             const addedText = addedTextElement?.textContent?.trim() || Theme.translations.added;
 
             this.#setLiveRegionText(addedText);

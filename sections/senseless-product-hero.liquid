@@ -115,6 +115,9 @@
     .ss-ph__opt label { min-width: 0; width: 100%; }
   }
   @media (prefers-reduced-motion: reduce) { .ss-ph__atc, .ss-ph__opt label { transition: none; } }
+  .ss-ph__atc-error, .ss-atc-error { display:flex; align-items:flex-start; gap:6px; flex:1 0 100%; margin:0 0 8px; color:#B3261E; font-size:14px; line-height:1.4; }
+  .ss-ph__atc-error.hidden, .ss-atc-error.hidden { display:none; }
+  .ss-ph__atc-error .svg-wrapper svg, .ss-atc-error .svg-wrapper svg { width:16px; height:16px; }
 {%- endstyle -%}
 
 <section class="ss-ph" data-ss-ph aria-label="{{ p.title | escape }}">
@@ -180,6 +183,14 @@
 
       <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ p.id }}" on:submit="/handleSubmit">
       <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
+      {%- comment -%}
+        product-form.js returns early at :360 and :410 unless this ref exists, so without it a failed
+        add-to-cart shows the customer NOTHING — no message, no change. Horizon only ships it in
+        blocks/buy-buttons.liquid, which no Senseless template renders.
+      {%- endcomment -%}
+      <span class="ss-ph__atc-error hidden" ref="addToCartTextError" role="alert">
+        <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+      </span>
       {%- form 'product', p, class: 'ss-ph__form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
         {%- if p.variants.size > 1 -%}
           {%- for option in p.options_with_values -%}

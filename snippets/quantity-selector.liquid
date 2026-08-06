@@ -74,8 +74,16 @@
       {% if line_index %}
         data-cart-line="{{ line_index | plus: 1 }}"
       {% endif %}
+      {%- comment -%}
+        A merchant quantity rule wins if one is set. Otherwise, when stock is tracked and the store
+        refuses oversell, cap the stepper at what actually exists — without this there is NO max on any
+        Senseless PDP, canAddToCart() always returns true, and ordering more than stock produces a
+        server 422 the customer never sees. Professional Spray has run as low as 6 units.
+      {%- endcomment -%}
       {% if variant.quantity_rule.max %}
         max="{{ variant.quantity_rule.max }}"
+      {% elsif variant.inventory_management != blank and variant.inventory_policy == 'deny' and variant.inventory_quantity > 0 %}
+        max="{{ variant.inventory_quantity }}"
       {% endif %}
       step="{{ variant.quantity_rule.increment | default: 1 }}"
       {% if can_update_quantity == false or variant.available == false %}
