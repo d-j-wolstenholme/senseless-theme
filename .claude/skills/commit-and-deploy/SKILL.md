@@ -17,7 +17,16 @@ description: Use this skill at the end of every Claude Code session. Stages all 
 
 ## Process
 
-**`main` is the single working branch and pushes deploy to the LIVE theme — verify before every push.**
+**`main` is the single working branch and `scripts/deploy.sh` deploys to the LIVE theme — verify before every deploy.**
+
+> **COMMIT BEFORE YOU DEPLOY. The order below is load-bearing, not stylistic.**
+> Deploying first opens a window where live is ahead of the repo, and anything that interrupts the
+> session in that window — a crashed tool call, an API error, a lost connection — leaves the store
+> carrying code that exists nowhere in git. That happened on **6 Aug 2026**: an API error landed between
+> `deploy.sh` and `git commit`, and the fix was live and uncommitted until a `git status` re-check caught
+> it. Commit → push → deploy means the worst case is a commit that hasn't shipped yet, which is visible,
+> harmless and trivially re-deployed. **If you have already deployed, commit immediately — do not start
+> anything else, and do not trust that you will remember.**
 
 1. Run `git status` to show all changes
 2. Ask user to confirm what's being committed
@@ -28,9 +37,15 @@ description: Use this skill at the end of every Claude Code session. Stages all 
    ```
    git push origin main
    ```
-7. If theme files changed, deploy to the **LIVE** theme via Shopify CLI — **`--allow-live` is required** (the theme is published, so the CLI refuses without it). Push changed files with `--only` and re-verify via Asset-API diff (the combined push has silently skipped template JSON before):
+7. If theme files changed, deploy with **`scripts/deploy.sh` — never raw `shopify theme push`** (the script owns token refresh, `--allow-live`, scoped `--only`, and the reviews guard; see `.claude/rules/deploy-and-store.md`). **Run it under `bash`:**
    ```
-   shopify theme push --store senseless-numbing.myshopify.com --theme 199324434780 --allow-live --only <files>
+   bash -c './scripts/deploy.sh <files>'          # add --reviews-changed if a guard file changed
+   ```
+   ⚠️ **zsh does not word-split an unquoted variable.** `./scripts/deploy.sh $FILES` under zsh passes every path as ONE `--only` argument; deploy.sh prints **"deploy: success"** and pushes **nothing**. This happened on 6 Aug 2026 with 25 templates. Always pass paths literally or run under bash, and always verify per file afterwards.
+   Then re-verify per file via Asset-API compare — the combined push has silently skipped template JSON before:
+   ```
+   # for each deployed path: GET /admin/api/2024-10/themes/199324434780/assets.json?asset[key]=<path>
+   # compare parsed JSON (strip the leading /* */ header, normalise \/ escaping) against the local file
    ```
 8. Run drift-check skill to surface any open discrepancies
 9. Generate the build report (full format below)

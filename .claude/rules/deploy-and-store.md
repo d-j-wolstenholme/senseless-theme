@@ -15,7 +15,9 @@ Detail behind the CLAUDE.md one-liners. Canon: Project Instance §3/§4/§6 (Not
 ## Deploy = `scripts/deploy.sh` only
 - Theme deploys go through Shopify CLI via `scripts/deploy.sh`: token refresh → `--allow-live` → scoped `--only <paths>`. Raw `shopify theme push` is not used.
 - **A `git push` does NOT deploy.** Pushing to `origin/main` is version control only — nothing reaches the live theme without `deploy.sh`. (`git push` to origin is allowed and routine; it is decoupled from deploy.)
-- Known recurring issue: a combined push can silently skip templates (deployed ≠ committed). Mitigation: per-file Asset-API remote diff after each push + `--only` re-push of any missing file.
+- **Commit → push → THEN deploy.** Deploying first opens a window in which live is ahead of the repo; anything that interrupts the session in that window (API error, crashed call, lost connection) leaves the store running code that exists nowhere in git. Happened 6 Aug 2026. If you have already deployed, commit immediately before doing anything else.
+- **Run `deploy.sh` under `bash`.** zsh does not word-split an unquoted variable, so `./scripts/deploy.sh $FILES` passes every path as ONE `--only` argument — deploy.sh reports **"deploy: success"** and pushes **nothing**. Cost 25 templates a silent no-op on 6 Aug 2026. Pass paths literally, or `bash -c './scripts/deploy.sh ...'`.
+- Known recurring issue: a combined push can silently skip templates (deployed ≠ committed). Mitigation: per-file Asset-API remote diff after each push + `--only` re-push of any missing file. **The Asset-API compare is the only thing that catches a false "success"** — deploy.sh's own exit code does not. Strip the leading `/* */` header and normalise `\/` escaping before comparing JSON, or you get phantom diffs.
 - Verify before every deploy: `theme-check` 0 errors → Asset-API diff → independent live curl (4–6 sequential, varied UA + cache-bust) vs known byte-size baseline.
 
 ## Branches & theme identity
