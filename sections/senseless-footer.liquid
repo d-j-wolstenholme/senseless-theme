@@ -40,7 +40,15 @@
   .ss-ft__brand { display: flex; flex-direction: column; gap: 16px; }
   .ss-ft__logo { display: inline-block; color: var(--ss-fg); }
   .ss-ft__logo svg { display: block; width: auto; height: {{ logo_h }}px; max-width: 100%; }
-  .ss-ft__logo svg path { fill: currentColor; }
+  {%- comment -%}
+    The wordmark carries fill:rgb(26,26,26) as an INLINE style, which outranks an author stylesheet — so
+    the old `.ss-ft__logo svg path { fill: currentColor }` never applied. Invisible on the light bands
+    (#1A1A1A ≈ --ss-fg #1A1816), but on .ss-ft--ink (--ss-fg #F3F1EE on #1A1816) the logo would have
+    rendered near-black on near-black and vanished. !important is needed to beat the inline style.
+    Scoped to .ss-logo__word deliberately: the four asterisk paths are fill:none with a purple stroke,
+    and giving them a fill turns the asterisk into a solid blob.
+  {%- endcomment -%}
+  .ss-ft__logo svg .ss-logo__word { fill: currentColor !important; }
   .ss-ft__tagline { margin: 0; max-width: 34ch; font-size: 0.9375rem; line-height: 1.55; color: var(--ss-muted); font-weight: 400; }
   .ss-ft__contact { margin: 0; font-size: 0.9375rem; line-height: 1.5; font-weight: 500; }
   .ss-ft__contact a { color: var(--ss-muted); text-decoration: none; }
