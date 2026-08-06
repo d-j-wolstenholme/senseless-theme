@@ -26,15 +26,13 @@
   # Brand-independent title/SEO (Phase 13: do not derive from shop.name — survives the shop rename).
   assign brand_name = 'Senseless'
   assign home_title = 'UK Numbing Cream, Gel & Spray for Aesthetics | Senseless'
-  {%- comment -%}
-    "Topical preparation" is the brand's own approved compliance wording (docs/COMPLIANCE.md maps
-    "anaesthetic cream" -> "topical preparation cream") and it appears in the footer, the README and the
-    package metadata — everywhere except here. It also carries two on-intent search terms the homepage was
-    not signalling at all: "topical preparation for aesthetic procedures" (KD 12) and "aesthetic
-    preparation products" (KD 7). Nothing was dropped except "matched to your appointment", which survives
-    verbatim as the H1 of all three format collections. Title left alone — no room, and it already leads
-    with the category noun plus all three formats.
-  {%- endcomment -%}
+  # "Topical preparation" is the brand's own approved compliance wording (docs/COMPLIANCE.md maps
+  # "anaesthetic cream" -> "topical preparation cream") and it appears in the footer, the README and the
+  # package metadata — everywhere except here. It also carries two on-intent search terms the homepage
+  # was not signalling: "topical preparation for aesthetic procedures" (KD 12) and "aesthetic
+  # preparation products" (KD 7). Nothing was dropped except "matched to your appointment", which
+  # survives verbatim as the H1 of all three format collections. Title left alone — no room, and it
+  # already leads with the category noun plus all three formats.
   assign home_desc = 'UK-formulated topical preparation for aesthetics — numbing cream, gel and spray for microneedling, laser and SPMU. Three strengths, CPSR-assessed.'
   assign og_title = page_title | default: brand_name
   assign og_url = canonical_url | default: request.origin
