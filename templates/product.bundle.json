@@ -42,7 +42,7 @@
         "t3": {
           "type": "trust_item",
           "settings": {
-            "label": "Cream, gel, spray, cleanser + vanity bag"
+            "label": "Cream, gel, spray + cleanser"
           }
         },
         "t4": {
@@ -68,7 +68,7 @@
         "background": "white",
         "eyebrow": "Where this sits",
         "headline": "Part of the Senseless System",
-        "body": "<p>Each bundle pairs a strength-matched Comfort Cream, Comfort Gel and Comfort Spray with the Foaming Cleanser and a reusable vanity bag — the same products sold individually, assembled and picked as one unit. Choose the bundle that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. It is not a medicine.</p>",
+        "body": "<p>Each bundle pairs a strength-matched Comfort Cream, Comfort Gel and Comfort Spray with the Foaming Cleanser — the same products sold individually, assembled and picked as one unit. Choose the bundle that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. It is not a medicine.</p>",
         "cta_label": "Explore the Senseless System",
         "cta_url": "/pages/the-senseless-system"
       }
@@ -80,7 +80,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What's in the bundle?",
-            "answer": "<p>A strength-matched Comfort Cream, Comfort Gel and Comfort Spray, plus the Foaming Cleanser for before and after, and a reusable vanity bag. The exact sizes are listed above.</p>"
+            "answer": "<p>A strength-matched Comfort Cream, Comfort Gel and Comfort Spray, plus the Foaming Cleanser for before and after. The exact sizes are listed above.</p>"
           }
         },
         "q2": {
