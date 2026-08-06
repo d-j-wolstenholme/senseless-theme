@@ -118,6 +118,7 @@
   .ss-ph__atc-error, .ss-atc-error { display:flex; align-items:flex-start; gap:6px; flex:1 0 100%; margin:0 0 8px; color:#B3261E; font-size:14px; line-height:1.4; }
   .ss-ph__atc-error.hidden, .ss-atc-error.hidden { display:none; }
   .ss-ph__atc-error .svg-wrapper svg, .ss-atc-error .svg-wrapper svg { width:16px; height:16px; }
+  .ss-ph__price-basis { font-family: var(--ss-sans); font-size: 13px; font-weight: 400; color: var(--ss-body); margin-right: 8px; }
 {%- endstyle -%}
 
 <section class="ss-ph" data-ss-ph aria-label="{{ p.title | escape }}">
@@ -155,7 +156,16 @@
       {%- if section.settings.subtitle != blank -%}<p class="ss-ph__subtitle">{{ section.settings.subtitle | escape }}</p>{%- endif -%}
       <p class="ss-ph__price" data-ph-price>
         {%- assign v = p.selected_or_first_available_variant -%}
-        {%- if v.compare_at_price > v.price -%}<del>{{ v.compare_at_price | money }}</del>{%- endif -%}
+        {%- comment -%}
+          Only the 5 bundles carry a compare_at, and it is the exact sum of the component prices — a
+          genuine "bought separately" figure, verified against live variant prices. A BARE strikethrough
+          conventionally signals a former selling price, which this never was, so it is labelled. The
+          wording matches the explanation already shipped further down the same page ("save £x versus
+          buying the items separately").
+        {%- endcomment -%}
+        {%- if v.compare_at_price > v.price -%}
+          <del>{{ v.compare_at_price | money }}</del><span class="ss-ph__price-basis">bought separately</span>
+        {%- endif -%}
         {{ v.price | money }}
       </p>
 
