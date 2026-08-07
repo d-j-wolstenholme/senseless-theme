@@ -1,73 +1,125 @@
 # Next session — Senseless (Canon v2.20)
 
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
-**Machine last used:** MacBook Pro — confirmed 6 Aug (`Daniels-MacBook-Pro.local`). Hostname can display as `Daniels-MBP.Home`; same machine.
+**Machine last used:** MacBook Pro — 7 Aug (`Daniels-MacBook-Pro.local`). The machine clock is
+**UTC+3 (EEST)** — matters for anything timestamped or latency-measured.
 
-## Done 2026-08-05/06 (Claude Code · Opus 5) — commits `81ae8b7` → `eb0be3d`, all deployed + live-verified
+## 7 Aug 2026 — Cannibalisation phase 4. SHIPPED.
 
-### 1. Third-party SEO audit — verified claim by claim, mostly wrong
-An agency delivered a 23-page **SEO Audit** PDF + an **On-Page Recommendations** doc. Do not re-investigate these:
+`main` is clean at `6af876b`, pushed to `origin/main`. One theme file deployed and verified live.
+Full record in `DECISIONS-LOG.md` (top entry).
 
-| Claim | Reality |
-|---|---|
-| Product/FAQ/Article/Review/WebSite schema **missing** | **False.** 34 valid JSON-LD blocks across 12 URLs. They tested the homepage only. |
-| Site has **LocalBusiness** schema | **False — no such node exists.** Google's tool labels our address-bearing `Organization` as "Local businesses". |
-| TTFB 658 ms | **False.** Median **117 ms**. Their own FCP 954 ms / LCP 1.4 s are *good* CWV, reported as defects. |
-| Articles missing thumbnails | **False.** 5 of 5 have images. |
-| 77 blocked internal / external resources | **One** stock Shopify `/checkouts/` preload; the external half is Judge.me's own CDN. |
-| 11 pages blocked from crawling | **True and all deliberate** (`layout/theme.liquid:43-57`). |
-| 77 low text-HTML ratio | True as a number, **not a content problem** — ~80% of each page is inline script/CSS/SVG. |
-| CTAs limited/inconsistent | **False.** Their own Recommendation says "No Action Required". |
+### What shipped
 
-**Genuinely true:** no Bing tag · no social links · nothing published in 61 days · homepage thin in *answer-shaped fact*.
+**The owner ruling.** Daniel ruled that **collection SEO carries the category keywords and PDP SEO
+does not** — collections are the funnel entry, PDPs sit below them and are the more
+compliance-constrained surface. That is the **per-cluster owner ruling** the 2026-06-15 entry was
+waiting on, and it **closes the SEO-RISK hold** on the 8 PDP `title_tag`s. Note the ruling is
+*subtractive* where that entry recommended an *additive* pattern — the hold is superseded, not
+satisfied. **`senseless-vs-ametop`'s title was held by the same entry and is NOT covered — it stays held.**
 
-### 2. Shipped
-- **4 theme fixes** — related-guides module on articles (two guides had a single indexable inbound link; now all 5 give 3 and receive 3), asterisk cards no longer cropped, `/blogs/guides` cards 16/9, duplicate `fly-to-cart.js` tag removed.
-- **Nav "Help" → "FAQ"** (Daniel approved). Full 6-item menu re-sent deliberately — `menuUpdate` is a REPLACE and a partial list silently drops Articles + Rewards.
-- **46 compliance rewrites across 25 templates + 5 kit descriptions**, every one reusing a construction already shipped. content-lint **BLOCK 0**.
-- **10 product descriptions written and published** — see §3.
-- **Canon fixes** — `schema-contract.json` was still v2.19; the deploy skill and `STATE.md` both said the storefront password was ON when the site is public; `CLAUDE.md` range double-counted the cleanser.
-- **Ad-facing invariant promoted to canon** — Notion Decision + `.claude/rules/ad-facing.md` + `CLAUDE.md` pointer.
+**Admin API writes (10) — no deploy needed.**
+- 9 core-SKU `seo.title`s now match their existing H1s: `Clinical/Advanced/Professional Strength
+  Cream|Gel|Spray`. `clinical-strength-cream` keeps `| UK-Formulated`.
+- `aesthetic-numbing-cream` → `Aesthetic Numbing Cream — Built for the Procedure`, so it no longer
+  mirrors the main cream collection. Em dash, per house style (the brief's hyphen was corrected).
 
-### 3. Product descriptions (the 10 core SKUs)
-Empty since 1 June, so their Product JSON-LD was boilerplate. Now written, adversarially reviewed, published, live-verified. Canonical copy: **`docs/product-descriptions.json`** — keep it in step with admin.
-- `body_html` feeds **both** the Product JSON-LD and the **Merchant Center feed**, so it is **ad-facing**. No injectable procedure is named in any description, even though several SKUs list Botox/lip fillers in `recommended_procedures`.
-- Schema truncate raised **480 → 1200** (`senseless-structured-data.liquid`): at 480 every strength SKU was cut mid-sentence, losing sizes and the CPSR credential.
-- Hero renders the **first two paragraphs only** — buy-box copy came down from 126–142 words to 94–110 (kits are 68) while the full text still reaches schema + feed.
-- `shortdesc` section removed from all 10 templates — it duplicated the description's opening sentence verbatim.
-- **"Antibacterial" on the cleanser is substantiated** (Daniel, 6 Aug; Confirmed Fact logged). Do not re-raise.
+**Theme (1 file, deployed + Asset-API verified).**
+- `collection.numbing-cream-for-laser-treatment.json:160` — "SPMU" was the only unlinked
+  cross-procedure noun on either procedure collection; now links to the SPMU collection.
 
-## ⏳ PUT THE VANITY BAG BACK WHEN STOCK ARRIVES
+**Verification.** Store gate PASS before every write. All 10 re-read from the Admin API and diffed
+against a pre-write snapshot: **0 of 32 `seo.description`s changed** — the 6 Aug Foaming-Cleanser
+null-trap did NOT recur. All 10 curled live with `?_fd=0`: titles correct, **H1s unchanged**, meta
+descriptions present. Laser page pulled 4× with varied UA post-deploy: SPMU link renders,
+**0 links to the three injectable collections** — invariant intact. theme-check 0 errors.
 
-Daniel confirmed (6 Aug) the bag **does** ship with all five bundles, but stock had not landed while the bundles were on sale with 19–20 units each — so every bundle sold was promising something that couldn't be supplied. His call was to remove it until stock lands, rather than qualify it or pause sales.
+### Expected, not a regression
 
-**To restore:** `git revert db6d6fc`, or re-add *"and a reusable vanity bag"* to the three prose strings in `templates/product.bundle.json` (:71, :83) and `templates/collection.bundles.json` (:25), and restore the label at `product.bundle.json:45` to *"Cream, gel, spray, cleanser + vanity bag"*.
+**PDP impressions on the bare category terms ("numbing gel", "numbing spray") should FALL.** That is
+the intended outcome — those terms now belong to `/collections/numbing-gel` and `/collections/numbing-spray`
+uncontested. Judge the change on *collection* impressions and on total non-brand clicks, not on PDP
+impressions. Give it 4–6 weeks before reading anything into it.
 
-**Do this at the same time:** add the bag to the `senseless.bundle_contents` metafield on all five kits. It currently lists four items — that mismatch is exactly what surfaced the problem. Get data and copy agreeing from the start this time.
+## ⛔ Outstanding from this session
 
-Note `:83` is also the source of the FAQPage JSON-LD, so the claim reaches Google as well as the page.
+1. **Notion write-back never happened.** The Notion MCP connector did not come up, and there is no
+   API token in `.env` and no `ntn` on PATH — so the **State Surface log and the phase-4 Decision
+   were not written**. `DECISIONS-LOG.md` is the only record. **Mirror it when the connector is back.**
+   Unlike Shopify MCP, there is no documented fallback path for Notion — worth fixing properly.
 
-## Next Work Item — open, needs Daniel
+## Next Work Item
 
-1. **Social profile URLs** — footer settings already wired (`senseless-footer.liquid:180-184`) and empty. Then add `sameAs` to both Organization nodes. **Do not add placeholder links.**
-2. **Judge.me floating reviews tab** — ~90 KB injected into *every* page including the FAQ and cart (17–23% of each document). Disabling `reviews_tab` (`config/settings_data.json:106`) keeps PDP reviews and star badges. Best byte-win available.
-3. **Three chat widgets at once** — Dondy WhatsApp, Shopify Inbox, Google store widget. Which is actually answered? The other two come off. This is where the post-onload tail lives, not the theme.
-4. **GSC → Page Indexing export** — nothing on the site blocks indexing (58 indexable URLs, all 200, canonicals clean), so only GSC can settle the "17 pages indexed" claim.
-5. **Editorial cadence** — 5 articles, all published within one second on 4 June, nothing since.
-6. **Homepage factual depth** — 690 words is normal; what's missing is range/sizes/delivery facts, not word count. Four compliance-safe block shapes proposed (range table · credentials · delivery facts · signpost row).
-7. **Bing** — try BWT "Import from Google Search Console"; GSC is already verified so it needs no code.
+1. **Mirror the phase-4 decision to Notion** (above) — do this first, it is the open loop.
+2. **Daniel: supply the agency contact name** so the 7 Aug review document can go.
 
-## Gotchas earned — don't re-derive
+## Flagged this session — Daniel's call, not actioned
 
-1. **COMMIT BEFORE YOU DEPLOY — the order is load-bearing.** On 6 Aug an API error landed between `deploy.sh` and `git commit`, leaving the footer fix **live and uncommitted**; it surfaced only because `git status` was re-checked rather than assumed. Commit → push → deploy means the worst case is an unshipped commit, which is visible and harmless. Now written into `.claude/rules/deploy-and-store.md` and the `commit-and-deploy` skill.
-2. **`./scripts/deploy.sh $FILES` under zsh does NOT word-split.** deploy.sh received 25 paths as ONE `--only` argument, printed **"deploy: success"**, and pushed **nothing**. Run it under `bash`, and always verify per file via the Asset API — **deploy.sh's exit code does not catch this; only the Asset-API compare does.** This is the project's known deployed≠committed failure mode in a new disguise.
-3. **The `commit-and-deploy` skill used to document raw `shopify theme push`**, contradicting the deploy rule's "`deploy.sh` only". Corrected 6 Aug — if you see raw `theme push` anywhere else, it is wrong.
-4. **`assets/images/**` DOES deploy.** 18 files (~7.5 MB of unreferenced source PNGs) are live theme assets. Any verifier built on "they never deploy" mis-counts.
-5. **Verify parity with the Admin Asset API, not just `theme pull`.** `themes.json` → `updated_at` is a one-call check: if it hasn't moved since the last verified parity, no Theme-Editor write happened.
-6. **The version invariant has no repo-side enforcement.** `.claude/hooks/guard-write.py:47` only checks `canon_version` is truthy, never that it equals `canon/state.json`. That is why `schema-contract.json` sat at v2.19 through a version sweep.
-7. **Liquid raises on a nil comparison** — `image.aspect_ratio` can be nil for SVGs. Guard with `| default: 0`.
-8. **The PDP 45–60 minute line is NOT a breach** — operator-accepted under Decision `39158bc3-75ea-81f7`, recorded in `docs/COMPLIANCE.md:40` and the compliance-check skill as explicitly "not a regression". An earlier note cited `…-8181` and mis-stated its scope. Rewriting it would reverse a live operator decision.
-9. **`/pages/choosing-your-format` is retired** (301, not in the sitemap). Do not harvest copy from it — its "gel spreads further" contradicts every live gel surface.
-10. **Clinical gel SKUs are the anomaly, not the docs.** Live `S15CL`/`S35CL` vs `SG15AD`/`SG15PR` on the other gels. `docs/ARCHITECTURE.md` is internally consistent; Daniel decides whether live gets renamed.
-11. **Two repo scripts are destructive if re-run:** `policy-menus-redirects.py` does a full `menuUpdate` replace against a stale record and would **wipe Articles + Rewards from the primary nav**; `policy-metafields.py` would publish shipping prices **£1 under** what checkout charges.
-12. **The State Surface log is past its rollover point** — 66 entries against Blueprint 01 §4.7's ~20, ~94% of the page. The operator deferred the backlog at v2.19; worth raising again.
+1. **The three spray PDP descriptions all say "suited to broad areas such as laser and waxing
+   appointments."** This — not the collection copy — is the only real laser/waxing keyword overlap on
+   the site, and it also leaks through the laser collection's `.atom` and `.oembed` feeds. Admin edit,
+   not a theme edit. Wants a real ranking source first.
+2. **All 5 bundle `seo.description`s still promise a "vanity bag."** The bag was pulled from the four
+   on-page surfaces on 6 Aug pending stock; the meta descriptions are a **5th surface that was missed**
+   and are live in SERPs now, promising an item that is not in the box. Fix when the bag lands (see
+   the restore note below) or edit the descriptions in the interim.
+3. `UK-Formulated` in the clinical cream title vs `UK-formulated` everywhere else — descriptions
+   outvote the title 10:1.
+4. The laser hero alt says "Comfort Spray and Comfort **Gel** — laser treatment" while the body copy
+   three sections later says "Gel isn't the laser format." They disagree. Cheap fix.
+
+## Gotchas earned this session — don't re-derive
+
+1. **`productUpdate` DELETES `global.title_tag` when `seo.title` is byte-identical to `product.title`.**
+   8 of the 9 PDPs now read `seo.title = null` and inherit `product.title` at render. Output is exactly
+   right, and this is the **safer** form — inheritance tracks a future rename, a frozen duplicate would
+   not — so it was **left as-is deliberately**. Do not "fix" it back.
+2. **A write-verification that compares against the value the mutation RETURNED will false-pass.**
+   `productUpdate` returns the *post-normalisation* value, so `returned == returned` is always true.
+   My first verify pass reported 10/10 OK while 8 titles had actually been nulled. **Compare against the
+   INTENDED string, then re-read from the API as a separate call.** This is the same class of error as
+   the 6 Aug "deploy: success" that pushed nothing.
+3. **A mid-workflow agent will report the state it sees, not the state you started from.** The
+   compliance agent ran after the writes landed and concluded "facts B and F are WRONG — Tasks 1 and 2
+   are already achieved." They were not wrong; it was reading the post-write world. **Snapshot before
+   you write, and date-stamp what you hand agents**, or you will be talked out of work you already did.
+4. **Verify a cannibalisation premise against `<main>`, not the whole document.** A whole-page term
+   count on this site returns `waxing ×4` on *every* page because the header/footer nav links all
+   procedure collections sitewide. Strip header/footer/nav first, or every page looks like it
+   cannibalises every other one.
+
+## Still open from 6 Aug — unchanged
+
+1. **⏳ VANITY BAG — restore when stock lands.** `git revert db6d6fc`, or re-add *"and a reusable vanity
+   bag"* to the prose at `templates/product.bundle.json:71,83` and `templates/collection.bundles.json:25`,
+   and restore the label at `product.bundle.json:45`. **Also add the bag to the
+   `senseless.bundle_contents` metafield on all five kits**, and fix the 5 bundle meta descriptions
+   (item 2 above). Note `:83` also feeds the FAQPage JSON-LD.
+2. **Social profile URLs** — footer settings wired (`senseless-footer.liquid:180-184`) and empty. Then add
+   `sameAs` to both Organization nodes. No placeholder links.
+3. **Judge.me floating reviews tab** — ~90 KB on every page. `config/settings_data.json:106`.
+4. **Three chat widgets at once** — Dondy, Shopify Inbox, Google. Which is actually answered?
+5. **GSC → Page Indexing export.** Still needed: we cannot produce a dated, exportable index count.
+6. **Bing Webmaster** — conceded in writing to the agency. Actually do it.
+7. **Editorial cadence** — 5 articles, all 4 June, nothing since.
+8. **Articles hub imagery** — 8 of 13 cards use the brand asterisk.
+
+## Standing gotchas — still true
+
+1. **Never hand an agent a loop.** Deterministic collection is a script's job; agents get judgement and
+   writing, in bounded units, handed finished data. (This session followed that and it worked.)
+2. **Never apply a subagent's correction without opening the source yourself.** An audit agent
+   previously fabricated a citation in full detail. See gotcha 3 above for this session's variant.
+3. **Ahrefs volumes are country-specific and they move.** Every figure needs its country, its date and
+   its endpoint.
+4. **`deploy.sh` under `bash`, never zsh** — zsh does not word-split `$FILES`, so it reports success and
+   pushes nothing. Always follow with a per-file Asset-API compare.
+5. **COMMIT → PUSH → THEN DEPLOY.** An interruption after a deploy leaves the store running code that
+   exists nowhere in git.
+6. **`?_fd=0` to bust the edge cache, not `?cb=`.**
+
+## Key artefacts
+
+- `DECISIONS-LOG.md` — top entry is the full phase-4 record, incl. the premise-failure evidence.
+- `~/Documents/MHG-agency-review/…-2026-08-07.pdf` — the agency review document, still awaiting a contact name.
+- `scratchpad/VERIFIED_FACTS.md` · `census.json` — the 7 Aug verified fact base.
