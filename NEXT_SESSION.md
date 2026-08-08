@@ -1,125 +1,150 @@
 # Next session — Senseless (Canon v2.20)
 
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
-**Machine last used:** MacBook Pro — 7 Aug (`Daniels-MacBook-Pro.local`). The machine clock is
-**UTC+3 (EEST)** — matters for anything timestamped or latency-measured.
+**Machine last used:** MacBook Pro — 8 Aug (`Daniels-MacBook-Pro.local`). Clock is **UTC+3 (EEST)**:
+consoles like Bing and Google render timestamps in EEST, not UK time. Bit us once tonight reading an
+IndexNow export.
 
-## 7 Aug 2026 — Cannibalisation phase 4. SHIPPED.
+`main` is clean at **`f2483be`**, level with `origin/main`. Everything below is committed, pushed and
+live-verified. Nothing is deployed-but-uncommitted.
 
-`main` is clean at `6af876b`, pushed to `origin/main`. One theme file deployed and verified live.
-Full record in `DECISIONS-LOG.md` (top entry).
+---
 
-### What shipped
+## Session ran in two halves
 
-**The owner ruling.** Daniel ruled that **collection SEO carries the category keywords and PDP SEO
-does not** — collections are the funnel entry, PDPs sit below them and are the more
-compliance-constrained surface. That is the **per-cluster owner ruling** the 2026-06-15 entry was
-waiting on, and it **closes the SEO-RISK hold** on the 8 PDP `title_tag`s. Note the ruling is
-*subtractive* where that entry recommended an *additive* pattern — the hold is superseded, not
-satisfied. **`senseless-vs-ametop`'s title was held by the same entry and is NOT covered — it stays held.**
+### Half 1 — Cannibalisation phase 4 (7 Aug)
 
-**Admin API writes (10) — no deploy needed.**
-- 9 core-SKU `seo.title`s now match their existing H1s: `Clinical/Advanced/Professional Strength
-  Cream|Gel|Spray`. `clinical-strength-cream` keeps `| UK-Formulated`.
-- `aesthetic-numbing-cream` → `Aesthetic Numbing Cream — Built for the Procedure`, so it no longer
-  mirrors the main cream collection. Em dash, per house style (the brief's hyphen was corrected).
+**Owner ruling (Daniel):** collection SEO carries the category keywords, PDP SEO does not — collections
+are the funnel entry, PDPs sit below them and are more compliance-constrained. This **closes the
+2026-06-15 SEO-RISK hold** on the 8 PDP `title_tag`s. That entry recommended an *additive* pattern; the
+ruling is *subtractive*, so it **supersedes** rather than satisfies it. **`senseless-vs-ametop`'s title
+was held by the same entry and is NOT covered — still held.**
 
-**Theme (1 file, deployed + Asset-API verified).**
-- `collection.numbing-cream-for-laser-treatment.json:160` — "SPMU" was the only unlinked
-  cross-procedure noun on either procedure collection; now links to the SPMU collection.
+Shipped: 9 core-SKU `seo.title`s rewritten to match their existing H1s · `aesthetic-numbing-cream` →
+"Aesthetic Numbing Cream — Built for the Procedure" · one theme edit linking the unlinked "SPMU" on the
+laser collection.
 
-**Verification.** Store gate PASS before every write. All 10 re-read from the Admin API and diffed
-against a pre-write snapshot: **0 of 32 `seo.description`s changed** — the 6 Aug Foaming-Cleanser
-null-trap did NOT recur. All 10 curled live with `?_fd=0`: titles correct, **H1s unchanged**, meta
-descriptions present. Laser page pulled 4× with varied UA post-deploy: SPMU link renders,
-**0 links to the three injectable collections** — invariant intact. theme-check 0 errors.
+**Task 3 was NOT done — the premise failed, it wasn't skipped.** Three independent angles all returned
+PREMISE_FAILS. Inside `<main>`: laser has **waxing ×0, scalp ×0**; injections has **waxing ×0, laser ×0,
+spray ×0**. The counts a whole-page scan sees are the **site-wide nav**, byte-identical on every page.
+**"scalp" appears nowhere on senseless.uk at all.** Second time this agency's data hasn't survived
+contact — see `7567f80`.
 
-### Expected, not a regression
+**Expected, not a regression:** PDP impressions on bare category terms ("numbing gel", "numbing spray")
+should FALL. Judge on *collection* impressions and total non-brand clicks. Give it 4–6 weeks.
 
-**PDP impressions on the bare category terms ("numbing gel", "numbing spray") should FALL.** That is
-the intended outcome — those terms now belong to `/collections/numbing-gel` and `/collections/numbing-spray`
-uncontested. Judge the change on *collection* impressions and on total non-brand clicks, not on PDP
-impressions. Give it 4–6 weeks before reading anything into it.
+### Half 2 — Bing, Clarity, and a deploy bug (8 Aug)
 
-## ⛔ Outstanding from this session
+- **`91e29b1` — `deploy.sh` was reporting SUCCESS on a failed push.** See gotcha 1.
+- **`276bd8c` — Bing ownership meta tag** (`msvalidate.01` in `snippets/meta-tags.liquid`), live sitewide.
+  Bing ownership was inherited from a **Google Search Console import done by Peter**, which Microsoft
+  documents as an *ongoing* dependency — if his GSC access lapses, Bing verification lapses and takes
+  Daniel's delegated admin with it. The tag makes ownership provable independently. **The agency's
+  "Missing Bing Webmaster Code" item was right**; two of my earlier answers calling it redundant were
+  wrong.
+- **`248a21f` — Bing URL submission**, wired into `deploy.sh` as a non-fatal step.
+- **`a0b1c54` + `f2483be` — Microsoft Clarity**, consent-gated.
+- **`bf891e6` — Notion write-back done**, and a stale pointer found and fixed.
 
-1. **Notion write-back never happened.** The Notion MCP connector did not come up, and there is no
-   API token in `.env` and no `ntn` on PATH — so the **State Surface log and the phase-4 Decision
-   were not written**. `DECISIONS-LOG.md` is the only record. **Mirror it when the connector is back.**
-   Unlike Shopify MCP, there is no documented fallback path for Notion — worth fixing properly.
+---
+
+## ⚠️ Read before touching the cookie banner
+
+**Clarity's consent gate spans two files.** `snippets/senseless-clarity.liquid` reads
+`localStorage['ss_cookie_choice_v1']` and listens for the **`ss:consent`** CustomEvent, which
+`snippets/senseless-cookie-consent.liquid` dispatches from `choose()`.
+
+**Refactoring the banner without preserving both will silently start recording UK visitors without
+consent.** That is a PECR exposure, not a bug report. After any change to either file, re-run the
+three-state live test: no decision → Accept → Reject-then-reload, checking `typeof window.clarity` and
+`document.querySelectorAll('script[src*="clarity.ms"]')` each time.
+
+---
+
+## New in the toolchain
+
+- **`scripts/bing-submit.py`** — submits sitemap URLs to Bing. Runs automatically at the end of
+  `deploy.sh`, non-fatal, 6h per-URL cooldown. **`bing-submit:` lines in deploy output are normal.**
+  Run manually with `--all` after a big content push; `--dry-run` shows quota without submitting.
+  A full run costs **58 of 100** daily quota.
+- **`BING_API_KEY`** is in `.env` (gitignored, untracked). `.bing-submit-state.json` is gitignored.
+- **Clarity project `xz8e5qri1p`** — dashboard via Bing Webmaster Tools → Microsoft Clarity.
+  Expect no data until real consented traffic accumulates.
+
+---
 
 ## Next Work Item
 
-1. **Mirror the phase-4 decision to Notion** (above) — do this first, it is the open loop.
-2. **Daniel: supply the agency contact name** so the 7 Aug review document can go.
+1. **The 5 bundle `seo.description`s still promise a "vanity bag"** removed from on-page copy on 6 Aug.
+   Live in Google now, advertising an item that is not in the box. **The most customer-facing thing
+   outstanding.** Fix the copy or restore the bag.
+2. **Notion — the richer write-back.** The phase-4 log + Decision landed, but the **State Surface header
+   and its Sync status line** were out of scope for a log append and still describe the 7 Aug agency
+   session. Also wants: a Decisions entry for the Bing verification ruling, and a build report for the
+   Bing + Clarity work.
+3. **The agency reply** — never drafted. Material is in `scratchpad/agency_*.txt`.
+4. **Ask Peter whether he should see the Clarity terms retrospectively** — Daniel accepted them, and
+   Peter is the Bing property owner of record.
 
-## Flagged this session — Daniel's call, not actioned
+---
 
-1. **The three spray PDP descriptions all say "suited to broad areas such as laser and waxing
-   appointments."** This — not the collection copy — is the only real laser/waxing keyword overlap on
-   the site, and it also leaks through the laser collection's `.atom` and `.oembed` feeds. Admin edit,
-   not a theme edit. Wants a real ranking source first.
-2. **All 5 bundle `seo.description`s still promise a "vanity bag."** The bag was pulled from the four
-   on-page surfaces on 6 Aug pending stock; the meta descriptions are a **5th surface that was missed**
-   and are live in SERPs now, promising an item that is not in the box. Fix when the bag lands (see
-   the restore note below) or edit the descriptions in the interim.
-3. `UK-Formulated` in the clinical cream title vs `UK-formulated` everywhere else — descriptions
-   outvote the title 10:1.
-4. The laser hero alt says "Comfort Spray and Comfort **Gel** — laser treatment" while the body copy
-   three sections later says "Gel isn't the laser format." They disagree. Cheap fix.
+## Gotchas earned — don't re-derive
 
-## Gotchas earned this session — don't re-derive
+1. **`if ! cmd; then rc=$?` captures the NEGATION's status, always 0.** A failed `shopify theme push`
+   set `rc=0`, printed "FAILED (exit 0)" and exited **0** — reporting success and skipping the
+   post-deploy verify. Use `cmd || rc=$?`. **Third variant of this family** after the zsh no-word-split
+   no-op push and the `productUpdate` false-pass verify. **Always test a deploy/verify path against a
+   deliberately failing case, not just a passing one.**
+2. **Shopify's `visitorConsentCollected` does NOT fire for this site's custom banner** — even though
+   `Shopify.customerPrivacy.setTrackingConsent` is available. Clarity relied on it and silently never
+   loaded until the next pageview. **Every static check passed; only a live behavioural test caught it.**
+3. **`productUpdate` DELETES `global.title_tag`** when `seo.title` is byte-identical to `product.title`.
+   8 of 9 PDPs now read `seo.title = null` and inherit. Output is correct and this is the SAFER form —
+   **do not fill those fields in.**
+4. **A verification that compares against the value a MUTATION RETURNED will false-pass** — it returns the
+   post-normalisation value. Compare against the **intended** string, then re-read as a separate call.
+5. **Verify a cannibalisation premise against `<main>`, not the whole document.** Whole-page term counts
+   include the site-wide nav, so every page looks like it cannibalises every other one.
+6. **Self-hosted IndexNow is impossible on Shopify.** Needs a key file at the domain root; a key hosted
+   elsewhere only authorises URLs under that prefix. Don't re-investigate — use the Bing URL Submission
+   API (JSON/REST, unaffected by the 31 Aug SOAP/POX retirement). Live method name is **`SubmitUrlbatch`**,
+   lowercase b.
+7. **`DECISIONS-LOG.md` pointed at an ARCHIVED Notion page** for ~6 weeks — "Vol 1 — May 2026" under
+   *Archive (pre-migration)*. Repointed to the live Decisions DB
+   `d5ce9514-257c-4e02-aced-acba800e89d9`. **Trust the Project Instance §2 registry over any pointer in
+   a repo doc.**
+8. **This machine is UTC+3.** Bing/Google consoles render EEST. An IndexNow export read as "all 6 Aug"
+   when two rows were actually 5 Aug.
+9. **`deploy.sh` under `bash`, never zsh** (no word-splitting → silent no-op push). Follow with a per-file
+   Asset-API compare.
+10. **COMMIT → PUSH → THEN DEPLOY.** `?_fd=0` to bust the edge cache, not `?cb=`.
 
-1. **`productUpdate` DELETES `global.title_tag` when `seo.title` is byte-identical to `product.title`.**
-   8 of the 9 PDPs now read `seo.title = null` and inherit `product.title` at render. Output is exactly
-   right, and this is the **safer** form — inheritance tracks a future rename, a frozen duplicate would
-   not — so it was **left as-is deliberately**. Do not "fix" it back.
-2. **A write-verification that compares against the value the mutation RETURNED will false-pass.**
-   `productUpdate` returns the *post-normalisation* value, so `returned == returned` is always true.
-   My first verify pass reported 10/10 OK while 8 titles had actually been nulled. **Compare against the
-   INTENDED string, then re-read from the API as a separate call.** This is the same class of error as
-   the 6 Aug "deploy: success" that pushed nothing.
-3. **A mid-workflow agent will report the state it sees, not the state you started from.** The
-   compliance agent ran after the writes landed and concluded "facts B and F are WRONG — Tasks 1 and 2
-   are already achieved." They were not wrong; it was reading the post-write world. **Snapshot before
-   you write, and date-stamp what you hand agents**, or you will be talked out of work you already did.
-4. **Verify a cannibalisation premise against `<main>`, not the whole document.** A whole-page term
-   count on this site returns `waxing ×4` on *every* page because the header/footer nav links all
-   procedure collections sitewide. Strip header/footer/nav first, or every page looks like it
-   cannibalises every other one.
+---
 
-## Still open from 6 Aug — unchanged
+## Standing, unchanged
 
-1. **⏳ VANITY BAG — restore when stock lands.** `git revert db6d6fc`, or re-add *"and a reusable vanity
-   bag"* to the prose at `templates/product.bundle.json:71,83` and `templates/collection.bundles.json:25`,
-   and restore the label at `product.bundle.json:45`. **Also add the bag to the
-   `senseless.bundle_contents` metafield on all five kits**, and fix the 5 bundle meta descriptions
-   (item 2 above). Note `:83` also feeds the FAQPage JSON-LD.
-2. **Social profile URLs** — footer settings wired (`senseless-footer.liquid:180-184`) and empty. Then add
-   `sameAs` to both Organization nodes. No placeholder links.
-3. **Judge.me floating reviews tab** — ~90 KB on every page. `config/settings_data.json:106`.
-4. **Three chat widgets at once** — Dondy, Shopify Inbox, Google. Which is actually answered?
-5. **GSC → Page Indexing export.** Still needed: we cannot produce a dated, exportable index count.
-6. **Bing Webmaster** — conceded in writing to the agency. Actually do it.
-7. **Editorial cadence** — 5 articles, all 4 June, nothing since.
-8. **Articles hub imagery** — 8 of 13 cards use the brand asterisk.
+- **Never hand an agent a loop.** Deterministic collection is a script's job; agents get judgement and
+  writing, in bounded units, handed finished data. Followed tonight; worked.
+- **Never apply a subagent's correction without opening the source yourself.** Tonight a subagent's
+  "facts B and F are WRONG" was an artifact of it reading post-write state mid-workflow. **Snapshot before
+  you write, and date-stamp what you hand agents**, or you will be talked out of work you already did.
+- **Ahrefs volumes are country-specific and they move.** Every figure needs country, date and endpoint.
 
-## Standing gotchas — still true
+## Still open from 6 Aug
 
-1. **Never hand an agent a loop.** Deterministic collection is a script's job; agents get judgement and
-   writing, in bounded units, handed finished data. (This session followed that and it worked.)
-2. **Never apply a subagent's correction without opening the source yourself.** An audit agent
-   previously fabricated a citation in full detail. See gotcha 3 above for this session's variant.
-3. **Ahrefs volumes are country-specific and they move.** Every figure needs its country, its date and
-   its endpoint.
-4. **`deploy.sh` under `bash`, never zsh** — zsh does not word-split `$FILES`, so it reports success and
-   pushes nothing. Always follow with a per-file Asset-API compare.
-5. **COMMIT → PUSH → THEN DEPLOY.** An interruption after a deploy leaves the store running code that
-   exists nowhere in git.
-6. **`?_fd=0` to bust the edge cache, not `?cb=`.**
+1. **⏳ VANITY BAG — restore when stock lands.** `git revert db6d6fc`, plus the
+   `senseless.bundle_contents` metafield on all five kits, plus the 5 meta descriptions (item 1 above).
+2. **Social profile URLs** — footer settings wired and empty; then `sameAs` on both Organization nodes.
+3. **Judge.me floating reviews tab** — ~90 KB every page. `config/settings_data.json:106`.
+4. **Three chat widgets at once** — Dondy, Shopify Inbox, Google.
+5. **GSC → Page Indexing export** — still cannot produce a dated index count.
+6. **Editorial cadence** — 5 articles, all 4 June.
+7. **Articles hub imagery** — 8 of 13 cards use the brand asterisk.
+8. ~~Bing Webmaster~~ — **DONE**, and it turned out to have been set up since 13 July.
 
 ## Key artefacts
 
-- `DECISIONS-LOG.md` — top entry is the full phase-4 record, incl. the premise-failure evidence.
-- `~/Documents/MHG-agency-review/…-2026-08-07.pdf` — the agency review document, still awaiting a contact name.
-- `scratchpad/VERIFIED_FACTS.md` · `census.json` — the 7 Aug verified fact base.
+- `DECISIONS-LOG.md` — top two entries are tonight's full record.
+- `scratchpad/agency_schema.txt` · `agency_competitor.txt` · `agency_recommendations.txt` ·
+  `agency_keywords.csv` — the agency's four deliverables, exported and reviewed.
+- `scratchpad/bing-submit.DRAFT.py` — a superseded draft; the shipped one is `scripts/bing-submit.py`.
