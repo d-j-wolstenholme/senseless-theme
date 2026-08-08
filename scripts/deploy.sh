@@ -208,3 +208,17 @@ then
 fi
 
 echo "deploy: success"
+
+# ---------- STEP 5: tell Bing what changed (NON-FATAL) ----------
+# Bing Webmaster URL Submission API (JSON/REST). Runs only after the reviews-guard
+# post-deploy verify has passed, i.e. on a genuinely successful deploy.
+# `|| true` is load-bearing: `set -e` is in force (line 22) and a deploy that
+# SUCCEEDED must never be reported as failed because Bing was unreachable.
+# Skips silently when BING_API_KEY is unset. A 6h per-URL cooldown inside the
+# script stops repeated same-session deploys burning the daily quota (a full-site
+# run costs ~58 of 100/day).
+# NB: this is NOT IndexNow. IndexNow needs a key file at the domain root and
+# Shopify serves none — see the header of scripts/bing-submit.py.
+if [[ -f scripts/bing-submit.py ]]; then
+  python3 scripts/bing-submit.py --changed "${files[@]}" || true
+fi

@@ -15,3 +15,6 @@ assets/images/inbox/*
 # Transient working dirs (not theme files)
 _audit_live/
 outputs/
+
+# Bing URL-submission cooldown state (local only)
+.bing-submit-state.json
