@@ -1,0 +1,68 @@
+{% doc %}
+  Microsoft Clarity (session replay + heatmaps), CONSENT-GATED.
+
+  Project: xz8e5qri1p  (provisioned 8 Aug 2026 via Bing Webmaster Tools -> Clarity)
+
+  UK compliance position: Clarity records real visitor sessions, which is personal
+  data. Under PECR the script is a non-essential tracker, so NOTHING loads until the
+  visitor has actively granted ANALYTICS consent. We do not load-then-suppress, and
+  we do not rely on Clarity's own consent API to retro-fit permission — the tag is
+  simply never injected without consent. That is the defensible position for a
+  regulated brand, and it is stricter than Microsoft's default install.
+
+  Source of truth for consent is the same one senseless-cookie-consent.liquid uses:
+  localStorage key `ss_cookie_choice_v1`, shape { a: analytics, m: marketing, p: prefs }.
+  Shopify's currentVisitorConsent() is consulted as a fallback for visitors whose
+  choice predates local storage being written (e.g. consent set by a Shopify surface).
+
+  Loads immediately on an Accept click too, via Shopify's `visitorConsentCollected`
+  event, so a visitor who consents does not have to reload to be recorded.
+
+  To disable: remove the render from layout/theme.liquid. To rotate the project,
+  change CLARITY_ID below — it is not a secret (it ships to every visitor).
+{% enddoc %}
+
+<script>
+  (function () {
+    var CLARITY_ID = 'xz8e5qri1p';
+    var STORE_KEY = 'ss_cookie_choice_v1';
+    var loaded = false;
+
+    function analyticsGranted() {
+      // 1) The banner's own recorded decision wins — it is what the UI reflects.
+      try {
+        var raw = localStorage.getItem(STORE_KEY);
+        if (raw) return !!JSON.parse(raw).a;
+      } catch (e) {}
+      // 2) Fallback: Shopify's consent API, for consent set outside this banner.
+      try {
+        var c = window.Shopify
+          && Shopify.customerPrivacy
+          && Shopify.customerPrivacy.currentVisitorConsent
+          && Shopify.customerPrivacy.currentVisitorConsent();
+        if (c) return c.analytics === 'yes';
+      } catch (e) {}
+      // 3) No decision recorded => no consent => do not load.
+      return false;
+    }
+
+    function loadClarity() {
+      if (loaded || window.clarity) return;
+      loaded = true;
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i + '?ref=bwt';
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', CLARITY_ID);
+    }
+
+    function evaluate() { if (analyticsGranted()) loadClarity(); }
+
+    // Load now if consent already stands from a previous visit.
+    evaluate();
+
+    // And react the moment consent is granted in this pageview, so the visitor
+    // does not have to reload. Shopify fires this when setTrackingConsent runs.
+    document.addEventListener('visitorConsentCollected', evaluate);
+  })();
+</script>

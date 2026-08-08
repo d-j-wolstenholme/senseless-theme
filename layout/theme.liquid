@@ -190,5 +190,12 @@
     {% endif %}
 
     {% render 'senseless-cookie-consent' %}
+
+    {%- comment -%}
+      Microsoft Clarity — rendered AFTER the consent banner so the banner's script has
+      already defined its decision before Clarity reads it. Clarity injects nothing
+      unless analytics consent has been granted; see snippets/senseless-clarity.liquid.
+    {%- endcomment -%}
+    {% render 'senseless-clarity' %}
   </body>
 </html>
