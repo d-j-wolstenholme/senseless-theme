@@ -158,9 +158,12 @@ for f in "${files[@]}"; do echo "  - $f"; done
 # 5. Build --only flags + push (CLI token-auth).
 only=()
 for f in "${files[@]}"; do only+=(--only "$f"); done
-if ! SHOPIFY_CLI_THEME_TOKEN="$SHOPIFY_ACCESS_TOKEN" shopify theme push \
-     --store "$STORE" --theme "$THEME" --allow-live "${only[@]}"; then
-  rc=$?
+# NB: capture the status with `|| rc=$?`, NOT `if ! cmd; then rc=$?`. Inside that `then`
+# branch $? is the status of the NEGATION (always 0), so a failed push exited 0 = "success".
+rc=0
+SHOPIFY_CLI_THEME_TOKEN="$SHOPIFY_ACCESS_TOKEN" shopify theme push \
+  --store "$STORE" --theme "$THEME" --allow-live "${only[@]}" || rc=$?
+if [[ $rc -ne 0 ]]; then
   echo "deploy: shopify theme push FAILED (exit $rc)" >&2
   exit "$rc"
 fi
