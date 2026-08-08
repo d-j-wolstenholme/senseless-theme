@@ -61,8 +61,13 @@
     // Load now if consent already stands from a previous visit.
     evaluate();
 
-    // And react the moment consent is granted in this pageview, so the visitor
-    // does not have to reload. Shopify fires this when setTrackingConsent runs.
+    // React the moment consent is granted in this pageview, so the visitor does not
+    // have to reload. `ss:consent` is dispatched by senseless-cookie-consent.liquid
+    // and is the RELIABLE signal — verified live 8 Aug 2026 that Shopify's own
+    // `visitorConsentCollected` does not fire on that path even when
+    // Shopify.customerPrivacy is available. The Shopify event is kept as a secondary
+    // hook for consent set by a Shopify-owned surface.
+    document.addEventListener('ss:consent', evaluate);
     document.addEventListener('visitorConsentCollected', evaluate);
   })();
 </script>

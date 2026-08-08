@@ -145,7 +145,18 @@
       panel.hidden = true;
       if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
     }
-    function choose(c) { recordDecision(c); setAPI(c); closePanel(); hide(); }
+    function choose(c) {
+      recordDecision(c); setAPI(c); closePanel(); hide();
+      // Announce the decision so consent-gated tags (senseless-clarity) can react in
+      // THIS pageview instead of waiting for a reload. Verified live 8 Aug 2026:
+      // Shopify's own `visitorConsentCollected` does NOT fire on this path even though
+      // Shopify.customerPrivacy.setTrackingConsent is available, so do not rely on it.
+      try {
+        document.dispatchEvent(new CustomEvent('ss:consent', {
+          detail: { analytics: !!c.analytics, marketing: !!c.marketing, preferences: !!c.preferences }
+        }));
+      } catch (e) {}
+    }
 
     root.querySelector('[data-ss-accept]').addEventListener('click', function () { choose({ analytics: true, marketing: true, preferences: true }); });
     root.querySelector('[data-ss-reject]').addEventListener('click', function () { choose({ analytics: false, marketing: false, preferences: false }); });
