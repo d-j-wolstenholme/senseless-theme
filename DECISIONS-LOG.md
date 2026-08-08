@@ -1,8 +1,17 @@
 # Senseless — Decisions Log (Local Mirror)
 
-**Mirrors the active volume of the Notion Decisions Log.**
-Active volume: Vol 1 — May 2026
-Notion source: https://www.notion.so/36d58bc375ea81708d1ac0fe0724d445
+**Mirrors the live Notion Decisions database.**
+Notion source: **Decisions** DB — https://app.notion.com/p/d5ce9514257c4e02acedacba800e89d9
+(data source `655c296e-c6aa-428c-9f8e-0a8e7ef0bd3d`, under *Senseless — Project Hub*)
+
+> **Repointed 2026-08-08.** This file previously pointed at
+> `36d58bc375ea81708d1ac0fe0724d445` — which is **"📖 Vol 1 — May 2026"**, an
+> **archived** page under *Decisions Log → Site Build OS → Archive (pre-migration)*
+> whose own first line reads *"⚠️ HISTORICAL (May 2026) — superseded facts
+> throughout."* It was never repointed after the 29 Jun migration, so every session
+> reading this header inherited the wrong target. The authority for the correct ID is
+> the **Project Instance §2 database registry** (`38e58bc3-75ea-8198-9ed7-de73bc48f2b5`),
+> which `CLAUDE.md` names as source of truth. Verified by fetching both pages.
 
 Newest at top. ISO 8601 timestamps in BST.
 
@@ -29,7 +38,7 @@ When this file is older than 24 hours, run `/drift-check` to surface any drift b
 
 **Flagged, not actioned:** (1) the three **spray PDP descriptions** all read "suited to broad areas such as **laser and waxing** appointments" — this, not the collection copy, is the only real laser/waxing keyword overlap on the site, and it also leaks through the collection's `.atom`/`.oembed` feeds; wants a real ranking source first. (2) All **5 bundle `seo.description`s still promise a "vanity bag"**, which was removed from the four on-page surfaces on 6 Aug pending stock — a 5th surface that was missed, and it is live in SERPs now. (3) `UK-Formulated` in the clinical cream title vs `UK-formulated` everywhere else. (4) The laser hero alt says "Comfort Spray and Comfort **Gel** — laser treatment" while the body copy says "Gel isn't the laser format".
 
-**Notion write-back OUTSTANDING** — the Notion MCP connector did not come up this session and there is no API token or `ntn` CLI available, so the State Surface log and the phase-4 Decision could not be written. This entry is the local record; mirror it when the connector is back.
+**Notion write-back DONE (2026-08-08).** The connector came up later in the session and both writes landed, independently verified by fetching the pages back: (a) **State Surface** `38e58bc3-75ea-81ad-87eb-e20fcfc22406` — entry appended to the bottom of the Log section, +5,518 chars, old content confirmed a byte-identical prefix so nothing was reordered or overwritten; (b) **Decisions** DB `d5ce9514-257c-4e02-aced-acba800e89d9` — row `3b658bc3-75ea-8136-a46c-c575493f7cce`, Status **Accepted** (the DB has no "Applied" option; all 36 existing rows use Accepted), Date 2026-08-07, Area SEO. Body text went into the ADR properties (Decision / Context / Consequences / Alternatives considered) per that DB's convention of leaving the page body blank. **No `Supersedes` relation set** — the 2026-06-15 SEO-RISK hold has no row in the Decisions DB, so the supersession is stated in the Decision text instead. **Still not written back:** the State Surface *header* and its *Sync status* line, which were out of scope for the append and still describe the 7 Aug agency-document session.
 
 ---
 
