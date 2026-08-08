@@ -22,6 +22,19 @@
   content=""
 >
 
+{%- comment -%}
+  Bing Webmaster Tools site-ownership proof. Independent of the Google Search Console
+  import the property was originally verified by — Microsoft periodically re-syncs that
+  import against the Google account, so if GSC access to the property ever lapses the
+  Bing verification lapses with it. This tag is the documented fallback and keeps
+  ownership provable on its own. Do not change the value; it is issued per account by
+  Bing (site menu -> Verification code).
+{%- endcomment -%}
+<meta
+  name="msvalidate.01"
+  content="76C3F6F0B269C99286C6AFFEAF4785B1"
+>
+
 {%- liquid
   # Brand-independent title/SEO (Phase 13: do not derive from shop.name — survives the shop rename).
   assign brand_name = 'Senseless'
