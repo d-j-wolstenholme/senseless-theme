@@ -16,8 +16,9 @@ Notion.** No theme file changed, so there is nothing to deploy.
 `creativeposts.top` (0 dofollow) and the group's own `matrixhealthgroup.co.uk`. **Earned editorial
 refdomains: zero.** Placements are still arriving — `backlinkshop.site` first seen **30 Jul 2026**,
 `backlinksplace.site` **3 Aug 2026**, plus `norskcasinos.net` (dofollow), `seoflox.io`,
-`trafficspike.shop`. Nothing in the repo records anyone commissioning this. **Ask who is paying for
-it, stop it, consider a disavow.**
+`trafficspike.shop` — and a third non-spam-count entrant, **`backlinkengine.shop`, first seen
+`2026-08-12T18:09:50Z`, i.e. DURING the session that found this.** Nothing in the repo records
+anyone commissioning it. **Ask who is paying for it, stop it, consider a disavow.**
 
 **2. The review corpus is Totally Numb's, republished with "tattoo" edited to "procedure".**
 Verified via the Judge.me widget JSON endpoint (not the curl false-reading trap). Same 10 reviewer
@@ -109,14 +110,18 @@ pointer into it. Do not redo this work.
 |---|---|---|
 | 1 — Blast radius (8 agents) | **COMPLETE** | Part 2 of the doc. Do not re-run. |
 | 4 — Pain chart & guides (9/10 agents) | **SALVAGED** — final synthesis agent stalled, all research + 3 audits finished | Part 3 of the doc. Do not re-run. |
-| 2 — Competitor deep research (16 agents) | **SALVAGED** — research complete, verifier + synthesis never ran | Part 4 |
-| 3 — Challenger playbook (7 agents) | **SALVAGED** — both research phases complete, verifier + synthesis never ran | Part 4 |
+| 2 — Competitor deep research (19/20 agents) | **COMPLETE** — both verifiers ran (34 + 70 checks) | Part 4 + `docs/TATTOO-BEAT-THEM-PLAN-2026-08-12.md` |
+| 3 — Challenger playbook (7 agents) | **SALVAGED** — research done, verifier + synthesis never ran | Part 4 |
 
 All four strands are captured. **Do not re-run any of them.**
 
-**Caveat on Part 4:** strands 2 and 3 died before their adversarial verifiers ran, so everything in
-Part 4 is single-sourced agent output. Parts 2 and 3 were verified (the Part 3 pass caught seven
-errors). Re-verify any Part 4 number before acting on it.
+**`docs/TATTOO-BEAT-THEM-PLAN-2026-08-12.md`** is strand 2's final synthesis: competitors ranked,
+the compliance ceiling, and content/SEO/GEO plans with a build order. It is a PLAN — nothing built.
+
+**Caveat:** strand 3 alone is single-sourced (no verifier ran). Strand 2's verifiers corrected eight
+figures and flagged six aggregates as unsupported — all recorded at the end of Part 4. Notably:
+**getnumbd's paid spend was overstated 3.4× (actual $1,063/mo)**, and the **263-term / 36,190-per-month
+universe and the 4.6% unaddressable split are UNSUPPORTED — use ~650/mo (~2.5%) instead.**
 
 **Before re-running: Ahrefs was at ~105k of 400k monthly units** (resets 2026-09-09) and these
 workflows query it heavily. Check `subscription-info-limits-and-usage` first.

@@ -755,10 +755,55 @@ all-time peak 11,863 (Jul 2023). Most plausible origin: Google Keyword Planner r
 pair grouped (10,000 + 5,800 = 15,800, bucketed to 14,800). **Use 10,000 for the single term,
 ~15,800 for the pair.**
 
-### Not verified
+### Verification status — corrected
 
-Strand 2's and strand 3's adversarial verifiers **never ran** — the machine slept first. Everything
-in Part 4 is single-sourced agent output. The competitor figures are internally consistent and
-tool-cited, but they have not had the second pass that caught seven errors in Part 3. Re-verify
-before acting on any single number.
+**Strand 2 did complete** (19 of 20 agents; the machine woke and it ran on). Both its adversarial
+verifiers ran — 34 and 70 checks — and its final synthesis is saved separately as
+**`docs/TATTOO-BEAT-THEM-PLAN-2026-08-12.md`**. An earlier note in this file said strand 2 died
+unverified; that was wrong.
+
+**Strand 3 did not complete.** 7 agents (both research phases); no verifier, no synthesis. The
+challenger-playbook findings above — the bought-link package, the review corpus, the off-SERP and
+AI-citation numbers — are **single-sourced**. The link-package and review findings were partially
+corroborated by strand 2's verifier (see below), but treat strand-3-only figures with care.
+
+### Corrections from strand 2's verifiers — apply these
+
+- **getnumbd.com paid spend was overstated ~3.4×.** Not $3,644/mo / 4,509 visits. **Actual: 84 paid
+  keywords, 1,284 paid visits, $1,063.08/mo.** The same inflation hit the recon agent's
+  totally-numb figure; the **$1,161/mo** for Totally Numb is correct. The "$10,415 in July 2026"
+  peak came from a different endpoint and was not re-run — treat as indicative.
+- **A THIRD spam referring domain appeared mid-session:** `backlinkengine.shop`, `first_seen
+  2026-08-12T18:09:50Z` — during this session. Refdomains 164, not 163; non-spam count is now 3, not
+  2. **The link package is landing in real time.**
+- senseless.uk all-time backlinks 411 / 260 refdomains (not 410 / 259). Live 216 / 160 exact.
+- tattoonumbx GB traffic: PDP 2,679 (not 2,688), homepage 424, delivery page 132. Positions all
+  confirmed.
+- Totally Numb's Product node **does** carry `gtin13: 10795847725977` — the "no gtin" finding was
+  wrong.
+- **Totally Numb ownership is established, not inferred** — the verifier upgraded it from
+  UNVERIFIED. Footer and JSON-LD both publish company **17099304** / VAT **GB 523 7816 82**,
+  identical to `sections/senseless-footer.liquid:177` and `templates/page.contact.json:140`.
+- getnumbd's empty collection page is 160 words, not 156. Immaterial.
+
+### Flagged UNSUPPORTED by strand 2's verifier — do not quote these
+
+- **The 263-term / 36,190-per-month universe** and its addressability split (176 addressable /
+  55 constrained / 32 unaddressable at 1,680, 4.6%). Derived sums over an unaudited manual
+  classification. **Use the repo's ~650/mo (~2.5%) unaddressable figure instead** — first-party,
+  components individually named.
+- The tattoo-pain (17,400/mo) and tattoo-aftercare (18,050/mo) **cluster totals**. The anchor terms
+  are exact ("tattoo pain chart" 6,900 KD 1; "tattoo aftercare" 9,700 KD 2); the sums were not
+  reproduced.
+- **The "15 domains linking 2+ competitors, all junk" link-gap intersect** and the named gap targets
+  with their DRs. Not re-run. The conclusion may hold; the list is unverified.
+- The "16 SERPs mapped" detail — 4 were re-run and were exact; the other 12 were not.
+- The GSC figures (0 tattoo rows, and the per-term impression/position numbers).
+- Per-term long-tail body-part volumes beyond the spot-checked heads.
+
+### One live compliance trap already sprung
+
+**`strongest numbing cream` is already live as an inbound backlink anchor on 2 referring domains,
+first seen 2026-07-16, with no sign-off.** The superlative is permitted in slug/title/meta only, and
+using it as anchor text needs Daniel's written approval. It is already out there.
 
