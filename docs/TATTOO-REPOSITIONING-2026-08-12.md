@@ -291,4 +291,231 @@ buying.**
 4. **What is inside the password-locked `senseless-tattooing.myshopify.com`** — possibly portable
    tattoo copy and imagery. Requires Daniel to lift the password.
 
-Strands 2–4 append below on completion.
+---
+
+## Part 3 — Pain chart & guides (strand 4: 9 of 10 agents completed; final synthesis agent stalled)
+
+The workflow errored on its last step. All research agents and all three auditors finished, so the
+findings below are complete; only the auto-synthesis is missing. Two adversarial verifiers ran
+(47 and 64 checks) and their corrections are applied.
+
+### THE BIG CORRECTION — MHRA GN8 is real, and it names tattoos
+
+Strand 1 concluded GN8 was unsourced because it searched only the repo. **Strand 4 fetched the
+primary document.** `https://assets.publishing.service.gov.uk/media/6a035312e71c4cdf4026bac6/GN8_FINAL_20260512.pdf`
+— which the compliance auditor confirmed now 301s to the current **`GN8_FINAL_20260806.pdf`**
+(830,613 bytes, dated 6 August 2026). Extracted with `pdftotext -layout`. §13, verbatim:
+
+> "Topical anaesthetics which are administered to reduce sensibility to pain e.g. lidocaine,
+> prilocaine, epinephrine prior to carrying out a procedure, including non-medicinal procedures, are
+> regarded to be medicinal products. **Examples of non-medicinal procedures include tattoos**, and
+> cosmetic procedures such as semi-permanent makeup."
+
+**Commit `f940b05`'s citation was correct.** Two agents quoted it independently; the auditor
+re-fetched both cited URLs and re-verified every load-bearing quote against the current text. Treat
+GN8 as binding primary authority. **Supersedes the "unsourced" finding in Part 2 / G4.**
+
+### Two facts that make this far less alarming than it sounds
+
+1. **Senseless is lidocaine-free — eugenol-based** (`DECISIONS-LOG.md:176`, 2026-05-27). GN8 §13
+   names lidocaine, prilocaine and epinephrine. The *function* limb of the medicinal test is much
+   harder to run against Senseless than against a typical competitor.
+2. **GN8 §13 already names semi-permanent makeup — and we already run
+   `/collections/numbing-cream-for-semi-permanent-makeup`.** Tattoo does **not** create a new
+   *category* of legal exposure. It raises volume, lowers audience age, and creates a very linkable
+   page. "Tattoo is a new legal risk" is wrong; "so nothing changes" is also wrong.
+
+**The whole exposure is therefore limb one — presentation.** There is no ingredient defence to fall
+back on. The copy *is* the defence.
+
+### CPSR ≠ claims permission
+
+> An updated CPSR does **not** license pain claims. A CPSR is a safety assessment made *under* the
+> Cosmetics Regulation — it presupposes the product is a cosmetic. If presentation makes it
+> medicinal, GN8 §13 applies whatever the CPSR says.
+
+Daniel's "the certs have been updated" is a **safety** fact and it does clear the intended-use gate
+for widening the range's stated applications. It is not a claims permission and does not soften any
+Hard Rule.
+
+### The build thesis is REVERSED — the winning asset is a static image
+
+| Asset | Build | Refdomains | GB traffic |
+|---|---|---|---|
+| healthline.com/…/pain-tattoos-chart | **Static PNG** | **263** | 2,915 (SERP #3) |
+| totally-numb.com/pages/tattoo-pain-chart | Interactive SVG, 29 zones | **0** | **0** |
+| applestan.com/tools/tattoo-pain-chart/ | Interactive SVG, 31 regions | 0 | 0 |
+| tattoo-pain-chart.com | Interactive, 20 regions | 486 — **all PBN spam** | 0 |
+| tattoopains.com | Client-rendered | 400 — **all PBN spam** | 0 |
+| removery.com/blog/tattoo-pain-chart/ | Static PNG | 38 | 64 |
+
+Verified exactly: **Totally Numb's chart is UR 4.6, 0 refdomains, 0 backlinks, 0 organic traffic,
+0 organic keywords**, on a DR 30 domain, and absent from the domain's top-pages list.
+
+**No interactive pain chart anywhere has earned a single genuine link.** Healthline's 263 refdomains
+are editorial — BuzzFeed (DR 91), Today.com (DR 90), Bustle (DR 88), Mental Floss (DR 86), Bored
+Panda (DR 84), The List (DR 75, 11 links). Lifestyle and tattoo press link to pain charts readily —
+**they have only ever had static images to link to.**
+
+Implication: build the interactive tool for users, but **the linkable, rankable artefact is a
+properly-made static graphic** (position 1 for "tattoo pain chart" GB is a 12-slot image pack; the
+first organic result is position 3). "tattoo pain chart **female**" at 900/mo GB means a **gender
+toggle is a ranking feature, not a nicety**.
+
+The UK bar is low: `stretchitbodyjewellery.co.uk` ranks #10 on **DR 38 with exactly 1 referring
+domain**, pulling 587–610/mo.
+
+### There is no published dataset of tattoo pain by body region
+
+PubMed searched exhaustively; all four real studies opened and verified by an adversarial verifier.
+
+**Witkoś J, Hartman-Petrycka M. "Gender Differences in Subjective Pain Perception during and after
+Tattooing." *Int J Environ Res Public Health* 2020;17(24):9466.** doi:10.3390/ijerph17249466,
+PMID 33348763, PMC7767267. The only large tattoo-pain dataset in existence, n=1,092 (863 F, 229 M),
+NRS 0–10.
+
+- Mean pain during tattooing **4.35** (SD 2.60); after 2.07 (SD 2.02).
+- **Body area was NOT a significant predictor of pain intensity: p = 0.094 during, p = 0.742 after.**
+- Significant only for *radiating* pain (p = 0.012).
+- No sex difference during tattooing (p = 0.359); women higher after (p = 0.028).
+- Strongest predictors were **time, bleeding and stress** — not location.
+
+**So every tattoo pain chart on the internet, Healthline's included, asserts a regional pain ranking
+the best available evidence does not support.** Supporting literature (Mancini 2014 whole-body
+spatial acuity, n=26; Park 2019 heat pain thresholds, 14 regions, n=16 young males; Olsen 1995 skin
+thickness, n=18) measures something else and is extrapolated.
+
+> **A fabrication was caught in flight.** WebSearch's summariser produced *"a 2018 study in the
+> Journal of Pain Research found average tattoo pain around 5.5 out of 10."* It does not exist. If
+> that number appears in this project again, it has no source. The real published mean is **4.35**.
+
+### The four GN8 passages that constrain the design
+
+The compliance auditor re-derived the law from primary source and found four passages the research
+agents missed. These change the build.
+
+1. **The region-panel mechanic is enumerated, not inferred** (App.10):
+   > "Lists of adverse medical conditions which take a consumer to a page **displaying a product** or
+   > group of products when selected."
+
+   That is exactly "tap a body region → see a product." Note **"displaying"**, not "linking" — so
+   Totally Numb's panels containing no `<a>` element does *not* save them. A panel that renders the
+   word "Platinum" is displaying a product on selection.
+
+2. **Adjacency is named, not inferred** (§4): the list of marketing forms suggesting a medicinal
+   product ends with *"**juxtaposing with any examples of the above**"*. This is a far stronger
+   citation than "the ASA assesses overall impression" and is the one to put in front of legal.
+
+3. **A same-domain editorial firewall does not work** (App.10):
+   > "If you are using the internet to sell products that are not medicines, you should ensure that
+   > your **entire website** or social media content is free of all direct and implied medicinal
+   > claims."
+
+   **Entire website.** Putting the evidence layer on a separate URL inside `senseless.uk` buys
+   page-level tidiness, not classification safety. This kills the "editorial section architecturally
+   separated from commerce" plan that two agents independently proposed.
+
+4. **Publishing clinical research is itself a listed trigger** (§4, App.10): *"references to medical
+   and/or clinical research and testing"* · *"Publication of third-party articles, reports, clinical
+   data, medical research."*
+
+   **This is the painful one.** The differentiator — "be the only chart that cites real studies,
+   publish DOIs and p-values with `Dataset` JSON-LD" — is itself a listed implied medicinal claim
+   when performed on the selling domain.
+
+### Design rulings that follow
+
+- **No region → product mapping. No compliant version exists** — not with softer words, not via the
+  Selector, not with the tier renamed. The mechanism *is* the claim. **Worse for us than for Totally
+  Numb:** their tiers are Bronze/Silver/Gold/Platinum (semantically empty metals); ours are
+  **Clinical / Advanced / Professional**, an explicit ascending ladder. "Ribs → Professional" states
+  a dose-for-pain relationship in two words.
+- **Qualitative bands only, no 0–10 scale.** Three agents proposed numeric; one opposed. The
+  opposition wins on project precedent: `build-reports/phase-6-interactives-comfort-compare.md` —
+  *"Numeric version not built (de-scoped per the locked 2 June decision — qualitative ships, numeric
+  only if cited data is later gathered)."* Reuse the live vocabulary from
+  `sections/senseless-comfort-compare.liquid:4-5` — **Mild · Moderate · Sharper**.
+- **No distress imagery** (App.10 "Graphics"): *"Negative images such as depictions of people looking
+  unwell or showing apparent areas of pain or inflammation may create an impression that products are
+  medicinal and such images should not be used."* **A red pain heat-map on a human figure is exactly
+  this.** Neutral line-art, brand palette, no red, no wincing figure, no medical crosses.
+- **Never merchandise it as a category** (App.10): `/pages/tattoo-pain-chart`, never
+  `/collections/tattoo-pain-relief`.
+- **No reviews module on the chart page.**
+- **Note the theme's own history:** `sections/senseless-pain-scale-slot.liquid` was **deleted** and
+  its anchor renamed `#pain-scale` → `#comfort`. "Pain" was deliberately removed from this theme's
+  interactive surface. Precedent, not law — but flag it before naming a file
+  `senseless-pain-chart.liquid`.
+
+### Totally Numb's chart — teardown (group-internal; same parent, so this is improving our own concept)
+
+`https://totally-numb.com/pages/tattoo-pain-chart`. Ownership confirmed from the footer
+(`matrix-health-group-logo` beside "© 2026 Totally Numb").
+
+Custom Shopify section, hand-written, no app, no third-party embed. Two inline SVGs
+`viewBox="0 0 200 520"` (front + back), one `<path>` per zone, `role="button"`, `tabindex="0"`,
+Enter/Space handled, panel `aria-live="polite"`. **29 zones**, 3-band ordinal scale.
+~230 lines of vanilla JS plus two hand-drawn silhouettes — **rebuildable in an afternoon.**
+
+**Where it's beatable:**
+
+| Failure | Detail |
+|---|---|
+| No source, anywhere | Rationale is "skin thickness, nerve density, proximity to bone" — plausible, unattributed. The reason it earns no links. |
+| Pain level is **colour-only** | `aria-label="Rib cage"` — the band exists only as a CSS class. Screen-reader users get no sensitivity information at all. |
+| Bands not visually distinguishable | Composited fills give **1.31:1** (high↔moderate) and **1.12:1** (moderate↔lower). WCAG 1.4.11 needs **3:1**. All pairs fail. |
+| Dead CSS rule — a live bug | CSS styles `[aria-selected=true]`; HTML/JS set `aria-pressed`. `grep -c 'aria-selected'` → **0**. The active Front/Back tab never highlights. |
+| Tap targets fail WCAG 2.5.8 | Body renders at max-width **200px desktop / 240px mobile** for a 29-region diagram. Spine 10×120px, neck 24×16px. |
+| No-JS fails completely | All zone data lives in JS arrays, and the back SVG carries a literal `hidden` attribute — **with JS off the back of the body is unreachable.** |
+
+Verifier note: an agent claimed the back view is only 3 of 29 zones — **corrected, that was wrong.**
+Front/back parity is not the easy win it looked like.
+
+### Theme build constraints (verified)
+
+- **Schema `name` is capped at 25 characters** — undocumented locally; three sections sit exactly at
+  25. Safe candidates: `Senseless — Body map` (20), `Senseless — Comfort map` (23).
+- **Precedent to copy: `sections/senseless-selector.liquid`** (171 lines). Native radios in a
+  `fieldset`/`legend` — the DOM *is* the state, no JS state object; free arrow-key nav and
+  radiogroup semantics; one inline IIFE scoped via `document.currentScript.closest()`; ES5, no
+  framework, no build step.
+- **CSS: unique class prefix per section, inline `{%- style -%}`, no stray `z-index`.** Locked after
+  a real collision — the cookie banner's `.ss-cc` leaked onto comfort-compare and pinned it to the
+  viewport (`docs/ARCHITECTURE.md:67`).
+- **Every text setting needs a non-empty `default`** — `theme push` rejects `default:""` and
+  **theme-check does not catch it** (`DECISIONS-LOG.md:137`).
+- **Two BRAND.md drift items — do not trust it blindly:** `BRAND.md:27` says `--text-muted #8E8A82`;
+  the live token is **`#6E6A63`**. And the brand asterisk strokes **`#984AE8`**, not `#6B3FA0`,
+  despite `BRAND.md:104`.
+
+### Verifier corrections applied
+
+- Totally Numb domain: **19** organic keywords (not 23), **79** organic visits/mo (not 81),
+  org_cost $54.40 (not $55.65). The 21× paid-vs-organic ratio is unchanged.
+- Reddit holds organic position **4 only** on "tattoo pain chart" GB (not 3–5). Position 3 is
+  Healthline, position 5 is kingpintattoosupply.
+- `hushanesthetic.com` least-painful page: **UR 0, 0 traffic** (not UR 4.5 / 98).
+- `tattoopains.com`: 400 refdomains (not 399).
+- The `tattoo-pain-chart.com` PBN campaign is **ongoing**, not confined to Apr–Jun 2026 — its 15 most
+  recent referring domains are `*.shop` link farms first seen 3–12 Aug 2026.
+- **Cite GN8 by section and appendix, never by line number** — line numbers are an artefact of one
+  `pdftotext` run and are not reproducible.
+
+### Still unverified after two adversarial passes
+
+- The ~22,500/mo GB informational cluster total (a floor; 15 largest components individually
+  confirmed, the summation not reproduced).
+- Per-body-part GB volumes beyond "rib tattoo pain" (80, confirmed).
+- The "$18k/mo equivalent paid clicks" valuation — the agent's own arithmetic, not a tool output.
+- Totally Numb's chart build measurements (29 zones, contrast ratios, tap targets) — curl/grep
+  arithmetic, **no browser was driven**, so rendered appearance and focus behaviour are unobserved.
+- Whether the TN chart page is indexed by Google at all.
+- Pan 2024 thenar pressure-pain figures — **do not publish** until someone opens the full text.
+
+---
+
+## Strands 2 and 3 — NOT COMPLETED
+
+Competitor deep research and the challenger traction playbook were still running when the session
+ended. Re-run them; script paths are in `NEXT_SESSION.md`.
+

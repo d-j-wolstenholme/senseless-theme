@@ -36,13 +36,37 @@ pointer into it. Do not redo this work.
 2. **Unbroken-skin conflict.** `sections/senseless-safety-warnings.liquid:22` — *"Apply to clean,
    unbroken skin"*, hardcoded/non-editable, 9 SKUs + 5 kits, duplicated in Admin `body_html`.
    Tattooing breaks skin. Needs the safety assessor, not a copy edit.
-3. **MHRA Guidance Note 8 is UNSOURCED.** Exists only in the `f940b05` commit body; zero other
-   occurrences across 200 revisions. Do not quote it as authority. (Nothing is lost — the Hard Rules
-   already ban that presentation.)
+3. **MHRA Guidance Note 8 IS REAL — binding primary authority.** An earlier finding in this session
+   called it unsourced; that was based on a repo-only search and **is superseded**. The PDF was
+   fetched: `assets.publishing.service.gov.uk/media/6a035312e71c4cdf4026bac6/GN8_FINAL_20260512.pdf`,
+   now 301ing to **`GN8_FINAL_20260806.pdf`** (6 Aug 2026). §13 verbatim: *"Topical anaesthetics
+   which are administered to reduce sensibility to pain e.g. lidocaine, prilocaine, epinephrine prior
+   to carrying out a procedure, including non-medicinal procedures, are regarded to be medicinal
+   products. **Examples of non-medicinal procedures include tattoos**, and cosmetic procedures such
+   as semi-permanent makeup."* Commit `f940b05` was right. **Cite by section/appendix, never by line
+   number.**
+   - **Two mitigating facts:** Senseless is **lidocaine-free, eugenol-based** (`DECISIONS-LOG.md:176`),
+     so the *function* limb is weak against us — the entire exposure is the **presentation** limb.
+     And GN8 §13 already names **semi-permanent makeup**, which we already sell a collection for, so
+     tattoo creates **no new category** of exposure.
+   - **CPSR ≠ claims permission.** Daniel's "the certs have been updated" clears intended use. It
+     does not license pain claims: a CPSR presupposes the product is a cosmetic, and if presentation
+     makes it medicinal, GN8 §13 applies regardless.
 4. **"tattoo pain chart" = 6,900/mo GB at KD 1** (global 60,000) and the SERP is soft — a DR 3 site
    ranks #8, a 1-refdomain page ranks #10. Senseless is DR 7. Best beachhead on the site.
 5. **Tattoo aftercare = 9,700/mo at KD 2**, products already in range (A&D ointment + Foaming
    Cleanser), far less MHRA exposure, no page exists. Possibly the best risk-adjusted first move.
+6. **The pain-chart build thesis is REVERSED — the winning asset is a static image.** Healthline's
+   **static PNG** has 263 referring domains and 2,915 GB traffic. **Totally Numb's interactive chart
+   has 0 refdomains, 0 backlinks, 0 traffic, 0 keywords** (verified exactly). No interactive pain
+   chart anywhere has earned a genuine link. Build the tool for users; build a **properly-made static
+   graphic** for links and the image pack (position 1 for the head term is a 12-slot image pack).
+   "tattoo pain chart **female**" at 900/mo means a **gender toggle is a ranking feature**.
+7. **No published dataset of tattoo pain by body region exists.** The only large study — Witkoś 2020,
+   n=1,092 — found **body area NOT a significant predictor** of pain intensity (p=0.094 during,
+   p=0.742 after). Every chart online, Healthline's included, asserts a ranking the evidence does not
+   support. **But** GN8 §4/App.10 make publishing clinical research a *listed* implied medicinal
+   claim on a selling domain — so "cite the studies" cannot be the differentiator as first planned.
 
 ## Corrections on record
 
@@ -53,20 +77,22 @@ pointer into it. Do not redo this work.
 - The compliance ceiling costs ~650/mo directly (~2.5%), but the real cost is **CTR and dwell**:
   competitors state onset/duration in hours and we cannot, in any voice, even where we rank.
 
-## THREE WORKFLOWS DIED UNFINISHED — re-run them
+## Research strand status
 
-Background research was still running when the session ended. Resume is same-session-only, so these
-must be **re-run**, not resumed. Scripts are saved on disk and can be re-invoked directly with
-`Workflow({scriptPath: ...})`:
+| Strand | Status | Where it lives |
+|---|---|---|
+| 1 — Blast radius (8 agents) | **COMPLETE** | Part 2 of the doc. Do not re-run. |
+| 4 — Pain chart & guides (9/10 agents) | **SALVAGED** — final synthesis agent stalled, all research + 3 audits finished | Part 3 of the doc. Do not re-run. |
+| 2 — Competitor deep research | **NOT COMPLETE** | Re-run |
+| 3 — Challenger traction playbook | **NOT COMPLETE** | Re-run |
+
+Resume is same-session-only, so strands 2 and 3 must be **re-run**, not resumed. Scripts are on disk:
 
 ```
 ~/.claude/projects/-Users-matrix-code-senseless-theme/3d587116-c801-4b77-b745-5f8663c99bcb/workflows/scripts/
   tattoo-competitive-deep-research-wf_3b8f34ea-3b5.js       (competitor teardowns + gaps)
   senseless-challenger-traction-playbook-wf_0db71e3c-7be.js (what's winnable in 90 days)
-  tattoo-pain-chart-and-guides-spec-wf_9a050867-6c3.js      (pain chart build spec)
 ```
-
-Strand 1 (blast radius) COMPLETED and is fully captured in the doc — do not re-run it.
 
 **Before re-running: Ahrefs was at ~105k of 400k monthly units** (resets 2026-09-09) and these
 workflows query it heavily. Check `subscription-info-limits-and-usage` first.
