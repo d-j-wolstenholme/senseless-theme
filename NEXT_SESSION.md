@@ -49,10 +49,24 @@ SEO. Framing: *"senseless is new so it needs to outperform them to gain traction
 tattooing. That is the gate that permits tattoo-positive copy. It is verbal only; no written scope
 exists anywhere in the repo or Notion.
 
-## What exists — read this first
+## ▶ START HERE — `docs/TATTOO-BUILD-SWEEP.md`
 
-**`docs/TATTOO-REPOSITIONING-2026-08-12.md`** — the full research record. Everything below is a
-pointer into it. Do not redo this work.
+**That is the build document.** Owner instruction, 12 Aug: *"make sure the docs are set up so the
+next session can build all in a single sweep"* — which **deliberately overrides the one-task-per-
+session rule** for this work (log it in the Decisions DB at write-back). It does not override the
+store gate, the deploy rules, the reviews-guard, the injectable-clean invariant or `compliance-check`.
+
+The sweep is structured **Phase 0 pre-flight → Phase A ungated build (10 items, shippable today) →
+Phase B built-but-held-for-gates → Phase C blocked → Phase Z verify + write-back**, with a default
+for every open gate so nothing stalls. Exact file paths and operations are in it.
+
+Supporting evidence, in order of usefulness — **do not re-run the research, it cost ~7.9M tokens**:
+
+| Doc | Use it for |
+|---|---|
+| `docs/TATTOO-REPOSITIONING-2026-08-12.md` | Evidence base, Parts 1–4 + all verifier corrections |
+| `docs/TATTOO-BEAT-THEM-PLAN-2026-08-12.md` | Competitor detail, target map, GEO property lists |
+| `docs/TATTOO-90-DAY-PLAYBOOK-2026-08-12.md` | Channel strategy, off-SERP, paid, artist B2B |
 
 ## The five findings that shape the plan
 
@@ -130,14 +144,18 @@ workflows query it heavily. Check `subscription-info-limits-and-usage` first.
 
 ## Next Work Item
 
-**Session 1 is the gate pack — no code, no copy, no deploy.** Get written answers on: (a) the CPSR's
-declared scope, and whether it traces to Totally Numb's certifications; (b) whether the unbroken-skin
-warning can change; (c) the Senseless-vs-Totally-Numb lane decision; (d) ad-facing or organic-only.
-Same session: raise a **Compliance Hold** on the tattoo keyword set (precedent: the Applied EMLA hold,
-row `3b158bc3-75ea-8183-ae67-c6d305610682`) and log a Decisions row capturing both the historical
-aesthetics-only position and its reversal — **there is no predecessor row to supersede**.
+**Run the sweep: `docs/TATTOO-BUILD-SWEEP.md`, Phase 0 then Phase A.** Phase A needs no answer from
+anyone — 10 items, all shippable today, including the aftercare cluster (9,700/mo at KD 2, products
+already in range) and `/pages/delivery` (a competitor holds #1 on the tattoo variant with a page
+carrying zero backlinks, while all four of our candidate URLs 404).
 
-Full 12-session sequence is in the doc.
+**In parallel, put four questions to their owners** — they gate Phase B, not Phase A:
+G1 CPSR declared scope (safety assessor — one email may close it if the CPSRs trace to Totally
+Numb's) · G2 can the unbroken-skin warning change (safety assessor) · G5 Senseless or Totally Numb
+for the tattoo lane (owner) · G6 ad-facing or organic (owner).
+
+**And escalate the two items at the top of this file first.** Neither blocks Phase A; both attach to
+the domain that would host every tattoo page.
 
 ## Gotchas
 
