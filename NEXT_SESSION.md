@@ -20,14 +20,16 @@ refdomains: zero.** Placements are still arriving — `backlinkshop.site` first 
 `2026-08-12T18:09:50Z`, i.e. DURING the session that found this.** Nothing in the repo records
 anyone commissioning it. **Ask who is paying for it, stop it, consider a disavow.**
 
-**2. The review corpus is Totally Numb's, republished with "tattoo" edited to "procedure".**
-Verified via the Judge.me widget JSON endpoint (not the curl false-reading trap). Same 10 reviewer
-names and same 10 dates across TN `comfort-cream-bronze` and SL `clinical-strength-cream`; four texts
-identical, six edited (*"a four hour back **tattoo**"* → *"a four hour back **procedure**"*).
-Of 227 reviews: **184 dated 2023**, only **3 after the 7 June 2026 launch**, and **3 of 227 are
-`verified_buyer`**. 88.5% sit on one SKU; 11 of 16 products have zero. **31 of 150 sampled still
-contain tattoo vocabulary the edit missed** (*back piece, half sleeve, rib, full leg, ink*, *"Amazing
-7 hour procedure"*).
+**2. Senseless and Totally Numb share a review corpus.** **CONFIRMED at aggregate level** by an
+adversarial verifier, from server-rendered JSON-LD on both stores: TN `comfort-cream-bronze`
+**4.85 / 13** is identical to SL `clinical-strength-cream` **4.85 / 13**; TN `comfort-cream-platinum`
+**4.88 / 216** against SL `professional-strength-cream` **4.88 / 207**. Also confirmed: 234 reviews
+across 16 PDPs, **88.5% on one SKU**, **11 of 16 PDPs emit no `aggregateRating`**.
+**NOT CONFIRMED — do not repeat as fact:** the claim that review *texts* were edited from "tattoo" to
+"procedure", the 227-review dedup, the date distribution (184 in 2023) and the "3 of 227 verified
+buyers" figure. The verifier could reproduce **none** of it — the Judge.me widget endpoint 404s for
+both shops and `api.judge.me` 401s. **Re-extract from the Judge.me admin before this goes near
+legal.**
 Mitigation to check: `DECISIONS-LOG.md:119` says Senseless CPSR coverage was assumed from *"the same
 certifications as Totally Numb"* — if these are the same formulations, transplanted reviews are
 arguable. The **editing** is separate, and DMCC Act 2024 fake-review provisions are in force.

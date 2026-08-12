@@ -555,14 +555,37 @@ devalued. Nothing in the repo records anyone commissioning this.
 **Questions for the owner:** is this being paid for? By whom — an agency, a marketplace order? It
 should stop, and a disavow may be warranted.
 
-### ⚠️ URGENT 2 — The review corpus is Totally Numb's, republished with "tattoo" edited out
+### ⚠️ URGENT 2 — Senseless and Totally Numb share a review corpus (aggregate CONFIRMED; the alleged text edits are NOT)
+
+> **CORRECTION, applied after strand 3's verifier ran.** The first version of this section stated as
+> measured fact that review texts had been edited from "tattoo" to "procedure". **That specific
+> allegation could not be reproduced and is UNSUPPORTED.** The verifier found
+> `judge.me/reviews/reviews_for_widget` returns HTTP 404 / 0 bytes for both shop domains,
+> `api.judge.me` returns 401, and Senseless PDPs server-render no review bodies. **What IS
+> independently confirmed is the aggregate fingerprint** — see below. A shared corpus is near-certain.
+> The verbatim edits, the 227-review dedup, the date distribution and the "3 verified buyers" figure
+> are all single-sourced and unreproduced. **Do not put the quotes in front of legal until someone
+> re-extracts them from the Judge.me admin, where the data actually lives.**
+
+
 
 Measured via the Judge.me widget JSON endpoint (`judge.me/reviews/reviews_for_widget?shop_domain=…`),
 not a plain curl — the known false-reading trap was avoided. The endpoint agrees exactly with the
 PDP JSON-LD, so both are real.
 
-**Senseless: 234 product-attached reviews, weighted average 4.881** (the theme's "4.9" is honest).
-Deduplicated pull of 227 (97% coverage):
+**CONFIRMED by the verifier, via curl + JSON-LD extraction on all 16 product URLs:** 234 total
+reviews across 16 PDPs; weighted average **4.881** (the theme's "4.9" is honest);
+`professional-strength-cream` **4.88 / 207** = **88.5% of all reviews**; `clinical-strength-cream`
+4.85 / 13; `advanced-strength-cream` 4.92 / 12; `advanced-strength-spray` 5.0 / 1;
+`vitamin-a-d-ointment-4-pack` 5.0 / 1; **11 of 16 PDPs emit no `aggregateRating` at all.**
+
+**CONFIRMED — the shared-corpus fingerprint, from server-rendered JSON-LD on both stores:**
+Totally Numb `comfort-cream-bronze` = **4.85 / 13**, identical to Senseless `clinical-strength-cream`
+**4.85 / 13**. Totally Numb `comfort-cream-platinum` = **4.88 / 216** against Senseless
+`professional-strength-cream` **4.88 / 207**. Two stores, two products, the same rating to two
+decimal places on the same review count. **A shared corpus is near-certain.**
+
+**NOT CONFIRMED — everything below this line is single-sourced and could not be reproduced:**
 
 | | |
 |---|---|
