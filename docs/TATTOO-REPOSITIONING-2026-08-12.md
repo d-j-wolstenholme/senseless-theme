@@ -514,8 +514,251 @@ Front/back parity is not the easy win it looked like.
 
 ---
 
-## Strands 2 and 3 — NOT COMPLETED
+---
 
-Competitor deep research and the challenger traction playbook were still running when the session
-ended. Re-run them; script paths are in `NEXT_SESSION.md`.
+## Part 4 — Competitor research + challenger playbook (strands 2 & 3, salvaged)
+
+Both workflows died when the machine slept at 21:29. Strand 2 completed **16 agents**, strand 3
+completed **7** (both research phases; the verifiers and final syntheses did not run). Findings below
+are the agents' own, **not adversarially verified** — treat figures as single-sourced.
+
+### ⚠️ URGENT 1 — A bought-link package is pointed at senseless.uk, and it is live
+
+Nothing to do with tattoos. Found while measuring authority.
+
+**Domain Rating history** (`site-explorer-domain-rating-history`, weekly):
+
+```
+13 Jul  DR 14
+20 Jul  DR 27   ← peak
+27 Jul  DR 21
+03 Aug  DR 10
+10 Aug  DR  7   ← today
+```
+
+**Referring domains** (`site-explorer-refdomains-history`, weekly): 8 at launch week (8 Jun) → 52
+(29 Jun) → **147 (13 Jul, +95 in a single week)** → 178 (20 Jul) → 163 (10 Aug).
+
+**158 of 160 live referring domains are Ahrefs-flagged spam.** The only two non-spam are
+`creativeposts.top` (DR 42, 0 traffic, 0 dofollow links) and `matrixhealthgroup.co.uk` (the group's
+own parent site). **Earned editorial referring domains: zero.**
+
+Named domains, with first-seen dates: `backlinksplace.site` (DR 48, **first seen 3 Aug 2026**),
+`backlinkshop.site` (DR 48, **30 Jul 2026**), `trafficspike.shop` (DR 47), `seoflox.io` (DR 49),
+`seodaro.com` (DR 42), `norskcasinos.net` (DR 45, **dofollow**), `idenihtercepat.com` (DR 51),
+`haspersonals.com` (DR 53).
+
+**This is ongoing, not historical** — placements landed within the last two weeks. DR nearly doubled
+then fell by three quarters in three weeks: the signature of a link package being ingested and then
+devalued. Nothing in the repo records anyone commissioning this.
+
+**Questions for the owner:** is this being paid for? By whom — an agency, a marketplace order? It
+should stop, and a disavow may be warranted.
+
+### ⚠️ URGENT 2 — The review corpus is Totally Numb's, republished with "tattoo" edited out
+
+Measured via the Judge.me widget JSON endpoint (`judge.me/reviews/reviews_for_widget?shop_domain=…`),
+not a plain curl — the known false-reading trap was avoided. The endpoint agrees exactly with the
+PDP JSON-LD, so both are real.
+
+**Senseless: 234 product-attached reviews, weighted average 4.881** (the theme's "4.9" is honest).
+Deduplicated pull of 227 (97% coverage):
+
+| | |
+|---|---|
+| Dated 2023 | **184** |
+| 2024 / 2025 / 2026 | 25 / 15 / **3** |
+| Reviews in trailing 12 months | **8** |
+| Reviews dated after the 7 June 2026 launch | **3** |
+| `verified_buyer: true` | **3 of 227** |
+| Photos / videos / brand replies | **0 / 0 / 0** |
+| Products with zero reviews | **11 of 16** |
+| Share of all reviews on one SKU (`professional-strength-cream`) | **88.5%** (207) |
+
+**Tier-by-tier against Totally Numb's Judge.me** (245 reviews, 4.88): TN `comfort-cream-bronze`
+**13 @ 4.85** ↔ SL `clinical-strength-cream` **13 @ 4.85**; TN `comfort-cream-platinum` 216 @ 4.88 ↔
+SL `professional-strength-cream` 207 @ 4.88. The agent pulled both sets: **same 10 reviewer names,
+same 10 dates.** Four texts identical, six edited:
+
+> TN: *"My wife went through a four hour back **tattoo**…"*
+> SL: *"My wife went through a four hour back **procedure**…"*
+
+> TN: *"**Totally Numb Comfort Cream Bronze** — Bought this cream…"*
+> SL: *"**Senseless numbing cream** — Bought this cream…"*
+
+Across a 150-review Senseless sample, "tattoo" appears **0 times**, "procedure" **65 times**, and
+**31 of 150 still contain tattoo vocabulary the edit missed** — *back piece, half sleeve, cover up,
+sitting, shading, outline, rib, forearm, full leg, ink* — plus *"A 6 hour procedure"* and *"Amazing 7
+hour procedure felt nothing for 6!"*. No aesthetic procedure runs seven hours.
+
+**Context that may mitigate, and needs checking:** `DECISIONS-LOG.md:119` records that Senseless's
+CPSR coverage was originally assumed from *"the same certifications as Totally Numb"*. If these are
+literally the same formulations under two brands, transplanted reviews are arguable. **The editing of
+review text is a separate matter** — and UK law changed here: the DMCC Act 2024 provisions on fake
+and misleading reviews are in force. **3 verified buyers out of 227** is the number that will be
+asked about.
+
+**This is also self-solving in one direction:** if Senseless is now tattoo-positive, the edits were
+unnecessary. The reviews describe tattoo sessions because they are about tattoo sessions.
+
+**Owner + legal decision. Not a copy edit, and not one to make quietly.**
+
+### The competitors — none of them is what they look like
+
+| Domain | DR | GB organic | Reality |
+|---|---|---|---|
+| **getnumbd.com** | 5 | **0 keywords, 0 traffic** | Pure Google Ads arbitrage. 84 paid keywords, $1,059/mo GB, scaled to **$10,415 in July**. |
+| **totally-numb.com** *(group)* | 30 | 79 visits, 19 keywords | $54/mo organic vs **$1,160/mo paid**. Declining from a 157-visit May peak. |
+| **tattoonumbingcream.com** ("Tattoo Numbing Co") | 40 | 1,731 visits | The real leader. +118% YoY globally — but **94% of UK traffic is one URL**. |
+| **tattoonumbx.com** | 11 | 3,671 visits | **73% on one PDP.** Outranks Amazon, TKTX and Superdrug on exact-match relevance alone. |
+| **emla.co.uk** | — | 4,954 visits | The category authority. **Declining −46% YoY.** |
+| **hushanesthetic.com** | 35 | 4,894 visits | Tattoo-culture publisher, weak retailer. UK essentially undefended. |
+| **tktxoriginal.co.uk** | 59 | 4,942 visits | **93% homepage, on a trademark they don't own.** DR is manufactured. |
+
+**Every one of them has an exploitable structural defect:**
+
+- **getnumbd** — #1 paid landing page is 156 words, all Shopify filter chrome, H1 *"Collection:
+  Numbing Creams"*. **Running live ads to a 404.** Two of five nav categories are empty collections
+  they are actively buying traffic into. 8 products, only 2 numbing. 423 refdomains, 100% spam
+  (one vendor testimonial anchor across 220 domains). **Zero AI citations on all seven engines.**
+- **tattoonumbingcream.com** — **every product page serves an empty `<main>` behind a Locksmith
+  spinner**: no h1, no meta description, no body copy, no server-rendered Product schema, verified
+  under a Googlebot UA. AggregateRating is injected client-side by Loox, invisible to non-JS
+  crawlers. 302 blog posts → ~300 visits/mo total. **Shipping a 1-star `aggregateRating` on a $100
+  SKU.** Review count contradicts itself three ways on the same site (10,000+ / 8,259 / 11,000+).
+- **tattoonumbx** — its **#1-ranking delivery page is a 404** (position 1 for "tattoo numbing cream
+  next day delivery", 350/mo). Zero ingredient transparency. No FAQPage/HowTo/Review/Breadcrumb
+  schema anywhere.
+- **hush** — **flagship numbing cream is sold out and telling Google so.** A 2019 US CPSC recall of
+  275,000 units is their single highest-authority backlink cluster: cpsc.gov, DR 90, 35 dofollow
+  links, permanent.
+- **emla** — no cart, no prices, no reviews anywhere, pharmacy gate on the purchase, cream only.
+  `/emla-for-tattoos/` earns **1,242 GB visits/mo from 5 referring domains**.
+
+**The claims picture:** getnumbd (*"no pain"*, *"Lasts up to 5 hours!"*, *"30% More Effective than
+Leading Competitors"*), TNC (*"5% Lidocaine / 5% Prilocaine / 1% Epinephrine"*, *"blocks pain
+receptors"*), TKTX (*"temporarily block nerve signals"*, *"Numbs skin for up to 6 hours"*), Hush
+(*"Painless"*, *"Lasts up to 4 hours pain free"*). **All are GN8 medicinal presentations Senseless
+cannot copy — and all are why those competitors are fragile.**
+
+### Group exposure, now concrete
+
+`totally-numb.com`'s footer publishes **company number 17099304 and VAT GB 523 7816 82 — identical to
+Senseless.** Under that same entity it publishes onset (*"begins to take effect within 30–45
+minutes"*), duration (*"typically lasts between 1–3 hours"*), comparative efficacy, and a
+mechanism-of-action passage (*"reducing nerve signal transmission… the result is reduced or absent
+sensation"*). Its **paid** landing page carries a practitioner testimonial: *"Four hours of clean work
+with no breaks"* — a duration claim in a third-party voice, banned in every voice under Senseless's
+own 16 Jun rule (`docs/COMPLIANCE.md:21`).
+
+**Two claim sets, one VAT number, both live, one of them in the paid channel.**
+
+And on paid specifically: Totally Numb's homepage runs **53 ads**, 39 paid keywords, 1,250 paid
+visits, **$1,149/mo**, top keyword **"tattoo numbing cream"**. Its landing page is already
+substantially the compliant tattoo page Senseless would build — *"Topical numbing products for tattoo
+and aesthetic procedures"*, badges for *"Formulated in the United Kingdom" / "CPSR Assessed"*, 247
+reviews, and a **"Shop for tattoo"** CTA, with no onset or duration claim in the brand voice.
+**Senseless bidding the same term means one legal entity bidding against itself**, splitting budget
+and lifting the group's own blended CPC. (A Google double-serving policy breach was investigated and
+is **UNVERIFIED**; the commercial self-competition is verified and is the real cost.)
+
+### GEO — the hypothesis is confirmed, with a twist
+
+15 distinct AI-Overview-cited URLs pulled from `serp-overview` and run through `batch-analysis` (GB):
+
+| Across the 15 AI-cited pages | Value |
+|---|---|
+| Median Domain Rating | **23** (range 0.8 → 77) |
+| **Median referring domains to the cited page** | **1** |
+| Pages with zero referring domains | **5 of 15** |
+| Most referring domains any cited page had | **5** |
+| Pages under 20 organic visits/month | **8 of 15** |
+
+**The typical page cited by Google's AI Overview for a 10,000/mo commercial keyword has one link
+pointing at it.** `valhallastudio.co.uk` — **DR 0.8, 1 referring domain** — a Kilmarnock tattoo
+studio, is cited for "tattoo numbing cream". **Citation is decoupled from ranking.**
+
+Domain-level AI citations (`site-explorer-ai-responses-count`, 7 engines):
+hushanesthetic.com **2,154** · tattoonumbingcream.com **320** · **valhallastudio.co.uk (DR 0.8) 56** ·
+totally-numb.com 27 · **senseless.uk 2** · getnumbd.com 2.
+
+**A DR 0.8 tattoo studio out-cites the DR 30 commercial store 56 to 27.**
+
+**The honest counter-finding:** classic ranking is *also* cheap here (KD 0–1 across the cluster). GEO
+is **not** asymmetric versus SEO in this niche — the same asset wins both. **Do not build two
+programmes.**
+
+**And the biggest GEO lesson comes from Emla:** it is the most-cited domain in the category (ChatGPT
+51, AI Mode 68, AI Overviews 41, Copilot 28, Perplexity 23) with **zero FAQPage, Product, Review or
+HowTo schema** — purely question-shaped headings and direct prose answers.
+
+### Where Senseless actually stands, and what gates entry
+
+- **Zero organic keywords, zero organic traffic, on every query shape tried** (GB, global,
+  `mode=domain`, `mode=subdomains`, and a `keyword isubstring "tattoo"` filter). Homepage URL Rating
+  4.5, flat since 13 July. Paid footprint: **$5.81/month**, and not on tattoo terms.
+- **Senseless appears on none of the 16 tattoo SERPs pulled.**
+- **Live indexable inventory = 58 URLs**, not the 63 the repo implies — 4 page templates 301 away
+  (`best-numbing-cream`, `choosing-your-format`, `choosing-your-strength`, `how-it-works`) and
+  `page.contact.json` is `noindex,follow`.
+- **The competitor link-gap play does not exist.** The intersect of domains linking to two or more
+  competitors is **15 domains, every one a platform artefact, scanner profile or junk directory.**
+  There is no shared editorial ecosystem to mine.
+- **Links are not gating entry.** `skinartdepot.co.uk` ranks **position 6** for "best tattoo numbing
+  cream" on **DR 0, 0 backlinks, 0 referring domains**. What gates entry is having no tattoo page.
+- **Verdict: organic on tattoo terms is a 90-day channel, not a 12-month one.**
+
+### Two gaps nobody was looking for
+
+1. **No indexable delivery page.** `/pages/delivery`, `/pages/shipping`, `/pages/shipping-returns`,
+   `/pages/delivery-returns` all **404**; only the native `/policies/shipping-policy` exists, and it
+   is absent from the sitemap. Meanwhile "tattoo numbing cream next day delivery" is **250/mo** — and
+   TattooNumbx ranks **#1** for it with a page that returns 404.
+2. **No social presence at all.** The homepage has **no Instagram, TikTok, YouTube, Facebook or
+   Pinterest link**. UGC occupies **7 of the top 30** results on the GB money terms, and the entry bar
+   is trivial — an Instagram Reel with **56 likes** ranks #24; a brand YouTube video with 6,694 views
+   ranks #9.
+
+**Where the conversation is:** `r/tattooadvice` (1,607,713 subscribers) is the venue; demand renews
+roughly monthly. **There is no viable UK tattoo subreddit** (`r/uktattoo` has 3 subscribers,
+`r/TattooUK` has 4), so Reddit is a global play, not a UK one — which matters for a UK-shipping
+brand. Standalone forums are dead (`bigtattooplanet.com` refuses connections, 0 GB organic). The UK
+conversation lives in Facebook groups — "Tattoos UK" (`441256126225022`) and "beginners tattoo club"
+(`532327551070323`) both surface in GB SERPs.
+
+**Brand share-of-voice across five tattoo subreddits** (Reddit search API, all-time): TKTX 100
+(capped), Bactine 100 (capped), Emla 49, Hush 41, Zensa 30, Dr Numb 11, Anesten 8 — **Numbd 0,
+Senseless 0.**
+
+### Senseless's real GEO gap (it is not schema coverage)
+
+**Senseless already emits more schema than every competitor in the set** — and is cited twice. The
+gap is four specific things:
+
+1. **No entity graph** — zero `sameAs`, zero `@id` linkage; `Organization` on only 2 of 9 page types.
+2. **Product node has no identity or composition properties** — no product-level `sku`, no `gtin`,
+   no INCI, no tier/format properties.
+3. **11 of 26 page templates emit no `WebPage` node at all** — including all three ad-facing
+   commercial landing pages.
+4. **Thin extraction surface** — across 9 live pages: **0 `<table>`, 0 `<time>`, 0 author markers**,
+   and FAQ questions render inside `<summary>`, not headings.
+
+### Keyword universe (strand 2's independent build)
+
+263 deduplicated terms, **36,190/mo GB**: commercial 79 terms / 23,260 · comparison 58 / 6,450 ·
+informational 58 / 3,120 · brand 57 / 2,940 · removal adjacency 9 / 370 · aftercare-inside-numbing
+2 / 50.
+
+On the 14,800 correction, strand 2 went further: `keywords-explorer-volume-history` shows the UK
+figure for "tattoo numbing cream" **has never been 14,800 in Ahrefs' record back to Sep 2015** —
+all-time peak 11,863 (Jul 2023). Most plausible origin: Google Keyword Planner reporting the head
+pair grouped (10,000 + 5,800 = 15,800, bucketed to 14,800). **Use 10,000 for the single term,
+~15,800 for the pair.**
+
+### Not verified
+
+Strand 2's and strand 3's adversarial verifiers **never ran** — the machine slept first. Everything
+in Part 4 is single-sourced agent output. The competitor figures are internally consistent and
+tool-cited, but they have not had the second pass that caught seven errors in Part 3. Re-verify
+before acting on any single number.
 

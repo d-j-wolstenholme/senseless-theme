@@ -8,6 +8,32 @@ Notion.** No theme file changed, so there is nothing to deploy.
 
 ---
 
+## ⚠️ TWO THINGS THAT OUTRANK THE TATTOO WORK — raise with Daniel first
+
+**1. A bought-link package is pointed at senseless.uk and it is live.** DR went 14 (13 Jul) → **27**
+(20 Jul) → 21 → 10 → **7** (10 Aug). Referring domains jumped **+95 in the week to 13 Jul**.
+**158 of 160 live referring domains are Ahrefs-flagged spam**; the only two non-spam are
+`creativeposts.top` (0 dofollow) and the group's own `matrixhealthgroup.co.uk`. **Earned editorial
+refdomains: zero.** Placements are still arriving — `backlinkshop.site` first seen **30 Jul 2026**,
+`backlinksplace.site` **3 Aug 2026**, plus `norskcasinos.net` (dofollow), `seoflox.io`,
+`trafficspike.shop`. Nothing in the repo records anyone commissioning this. **Ask who is paying for
+it, stop it, consider a disavow.**
+
+**2. The review corpus is Totally Numb's, republished with "tattoo" edited to "procedure".**
+Verified via the Judge.me widget JSON endpoint (not the curl false-reading trap). Same 10 reviewer
+names and same 10 dates across TN `comfort-cream-bronze` and SL `clinical-strength-cream`; four texts
+identical, six edited (*"a four hour back **tattoo**"* → *"a four hour back **procedure**"*).
+Of 227 reviews: **184 dated 2023**, only **3 after the 7 June 2026 launch**, and **3 of 227 are
+`verified_buyer`**. 88.5% sit on one SKU; 11 of 16 products have zero. **31 of 150 sampled still
+contain tattoo vocabulary the edit missed** (*back piece, half sleeve, rib, full leg, ink*, *"Amazing
+7 hour procedure"*).
+Mitigation to check: `DECISIONS-LOG.md:119` says Senseless CPSR coverage was assumed from *"the same
+certifications as Totally Numb"* — if these are the same formulations, transplanted reviews are
+arguable. The **editing** is separate, and DMCC Act 2024 fake-review provisions are in force.
+**Owner + legal. Do not touch the reviews unilaterally.**
+
+Both are in `docs/TATTOO-REPOSITIONING-2026-08-12.md` Part 4 with full evidence.
+
 ## THE BRAND CHANGE (this is the whole context)
 
 Daniel, 12 Aug: **all Senseless products are now formulated for tattooing** as well as the original
@@ -83,16 +109,14 @@ pointer into it. Do not redo this work.
 |---|---|---|
 | 1 — Blast radius (8 agents) | **COMPLETE** | Part 2 of the doc. Do not re-run. |
 | 4 — Pain chart & guides (9/10 agents) | **SALVAGED** — final synthesis agent stalled, all research + 3 audits finished | Part 3 of the doc. Do not re-run. |
-| 2 — Competitor deep research | **NOT COMPLETE** | Re-run |
-| 3 — Challenger traction playbook | **NOT COMPLETE** | Re-run |
+| 2 — Competitor deep research (16 agents) | **SALVAGED** — research complete, verifier + synthesis never ran | Part 4 |
+| 3 — Challenger playbook (7 agents) | **SALVAGED** — both research phases complete, verifier + synthesis never ran | Part 4 |
 
-Resume is same-session-only, so strands 2 and 3 must be **re-run**, not resumed. Scripts are on disk:
+All four strands are captured. **Do not re-run any of them.**
 
-```
-~/.claude/projects/-Users-matrix-code-senseless-theme/3d587116-c801-4b77-b745-5f8663c99bcb/workflows/scripts/
-  tattoo-competitive-deep-research-wf_3b8f34ea-3b5.js       (competitor teardowns + gaps)
-  senseless-challenger-traction-playbook-wf_0db71e3c-7be.js (what's winnable in 90 days)
-```
+**Caveat on Part 4:** strands 2 and 3 died before their adversarial verifiers ran, so everything in
+Part 4 is single-sourced agent output. Parts 2 and 3 were verified (the Part 3 pass caught seven
+errors). Re-verify any Part 4 number before acting on it.
 
 **Before re-running: Ahrefs was at ~105k of 400k monthly units** (resets 2026-09-09) and these
 workflows query it heavily. Check `subscription-info-limits-and-usage` first.
