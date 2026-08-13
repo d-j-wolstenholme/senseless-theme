@@ -156,8 +156,15 @@ carrying zero backlinks, while all four of our candidate URLs 404).
 
 **In parallel, put four questions to their owners** — they gate Phase B, not Phase A:
 G1 CPSR declared scope (safety assessor — one email may close it if the CPSRs trace to Totally
-Numb's) · G2 can the unbroken-skin warning change (safety assessor) · G5 Senseless or Totally Numb
-for the tattoo lane (owner) · G6 ad-facing or organic (owner).
+Numb's) · G2 can the unbroken-skin warning change (safety assessor) · G6 ad-facing or organic (owner,
+and the sweep defaults to "yes" which cannot be wrong).
+
+**G5 is ANSWERED — 2026-08-13, owner: *"senseless and totally numb both target the same customer base
+now."*** Both brands deliberately compete for the same customers. "Beat Totally Numb" is literal.
+Repo canon still says tattoo is TN's lane (`build-reports/phase-6-close-does-it-hurt-by-treatment.md:24`,
+`docs/AUDIT-2026-06-12.md:31,:114`) — **correct both at write-back.** What this does NOT dissolve: the
+two brands publish different claim sets under one company number and one VAT number, which is a
+regulatory exposure for MHG legal, not a cannibalisation question.
 
 **And escalate the two items at the top of this file first.** Neither blocks Phase A; both attach to
 the domain that would host every tattoo page.

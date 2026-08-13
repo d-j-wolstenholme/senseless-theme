@@ -46,12 +46,50 @@ PHASE Z  Verify + write-back ............... always
 |---|---|---|---|
 | **G1** | What does the CPSR declare as intended use / application site? Do Senseless CPSRs trace to Totally Numb's? | Safety assessor | **Build, do not publish.** Daniel's "the certs have been updated" is verbal; no written scope exists. One email may close it — if the CPSRs trace to Totally Numb formulations and TN is the tattoo brand, tattoo is likely already in scope. |
 | **G2** | Can *"Apply to clean, unbroken skin"* change? | Safety assessor | **Assume NO.** Write every tattoo surface inside that limit: say nothing about broken skin or mid-session re-application. Silence is compliant; contradicting a locked warning is not. |
-| **G5** | Senseless or Totally Numb for the tattoo lane? | Owner only | **No default is possible.** Blocks commercial publication only — Phase A is unaffected. |
+| **G5** | ~~Senseless or Totally Numb for the tattoo lane?~~ | — | **ANSWERED 2026-08-13 by the owner: "senseless and totally numb both target the same customer base now."** Both brands compete for the same customers deliberately. This is not a lane split and not an accident. **No longer a gate.** See "The two-brand position" below. |
 | **G6** | Is the tattoo collection ad-facing? | Owner | **Assume YES.** Conservative and cannot be wrong: it means zero links to the three injectable collections. Costs nothing if the answer turns out to be "organic". |
 
 **Two items outrank the entire build** and belong in the same conversation: the **bought-link
 package** and the **shared review corpus**. Neither blocks Phase A. Both attach to the domain that
 would host the tattoo pages. See `NEXT_SESSION.md`.
+
+## The two-brand position (owner ruling, 2026-08-13)
+
+> *"senseless and totally numb both target the same customer base now."*
+
+Senseless and Totally Numb are **deliberately competing for the same customers**. Every reference in
+these docs to "group-internal cannibalisation" as a *risk* is superseded — it is the intent. Act
+accordingly:
+
+- **"Beat Totally Numb" is literal.** The pain chart, the collection and the guides should out-perform
+  theirs on merit. No pulled punches, no deference.
+- **The repo canon is now wrong and must be corrected at write-back.**
+  `build-reports/phase-6-close-does-it-hurt-by-treatment.md:24` says *"no tattoo content (excluded per
+  spec — Totally Numb's lane)"*, and `docs/AUDIT-2026-06-12.md:31,:114` logs the lane as an open
+  question. Both are superseded by this ruling.
+- **The handle argument weakens but the answer holds.** "Avoid two MHG stores on identical paths" was
+  already the weaker half of the case, and slug construction is measurably irrelevant here anyway.
+  `numbing-cream-for-tattoos` stands on sibling consistency alone.
+
+**Three things this ruling does NOT dissolve, because none of them are cannibalisation problems:**
+
+1. **The claim-set asymmetry is a regulatory exposure, not a commercial one.** Under company
+   **17099304** / VAT **GB 523 7816 82**, Totally Numb publishes onset (*"begins to take effect within
+   30–45 minutes"*), duration (*"typically lasts between 1–3 hours"*), comparative efficacy and
+   mechanism of action (*"reducing nerve signal transmission… the result is reduced or absent
+   sensation"*) — plus a duration claim in a practitioner testimonial on a **paid** landing page.
+   Senseless is forbidden every one of these in every voice. Two brands, one legal entity, one
+   customer base, two claim sets. If a regulator looks at either brand it reaches the same company.
+   **This is for the owner and MHG legal — it is not a Senseless copy decision and nothing in this
+   sweep changes it.**
+2. **Paid self-competition is a real cost whatever the strategy.** Totally Numb runs 53 ads with
+   *"tattoo numbing cream"* as its top paid keyword, $1,161/mo. Senseless bidding the same term means
+   one entity in both sides of the auction, lifting the group's own blended CPC. That is a budget
+   decision, not a compliance one — but it should be made on purpose.
+3. **The shared review corpus gets *more* material, not less.** If both brands sell to the same
+   customers, the same review set appearing under both with different product names is more likely to
+   be noticed, not less. Aggregate match is confirmed; the alleged text edits still need re-extracting
+   from the Judge.me admin.
 
 ---
 
