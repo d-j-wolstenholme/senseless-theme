@@ -46,6 +46,13 @@
             "title": "Remove it fully just before treatment.",
             "body": "<p>Wipe clean with a clean cloth or tissue — many practitioners prefer to do this themselves at the chair. Tell them in advance that you've applied numbing cream; some adjust their skin prep when it's been used.</p>"
           }
+        },
+        "s6": {
+          "type": "step",
+          "settings": {
+            "title": "Tattoo appointments: the area has to be fully clean before the stencil.",
+            "body": "<p>Your artist places the stencil on the skin and works from it, so the surface has to be completely clear first — remove the layer fully at the point they ask. Tell them at booking rather than on the day, because some studios apply their own and would rather you brought nothing, and a few would rather you didn't use anything at all. Their answer settles it.</p>"
+          }
         }
       },
       "block_order": [
@@ -53,11 +60,12 @@
         "s2",
         "s3",
         "s4",
-        "s5"
+        "s5",
+        "s6"
       ],
       "settings": {
         "eyebrow": "Cream",
-        "headline": "Five steps.",
+        "headline": "The routine, step by step.",
         "closer": "",
         "cta_label": "Choose your format",
         "cta_url": "/pages/the-senseless-system",
@@ -118,7 +126,7 @@
         "background": "white",
         "eyebrow": "By procedure",
         "headline": "A few procedure-specific notes.",
-        "body": "<p>Your practitioner is the source of truth for timing and protocol. These are the brand's general observations.</p><p><strong>Lip Fillers.</strong> A small treatment area. Less product than a microneedling appointment. Most practitioners have a specific timing window — ask in advance.</p><p><strong>Botox.</strong> The shortest procedure in the aesthetic catalogue. Some clients skip numbing entirely. If you're using it, Clinical Strength suits most appointments.</p><p><strong>Microneedling.</strong> Longer session, broader treatment area. More product, longer prep window typically required. Advanced Strength is the usual recommendation.</p><p><strong>Laser.</strong> Treatment area decides the format. Cream for face zones. Spray for body. Confirm your practitioner's protocol before applying.</p><p><strong>SPMU (Microblading, Lip Blush).</strong> Sustained sittings. Some artists reapply during the session. Most have specific guidance on what to bring and when to apply.</p><p><strong>Waxing.</strong> Body procedures suit spray. Smaller zones (lip, brow) suit cream. Bikini and brazilian appointments often benefit from longer prep windows than face appointments.</p>",
+        "body": "<p>Your practitioner is the source of truth for timing and protocol. These are the brand's general observations.</p><p><strong>Lip Fillers.</strong> A small treatment area. Less product than a microneedling appointment. Most practitioners have a specific timing window — ask in advance.</p><p><strong>Botox.</strong> The shortest procedure in the aesthetic catalogue. Some clients skip numbing entirely. If you're using it, Clinical Strength suits most appointments.</p><p><strong>Microneedling.</strong> Longer session, broader treatment area. More product, longer prep window typically required. Advanced Strength is the usual recommendation.</p><p><strong>Laser.</strong> Treatment area decides the format. Cream for face zones. Spray for body. Confirm your practitioner's protocol before applying.</p><p><strong>SPMU (Microblading, Lip Blush).</strong> Sustained sittings. Some artists reapply during the session. Most have specific guidance on what to bring and when to apply.</p><p><strong>Waxing.</strong> Body procedures suit spray. Smaller zones (lip, brow) suit cream. Bikini and brazilian appointments often benefit from longer prep windows than face appointments.</p><p><strong>Tattooing.</strong> The longest sitting on this list, and the one where the length of the booking — not the size of the design — decides the strength. Format follows the area: gel for small defined pieces, cream generally, spray for a limb or a back piece. Ask your artist at booking, not on the day; studios differ, and some apply their own.</p>",
         "cta_label": "Shop by procedure",
         "cta_url": "/collections/aesthetic-numbing-cream"
       }
@@ -198,6 +206,13 @@
             "question": "Can I apply it the night before?",
             "answer": "<p>No. It's applied on the day, within the window before your appointment.</p>"
           }
+        },
+        "q8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I apply it before a tattoo?",
+            "answer": "<p>The same routine as any other appointment — clean dry skin, a generous visible layer that isn't rubbed in, covered, then removed fully. As a general guide, allow 45–60 minutes between applying and your appointment; your artist's window takes precedence over any general guidance. Ask them at booking rather than on the day, and expect the area to be cleaned again before the stencil goes on.</p>"
+          }
         }
       },
       "block_order": [
@@ -207,6 +222,7 @@
         "q3",
         "q4",
         "q5",
+        "q8",
         "q6"
       ],
       "settings": {

@@ -1,6 +1,13 @@
 # Senseless Theme
 
-UK aesthetics-focused topical preparation brand. Shopify theme built on Horizon base.
+UK topical cosmetic preparation brand, by Matrix Health Group Ltd. Shopify theme built on Horizon base.
+
+<!-- Read "aesthetics-focused" until 2026-08-13. Dropped rather than replaced: the scope of the
+     range is being widened and the declared CPSR intended use is not yet confirmed in writing, so
+     this line states what is certain (a UK topical cosmetic preparation) and asserts no procedure
+     scope in either direction. Published positioning lives in snippets/meta-tags.liquid,
+     sections/senseless-footer.liquid and templates/page.llms-txt.liquid — not here. -->
+
 
 ## Setup
 

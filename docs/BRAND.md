@@ -1,6 +1,17 @@
 # Brand Design System
 
-The canonical code-side mirror of the Brand & Product System Notion page.
+The canonical code-side mirror of the brand system held in Notion.
+
+> **Source of truth, corrected 2026-08-13.** This file previously pointed at the Notion page
+> "🎨 Brand & Product System" (`36c58bc3-75ea-8116-a417-e8290a1ad38f`) — which has sat under
+> **Archive (pre-migration)** (`38e58bc3-75ea-81c9-9248-c4f55e6dc3de`) since the 29 Jun migration
+> and was last edited 2026-05-27. A sealed archive page cannot be a source of truth, and reading
+> one as though it were is how the aesthetics-only framing outlived the decision that set it: that
+> page still says *"Must hold the aesthetics-only focus"* and *"Removed: all tattooing
+> positioning"*. Live brand structure is the **Project Instance**
+> (`38e58bc3-75ea-8198-9ed7-de73bc48f2b5`); current state is the **State Surface**
+> (`38e58bc3-75ea-81ad-87eb-e20fcfc22406`). Same fault class as the `DECISIONS-LOG.md` pointer
+> fixed in `bf891e6`.
 
 ## Brand
 
@@ -24,7 +35,7 @@ Locked colour-text ladder. Defined globally in `snippets/senseless-typography.li
 | `--text-primary` | `#1A1816` | Headings, primary text |
 | `--text-body` | `#2B2730` | Running body copy |
 | `--text-secondary` | `#5C5853` | Leads, captions, secondary text |
-| `--text-muted` | `#8E8A82` | Muted / de-emphasised text |
+| `--text-muted` | `#6E6A63` | Disabled / tertiary only — AA-legible on canvas |
 | `--color-border-subtle` | `#E5E2DC` | Card / divider borders |
 
 Purple is an **accent only** by default — not used as a large area background. Filled-purple treatments are: **primary CTAs** (the `scheme-1` primary button is brand purple, hover `#5A3489`) and the Professional tier's 2px `#6B3FA0` border. Otherwise used for hover states, accent lines, the brand asterisk graphic, occasional emphasis. (Canvas stays `#f7f7f5`; the bespoke `senseless-footer` defaults to an **ink** band, never a large purple fill.)
@@ -101,7 +112,16 @@ Fluid via `clamp()`. Format below: `clamp(min, preferred, max)`.
 
 ## Brand Asterisk
 
-Purple six-point asterisk graphic from packaging. Used as visual signature — hero accent, section dividers, footer mark. Always brand purple (`#6B3FA0`) on light backgrounds. Minimum size 16px.
+Six-point asterisk graphic from packaging. Used as visual signature — hero accent, section dividers, footer mark. Minimum size 16px.
+
+**Its stroke is violet `#984AE8`, not brand purple `#6B3FA0`** — corrected 2026-08-13; this line
+claimed `#6B3FA0` and had done since the file was written. Both renderers agree on the violet:
+`snippets/senseless-asterisk.liquid:17` (`stroke="#984AE8"`, extracted from
+`assets/senseless-logo-header.svg`) and `assets/senseless-asterisk.svg` (all four paths
+`stroke:rgb(152,74,232)`). `#984AE8` also carries the `--ss-violet` accent in
+`sections/senseless-trust-bar.liquid` and `sections/senseless-practitioner-cards.liquid`. The two
+coexist deliberately: **`#6B3FA0` is brand primary and CTA** (81 uses across sections/snippets),
+**`#984AE8` is the asterisk mark**. Do not "correct" the asterisk to `#6B3FA0`.
 
 ## Image Pipeline Tokens
 

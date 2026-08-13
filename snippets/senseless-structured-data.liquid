@@ -1,17 +1,32 @@
 {%- comment -%}
-  Senseless — structured data (JSON-LD), GEO/SEO layer.
-  Rendered once from layout/theme.liquid <head>. Dispatches on request.page_type so it emits
-  the RIGHT schema per template and never duplicates schema already emitted elsewhere:
-    - Organization + WebSite/SearchAction → emitted here on the homepage ('index'); the bespoke senseless-header replaced Horizon header.liquid which previously emitted Organization
-    - FAQPage       → already emitted by sections/senseless-faq-accordion.liquid
-    - Article       → already emitted by Horizon sections/main-blog-post.liquid
-  This snippet adds the MISSING types:
-    - Product + Offer        (product pages)
-    - CollectionPage + ItemList (collection pages)
-    - BreadcrumbList         (product, collection, page)
-  All strings are emitted through the `json` filter, which adds quotes + escapes — guaranteeing
-  valid JSON. Prices/availability/currency come from live product data (no hardcoding); seller
-  legalName is the parent company "Matrix Health Group Ltd". Description is claim-free.
+  Senseless — sitewide structured data (JSON-LD), GEO/SEO layer.
+  Rendered once from layout/theme.liquid <head>.
+
+  ONE @graph per page, @id-linked. Before this rewrite the theme emitted 3–4 free-standing
+  JSON-LD documents per page with no relationship between them: Organization existed only on
+  the homepage and on 2 of 32 /pages/*, and no page type emitted a WebPage node at all — so an
+  answer engine reading a collection or a guide had no path from the page it was reading back to
+  the company that publishes it. The entity graph, not schema coverage, was the gap.
+
+  Node addresses (stable, dereferenceable, reused by every other emitter on the page):
+    {shop.url}/#organization        the company  — full detail, emitted on EVERY page type
+    {shop.url}/#website             the site     — publisher -> #organization
+    {canonical_url}#webpage         this page    — isPartOf -> #website, about -> #organization
+    {canonical_url}#breadcrumb      this trail   — referenced by #webpage.breadcrumb
+    {canonical_url}#product         this product — mainEntity of #webpage (product pages)
+    {canonical_url}#itemlist        this list    — mainEntity of #webpage (collection pages)
+
+  Other emitters that join this graph by @id rather than duplicating it:
+    sections/senseless-faq-accordion.liquid  FAQPage       (its own document — Google reads
+                                                            FAQPage standalone; left alone)
+    sections/senseless-article.liquid        Article       -> isPartOf #webpage, #breadcrumb
+    sections/senseless-page-schema.liquid    AboutPage / ContactPage / Service — merges INTO
+                                                            #webpage by re-declaring the same @id
+    sections/senseless-org-schema.liquid     now emits nothing; #organization is sitewide
+
+  All strings go through the `json` filter, which quotes and escapes — the output is valid JSON
+  by construction. Prices, availability and currency come from live product data. The seller is
+  the parent company, Matrix Health Group Ltd.
 {%- endcomment -%}
 {%- liquid
   assign base = shop.url
@@ -24,162 +39,341 @@
   endcomment
   assign seller_vat = 'GB523781682'
   assign cur = cart.currency.iso_code | default: shop.currency
+
+  assign page_url = canonical_url | default: base
+  assign org_id = base | append: '/#organization'
+  assign site_id = base | append: '/#website'
+  assign webpage_id = page_url | append: '#webpage'
+  assign crumb_id = page_url | append: '#breadcrumb'
+
+  # WebPage @type, specialised per page type. senseless-page-schema.liquid re-declares
+  # #webpage as AboutPage/ContactPage on the two templates that need it.
+  assign webpage_type = 'WebPage'
+  assign crumb_type = ''
+  case request.page_type
+    when 'product'
+      assign webpage_type = 'ItemPage'
+      assign crumb_type = 'product'
+    when 'collection'
+      assign webpage_type = 'CollectionPage'
+      assign crumb_type = 'collection'
+    when 'page'
+      assign crumb_type = 'page'
+    when 'blog'
+      assign webpage_type = 'CollectionPage'
+    when 'search'
+      assign webpage_type = 'SearchResultsPage'
+  endcase
+
+  # Page name + description, best available source per page type.
+  # 1200, not 300 — the same reasoning that lifted the Product node's cap on 6 Aug. At 300 a
+  # collection description was cut mid-sentence, so the text an answer engine reads lost the
+  # part that distinguishes one collection from the next. Where a collection has no body the
+  # admin SEO description stands in, which is why page_description is the base assignment.
+  assign sd_name = page_title | default: shop.name
+  assign sd_desc = page_description
+  case request.page_type
+    when 'product'
+      assign sd_name = product.title
+      assign sd_desc = product.description | strip_html | strip_newlines | truncate: 1200
+    when 'collection'
+      assign sd_name = collection.title
+      if collection.description != blank
+        assign sd_desc = collection.description | strip_html | strip_newlines | truncate: 1200
+      endif
+    when 'article'
+      assign sd_name = article.title
+  endcase
+
+  # Dates. `updated_at` is not documented on the Liquid page/article objects; if it resolves it is
+  # used, and if it does not the `default` filter falls back to the publish date. Either way the
+  # emitted value is a real date from Shopify, never a rendered-at timestamp.
+  assign sd_published = ''
+  assign sd_modified = ''
+  if request.page_type == 'article'
+    assign sd_published = article.published_at | date: '%Y-%m-%d'
+    assign sd_modified = article.updated_at | default: article.published_at | date: '%Y-%m-%d'
+  elsif request.page_type == 'page'
+    assign sd_published = page.published_at | date: '%Y-%m-%d'
+    assign sd_modified = page.updated_at | default: page.published_at | date: '%Y-%m-%d'
+  endif
+
+  # Social profiles for sameAs. No Senseless profile exists yet (2026-08-13) — the settings are
+  # here so the entity graph gains them the day one does, without another theme change.
+  assign sd_same_as = ''
+  if settings.social_instagram_link != blank
+    assign sd_same_as = sd_same_as | append: settings.social_instagram_link | append: '|'
+  endif
+  if settings.social_tiktok_link != blank
+    assign sd_same_as = sd_same_as | append: settings.social_tiktok_link | append: '|'
+  endif
+  if settings.social_facebook_link != blank
+    assign sd_same_as = sd_same_as | append: settings.social_facebook_link | append: '|'
+  endif
+  if settings.social_youtube_link != blank
+    assign sd_same_as = sd_same_as | append: settings.social_youtube_link | append: '|'
+  endif
+  assign sd_same_as = sd_same_as | split: '|'
 -%}
-{%- case request.page_type -%}
-
-{%- when 'product' -%}
-  {%- comment -%}
-    1200, not 480. At 480 every strength SKU's description was cut mid-sentence with an ellipsis, so the
-    text Google and the answer engines read lost the sizes and the "Formulated in the UK, CPSR assessed"
-    credential — and, before the copy was restructured, the "not a medicine" classification too. Product
-    schema has no strict length limit and the Merchant Center feed already takes the body whole, so this
-    aligns the two ad-facing surfaces. The cap stays as a guard against an oversized paste.
-  {%- endcomment -%}
-  {%- assign pd = product.description | strip_html | strip_newlines | truncate: 1200 -%}
-  {%- if pd == blank -%}{%- assign pd = product.title | append: ' — a topical cosmetic preparation by Senseless.' -%}{%- endif -%}
-  {%- comment -%} Judge.me rating, synced to the reviews.* metafields. rating is a `rating`-type
-     metafield → its .value is a Rating object whose .value is the number. rating_count is a plain
-     integer. aggregateRating emitted ONLY when there are reviews (count > 0) — kits/no-review
-     products have null metafields and emit nothing (an empty/zero aggregateRating is an RRT error).
-     Rating object only — no review text. {%- endcomment -%}
-  {%- assign ss_rating = product.metafields.reviews.rating.value -%}
-  {%- assign ss_rcount = product.metafields.reviews.rating_count.value -%}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": {{ product.title | json }},
-    "description": {{ pd | json }},
-    "url": {{ base | append: product.url | json }},
-    {%- if product.images.size > 0 -%}
-    "image": [
-      {%- for image in product.images limit: 5 -%}
-        {{ image | image_url: width: 1200 | prepend: 'https:' | json }}{%- unless forloop.last -%},{%- endunless -%}
-      {%- endfor -%}
-    ],
-    {%- endif -%}
-    "brand": { "@type": "Brand", "name": {{ seller_name | json }} },
-    "manufacturer": { "@type": "Organization", "name": {{ seller_legal | json }} },
-    {%- if ss_rcount and ss_rcount > 0 and ss_rating != blank -%}
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "{{ ss_rating.rating }}",
-      "reviewCount": "{{ ss_rcount }}",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    {%- endif -%}
-    "offers": [
-      {%- for variant in product.variants -%}
-      {
-        "@type": "Offer",
-        {%- if variant.sku != blank -%}"sku": {{ variant.sku | json }},{%- endif -%}
-        "name": {{ variant.title | json }},
-        "price": "{{ variant.price | divided_by: 100.0 }}",
-        "priceCurrency": {{ cur | json }},
-        "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-        "url": {{ base | append: variant.url | json }},
-        "seller": { "@type": "Organization", "name": {{ seller_name | json }}, "legalName": {{ seller_legal | json }} },
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": { "@type": "MonetaryAmount", "value": "1.99", "currency": "GBP" },
-          "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
-            "transitTime": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitCode": "DAY" }
-          }
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "GB",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 30,
-          "returnMethod": "https://schema.org/ReturnByMail",
-          "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
-        }
-      }{%- unless forloop.last -%},{%- endunless -%}
-      {%- endfor -%}
-    ]
-  }
-  </script>
-  {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_type: 'product' -%}
-
-{%- when 'collection' -%}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "CollectionPage",
-    "name": {{ collection.title | json }},
-    "url": {{ base | append: collection.url | json }},
-    {%- if collection.description != blank -%}"description": {{ collection.description | strip_html | strip_newlines | truncate: 300 | json }},{%- endif -%}
-    "mainEntity": {
-      "@type": "ItemList",
-      "numberOfItems": {{ collection.all_products_count }},
-      "itemListElement": [
-        {%- for prod in collection.products limit: 48 -%}
-        {
-          "@type": "ListItem",
-          "position": {{ forloop.index }},
-          "name": {{ prod.title | json }},
-          "url": {{ base | append: prod.url | json }}
-        }{%- unless forloop.last -%},{%- endunless -%}
-        {%- endfor -%}
-      ]
-    }
-  }
-  </script>
-  {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_type: 'collection' -%}
-
-{%- when 'page' -%}
-  {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_type: 'page' -%}
-
-{%- when 'index' -%}
-  {%- comment -%} Homepage: Organization + WebSite/SearchAction + BreadcrumbList. The bespoke senseless-header replaced Horizon's header.liquid (which used to emit Organization), so it is emitted here. {%- endcomment -%}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": {{ seller_name | json }},
-    "legalName": {{ seller_legal | json }},
-    "vatID": {{ seller_vat | json }},
-    "url": {{ base | json }},
-    "logo": {{ 'senseless-logo.png' | asset_url | prepend: 'https:' | json }},
-    "address": { "@type": "PostalAddress", "streetAddress": "Paddock Business Centre, 2 Paddock Road", "addressLocality": "Skelmersdale", "postalCode": "WN8 9PL", "addressCountry": "GB" },
-    "telephone": "+443330495549",
-    "areaServed": "GB",
-    "contactPoint": {
-      "@type": "ContactPoint",
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": {{ org_id | json }},
+      "name": {{ seller_name | json }},
+      "legalName": {{ seller_legal | json }},
+      "vatID": {{ seller_vat | json }},
+      "url": {{ base | append: '/' | json }},
+      "logo": {
+        "@type": "ImageObject",
+        "@id": {{ base | append: '/#logo' | json }},
+        "url": {{ 'senseless-logo.png' | asset_url | prepend: 'https:' | json }},
+        "caption": {{ seller_name | json }}
+      },
+      "image": { "@id": {{ base | append: '/#logo' | json }} },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Paddock Business Centre, 2 Paddock Road",
+        "addressLocality": "Skelmersdale",
+        "postalCode": "WN8 9PL",
+        "addressCountry": "GB"
+      },
       "telephone": "+443330495549",
       "email": "cs@senseless.uk",
-      "contactType": "customer service",
       "areaServed": "GB",
-      "availableLanguage": "English"
+      {%- if sd_same_as.size > 0 -%}
+      "sameAs": [
+        {%- for profile in sd_same_as -%}{{ profile | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}
+      ],
+      {%- endif -%}
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+443330495549",
+        "email": "cs@senseless.uk",
+        "contactType": "customer service",
+        "areaServed": "GB",
+        "availableLanguage": "English"
+      }],
+      "brand": { "@type": "Brand", "name": {{ seller_name | json }} }
     },
-    "brand": { "@type": "Brand", "name": {{ seller_name | json }} }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": {{ seller_name | json }},
-    "url": {{ base | json }},
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "{{ base }}/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+    {
+      "@type": "WebSite",
+      "@id": {{ site_id | json }},
+      "name": {{ seller_name | json }},
+      "url": {{ base | append: '/' | json }},
+      "inLanguage": "en-GB",
+      "publisher": { "@id": {{ org_id | json }} },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "{{ base }}/search?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": {{ webpage_type | json }},
+      "@id": {{ webpage_id | json }},
+      "url": {{ page_url | json }},
+      "name": {{ sd_name | json }},
+      {%- if sd_desc != blank -%}"description": {{ sd_desc | json }},{%- endif -%}
+      {%- if sd_published != blank -%}"datePublished": {{ sd_published | json }},{%- endif -%}
+      {%- if sd_modified != blank -%}"dateModified": {{ sd_modified | json }},{%- endif -%}
+      {%- comment -%}
+        Articles get the breadcrumb reference but not the node: sections/senseless-article.liquid
+        emits the BreadcrumbList itself at the same #breadcrumb address, so pointing at it here
+        links the two without putting a second trail on the page.
+      {%- endcomment -%}
+      {%- if crumb_type != blank or request.page_type == 'article' -%}"breadcrumb": { "@id": {{ crumb_id | json }} },{%- endif -%}
+      {%- if request.page_type == 'product' -%}"mainEntity": { "@id": {{ page_url | append: '#product' | json }} },{%- endif -%}
+      {%- if request.page_type == 'collection' -%}"mainEntity": { "@id": {{ page_url | append: '#itemlist' | json }} },{%- endif -%}
+      {%- if request.page_type == 'article' -%}"mainEntity": { "@id": {{ page_url | append: '#article' | json }} },{%- endif -%}
+      "isPartOf": { "@id": {{ site_id | json }} },
+      "about": { "@id": {{ org_id | json }} },
+      "publisher": { "@id": {{ org_id | json }} },
+      "inLanguage": "en-GB"
     }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | json }} }
-    ]
-  }
-  </script>
+    {%- if crumb_type != blank -%},
+      {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_id: crumb_id, crumb_type: crumb_type -%}
+    {%- endif -%}
 
-{%- endcase -%}
+    {%- case request.page_type -%}
+
+    {%- when 'product' -%},
+      {%- comment -%}
+        1200, not 480. At 480 every strength SKU's description was cut mid-sentence with an ellipsis, so the
+        text Google and the answer engines read lost the sizes and the "Formulated in the UK, CPSR assessed"
+        credential — and, before the copy was restructured, the "not a medicine" classification too. Product
+        schema has no strict length limit and the Merchant Center feed already takes the body whole, so this
+        aligns the two ad-facing surfaces. The cap stays as a guard against an oversized paste.
+      {%- endcomment -%}
+      {%- liquid
+        assign pd = product.description | strip_html | strip_newlines | truncate: 1200
+        if pd == blank
+          assign pd = product.title | append: ' — a topical cosmetic preparation by Senseless.'
+        endif
+        assign v1 = product.selected_or_first_available_variant | default: product.variants.first
+        comment
+          Judge.me rating, synced to the reviews.* metafields. rating is a `rating`-type metafield
+          → its .value is a Rating object whose .value is the number. rating_count is a plain
+          integer. aggregateRating is emitted ONLY when there are reviews (count > 0) — kits and
+          no-review products have null metafields and emit nothing, because an empty or zero
+          aggregateRating is a Rich Results error. Rating object only; no review text.
+        endcomment
+        assign ss_rating = product.metafields.reviews.rating.value
+        assign ss_rcount = product.metafields.reviews.rating_count.value
+      -%}
+      {
+        "@type": "Product",
+        "@id": {{ page_url | append: '#product' | json }},
+        "name": {{ product.title | json }},
+        "description": {{ pd | json }},
+        "url": {{ base | append: product.url | json }},
+        "mainEntityOfPage": { "@id": {{ webpage_id | json }} },
+        {%- if product.images.size > 0 -%}
+        "image": [
+          {%- for image in product.images limit: 5 -%}
+            {{ image | image_url: width: 1200 | prepend: 'https:' | json }}{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ],
+        {%- endif -%}
+        {%- comment -%}
+          Product-level identifiers. Every SKU carries a Shopify SKU code; only three variants
+          carry a barcode (2026-08-13), so gtin13 is emitted per-offer where it exists and never
+          invented. productID is the Shopify product GID, which is what the Merchant Center feed
+          and the Admin API both key on.
+        {%- endcomment -%}
+        {%- if v1.sku != blank -%}
+        "sku": {{ v1.sku | json }},
+        "mpn": {{ v1.sku | json }},
+        {%- endif -%}
+        {%- if v1.barcode != blank -%}"gtin13": {{ v1.barcode | json }},{%- endif -%}
+        "productID": {{ product.id | prepend: 'shopify_GB_' | json }},
+        "identifier": [
+          { "@type": "PropertyValue", "propertyID": "shopify_product_id", "value": {{ product.id | json }} }
+          {%- if v1.sku != blank -%},{ "@type": "PropertyValue", "propertyID": "sku", "value": {{ v1.sku | json }} }{%- endif -%}
+        ],
+        {%- if product.type != blank -%}"category": {{ product.type | json }},{%- endif -%}
+        "brand": { "@type": "Brand", "name": {{ seller_name | json }} },
+        "manufacturer": { "@id": {{ org_id | json }} },
+        {%- if ss_rcount and ss_rcount > 0 and ss_rating != blank -%}
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "{{ ss_rating.rating }}",
+          "reviewCount": "{{ ss_rcount }}",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        {%- endif -%}
+        "offers": [
+          {%- for variant in product.variants -%}
+          {
+            "@type": "Offer",
+            {%- if variant.sku != blank -%}"sku": {{ variant.sku | json }},{%- endif -%}
+            {%- if variant.barcode != blank -%}"gtin13": {{ variant.barcode | json }},{%- endif -%}
+            "name": {{ variant.title | json }},
+            "price": "{{ variant.price | divided_by: 100.0 }}",
+            "priceCurrency": {{ cur | json }},
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+            "url": {{ base | append: variant.url | json }},
+            "seller": { "@id": {{ org_id | json }} },
+            {%- comment -%}
+              Shipping details must match what the site actually publishes. This block used to
+              claim a flat "£1.99" rate and a "4–6 day" transit — neither appears anywhere in
+              human-readable copy, and a 4–6 day transit directly contradicts the next-day
+              delivery offered on /pages/shipping-delivery and /policies/shipping-policy. A
+              delivery representation that the shopfront does not honour is a CPUT 2008 problem
+              before it is an SEO one, so both invented numbers are gone.
+
+              What replaces them is only what is published: free standard delivery over £40, free
+              next-day delivery over £80, and dispatch same working day when ordered before 1pm
+              (otherwise the next working day) — hence handlingTime 0–1 day. Standard transit
+              carries NO transitTime because the site states none; the next-day option carries
+              transitTime 1–1 because "next-day" is itself the published transit. Do not add a
+              standard transit window until one is published.
+            {%- endcomment -%}
+            "shippingDetails": [
+              {
+                "@type": "OfferShippingDetails",
+                "name": "Free standard UK delivery on orders over £40",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 40, "priceCurrency": "GBP" },
+                "deliveryTime": {
+                  "@type": "ShippingDeliveryTime",
+                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" }
+                }
+              },
+              {
+                "@type": "OfferShippingDetails",
+                "name": "Free next-day delivery on orders over £80",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 80, "priceCurrency": "GBP" },
+                "deliveryTime": {
+                  "@type": "ShippingDeliveryTime",
+                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+                  "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1, "unitCode": "DAY" }
+                }
+              }
+            ],
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "GB",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": 30,
+              "returnMethod": "https://schema.org/ReturnByMail",
+              "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      }
+
+    {%- when 'collection' -%},
+      {%- comment -%}
+        ItemList carries a full `item` per entry, not a bare name+url. A ListItem with only a name
+        is a link; a ListItem whose `item` is a Product with a price and an availability is an
+        answerable fact, and that is the difference between being read and being cited.
+      {%- endcomment -%}
+      {
+        "@type": "ItemList",
+        "@id": {{ page_url | append: '#itemlist' | json }},
+        "name": {{ collection.title | json }},
+        "numberOfItems": {{ collection.all_products_count }},
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "itemListElement": [
+          {%- for prod in collection.products limit: 48 -%}
+          {%- assign pv = prod.selected_or_first_available_variant | default: prod.variants.first -%}
+          {
+            "@type": "ListItem",
+            "position": {{ forloop.index }},
+            "name": {{ prod.title | json }},
+            "url": {{ base | append: prod.url | json }},
+            "item": {
+              "@type": "Product",
+              "@id": {{ base | append: prod.url | append: '#product' | json }},
+              "name": {{ prod.title | json }},
+              "url": {{ base | append: prod.url | json }},
+              {%- if prod.featured_image -%}"image": {{ prod.featured_image | image_url: width: 800 | prepend: 'https:' | json }},{%- endif -%}
+              {%- if pv.sku != blank -%}"sku": {{ pv.sku | json }},{%- endif -%}
+              "brand": { "@type": "Brand", "name": {{ seller_name | json }} },
+              "offers": {
+                "@type": "Offer",
+                "price": "{{ prod.price | divided_by: 100.0 }}",
+                "priceCurrency": {{ cur | json }},
+                "availability": "https://schema.org/{% if prod.available %}InStock{% else %}OutOfStock{% endif %}",
+                "url": {{ base | append: prod.url | json }},
+                "seller": { "@id": {{ org_id | json }} }
+              }
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      }
+
+    {%- endcase -%}
+  ]
+}
+</script>

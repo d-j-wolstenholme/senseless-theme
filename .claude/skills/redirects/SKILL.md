@@ -14,8 +14,15 @@ description: Use this skill to manage Shopify 301 redirects via the Admin API. P
 ## Inputs
 
 - **Operation** — create / list / delete / bulk-import
-- **From path** — e.g. `/collections/tattoo-numbing-cream`
-- **To path** — e.g. `/collections/aesthetic-numbing-cream`
+- **From path** — e.g. `/pages/how-to-apply`
+- **To path** — e.g. `/pages/the-senseless-system`
+
+> The worked example above used to read `/collections/tattoo-numbing-cream` →
+> `/collections/aesthetic-numbing-cream`. **That from-path is a live Totally Numb URL**
+> (`totally-numb.com/collections/tattoo-numbing-cream`), and Totally Numb is a sibling
+> Matrix Health Group store on a different Shopify account. Actioned literally it would have
+> created a redirect for a path that does not exist on this store, against a competitor URL
+> that does. Replaced 2026-08-13 with a real redirect from this store's own live set.
 - **CSV file** (for bulk) — two columns: from,to
 
 ## Process

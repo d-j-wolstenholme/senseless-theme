@@ -1,0 +1,329 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "TKTX in the UK",
+        "headline": "TKTX numbing cream: what to check before you buy.",
+        "accent_word": "check",
+        "subhead": "<p>We are not going to tell you ours works better than theirs — we are not permitted to make that comparison, and you should be sceptical of any brand that does. What we can give you is the list of things worth checking on any listing in this category, and our own answers to every one of them.</p>",
+        "image_alt": "The Senseless range on a warm off-white background",
+        "primary_cta_label": "See the Senseless range",
+        "primary_cta_url": "/collections/numbing-cream",
+        "secondary_cta_label": "Find your strength",
+        "secondary_cta_url": "/pages/the-senseless-system"
+      }
+    },
+    "framing": {
+      "type": "senseless-image-text-band",
+      "settings": {
+        "direction": "text-left",
+        "eyebrow": "The honest framing",
+        "headline": "A comparison we're not allowed to make, and one we can.",
+        "body": "<p>Senseless is a UK cosmetic product. Under UK rules we cannot claim that one topical preparation performs better than another, and we would not be able to substantiate it if we tried. So this page does not rank products.</p><p>What it does instead is set out the things a UK buyer can verify for themselves before ordering anything in this category — who the seller is, whether the product has been safety-assessed, what you are actually paying per gram, and where the parcel ships from. Those are checkable facts rather than opinions, and they are the ones that tend to matter when something goes wrong.</p>",
+        "image": "shopify://shop_images/senseless-asterisk.svg",
+        "image_alt": "The Senseless asterisk mark",
+        "cta_label": "",
+        "cta_url": ""
+      }
+    },
+    "checks": {
+      "type": "senseless-spec-table",
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Who is behind it",
+            "col1": "Matrix Health Group Ltd, a UK registered company. VAT GB 523 781 682.",
+            "col2": "Look for a company name you can search at Companies House. A brand name on its own is not a company."
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Safety assessment",
+            "col1": "Every formula is assessed under a UK Cosmetic Product Safety Report before it is sold.",
+            "col2": "Ask the seller whether the product holds a CPSR. It is a straightforward question with a straightforward answer."
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Sizes",
+            "col1": "Cream 10g and 30g. Gel 15ml and 35ml. Spray 35ml. Professional cream is 30g only.",
+            "col2": "Check the size is stated at all, and in what unit. A listing without one cannot be compared on price."
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "Price",
+            "col1": "£19.99 to £55.99 depending on strength, format and size.",
+            "col2": "Divide the price by the size and compare per gram or per millilitre — never per tube."
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "Where it ships from",
+            "col1": "The United Kingdom, via Royal Mail.",
+            "col2": "Check the dispatch country. An import can sit in customs past the date you needed it."
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "label": "Delivery",
+            "col1": "Free standard UK delivery over £40, free next-day over £80. Before 1pm on a working day is same-day dispatch.",
+            "col2": "Check the cut-off and whether the stated window clears your appointment date."
+          }
+        },
+        "r7": {
+          "type": "row",
+          "settings": {
+            "label": "If something is wrong",
+            "col1": "A UK company, UK returns, and cs@senseless.uk.",
+            "col2": "Work out who you would contact and which country they are in, before you need to."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7"
+      ],
+      "settings": {
+        "band": "canvas",
+        "anchor_id": "checks",
+        "eyebrow": "The checklist",
+        "headline": "Seven things worth checking.",
+        "accent_word": "Seven",
+        "intro": "<p>Our answers are in the middle column. The right-hand column is how to get the same answer out of any listing you are considering, including a TKTX one.</p>",
+        "caption": "Seven checks for buying a topical preparation in the UK, with the Senseless answer to each",
+        "row_label": "What to check",
+        "col1_label": "Senseless",
+        "col2_label": "How to check it on any listing",
+        "note": "<p>Prices and sizes above are correct at the time of writing and are the ones shown on our own product pages. We do not publish comparative pricing against other brands — sellers in this category vary enormously, and a figure we quoted today would be wrong by the time you read it.</p>"
+      }
+    },
+    "provenance": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "Worth knowing",
+        "heading": "\"Official\" is a crowded word in this category",
+        "body": "<p>TKTX is sold in the UK through a number of different websites as well as marketplace sellers. When we looked in August 2026, more than one of those websites described itself as the <em>only</em> certified or official UK distributor — and several of them carry their own guidance on how to identify counterfeit stock, which tells you something about the market they are operating in.</p><p>We are not in a position to say which of them is right, and it is not our argument to settle. What we would say is that it makes the checks above worth doing rather than assuming. If a site is asking you to trust it, it can reasonably be asked for a company number.</p>",
+        "cta_label": "",
+        "cta_url": ""
+      }
+    },
+    "tiers": {
+      "type": "senseless-trio-card-row",
+      "blocks": {
+        "clinical": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "heading": "The standard-strength formula",
+            "body": "<p>The Senseless default. For shorter or less intensive appointments, smaller areas, and anyone starting out who wants to begin considered.</p>",
+            "image_alt": "Senseless Clinical Strength cream on a warm off-white background",
+            "flagship": false
+          }
+        },
+        "advanced": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Advanced Strength",
+            "heading": "The step up",
+            "body": "<p>For longer or more sensitive sessions and larger areas — the one most people settle on for regular work.</p>",
+            "image_alt": "Senseless Advanced Strength cream on a warm off-white background",
+            "flagship": false
+          }
+        },
+        "professional": {
+          "type": "tier_card",
+          "settings": {
+            "label": "Professional Strength",
+            "heading": "Our most concentrated formula",
+            "body": "<p>Developed for professional use, for the longest and most demanding appointments.</p>",
+            "image_alt": "Senseless Professional Strength cream on a warm off-white background",
+            "flagship": false
+          }
+        }
+      },
+      "block_order": [
+        "clinical",
+        "advanced",
+        "professional"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "",
+        "headline": "The Senseless system.",
+        "body": "",
+        "closer": "",
+        "section_cta_label": "Choose your strength",
+        "section_cta_url": "/pages/the-senseless-system"
+      }
+    },
+    "concession": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "heading": "When TKTX might still be what you want",
+        "body": "<p>If you already use it, you get on with it, and you buy it from a source you have checked, nothing on this page is a reason to change. Plenty of people are in exactly that position and they are not making a mistake. This page is written for the person deciding for the first time, or the person who has been buying from whichever listing came up first and has never looked at who is behind it.</p>",
+        "cta_label": "",
+        "cta_url": ""
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Senseless the same as TKTX?",
+            "answer": "<p>No. Different companies, different products, no connection between them. Senseless is made by Matrix Health Group Ltd, a UK registered company.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which is better, Senseless or TKTX?",
+            "answer": "<p>We don't make that comparison. As a UK cosmetic brand we are not permitted to claim that one topical preparation performs better than another, and we could not substantiate it if we were. What we can tell you is who we are, what the products are assessed under, and what they cost per gram — and how to establish the same for anything else you are considering.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which TKTX website is the official one?",
+            "answer": "<p>We can't tell you, and we'd be wary of anyone who says they can. When we checked in August 2026, more than one UK site described itself as the only certified or official distributor. That is a question for TKTX rather than for us — but it is a good reason to check whoever you buy from for a company number you can look up.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is Senseless cheaper than TKTX?",
+            "answer": "<p>We don't make comparative pricing claims — prices in this category vary by seller, by size and by week. Our own sizes and prices are in the table above. Divide by the size and compare per gram, which is the only way a price comparison in this category means anything.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a prescription for Senseless?",
+            "answer": "<p>No. Senseless is a cosmetic product, sold openly in the UK. Pharmacy medicines are a separate category with their own route — if a practitioner has told you that you need a medical preparation, a pharmacist is the right source.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's in it?",
+            "answer": "<p>Every Senseless formula is assessed under a UK Cosmetic Product Safety Report before it goes on sale. If you want the full ingredients list for a specific product before you order, email cs@senseless.uk and ask — that is a reasonable thing to want, and a reasonable thing to expect from any seller in this category.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "headline": "Common questions."
+      }
+    },
+    "next": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Where to buy numbing cream for tattoos in the UK",
+            "note": "The four routes, and what to check on each.",
+            "url": "/blogs/guides/where-to-buy-numbing-cream-for-tattoos-uk"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "How the Senseless system works",
+            "note": "Two dials — format and strength — matched to your appointment.",
+            "url": "/pages/the-senseless-system"
+          }
+        },
+        "l3": {
+          "type": "link_item",
+          "settings": {
+            "label": "UK delivery, in plain terms",
+            "note": "Thresholds, the 1pm cut-off, and what ships when.",
+            "url": "/pages/delivery"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Also useful",
+        "headline": "Where to go next"
+      }
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "The system",
+            "value": "Three strengths (Clinical, Advanced, Professional), three formats (cream, gel, spray)."
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Comparisons",
+            "value": "We do not make performance, safety or pricing comparisons with other brands. For clinical questions, ask a pharmacist or your practitioner."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "schema_type": "WebPage",
+        "name": "TKTX numbing cream in the UK — what to check",
+        "description": "A UK buyer's checklist for numbing cream listings: who is behind the product, whether it holds a Cosmetic Product Safety Report, size and price per gram, and where it ships from."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "framing",
+    "checks",
+    "provenance",
+    "tiers",
+    "concession",
+    "faq",
+    "next",
+    "keyfacts",
+    "schema"
+  ]
+}

@@ -42,8 +42,16 @@ description: Use this skill when generating SEO meta title and meta description 
 Page: Homepage
 Primary keyword: numbing cream
 
-→ Meta title: `Senseless · UK Numbing Cream for Aesthetics & Cosmetics` (54 chars)
-→ Meta description: `Specialist UK numbing cream, gel, and spray for lip fillers, Botox, microneedling, laser and more. Three strength tiers. Confidence starts with comfort.` (155 chars)
+→ Meta title: `UK Numbing Cream, Gel & Spray — Three Strengths | Senseless` (58 chars)
+→ Meta description: `UK-formulated numbing cream, gel and spray. Three strengths matched to your appointment. CPSR-assessed cosmetic products, not a medicine.` (136 chars)
+
+> **Do not treat the example as the house pattern.** The previous example baked an
+> aesthetics-only procedure list ("lip fillers, Botox, microneedling, laser") into the one
+> artefact every future meta gets modelled on, so a scope decision propagated as a formatting
+> convention. Two live constraints it also contradicted: the three injectable collections are
+> **organic-only** and must not be named on ad-facing meta (`.claude/rules/ad-facing.md`), and
+> the procedure scope is under review. Derive each page's meta from that page's own primary
+> keyword and its own audience — never from this example. Replaced 2026-08-13.
 
 ## Constraints
 

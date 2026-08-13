@@ -1,40 +1,52 @@
 {%- comment -%}
-  Senseless — Page schema. Emits a WebPage-family JSON-LD node for a content page (no visible output).
-  schema_type selects the @type: WebPage (default) / AboutPage / ContactPage (WebPage subtypes — same
-  fields) or Service (trade/wholesale — adds provider + serviceType + areaServed).
-  BreadcrumbList is already emitted by Horizon on page templates, so we don't duplicate it.
+  Senseless — Page schema. Specialises the sitewide #webpage node (no visible output).
+
+  snippets/senseless-structured-data.liquid now emits a WebPage node for EVERY page at
+  {canonical_url}#webpage. This section no longer emits a second, unrelated WebPage — it
+  re-declares the SAME @id with a narrower @type and the curated description, which is how
+  JSON-LD merges two statements about one entity. The result on /pages/about is one node typed
+  ["WebPage","AboutPage"], not two nodes competing to describe the page.
+
+  schema_type: WebPage (default — emits nothing, the sitewide node already covers it) /
+  AboutPage / ContactPage (WebPage subtypes) / Service (trade/wholesale — a genuinely different
+  entity, so it stays a separate node with its own @id and is linked from the page).
 {%- endcomment -%}
 {%- liquid
   assign page_name = section.settings.name | default: page.title
   assign desc = section.settings.description
   assign stype = section.settings.schema_type | default: 'WebPage'
+  assign page_url = canonical_url | default: shop.url
+  assign webpage_id = page_url | append: '#webpage'
+  assign org_id = shop.url | append: '/#organization'
 -%}
 {%- if stype == 'Service' -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": {{ page_url | append: '#service' | json }},
   "name": {{ page_name | json }},
   "serviceType": {{ section.settings.service_type | default: 'Wholesale supply' | json }},
-  "url": {{ canonical_url | json }}{% if desc != blank %},
+  "url": {{ page_url | json }}{% if desc != blank %},
   "description": {{ desc | strip_html | json }}{% endif %},
   "areaServed": "GB",
-  "provider": {
-    "@type": "Organization",
-    "name": "Senseless",
-    "legalName": "Matrix Health Group Ltd"
-  }
+  "mainEntityOfPage": { "@id": {{ webpage_id | json }} },
+  "provider": { "@id": {{ org_id | json }} }
 }
 </script>
-{%- else -%}
+{%- elsif stype != 'WebPage' or desc != blank -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": {{ stype | json }},
-  "name": {{ page_name | json }},
-  "url": {{ canonical_url | json }}{% if desc != blank %},
+  "@type": {%- if stype == 'WebPage' %} "WebPage"{%- else %} ["WebPage", {{ stype | json }}]{%- endif %},
+  "@id": {{ webpage_id | json }},
+  "url": {{ page_url | json }},
+  "name": {{ page_name | json }}{% if desc != blank %},
   "description": {{ desc | strip_html | json }}{% endif %},
-  "isPartOf": { "@type": "WebSite", "name": {{ shop.name | json }}, "url": {{ shop.url | json }} }
+  "isPartOf": { "@id": {{ shop.url | append: '/#website' | json }} },
+  "about": { "@id": {{ org_id | json }} },
+  "publisher": { "@id": {{ org_id | json }} },
+  "inLanguage": "en-GB"
 }
 </script>
 {%- endif -%}
@@ -45,7 +57,7 @@
   "tag": "section",
   "class": "senseless-section senseless-page-schema",
   "settings": [
-    { "type": "paragraph", "content": "Emits a WebPage-family JSON-LD node (Horizon already provides BreadcrumbList). No visible output. Name defaults to the page title." },
+    { "type": "paragraph", "content": "Specialises the sitewide WebPage node (same @id) with a narrower type and a curated description. No visible output. Name defaults to the page title. Leave the type as WebPage and the description empty to rely entirely on the sitewide node." },
     { "type": "select", "id": "schema_type", "label": "Schema type", "default": "WebPage", "options": [ { "value": "WebPage", "label": "WebPage" }, { "value": "AboutPage", "label": "AboutPage" }, { "value": "ContactPage", "label": "ContactPage" }, { "value": "Service", "label": "Service (trade)" } ] },
     { "type": "text", "id": "service_type", "label": "Service type (Service only)", "default": "Wholesale supply" },
     { "type": "text", "id": "name", "label": "Name override (optional)" },

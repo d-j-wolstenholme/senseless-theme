@@ -1,51 +1,25 @@
 {%- comment -%}
-  Senseless — Organization / ContactPoint JSON-LD (no visible output).
-  Entity-authority schema for GEO. Carries the public phone (0333 049 5549), CS email,
-  legal entity (Matrix Health Group Ltd) + registered address. Placed on the Contact page.
+  Senseless — Organization schema. SUPERSEDED, deliberately kept.
+
+  The Organization node now lives in the sitewide @graph emitted by
+  snippets/senseless-structured-data.liquid at {shop.url}/#organization, on EVERY page type
+  rather than on the two templates that happened to include this section. Emitting it here as
+  well would put two Organization nodes on the About and Contact pages with no @id relating
+  them — the exact duplication the graph rewrite removed.
+
+  The section is retained (rather than deleted) because templates/page.about.json and
+  templates/page.contact.json still reference it; removing a referenced section type is a
+  storefront error, and the settings below are the record of what the node used to carry. It
+  renders nothing. If you are adding organisation data, add it to the #organization node in
+  snippets/senseless-structured-data.liquid.
 {%- endcomment -%}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": {{ section.settings.org_name | default: 'Senseless' | json }},
-  "legalName": {{ section.settings.legal_name | default: 'Matrix Health Group Ltd' | json }},
-  "vatID": {{ section.settings.vat_id | default: 'GB523781682' | json }},
-  "url": {{ request.origin | json }},
-  "email": {{ section.settings.email | default: 'cs@senseless.uk' | json }},
-  "telephone": {{ section.settings.telephone | default: '+443330495549' | json }},
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": {{ section.settings.street | default: 'Paddock Business Centre, 2 Paddock Road' | json }},
-    "addressLocality": {{ section.settings.locality | default: 'Skelmersdale' | json }},
-    "postalCode": {{ section.settings.postcode | default: 'WN8 9PL' | json }},
-    "addressCountry": "GB"
-  },
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": {{ section.settings.telephone | default: '+443330495549' | json }},
-    "email": {{ section.settings.email | default: 'cs@senseless.uk' | json }},
-    "contactType": "customer service",
-    "areaServed": "GB",
-    "availableLanguage": "English"
-  }]
-}
-</script>
 {% schema %}
 {
   "name": "Senseless — Org schema",
   "tag": "section",
   "class": "senseless-section senseless-org-schema",
   "settings": [
-    { "type": "paragraph", "content": "Emits Organization + ContactPoint JSON-LD (no visible output)." },
-    { "type": "text", "id": "org_name", "label": "Organization name", "default": "Senseless" },
-    { "type": "text", "id": "legal_name", "label": "Legal name", "default": "Matrix Health Group Ltd" },
-    { "type": "text", "id": "vat_id", "label": "VAT number", "info": "schema.org vatID — unspaced with the GB prefix (GB523781682).", "default": "GB523781682" },
-    { "type": "text", "id": "telephone", "label": "Telephone", "default": "+443330495549" },
-    { "type": "text", "id": "email", "label": "Email", "default": "cs@senseless.uk" },
-    { "type": "text", "id": "street", "label": "Street", "default": "Paddock Business Centre, 2 Paddock Road" },
-    { "type": "text", "id": "locality", "label": "Locality", "default": "Skelmersdale" },
-    { "type": "text", "id": "postcode", "label": "Postcode", "default": "WN8 9PL" }
-  ],
-  "presets": [ { "name": "Senseless — Org schema" } ]
+    { "type": "paragraph", "content": "Superseded. Organization JSON-LD is now emitted sitewide from snippets/senseless-structured-data.liquid at {shop.url}/#organization. This section renders nothing." }
+  ]
 }
 {% endschema %}

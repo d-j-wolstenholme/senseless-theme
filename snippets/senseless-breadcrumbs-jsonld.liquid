@@ -1,14 +1,18 @@
 {%- comment -%}
-  Senseless — BreadcrumbList JSON-LD. Rendered by snippets/senseless-structured-data.liquid.
+  Senseless — BreadcrumbList JSON-LD, emitted as a NODE inside the sitewide @graph
+  (snippets/senseless-structured-data.liquid). It no longer emits its own <script> or
+  @context — a graph node carries neither, and a second @context on the page would
+  fork the entity graph the @id linkage exists to hold together.
   Params:
     base       — shop.url (absolute origin, no trailing slash)
-    crumb_type — 'product' | 'collection' | 'page'
-  Hierarchy reflects the real site: Home → [collection] → Product, Home → Collection, Home → Page.
+    crumb_id   — the @id this node is addressed by (canonical_url + '#breadcrumb')
+    crumb_type — 'product' | 'collection' | 'page' | 'article' | 'index'
+  Hierarchy reflects the real site: Home → [collection] → Product, Home → Collection,
+  Home → Page, Home → Guides → Article.
 {%- endcomment -%}
-<script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
   "@type": "BreadcrumbList",
+  "@id": {{ crumb_id | json }},
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | append: '/' | json }} }
     {%- case crumb_type -%}
@@ -24,7 +28,9 @@
       ,{ "@type": "ListItem", "position": 2, "name": {{ collection.title | json }}, "item": {{ base | append: collection.url | json }} }
     {%- when 'page' -%}
       ,{ "@type": "ListItem", "position": 2, "name": {{ page.title | json }}, "item": {{ base | append: page.url | json }} }
+    {%- when 'article' -%}
+      ,{ "@type": "ListItem", "position": 2, "name": "Articles", "item": {{ base | append: '/pages/articles' | json }} }
+      ,{ "@type": "ListItem", "position": 3, "name": {{ article.title | json }}, "item": {{ base | append: article.url | json }} }
     {%- endcase -%}
   ]
 }
-</script>

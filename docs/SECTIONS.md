@@ -17,6 +17,7 @@ Auto-updated by the `create-section` skill. Don't edit manually unless removing 
 | `senseless-guide-hero.liquid` | Guide/article hero for system + SEO pages | 15 templates |
 | `senseless-callout-band.liquid` | CTA callout band (heading + body + button) | 10 templates |
 | `senseless-rich-text.liquid` | Editorial rich-text block, ~60–65ch measure; optional CTA as text-link or filled button (`cta_style`) | 9 templates |
+| `senseless-spec-table.liquid` | A real `<table>` for checkable facts — `<caption>`, `th[scope=col]` headers, `th[scope=row]` first cells, and a focusable `role="region"` scroll container so a wide table scrolls inside its own box rather than the page. Row blocks, up to 16, 2–3 value columns. **Added 2026-08-14 because an audit of nine live pages found zero `<table>` elements sitewide** — every comparison the site published was prose or cards, which reads fine and extracts badly. Facts only: a cell reading "faster" or "stronger" is an efficacy claim in a tidier box. | delivery, tktx-numbing-cream-uk (2) |
 | `senseless-rewards.liquid` | Public Rewards/loyalty explainer: how-it-works steps · rates list (app-only tags) · app-vs-web comparison table · small-print terms. Block-driven (step/rate/compare); composed with guide-hero + faq-accordion + callout-band | rewards (1) |
 | `senseless-procedure-grid.liquid` | Procedure cards grid (1:1 linked collection images) | 4 templates |
 | `senseless-how-to-use.liquid` | Numbered application/how-to-use steps | 4 templates |

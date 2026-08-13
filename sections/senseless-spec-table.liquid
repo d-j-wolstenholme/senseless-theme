@@ -1,0 +1,152 @@
+{%- comment -%}
+  Senseless — Spec table. A real <table> for factual, row-by-row comparison.
+
+  Why this exists: an audit of nine live pages found ZERO <table> elements on the site. Every
+  comparison Senseless publishes — strengths, formats, delivery options, us-versus-a-competitor —
+  was rendered as prose or as cards, which reads fine and extracts badly. A table is the one
+  structure where an answer engine can tell which value belongs to which row and which column
+  without inferring it, and comparison tables are disproportionately what gets quoted back.
+
+  Compliance note for anyone adding rows: this section is for FACTS that can be checked — sizes,
+  formats, prices, pack counts, delivery windows, what a company is registered as. It is not a
+  place to compare how well anything works. A cell reading "faster" or "stronger" is an efficacy
+  claim in a tidier box, and the Hard Rules apply to table cells exactly as they apply to prose.
+
+  Accessibility: <caption> names the table, column headers are th[scope=col], the first cell of
+  each row is th[scope=row], and the scroll container is focusable with a role and a label so a
+  keyboard user can reach and scroll a wide table (WCAG 2.1.1). The table never forces the page
+  to scroll horizontally — it scrolls inside its own box.
+{%- endcomment -%}
+{%- liquid
+  assign cols = 1
+  if section.settings.col2_label != blank
+    assign cols = 2
+  endif
+  if section.settings.col3_label != blank
+    assign cols = 3
+  endif
+  assign caption = section.settings.caption | default: section.settings.headline
+-%}
+{%- style -%}
+  .ss-spec {
+    --ss-purple: #6B3FA0;
+    --ss-canvas: #f7f7f5;
+    --ss-surface: #ffffff;
+    --ss-text: #1A1816;
+    --ss-body: #2B2730;
+    --ss-sec: #5C5853;
+    --ss-border: #E5E2DC;
+    --ss-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--ss-canvas);
+    color: var(--ss-text);
+    font-family: var(--ss-sans);
+  }
+  .ss-spec--surface { background: var(--ss-surface); }
+  .ss-spec__inner { max-width: 900px; margin: 0 auto; padding-block: 80px; padding-inline: 20px; }
+  .ss-spec__eyebrow { font-weight: 600; font-size: 0.75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 12px; }
+  .ss-spec__headline { font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height: 1.1; margin: 0 0 16px; }
+  .ss-spec__intro { font-size: 17px; line-height: 1.65; color: var(--ss-body); margin: 0 0 28px; max-width: 62ch; }
+  .ss-spec__intro p { margin: 0 0 12px; }
+  .ss-spec__intro p:last-child { margin: 0; }
+  .ss-spec__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--ss-border); border-radius: 4px; background: var(--ss-surface); }
+  .ss-spec__scroll:focus-visible { outline: 2px solid var(--ss-purple); outline-offset: 2px; }
+  .ss-spec__table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.55; min-width: 34rem; }
+  .ss-spec__caption { text-align: left; font-size: 13px; color: var(--ss-sec); padding: 14px 18px; border-bottom: 1px solid var(--ss-border); }
+  .ss-spec__table th, .ss-spec__table td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--ss-border); vertical-align: top; }
+  .ss-spec__table thead th { font-weight: 600; font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ss-purple); background: var(--ss-canvas); }
+  .ss-spec__table tbody th { font-weight: 600; color: var(--ss-text); }
+  .ss-spec__table tbody td { color: var(--ss-body); }
+  .ss-spec__table tbody tr:last-child th, .ss-spec__table tbody tr:last-child td { border-bottom: 0; }
+  .ss-spec__note { font-size: 14px; line-height: 1.6; color: var(--ss-sec); margin: 18px 0 0; max-width: 62ch; }
+  .ss-spec__note p { margin: 0 0 10px; }
+  .ss-spec__note p:last-child { margin: 0; }
+  .ss-spec__note a { color: var(--ss-purple); }
+  .ss-spec__cta { display: inline-block; margin-top: 24px; font-weight: 600; font-size: 15px; color: var(--ss-purple); text-decoration: none; }
+  .ss-spec__cta:hover { text-decoration: underline; }
+  @media (max-width: 989px) { .ss-spec__inner { padding-block: 56px; } }
+  @media (max-width: 749px) { .ss-spec__inner { padding-block: 44px; } .ss-spec__headline { line-height: 1.12; } .ss-spec__table { font-size: 14px; } .ss-spec__table th, .ss-spec__table td { padding: 12px 14px; } }
+{%- endstyle -%}
+
+<section class="ss-spec{% if section.settings.band == 'surface' %} ss-spec--surface{% endif %}"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %}>
+  <div class="ss-spec__inner">
+    {%- if section.settings.eyebrow != blank -%}<p class="ss-spec__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.headline != blank -%}
+      <h2 class="ss-spec__headline">{%- render 'senseless-accent', text: section.settings.headline, word: section.settings.accent_word -%}</h2>
+    {%- endif -%}
+    {%- if section.settings.intro != blank -%}<div class="ss-spec__intro">{{ section.settings.intro }}</div>{%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="ss-spec__scroll" tabindex="0" role="region" aria-label="{{ caption | default: 'Comparison table' | escape }}">
+        <table class="ss-spec__table">
+          {%- if caption != blank -%}<caption class="ss-spec__caption">{{ caption | escape }}</caption>{%- endif -%}
+          <thead>
+            <tr>
+              <th scope="col">{{ section.settings.row_label | default: '' | escape }}</th>
+              <th scope="col">{{ section.settings.col1_label | escape }}</th>
+              {%- if cols >= 2 -%}<th scope="col">{{ section.settings.col2_label | escape }}</th>{%- endif -%}
+              {%- if cols >= 3 -%}<th scope="col">{{ section.settings.col3_label | escape }}</th>{%- endif -%}
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              <tr {{ block.shopify_attributes }}>
+                <th scope="row">{{ block.settings.label | escape }}</th>
+                <td>{{ block.settings.col1 | escape }}</td>
+                {%- if cols >= 2 -%}<td>{{ block.settings.col2 | escape }}</td>{%- endif -%}
+                {%- if cols >= 3 -%}<td>{{ block.settings.col3 | escape }}</td>{%- endif -%}
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.note != blank -%}<div class="ss-spec__note">{{ section.settings.note }}</div>{%- endif -%}
+    {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
+      <a class="ss-spec__cta" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label | escape }} &rarr;</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Senseless — Spec table",
+  "tag": "section",
+  "class": "senseless-section senseless-spec-table",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "paragraph", "content": "A real HTML table for checkable facts — sizes, formats, prices, delivery windows, registrations. Do NOT use it to compare how well products work: a cell reading 'faster' or 'stronger' is an efficacy claim and the compliance Hard Rules apply to cells exactly as they apply to prose." },
+    { "type": "select", "id": "band", "label": "Background", "default": "canvas", "options": [ { "value": "canvas", "label": "Canvas (off-white)" }, { "value": "surface", "label": "Surface (white)" } ] },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "info": "Optional. Enables in-page jump links." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "headline", "label": "Headline" },
+    { "type": "text", "id": "accent_word", "label": "Accent word", "info": "One word from the headline, set in the brand italic." },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "header", "content": "Table" },
+    { "type": "text", "id": "caption", "label": "Caption", "info": "Names the table for screen readers and for extraction. Defaults to the headline." },
+    { "type": "text", "id": "row_label", "label": "Row-header column heading", "info": "The heading above the first column, e.g. 'Option' or 'Attribute'." },
+    { "type": "text", "id": "col1_label", "label": "Column 1 heading", "default": "Column 1" },
+    { "type": "text", "id": "col2_label", "label": "Column 2 heading", "info": "Leave empty for a two-column table." },
+    { "type": "text", "id": "col3_label", "label": "Column 3 heading", "info": "Leave empty for a three-column table." },
+    { "type": "header", "content": "After the table" },
+    { "type": "richtext", "id": "note", "label": "Note" },
+    { "type": "text", "id": "cta_label", "label": "CTA label" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Row heading", "default": "Row" },
+        { "type": "text", "id": "col1", "label": "Column 1" },
+        { "type": "text", "id": "col2", "label": "Column 2" },
+        { "type": "text", "id": "col3", "label": "Column 3" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Senseless — Spec table", "blocks": [ { "type": "row" }, { "type": "row" }, { "type": "row" } ] }
+  ]
+}
+{% endschema %}

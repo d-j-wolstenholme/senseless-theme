@@ -1,7 +1,7 @@
 {
   "name": "senseless-theme",
   "version": "0.1.0",
-  "description": "Senseless — UK aesthetics-focused topical preparation. Shopify theme.",
+  "description": "Senseless — UK topical cosmetic preparation. Shopify theme.",
   "private": true,
   "scripts": {
     "dev": "shopify theme dev --store senseless-numbing.myshopify.com",

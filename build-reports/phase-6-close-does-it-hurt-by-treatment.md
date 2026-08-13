@@ -40,3 +40,25 @@ This completes the by-treatment article. A restructure brief (Does-it-hurt **hub
 
 ## HOLD
 By-treatment article complete, published and verified live.
+
+---
+
+## Correction appended 2026-08-13 — the tattoo exclusion above is superseded
+
+The compliance-gate line in §11 reads *"**no tattoo content** (excluded per spec — Totally Numb's
+lane)"*. That was an accurate record of the spec this page was built to, and the build is not being
+restated — but the reason no longer holds, and this file is the most-cited source of the
+"tattoo belongs to Totally Numb" canon.
+
+**Owner ruling, 2026-08-13:** *"senseless and totally numb both target the same customer base
+now."* There is no lane split. Senseless competes for tattoo demand on merit.
+
+Left deliberately unchanged: the page itself, and this report's record of what shipped in June. A
+build report is evidence of what was done and when; rewriting one to match a later decision
+destroys the audit trail that makes the decision legible. What changes is the **canon** — see
+`docs/AUDIT-2026-06-12.md` items 10 / P3.5 (both closed the same day) and
+`docs/TATTOO-BUILD-SWEEP.md`.
+
+Note this does **not** dissolve the regulatory point underneath: Senseless and Totally Numb publish
+different claim sets under one company number and one VAT number. That is an MHG legal question,
+not a lane question, and nothing in this correction touches it.

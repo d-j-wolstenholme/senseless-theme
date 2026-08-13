@@ -60,7 +60,14 @@ Bespoke `senseless-footer` section (replaces Horizon native `footer` + `footer-u
 
 ## Migration / Launch
 
-At launch, 301 redirects from old URLs to new URLs are set up via the `redirects` skill. The old Senseless site will have all tattoo-focused URLs redirected to nearest aesthetics equivalents.
+At launch, 301 redirects from old URLs to new URLs are set up via the `redirects` skill.
+
+> **Corrected 2026-08-13.** This paragraph used to end: *"The old Senseless site will have all
+> tattoo-focused URLs redirected to nearest aesthetics equivalents."* No such redirect was ever
+> created. Verified against the live store the same day — Admin API `/redirects.json` returns
+> **15 redirects, none tattoo-related** (they are the `/policies/*` → `/pages/*` set, the retired
+> guide handles, `/llms.txt`, `/collections/frontpage`, `/blogs/news` and `/app`). The sentence
+> described an intention as an accomplished migration, which is how a plan becomes false canon.
 
 ## Section build standards (CSS positioning + scoping)
 

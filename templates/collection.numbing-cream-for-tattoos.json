@@ -1,0 +1,310 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "For tattoo appointments",
+        "headline": "Numbing cream for tattoos, matched to the sitting.",
+        "subhead": "<p>A tattoo appointment is usually the longest thing on this list — hours rather than minutes, over an area that can be small or span a whole limb. That is what the choice turns on: how long you are booked for, how much skin is involved, and what your artist asks you to do. Here is how the three strengths and three formats line up against that.</p>",
+        "primary_cta_label": "Shop the range",
+        "primary_cta_url": "#shop",
+        "secondary_cta_label": "Match the strength",
+        "secondary_cta_url": "#match",
+        "image_alt": "The Senseless range — three strengths in cream, gel and spray",
+        "accent_word": "matched"
+      }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Three strengths"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
+    },
+    "intro": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "What a tattoo sitting asks",
+        "headline": "Length is the thing that changes the answer",
+        "body": "<p>Most of the appointments this range was built around are measured in minutes. A tattoo sitting is measured in hours, and the area can be anything from a few centimetres to a full sleeve. Two things follow. The first is that a longer booking points towards the upper end of the range rather than the entry strength. The second is that format starts to matter as much as strength — cream and gel for defined areas, spray where the area is broad.</p><p>The third thing is not about the product at all. Your artist has a working method, and some will ask you not to bring anything at all. That conversation comes before this page does.</p>",
+        "accent_word": "Length"
+      }
+    },
+    "match": {
+      "type": "senseless-strength-ladder",
+      "blocks": {
+        "r1": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Clinical",
+            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>"
+          }
+        },
+        "r2": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Advanced",
+            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular work.</p>"
+          }
+        },
+        "r3": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Professional",
+            "matched": "<p>The longest, most demanding appointments.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {
+        "show_scale": true,
+        "use_metaobject": true,
+        "layout": "tiles",
+        "band": "surface",
+        "anchor_id": "match",
+        "eyebrow": "The Senseless Scale",
+        "headline": "Match the strength to the length of the sitting",
+        "body": "<p>None of the three is \"better\" than another — each is formulated for a different kind of session. A long sitting sits at the upper end of the range; a short first piece does not need to.</p>",
+        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
+        "accent_word": "Match"
+      }
+    },
+    "grid": {
+      "type": "senseless-collection-grid",
+      "blocks": {
+        "cap1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-cream",
+            "caption": "Our most concentrated formula, for the longest sittings."
+          }
+        },
+        "cap2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-cream",
+            "caption": "The usual starting point for a longer booking."
+          }
+        },
+        "cap3": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-spray",
+            "caption": "Where the area is broad rather than defined."
+          }
+        },
+        "cap4": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-gel",
+            "caption": "Precise on smaller, defined areas."
+          }
+        }
+      },
+      "block_order": [
+        "cap1",
+        "cap2",
+        "cap3",
+        "cap4"
+      ],
+      "settings": {
+        "headline": "The range, by strength",
+        "anchor_id": "shop",
+        "show_filters": false,
+        "accent_word": "strength"
+      }
+    },
+    "format": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "heading": "Cream, gel or spray?",
+        "body": "<p>Cream is the general-purpose format and the one most people reach for. Gel is the more precise of the two for smaller, defined areas. Spray covers broad areas without spreading anything by hand — the practical choice on a limb or a back piece. The same three strengths run across all three formats, so format is a question about the area and strength is a question about the length.</p>",
+        "cta_label": "How to apply it",
+        "cta_url": "/pages/how-to-apply-numbing-cream"
+      }
+    },
+    "honest": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "heading": "Before you buy: ask your artist first",
+        "body": "<p>This is the part most sellers skip. Artists differ, strongly, on whether they want a client to arrive having applied anything — some are relaxed about it, some ask you not to, and a few will end the session over it. They are the ones working on your skin, and they have reasons either way. Ask before you book, not on the day. If the answer is no, that is the answer, and nothing on this page overrides it.</p>",
+        "accent_word": "artist",
+        "cta_label": "Does numbing cream affect a tattoo?",
+        "cta_url": "/blogs/guides/does-numbing-cream-affect-a-tattoo"
+      }
+    },
+    "characteristics": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "UK-formulated",
+            "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "A cosmetic product",
+            "value": "A cosmetic, not a medicine — no prescription needed."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "CPSR assessed",
+            "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Three strengths, three formats",
+            "value": "Clinical, Advanced and Professional, in cream, gel and spray — matched to the session rather than one product stretched across all of them."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "What makes it Senseless",
+        "accent_word": "Senseless"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which strength should I choose for a tattoo appointment?",
+            "answer": "<p>Go by the length of the booking rather than the design. A long sitting sits at the upper end of the range; a short first piece does not need to. If you're between two, start with the lower one — you can move up next time.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Cream, gel or spray for a tattoo?",
+            "answer": "<p>Format follows the area, not the strength. Cream is general-purpose, gel is the more precise option on smaller defined areas, and spray covers a broad area such as a limb or a back piece without spreading anything by hand. All three come in all three strengths.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will my tattoo artist mind?",
+            "answer": "<p>Some will, some won't, and it is entirely their call. Ask before the day so nobody is surprised — a message when you book is enough. If your artist asks you not to use anything, follow that.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When do I apply it?",
+            "answer": "<p>Ahead of the appointment, on clean and unbroken skin, as a visible layer that sits on the surface rather than being rubbed in. Follow the product guidance, and your artist's window takes precedence over any general guidance.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to patch test?",
+            "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use it on skin that is already tattooed?",
+            "answer": "<p>Senseless is applied to clean, unbroken skin. Skin that is broken, healing, or freshly worked on is not what this range is for — the Vitamin A &amp; D ointment is the aftercare product.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "headline": "Common questions.",
+        "anchor_id": "faq"
+      }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which to choose?",
+        "body": "<p>Answer three quick questions — treatment, skin and session length — and we'll point you to the format and strength we'd reach for.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "intro",
+    "match",
+    "selectorlink",
+    "grid",
+    "format",
+    "honest",
+    "characteristics",
+    "faq"
+  ]
+}

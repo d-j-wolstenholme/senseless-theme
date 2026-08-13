@@ -1,0 +1,310 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "For piercings",
+        "headline": "Numbing cream for piercings, kept in proportion.",
+        "subhead": "<p>A single piercing is over in seconds. That one fact changes what preparation is for here, and it is the thing most sellers won't tell you. Where it earns its place is cartilage, several piercings in one sitting, or simply going in less anxious than last time. Here is how the range lines up against that — and where we'd say don't bother.</p>",
+        "primary_cta_label": "Shop the range",
+        "primary_cta_url": "#shop",
+        "secondary_cta_label": "Match the strength",
+        "secondary_cta_url": "#match",
+        "image_alt": "The Senseless range — three strengths in cream, gel and spray",
+        "accent_word": "proportion"
+      }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Three strengths"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
+    },
+    "intro": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "Where it fits, and where it doesn't",
+        "headline": "The honest version: a lobe piercing probably doesn't need this",
+        "body": "<p>A standard lobe piercing is a single, brief moment. Preparing for it is not wrong, but it is not the case we would build a page around, and plenty of people book one without giving it a thought.</p><p>Three situations change that. Cartilage — helix, conch, daith, industrial — is a different proposition from a lobe, and people who have had both usually say so. Several piercings in one appointment stretch a brief moment into a longer one. And if the last appointment left you dreading the next, arriving prepared is a reasonable thing to want regardless of how quick it is.</p>",
+        "accent_word": "honest"
+      }
+    },
+    "match": {
+      "type": "senseless-strength-ladder",
+      "blocks": {
+        "r1": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Clinical",
+            "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>"
+          }
+        },
+        "r2": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Advanced",
+            "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular work.</p>"
+          }
+        },
+        "r3": {
+          "type": "ladder_row",
+          "settings": {
+            "strength": "Professional",
+            "matched": "<p>The longest, most demanding appointments.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {
+        "show_scale": true,
+        "use_metaobject": true,
+        "layout": "tiles",
+        "band": "surface",
+        "anchor_id": "match",
+        "eyebrow": "The Senseless Scale",
+        "headline": "Most piercing appointments sit at the entry strength",
+        "body": "<p>None of the three is \"better\" than another — each is formulated for a different kind of session. A piercing appointment is one of the shortest things in the range, so Clinical is the sensible default and the upper strengths are there for cartilage or a multi-piercing sitting.</p>",
+        "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
+        "accent_word": "entry"
+      }
+    },
+    "grid": {
+      "type": "senseless-collection-grid",
+      "blocks": {
+        "cap1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-strength-gel",
+            "caption": "Precise on a small, defined spot — the usual pick here."
+          }
+        },
+        "cap2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-strength-cream",
+            "caption": "If you prefer a cream."
+          }
+        },
+        "cap3": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-gel",
+            "caption": "Cartilage, or several piercings in one sitting."
+          }
+        },
+        "cap4": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-cream",
+            "caption": "The same step up, in cream."
+          }
+        }
+      },
+      "block_order": [
+        "cap1",
+        "cap2",
+        "cap3",
+        "cap4"
+      ],
+      "settings": {
+        "headline": "The range, by strength",
+        "anchor_id": "shop",
+        "show_filters": false,
+        "accent_word": "strength"
+      }
+    },
+    "format": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "heading": "Gel is usually the format here",
+        "body": "<p>A piercing site is small and precise, which is what gel is for — it goes exactly where you put it and stays there. Cream is the equal alternative if you prefer its feel. Spray is built for broad areas and is the wrong tool for an earlobe. The same three strengths run across all three formats.</p>",
+        "cta_label": "See all procedures",
+        "cta_url": "/pages/aesthetic-procedures"
+      }
+    },
+    "honest": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "heading": "Before you buy: ask your piercer first",
+        "body": "<p>Studios have protocols, and yours may have a view on arriving with anything applied — particularly around a site that has to be marked accurately and cleaned before it is pierced. Ask when you book rather than on the day. If your piercer says no, that settles it. And if you are being pierced by a reputable studio, they will talk you through what to expect anyway, which is worth more than anything we can put on a page.</p>",
+        "accent_word": "piercer",
+        "cta_label": "How to apply it",
+        "cta_url": "/pages/how-to-apply-numbing-cream"
+      }
+    },
+    "characteristics": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "UK-formulated",
+            "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "A cosmetic product",
+            "value": "A cosmetic, not a medicine — no prescription needed."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "CPSR assessed",
+            "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Three strengths, three formats",
+            "value": "Clinical, Advanced and Professional, in cream, gel and spray — matched to the session rather than one product stretched across all of them."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "What makes it Senseless",
+        "accent_word": "Senseless"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need numbing cream for an ear piercing?",
+            "answer": "<p>For a standard lobe, most people don't — it is a single brief moment and plenty of people book one without a second thought. The cases where preparation earns its place are cartilage, several piercings in one appointment, or simply wanting to arrive less anxious than last time.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which strength for a piercing?",
+            "answer": "<p>Clinical is the sensible default — a piercing appointment is one of the shortest sessions in the range. Cartilage or a multi-piercing sitting is where Advanced makes sense. If you're between two, start with the lower one.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is cartilage different from a lobe?",
+            "answer": "<p>People who have had both generally say so, and cartilage sites — helix, conch, daith, industrial — also take considerably longer to settle afterwards. Your piercer is the right person to talk you through what your specific placement involves.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will my piercer mind?",
+            "answer": "<p>Ask when you book. Studios have their own protocols, particularly around a site that has to be marked accurately and cleaned before it is pierced. If your piercer asks you not to use anything, follow that.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use it on a nose, navel or nipple piercing?",
+            "answer": "<p>Senseless is applied to clean, unbroken skin, and it is not for use in or near the eyes or on mucous membranes. Beyond that, your piercer knows the placement and their own protocol — ask them before you book.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What about afterwards?",
+            "answer": "<p>Aftercare is your studio's instruction to give, and a fresh piercing is broken skin — Senseless is not applied to it. Follow the aftercare routine your piercer sets.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a medicine?",
+            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "headline": "Common questions.",
+        "anchor_id": "faq"
+      }
+    },
+    "selectorlink": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "eyebrow": "The Senseless Selector",
+        "heading": "Not sure which to choose?",
+        "body": "<p>Answer three quick questions — treatment, skin and session length — and we'll point you to the format and strength we'd reach for.</p>",
+        "cta_label": "Open the Selector",
+        "cta_url": "/pages/the-senseless-system#selector"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "intro",
+    "match",
+    "selectorlink",
+    "grid",
+    "format",
+    "honest",
+    "characteristics",
+    "faq"
+  ]
+}

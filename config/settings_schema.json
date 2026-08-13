@@ -2290,5 +2290,34 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Senseless — Social profiles",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Public profile URLs for the Senseless brand. These populate sameAs on the Organization node in the sitewide entity graph (snippets/senseless-structured-data.liquid), which is how an answer engine confirms that a brand mentioned elsewhere is this company. Leave blank until a profile actually exists — an empty setting emits nothing, but a wrong URL asserts an identity that isn't ours."
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_link",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok_link",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook_link",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube_link",
+        "label": "YouTube"
+      }
+    ]
   }
 ]

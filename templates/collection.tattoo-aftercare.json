@@ -1,0 +1,261 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-collection-hero",
+      "settings": {
+        "eyebrow": "Aftercare",
+        "headline": "Tattoo aftercare, kept simple.",
+        "subhead": "<p>Two products, not a routine you have to learn. A cleanser for washing the area, and a barrier ointment for keeping freshly treated skin comfortable and protected afterwards. Everything else about how you look after a new tattoo comes from the person who did it.</p>",
+        "primary_cta_label": "See both products",
+        "primary_cta_url": "#shop",
+        "secondary_cta_label": "The first 48 hours",
+        "secondary_cta_url": "/blogs/guides/tattoo-aftercare-first-48-hours",
+        "image_alt": "Senseless Foaming Cleanser and Vitamin A & D Ointment",
+        "accent_word": "simple"
+      }
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "No numbing products here"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
+    },
+    "intro": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "Read this first",
+        "headline": "Your artist's instructions come before this page",
+        "body": "<p>Aftercare advice differs between studios because the wrapping does. An artist using an adhesive second-skin film gives different instructions from one using cling film, and both differ again from a dry dressing. A guide telling you to take your wrap off after two hours is no use to someone whose film is meant to stay on for days.</p><p>So read what your studio gave you, and message them if you've lost it — they would far rather answer a question than see the result of a guess. What is on this page is the two products the routine actually needs, and nothing beyond that.</p>",
+        "accent_word": "instructions"
+      }
+    },
+    "grid": {
+      "type": "senseless-collection-grid",
+      "blocks": {
+        "cap1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "foaming-cleanser",
+            "caption": "For washing the area — suitable before treatment and on freshly treated skin."
+          }
+        },
+        "cap2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "vitamin-a-d-ointment-4-pack",
+            "caption": "A simple barrier ointment. Four travel tubes for £2."
+          }
+        }
+      },
+      "block_order": [
+        "cap1",
+        "cap2"
+      ],
+      "settings": {
+        "headline": "The two products",
+        "anchor_id": "shop",
+        "show_filters": false,
+        "accent_word": "two"
+      }
+    },
+    "routine": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "neutral",
+        "heading": "The wash, in the order it works",
+        "body": "<p>Clean hands first, every time — that habit matters more than any product in the routine. Then lukewarm water rather than hot, a gentle cleanser worked with fingertips rather than a cloth or sponge, a thorough rinse so nothing is left on the skin, and pat dry with a clean paper towel. Finish with a thin layer of whatever your artist recommended. Thin is the operative word: a thick layer traps moisture against the skin rather than doing more.</p>",
+        "cta_label": "The first 48 hours, in full",
+        "cta_url": "/blogs/guides/tattoo-aftercare-first-48-hours"
+      }
+    },
+    "notnumbing": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "heading": "Nothing on this page is a numbing product",
+        "body": "<p>Worth stating plainly, because the rest of the Senseless range is. The cleanser and the ointment sit outside the strength range and have no tier. Fresh tattoo work is broken skin, and the numbing range is applied to clean, unbroken skin before an appointment — not to a healing tattoo. Two different jobs, two different parts of the site.</p>",
+        "accent_word": "numbing",
+        "cta_label": "Before the appointment instead",
+        "cta_url": "/pages/how-to-apply-numbing-cream"
+      }
+    },
+    "characteristics": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "c1": {
+          "type": "fact",
+          "settings": {
+            "label": "UK-formulated",
+            "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
+          }
+        },
+        "c2": {
+          "type": "fact",
+          "settings": {
+            "label": "A cosmetic product",
+            "value": "A cosmetic, not a medicine — no prescription needed."
+          }
+        },
+        "c3": {
+          "type": "fact",
+          "settings": {
+            "label": "CPSR assessed",
+            "value": "Every formula is safety-assessed under a Cosmetic Product Safety Report before it's sold."
+          }
+        },
+        "c4": {
+          "type": "fact",
+          "settings": {
+            "label": "Outside the strength range",
+            "value": "Neither product has a tier. They are not numbing products and are not part of the Clinical, Advanced and Professional ladder."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "What these two are",
+        "accent_word": "are"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What do I actually need for tattoo aftercare?",
+            "answer": "<p>Less than most lists suggest. A gentle cleanser for washing the area and a simple barrier product for afterwards cover the routine. Beyond that, follow whatever your artist told you — they know the piece, the placement and the wrap they used.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How often should I wash a new tattoo?",
+            "answer": "<p>Generally twice a day once your artist's wrapping window has passed, with clean hands, lukewarm water and fingertips rather than a cloth. Your studio's instruction governs — ask them if you're unsure.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use the Foaming Cleanser on a new tattoo?",
+            "answer": "<p>It is suitable for use before treatment and on freshly treated skin. If your artist has named a specific product they want you to use, use theirs — their instruction comes first.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much ointment should I use?",
+            "answer": "<p>A thin layer. A thick one traps moisture against the skin rather than doing more, and it is the most common mistake in the first week.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use numbing cream on a healing tattoo?",
+            "answer": "<p>No. The Senseless numbing range is applied to clean, unbroken skin ahead of an appointment. Skin that is broken, healing or freshly worked on is not what it is for.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When should I get medical advice?",
+            "answer": "<p>Spreading redness, a red streak moving away from the area, pain that increases rather than eases after the first days, significant swelling, discharge that is not clear plasma, or a fever. Contact a pharmacist, your GP or NHS 111 promptly rather than waiting.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
+      "settings": {
+        "headline": "Aftercare questions.",
+        "anchor_id": "faq"
+      }
+    },
+    "guides": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Tattoo aftercare: the first 48 hours",
+            "note": "Wrapping, the first wash, what to avoid, and when to ask for help.",
+            "url": "/blogs/guides/tattoo-aftercare-first-48-hours"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Tattoo healing stages, day by day",
+            "note": "The four stages, what's ordinary at each, and what isn't.",
+            "url": "/blogs/guides/tattoo-healing-stages-day-by-day"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2"
+      ],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "The guides",
+        "headline": "Read the detail"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "intro",
+    "grid",
+    "routine",
+    "notnumbing",
+    "characteristics",
+    "faq",
+    "guides"
+  ]
+}

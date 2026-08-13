@@ -1,0 +1,274 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-guide-hero",
+      "settings": {
+        "background": "canvas",
+        "eyebrow": "Delivery",
+        "headline": "Numbing cream delivery, in plain terms.",
+        "accent_word": "plain",
+        "subhead": "<p>Free standard UK delivery on orders over £40. Free next-day delivery on orders over £80. Order before 1pm on a working day and your parcel is dispatched the same day. Everything ships from the United Kingdom via Royal Mail, in plain, unbranded packaging.</p>",
+        "image_alt": "Senseless parcel packed for UK delivery",
+        "primary_cta_label": "Shop the range",
+        "primary_cta_url": "/collections/numbing-cream",
+        "secondary_cta_label": "Read the shipping policy",
+        "secondary_cta_url": "/pages/shipping-delivery"
+      }
+    },
+    "answer": {
+      "type": "senseless-editorial-band",
+      "settings": {
+        "background": "white",
+        "align": "left",
+        "eyebrow": "The short answer",
+        "headline": "Yes, next-day delivery is available.",
+        "accent_word": "Yes",
+        "body": "<p>Next-day delivery is one of the two options at checkout, and it is free on UK orders over £80. Below that the rate is shown at checkout before you pay. Standard delivery is free on UK orders over £40.</p><p>The cut-off is the part that decides whether your order moves today. Order before 1pm on a working day and it is dispatched the same day. Order after 1pm, or at a weekend or on a bank holiday, and it is dispatched the next working day. Delivery estimates begin from dispatch, not from when you place the order.</p>"
+      }
+    },
+    "options": {
+      "type": "senseless-spec-table",
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Standard delivery",
+            "col1": "£40",
+            "col2": "Rate shown at checkout",
+            "col3": "1pm on a working day"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Next-day delivery",
+            "col1": "£80",
+            "col2": "Rate shown at checkout",
+            "col3": "1pm on a working day"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2"
+      ],
+      "settings": {
+        "band": "canvas",
+        "anchor_id": "options",
+        "eyebrow": "The two options",
+        "headline": "Standard or next-day.",
+        "accent_word": "next-day",
+        "caption": "UK delivery options, thresholds and dispatch cut-off",
+        "row_label": "Option",
+        "col1_label": "Free on orders over",
+        "col2_label": "Below that",
+        "col3_label": "Order by, for same-day dispatch",
+        "note": "<p>Orders placed after 1pm, at a weekend or on a bank holiday are dispatched the next working day. Delivery estimates begin from dispatch. We ship to the UK only at present.</p>"
+      }
+    },
+    "logistics": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "f1": {
+          "type": "fact",
+          "settings": {
+            "label": "Carrier",
+            "value": "All orders ship from the United Kingdom via Royal Mail."
+          }
+        },
+        "f2": {
+          "type": "fact",
+          "settings": {
+            "label": "Tracking",
+            "value": "A confirmation email with a tracking link is sent on dispatch. Track directly at royalmail.com/track-your-item."
+          }
+        },
+        "f3": {
+          "type": "fact",
+          "settings": {
+            "label": "Packaging",
+            "value": "Every order is dispatched in plain, unbranded packaging. Parcels are designed to fit through a standard letterbox wherever possible."
+          }
+        },
+        "f4": {
+          "type": "fact",
+          "settings": {
+            "label": "Where we ship",
+            "value": "The United Kingdom only at present."
+          }
+        },
+        "f5": {
+          "type": "fact",
+          "settings": {
+            "label": "If something goes wrong",
+            "value": "Damaged, missing or late beyond the expected window — email cs@senseless.uk with your order number, within 14 days of the expected delivery date."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "How your order travels",
+        "accent_word": "travels"
+      }
+    },
+    "appointment": {
+      "type": "senseless-callout-band",
+      "settings": {
+        "style": "brand",
+        "eyebrow": "Ordering around an appointment",
+        "heading": "Leave yourself a working day in hand.",
+        "accent_word": "working",
+        "body": "<p>The two things that decide when a parcel arrives are the 1pm cut-off and the working-day calendar, and a bank holiday moves both. If your appointment is close, next-day delivery ordered before 1pm on a working day is the quickest route we offer — and if it is not close, standard delivery over £40 costs nothing and gives you room if a parcel is delayed.</p>",
+        "cta_label": "See the range",
+        "cta_url": "/collections/numbing-cream"
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer next-day delivery on numbing cream?",
+            "answer": "<p>Yes. Next-day delivery is available at checkout on every product in the range, and it is free on UK orders over £80. Order before 1pm on a working day and your parcel is dispatched the same day.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much does delivery cost?",
+            "answer": "<p>Standard UK delivery is free on orders over £40. Next-day delivery is free on orders over £80. Below those thresholds the rate for each option is shown at checkout before you pay.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the cut-off for same-day dispatch?",
+            "answer": "<p>1pm on a working day. Orders placed after 1pm, at a weekend, or on a bank holiday are dispatched the next working day. Delivery estimates begin from dispatch.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will it arrive before my appointment?",
+            "answer": "<p>That depends on when you order rather than on anything about the product. Next-day delivery placed before 1pm on a working day is the quickest route available; a weekend or a bank holiday pushes dispatch to the next working day. If the appointment is close, order early in the day and choose next-day.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is the packaging discreet?",
+            "answer": "<p>Yes. Every order is dispatched in plain, unbranded packaging, and parcels are designed to fit through a standard letterbox wherever possible.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I track my order?",
+            "answer": "<p>A confirmation email with a Royal Mail tracking link is sent as soon as your order is dispatched. You can also track directly at royalmail.com/track-your-item. If nothing arrives within 24 hours, check your spam folder, then email cs@senseless.uk.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you deliver outside the UK?",
+            "answer": "<p>Not at present. We ship to the United Kingdom only.</p>"
+          }
+        },
+        "q8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I change my delivery address after ordering?",
+            "answer": "<p>If the order has not been dispatched yet, email cs@senseless.uk and we will change it. Once it has been dispatched the address cannot be changed.</p>"
+          }
+        },
+        "q9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "My order hasn't arrived. What now?",
+            "answer": "<p>Check the tracking link first — it is the fastest answer. If the expected window has passed with no update, email cs@senseless.uk with your order number. Please report delivery problems within 14 days of the expected delivery date.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9"
+      ],
+      "settings": {
+        "headline": "Delivery questions.",
+        "anchor_id": "faq"
+      }
+    },
+    "next": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shipping & delivery policy",
+            "note": "The full policy, kept as the formal record.",
+            "url": "/pages/shipping-delivery"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Returns & refunds",
+            "note": "What happens if something isn't right.",
+            "url": "/pages/returns-refunds"
+          }
+        },
+        "l3": {
+          "type": "link_item",
+          "settings": {
+            "label": "Contact us",
+            "note": "cs@senseless.uk, for anything a page can't answer.",
+            "url": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Also useful",
+        "headline": "Where to go next"
+      }
+    },
+    "schema": {
+      "type": "senseless-page-schema",
+      "settings": {
+        "schema_type": "WebPage",
+        "name": "Numbing cream delivery",
+        "description": "UK delivery for Senseless numbing cream, gel and spray. Free standard delivery over £40, free next-day over £80, dispatched the same working day when ordered before 1pm. Royal Mail, tracked, plain unbranded packaging."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "answer",
+    "options",
+    "logistics",
+    "appointment",
+    "faq",
+    "next",
+    "schema"
+  ]
+}

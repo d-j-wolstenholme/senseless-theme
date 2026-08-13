@@ -24,6 +24,10 @@
   .ss-faq__group { font-family: var(--ss-head); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ss-purple); margin: 44px 0 14px; }
   .ss-faq__q { font-family: var(--ss-head); font-weight: 500; font-size: clamp(1.0625rem, 1.01rem + 0.25vw, 1.125rem); line-height: 1.35; letter-spacing: -0.005em; color: var(--ss-text); cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative; }
   .ss-faq__q::-webkit-details-marker { display: none; }
+  /* The question is a real <h3> inside the <summary> so it lands in the document outline and in
+     an extraction pass. <summary> permits heading content, so this is valid HTML — the styles
+     below neutralise the h3's own box and typography so the rendered accordion is unchanged. */
+  .ss-faq__qh { display: inline; margin: 0; font: inherit; letter-spacing: inherit; color: inherit; }
   .ss-faq__q::after { content: '+'; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 19px; font-weight: 400; color: var(--ss-purple); line-height: 1; transition: transform 200ms ease-out; }
   .ss-faq__item[open] .ss-faq__q::after { content: '\2212'; }
   .ss-faq__a { font-family: var(--ss-sans); font-size: 16px; line-height: 1.6; color: var(--ss-body); padding: 0 0 18px; }
@@ -39,6 +43,22 @@
 <section class="ss-faq"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %} aria-label="{{ section.settings.headline | default: 'Frequently asked questions' | escape }}">
   <div class="ss-faq__inner">
     {%- if section.settings.headline != blank -%}<h2 class="ss-faq__headline">{{ section.settings.headline | escape }}</h2>{%- endif -%}
+    {%- comment -%}
+      Heading level is computed, not fixed: where this accordion uses group headings (the main FAQ
+      does), the groups are the h3s and each question sits under one as an h4. Where it does not
+      (every collection FAQ), the questions are the h3s directly under the section's h2. Pinning
+      questions at h3 in both cases would put a question on the same outline level as the group
+      that contains it.
+    {%- endcomment -%}
+    {%- liquid
+      assign has_groups = false
+      for block in section.blocks
+        if block.settings.group != blank
+          assign has_groups = true
+          break
+        endif
+      endfor
+    -%}
     {%- assign current_group = '' -%}
     {%- for block in section.blocks -%}
       {%- if block.settings.group != blank and block.settings.group != current_group -%}
@@ -46,7 +66,13 @@
         {%- assign current_group = block.settings.group -%}
       {%- endif -%}
       <details class="ss-faq__item" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
-        <summary class="ss-faq__q">{{ block.settings.question | escape }}</summary>
+        <summary class="ss-faq__q">
+          {%- if has_groups -%}
+            <h4 class="ss-faq__qh">{{ block.settings.question | escape }}</h4>
+          {%- else -%}
+            <h3 class="ss-faq__qh">{{ block.settings.question | escape }}</h3>
+          {%- endif -%}
+        </summary>
         <div class="ss-faq__a">{{ block.settings.answer }}</div>
       </details>
     {%- endfor -%}
