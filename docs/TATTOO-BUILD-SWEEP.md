@@ -60,7 +60,7 @@ would host the tattoo pages. See `NEXT_SESSION.md`.
 | Question | Ruling | Source |
 |---|---|---|
 | One tattoo collection or several? | **ONE.** "tattoo numbing cream" and "numbing cream for tattoos" return the same SERP — identical AI Overview, same nine sources. Format terms become *sections inside it*. | Evidence doc Part 1 |
-| Which handle? | **`/collections/numbing-cream-for-tattoos`.** Matches the seven live siblings, and `tattoo-numbing-cream` is a **live Totally Numb URL** — two MHG stores on identical paths is worse than breaking a naming pattern. *(This reverses an earlier in-session recommendation made before TN's URL was known.)* | Evidence doc Parts 2 + 4 |
+| Which handle? | **`/collections/numbing-cream-for-tattoos`** — but see "The slug question is settled" below. The deciding fact is that **slug construction has no measurable effect in this SERP**, so the choice falls to IA consistency and group-collision avoidance by default. | Measured, see below |
 | Interactive pain chart or static? | **Both — but the static graphic is the linkable artefact.** Healthline's static PNG: 263 refdomains. Every interactive chart measured: 0. Position 1 on the head term is a 12-slot image pack. | Evidence doc Part 3 |
 | Numeric pain scale? | **No.** Qualitative bands only — reuse **Mild · Moderate · Sharper** from `senseless-comfort-compare.liquid:4-5`. Locked 2 June decision de-scoped numeric. | Part 3 |
 | Region → product mapping on the chart? | **Banned. No compliant version exists.** GN8 App.10 enumerates "lists… which take a consumer to a page **displaying** a product when selected" — "displaying", not "linking". | Part 3 |
@@ -68,6 +68,47 @@ would host the tattoo pages. See `NEXT_SESSION.md`.
 | Tattoo terms on PDPs? | **No.** Breaches the 7 Aug collection-carries-category-keywords ruling. | Part 4 |
 | Re-slug `/pages/aesthetic-procedures`? | **No.** 20 internal links across 18 files, indexed URLs. Widen copy, add a destination. | Part 2 |
 | A separate GEO programme? | **No.** KD 0–1 and the AI-cited pages are the same pages. One asset wins both. | Part 4 |
+
+---
+
+## The slug question is settled — and the answer is "it doesn't matter"
+
+The owner challenged the handle recommendation on the grounds that it should be decided with Ahrefs,
+not with naming-pattern reasoning. He was right, and the measurement inverted the reasoning.
+
+`batch-analysis`, country=gb, mode=exact, 2026-08-12:
+
+| URL path | Slug vs head term | DR | Refdomains | Organic KWs | GB traffic/mo | Value/mo |
+|---|---|---|---|---|---|---|
+| `tattoonumbx.com/products/tattoonumbx-numbing-cream` | PARTIAL (brand token) | 11 | 24 | 46 | **2,679** | $2,680.83 |
+| `superdrug.com/emla/b/404041` | **NONE — a numeric ID** | 77 | 1 | 105 | **2,489** | $1,892.55 |
+| `tattoonumbingcream.com/en-gb` | NONE — locale homepage | 40 | 3 | 53 | 1,615 | $1,553.48 |
+| `emla.co.uk/emla-for-tattoos/` | **FOR-X reordered** | 22 | 5 | 84 | 1,208 | $845.96 |
+| `inkkingztattoostudio.co.uk/product/extreme-numbing-cream/` | PARTIAL — no "tattoo" at all | **0.1** | **0** | 50 | 1,096 | $952.85 |
+| `totally-numb.com/collections/tattoo-numbing-cream` | **EXACT MATCH** | 30 | 0 | **4** | **38** | **$23.31** |
+| `senseless.uk/collections/aesthetic-numbing-cream` | — (our best-linked collection) | 7 | 3 | **0** | **0** | $0 |
+| `senseless.uk/collections/numbing-cream-for-microneedling` | — (our sibling pattern) | 7 | 0 | **0** | **0** | $0 |
+
+**Three conclusions:**
+
+1. **The exact-match slug is the worst performer in the set.** A perfect match on a 10,000/mo, KD-0
+   term earns 38 visits and 4 keywords. A URL made of a numeric ID earns **65× more**.
+2. **The Totally Numb "collision" is notional, not real.** That URL is *built*, not *occupied* —
+   38 visits, 4 keywords, 0 backlinks. It is a brand and ads-auction consideration, not a ranking
+   one. An earlier note in this project overstated it.
+3. **The closest structural analogue favours the for-X form anyway.** `emla-for-tattoos/` — a for-X
+   path that does *not* match the head-term word order — earns 1,208 visits on 84 keywords from
+   **5 referring domains**, and holds position 1 on several tattoo terms phrased the other way round.
+
+**Therefore: do not spend time on the handle.** Pick `numbing-cream-for-tattoos` for sibling
+consistency and move on. What the table actually shows is that **page-level referring domains and
+on-topic depth decide these SERPs** — a DR 0.1 studio page with zero links still takes 1,096 visits
+because it exists and is on-topic. Senseless's two existing collections take **zero** because
+nothing points at them and nothing ranks.
+
+A workflow to quantify the null result systematically (slug-class correlation across 10 SERPs × top
+10) was started and **deliberately stopped** — the eight-point sample is decisive and a larger one
+would only confirm it. Do not spend Ahrefs units re-running it.
 
 ---
 

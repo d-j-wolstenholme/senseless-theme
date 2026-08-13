@@ -1,10 +1,15 @@
 # Next session — Senseless (Canon v2.20)
 
 Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + State Surface first.
-**Machine last used:** MacBook Pro — 12 Aug (`Daniels-MacBook-Pro.local`). Clock is **UTC+3 (EEST)**.
+**Machine last used:** MacBook Pro — 12–13 Aug (`Daniels-MacBook-Pro.local`). Clock is **UTC+3
+(EEST)** — consoles render timestamps in EEST, not UK time.
 
-Session ended abruptly (battery). **Research only — nothing was edited, deployed, or written back to
-Notion.** No theme file changed, so there is nothing to deploy.
+**Research only — no theme file was changed, nothing was deployed, and nothing was written back to
+Notion.** Four research strands ran to completion; all findings are recorded in `docs/`.
+
+**Handle question is closed:** measured, and slug construction has no measurable effect in this SERP
+(the exact-match URL is the worst performer in the set by 65×). See "The slug question is settled" in
+the build sweep. Do not re-open it and do not spend Ahrefs units re-testing it.
 
 ---
 
