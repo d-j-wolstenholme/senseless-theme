@@ -77,4 +77,18 @@ else
 fi
 
 echo "- Then read: Project Instance ($PROJECT_INSTANCE) → State Surface ($STATE_SURFACE); follow Library blueprints 01–04 ($LIBRARY)."
+
+# --- Session handoff: surface the ON-CONTINUE directive from NEXT_SESSION.md ---
+# CLAUDE.md's session-start steps point at Notion; nothing pointed at the handoff file, so a
+# session resumed with a bare "continue" never saw it. Printed here because SessionStart output
+# is guaranteed to reach the session. Whoever rewrites NEXT_SESSION.md maintains the block.
+if [ -f NEXT_SESSION.md ] && grep -q 'ON-CONTINUE:START' NEXT_SESSION.md 2>/dev/null; then
+  echo ""
+  echo "## Session handoff — NEXT_SESSION.md says:"
+  sed -n '/ON-CONTINUE:START/,/ON-CONTINUE:END/p' NEXT_SESSION.md | sed '1d;$d'
+  echo ""
+  echo "(Full handoff: NEXT_SESSION.md — read it before acting.)"
+else
+  echo "- NEXT_SESSION.md has no ON-CONTINUE block — read the file and confirm scope before acting."
+fi
 exit 0

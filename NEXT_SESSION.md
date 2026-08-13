@@ -13,6 +13,29 @@ the build sweep. Do not re-open it and do not spend Ahrefs units re-testing it.
 
 ---
 
+<!-- ON-CONTINUE:START -->
+## ▶ IF THE USER SAYS ONLY "CONTINUE" — do this, don't ask
+
+Run **Phase A** of `docs/TATTOO-BUILD-SWEEP.md`, end to end, in this one session.
+
+- **The one-task-per-session rule in `CLAUDE.md` is deliberately overridden for this work** by owner
+  instruction (2026-08-12: *"so the next session can build all in a single sweep"*). Do not build one
+  item and stop.
+- **Phase A needs no answer from anyone.** Ten items, all shippable today. Start with the aftercare
+  cluster (9,700/mo, KD 2, products already in range, no page exists) and `/pages/delivery` (all four
+  candidate URLs 404 while a competitor holds #1 on the tattoo variant with zero backlinks).
+- **Phase 0 pre-flight first.** The verify-store gate is never optional — the CLI default account is
+  Totally Numb.
+- **Do NOT re-run the tattoo research.** Four strands are complete (~7.9M subagent tokens). Ahrefs
+  was at ~105k/400k units; resets 2026-09-09.
+- **Finish with Phase Z**: `theme-check` 0 → commit → push → deploy **under bash** → Asset-API
+  per-file diff → 14-surface injectable-clean re-sweep → Notion write-back → rewrite this file.
+
+Phase B is written but held on G1/G2/G6. Phase C is blocked. Both are marked in the sweep.
+<!-- ON-CONTINUE:END -->
+
+---
+
 ## ⚠️ TWO THINGS THAT OUTRANK THE TATTOO WORK — raise with Daniel first
 
 **1. A bought-link package is pointed at senseless.uk and it is live.** DR went 14 (13 Jul) → **27**
