@@ -2,7 +2,7 @@
 
 Mode: **FULL (all in-scope files incl. Horizon vendor)**
 
-Files scanned: **385** · Findings: **158** (BLOCK 0, WARN 158)
+Files scanned: **385** · Findings: **159** (BLOCK 0, WARN 159)
 
 Scope: repo-resident copy only (Liquid, JSON templates, schema label/default strings, English locales, theme JSON-LD). OUT: product/collection/page/blog bodies & admin meta (planning chat handles via Admin API). Mechanical checks; REPORT not fix. Bare 'numbing' is allowed and never flagged.
 
@@ -17,8 +17,8 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | ai-rhythm | 0 | 77 | 77 |
 | spelling | 0 | 21 | 21 |
 | geo-schema | 0 | 0 | 0 |
-| linking | 0 | 35 | 35 |
-| **TOTAL** | **0** | **158** | **158** |
+| linking | 0 | 36 | 36 |
+| **TOTAL** | **0** | **159** | **159** |
 
 ## Findings (file:line)
 
@@ -47,7 +47,7 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | templates/collection.numbing-spray.json | 329 | ai-rhythm | RHY-EMDASH | WARN | Spray suits larger or broader areas — body laser, waxing and similar zones — where its even, hands-off coverage is ea... | 3 em-dashes in one block (>1) — vary punctuation. |
 | templates/collection.tattoo-aftercare.json | 202 | ai-rhythm | RHY-TRICOLON | WARN | Spreading redness, a red streak moving away from the area, pain that increases rather than eases after the first days... | Possible tricolon (3 parallel comma phrases) — human review. |
 | templates/page.about.json | 59 | ai-rhythm | RHY-EMDASH | WARN | The aesthetics category deserves a product range built specifically for it — not generic skin preparation stretched t... | 2 em-dashes in one block (>1) — vary punctuation. |
-| templates/page.best-emla-alternative-uk.json | 112 | ai-rhythm | RHY-EMDASH | WARN | If your practitioner specifically recommends Emla for your procedure, follow their advice — they know their context. ... | 2 em-dashes in one block (>1) — vary punctuation. |
+| templates/page.best-emla-alternative-uk.json | 103 | ai-rhythm | RHY-EMDASH | WARN | If your practitioner specifically recommends Emla for your procedure, follow their advice — they know their context. ... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.best-numbing-cream.json | 20 | ai-rhythm | RHY-EMDASH | WARN | Search for the best numbing cream and you'll get two kinds of answer: pharmacy products built for medical procedures ... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.best-numbing-cream.json | 81 | ai-rhythm | RHY-EMDASH | WARN | Senseless is built around exactly this problem. Rather than sell one product as \"the best,\" the range is a system: ... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.best-numbing-cream.json | 81 | ai-rhythm | RHY-TRICOLON | WARN | Rather than sell one product as \"the best,\" the range is a system: three strengths — Clinical, Advanced, Profession... | Possible tricolon (3 parallel comma phrases) — human review. |
@@ -77,7 +77,7 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | templates/page.how-to-apply-numbing-cream.json | 129 | ai-rhythm | RHY-TRICOLON | WARN | Ask your artist at booking, not on the day; studios differ, and some apply their own. | Possible tricolon (3 parallel comma phrases) — human review. |
 | templates/page.rewards.json | 64 | ai-rhythm | RHY-EMDASH | WARN | Points have no cash value and can't be exchanged for cash. Points earned on an order are removed if that order is lat... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.rewards.json | 90 | ai-rhythm | RHY-EMDASH | WARN | Create an account or sign in, then shop as usual — in the app or on the web. Your balance and redeem option live on y... | 2 em-dashes in one block (>1) — vary punctuation. |
-| templates/page.senseless-vs-ametop.json | 57 | ai-rhythm | RHY-EMDASH | WARN | If your practitioner specifically recommends Ametop or another medical preparation for your procedure, follow their g... | 2 em-dashes in one block (>1) — vary punctuation. |
+| templates/page.senseless-vs-ametop.json | 48 | ai-rhythm | RHY-EMDASH | WARN | If your practitioner specifically recommends Ametop or another medical preparation for your procedure, follow their g... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.strongest-numbing-cream.json | 31 | ai-rhythm | RHY-EMDASH | WARN | We won't claim to be the strongest cream on the market — here's how to actually choose. That's a comparative claim, a... | 3 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.strongest-numbing-cream.json | 31 | ai-rhythm | RHY-TRICOLON | WARN | That's a comparative claim, and the cosmetic product category doesn't lend itself to those — different brands, differ... | Possible tricolon (3 parallel comma phrases) — human review. |
 | templates/page.strongest-numbing-cream.json | 44 | ai-rhythm | RHY-TRICOLON | WARN | Professional is formulated for full-face resurfacing, sustained SPMU sittings, intensive microneedling, and the most ... | Possible tricolon (3 parallel comma phrases) — human review. |
@@ -86,8 +86,8 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | templates/page.the-senseless-system.json | 27 | ai-rhythm | RHY-EMDASH | WARN | Most numbing is one product, sold one way. Senseless is built as a system — three formats and three strengths — so yo... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.the-senseless-system.json | 96 | ai-rhythm | RHY-EMDASH | WARN | Strength is separate from format — every format comes in all three. Which you choose depends on the session, not the ... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.the-senseless-system.json | 96 | ai-rhythm | RHY-TRICOLON | WARN | Which you choose depends on the session, not the procedure name: how large the area is, how long the appointment runs... | Possible tricolon (3 parallel comma phrases) — human review. |
-| templates/page.the-senseless-system.json | 288 | ai-rhythm | RHY-EMDASH | WARN | Senseless is a UK cosmetic numbing range by Matrix Health Group Ltd — not a medicine. Three strengths (Clinical, Adva... | 2 em-dashes in one block (>1) — vary punctuation. |
-| templates/page.the-senseless-system.json | 383 | ai-rhythm | RHY-EMDASH | WARN | Senseless is a topical preparation that supports comfort during your aesthetic appointment. Specific experience varie... | 2 em-dashes in one block (>1) — vary punctuation. |
+| templates/page.the-senseless-system.json | 308 | ai-rhythm | RHY-EMDASH | WARN | Senseless is a UK cosmetic numbing range by Matrix Health Group Ltd — not a medicine. Three strengths (Clinical, Adva... | 2 em-dashes in one block (>1) — vary punctuation. |
+| templates/page.the-senseless-system.json | 403 | ai-rhythm | RHY-EMDASH | WARN | Senseless is a topical preparation that supports comfort during your aesthetic appointment. Specific experience varie... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.trade.json | 99 | ai-rhythm | RHY-EMDASH | WARN | Professional Strength is where most practitioners start with Senseless — and a trade account takes it further. Wholes... | 3 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.trade.json | 112 | ai-rhythm | RHY-TRICOLON | WARN | Wholesale pricing, payment terms, and ordering portal access confirmed. | Possible tricolon (3 parallel comma phrases) — human review. |
 | templates/page.using-numbing-cream.json | 96 | ai-rhythm | RHY-EMDASH | WARN | Patch test about 24 hours before first use and stop if your skin reacts. Numbing cream is a cosmetic preparation appl... | 3 em-dashes in one block (>1) — vary punctuation. |
@@ -129,16 +129,16 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | templates/collection.advanced.json | 100 | linking | LNK-TOOMANY | WARN | section "crosslinks" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/collection.bundles.json | 1 | linking | LNK-ORPHAN | WARN | /collections/bundles | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | templates/collection.clinical.json | 100 | linking | LNK-TOOMANY | WARN | section "crosslinks" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/collection.numbing-cream-for-piercings.json | 1 | linking | LNK-ORPHAN | WARN | /collections/numbing-cream-for-piercings | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
-| templates/collection.numbing-cream-for-tattoos.json | 1 | linking | LNK-ORPHAN | WARN | /collections/numbing-cream-for-tattoos | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | templates/collection.numbing-cream.json | 145 | linking | LNK-TOOMANY | WARN | section "uses" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
 | templates/collection.professional.json | 102 | linking | LNK-TOOMANY | WARN | section "crosslinks" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/collection.shop-all.json | 3 | linking | LNK-TOOMANY | WARN | section "hero" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/collection.tattoo-aftercare.json | 1 | linking | LNK-ORPHAN | WARN | /collections/tattoo-aftercare | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | templates/index.json | 47 | linking | LNK-TOOMANY | WARN | section "procedure" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
 | templates/page.about.json | 134 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/page.aesthetic-procedures.json | 14 | linking | LNK-TOOMANY | WARN | section "procedures" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/page.aesthetic-procedures.json | 14 | linking | LNK-TOOMANY | WARN | section "procedures" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
 | templates/page.articles.json | 3 | linking | LNK-TOOMANY | WARN | section "hub" has 8 internal links | 8 internal links in one section (>3) — consider trimming. |
+| templates/page.best-emla-alternative-uk.json | 108 | linking | LNK-TOOMANY | WARN | section "recommend" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/page.best-emla-alternative-uk.json | 228 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/page.best-numbing-cream.json | 1 | linking | LNK-ORPHAN | WARN | /pages/best-numbing-cream | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | templates/page.best-numbing-cream.json | 197 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/page.choosing-your-format.json | 212 | linking | LNK-TOOMANY | WARN | section "shop" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
@@ -148,8 +148,9 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | templates/page.how-it-works.json | 1 | linking | LNK-ORPHAN | WARN | /pages/how-it-works | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | templates/page.how-it-works.json | 75 | linking | LNK-TOOMANY | WARN | section "next" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
 | templates/page.how-to-apply-numbing-cream.json | 284 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/page.the-senseless-system.json | 207 | linking | LNK-TOOMANY | WARN | section "route" has 7 internal links | 7 internal links in one section (>3) — consider trimming. |
-| templates/page.tktx-numbing-cream-uk.json | 1 | linking | LNK-ORPHAN | WARN | /pages/tktx-numbing-cream-uk | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
+| templates/page.senseless-vs-ametop.json | 108 | linking | LNK-TOOMANY | WARN | section "recommend" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/page.senseless-vs-ametop.json | 228 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/page.the-senseless-system.json | 227 | linking | LNK-TOOMANY | WARN | section "route" has 7 internal links | 7 internal links in one section (>3) — consider trimming. |
 | templates/page.using-numbing-cream.json | 44 | linking | LNK-TOOMANY | WARN | section "choosing" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/product.advanced-strength-cream.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
 | templates/product.advanced-strength-gel.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |

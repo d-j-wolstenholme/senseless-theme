@@ -172,6 +172,24 @@
             "notes": "Cream for lip, brow and small areas.",
             "level": "recommended"
           }
+        },
+        "m9": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Tattooing",
+            "recommendation": "Cream, Advanced · Professional for the longest sittings",
+            "notes": "The length of the sitting decides it, not the design. Ask your artist first — some studios say no.",
+            "level": "recommended"
+          }
+        },
+        "m10": {
+          "type": "suitability_row",
+          "settings": {
+            "procedure": "Piercings",
+            "recommendation": "Gel, Clinical · Advanced for cartilage",
+            "notes": "A lobe piercing is over in seconds — most people don't need this. Cartilage is the case that does.",
+            "level": "possible"
+          }
         }
       },
       "block_order": [
@@ -182,7 +200,9 @@
         "m5",
         "m6",
         "m7",
-        "m8"
+        "m8",
+        "m9",
+        "m10"
       ],
       "settings": {
         "anchor_id": "matrix",

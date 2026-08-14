@@ -23,7 +23,7 @@
         "eyebrow": "The short answer",
         "headline": "Yes, next-day delivery is available.",
         "accent_word": "Yes",
-        "body": "<p>Next-day delivery is one of the two options at checkout, and it is free on UK orders over £80. Below that the rate is shown at checkout before you pay. Standard delivery is free on UK orders over £40.</p><p>The cut-off is the part that decides whether your order moves today. Order before 1pm on a working day and it is dispatched the same day. Order after 1pm, or at a weekend or on a bank holiday, and it is dispatched the next working day. Delivery estimates begin from dispatch, not from when you place the order.</p>"
+        "body": "<p>There are three delivery options at checkout — standard, express and next working day. Next working day is £8.99, and it is free on orders of £80 or more. Standard is £1.99, and free from £40. Express sits between them at £3.99.</p><p>The cut-off is the part that decides whether your order moves today. Order before 1pm on a working day and it is dispatched the same day. Order after 1pm, or at a weekend or on a bank holiday, and it is dispatched the next working day. Delivery estimates begin from dispatch, not from when you place the order.</p>"
       }
     },
     "options": {
@@ -32,38 +32,48 @@
         "r1": {
           "type": "row",
           "settings": {
-            "label": "Standard delivery",
-            "col1": "£40",
-            "col2": "Rate shown at checkout",
-            "col3": "1pm on a working day"
+            "label": "Standard",
+            "col1": "£1.99",
+            "col2": "Free from £40",
+            "col3": "4–6 working days"
           }
         },
         "r2": {
           "type": "row",
           "settings": {
-            "label": "Next-day delivery",
-            "col1": "£80",
-            "col2": "Rate shown at checkout",
-            "col3": "1pm on a working day"
+            "label": "Express",
+            "col1": "£3.99",
+            "col2": "Not offered free",
+            "col3": "2–3 working days"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "Next working day",
+            "col1": "£8.99",
+            "col2": "Free from £80",
+            "col3": "Next working day, ordered before 1pm"
           }
         }
       },
       "block_order": [
         "r1",
-        "r2"
+        "r2",
+        "r3"
       ],
       "settings": {
         "band": "canvas",
         "anchor_id": "options",
-        "eyebrow": "The two options",
-        "headline": "Standard or next-day.",
-        "accent_word": "next-day",
-        "caption": "UK delivery options, thresholds and dispatch cut-off",
+        "eyebrow": "The three options",
+        "headline": "Standard, express or next working day.",
+        "accent_word": "express",
+        "caption": "UK delivery options, prices, free-delivery thresholds and estimates",
         "row_label": "Option",
-        "col1_label": "Free on orders over",
-        "col2_label": "Below that",
-        "col3_label": "Order by, for same-day dispatch",
-        "note": "<p>Orders placed after 1pm, at a weekend or on a bank holiday are dispatched the next working day. Delivery estimates begin from dispatch. We ship to the UK only at present.</p>"
+        "col1_label": "Price",
+        "col2_label": "Free when",
+        "col3_label": "Estimate, from dispatch",
+        "note": "<p>Order £80 or more and next working day is the option you get, at no charge. Between £40 and £79.99 standard is free, with express and next working day available at the prices above. Below £40 all three are chargeable.</p><p>Orders placed after 1pm, at a weekend or on a bank holiday are dispatched the next working day. Delivery estimates begin from dispatch, not from when you order. We ship to the UK only at present.</p>"
       }
     },
     "logistics": {
@@ -137,14 +147,14 @@
           "type": "faq_item",
           "settings": {
             "question": "Do you offer next-day delivery on numbing cream?",
-            "answer": "<p>Yes. Next-day delivery is available at checkout on every product in the range, and it is free on UK orders over £80. Order before 1pm on a working day and your parcel is dispatched the same day.</p>"
+            "answer": "<p>Yes. Next working day delivery is available at checkout on every product in the range. It is £8.99, and free on UK orders of £80 or more. Order before 1pm on a working day and your parcel is dispatched the same day.</p>"
           }
         },
         "q2": {
           "type": "faq_item",
           "settings": {
             "question": "How much does delivery cost?",
-            "answer": "<p>Standard UK delivery is free on orders over £40. Next-day delivery is free on orders over £80. Below those thresholds the rate for each option is shown at checkout before you pay.</p>"
+            "answer": "<p>Three options: standard £1.99, express £3.99, next working day £8.99. Standard is free from £40, and next working day is free from £80. Every price is shown at checkout before you pay.</p>"
           }
         },
         "q3": {
@@ -158,7 +168,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Will it arrive before my appointment?",
-            "answer": "<p>That depends on when you order rather than on anything about the product. Next-day delivery placed before 1pm on a working day is the quickest route available; a weekend or a bank holiday pushes dispatch to the next working day. If the appointment is close, order early in the day and choose next-day.</p>"
+            "answer": "<p>That depends on when you order rather than on anything about the product. Next working day, placed before 1pm on a working day, is the quickest route available; a weekend or a bank holiday pushes dispatch to the next working day. Standard is estimated at 4–6 working days and express at 2–3, both from dispatch — so if the appointment is close, order early in the day and choose next working day.</p>"
           }
         },
         "q5": {

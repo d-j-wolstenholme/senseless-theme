@@ -279,35 +279,81 @@
             "url": {{ base | append: variant.url | json }},
             "seller": { "@id": {{ org_id | json }} },
             {%- comment -%}
-              Shipping details must match what the site actually publishes. This block used to
-              claim a flat "£1.99" rate and a "4–6 day" transit — neither appears anywhere in
-              human-readable copy, and a 4–6 day transit directly contradicts the next-day
-              delivery offered on /pages/shipping-delivery and /policies/shipping-policy. A
-              delivery representation that the shopfront does not honour is a CPUT 2008 problem
-              before it is an SEO one, so both invented numbers are gone.
+              These five entries mirror the LIVE Shopify rate card for the GB zone exactly,
+              re-read from the Admin API on 2026-08-14 (deliveryProfiles -> methodDefinitions):
 
-              What replaces them is only what is published: free standard delivery over £40, free
-              next-day delivery over £80, and dispatch same working day when ordered before 1pm
-              (otherwise the next working day) — hence handlingTime 0–1 day. Standard transit
-              carries NO transitTime because the site states none; the next-day option carries
-              transitTime 1–1 because "next-day" is itself the published transit. Do not add a
-              standard transit window until one is published.
+                Standard 4-6 Working Days        GBP 1.99   0      - 39.99
+                Express 2-3 working days         GBP 3.99   0      - 79.99
+                Next Working Day (order by 1pm)  GBP 8.99   0      - 79.99
+                Standard 4-6 Working Days        GBP 0.00   40.00  - 79.99
+                Next Working Day (order by 1pm)  GBP 0.00   80.00  +
+
+              CORRECTION, and it matters. Earlier the same day this block was cut down to two
+              free options, on the reasoning that the 1.99 rate and the 4-6 day transit "appear
+              nowhere in published copy" and that 4-6 days "contradicts next-day delivery". Both
+              halves were wrong. 1.99 / 4-6 days IS the real sub-40 standard method, and it does
+              not contradict next-day because they are different methods a customer chooses
+              between. The error was treating the policy PAGES as the source of truth for
+              shipping when the rate card is -- and the policy pages are themselves incomplete,
+              since neither of them mentions Express at all. Accurate structured data was deleted
+              on a false premise; this restores it from the authoritative source.
+
+              handlingTime is 0-1 day on every method: ordered before 1pm on a working day it is
+              dispatched the same day, otherwise the next working day. Keep this in step with the
+              rate card -- if shipping changes in Shopify, change it here too.
             {%- endcomment -%}
             "shippingDetails": [
               {
                 "@type": "OfferShippingDetails",
-                "name": "Free standard UK delivery on orders over £40",
-                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+                "name": "Standard delivery",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "1.99", "currency": "GBP" },
                 "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 40, "priceCurrency": "GBP" },
+                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 39.99, "priceCurrency": "GBP" },
                 "deliveryTime": {
                   "@type": "ShippingDeliveryTime",
-                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" }
+                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+                  "transitTime": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitCode": "DAY" }
                 }
               },
               {
                 "@type": "OfferShippingDetails",
-                "name": "Free next-day delivery on orders over £80",
+                "name": "Express delivery",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "3.99", "currency": "GBP" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 79.99, "priceCurrency": "GBP" },
+                "deliveryTime": {
+                  "@type": "ShippingDeliveryTime",
+                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+                  "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 3, "unitCode": "DAY" }
+                }
+              },
+              {
+                "@type": "OfferShippingDetails",
+                "name": "Next working day",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "8.99", "currency": "GBP" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 79.99, "priceCurrency": "GBP" },
+                "deliveryTime": {
+                  "@type": "ShippingDeliveryTime",
+                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+                  "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1, "unitCode": "DAY" }
+                }
+              },
+              {
+                "@type": "OfferShippingDetails",
+                "name": "Free standard delivery on orders from GBP 40",
+                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 40, "maxPrice": 79.99, "priceCurrency": "GBP" },
+                "deliveryTime": {
+                  "@type": "ShippingDeliveryTime",
+                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+                  "transitTime": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitCode": "DAY" }
+                }
+              },
+              {
+                "@type": "OfferShippingDetails",
+                "name": "Free next working day on orders from GBP 80",
                 "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
                 "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
                 "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 80, "priceCurrency": "GBP" },

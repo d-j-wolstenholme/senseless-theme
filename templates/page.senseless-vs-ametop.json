@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -324,6 +315,36 @@
         "band": "surface",
         "heading": "Key facts"
       }
+    },
+    "compare": {
+      "type": "senseless-link-row",
+      "blocks": {
+        "l1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Best EMLA alternative in the UK",
+            "note": "The same comparison, across the other pharmacy medicine.",
+            "url": "/pages/best-emla-alternative-uk"
+          }
+        },
+        "l2": {
+          "type": "link_item",
+          "settings": {
+            "label": "TKTX numbing cream in the UK",
+            "note": "Seven checks for any listing in this category, before you buy.",
+            "url": "/pages/tktx-numbing-cream-uk"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2"
+      ],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Other comparisons",
+        "headline": "Weighing it against something else?"
+      }
     }
   },
   "order": [
@@ -334,6 +355,7 @@
     "tiers",
     "recommend",
     "faq",
+    "compare",
     "next",
     "keyfacts"
   ]
