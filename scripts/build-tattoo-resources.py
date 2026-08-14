@@ -12,17 +12,22 @@ and written back with its compareDigest for concurrency safety.
 
 Dry run by default. Nothing is written without --apply.
 
-PUBLISH STATE, deliberate:
+PUBLISH STATE — all three PUBLISHED as of 2026-08-14.
+
   tattoo-aftercare              PUBLISHED   — no new intended-use claim. Both products are
                                               already sold with published aftercare positioning.
-  numbing-cream-for-tattoos     UNPUBLISHED — sweep item A4 says so explicitly; publishing is
-                                              Phase B1, gated on G1.
-  numbing-cream-for-piercings   UNPUBLISHED — A8 is marked "no tattoo gate", which is not the
-                                              same as ungated. G1 asks what the CPSR declares as
-                                              intended use; that question covers piercing exactly
-                                              as it covers tattooing, and G1's own default is
-                                              "build, do not publish". One line to publish once
-                                              the safety assessor answers.
+  numbing-cream-for-tattoos     PUBLISHED   — OWNER DECISION, Daniel, 2026-08-14: "publish all
+  numbing-cream-for-piercings   PUBLISHED     to live". Both were created unpublished the same
+                                              day and held under Compliance Hold
+                                              3bb58bc3-75ea-8147-ad45-e77a97ac8ddc pending G1
+                                              (what the CPSRs declare as intended use). The G1
+                                              concern was put to the owner and overruled, so the
+                                              hold is cleared against his name rather than the
+                                              safety assessor's. G1 itself is NOT answered: the
+                                              "certs have been updated" confirmation remains
+                                              verbal, with no written scope anywhere. If the
+                                              assessor later comes back narrower than assumed,
+                                              these two are what has to come down.
 
 Usage:
   python3 scripts/build-tattoo-resources.py            # dry run
@@ -197,7 +202,7 @@ COLLECTIONS = [
         "handle": "numbing-cream-for-tattoos",
         "title": "Numbing Cream for Tattoos",
         "suffix": "numbing-cream-for-tattoos",
-        "published": False,
+        "published": True,
         "seo_title": "Numbing Cream for Tattoos UK — Three Strengths | Senseless",
         "seo_desc": "Numbing cream, gel and spray for tattoo appointments. Three UK-formulated "
                     "strengths matched to the length of the sitting. CPSR assessed. Ask your artist first.",
@@ -217,7 +222,7 @@ COLLECTIONS = [
         "handle": "numbing-cream-for-piercings",
         "title": "Numbing Cream for Piercings",
         "suffix": "numbing-cream-for-piercings",
-        "published": False,
+        "published": True,
         "seo_title": "Numbing Cream for Piercings UK | Senseless",
         "seo_desc": "Numbing cream and gel for piercing appointments — three UK-formulated strengths, "
                     "CPSR assessed. Honest guidance on when preparation is and isn't worth it.",
