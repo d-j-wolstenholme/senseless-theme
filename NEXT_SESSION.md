@@ -4,85 +4,76 @@ Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + 
 **Machine last used:** MacBook Pro — 14 Aug (`Daniels-MacBook-Pro.local`). Clock is **UTC+3
 (EEST)** — consoles render timestamps in EEST, not UK time.
 
-**Phase A of `docs/TATTOO-BUILD-SWEEP.md` is DONE — all ten items, shipped, deployed and
-live-verified.** `main` @ `d954fb5` == `origin/main`, clean. Notion write-back complete
-(State Surface, Decisions row `3bb58bc3-75ea-81b2-9c32-c0e2d8b577e0`, Compliance Hold
-`3bb58bc3-75ea-8147-ad45-e77a97ac8ddc`).
+**Phase A of `docs/TATTOO-BUILD-SWEEP.md` is DONE — all ten items — and everything is now
+PUBLISHED, including the two collections that were built held.** `main` @ `a57a9b3` ==
+`origin/main`, clean. Notion write-back complete.
 
 ---
 
 <!-- ON-CONTINUE:START -->
 ## ▶ IF THE USER SAYS ONLY "CONTINUE" — do this, don't ask
 
-**Fix the five bundle SEO descriptions. They are live in SERPs promising an item that is not in
-the box.**
+**Internal-link the new cluster. It is live and orphaned, and that is the one thing that will
+stop it ranking.**
 
-All five still read *"cream, gel, spray, cleanser and vanity bag"* in `seo.description`. The
-vanity bag was **removed from all four on-page surfaces on 6 Aug pending stock** — so Google is
-currently advertising a component the customer will not receive. Verified still true 14 Aug via
-the Admin API. This is a consumer-protection problem (CPUT 2008) rather than an SEO one, it
-needs **no gate and no answer from anyone**, and it has been carried on the flagged list since
-7 Aug.
+Five new surfaces went live on 14 Aug and **nothing on the site points at any of them** except
+the sitemap and the articles' own cross-links. The sweep's own measurement is the argument:
+*"page-level referring domains and on-topic depth decide these SERPs"* — and it recorded that
+Senseless's two existing collections take **zero** traffic precisely because nothing points at
+them. Publishing a collection nobody links to repeats that.
 
-- The five: `clinical-numbing-kit-small`, `clinical-numbing-kit-large`,
-  `advanced-numbing-kit-small`, `advanced-numbing-kit-large`, `professional-numbing-kit-large`.
-- **Read the on-page bundle copy first** and match it — the descriptions must agree with what
-  the PDP now says, not with what it used to.
-- **Trap, cost a whole field on 7 Aug:** `productUpdate` **deletes** `global.title_tag` when
-  `seo.title` is byte-identical to `product.title`, and it silently nulls `seo.description` if
-  you send a `seo` object without it. Send both fields, then **re-read from the API separately**
-  and diff against the INTENDED string — never against what the mutation returned.
-- Daniel's instruction stands: **restore the bag everywhere when stock lands.** Do not delete
-  the wording from a note somewhere it can be recovered from.
+Wire in, in this order:
 
-Then, if there is time, take the rest of the still-open flagged list in the same pass: the three
-spray PDP descriptions saying "laser and waxing" (needs a ranking source first),
-`UK-Formulated` vs `UK-formulated` casing, and the laser hero alt text contradicting the body
-copy about gel.
+1. **`/pages/aesthetic-procedures`** — add Tattooing and Piercing cards. `senseless-trio-card-row`
+   is at `max_blocks: 4` and **full**, and that component is used by 24 sections across 15
+   templates, so raising the cap needs a regression check on the columns CSS (only 2/3/4 grids
+   exist). `senseless-procedure-grid` is `max_blocks: 8` and is the better host — check its
+   current count first.
+2. **Header nav** — the procedure list is hardcoded in **four** places
+   (`sections/senseless-header.liquid:416-420, 482-486, 596-600, 627-630`). All four move
+   together or the menus disagree with each other.
+3. **The Selector** (`senseless-selector.liquid:62`) must move **in lockstep** with the four
+   suitability matrices (`page.the-senseless-system.json`, `page.choosing-your-strength.json`,
+   `page.choosing-your-format.json`, `templates/product.json`). Needs a product call first:
+   format, base strength and honest note for tattooing and for piercing.
+4. **Related rows** on the spray and cream collections, and a link from `/pages/does-it-hurt`.
+
+**Non-negotiable after any of this:** re-run `python3 scripts/injectable-clean-sweep.py`. Nav is
+ad-facing and renders on every page, so a nav mistake is a sitewide breach. **Current baseline:
+0 breaches across 46 ad-facing surfaces.** Also do **not** point anything at
+`/pages/does-it-hurt-by-treatment` — it links all three injectable collections.
 <!-- ON-CONTINUE:END -->
 
 ---
 
 ## ⚠️ TWO THINGS THAT STILL OUTRANK ALL BUILD WORK — raise with Daniel
 
-Neither was touched this session. Both are unchanged from the 13 Aug handoff and both attach to
-the domain now hosting the tattoo cluster.
+Neither has been touched. Both attach to the domain now hosting the tattoo cluster.
 
 **1. A bought-link package is pointed at senseless.uk and it is live.** DR 14 → 27 → 21 → 10 →
 **7**. **158 of 160 live referring domains are Ahrefs-flagged spam**; earned editorial
-refdomains: **zero**. Placements were still arriving during the session that found it
-(`backlinkengine.shop`, first seen `2026-08-12T18:09:50Z`). Nothing in the repo records anyone
-commissioning it. **Ask who is paying for it, stop it, consider a disavow.**
+refdomains: **zero**. Placements were still arriving during the session that found it. Nothing
+in the repo records anyone commissioning it. **Ask who is paying for it, stop it, consider a
+disavow.**
 
 **2. Senseless and Totally Numb share a review corpus.** Confirmed at aggregate level from
-server-rendered JSON-LD on both stores (TN `comfort-cream-bronze` 4.85/13 == SL
-`clinical-strength-cream` 4.85/13; TN `comfort-cream-platinum` 4.88/216 vs SL
-`professional-strength-cream` 4.88/207). **NOT confirmed — do not repeat as fact:** the claim
-that review *texts* were edited from "tattoo" to "procedure", the 227-review dedup, the date
-distribution, and the "3 of 227 verified buyers" figure. Re-extract from the Judge.me admin
-before this goes near legal. **Owner + legal. Do not touch the reviews unilaterally.**
+server-rendered JSON-LD on both stores. **NOT confirmed — do not repeat as fact:** the claim
+that review *texts* were edited, the 227-review dedup, the date distribution, and the "3 of 227
+verified buyers" figure. Re-extract from the Judge.me admin before this goes near legal.
+**Owner + legal. Do not touch the reviews unilaterally.**
 
 Full evidence: `docs/TATTOO-REPOSITIONING-2026-08-12.md` Part 4.
 
 ---
 
-## What shipped on 14 Aug
+## Owner decisions taken 14 Aug — settled, do not re-open
 
-**Live now**
-- `/pages/delivery` — all four candidate URLs previously 404'd while `/pages/shipping-delivery`
-  is noindexed. Every fact matches the published policy; no rate or transit window invented.
-- `/pages/tktx-numbing-cream-uk` — a checklist, not a comparison (see "Decisions taken" below).
-- `/collections/tattoo-aftercare` — 2 products, disjunctive TYPE rules.
-- **7 guide articles** (5 objection Q&A, 2 aftercare). Sitemap 60 → 70 URLs.
-- `/pages/how-to-apply-numbing-cream` widened: tattoo step, tattoo row, tattoo FAQ.
-- **Sitewide entity graph** — one `@id`-linked `@graph` replacing four free-standing documents.
-
-**Built, deliberately NOT published — 404 live, 16 members each**
-- `/collections/numbing-cream-for-tattoos` and `/collections/numbing-cream-for-piercings`.
-- **To publish either:** flip `"published": True` on that entry in `COLLECTIONS` in
-  `scripts/build-tattoo-resources.py`, re-run with `--apply`, then **re-run
-  `python3 scripts/injectable-clean-sweep.py`** — publishing adds an ad-facing surface and the
-  invariant must be re-measured against the current baseline of **0 breaches across 44**.
+| Item | Decision |
+|---|---|
+| **Publish the tattoo + piercing collections** | **Yes, publish**, despite G1 being unanswered. The concern was raised and overruled. Compliance Hold `3bb58bc3-75ea-8147-ad45-e77a97ac8ddc` is **Cleared against Daniel's name, not the safety assessor's.** |
+| **Bundle `seo.description`s naming the vanity bag** | **Leave as they are.** Closed as a decision, not an open flag. |
+| **No INCI list published** | **Leave as it is.** Consequence stands: the "INCI disclosure" axis stays off `/pages/tktx-numbing-cream-uk`, because claiming it would assert a transparency the site does not practise. |
+| **Foaming Cleanser "unbroken skin"** | **Removed** from the product description, which now agrees with its own safety block. Scoped to the cleanser only. |
 
 ---
 
@@ -90,95 +81,70 @@ Full evidence: `docs/TATTOO-REPOSITIONING-2026-08-12.md` Part 4.
 
 | Gate | State |
 |---|---|
-| **G1** — what do the CPSRs declare as intended use / application site? | **STILL OPEN. The only thing blocking publication of two finished collections.** Daniel's "the certs have been updated" is verbal; no written scope exists anywhere in the repo or Notion. One email to the safety assessor may close it. |
-| **G2** — can *"Apply to clean, unbroken skin"* change? | **STILL OPEN.** Assume NO. Everything written this session stays inside that limit and says nothing about broken skin or mid-session re-application. |
-| **G5** — Senseless or Totally Numb for tattoo? | **ANSWERED** 2026-08-13. Both target the same customer base. Repo canon corrected this session. |
-| **G6** — is the tattoo collection ad-facing? | **Assumed YES and built that way.** Costs nothing if the answer turns out to be "organic". |
+| **G1** — what do the CPSRs declare as intended use / application site? | **STILL UNANSWERED**, but no longer blocking: the owner published over it. Worth closing anyway with one email to the safety assessor. **If it comes back narrower than assumed, `/collections/numbing-cream-for-tattoos` and `/collections/numbing-cream-for-piercings` are the exposure** — nothing else from Phase A depends on it. |
+| **G2** — can *"Apply to clean, unbroken skin"* change? | **STILL OPEN. Assume NO.** This is the one still genuinely constraining copy. Everything written so far stays inside it. The cleanser change did **not** touch it — that warning governs the numbing range and is compliance-locked in `sections/senseless-safety-warnings.liquid`. |
+| **G5** — Senseless or Totally Numb for tattoo? | **ANSWERED.** Both target the same customer base. Repo canon corrected. |
+| **G6** — is the tattoo collection ad-facing? | **Assumed YES and built that way.** |
 
 ---
 
-## Decisions taken this session that a reviewer might question
+## What is live from the sweep
 
-- **Piercings collection created UNPUBLISHED**, departing from sweep item A8's "shippable
-  today". A8 says "no tattoo gate", which means it does not depend on the *lane* question — not
-  that it is ungated. G1 asks what the CPSR declares as intended use, and that covers piercing
-  exactly as it covers tattooing. G1's own default is "build, do not publish". One line reverses
-  this if Daniel disagrees.
-- **The TKTX page compares nothing on efficacy.** A competitor comparison falls under BPMMR 2008
-  and must be objective and verifiable, and no substantiated TKTX product data exists here. Two
-  TKTX domains were fetched directly on 14 Aug: each claims to be "the only certified
-  distributor", and neither publishes a UK company number, VAT number or ingredients list. The
-  page gives the reader seven checks they can run themselves instead.
-- **"INCI disclosure" was left OFF that page** — see the flagged list below.
-- **The phase-6 build report got an appended correction, not a rewrite.** A build report is
-  evidence of what shipped and when; rewriting one to match a later decision destroys the audit
-  trail.
+`/pages/delivery` · `/pages/tktx-numbing-cream-uk` · `/collections/tattoo-aftercare` (2 products)
+· `/collections/numbing-cream-for-tattoos` (16) · `/collections/numbing-cream-for-piercings` (16)
+· 7 guide articles · the sitewide `@id`-linked entity graph · the how-to-apply tattoo widening.
 
----
-
-## Flagged, not actioned — needs Daniel or the safety assessor
-
-1. **Senseless publishes no INCI list anywhere.** No ingredients metafield on any product, no
-   PDP renders one. This is why the "INCI disclosure" axis was left off the TKTX page rather
-   than claimed — we would have been asserting a transparency we do not practise. **Publishing
-   the INCI list is the single cheapest way to make that page's strongest axis real**, and it is
-   a reasonable thing for a buyer in this category to expect.
-2. **The Foaming Cleanser contradicts itself, live.** Its description says *"For use on unbroken
-   skin"*; its own safety block (`sections/senseless-safety-warnings.liquid:18`) says *"Suitable
-   for use before treatment and on freshly treated skin"*. Material to all aftercare copy — the
-   new copy follows the safety block. Needs a ruling.
-3. **No named author on any guide.** The `Person` byline mechanism is built on
-   `sections/senseless-article.liquid` (settings `author_name` / `author_role`) but left empty:
-   Shopify's author field is the organisation "Senseless". On a regulated site an author credit
-   is a claim about who stands behind the copy, so it needs a real person's agreement.
-4. **Ahrefs is at 245,876 / 400,000 units**, not the ~105k the last handoff recorded. Resets
-   **2026-09-09**. Check `subscription-info-limits-and-usage` before any research.
+Sitemap 60 → **72** URLs. Injectable-clean: **0 breaches across 46 ad-facing surfaces.**
 
 ---
 
 ## Gotchas earned this session
 
-- **`snippets/senseless-structured-data.liquid` IS a reviews-guard file** (manifest marker
-  `product.metafields.reviews.rating` — it carries the Judge.me `aggregateRating`). The first
-  deploy aborted on guard (c). Editing it needs `--reviews-changed` **plus a lock commit**. The
-  guard was right and the markers survived.
-- **`scripts/content-lint.py` ignores any path you pass it.** It walks the repo itself and is
-  scoped to theme files — it skips product descriptions, page bodies, blog articles, collection
-  descriptions and admin meta, which is *most* of what a content session authors. Use
-  **`scripts/content-lint-text.py`** for anything bound for the Admin API.
-- **Do NOT use `scripts/build-articles.py`.** It is POST-only with no existence check and
-  re-posts the original five articles as duplicates on every run. Its bodies also still carry
-  five open Hard-Rule breaches (`docs/SITE-ASSESSMENT-2026-08-06.md:50-52`), so a "fix" applied
-  live reverts the next time anyone runs it. Use **`scripts/publish-articles.py`**, which is
-  idempotent by handle.
-- **`metafieldsSet` replaces the whole value of a `list.single_line_text_field`.** Writing
-  `["Tattooing"]` onto `professional-strength-cream` would have destroyed its six existing
-  procedures. Always read-modify-write, pass `compareDigest`, and verify against a snapshot
-  taken *before* the write — never against what the mutation returned.
-- **`meta-tags.liquid` appends `" | Senseless"`** unless the title already contains the brand.
-  Two article meta titles rendered at 64 and 63 chars before this was caught. Budget for it.
+- **`snippets/senseless-structured-data.liquid` IS a reviews-guard file** (marker
+  `product.metafields.reviews.rating` — it carries the Judge.me `aggregateRating`). Editing it
+  needs `--reviews-changed` **plus a lock commit**. The first deploy aborted on guard (c).
+- **`scripts/content-lint.py` ignores any path you pass it.** It walks the repo itself and skips
+  everything living in the Shopify admin. Use **`scripts/content-lint-text.py`** for anything
+  bound for the Admin API.
+- **Do NOT use `scripts/build-articles.py`.** POST-only, no existence check — it re-posts the
+  original five articles as duplicates every run, and its bodies still carry five open Hard-Rule
+  breaches. Use **`scripts/publish-articles.py`**, idempotent by handle.
+- **`metafieldsSet` replaces the whole value of a `list.single_line_text_field`.** Always
+  read-modify-write with `compareDigest`, and verify against a snapshot taken *before* the
+  write — never against what the mutation returned.
+- **A partial `seo` object on `productUpdate` nulls the fields you omit.** That is how the
+  cleanser's SEO title was wiped on 6 Aug. Send `descriptionHtml` alone when that is all you are
+  changing.
+- **`meta-tags.liquid` appends `" | Senseless"`** unless the title already contains the brand —
+  budget 12 characters, or meta titles render over 60.
 - Cookie-banner / Clarity consent coupling from 8 Aug still applies — see `f2483be`.
 
 ---
 
-## New tooling (all committed)
+## Tooling (all committed)
 
-| Script | What it is for |
+| Script | For |
 |---|---|
-| `scripts/injectable-clean-sweep.py` | The ad-facing invariant, as a reproducible script. Full sitemap, default-deny classification. **Current baseline: 0 breaches across 44 ad-facing surfaces.** Re-run after any nav, collection, homepage or landing-page change. |
-| `scripts/content-lint-text.py` | Compliance lint for Shopify-resident copy. Same rule set as `content-lint.py`. Exit 2 on any BLOCK. |
-| `scripts/publish-articles.py` | Idempotent article publish/update from a JSON content file. Dry run by default. |
-| `scripts/build-tattoo-resources.py` | Pages, product procedure metafields and the three collections. Idempotent, store-gated, dry run by default. |
-| `docs/tattoo-cluster-content.json` | Source of truth for the 7 articles. Edit here, re-run the publisher. |
+| `scripts/injectable-clean-sweep.py` | The ad-facing invariant. **Baseline: 0 breaches / 46 ad-facing surfaces.** Re-run after any nav, collection, homepage or landing-page change. |
+| `scripts/content-lint-text.py` | Compliance lint for Shopify-resident copy. Exit 2 on any BLOCK. |
+| `scripts/publish-articles.py` | Idempotent article publish/update from `docs/tattoo-cluster-content.json`. Dry run by default. |
+| `scripts/build-tattoo-resources.py` | Pages, product procedure metafields, the three collections. Idempotent, store-gated, dry run by default. |
 
 ---
 
 ## Next Work Item
 
-**Phase B of `docs/TATTOO-BUILD-SWEEP.md` is written and ready but held on G1.** B2 (the
-sitewide "Made for aesthetics" pass — 33 occurrences across 26 files, plus `docs/SECTIONS.md`
-and `DECISIONS-LOG.md`) is the largest remaining piece and **must not start before G1 clears**:
-widening that tagline *is* the intended-use change.
+**Internal-link the new cluster** (the ON-CONTINUE block above). It is the highest-value
+ungated work on the board, and it is what decides whether any of the 14 Aug build ranks.
 
-So the order is: the bundle SERP fix above (ungated, do it now) → chase G1 and G2 with the
-safety assessor → Phase B. Phase C stays blocked.
+**Then Phase B2 — the sitewide positioning pass — but ask Daniel first.** With the tattoo and
+piercing collections now live, the footer tagline, `snippets/meta-tags.liquid:41,:45`, and
+`templates/page.llms-txt.liquid:4` (the brand definition served to AI crawlers) still say the
+range is for aesthetic and cosmetic procedures. That is now an internal contradiction and it
+costs GEO. But widening "Made for aesthetics" — **33 occurrences across 26 files**, plus
+`docs/SECTIONS.md` and `DECISIONS-LOG.md` — *is* the intended-use change the sweep gated on G1.
+Daniel overruled G1 for two collections; **that is not the same as overruling it sitewide.**
+One question closes it.
+
+Phase C (the pain chart) stays blocked on legal sign-off of the page concept, not on sentences —
+GN8 App.10 enumerates the region-panel mechanic itself.
