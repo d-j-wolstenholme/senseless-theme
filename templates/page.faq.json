@@ -50,8 +50,8 @@
           "type": "faq_item",
           "settings": {
             "group": "Products",
-            "question": "Is Senseless designed for professional aesthetic treatments?",
-            "answer": "<p>Yes. Senseless was developed specifically for aesthetic practitioners. The range is designed for use before procedures such as injectables, microneedling, laser treatments, skin rejuvenation, permanent makeup (SPMU), waxing and similar aesthetic services.</p><p>Many clinics also retail Senseless directly to clients preparing for their appointments.</p>"
+            "question": "Is Senseless designed for professional treatments?",
+            "answer": "<p>Yes. Senseless was developed for the people who work on skin. The range is designed for use before procedures such as tattooing, piercings, injectables, microneedling, laser treatments, skin rejuvenation, permanent makeup (SPMU) and waxing.</p><p>Many studios and clinics also retail Senseless directly to clients preparing for their appointments.</p>"
           }
         },
         "q5": {
@@ -229,6 +229,38 @@
             "question": "How quickly do you dispatch orders?",
             "answer": "<p>Orders placed before our published daily dispatch cut-off are normally dispatched the same working day. Delivery times depend on the shipping option selected at checkout.</p>"
           }
+        },
+        "q27": {
+          "type": "faq_item",
+          "settings": {
+            "group": "Using Senseless",
+            "question": "Is Senseless suitable before a tattoo?",
+            "answer": "<p>Yes. A tattoo sitting is usually the longest appointment the range is used before, so the length of the booking — rather than the size of the design — is what the strength is matched to. Cream is the general-purpose choice, gel suits smaller defined work, and spray covers a broad area such as a limb or a back piece.</p><p>Ask your artist before you book. Studios differ, some apply their own, and a few would rather you didn't use anything at all — their answer settles it.</p>"
+          }
+        },
+        "q28": {
+          "type": "faq_item",
+          "settings": {
+            "group": "Using Senseless",
+            "question": "What should I tell my tattoo artist?",
+            "answer": "<p>Tell them at booking rather than on the day: that you're considering a topical preparation beforehand, and would they rather you did or didn't. If they say yes, ask whether they want it applied at a particular time, and mention it again briefly when you arrive.</p><p>Expect the area to be cleaned again before the stencil goes on — your artist needs a completely clear surface to work from.</p>"
+          }
+        },
+        "q29": {
+          "type": "faq_item",
+          "settings": {
+            "group": "Using Senseless",
+            "question": "Is Senseless suitable before a piercing?",
+            "answer": "<p>It can be, though we'd rather be straight with you: a standard lobe piercing is over in seconds and most people don't need anything. Where it earns its place is cartilage, several piercings in one appointment, or simply wanting to arrive calmer than last time. Gel is usually the format, since a piercing site is small and precise.</p><p>Ask your piercer first — studios have their own protocols around a site that has to be marked and cleaned before it's pierced.</p>"
+          }
+        },
+        "q30": {
+          "type": "faq_item",
+          "settings": {
+            "group": "Safety & Skin",
+            "question": "Can I use Senseless on a healing tattoo or a fresh piercing?",
+            "answer": "<p>No. Senseless is applied to clean, unbroken skin before an appointment. Fresh tattoo work and a new piercing are broken skin, and the numbing range is not for use on them.</p><p>For looking after skin afterwards, follow the aftercare instructions your artist or piercer gave you — theirs come first.</p>"
+          }
         }
       },
       "block_order": [
@@ -249,11 +281,15 @@
         "q15",
         "q16",
         "q17",
+        "q27",
+        "q28",
+        "q29",
         "q18",
         "q19",
         "q20",
         "q21",
         "q22",
+        "q30",
         "q23",
         "q24",
         "q25",
@@ -269,7 +305,7 @@
       "settings": {
         "background": "canvas",
         "eyebrow": "The essentials",
-        "body": "<ul><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom. It is not a medicine.</li><li>Numbing is a cosmetic preparation, not an anaesthetic.</li><li>Apply only to clean, healthy skin, patch test, and follow the product's instructions.</li><li>Many practitioners apply their own numbing, so check before your appointment.</li></ul>"
+        "body": "<ul><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom.</li><li>Numbing is a cosmetic preparation, not an anaesthetic.</li><li>Apply only to clean, healthy skin, patch test, and follow the product's instructions.</li><li>Many practitioners apply their own numbing, so check before your appointment.</li></ul>"
       }
     },
     "route": {
