@@ -81,7 +81,7 @@ Full evidence: `docs/TATTOO-REPOSITIONING-2026-08-12.md` Part 4.
 
 | Gate | State |
 |---|---|
-| **G1** — what do the CPSRs declare as intended use / application site? | **STILL UNANSWERED**, but no longer blocking: the owner published over it. Worth closing anyway with one email to the safety assessor. **If it comes back narrower than assumed, `/collections/numbing-cream-for-tattoos` and `/collections/numbing-cream-for-piercings` are the exposure** — nothing else from Phase A depends on it. |
+| **G1** — CPSR declared intended use | **ANSWERED AND CLOSED, 2026-08-14.** Daniel confirmed the certs cover tattooing (12 Aug, re-confirmed 14 Aug). **Do not re-raise this, do not re-flag it as open, and do not ask for it in writing again** — it was asked and answered several times over and became noise. Compliance Hold `3bb58bc3-75ea-8147-ad45-e77a97ac8ddc` is Cleared. |
 | **G2** — can *"Apply to clean, unbroken skin"* change? | **STILL OPEN. Assume NO.** This is the one still genuinely constraining copy. Everything written so far stays inside it. The cleanser change did **not** touch it — that warning governs the numbing range and is compliance-locked in `sections/senseless-safety-warnings.liquid`. |
 | **G5** — Senseless or Totally Numb for tattoo? | **ANSWERED.** Both target the same customer base. Repo canon corrected. |
 | **G6** — is the tattoo collection ad-facing? | **Assumed YES and built that way.** |

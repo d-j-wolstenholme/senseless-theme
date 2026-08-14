@@ -106,51 +106,6 @@
         "accent_word": "entry"
       }
     },
-    "grid": {
-      "type": "senseless-collection-grid",
-      "blocks": {
-        "cap1": {
-          "type": "card_caption",
-          "settings": {
-            "product": "clinical-strength-gel",
-            "caption": "Precise on a small, defined spot — the usual pick here."
-          }
-        },
-        "cap2": {
-          "type": "card_caption",
-          "settings": {
-            "product": "clinical-strength-cream",
-            "caption": "If you prefer a cream."
-          }
-        },
-        "cap3": {
-          "type": "card_caption",
-          "settings": {
-            "product": "advanced-strength-gel",
-            "caption": "Cartilage, or several piercings in one sitting."
-          }
-        },
-        "cap4": {
-          "type": "card_caption",
-          "settings": {
-            "product": "advanced-strength-cream",
-            "caption": "The same step up, in cream."
-          }
-        }
-      },
-      "block_order": [
-        "cap1",
-        "cap2",
-        "cap3",
-        "cap4"
-      ],
-      "settings": {
-        "headline": "The range, by strength",
-        "anchor_id": "shop",
-        "show_filters": false,
-        "accent_word": "strength"
-      }
-    },
     "format": {
       "type": "senseless-callout-band",
       "settings": {
@@ -293,6 +248,89 @@
         "cta_label": "Open the Selector",
         "cta_url": "/pages/the-senseless-system#selector"
       }
+    },
+    "gel": {
+      "type": "senseless-collection-grid",
+      "blocks": {
+        "c1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-strength-gel",
+            "caption": "Precise on a small, defined spot — the usual pick here."
+          }
+        },
+        "c2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-gel",
+            "caption": "Cartilage, or several piercings in one sitting."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2"
+      ],
+      "settings": {
+        "headline": "Gels",
+        "anchor_id": "shop",
+        "show_filters": false,
+        "format": "gel",
+        "accent_word": "Gels",
+        "body": "<p>A piercing site is small and exact, which is what gel is for. Three strengths, ordered from the entry tier up.</p>"
+      }
+    },
+    "cream": {
+      "type": "senseless-collection-grid",
+      "blocks": {
+        "c1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-strength-cream",
+            "caption": "If you prefer a cream."
+          }
+        }
+      },
+      "block_order": [
+        "c1"
+      ],
+      "settings": {
+        "headline": "Creams",
+        "anchor_id": "cream",
+        "show_filters": false,
+        "format": "cream",
+        "body": "<p>The equal alternative if you prefer a cream's feel.</p>"
+      }
+    },
+    "spray": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "headline": "Sprays",
+        "anchor_id": "spray",
+        "show_filters": false,
+        "format": "spray",
+        "body": "<p>Built for broad areas. The wrong tool for an earlobe, and here for completeness.</p>"
+      }
+    },
+    "bundles": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "headline": "Kits",
+        "anchor_id": "kits",
+        "show_filters": false,
+        "format": "bundle",
+        "body": "<p>The full routine in one box, at a set price.</p>"
+      }
+    },
+    "aftercare": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "headline": "Before and after",
+        "anchor_id": "aftercare",
+        "show_filters": false,
+        "format": "cleanser",
+        "body": "<p>Not numbing products. A cleanser for the area, and a barrier ointment for afterwards.</p>"
+      }
     }
   },
   "order": [
@@ -301,7 +339,11 @@
     "intro",
     "match",
     "selectorlink",
-    "grid",
+    "gel",
+    "cream",
+    "spray",
+    "bundles",
+    "aftercare",
     "format",
     "honest",
     "characteristics",

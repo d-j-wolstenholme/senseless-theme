@@ -106,51 +106,6 @@
         "accent_word": "Match"
       }
     },
-    "grid": {
-      "type": "senseless-collection-grid",
-      "blocks": {
-        "cap1": {
-          "type": "card_caption",
-          "settings": {
-            "product": "professional-strength-cream",
-            "caption": "Our most concentrated formula, for the longest sittings."
-          }
-        },
-        "cap2": {
-          "type": "card_caption",
-          "settings": {
-            "product": "advanced-strength-cream",
-            "caption": "The usual starting point for a longer booking."
-          }
-        },
-        "cap3": {
-          "type": "card_caption",
-          "settings": {
-            "product": "advanced-strength-spray",
-            "caption": "Where the area is broad rather than defined."
-          }
-        },
-        "cap4": {
-          "type": "card_caption",
-          "settings": {
-            "product": "advanced-strength-gel",
-            "caption": "Precise on smaller, defined areas."
-          }
-        }
-      },
-      "block_order": [
-        "cap1",
-        "cap2",
-        "cap3",
-        "cap4"
-      ],
-      "settings": {
-        "headline": "The range, by strength",
-        "anchor_id": "shop",
-        "show_filters": false,
-        "accent_word": "strength"
-      }
-    },
     "format": {
       "type": "senseless-callout-band",
       "settings": {
@@ -293,6 +248,101 @@
         "cta_label": "Open the Selector",
         "cta_url": "/pages/the-senseless-system#selector"
       }
+    },
+    "cream": {
+      "type": "senseless-collection-grid",
+      "blocks": {
+        "c1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-cream",
+            "caption": "Our most concentrated formula, for the longest sittings."
+          }
+        },
+        "c2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-cream",
+            "caption": "The usual starting point for a longer booking."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2"
+      ],
+      "settings": {
+        "headline": "Creams",
+        "anchor_id": "shop",
+        "show_filters": false,
+        "format": "cream",
+        "accent_word": "Creams",
+        "body": "<p>The general-purpose format, and the one most people reach for. Three strengths, ordered from the entry tier up.</p>"
+      }
+    },
+    "gel": {
+      "type": "senseless-collection-grid",
+      "blocks": {
+        "c1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-gel",
+            "caption": "Precise on smaller, defined areas."
+          }
+        }
+      },
+      "block_order": [
+        "c1"
+      ],
+      "settings": {
+        "headline": "Gels",
+        "anchor_id": "gel",
+        "show_filters": false,
+        "format": "gel",
+        "body": "<p>More precise than cream on smaller, defined work.</p>"
+      }
+    },
+    "spray": {
+      "type": "senseless-collection-grid",
+      "blocks": {
+        "c1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-strength-spray",
+            "caption": "Where the area is broad rather than defined."
+          }
+        }
+      },
+      "block_order": [
+        "c1"
+      ],
+      "settings": {
+        "headline": "Sprays",
+        "anchor_id": "spray",
+        "show_filters": false,
+        "format": "spray",
+        "body": "<p>For a broad area — a limb or a back piece — without spreading anything by hand.</p>"
+      }
+    },
+    "bundles": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "headline": "Kits",
+        "anchor_id": "kits",
+        "show_filters": false,
+        "format": "bundle",
+        "body": "<p>The full routine in one box, at a set price.</p>"
+      }
+    },
+    "aftercare": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "headline": "Before and after",
+        "anchor_id": "aftercare",
+        "show_filters": false,
+        "format": "cleanser",
+        "body": "<p>Not numbing products. A cleanser for the area, and a barrier ointment for afterwards.</p>"
+      }
     }
   },
   "order": [
@@ -301,7 +351,11 @@
     "intro",
     "match",
     "selectorlink",
-    "grid",
+    "cream",
+    "gel",
+    "spray",
+    "bundles",
+    "aftercare",
     "format",
     "honest",
     "characteristics",
