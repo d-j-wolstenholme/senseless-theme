@@ -193,13 +193,6 @@
             "answer": "<p>Most practitioners prefer wiping with a clean cloth or tissue. Some wash. Follow your practitioner's specific instruction.</p>"
           }
         },
-        "q6": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
-          }
-        },
         "q7": {
           "type": "faq_item",
           "settings": {
@@ -222,8 +215,7 @@
         "q3",
         "q4",
         "q5",
-        "q8",
-        "q6"
+        "q8"
       ],
       "settings": {
         "headline": "Common questions."
@@ -243,7 +235,7 @@
           "type": "fact",
           "settings": {
             "label": "Category",
-            "value": "UK cosmetic product, by Matrix Health Group Ltd. Not a medicine."
+            "value": "UK cosmetic product, by Matrix Health Group Ltd."
           }
         },
         "f3": {

@@ -30,51 +30,138 @@
     },
     "grid": {
       "type": "senseless-collection-grid",
-      "settings": { "headline": "Numbing cream for Botox", "show_filters": false, "anchor_id": "shop" }
+      "settings": {
+        "headline": "Numbing cream for Botox",
+        "show_filters": false,
+        "anchor_id": "shop"
+      }
     },
     "whattoknow": {
       "type": "senseless-editorial-band",
       "settings": {
-        "background": "white", "align": "left", "eyebrow": "Good to know", "headline": "What to know",
+        "background": "white",
+        "align": "left",
+        "eyebrow": "Good to know",
+        "headline": "What to know",
         "body": "<p>Because Botox involves fine needles and brief injections, numbing is genuinely optional — plenty of people have it without. If you'd prefer to prepare for comfort, a cream applied to clean skin beforehand can help, with your practitioner's agreement. Numbing is preparation, not part of the treatment, and many practitioners apply their own or prefer to advise on what you use — so check with yours first. There's no need to reach for the practitioner tier; comfort is personal.</p>"
       }
     },
     "keyfacts": {
       "type": "senseless-rich-text",
       "settings": {
-        "background": "canvas", "eyebrow": "The essentials",
-        "body": "<ul><li>Botox uses very fine needles, so most people feel a quick pinch rather than real pain — numbing is optional.</li><li>A topical numbing preparation beforehand can add comfort.</li><li>Many practitioners apply their own numbing or prefer to advise — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+        "background": "canvas",
+        "eyebrow": "The essentials",
+        "body": "<ul><li>Botox uses very fine needles, so most people feel a quick pinch rather than real pain — numbing is optional.</li><li>A topical numbing preparation beforehand can add comfort.</li><li>Many practitioners apply their own numbing or prefer to advise — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom.</li></ul>"
       }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Do you need numbing cream for Botox?", "answer": "<p>No — Botox uses fine needles and many people manage without. Some prefer a numbing preparation for added comfort; it's optional.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before Botox?", "answer": "<p>Often yes, for comfort — but check with your practitioner first, as many apply numbing cream themselves or prefer to advise.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Does Botox hurt without numbing?", "answer": "<p>Most people describe a quick pinch or sting rather than real pain, because the needles are very fine.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Is numbing cream safe before Botox?", "answer": "<p>Used as directed on clean, healthy skin it's widely used; patch test first and check with your practitioner.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you need numbing cream for Botox?",
+            "answer": "<p>No — Botox uses fine needles and many people manage without. Some prefer a numbing preparation for added comfort; it's optional.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can you use numbing cream before Botox?",
+            "answer": "<p>Often yes, for comfort — but check with your practitioner first, as many apply numbing cream themselves or prefer to advise.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does Botox hurt without numbing?",
+            "answer": "<p>Most people describe a quick pinch or sting rather than real pain, because the needles are very fine.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is numbing cream safe before Botox?",
+            "answer": "<p>Used as directed on clean, healthy skin it's widely used; patch test first and check with your practitioner.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
-      "settings": { "headline": "Common questions", "anchor_id": "faq" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
     },
     "route": {
       "type": "senseless-link-row",
       "blocks": {
-        "r1": { "type": "link_item", "settings": { "label": "Shop the cream range", "url": "/collections/numbing-cream" } },
-        "r2": { "type": "link_item", "settings": { "label": "The Senseless System", "url": "/pages/the-senseless-system" } }
+        "r1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop the cream range",
+            "url": "/collections/numbing-cream"
+          }
+        },
+        "r2": {
+          "type": "link_item",
+          "settings": {
+            "label": "The Senseless System",
+            "url": "/pages/the-senseless-system"
+          }
+        }
       },
-      "block_order": ["r1", "r2"],
-      "settings": { "band": "surface", "eyebrow": "Shop", "headline": "Ready when you are" }
+      "block_order": [
+        "r1",
+        "r2"
+      ],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Shop",
+        "headline": "Ready when you are"
+      }
     },
     "related": {
       "type": "senseless-link-row",
       "blocks": {
-        "a1": { "type": "link_item", "settings": { "label": "Numbing cream for injections", "url": "/collections/numbing-cream-for-injections" } },
-        "a2": { "type": "link_item", "settings": { "label": "Numbing cream for lip fillers", "url": "/collections/numbing-cream-for-lip-fillers" } }
+        "a1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Numbing cream for injections",
+            "url": "/collections/numbing-cream-for-injections"
+          }
+        },
+        "a2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Numbing cream for lip fillers",
+            "url": "/collections/numbing-cream-for-lip-fillers"
+          }
+        }
       },
-      "block_order": ["a1", "a2"],
-      "settings": { "band": "canvas", "eyebrow": "Related", "headline": "By treatment" }
+      "block_order": [
+        "a1",
+        "a2"
+      ],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Related",
+        "headline": "By treatment"
+      }
     }
   },
-  "order": ["hero", "grid", "scale", "whattoknow", "keyfacts", "faq", "route", "related"]
+  "order": [
+    "hero",
+    "grid",
+    "scale",
+    "whattoknow",
+    "keyfacts",
+    "faq",
+    "route",
+    "related"
+  ]
 }

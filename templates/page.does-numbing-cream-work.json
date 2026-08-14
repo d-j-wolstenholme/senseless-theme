@@ -114,21 +114,13 @@
             "question": "Will my practitioner think numbing cream is unnecessary?",
             "answer": "<p>Some practitioners include preparation in their protocol. Some recommend clients prepare at home. Some advise against it for specific procedures (Botox especially). Ask what your practitioner prefers — they have a position on this.</p>"
           }
-        },
-        "q5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
-          }
         }
       },
       "block_order": [
         "q1",
         "q2",
         "q3",
-        "q4",
-        "q5"
+        "q4"
       ],
       "settings": {
         "headline": "Common questions."

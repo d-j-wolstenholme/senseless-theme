@@ -24,10 +24,10 @@
       "settings": {
         "eyebrow": "Professional Strength",
         "headline": "Professional Strength",
-        "subhead": "<p>Developed with practitioners and used in studios across the UK, Professional is our practitioner tier \u2014 a formula developed specifically for professional use, available without restriction. Trusted at the chair.</p>",
+        "subhead": "<p>Developed with practitioners and used in studios across the UK, Professional is our practitioner tier — a formula developed specifically for professional use, available without restriction. Trusted at the chair.</p>",
         "primary_cta_label": "Shop Professional",
         "primary_cta_url": "#shop",
-        "image_alt": "Senseless Professional Strength range \u2014 Comfort Cream, Comfort Gel and Comfort Spray",
+        "image_alt": "Senseless Professional Strength range — Comfort Cream, Comfort Gel and Comfort Spray",
         "image": "shopify://shop_images/senseless-professional-collection-hero.webp",
         "comfort_tier": "professional"
       }
@@ -39,12 +39,6 @@
           "type": "trust_item",
           "settings": {
             "label": "UK formulated"
-          }
-        },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
           }
         },
         "t3": {
@@ -62,7 +56,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],

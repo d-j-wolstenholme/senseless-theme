@@ -30,52 +30,146 @@
     },
     "grid": {
       "type": "senseless-collection-grid",
-      "settings": { "headline": "Numbing cream and gel for injections", "show_filters": false, "anchor_id": "shop" }
+      "settings": {
+        "headline": "Numbing cream and gel for injections",
+        "show_filters": false,
+        "anchor_id": "shop"
+      }
     },
     "whattoknow": {
       "type": "senseless-editorial-band",
       "settings": {
-        "background": "white", "align": "left", "eyebrow": "Good to know", "headline": "What to know",
+        "background": "white",
+        "align": "left",
+        "eyebrow": "Good to know",
+        "headline": "What to know",
         "body": "<p>Injections vary from quick and barely noticeable to sharper, depending on the area and the needle. A topical numbing preparation applied beforehand can make the experience more comfortable for those who find them uncomfortable. Numbing is preparation for comfort, not part of the procedure itself, and it's applied to clean, healthy skin before your appointment. Because many practitioners have their own approach — and often apply numbing cream themselves — the most useful first step is a quick word with yours about whether to prepare at home.</p>"
       }
     },
     "keyfacts": {
       "type": "senseless-rich-text",
       "settings": {
-        "background": "canvas", "eyebrow": "The essentials",
-        "body": "<ul><li>Numbing cream for injections is a topical preparation applied to clean skin beforehand to support comfort.</li><li>How much you feel depends on the injection, the area and your own sensitivity.</li><li>Many practitioners apply their own numbing as standard — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom — not a medicine.</li></ul>"
+        "background": "canvas",
+        "eyebrow": "The essentials",
+        "body": "<ul><li>Numbing cream for injections is a topical preparation applied to clean skin beforehand to support comfort.</li><li>How much you feel depends on the injection, the area and your own sensitivity.</li><li>Many practitioners apply their own numbing as standard — check before preparing your own.</li><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom.</li></ul>"
       }
     },
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Can you use numbing cream before injections?", "answer": "<p>Often yes, as preparation for comfort — but many practitioners apply their own and have their own guidance, so always check with yours first.</p>" } },
-        "q2": { "type": "faq_item", "settings": { "question": "Does numbing cream work for injections?", "answer": "<p>It's a cosmetic preparation that supports comfort, not an anaesthetic; how noticeable the injection is depends on the area and how it's applied.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Which numbing format is best for injections?", "answer": "<p>A cream suits most areas; a gel suits smaller, precise spots. Your practitioner can advise what's appropriate.</p>" } },
-        "q4": { "type": "faq_item", "settings": { "question": "Is numbing cream safe to use before injections?", "answer": "<p>Used as directed on clean, healthy skin it's widely used for cosmetic treatments; patch test first and check with your practitioner, especially on sensitive areas.</p>" } }
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can you use numbing cream before injections?",
+            "answer": "<p>Often yes, as preparation for comfort — but many practitioners apply their own and have their own guidance, so always check with yours first.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does numbing cream work for injections?",
+            "answer": "<p>It's a cosmetic preparation that supports comfort, not an anaesthetic; how noticeable the injection is depends on the area and how it's applied.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which numbing format is best for injections?",
+            "answer": "<p>A cream suits most areas; a gel suits smaller, precise spots. Your practitioner can advise what's appropriate.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is numbing cream safe to use before injections?",
+            "answer": "<p>Used as directed on clean, healthy skin it's widely used for cosmetic treatments; patch test first and check with your practitioner, especially on sensitive areas.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
-      "settings": { "headline": "Common questions", "anchor_id": "faq" }
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "headline": "Common questions",
+        "anchor_id": "faq"
+      }
     },
     "route": {
       "type": "senseless-link-row",
       "blocks": {
-        "r1": { "type": "link_item", "settings": { "label": "Shop the cream range", "url": "/collections/numbing-cream" } },
-        "r2": { "type": "link_item", "settings": { "label": "Shop the gel range", "url": "/collections/numbing-gel" } },
-        "r3": { "type": "link_item", "settings": { "label": "The Senseless System", "url": "/pages/the-senseless-system" } }
+        "r1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop the cream range",
+            "url": "/collections/numbing-cream"
+          }
+        },
+        "r2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Shop the gel range",
+            "url": "/collections/numbing-gel"
+          }
+        },
+        "r3": {
+          "type": "link_item",
+          "settings": {
+            "label": "The Senseless System",
+            "url": "/pages/the-senseless-system"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3"],
-      "settings": { "band": "surface", "eyebrow": "Shop", "headline": "Ready when you are" }
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {
+        "band": "surface",
+        "eyebrow": "Shop",
+        "headline": "Ready when you are"
+      }
     },
     "related": {
       "type": "senseless-link-row",
       "blocks": {
-        "a1": { "type": "link_item", "settings": { "label": "Numbing cream for lip fillers", "url": "/collections/numbing-cream-for-lip-fillers" } },
-        "a2": { "type": "link_item", "settings": { "label": "Numbing cream for Botox", "url": "/collections/numbing-cream-for-botox" } }
+        "a1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Numbing cream for lip fillers",
+            "url": "/collections/numbing-cream-for-lip-fillers"
+          }
+        },
+        "a2": {
+          "type": "link_item",
+          "settings": {
+            "label": "Numbing cream for Botox",
+            "url": "/collections/numbing-cream-for-botox"
+          }
+        }
       },
-      "block_order": ["a1", "a2"],
-      "settings": { "band": "canvas", "eyebrow": "Related", "headline": "By treatment" }
+      "block_order": [
+        "a1",
+        "a2"
+      ],
+      "settings": {
+        "band": "canvas",
+        "eyebrow": "Related",
+        "headline": "By treatment"
+      }
     }
   },
-  "order": ["hero", "grid", "scale", "whattoknow", "keyfacts", "faq", "route", "related"]
+  "order": [
+    "hero",
+    "grid",
+    "scale",
+    "whattoknow",
+    "keyfacts",
+    "faq",
+    "route",
+    "related"
+  ]
 }

@@ -22,10 +22,10 @@
       "settings": {
         "eyebrow": "Advanced Strength",
         "headline": "Advanced Strength",
-        "subhead": "<p>A higher-strength formula in the Senseless system, made for longer appointments and more sensitive treatment areas. The strength studios reach for when a session asks more of the skin \u2014 for when the appointment asks more.</p>",
+        "subhead": "<p>A higher-strength formula in the Senseless system, made for longer appointments and more sensitive treatment areas. The strength studios reach for when a session asks more of the skin — for when the appointment asks more.</p>",
         "primary_cta_label": "Shop Advanced",
         "primary_cta_url": "#shop",
-        "image_alt": "Senseless Advanced Strength range \u2014 Comfort Cream, Comfort Gel and Comfort Spray",
+        "image_alt": "Senseless Advanced Strength range — Comfort Cream, Comfort Gel and Comfort Spray",
         "image": "shopify://shop_images/senseless-advanced-collection-hero.webp",
         "comfort_tier": "advanced"
       }
@@ -37,12 +37,6 @@
           "type": "trust_item",
           "settings": {
             "label": "UK formulated"
-          }
-        },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
           }
         },
         "t3": {
@@ -60,7 +54,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],
@@ -83,7 +76,7 @@
         "background": "white",
         "align": "left",
         "headline": "When to choose",
-        "body": "<p>Choose Advanced for longer sessions, or larger and more sensitive areas \u2014 a step up from Clinical. Available as a cream, gel or spray.</p>"
+        "body": "<p>Choose Advanced for longer sessions, or larger and more sensitive areas — a step up from Clinical. Available as a cream, gel or spray.</p>"
       }
     },
     "selectorlink": {

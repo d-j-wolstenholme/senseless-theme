@@ -22,10 +22,10 @@
       "settings": {
         "eyebrow": "Clinical Strength",
         "headline": "Clinical Strength",
-        "subhead": "<p>The baseline of the Senseless system \u2014 the strength most appointments call for. Clinical is formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>",
+        "subhead": "<p>The baseline of the Senseless system — the strength most appointments call for. Clinical is formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>",
         "primary_cta_label": "Shop Clinical",
         "primary_cta_url": "#shop",
-        "image_alt": "Senseless Clinical Strength range \u2014 Comfort Cream, Comfort Gel and Comfort Spray",
+        "image_alt": "Senseless Clinical Strength range — Comfort Cream, Comfort Gel and Comfort Spray",
         "image": "shopify://shop_images/senseless-clinical-collection-hero.webp",
         "comfort_tier": "clinical"
       }
@@ -37,12 +37,6 @@
           "type": "trust_item",
           "settings": {
             "label": "UK formulated"
-          }
-        },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
           }
         },
         "t3": {
@@ -60,7 +54,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],
@@ -83,7 +76,7 @@
         "background": "white",
         "align": "left",
         "headline": "When to choose",
-        "body": "<p>Most people start here. If your session is short or the treatment area is small, Clinical is the sensible first choice \u2014 available as a cream, gel or spray, so you can match the format to the area.</p>"
+        "body": "<p>Most people start here. If your session is short or the treatment area is small, Clinical is the sensible first choice — available as a cream, gel or spray, so you can match the format to the area.</p>"
       }
     },
     "selectorlink": {

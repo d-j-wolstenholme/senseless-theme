@@ -34,17 +34,43 @@
     "trust": {
       "type": "senseless-trust-bar",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "label": "UK formulated" } },
-        "t2": { "type": "trust_item", "settings": { "label": "Cosmetic product" } },
-        "t3": { "type": "trust_item", "settings": { "label": "CPSR assessed" } },
-        "t4": { "type": "trust_item", "settings": { "label": "Made for the appointment" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK formulated"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "CPSR assessed"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for the appointment"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": { "band": "canvas" }
+      "block_order": [
+        "t1",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "band": "canvas"
+      }
     },
     "grid": {
       "type": "senseless-collection-grid",
-      "settings": { "headline": "Shop the bundles", "anchor_id": "shop", "show_filters": false, "format": "all", "accent_word": "bundles" }
+      "settings": {
+        "headline": "Shop the bundles",
+        "anchor_id": "shop",
+        "show_filters": false,
+        "format": "all",
+        "accent_word": "bundles"
+      }
     },
     "selectorlink": {
       "type": "senseless-callout-band",
@@ -58,5 +84,11 @@
       }
     }
   },
-  "order": ["hero", "trust", "grid", "scale", "selectorlink"]
+  "order": [
+    "hero",
+    "trust",
+    "grid",
+    "scale",
+    "selectorlink"
+  ]
 }

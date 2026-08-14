@@ -23,12 +23,6 @@
             "label": "UK formulated"
           }
         },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
-          }
-        },
         "t3": {
           "type": "trust_item",
           "settings": {
@@ -44,7 +38,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],
@@ -137,13 +130,6 @@
             "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
           }
         },
-        "c2": {
-          "type": "fact",
-          "settings": {
-            "label": "A cosmetic product",
-            "value": "A cosmetic, not a medicine — no prescription needed."
-          }
-        },
         "c3": {
           "type": "fact",
           "settings": {
@@ -161,7 +147,6 @@
       },
       "block_order": [
         "c1",
-        "c2",
         "c3",
         "c4"
       ],
@@ -215,13 +200,6 @@
             "question": "What about afterwards?",
             "answer": "<p>Aftercare is your studio's instruction to give, and a fresh piercing is broken skin — Senseless is not applied to it. Follow the aftercare routine your piercer sets.</p>"
           }
-        },
-        "q7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
-          }
         }
       },
       "block_order": [
@@ -230,8 +208,7 @@
         "q3",
         "q4",
         "q5",
-        "q6",
-        "q7"
+        "q6"
       ],
       "settings": {
         "headline": "Common questions.",

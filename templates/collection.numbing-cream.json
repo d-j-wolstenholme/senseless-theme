@@ -24,12 +24,6 @@
             "label": "UK formulated"
           }
         },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
-          }
-        },
         "t3": {
           "type": "trust_item",
           "settings": {
@@ -45,7 +39,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],
@@ -93,7 +86,7 @@
         "anchor_id": "match",
         "eyebrow": "The Senseless Scale",
         "headline": "Match your numbing cream to the session",
-        "body": "<p>Cream is the broad-coverage default — the format most appointments call for. Within it, the strength is the choice that matters. None is \"better\" than another; each is formulated for a different kind of session.</p>",
+        "body": "<p>Within the cream format, the strength is the choice that matters. None is \"better\" than another; each is formulated for a different kind of session.</p>",
         "note": "<p>Most sessions don't need the practitioner tier. Match it to the session you're actually having — if you're between two, the lighter one is usually the sensible start, and you can choose differently next time.</p>",
         "accent_word": "Match"
       }
@@ -214,7 +207,7 @@
         "band": "surface",
         "eyebrow": "Suited to",
         "headline": "What numbing cream is for",
-        "intro": "<p>Cream is the broad-coverage default — the format most aesthetic appointments call for. The procedures it's most often chosen for:</p>",
+        "intro": "<p>The procedures cream is most often chosen for:</p>",
         "closer": "<p>For precise facial work that must stay put, gel holds where you place it — and for large or body areas, a spray covers ground faster. Match the format to the work.</p>"
       }
     },
@@ -247,13 +240,6 @@
             "value": "Every Senseless topical numbing cream is formulated in the United Kingdom by Matrix Health Group Ltd — numbing cream UK customers order, developed and assessed here."
           }
         },
-        "c2": {
-          "type": "fact",
-          "settings": {
-            "label": "A cosmetic product",
-            "value": "Senseless is a cosmetic, not a medicine — no prescription needed."
-          }
-        },
         "c3": {
           "type": "fact",
           "settings": {
@@ -271,7 +257,6 @@
       },
       "block_order": [
         "c1",
-        "c2",
         "c3",
         "c4"
       ],

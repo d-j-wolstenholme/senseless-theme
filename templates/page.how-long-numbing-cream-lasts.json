@@ -111,21 +111,13 @@
             "question": "How does Senseless compare to other brands?",
             "answer": "<p>We don't make comparative duration claims. Senseless is a UK cosmetic topical preparation, CPSR assessed.</p>"
           }
-        },
-        "q5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
-          }
         }
       },
       "block_order": [
         "q1",
         "q2",
         "q3",
-        "q4",
-        "q5"
+        "q4"
       ],
       "settings": {
         "headline": "Common questions."

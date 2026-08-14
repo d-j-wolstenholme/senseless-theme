@@ -228,7 +228,7 @@
           "type": "fact",
           "settings": {
             "label": "Category",
-            "value": "UK cosmetic product, by Matrix Health Group Ltd. Not a medicine."
+            "value": "UK cosmetic product, by Matrix Health Group Ltd."
           }
         },
         "f4": {
@@ -269,13 +269,6 @@
             "answer": "<p>Senseless is a brand of Matrix Health Group Ltd, a UK company in the personal-care and aesthetics sector.</p>"
           }
         },
-        "q2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is Senseless a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product, not a medicine, medical device or pharmacy product.</p>"
-          }
-        },
         "q3": {
           "type": "faq_item",
           "settings": {
@@ -293,7 +286,6 @@
       },
       "block_order": [
         "q1",
-        "q2",
         "q3",
         "q4"
       ],

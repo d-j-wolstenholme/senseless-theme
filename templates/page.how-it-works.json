@@ -15,7 +15,7 @@
         "direction": "text-left",
         "eyebrow": "The category",
         "headline": "A UK cosmetic product. Built for aesthetics.",
-        "body": "<p>Senseless sits in the cosmetic product category. Not a medicine. Not a pharmacy product. A topical preparation formulated specifically for the way modern aesthetic appointments run — short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result. The category matters because it shapes what the product is built for and how it's regulated.</p>",
+        "body": "<p>Senseless sits in the cosmetic product category. Not a pharmacy product. A topical preparation formulated specifically for the way modern aesthetic appointments run — short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result. The category matters because it shapes what the product is built for and how it's regulated.</p>",
         "cta_label": "",
         "cta_url": "",
         "image": "shopify://shop_images/senseless-asterisk.svg",
@@ -146,13 +146,6 @@
             "answer": "<p>A UK-formulated cosmetic preparation. Full ingredients list available on each product's packaging and product page.</p>"
           }
         },
-        "q2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is Senseless a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
-          }
-        },
         "q3": {
           "type": "faq_item",
           "settings": {
@@ -177,7 +170,6 @@
       },
       "block_order": [
         "q1",
-        "q2",
         "q3",
         "q4",
         "q5"

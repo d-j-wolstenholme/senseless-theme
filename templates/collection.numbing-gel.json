@@ -24,12 +24,6 @@
             "label": "UK formulated"
           }
         },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
-          }
-        },
         "t3": {
           "type": "trust_item",
           "settings": {
@@ -45,7 +39,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],
@@ -114,7 +107,7 @@
           "type": "format_item",
           "settings": {
             "label": "Cream",
-            "body": "<p>Broad coverage and most appointments; the default for larger or simpler areas.</p>",
+            "body": "<p>The general-purpose format.</p>",
             "cta_label": "See numbing cream",
             "cta_url": "/collections/numbing-cream"
           }
@@ -237,13 +230,6 @@
             "value": "Every Senseless gel is formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
           }
         },
-        "c2": {
-          "type": "fact",
-          "settings": {
-            "label": "A cosmetic product",
-            "value": "Senseless is a cosmetic, not a medicine — no prescription needed."
-          }
-        },
         "c3": {
           "type": "fact",
           "settings": {
@@ -261,7 +247,6 @@
       },
       "block_order": [
         "c1",
-        "c2",
         "c3",
         "c4"
       ],

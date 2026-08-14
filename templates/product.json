@@ -162,12 +162,6 @@
             "label": "UK formulated"
           }
         },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
-          }
-        },
         "t3": {
           "type": "trust_item",
           "settings": {
@@ -183,7 +177,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],
@@ -226,13 +219,6 @@
             "question": "How long does it last?",
             "answer": "<p>Senseless is designed for use ahead of a specific appointment. Specific duration varies by client and by application protocol — your practitioner is the best guide.</p>"
           }
-        },
-        "q6": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product. Not a medicine. Not a pharmacy product.</p>"
-          }
         }
       },
       "block_order": [
@@ -240,8 +226,7 @@
         "q2",
         "q3",
         "q4",
-        "q5",
-        "q6"
+        "q5"
       ],
       "settings": {
         "headline": "Common questions."

@@ -44,7 +44,7 @@
           "type": "link_item",
           "settings": {
             "label": "Cream",
-            "note": "Broad coverage, the default for most appointments and larger or simpler areas.",
+            "note": "The general-purpose format.",
             "url": "/collections/numbing-cream"
           }
         },
@@ -305,7 +305,7 @@
         "background": "canvas",
         "eyebrow": "The essentials",
         "headline": "The system in four lines",
-        "body": "<ul><li>Senseless is a UK cosmetic numbing range by Matrix Health Group Ltd — not a medicine.</li><li>Three strengths (Clinical, Advanced, Professional) and three formats (cream, gel, spray). Strength and format are chosen separately.</li><li>The right choice matches the appointment — stronger is not automatically better.</li><li>Every formula is formulated in the United Kingdom and CPSR assessed.</li></ul>"
+        "body": "<ul><li>Senseless is a UK cosmetic numbing range by Matrix Health Group Ltd.</li><li>Three strengths (Clinical, Advanced, Professional) and three formats (cream, gel, spray). Strength and format are chosen separately.</li><li>The right choice matches the appointment — stronger is not automatically better.</li><li>Every formula is formulated in the United Kingdom and CPSR assessed.</li></ul>"
       }
     },
     "kfdl": {
@@ -374,20 +374,12 @@
             "question": "How do I choose between cream, gel and spray?",
             "answer": "<p>Cream for broad coverage and most appointments, gel for precise facial work that needs to stay put, spray for large or awkward-to-reach areas.</p>"
           }
-        },
-        "q4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a UK cosmetic product, not a medicine.</p>"
-          }
         }
       },
       "block_order": [
         "q1",
         "q2",
-        "q3",
-        "q4"
+        "q3"
       ],
       "settings": {
         "headline": "Common questions",

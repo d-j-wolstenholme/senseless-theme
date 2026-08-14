@@ -68,7 +68,7 @@
         "background": "white",
         "eyebrow": "Where this sits",
         "headline": "Part of the Senseless System",
-        "body": "<p>Each bundle pairs a strength-matched Comfort Cream, Comfort Gel and Comfort Spray with the Foaming Cleanser — the same products sold individually, assembled and picked as one unit. Choose the bundle that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. It is not a medicine.</p>",
+        "body": "<p>Each bundle pairs a strength-matched Comfort Cream, Comfort Gel and Comfort Spray with the Foaming Cleanser — the same products sold individually, assembled and picked as one unit. Choose the bundle that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom.</p>",
         "cta_label": "Explore the Senseless System",
         "cta_url": "/pages/the-senseless-system"
       }
@@ -103,21 +103,13 @@
             "question": "Which bundle should I choose?",
             "answer": "<p>Match the strength tier to your appointment and your practitioner's guidance. Starter and Ultimate differ by the cream and gel sizes; the spray and cleanser are the same in both.</p>"
           }
-        },
-        "q5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a cosmetic product, formulated in the United Kingdom.</p>"
-          }
         }
       },
       "block_order": [
         "q1",
         "q2",
         "q3",
-        "q4",
-        "q5"
+        "q4"
       ],
       "settings": {
         "headline": "Common questions",

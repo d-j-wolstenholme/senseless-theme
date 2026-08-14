@@ -23,12 +23,6 @@
             "label": "UK formulated"
           }
         },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product"
-          }
-        },
         "t3": {
           "type": "trust_item",
           "settings": {
@@ -44,7 +38,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],
@@ -137,13 +130,6 @@
             "value": "Formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
           }
         },
-        "c2": {
-          "type": "fact",
-          "settings": {
-            "label": "A cosmetic product",
-            "value": "A cosmetic, not a medicine — no prescription needed."
-          }
-        },
         "c3": {
           "type": "fact",
           "settings": {
@@ -161,7 +147,6 @@
       },
       "block_order": [
         "c1",
-        "c2",
         "c3",
         "c4"
       ],
@@ -215,13 +200,6 @@
             "question": "Can I use it on skin that is already tattooed?",
             "answer": "<p>Senseless is applied to clean, unbroken skin. Skin that is broken, healing, or freshly worked on is not what this range is for — the Vitamin A &amp; D ointment is the aftercare product.</p>"
           }
-        },
-        "q7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a medicine?",
-            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
-          }
         }
       },
       "block_order": [
@@ -230,8 +208,7 @@
         "q3",
         "q4",
         "q5",
-        "q6",
-        "q7"
+        "q6"
       ],
       "settings": {
         "headline": "Common questions.",
