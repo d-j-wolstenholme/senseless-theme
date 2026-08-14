@@ -33,12 +33,6 @@
             "label": "Formulated in the United Kingdom"
           }
         },
-        "t2": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Cosmetic product — not a medicine"
-          }
-        },
         "t3": {
           "type": "trust_item",
           "settings": {
@@ -54,7 +48,6 @@
       },
       "block_order": [
         "t1",
-        "t2",
         "t3",
         "t4"
       ],
