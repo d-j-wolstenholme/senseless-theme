@@ -4,44 +4,38 @@ Read `CLAUDE.md` → run `scripts/reconcile.sh` → read the Project Instance + 
 **Machine last used:** MacBook Pro — 14 Aug (`Daniels-MacBook-Pro.local`). Clock is **UTC+3
 (EEST)** — consoles render timestamps in EEST, not UK time.
 
-**Phase A of `docs/TATTOO-BUILD-SWEEP.md` is DONE — all ten items — and everything is now
-PUBLISHED, including the two collections that were built held.** `main` @ `a57a9b3` ==
-`origin/main`, clean. Notion write-back complete.
+**Phase A AND Phase B2 are DONE and fully live.** `main` @ `0ef44c4` == `origin/main`, clean; 60/60 theme files Asset-API verified against live. Notion write-back complete (State Surface, Decisions `3bb58bc3-75ea-81b2-9c32-c0e2d8b577e0` and `3bc58bc3-75ea-81d2-b505-e1b2a023149d`, Compliance Hold cleared).
 
 ---
 
 <!-- ON-CONTINUE:START -->
 ## ▶ IF THE USER SAYS ONLY "CONTINUE" — do this, don't ask
 
-**Internal-link the new cluster. It is live and orphaned, and that is the one thing that will
-stop it ranking.**
+**Commission the 12 images, then chase G2.**
 
-Five new surfaces went live on 14 Aug and **nothing on the site points at any of them** except
-the sitemap and the articles' own cross-links. The sweep's own measurement is the argument:
-*"page-level referring domains and on-topic depth decide these SERPs"* — and it recorded that
-Senseless's two existing collections take **zero** traffic precisely because nothing points at
-them. Publishing a collection nobody links to repeats that.
+1. **Images.** All 12 slots across the new cluster are still empty — 7 articles, 3 collection
+   heroes, 2 page heroes. The collections carry *interim* images pulled from existing Files;
+   the articles have none, so they render a grey placeholder on `/pages/articles` and
+   `/blogs/guides` and share with the fallback `og:image`. The brief is written and ready to
+   hand over: **`docs/IMAGE-BRIEF-tattoo-cluster.md`** — 12 prompts, exact filenames, sizes
+   (1254×1254 heroes, 1600×900 article featured), alt text to use verbatim, and the imagery
+   compliance rules. Finals go in `assets/images/inbox/`; `scripts/image-pipeline.mjs` does
+   the rest.
 
-Wire in, in this order:
+2. **G2 — the only safety gate still open, and the one still shaping copy.** Can
+   *"Apply to clean, unbroken skin"* change? Assume NO until the safety assessor rules.
+   Everything written so far stays inside that limit. One email closes it.
 
-1. **`/pages/aesthetic-procedures`** — add Tattooing and Piercing cards. `senseless-trio-card-row`
-   is at `max_blocks: 4` and **full**, and that component is used by 24 sections across 15
-   templates, so raising the cap needs a regression check on the columns CSS (only 2/3/4 grids
-   exist). `senseless-procedure-grid` is `max_blocks: 8` and is the better host — check its
-   current count first.
-2. **Header nav** — the procedure list is hardcoded in **four** places
-   (`sections/senseless-header.liquid:416-420, 482-486, 596-600, 627-630`). All four move
-   together or the menus disagree with each other.
-3. **The Selector** (`senseless-selector.liquid:62`) must move **in lockstep** with the four
-   suitability matrices (`page.the-senseless-system.json`, `page.choosing-your-strength.json`,
-   `page.choosing-your-format.json`, `templates/product.json`). Needs a product call first:
-   format, base strength and honest note for tattooing and for piercing.
-4. **Related rows** on the spray and cream collections, and a link from `/pages/does-it-hurt`.
+3. **`tattoo pain chart` — 6,900/mo at KD 1, and `/pages/tattoo-pain-chart` is a 404.** The
+   third-largest term in the verified set and the cheapest to rank for. It is deferred on
+   legal sign-off of the *page concept* (GN8 App.10 covers the region-panel mechanic itself),
+   **and your own docs contradict each other**: `TATTOO-BEAT-THEM-PLAN` lists it as a primary
+   keyword with a target URL, `TATTOO-90-DAY-PLAYBOOK:124` classes it "Not winnable". Resolve
+   that before anyone spends on it.
 
-**Non-negotiable after any of this:** re-run `python3 scripts/injectable-clean-sweep.py`. Nav is
-ad-facing and renders on every page, so a nav mistake is a sitewide breach. **Current baseline:
-0 breaches across 46 ad-facing surfaces.** Also do **not** point anything at
-`/pages/does-it-hurt-by-treatment` — it links all three injectable collections.
+**After any nav, collection, homepage or landing-page change:** re-run
+`python3 scripts/injectable-clean-sweep.py`. Baseline **0 breaches across 46 ad-facing
+surfaces**.
 <!-- ON-CONTINUE:END -->
 
 ---
@@ -74,6 +68,8 @@ Full evidence: `docs/TATTOO-REPOSITIONING-2026-08-12.md` Part 4.
 | **Bundle `seo.description`s naming the vanity bag** | **Leave as they are.** Closed as a decision, not an open flag. |
 | **No INCI list published** | **Leave as it is.** Consequence stands: the "INCI disclosure" axis stays off `/pages/tktx-numbing-cream-uk`, because claiming it would assert a transparency the site does not practise. |
 | **Foaming Cleanser "unbroken skin"** | **Removed** from the product description, which now agrees with its own safety block. Scoped to the cleanser only. |
+| **"A cosmetic product, not a medicine"** | **Removed sitewide**, including the hardcoded Key-facts closer, 28 trust bars, 15 product descriptions and the legal-signed FAQ (legal cleared it). Decision `3bc58bc3-75ea-81d2-b505-e1b2a023149d`. **Every CPSR mention kept** — explicit. The 16 "not an anaesthetic" statements kept — different claim; removing them needs its own decision. |
+| **Sitewide tattoo positioning (B2)** | **Done.** All 16 procedure rows, 33 "Made for aesthetics" instances, footer tagline, home meta, About, Trade, vs-Ametop, llms.txt. |
 
 ---
 
