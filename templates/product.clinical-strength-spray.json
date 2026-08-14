@@ -42,7 +42,7 @@
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "label": "Made for the appointment"
           }
         }
       },
@@ -227,13 +227,22 @@
             "note": "Not sure which strength?",
             "url": "/pages/the-senseless-system"
           }
+        },
+        "tattooing": {
+          "type": "link_item",
+          "settings": {
+            "label": "Tattooing",
+            "note": "Broad areas — a limb or a back piece.",
+            "url": "/collections/numbing-cream-for-tattoos"
+          }
         }
       },
       "block_order": [
         "b0",
         "u1",
         "u2",
-        "g"
+        "g",
+        "tattooing"
       ],
       "settings": {
         "band": "canvas",

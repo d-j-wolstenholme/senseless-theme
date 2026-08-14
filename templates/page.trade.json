@@ -23,7 +23,7 @@
           "type": "format_card",
           "settings": {
             "label": "Account pricing",
-            "body": "<p>Volume pricing tiers for clinics, salons, and aesthetic practices. Specific rates discussed at the enquiry stage.</p>",
+            "body": "<p>Volume pricing tiers for studios, clinics and salons. Specific rates discussed at the enquiry stage.</p>",
             "cta_label": "",
             "cta_url": "",
             "image": "shopify://shop_images/senseless-trade-account-pricing.webp",
@@ -81,8 +81,8 @@
       "settings": {
         "direction": "text-left",
         "eyebrow": "The fit",
-        "headline": "Built for aesthetic practitioners specifically.",
-        "body": "<p>Senseless is formulated for aesthetic procedures. The product range, the recommendation system, and the trade infrastructure are all built around that specialism. The practitioners Senseless trade suits: aesthetic clinics running injectables, microneedling, and laser; SPMU artists working sustained sittings; waxing salons handling regular body work; and dermatology-adjacent practices using topical preparation for their procedures. If you're a medical or general healthcare practice using numbing for non-aesthetic procedures, Senseless isn't formulated for that context — Emla, Ametop, or another medical preparation is the right product.</p>",
+        "headline": "Built for the people who work on skin.",
+        "body": "<p>Senseless is formulated for appointments that work on the skin. The product range, the recommendation system, and the trade infrastructure are all built around that. The accounts Senseless trade suits: tattoo studios running long sittings; piercing studios; aesthetic clinics running injectables, microneedling and laser; SPMU artists working sustained sittings; waxing salons handling regular body work; and dermatology-adjacent practices using topical preparation for their procedures. If you're a medical or general healthcare practice using numbing for clinical procedures, Senseless isn't formulated for that context — a medical preparation is the right product and your pharmacist is the right source.</p>",
         "cta_label": "",
         "cta_url": "",
         "image": "shopify://shop_images/senseless-about-practice.webp",
@@ -109,7 +109,7 @@
         "background": "canvas",
         "eyebrow": "The process",
         "headline": "From enquiry to account",
-        "body": "<ol><li><strong>Submit an enquiry.</strong> The form below. Tell us about your practice, the products you're interested in, your typical order volume.</li><li><strong>Account review.</strong> We confirm your practice meets the trade criteria (UK-based aesthetic practitioner, registered business). Standard checks, usually quick.</li><li><strong>Account setup.</strong> Wholesale pricing, payment terms, and ordering portal access confirmed. You're ready to order.</li><li><strong>First order.</strong> Place via the trade portal. Direct supply from there.</li></ol>"
+        "body": "<ol><li><strong>Submit an enquiry.</strong> The form below. Tell us about your practice, the products you're interested in, your typical order volume.</li><li><strong>Account review.</strong> We confirm your practice meets the trade criteria (UK-based studio, clinic or practitioner, registered business). Standard checks, usually quick.</li><li><strong>Account setup.</strong> Wholesale pricing, payment terms, and ordering portal access confirmed. You're ready to order.</li><li><strong>First order.</strong> Place via the trade portal. Direct supply from there.</li></ol>"
       }
     },
     "faq": {
@@ -211,7 +211,7 @@
           "settings": {
             "label": "Practice type",
             "type": "select",
-            "options": "Aesthetic clinic, SPMU artist, Salon, Other",
+            "options": "Tattoo studio, Piercing studio, Aesthetic clinic, SPMU artist, Salon, Other",
             "required": true
           }
         },
@@ -325,8 +325,8 @@
     "schema": {
       "type": "senseless-page-schema",
       "settings": {
-        "name": "Trade & Wholesale — Senseless for Clinics and Aesthetic Practitioners",
-        "description": "Wholesale accounts for UK aesthetic clinics. Clinic sizes, account pricing, supply consistency. Direct supply for practitioners working at volume.",
+        "name": "Trade & Wholesale — Senseless for Studios, Clinics and Practitioners",
+        "description": "Wholesale accounts for UK tattoo studios, piercing studios and aesthetic clinics. Account pricing, supply consistency. Direct supply for practitioners working at volume.",
         "schema_type": "Service"
       }
     }

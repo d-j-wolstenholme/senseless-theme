@@ -42,7 +42,7 @@
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "label": "Made for the appointment"
           }
         }
       },
@@ -237,13 +237,31 @@
             "note": "Not sure which strength?",
             "url": "/pages/the-senseless-system"
           }
+        },
+        "tattooing": {
+          "type": "link_item",
+          "settings": {
+            "label": "Tattooing",
+            "note": "Precise on smaller, defined work.",
+            "url": "/collections/numbing-cream-for-tattoos"
+          }
+        },
+        "piercings": {
+          "type": "link_item",
+          "settings": {
+            "label": "Piercings",
+            "note": "A piercing site is small and exact — gel's job.",
+            "url": "/collections/numbing-cream-for-piercings"
+          }
         }
       },
       "block_order": [
         "b0",
         "u1",
         "u2",
-        "g"
+        "g",
+        "tattooing",
+        "piercings"
       ],
       "settings": {
         "band": "canvas",

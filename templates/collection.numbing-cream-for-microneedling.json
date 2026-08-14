@@ -39,7 +39,7 @@
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "label": "Made for the appointment"
           }
         }
       },
@@ -200,7 +200,7 @@
         "c4": {
           "type": "fact",
           "settings": {
-            "label": "Made for aesthetics",
+            "label": "Made for the appointment",
             "value": "Built around procedures like microneedling — not adapted from generic numbing."
           }
         }

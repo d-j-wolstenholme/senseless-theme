@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Senseless vs Ametop",
         "headline": "Senseless and Ametop: a different category, a different purpose.",
-        "subhead": "<p>Senseless is a UK cosmetic product, formulated for aesthetic procedures. Ametop is a medicine, sold through pharmacies. The comparison is across categories — not the same kind of product, not built for the same kind of buyer.</p>",
+        "subhead": "<p>Senseless is a UK cosmetic product, formulated for tattoo, piercing and aesthetic appointments. Ametop is a medicine, sold through pharmacies. The comparison is across categories — not the same kind of product, not built for the same kind of buyer.</p>",
         "image_alt": "Editorial Senseless system view",
         "primary_cta_label": "Shop the Senseless system",
         "primary_cta_url": "/collections/numbing-cream",
@@ -19,7 +19,7 @@
         "direction": "text-left",
         "eyebrow": "The honest framing",
         "headline": "Two products. Two categories.",
-        "body": "<p>Ametop is a medicine, classified and regulated as such in the UK. Senseless is a cosmetic product, classified and regulated as such. They sit in different categories with different purposes, different regulatory frameworks, and different commercial contexts. We won't pretend Senseless is a direct medical substitute for Ametop — different categories don't substitute for each other. What Senseless offers: a cosmetic preparation purpose-built for aesthetic procedures, with a three-tier system matched to the kind of appointments aesthetic clinics actually run.</p>",
+        "body": "<p>Ametop is a medicine, classified and regulated as such in the UK. Senseless is a cosmetic product, classified and regulated as such. They sit in different categories with different purposes, different regulatory frameworks, and different commercial contexts. We won't pretend Senseless is a direct medical substitute for Ametop — different categories don't substitute for each other. What Senseless offers: a cosmetic preparation purpose-built for appointments that work on the skin, with a three-tier system matched to the kind of sittings studios and clinics actually run.</p>",
         "cta_label": "",
         "cta_url": "",
         "image": "shopify://shop_images/senseless-asterisk.svg",
@@ -31,8 +31,8 @@
       "settings": {
         "direction": "text-right",
         "eyebrow": "The fit",
-        "headline": "If you're booking aesthetics, Senseless is built for it.",
-        "body": "<p>The procedures Senseless is formulated for: lip fillers, Botox, microneedling, laser, SPMU, waxing — the aesthetic catalogue. The brand position: cosmetic product, available to all without prescription, three strengths matched to procedure intensity, three formats matched to treatment area. If you're preparing for an aesthetic appointment and you want a product purpose-built for that context, Senseless is the direct answer.</p>",
+        "headline": "If you're booking a session that works on skin, Senseless is built for it.",
+        "body": "<p>The procedures Senseless is formulated for: tattooing, piercings, microneedling, laser, SPMU, waxing and injectable work. The brand position: cosmetic product, available to all without prescription, three strengths matched to procedure intensity, three formats matched to treatment area. If you're preparing for an aesthetic appointment and you want a product purpose-built for that context, Senseless is the direct answer.</p>",
         "cta_label": "Shop by procedure",
         "cta_url": "/collections/aesthetic-numbing-cream",
         "image": "shopify://shop_images/senseless-homepage-hero.webp",
@@ -45,7 +45,7 @@
         "style": "neutral",
         "eyebrow": "",
         "heading": "When Ametop might still be what you need",
-        "body": "<p>If your practitioner specifically recommends Ametop or another medical preparation for your procedure, follow their guidance — they know their context. If you're preparing for a medical procedure rather than an aesthetic one, Senseless isn't formulated for that purpose. If you have a specific medical reason to use a prescription preparation, your GP or pharmacist is the right source. Senseless is built for aesthetics. That's a positive position — it doesn't make Senseless the answer to every numbing-product question.</p>",
+        "body": "<p>If your practitioner specifically recommends Ametop or another medical preparation for your procedure, follow their guidance — they know their context. If you're preparing for a medical procedure rather than a cosmetic or body-art one, Senseless isn't formulated for that purpose. If you have a specific medical reason to use a prescription preparation, your GP or pharmacist is the right source. Senseless is built for the cosmetic and body-art side. That's a positive position — it doesn't make Senseless the answer to every numbing-product question.</p>",
         "cta_label": "",
         "cta_url": ""
       }
@@ -151,19 +151,41 @@
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-waxing"
           }
+        },
+        "tattooing": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Tattooing",
+            "sub_label": "Hours rather than minutes — the longest sitting.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-tattoos",
+            "image_alt": "Senseless topical preparation for tattooing"
+          }
+        },
+        "piercings": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Piercings",
+            "sub_label": "Small, precise, and over in seconds.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-piercings",
+            "image_alt": "Senseless topical preparation for piercings"
+          }
         }
       },
       "block_order": [
         "micro",
         "laser",
         "spmu",
-        "wax"
+        "wax",
+        "tattooing",
+        "piercings"
       ],
       "settings": {
         "columns": "3",
         "anchor_id": "recommendations",
         "eyebrow": "By procedure",
-        "headline": "For aesthetic procedures, here's the Senseless recommendation.",
+        "headline": "By procedure, here's the Senseless recommendation.",
         "body": ""
       }
     },
@@ -174,7 +196,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Is Senseless a direct replacement for Ametop?",
-            "answer": "<p>No — not by design. Different categories, different purposes. Senseless is a cosmetic product built for aesthetic procedures. Ametop is a medicine. If you specifically need a medical preparation, Senseless isn't formulated for that.</p>"
+            "answer": "<p>No — not by design. Different categories, different purposes. Senseless is a cosmetic product built for tattoo, piercing and aesthetic appointments. Ametop is a medicine. If you specifically need a medical preparation, Senseless isn't formulated for that.</p>"
           }
         },
         "q2": {

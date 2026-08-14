@@ -2,7 +2,7 @@
 
 Mode: **FULL (all in-scope files incl. Horizon vendor)**
 
-Files scanned: **385** · Findings: **159** (BLOCK 0, WARN 159)
+Files scanned: **385** · Findings: **165** (BLOCK 0, WARN 165)
 
 Scope: repo-resident copy only (Liquid, JSON templates, schema label/default strings, English locales, theme JSON-LD). OUT: product/collection/page/blog bodies & admin meta (planning chat handles via Admin API). Mechanical checks; REPORT not fix. Bare 'numbing' is allowed and never flagged.
 
@@ -14,11 +14,11 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 |---|---|---|---|
 | compliance | 0 | 19 | 19 |
 | ai-vocab | 0 | 6 | 6 |
-| ai-rhythm | 0 | 77 | 77 |
+| ai-rhythm | 0 | 78 | 78 |
 | spelling | 0 | 21 | 21 |
 | geo-schema | 0 | 0 | 0 |
-| linking | 0 | 36 | 36 |
-| **TOTAL** | **0** | **159** | **159** |
+| linking | 0 | 41 | 41 |
+| **TOTAL** | **0** | **165** | **165** |
 
 ## Findings (file:line)
 
@@ -44,9 +44,10 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | templates/collection.numbing-cream.json | 8 | ai-rhythm | RHY-EMDASH | WARN | Three strengths — Clinical , Advanced and Professional — all in the cream format that suits broad coverage and most a... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/collection.numbing-gel.json | 8 | ai-rhythm | RHY-EMDASH | WARN | Three strengths — Clinical , Advanced and Professional — in a gel that stays where you put it. Gel is the format for ... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/collection.numbing-spray.json | 8 | ai-rhythm | RHY-EMDASH | WARN | Three strengths — Clinical , Advanced and Professional — in a spray made for the areas a cream can't cover evenly. Sp... | 2 em-dashes in one block (>1) — vary punctuation. |
-| templates/collection.numbing-spray.json | 329 | ai-rhythm | RHY-EMDASH | WARN | Spray suits larger or broader areas — body laser, waxing and similar zones — where its even, hands-off coverage is ea... | 3 em-dashes in one block (>1) — vary punctuation. |
+| templates/collection.numbing-spray.json | 338 | ai-rhythm | RHY-EMDASH | WARN | Spray suits larger or broader areas — body laser, waxing and similar zones — where its even, hands-off coverage is ea... | 3 em-dashes in one block (>1) — vary punctuation. |
 | templates/collection.tattoo-aftercare.json | 202 | ai-rhythm | RHY-TRICOLON | WARN | Spreading redness, a red streak moving away from the area, pain that increases rather than eases after the first days... | Possible tricolon (3 parallel comma phrases) — human review. |
-| templates/page.about.json | 59 | ai-rhythm | RHY-EMDASH | WARN | The aesthetics category deserves a product range built specifically for it — not generic skin preparation stretched t... | 2 em-dashes in one block (>1) — vary punctuation. |
+| templates/page.about.json | 8 | ai-rhythm | RHY-EMDASH | WARN | Senseless makes topical preparation products for appointments that work on the skin — tattooing, piercings, and the a... | 2 em-dashes in one block (>1) — vary punctuation. |
+| templates/page.about.json | 59 | ai-rhythm | RHY-EMDASH | WARN | This category deserves a product range built specifically for it — not generic skin preparation stretched to fit. Mos... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.best-emla-alternative-uk.json | 103 | ai-rhythm | RHY-EMDASH | WARN | If your practitioner specifically recommends Emla for your procedure, follow their advice — they know their context. ... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.best-numbing-cream.json | 20 | ai-rhythm | RHY-EMDASH | WARN | Search for the best numbing cream and you'll get two kinds of answer: pharmacy products built for medical procedures ... | 2 em-dashes in one block (>1) — vary punctuation. |
 | templates/page.best-numbing-cream.json | 81 | ai-rhythm | RHY-EMDASH | WARN | Senseless is built around exactly this problem. Rather than sell one product as \"the best,\" the range is a system: ... | 2 em-dashes in one block (>1) — vary punctuation. |
@@ -127,18 +128,23 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | templates/page.llms-txt.liquid | 30 | compliance | CMP-ANAESTHETIC-DISCLAIMER | WARN | - Numbing is a cosmetic preparation, not an anaesthetic. Always follow the product instructions and your practitioner... | Negated/disclaimer use ('not an anaesthetic') — compliant disclaimer; verify context. |
 | templates/page.using-numbing-cream.json | 21 | compliance | CMP-ANAESTHETIC-DISCLAIMER | WARN | "body": "<p>Numbing cream is a topical cosmetic preparation applied to clean skin before a treatment to support comfo... | Negated/disclaimer use ('not an anaesthetic') — compliant disclaimer; verify context. |
 | templates/collection.advanced.json | 100 | linking | LNK-TOOMANY | WARN | section "crosslinks" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/collection.aesthetic-numbing-cream.json | 16 | linking | LNK-TOOMANY | WARN | section "procedures" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
+| templates/collection.aesthetic-numbing-cream.json | 113 | linking | LNK-TOOMANY | WARN | section "tiers" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/collection.aesthetic-numbing-cream.json | 204 | linking | LNK-TOOMANY | WARN | section "featured" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/collection.bundles.json | 1 | linking | LNK-ORPHAN | WARN | /collections/bundles | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | templates/collection.clinical.json | 100 | linking | LNK-TOOMANY | WARN | section "crosslinks" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/collection.numbing-cream.json | 145 | linking | LNK-TOOMANY | WARN | section "uses" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
+| templates/collection.numbing-cream.json | 145 | linking | LNK-TOOMANY | WARN | section "uses" has 7 internal links | 7 internal links in one section (>3) — consider trimming. |
+| templates/collection.numbing-gel.json | 145 | linking | LNK-TOOMANY | WARN | section "uses" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/collection.numbing-spray.json | 153 | linking | LNK-TOOMANY | WARN | section "uses" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/collection.professional.json | 102 | linking | LNK-TOOMANY | WARN | section "crosslinks" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/collection.shop-all.json | 3 | linking | LNK-TOOMANY | WARN | section "hero" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/collection.tattoo-aftercare.json | 1 | linking | LNK-ORPHAN | WARN | /collections/tattoo-aftercare | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
-| templates/index.json | 47 | linking | LNK-TOOMANY | WARN | section "procedure" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
+| templates/index.json | 47 | linking | LNK-TOOMANY | WARN | section "procedure" has 7 internal links | 7 internal links in one section (>3) — consider trimming. |
 | templates/page.about.json | 134 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/page.aesthetic-procedures.json | 14 | linking | LNK-TOOMANY | WARN | section "procedures" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
 | templates/page.articles.json | 3 | linking | LNK-TOOMANY | WARN | section "hub" has 8 internal links | 8 internal links in one section (>3) — consider trimming. |
-| templates/page.best-emla-alternative-uk.json | 108 | linking | LNK-TOOMANY | WARN | section "recommend" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/page.best-emla-alternative-uk.json | 228 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/page.best-emla-alternative-uk.json | 108 | linking | LNK-TOOMANY | WARN | section "recommend" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
+| templates/page.best-emla-alternative-uk.json | 250 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/page.best-numbing-cream.json | 1 | linking | LNK-ORPHAN | WARN | /pages/best-numbing-cream | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | templates/page.best-numbing-cream.json | 197 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/page.choosing-your-format.json | 212 | linking | LNK-TOOMANY | WARN | section "shop" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
@@ -148,19 +154,19 @@ Prose checks (ai-vocab/ai-rhythm/spelling) run on extracted copy only (JSON stri
 | templates/page.how-it-works.json | 1 | linking | LNK-ORPHAN | WARN | /pages/how-it-works | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | templates/page.how-it-works.json | 75 | linking | LNK-TOOMANY | WARN | section "next" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
 | templates/page.how-to-apply-numbing-cream.json | 284 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/page.senseless-vs-ametop.json | 108 | linking | LNK-TOOMANY | WARN | section "recommend" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/page.senseless-vs-ametop.json | 228 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/page.senseless-vs-ametop.json | 108 | linking | LNK-TOOMANY | WARN | section "recommend" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
+| templates/page.senseless-vs-ametop.json | 250 | linking | LNK-TOOMANY | WARN | section "next" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
 | templates/page.the-senseless-system.json | 227 | linking | LNK-TOOMANY | WARN | section "route" has 7 internal links | 7 internal links in one section (>3) — consider trimming. |
 | templates/page.using-numbing-cream.json | 44 | linking | LNK-TOOMANY | WARN | section "choosing" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/product.advanced-strength-cream.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
-| templates/product.advanced-strength-gel.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/product.advanced-strength-spray.json | 196 | linking | LNK-TOOMANY | WARN | section "linksout" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/product.clinical-strength-cream.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
-| templates/product.clinical-strength-gel.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/product.clinical-strength-spray.json | 196 | linking | LNK-TOOMANY | WARN | section "linksout" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/product.professional-strength-cream.json | 198 | linking | LNK-TOOMANY | WARN | section "linksout" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
-| templates/product.professional-strength-gel.json | 206 | linking | LNK-TOOMANY | WARN | section "linksout" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
-| templates/product.professional-strength-spray.json | 198 | linking | LNK-TOOMANY | WARN | section "linksout" has 4 internal links | 4 internal links in one section (>3) — consider trimming. |
+| templates/product.advanced-strength-cream.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 8 internal links | 8 internal links in one section (>3) — consider trimming. |
+| templates/product.advanced-strength-gel.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
+| templates/product.advanced-strength-spray.json | 196 | linking | LNK-TOOMANY | WARN | section "linksout" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
+| templates/product.clinical-strength-cream.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 8 internal links | 8 internal links in one section (>3) — consider trimming. |
+| templates/product.clinical-strength-gel.json | 204 | linking | LNK-TOOMANY | WARN | section "linksout" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
+| templates/product.clinical-strength-spray.json | 196 | linking | LNK-TOOMANY | WARN | section "linksout" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
+| templates/product.professional-strength-cream.json | 198 | linking | LNK-TOOMANY | WARN | section "linksout" has 8 internal links | 8 internal links in one section (>3) — consider trimming. |
+| templates/product.professional-strength-gel.json | 206 | linking | LNK-TOOMANY | WARN | section "linksout" has 6 internal links | 6 internal links in one section (>3) — consider trimming. |
+| templates/product.professional-strength-spray.json | 198 | linking | LNK-TOOMANY | WARN | section "linksout" has 5 internal links | 5 internal links in one section (>3) — consider trimming. |
 | templates/product.vitamin-a-d-ointment.json | 1 | linking | LNK-ORPHAN | WARN | /products/vitamin-a-d-ointment | 0 inbound links from non-header/footer theme sources (INCOMPLETE: Shopify-resident page links added later by planning chat). |
 | locales/en.default.schema.json | 99 | spelling | SPELL-USUK | WARN | Columns will automatically optimize for mobile | US spelling 'optimize' -> UK 'optimise'. |
 | locales/en.default.schema.json | 181 | spelling | SPELL-USUK | WARN | Introducing our latest products, made especially for the season. Shop your favorites before they're gone! | US spelling 'favorites' -> UK 'favourites'. |

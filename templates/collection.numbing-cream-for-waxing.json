@@ -39,7 +39,7 @@
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "label": "Made for the appointment"
           }
         }
       },
@@ -200,8 +200,8 @@
         "c4": {
           "type": "fact",
           "settings": {
-            "label": "Made for aesthetics",
-            "value": "Built around aesthetic procedures — bikini, brazilian and body waxing and more — not adapted from generic numbing."
+            "label": "Made for the appointment",
+            "value": "Built around the procedure — bikini, brazilian and body waxing and more — not adapted from generic numbing."
           }
         }
       },

@@ -42,7 +42,7 @@
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "label": "Made for the appointment"
           }
         }
       },
@@ -245,6 +245,22 @@
             "note": "Not sure which strength?",
             "url": "/pages/the-senseless-system"
           }
+        },
+        "tattooing": {
+          "type": "link_item",
+          "settings": {
+            "label": "Tattooing",
+            "note": "Hours rather than minutes — the longest sitting.",
+            "url": "/collections/numbing-cream-for-tattoos"
+          }
+        },
+        "piercings": {
+          "type": "link_item",
+          "settings": {
+            "label": "Piercings",
+            "note": "Small, precise, and over in seconds.",
+            "url": "/collections/numbing-cream-for-piercings"
+          }
         }
       },
       "block_order": [
@@ -253,7 +269,9 @@
         "u2",
         "u3",
         "u4",
-        "g"
+        "g",
+        "tattooing",
+        "piercings"
       ],
       "settings": {
         "band": "canvas",

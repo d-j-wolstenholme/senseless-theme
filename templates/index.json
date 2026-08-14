@@ -3,7 +3,7 @@
     "hero": {
       "type": "senseless-hero-brand-led",
       "settings": {
-        "eyebrow": "Made for aesthetics",
+        "eyebrow": "Made for the appointment",
         "headline": "Confidence starts with comfort.",
         "subhead": "<p>Senseless is a system — match the strength and the format to the appointment you've booked. Three strengths, three formats, formulated in the UK.</p>",
         "primary_cta_label": "Shop all products",
@@ -90,13 +90,35 @@
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-waxing"
           }
+        },
+        "tattooing": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Tattooing",
+            "sub_label": "Hours rather than minutes — the longest sitting.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-tattoos",
+            "image_alt": "Senseless topical preparation for tattooing"
+          }
+        },
+        "piercings": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Piercings",
+            "sub_label": "Small, precise, and over in seconds.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-piercings",
+            "image_alt": "Senseless topical preparation for piercings"
+          }
         }
       },
       "block_order": [
         "microneedling",
         "laser",
         "spmu",
-        "waxing"
+        "waxing",
+        "tattooing",
+        "piercings"
       ],
       "settings": {
         "columns": "4",
@@ -155,8 +177,8 @@
       "settings": {
         "direction": "text-left",
         "eyebrow": "The product",
-        "headline": "A cosmetic product. Built for aesthetics.",
-        "body": "<p>Senseless is a UK cosmetic product. Not a medicine. Not pharmacy. A topical preparation developed for the way modern aesthetic appointments actually work: short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result.</p>",
+        "headline": "A cosmetic product. Built for the appointment.",
+        "body": "<p>Senseless is a UK cosmetic product. Not a medicine. Not pharmacy. A topical preparation developed for the way appointments that work on the skin actually run — tattooing, piercings, microneedling, laser, semi-permanent makeup, waxing. Short windows between booking and the chair, sensitive areas, and clients who care about the experience as much as the result.</p>",
         "cta_label": "",
         "cta_url": "",
         "image_alt": "Senseless Comfort Cream, Comfort Gel and Comfort Spray — three formats",

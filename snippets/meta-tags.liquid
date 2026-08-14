@@ -38,11 +38,11 @@
 {%- liquid
   # Brand-independent title/SEO (Phase 13: do not derive from shop.name — survives the shop rename).
   assign brand_name = 'Senseless'
-  assign home_title = 'UK Numbing Cream, Gel & Spray for Aesthetics | Senseless'
+  assign home_title = 'UK Numbing Cream for Tattoos & Aesthetics | Senseless'
   # Reverted 6 Aug: the "preparation" cluster this targeted ("aesthetic preparation products",
   # "topical preparation for aesthetic procedures", "cosmetic topical preparation UK") returns NO DATA
   # in Ahrefs GB. It came from an agency sheet whose figures do not reconcile with Ahrefs.
-  assign home_desc = 'UK-formulated numbing cream, gel and spray for aesthetics — microneedling, laser, SPMU. Three strengths matched to your appointment. CPSR-assessed.'
+  assign home_desc = 'UK-formulated numbing cream, gel and spray for tattooing, microneedling, laser, SPMU and more. Three strengths matched to your appointment. CPSR-assessed.'
   assign og_title = page_title | default: brand_name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'

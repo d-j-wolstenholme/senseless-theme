@@ -151,13 +151,35 @@
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream-for-waxing"
           }
+        },
+        "tattooing": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Tattooing",
+            "sub_label": "Hours rather than minutes — the longest sitting.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-tattoos",
+            "image_alt": "Senseless topical preparation for tattooing"
+          }
+        },
+        "piercings": {
+          "type": "procedure_card",
+          "settings": {
+            "label": "Piercings",
+            "sub_label": "Small, precise, and over in seconds.",
+            "cta_label": "View range",
+            "cta_url": "/collections/numbing-cream-for-piercings",
+            "image_alt": "Senseless topical preparation for piercings"
+          }
         }
       },
       "block_order": [
         "micro",
         "laser",
         "spmu",
-        "wax"
+        "wax",
+        "tattooing",
+        "piercings"
       ],
       "settings": {
         "columns": "3",

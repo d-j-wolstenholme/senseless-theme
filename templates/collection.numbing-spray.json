@@ -39,7 +39,7 @@
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "label": "Made for the appointment"
           }
         }
       },
@@ -190,6 +190,14 @@
             "label": "Strongest numbing cream",
             "url": "/pages/strongest-numbing-cream"
           }
+        },
+        "tattooing": {
+          "type": "link_item",
+          "settings": {
+            "label": "Tattooing",
+            "note": "Broad areas — a limb or a back piece.",
+            "url": "/collections/numbing-cream-for-tattoos"
+          }
         }
       },
       "block_order": [
@@ -197,7 +205,8 @@
         "u2",
         "u3",
         "u4",
-        "rel_strongest"
+        "rel_strongest",
+        "tattooing"
       ],
       "settings": {
         "band": "surface",
@@ -253,8 +262,8 @@
         "c4": {
           "type": "fact",
           "settings": {
-            "label": "Made for aesthetics",
-            "value": "Designed around aesthetic procedures — larger-area work, body waxing, laser zones and more — not adapted from generic numbing."
+            "label": "Made for the appointment",
+            "value": "Designed around larger-area work — body waxing, laser zones, a limb or a back piece — not adapted from generic numbing."
           }
         }
       },

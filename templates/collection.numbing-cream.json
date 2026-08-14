@@ -39,7 +39,7 @@
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "label": "Made for the appointment"
           }
         }
       },
@@ -183,6 +183,22 @@
             "label": "Strongest numbing cream",
             "url": "/pages/strongest-numbing-cream"
           }
+        },
+        "tattooing": {
+          "type": "link_item",
+          "settings": {
+            "label": "Tattooing",
+            "note": "Hours rather than minutes — the longest sitting.",
+            "url": "/collections/numbing-cream-for-tattoos"
+          }
+        },
+        "piercings": {
+          "type": "link_item",
+          "settings": {
+            "label": "Piercings",
+            "note": "Small, precise, and over in seconds.",
+            "url": "/collections/numbing-cream-for-piercings"
+          }
         }
       },
       "block_order": [
@@ -190,7 +206,9 @@
         "u2",
         "u3",
         "u4",
-        "rel_strongest"
+        "rel_strongest",
+        "tattooing",
+        "piercings"
       ],
       "settings": {
         "band": "surface",
@@ -246,8 +264,8 @@
         "c4": {
           "type": "fact",
           "settings": {
-            "label": "Made for aesthetics",
-            "value": "Designed around aesthetic procedures — microneedling, laser, SPMU, waxing and more — not adapted from generic numbing."
+            "label": "Made for the appointment",
+            "value": "Designed around the appointments it is used for — microneedling, laser, SPMU, waxing, tattooing and piercings — not adapted from generic numbing."
           }
         }
       },

@@ -39,7 +39,7 @@
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for aesthetics"
+            "label": "Made for the appointment"
           }
         }
       },
@@ -174,13 +174,31 @@
             "label": "Lip work",
             "note": "A contained area that needs the product to stay exactly where placed."
           }
+        },
+        "tattooing": {
+          "type": "link_item",
+          "settings": {
+            "label": "Tattooing",
+            "note": "Precise on smaller, defined work.",
+            "url": "/collections/numbing-cream-for-tattoos"
+          }
+        },
+        "piercings": {
+          "type": "link_item",
+          "settings": {
+            "label": "Piercings",
+            "note": "A piercing site is small and exact — gel's job.",
+            "url": "/collections/numbing-cream-for-piercings"
+          }
         }
       },
       "block_order": [
         "u1",
         "u2",
         "u3",
-        "u4"
+        "u4",
+        "tattooing",
+        "piercings"
       ],
       "settings": {
         "band": "surface",
@@ -236,8 +254,8 @@
         "c4": {
           "type": "fact",
           "settings": {
-            "label": "Made for aesthetics",
-            "value": "Designed around aesthetic procedures — microneedling, SPMU, facial work and more — not adapted from generic numbing."
+            "label": "Made for the appointment",
+            "value": "Designed around the appointments it is used for — microneedling, SPMU, tattooing, piercings and other precise work — not adapted from generic numbing."
           }
         }
       },
