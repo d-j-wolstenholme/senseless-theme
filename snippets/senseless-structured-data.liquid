@@ -46,6 +46,16 @@
   assign webpage_id = page_url | append: '#webpage'
   assign crumb_id = page_url | append: '#breadcrumb'
 
+  # Shipping + return policy node addresses. Sitewide-stable (they are the same policy on every
+  # page), absolute like every other @id in this graph, and emitted only on product + collection
+  # pages, which are the only page types that carry an Offer to reference them.
+  assign ship_standard_id = base | append: '/#shipping-standard'
+  assign ship_express_id = base | append: '/#shipping-express'
+  assign ship_next_id = base | append: '/#shipping-next-working-day'
+  assign ship_standard_free_id = base | append: '/#shipping-standard-free'
+  assign ship_next_free_id = base | append: '/#shipping-next-working-day-free'
+  assign return_id = base | append: '/#return-policy'
+
   # WebPage @type, specialised per page type. senseless-page-schema.liquid re-declares
   # #webpage as AboutPage/ContactPage on the two templates that need it.
   assign webpage_type = 'WebPage'
@@ -197,6 +207,118 @@
       {%- render 'senseless-breadcrumbs-jsonld', base: base, crumb_id: crumb_id, crumb_type: crumb_type -%}
     {%- endif -%}
 
+    {%- if request.page_type == 'product' or request.page_type == 'collection' -%},
+    {%- comment -%}
+      Shipping + return policy, defined ONCE per page and referenced by @id from every offer.
+
+      Google documents this exact pattern (search/docs/appearance/structured-data/product-variants):
+      an offer may carry "shippingDetails": { "@id": "#..." } and "hasMerchantReturnPolicy":
+      { "@id": "#..." } as long as the node itself is present in the same JSON-LD document. Before
+      this, the five shipping blocks and the return policy were written out inline inside the
+      product offer loop and NOT written at all on collection pages — so every Product nested in a
+      collection ItemList was missing hasMerchantReturnPolicy and shippingDetails, which is what
+      Search Console reported on 19 Aug 2026 as three Merchant listings issues across the 19
+      collection URLs. Referencing rather than repeating fixes the collections, removes the
+      per-variant duplication on PDPs, and leaves the rate card in exactly one place in this file.
+
+      These five entries mirror the LIVE Shopify rate card for the GB zone exactly,
+      re-read from the Admin API on 2026-08-14 (deliveryProfiles -> methodDefinitions):
+
+        Standard 4-6 Working Days        GBP 1.99   0      - 39.99
+        Express 2-3 working days         GBP 3.99   0      - 79.99
+        Next Working Day (order by 1pm)  GBP 8.99   0      - 79.99
+        Standard 4-6 Working Days        GBP 0.00   40.00  - 79.99
+        Next Working Day (order by 1pm)  GBP 0.00   80.00  +
+
+      CORRECTION, and it matters. On 14 Aug this block was briefly cut down to two free options,
+      on the reasoning that the 1.99 rate and the 4-6 day transit "appear nowhere in published
+      copy" and that 4-6 days "contradicts next-day delivery". Both halves were wrong. 1.99 / 4-6
+      days IS the real sub-40 standard method, and it does not contradict next-day because they
+      are different methods a customer chooses between. The error was treating the policy PAGES as
+      the source of truth for shipping when the rate card is -- and the policy pages are themselves
+      incomplete, since neither of them mentions Express at all. Accurate structured data was
+      deleted on a false premise; that restored it from the authoritative source.
+
+      handlingTime is 0-1 day on every method: ordered before 1pm on a working day it is
+      dispatched the same day, otherwise the next working day. Keep this in step with the
+      rate card -- if shipping changes in Shopify, change it here too.
+    {%- endcomment -%}
+    {
+      "@type": "OfferShippingDetails",
+      "@id": {{ ship_standard_id | json }},
+      "name": "Standard delivery",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "1.99", "currency": "GBP" },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 39.99, "priceCurrency": "GBP" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitCode": "DAY" }
+      }
+    },
+    {
+      "@type": "OfferShippingDetails",
+      "@id": {{ ship_express_id | json }},
+      "name": "Express delivery",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "3.99", "currency": "GBP" },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 79.99, "priceCurrency": "GBP" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 3, "unitCode": "DAY" }
+      }
+    },
+    {
+      "@type": "OfferShippingDetails",
+      "@id": {{ ship_next_id | json }},
+      "name": "Next working day",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "8.99", "currency": "GBP" },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 79.99, "priceCurrency": "GBP" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1, "unitCode": "DAY" }
+      }
+    },
+    {
+      "@type": "OfferShippingDetails",
+      "@id": {{ ship_standard_free_id | json }},
+      "name": "Free standard delivery on orders from GBP 40",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 40, "maxPrice": 79.99, "priceCurrency": "GBP" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitCode": "DAY" }
+      }
+    },
+    {
+      "@type": "OfferShippingDetails",
+      "@id": {{ ship_next_free_id | json }},
+      "name": "Free next working day on orders from GBP 80",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 80, "priceCurrency": "GBP" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1, "unitCode": "DAY" }
+      }
+    },
+    {
+      "@type": "MerchantReturnPolicy",
+      "@id": {{ return_id | json }},
+      "applicableCountry": "GB",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+    }
+    {%- endif -%}
+
     {%- case request.page_type -%}
 
     {%- when 'product' -%},
@@ -279,99 +401,17 @@
             "url": {{ base | append: variant.url | json }},
             "seller": { "@id": {{ org_id | json }} },
             {%- comment -%}
-              These five entries mirror the LIVE Shopify rate card for the GB zone exactly,
-              re-read from the Admin API on 2026-08-14 (deliveryProfiles -> methodDefinitions):
-
-                Standard 4-6 Working Days        GBP 1.99   0      - 39.99
-                Express 2-3 working days         GBP 3.99   0      - 79.99
-                Next Working Day (order by 1pm)  GBP 8.99   0      - 79.99
-                Standard 4-6 Working Days        GBP 0.00   40.00  - 79.99
-                Next Working Day (order by 1pm)  GBP 0.00   80.00  +
-
-              CORRECTION, and it matters. Earlier the same day this block was cut down to two
-              free options, on the reasoning that the 1.99 rate and the 4-6 day transit "appear
-              nowhere in published copy" and that 4-6 days "contradicts next-day delivery". Both
-              halves were wrong. 1.99 / 4-6 days IS the real sub-40 standard method, and it does
-              not contradict next-day because they are different methods a customer chooses
-              between. The error was treating the policy PAGES as the source of truth for
-              shipping when the rate card is -- and the policy pages are themselves incomplete,
-              since neither of them mentions Express at all. Accurate structured data was deleted
-              on a false premise; this restores it from the authoritative source.
-
-              handlingTime is 0-1 day on every method: ordered before 1pm on a working day it is
-              dispatched the same day, otherwise the next working day. Keep this in step with the
-              rate card -- if shipping changes in Shopify, change it here too.
+              Shipping + return by reference. The nodes themselves are emitted once per page,
+              above the page-type case — see the rate-card note there before changing anything.
             {%- endcomment -%}
             "shippingDetails": [
-              {
-                "@type": "OfferShippingDetails",
-                "name": "Standard delivery",
-                "shippingRate": { "@type": "MonetaryAmount", "value": "1.99", "currency": "GBP" },
-                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 39.99, "priceCurrency": "GBP" },
-                "deliveryTime": {
-                  "@type": "ShippingDeliveryTime",
-                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
-                  "transitTime": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitCode": "DAY" }
-                }
-              },
-              {
-                "@type": "OfferShippingDetails",
-                "name": "Express delivery",
-                "shippingRate": { "@type": "MonetaryAmount", "value": "3.99", "currency": "GBP" },
-                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 79.99, "priceCurrency": "GBP" },
-                "deliveryTime": {
-                  "@type": "ShippingDeliveryTime",
-                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
-                  "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 3, "unitCode": "DAY" }
-                }
-              },
-              {
-                "@type": "OfferShippingDetails",
-                "name": "Next working day",
-                "shippingRate": { "@type": "MonetaryAmount", "value": "8.99", "currency": "GBP" },
-                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 79.99, "priceCurrency": "GBP" },
-                "deliveryTime": {
-                  "@type": "ShippingDeliveryTime",
-                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
-                  "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1, "unitCode": "DAY" }
-                }
-              },
-              {
-                "@type": "OfferShippingDetails",
-                "name": "Free standard delivery on orders from GBP 40",
-                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
-                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 40, "maxPrice": 79.99, "priceCurrency": "GBP" },
-                "deliveryTime": {
-                  "@type": "ShippingDeliveryTime",
-                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
-                  "transitTime": { "@type": "QuantitativeValue", "minValue": 4, "maxValue": 6, "unitCode": "DAY" }
-                }
-              },
-              {
-                "@type": "OfferShippingDetails",
-                "name": "Free next working day on orders from GBP 80",
-                "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
-                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-                "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 80, "priceCurrency": "GBP" },
-                "deliveryTime": {
-                  "@type": "ShippingDeliveryTime",
-                  "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
-                  "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1, "unitCode": "DAY" }
-                }
-              }
+              { "@id": {{ ship_standard_id | json }} },
+              { "@id": {{ ship_express_id | json }} },
+              { "@id": {{ ship_next_id | json }} },
+              { "@id": {{ ship_standard_free_id | json }} },
+              { "@id": {{ ship_next_free_id | json }} }
             ],
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "GB",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 30,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
-            }
+            "hasMerchantReturnPolicy": { "@id": {{ return_id | json }} }
           }{%- unless forloop.last -%},{%- endunless -%}
           {%- endfor -%}
         ]
@@ -391,7 +431,19 @@
         "itemListOrder": "https://schema.org/ItemListOrderAscending",
         "itemListElement": [
           {%- for prod in collection.products limit: 48 -%}
-          {%- assign pv = prod.selected_or_first_available_variant | default: prod.variants.first -%}
+          {%- liquid
+            assign pv = prod.selected_or_first_available_variant | default: prod.variants.first
+            comment
+              300, not the 1200 the PDP node uses. A listing entry is a summary, and a collection
+              can carry 48 of them — at 1200 the two 16-product collections would add ~19KB of
+              duplicated body copy to the head. 300 is a full opening sentence, which is what
+              Google's "description" wants here, and it is the same source text either way.
+            endcomment
+            assign pdesc = prod.description | strip_html | strip_newlines | truncate: 300
+            if pdesc == blank
+              assign pdesc = prod.title | append: ' — a topical cosmetic preparation by Senseless.'
+            endif
+          -%}
           {
             "@type": "ListItem",
             "position": {{ forloop.index }},
@@ -401,6 +453,7 @@
               "@type": "Product",
               "@id": {{ base | append: prod.url | append: '#product' | json }},
               "name": {{ prod.title | json }},
+              "description": {{ pdesc | json }},
               "url": {{ base | append: prod.url | json }},
               {%- if prod.featured_image -%}"image": {{ prod.featured_image | image_url: width: 800 | prepend: 'https:' | json }},{%- endif -%}
               {%- if pv.sku != blank -%}"sku": {{ pv.sku | json }},{%- endif -%}
@@ -411,7 +464,16 @@
                 "priceCurrency": {{ cur | json }},
                 "availability": "https://schema.org/{% if prod.available %}InStock{% else %}OutOfStock{% endif %}",
                 "url": {{ base | append: prod.url | json }},
-                "seller": { "@id": {{ org_id | json }} }
+                "seller": { "@id": {{ org_id | json }} },
+                "itemCondition": "https://schema.org/NewCondition",
+                "shippingDetails": [
+                  { "@id": {{ ship_standard_id | json }} },
+                  { "@id": {{ ship_express_id | json }} },
+                  { "@id": {{ ship_next_id | json }} },
+                  { "@id": {{ ship_standard_free_id | json }} },
+                  { "@id": {{ ship_next_free_id | json }} }
+                ],
+                "hasMerchantReturnPolicy": { "@id": {{ return_id | json }} }
               }
             }
           }{%- unless forloop.last -%},{%- endunless -%}
