@@ -23,8 +23,14 @@ structured-data issues Search Console reported on senseless.uk.
   summary, and a collection can carry 48) and `itemCondition`.
 - **Live-verified 19/19 collections + PDPs**: every Product has a description, every
   Offer has both fields, every `@id` resolves in-graph, zero dangling refs.
-- Commits `b19e710` (fix) + the reviews-guard re-lock. Deployed via `deploy.sh`,
-  Asset-API byte-identical, Judge.me markers 5/5 on every checked URL.
+- Commits `b19e710` (fix) + `c2ce068` (reviews-guard re-lock). Deployed via
+  `deploy.sh`, Asset-API byte-identical, Judge.me markers 5/5 on every checked URL.
+- **Injectable-clean invariant re-verified: 46/46 ad-facing surfaces, 0 breaches.**
+  35 by the script, 11 by hand (see the gotcha below). The diff adds zero anchors.
+- Written up: Decision `3c158bc3-75ea-8165-85e9-f5579b683663` (Decisions DB) +
+  State Surface log entry + `canon/state.json`.
+- **Owner action outstanding:** in Search Console, open each of the 3 Merchant
+  listings issues and click **Validate fix**.
 
 ## Next
 
@@ -55,10 +61,15 @@ Unchanged from before — this was an interrupt, not a plan change:
 - **The zsh word-split trap bites outside `deploy.sh` too.** `python3 verify.py $urls`
   passed all 19 newline-separated URLs as ONE argument and reported a false failure.
   Run anything taking a list of paths/URLs under `bash -c`.
-- **Rate-limit yourself.** Sweeping the storefront right after a schema audit earns
-  `HTTP 429` on every product URL, and `injectable-clean-sweep.py` still prints
-  `BREACHES: 0` at the bottom while every fetch errored. **Check the ERROR count
-  before trusting that zero.**
+- **`injectable-clean-sweep.py` prints `BREACHES: 0` even when every fetch returned
+  HTTP 429.** It did so twice this session. **Read the ERROR count above it before
+  trusting that zero.** The 11 product URLs it could not fetch were re-checked by
+  hand at one request per 7s — all clean — so the invariant does hold, but only
+  because the gap was noticed. Same family as the standing lesson on Decision
+  `3bc58bc3`: a check that can only confirm its own assumptions is not a check.
+- **Rate-limit yourself.** Auditing the storefront hard enough to diagnose a schema
+  bug earns `HTTP 429` across the whole catalogue for the next quarter of an hour,
+  which then contaminates every follow-up check.
 - `snippets/senseless-structured-data.liquid` is a **reviews-guard file** (it reads
   `product.metafields.reviews.rating`), so any edit to it needs
   `deploy.sh --reviews-changed` plus a lock commit — even when the diff touches no
