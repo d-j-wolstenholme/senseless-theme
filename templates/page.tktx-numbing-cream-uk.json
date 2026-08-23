@@ -75,7 +75,7 @@
           "type": "row",
           "settings": {
             "label": "Delivery",
-            "col1": "Free standard UK delivery over £40, free next-day over £80. Before 1pm on a working day is same-day dispatch.",
+            "col1": "Free standard UK delivery over £40, free next-day over £80. Before 3:30pm on a working day is same-day dispatch.",
             "col2": "Check the cut-off and whether the stated window clears your appointment date."
           }
         },
@@ -262,7 +262,7 @@
           "type": "link_item",
           "settings": {
             "label": "UK delivery, in plain terms",
-            "note": "Thresholds, the 1pm cut-off, and what ships when.",
+            "note": "Thresholds, the 3:30pm cut-off, and what ships when.",
             "url": "/pages/delivery"
           }
         }

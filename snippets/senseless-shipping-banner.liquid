@@ -43,7 +43,7 @@
 <div class="ss-shipbar" data-shipbar role="region" aria-label="Delivery information">
   <div class="ss-shipbar__inner">
     <p class="ss-shipbar__empty" data-shipbar-empty>
-      <span class="ss-shipbar__long">Free UK standard delivery over £40 · Free next-day over £80 · Order before 1pm for same-day dispatch</span>
+      <span class="ss-shipbar__long">Free UK standard delivery over £40 · Free next-day over £80 · Order before 3:30pm for same-day dispatch</span>
       <span class="ss-shipbar__short">Free delivery over £40 · Free next-day over £80</span>
     </p>
     <div class="ss-shipbar__progress" data-shipbar-progress hidden aria-live="polite">
@@ -52,7 +52,7 @@
         <span class="ss-shipbar__short" data-shipbar-msg-short></span>
       </p>
       <div class="ss-shipbar__bar"><span class="ss-shipbar__mid" aria-hidden="true"></span><span class="ss-shipbar__fill" data-shipbar-fill></span></div>
-      <p class="ss-shipbar__same" data-shipbar-same>Order before 1pm for same-day dispatch</p>
+      <p class="ss-shipbar__same" data-shipbar-same>Order before 3:30pm for same-day dispatch</p>
     </div>
   </div>
 </div>
@@ -95,7 +95,7 @@
         mShort = "Free delivery unlocked · " + money(T2 - sub) + " to next-day";
       } else {
         tier = 2; pct = 100;
-        m = "Free next-day delivery unlocked — order before 1pm for same-day dispatch";
+        m = "Free next-day delivery unlocked — order before 3:30pm for same-day dispatch";
         mShort = "Free next-day delivery unlocked";
         showSame = false;
       }
