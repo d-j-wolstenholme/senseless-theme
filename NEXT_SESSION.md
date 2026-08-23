@@ -43,6 +43,32 @@ surfaces. Shipped and live.
 - Written up: Decision `3c558bc3-75ea-8144-a998-cb11ae99170d` + State Surface
   sync-status and log entry.
 
+## Also done — dispatch cut-off 1pm → 3:30pm (`508e6b9`)
+
+Changed everywhere it is stated, both sides of the store. Live-swept clean:
+**0 instances of "1pm" on any surface.**
+
+- **Schema was a gap, not a replace.** The graph had `handlingTime` and
+  `transitTime` but **no `cutoffTime` at all** — the cut-off was never expressed
+  to Google. Added to all five `ShippingDeliveryTime` nodes.
+- **The offset tracks BST/GMT by itself.** Google needs ISO 8601 *with* a
+  timezone, and a hardcoded `+01:00` reads as 14:30 once BST ends. The offset is
+  read from the store's own clock (`date: '%z'`), so it is `+0100` in summer and
+  `+0000` in winter with no seasonal edit. Live: `15:30:00+01:00`.
+- **Checkout method names renamed** on both definitions. The full rate card was
+  snapshotted before/after and diffed — names changed, **every price and
+  price-condition untouched**.
+- Theme: shipping banner, `page.delivery.json` (12), `page.tktx-*` (2).
+  Shopify: shop shipping policy, one blog article, and 4 metafields.
+- **`page.faq.json` deliberately untouched** — "before our published daily
+  dispatch cut-off" states no time and is legal-verbatim copy.
+
+> **Content hides in metafields.** Scanning `body_html` alone would have missed
+> **6 of the 10** Shopify-side hits — the policy pages are metafield-driven. And
+> the first LIVE sweep still found 2 survivors: an FAQ in an *article* metafield
+> (`custom.faq`), rendered twice (HTML + FAQPage JSON-LD). Sweep page, article,
+> product and collection metafields — then re-sweep live.
+
 ## Open — needs Daniel
 
 1. **The bag's MATERIAL and DIMENSIONS.** I inferred "faux leather" from the
@@ -51,7 +77,11 @@ surfaces. Shipped and live.
    problem, not a copy nit. The key-facts block is honest but thin until these
    are supplied. Once you confirm, update the alt text, the Files asset alt, and
    the `Closure`/material key facts.
-2. Everything below is unchanged from the previous handoff.
+2. **`/pages/delivery` SEO meta description is 220 chars** and will be truncated
+   in search results. It was already over (216) before the cut-off edit — this is
+   pre-existing, not caused by it, and I did not rewrite your SEO copy without
+   asking. Say the word and I'll trim it to ~155.
+3. Everything below is unchanged from the previous handoff.
 
 ## Next
 
