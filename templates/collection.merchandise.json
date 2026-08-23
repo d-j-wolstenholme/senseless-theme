@@ -4,10 +4,10 @@
       "type": "senseless-collection-hero",
       "settings": {
         "eyebrow": "Merchandise",
-        "headline": "Things with our name on them.",
-        "accent_word": "name",
-        "subhead": "<p>A short line of Senseless-branded pieces that sit outside the range proper. No strength tier, no CPSR, no directions for use — these aren't products you put on your skin. They're what you carry them in.</p>",
-        "primary_cta_label": "See the line",
+        "headline": "Carry your kit.",
+        "accent_word": "kit",
+        "subhead": "<p>A zip-top bag, sized for what you actually take to an appointment.</p>",
+        "primary_cta_label": "See the bag",
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Shop the range",
         "secondary_cta_url": "/collections/shop-all",
@@ -34,7 +34,7 @@
         "t3": {
           "type": "trust_item",
           "settings": {
-            "label": "Nothing here goes on your skin"
+            "label": "Free UK delivery over £40"
           }
         }
       },
@@ -47,17 +47,6 @@
         "band": "canvas"
       }
     },
-    "intro": {
-      "type": "senseless-editorial-band",
-      "settings": {
-        "background": "white",
-        "align": "left",
-        "eyebrow": "Why this exists",
-        "headline": "Why a bag, and not much else",
-        "body": "<p>We were never going to do a big merchandise line. What kept coming up was a smaller, duller problem: people carrying a tube, a cloth and a pack of wipes loose in a handbag on the way to an appointment.</p><p>So we made the thing that solves that, and stopped there. If we add to this page it will be for the same reason — something the appointment actually needs — and not because a logo fits on it.</p>",
-        "accent_word": "duller"
-      }
-    },
     "grid": {
       "type": "senseless-collection-grid",
       "blocks": {
@@ -65,7 +54,7 @@
           "type": "card_caption",
           "settings": {
             "product": "senseless-cosmetics-bag",
-            "caption": "Zip-top, cream, silver-tone zip. Sized for the appointment kit."
+            "caption": "Zip-top, cream, silver-tone zip."
           }
         }
       },
@@ -73,55 +62,9 @@
         "cap1"
       ],
       "settings": {
-        "headline": "The line",
+        "headline": "The bag",
         "anchor_id": "shop",
         "show_filters": false
-      }
-    },
-    "notcosmetic": {
-      "type": "senseless-callout-band",
-      "settings": {
-        "style": "brand",
-        "heading": "Nothing on this page goes on your skin",
-        "body": "<p>Worth saying plainly, because the rest of the site is topical products with safety assessments behind them. Merchandise has none of that, and needs none of it — no strength tier, no CPSR, no directions for use. If you came looking for the range itself, it's one click away.</p>",
-        "accent_word": "skin",
-        "cta_label": "Shop the range instead",
-        "cta_url": "/collections/shop-all"
-      }
-    },
-    "faq": {
-      "type": "senseless-faq-accordion",
-      "blocks": {
-        "q1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is Senseless merchandise a cosmetic product?",
-            "answer": "<p>No. Nothing on this page is applied to skin, so none of it carries a strength tier or a safety assessment. Those belong to the range proper.</p>"
-          }
-        },
-        "q2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Do you ship merchandise with the rest of an order?",
-            "answer": "<p>Yes — it goes in the same parcel and counts towards free UK delivery like anything else.</p>"
-          }
-        },
-        "q3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Will there be more merchandise?",
-            "answer": "<p>Possibly, but only where it earns its place. We'd rather have one bag people use than a page of branded things nobody needs.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3"
-      ],
-      "settings": {
-        "headline": "Merchandise questions.",
-        "anchor_id": "faq"
       }
     },
     "range": {
@@ -130,17 +73,17 @@
         "l1": {
           "type": "link_item",
           "settings": {
-            "label": "The Senseless System",
-            "note": "How the strengths and formats fit together, and which one suits your appointment.",
-            "url": "/pages/the-senseless-system"
+            "label": "Shop all",
+            "note": "Creams, gels, sprays and bundles.",
+            "url": "/collections/shop-all"
           }
         },
         "l2": {
           "type": "link_item",
           "settings": {
-            "label": "Shop all",
-            "note": "The full range — creams, gels, sprays and bundles.",
-            "url": "/collections/shop-all"
+            "label": "The Senseless System",
+            "note": "Which strength and format suits your appointment.",
+            "url": "/pages/the-senseless-system"
           }
         }
       },
@@ -151,17 +94,14 @@
       "settings": {
         "band": "surface",
         "eyebrow": "The range",
-        "headline": "What the bag is for"
+        "headline": "What goes in it"
       }
     }
   },
   "order": [
     "hero",
     "trust",
-    "intro",
     "grid",
-    "notcosmetic",
-    "faq",
     "range"
   ]
 }

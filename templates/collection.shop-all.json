@@ -66,8 +66,7 @@
       "type": "senseless-collection-grid",
       "settings": {
         "eyebrow": "Merchandise",
-        "headline": "Things with our name on them",
-        "body": "<p>Not products you put on your skin — what you carry them in. No strength tier, no CPSR, no directions for use.</p>",
+        "headline": "Carry your kit",
         "show_filters": false,
         "format": "merchandise",
         "anchor_id": "merchandise"

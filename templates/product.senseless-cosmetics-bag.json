@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Merchandise",
         "subtitle": "",
-        "trust_line": "Senseless branded · Not a cosmetic product · Ships from the UK",
+        "trust_line": "Senseless branded · Zip-top · Ships from the UK",
         "force_tier": "none"
       },
       "blocks": {
@@ -30,13 +30,13 @@
         "t2": {
           "type": "trust_item",
           "settings": {
-            "label": "Not a cosmetic product"
+            "label": "Ships with the rest of your order"
           }
         },
         "t3": {
           "type": "trust_item",
           "settings": {
-            "label": "Made for the appointment"
+            "label": "Free UK delivery over £40"
           }
         }
       },
@@ -53,29 +53,29 @@
         "kf1": {
           "type": "fact",
           "settings": {
-            "label": "Category",
-            "value": "Branded merchandise"
+            "label": "Fits",
+            "value": "A tube or two, wipes and a cloth — the kit you take to an appointment."
           }
         },
         "kf2": {
-          "type": "fact",
-          "settings": {
-            "label": "Strength tier",
-            "value": "None — this sits outside the Clinical, Advanced and Professional range."
-          }
-        },
-        "kf3": {
           "type": "fact",
           "settings": {
             "label": "Closure",
             "value": "Zip-top, silver-tone."
           }
         },
-        "kf4": {
+        "kf3": {
           "type": "fact",
           "settings": {
             "label": "Sold",
             "value": "Empty — the products go in separately."
+          }
+        },
+        "kf4": {
+          "type": "fact",
+          "settings": {
+            "label": "Ships from",
+            "value": "United Kingdom."
           }
         }
       },
@@ -156,13 +156,6 @@
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a cosmetic product?",
-            "answer": "<p>No. It's a bag. It has no formula, no strength tier and no directions for use — it sits outside the Senseless range proper. The safety assessments behind our topical products don't apply to it, and don't need to.</p>"
-          }
-        },
         "q2": {
           "type": "faq_item",
           "settings": {
@@ -186,7 +179,6 @@
         }
       },
       "block_order": [
-        "q1",
         "q2",
         "q3",
         "q4"
