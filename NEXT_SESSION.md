@@ -33,8 +33,13 @@ surfaces. Shipped and live.
   3. **New cross-sell row on `product.bundle.json`** — covers all 5 kits; it had
      no cross-sell row, so nothing was diluted.
   4. **Bag as a 4th card** on the two aftercare PDPs.
-- Commits `128ec63` (build) + `11f4ca0` (reviews-guard re-lock). Deployed via
-  `deploy.sh --reviews-changed`; **Asset-API remote == local on all 8 files**.
+- **Shop All now has its own Merchandise section at the bottom** (`6666b0c`) —
+  see the correction below; this was missed on the first pass.
+- **Merchandise added to the footer Shop column** (found on audit — it listed
+  every other category but not this one). 3 links live on every page: desktop
+  mega, mobile drawer, footer.
+- Commits `128ec63` (build) + `11f4ca0` + `6666b0c` (Shop All) + lock re-locks.
+  Deployed via `deploy.sh --reviews-changed`; **Asset-API remote == local**.
 - Written up: Decision `3c558bc3-75ea-8144-a998-cb11ae99170d` + State Surface
   sync-status and log entry.
 
@@ -61,6 +66,28 @@ surfaces. Shipped and live.
    each of the 3 Merchant listings issues. (The new bag PDP does *not* reopen
    them — its JSON-LD was verified to carry `description`, `shippingDetails` and
    `hasMerchantReturnPolicy`.)
+
+## The correction that matters — a verification that lied
+
+My first pass reported **"bag appears in Shop All: PASS"**. It did not appear.
+The assertion matched the product **name** anywhere in the shop-all HTML, and the
+name was there only inside the **JSON-LD `ItemList`**. Live before the fix:
+`/collections/shop-all` declared **17** items in schema and rendered **16** cards.
+
+Shop All is **not one grid** — it is six `senseless-collection-grid` sections,
+each pinned to a `format` (cream/gel/spray/cleanser/bundle). None matched
+`Merchandise`, so the bag fell through every one of them.
+
+**The section's own comment already documents this exact failure** from the
+Vitamin A&D case — *"shop-all, whose own JSON-LD declared 16 items while the DOM
+rendered 15"* — and I reproduced it while editing that very file.
+
+Fixed in `6666b0c`. Live now: **17 cards == 17 ItemList entries, bag last.**
+
+> **Assert on RENDERED CARDS, never on a name appearing somewhere in the HTML.**
+> JSON-LD, nav links and inline CSS all contain product names and will hand you a
+> false PASS. `scratchpad/audit.py` now counts
+> `<h3 class="ss-cg__title">` anchors.
 
 ## Gotchas earned this session
 
