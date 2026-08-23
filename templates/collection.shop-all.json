@@ -14,24 +14,73 @@
     },
     "cream": {
       "type": "senseless-collection-grid",
-      "settings": { "eyebrow": "By format", "headline": "Numbing Cream", "show_filters": false, "format": "cream", "anchor_id": "cream" }
+      "settings": {
+        "eyebrow": "By format",
+        "headline": "Numbing Cream",
+        "show_filters": false,
+        "format": "cream",
+        "anchor_id": "cream"
+      }
     },
     "gel": {
       "type": "senseless-collection-grid",
-      "settings": { "eyebrow": "By format", "headline": "Numbing Gel", "show_filters": false, "format": "gel", "anchor_id": "gel" }
+      "settings": {
+        "eyebrow": "By format",
+        "headline": "Numbing Gel",
+        "show_filters": false,
+        "format": "gel",
+        "anchor_id": "gel"
+      }
     },
     "spray": {
       "type": "senseless-collection-grid",
-      "settings": { "eyebrow": "By format", "headline": "Numbing Spray", "show_filters": false, "format": "spray", "anchor_id": "spray" }
+      "settings": {
+        "eyebrow": "By format",
+        "headline": "Numbing Spray",
+        "show_filters": false,
+        "format": "spray",
+        "anchor_id": "spray"
+      }
     },
     "bundles": {
       "type": "senseless-collection-grid",
-      "settings": { "eyebrow": "Bundles", "headline": "Buy as a set", "show_filters": false, "format": "bundle", "anchor_id": "bundles" }
+      "settings": {
+        "eyebrow": "Bundles",
+        "headline": "Buy as a set",
+        "show_filters": false,
+        "format": "bundle",
+        "anchor_id": "bundles"
+      }
     },
     "aftercare": {
       "type": "senseless-collection-grid",
-      "settings": { "eyebrow": "Aftercare", "headline": "After your appointment", "show_filters": false, "format": "cleanser", "anchor_id": "aftercare" }
+      "settings": {
+        "eyebrow": "Aftercare",
+        "headline": "After your appointment",
+        "show_filters": false,
+        "format": "cleanser",
+        "anchor_id": "aftercare"
+      }
+    },
+    "merchandise": {
+      "type": "senseless-collection-grid",
+      "settings": {
+        "eyebrow": "Merchandise",
+        "headline": "Things with our name on them",
+        "body": "<p>Not products you put on your skin — what you carry them in. No strength tier, no CPSR, no directions for use.</p>",
+        "show_filters": false,
+        "format": "merchandise",
+        "anchor_id": "merchandise"
+      }
     }
   },
-  "order": ["hero", "cream", "gel", "spray", "aftercare", "bundles"]
+  "order": [
+    "hero",
+    "cream",
+    "gel",
+    "spray",
+    "aftercare",
+    "bundles",
+    "merchandise"
+  ]
 }
