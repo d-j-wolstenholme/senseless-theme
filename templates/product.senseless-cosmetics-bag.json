@@ -1,0 +1,208 @@
+{
+  "sections": {
+    "hero": {
+      "type": "senseless-product-hero",
+      "settings": {
+        "eyebrow": "Merchandise",
+        "subtitle": "",
+        "trust_line": "Senseless branded · Not a cosmetic product · Ships from the UK",
+        "force_tier": "none"
+      },
+      "blocks": {
+        "judgeme_preview_badge": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judgeme_preview_badge"
+      ]
+    },
+    "trust": {
+      "type": "senseless-trust-bar",
+      "blocks": {
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "label": "UK brand"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Not a cosmetic product"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "label": "Made for the appointment"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {}
+    },
+    "keyfacts": {
+      "type": "senseless-key-facts",
+      "blocks": {
+        "kf1": {
+          "type": "fact",
+          "settings": {
+            "label": "Category",
+            "value": "Branded merchandise"
+          }
+        },
+        "kf2": {
+          "type": "fact",
+          "settings": {
+            "label": "Strength tier",
+            "value": "None — this sits outside the Clinical, Advanced and Professional range."
+          }
+        },
+        "kf3": {
+          "type": "fact",
+          "settings": {
+            "label": "Closure",
+            "value": "Zip-top, silver-tone."
+          }
+        },
+        "kf4": {
+          "type": "fact",
+          "settings": {
+            "label": "Sold",
+            "value": "Empty — the products go in separately."
+          }
+        }
+      },
+      "block_order": [
+        "kf1",
+        "kf2",
+        "kf3",
+        "kf4"
+      ],
+      "settings": {
+        "band": "surface",
+        "heading": "Key facts"
+      }
+    },
+    "reviews": {
+      "type": "senseless-reviews",
+      "settings": {
+        "headline": "What clients say"
+      }
+    },
+    "crosssell": {
+      "type": "senseless-cross-sell",
+      "blocks": {
+        "c1": {
+          "type": "product_card",
+          "settings": {
+            "label": "Clinical Strength",
+            "title": "Cream",
+            "body": "<p>The standard-strength cream. Available in 30g and 10g.</p>",
+            "product": "clinical-strength-cream",
+            "price": "",
+            "cta_label": "View product",
+            "cta_url": "/products/clinical-strength-cream",
+            "flagship": false,
+            "image_alt": "Clinical Strength Senseless cream on a warm off-white background"
+          }
+        },
+        "c2": {
+          "type": "product_card",
+          "settings": {
+            "label": "Aftercare",
+            "title": "Foaming Cleanser",
+            "body": "<p>An antibacterial cleansing foam for treated skin.</p>",
+            "product": "foaming-cleanser",
+            "price": "",
+            "cta_label": "View product",
+            "cta_url": "/products/foaming-cleanser",
+            "flagship": false,
+            "image_alt": "Senseless Foaming Cleanser on a warm off-white background"
+          }
+        },
+        "c3": {
+          "type": "product_card",
+          "settings": {
+            "label": "Aftercare",
+            "title": "Vitamin A & D Ointment",
+            "body": "<p>A simple barrier ointment. Four travel tubes.</p>",
+            "product": "vitamin-a-d-ointment-4-pack",
+            "price": "",
+            "cta_label": "View product",
+            "cta_url": "/products/vitamin-a-d-ointment-4-pack",
+            "flagship": false,
+            "image_alt": "Senseless Vitamin A & D emollient ointment tube"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "columns": "3",
+        "eyebrow": "The range",
+        "headline": "What goes in it."
+      }
+    },
+    "faq": {
+      "type": "senseless-faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a cosmetic product?",
+            "answer": "<p>No. It's a bag. It has no formula, no strength tier and no directions for use — it sits outside the Senseless range proper. The safety assessments behind our topical products don't apply to it, and don't need to.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What fits in it?",
+            "answer": "<p>The kit you'd take to an appointment — a tube or two, wipes, a cloth. It's sized to live in a handbag rather than replace one.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it come with anything in it?",
+            "answer": "<p>No, the bag is sold empty. The products go in separately.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return it?",
+            "answer": "<p>Yes, under the same returns policy as the rest of the site. It ships in the same parcel as anything else in your order.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "headline": "Questions.",
+        "anchor_id": "faq"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "keyfacts",
+    "reviews",
+    "crosssell",
+    "faq"
+  ]
+}

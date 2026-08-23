@@ -3,8 +3,10 @@
   Strand 2 — Global Components. Centred nav, large wordmark, sticky + frosted.
 
   Two BESPOKE dropdowns (not menu-driven — keyed on the top-level title):
-    • "Shop"       → 4-column mega (By product w/ format→strength flyouts, By procedure,
-                     By strength, Bundles) + swappable featured card + filled "Shop all" CTA.
+    • "Shop"       → 5-column mega (By product w/ format→strength flyouts, By strength,
+                     By procedure, Bundles, Merchandise) + swappable featured card + filled
+                     "Shop all" CTA. Merchandise is branded accessories — NOT cosmetic products,
+                     no strength tier, no CPSR.
     • "The System" → learning hub (Layout B): read-first System card + 3 groups
                      (Understand by procedure / Application guides / Comfort & pain).
   Any OTHER top-level item with menu children (e.g. Help) renders a generic dropdown.
@@ -123,6 +125,9 @@
   }
   .ss-hdr__panel[hidden] { display: none; }
   .ss-hdr__panelinner { max-width: 1180px; margin: 0 auto; padding: 36px 20px 40px; }
+  /* Shop mega carries one more column than the other panels (Merchandise); widen it to the
+     header bar's own 1280px so the four existing columns keep their width instead of being squeezed. */
+  .ss-hdr__panelinner--wide { max-width: 1280px; }
   .ss-hdr__cols { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 40px; }
   .ss-hdr__col-title { font-family: var(--ss-head); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ss-purple); margin: 0 0 14px; }
   .ss-hdr__sublist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
@@ -138,7 +143,7 @@
 
   /* ---- Shop mega: 4 columns + featured card ---- */
   /* Equal-height nav columns (footer CTAs pin to one baseline) + vertical hairline dividers */
-  .ss-hdr__shopgrid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)) minmax(210px, 280px); column-gap: 0; row-gap: 28px; align-items: stretch; }
+  .ss-hdr__shopgrid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)) minmax(150px, 0.8fr) minmax(210px, 280px); column-gap: 0; row-gap: 28px; align-items: stretch; }
   .ss-hdr__colgroup { min-width: 0; }
   .ss-hdr__shopgrid > .ss-hdr__colgroup { display: flex; flex-direction: column; padding: 0 20px; }
   .ss-hdr__shopgrid > .ss-hdr__colgroup:first-child { padding-left: 0; }
@@ -344,7 +349,7 @@
       {%- if link.title == 'Shop' or link.title == 'The System' -%}{%- assign is_bespoke = true -%}{%- endif -%}
       {%- if link.links.size > 0 or is_bespoke -%}
         <div class="ss-hdr__panel" id="ss-panel-{{ uid }}-{{ forloop.index }}" data-ss-panel="{{ forloop.index }}" hidden>
-          <div class="ss-hdr__panelinner">
+          <div class="ss-hdr__panelinner{% if link.title == 'Shop' %} ss-hdr__panelinner--wide{% endif %}">
 
             {%- if link.title == 'Shop' -%}
               {%- comment -%}===== SHOP MEGA =====-{%- endcomment -%}
@@ -447,6 +452,15 @@
                     {%- endfor -%}
                     <li><a class="ss-hdr__sublink" href="/products/professional-numbing-kit-large">Professional</a></li>
                     <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/collections/bundles">Shop all bundles</a></li>
+                  </ul>
+                </div>
+
+                {%- comment -%}— Column 5: Merchandise (branded accessories — NOT cosmetic products, no tier) —{%- endcomment -%}
+                <div class="ss-hdr__colgroup">
+                  <p class="ss-hdr__col-title">Merchandise</p>
+                  <ul class="ss-hdr__sublist">
+                    <li><a class="ss-hdr__sublink" href="/products/senseless-cosmetics-bag">Cosmetics Bag</a></li>
+                    <li class="ss-hdr__colfoot"><a class="ss-hdr__sublink ss-hdr__sublink--foot" href="/collections/merchandise">Shop all merchandise</a></li>
                   </ul>
                 </div>
 
@@ -623,6 +637,11 @@
                 {%- endfor -%}
                 <a href="/products/professional-numbing-kit-large">Professional</a>
                 <a class="ss-hdr__acc-foot" href="/collections/bundles">Shop all bundles</a>
+              </div>
+              <div class="ss-hdr__accgroup">
+                <p class="ss-hdr__accgroup-title">Merchandise</p>
+                <a href="/products/senseless-cosmetics-bag">Cosmetics Bag</a>
+                <a class="ss-hdr__acc-foot" href="/collections/merchandise">Shop all merchandise</a>
               </div>
               {%- comment -%} Drawer Shop-all relocated to the pinned top CTA (see .ss-hdr__drawercta). {%- endcomment -%}
 

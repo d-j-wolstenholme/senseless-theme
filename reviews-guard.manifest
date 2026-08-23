@@ -22,6 +22,8 @@ REPO | templates/product.professional-strength-cream.json | preview_badge
 REPO | templates/product.professional-strength-gel.json | preview_badge
 REPO | templates/product.professional-strength-spray.json | preview_badge
 REPO | templates/product.foaming-cleanser.json | preview_badge
+REPO | templates/product.vitamin-a-d-ointment.json | preview_badge
+REPO | templates/product.senseless-cosmetics-bag.json | preview_badge
 REPO | templates/product.bundle.json | preview_badge
 REPO | sections/senseless-reviews.liquid | @app
 REPO | sections/senseless-product-hero.liquid | @app

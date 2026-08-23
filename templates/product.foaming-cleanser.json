@@ -166,15 +166,30 @@
             "flagship": false,
             "image_alt": "Senseless Vitamin A & D ointment four-pack on a warm off-white background"
           }
+        },
+        "d": {
+          "type": "product_card",
+          "settings": {
+            "label": "Merchandise",
+            "title": "Cosmetics Bag",
+            "body": "<p>Somewhere to keep the kit on the way to your appointment.</p>",
+            "product": "senseless-cosmetics-bag",
+            "price": "",
+            "cta_label": "View product",
+            "cta_url": "/products/senseless-cosmetics-bag",
+            "flagship": false,
+            "image_alt": "Senseless cosmetics bag in cream with a silver zip and an embossed SENSELESS wordmark"
+          }
         }
       },
       "block_order": [
         "a",
         "b",
-        "c"
+        "c",
+        "d"
       ],
       "settings": {
-        "columns": "3",
+        "columns": "4",
         "eyebrow": "What it pairs with",
         "headline": "Before and after the cleanse."
       }
