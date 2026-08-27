@@ -1,0 +1,38 @@
+{
+ "advanced-strength-cream": {
+  "before": "<p>Advanced is the higher-strength Comfort Cream, for regular aesthetic work.</p> <p>Available in 10g and 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>Available in 10g and 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "advanced-strength-gel": {
+  "before": "<p>Advanced is the higher-strength Comfort Gel \u2014 for longer facial sittings and more sensitive precise work. Gel holds where you place it and stays put through a longer sitting.</p> <p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "advanced-strength-spray": {
+  "before": "<p>Advanced is the higher-strength Comfort Spray \u2014 for longer or more sensitive body sessions and larger areas. Spray gives even, hands-off coverage, with no layer to work in by hand.</p> <p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "clinical-strength-cream": {
+  "before": "<p>Clinical is the standard-strength Comfort Cream \u2014 the tier most aesthetic appointments call for.</p> <p>Available in 10g and 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>Available in 10g and 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "clinical-strength-gel": {
+  "before": "<p>Clinical is the standard-strength Comfort Gel \u2014 it holds where you place it, for precise and facial work. Gel is the precise format: it stays put on facial and contoured areas through a longer sitting.</p> <p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "clinical-strength-spray": {
+  "before": "<p>Clinical is the standard-strength Comfort Spray \u2014 even, hands-off coverage for larger or awkward areas. Spray is the coverage format: even passes across a broad area, with no layer to work in by hand.</p> <p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "professional-strength-cream": {
+  "before": "<p>Professional is our practitioner tier \u2014 developed with practitioners, for the longest and most sustained appointments.</p> <p>Available in 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>Available in 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "professional-strength-gel": {
+  "before": "<p>Professional is our practitioner tier \u2014 developed with practitioners, for the longest and most sustained precise work. Gel holds where you place it and stays put through a longer sitting, on facial and contoured areas.</p> <p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "professional-strength-spray": {
+  "before": "<p>Professional is our practitioner tier \u2014 developed with practitioners, for the longest and most sustained body work. Spray covers large or awkward areas in even passes, with no layer to work in by hand.</p> <p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed": "<p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ }
+}

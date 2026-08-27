@@ -1,0 +1,82 @@
+{
+ "advanced-numbing-kit-large": {
+  "title": "Advanced Ultimate",
+  "descriptionHtml_before": "<p>Advanced Ultimate \u2014 every format at Advanced strength: Comfort Cream 30g, Comfort Gel 35ml, Comfort Spray 35ml and the Foaming Cleanser 35ml. Assembled and picked as a single unit, so the whole prep and aftercare routine arrives together.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>",
+  "removed_paragraph": "<p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>"
+ },
+ "advanced-numbing-kit-small": {
+  "title": "Advanced Starter",
+  "descriptionHtml_before": "<p>Advanced Starter \u2014 every format at Advanced strength: Comfort Cream 10g, Comfort Gel 15ml, Comfort Spray 35ml and the Foaming Cleanser 35ml. Assembled and picked as a single unit, so the whole prep and aftercare routine arrives together.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>",
+  "removed_paragraph": "<p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>"
+ },
+ "clinical-numbing-kit-large": {
+  "title": "Clinical Ultimate",
+  "descriptionHtml_before": "<p>Clinical Ultimate \u2014 every format at Clinical strength: Comfort Cream 30g, Comfort Gel 35ml, Comfort Spray 35ml and the Foaming Cleanser 35ml. Assembled and picked as a single unit, so the whole prep and aftercare routine arrives together.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>",
+  "removed_paragraph": "<p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>"
+ },
+ "clinical-numbing-kit-small": {
+  "title": "Clinical Starter",
+  "descriptionHtml_before": "<p>Clinical Starter \u2014 every format at Clinical strength: Comfort Cream 10g, Comfort Gel 15ml, Comfort Spray 35ml and the Foaming Cleanser 35ml. Assembled and picked as a single unit, so the whole prep and aftercare routine arrives together.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>",
+  "removed_paragraph": "<p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>"
+ },
+ "professional-numbing-kit-large": {
+  "title": "Professional Ultimate",
+  "descriptionHtml_before": "<p>Professional Ultimate \u2014 every format at Professional strength: Comfort Cream 30g, Comfort Gel 35ml, Comfort Spray 35ml and the Foaming Cleanser 35ml. Assembled and picked as a single unit, so the whole prep and aftercare routine arrives together.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>",
+  "removed_paragraph": "<p>Senseless is a cosmetic product, formulated in the United Kingdom. Numbing is a cosmetic preparation that supports comfort \u2014 follow the product instructions and your practitioner's guidance.</p>"
+ },
+ "foaming-cleanser": {
+  "title": "Foaming Cleanser",
+  "descriptionHtml_before": "<p>An antibacterial foaming cleanser for the appointment routine \u2014 cleanse the area before you start, and again afterwards. <strong>Not a numbing product.</strong> It sits outside the strength range and has no tier.</p> <p>35ml. Follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>35ml. Follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>"
+ },
+ "advanced-strength-cream": {
+  "title": "Advanced Strength Cream",
+  "descriptionHtml_before": "<p>Advanced is the higher-strength Comfort Cream, for regular aesthetic work.</p> <p>Formulated for longer or more sensitive sessions. No tier is better than another; each suits a different kind of session. If your appointments are routine and short, Clinical is the tier to start from \u2014 match it to the session you're actually having, not to price.</p> <p>Available in 10g and 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Formulated for longer or more sensitive sessions. No tier is better than another; each suits a different kind of session. If your appointments are routine and short, Clinical is the tier to start from \u2014 match it to the session you're actually having, not to price.</p>"
+ },
+ "clinical-strength-cream": {
+  "title": "Clinical Strength Cream",
+  "descriptionHtml_before": "<p>Clinical is the standard-strength Comfort Cream \u2014 the tier most aesthetic appointments call for.</p> <p>Formulated for shorter, routine appointments and smaller areas, and the sensible place to start. No tier is better than another; each suits a different kind of session. If you're between two, the lighter one is usually the sensible start, and you can choose differently next time.</p> <p>Available in 10g and 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Formulated for shorter, routine appointments and smaller areas, and the sensible place to start. No tier is better than another; each suits a different kind of session. If you're between two, the lighter one is usually the sensible start, and you can choose differently next time.</p>"
+ },
+ "professional-strength-cream": {
+  "title": "Professional Strength Cream",
+  "descriptionHtml_before": "<p>Professional is our practitioner tier \u2014 developed with practitioners, for the longest and most sustained appointments.</p> <p>Most sessions don't need the practitioner tier. No tier is better than another; each suits a different kind of session. If yours is routine, Clinical or Advanced is the sensible match. Strength matches the appointment, not the budget.</p> <p>Available in 30g. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Most sessions don't need the practitioner tier. No tier is better than another; each suits a different kind of session. If yours is routine, Clinical or Advanced is the sensible match. Strength matches the appointment, not the budget.</p>"
+ },
+ "advanced-strength-gel": {
+  "title": "Advanced Strength Gel",
+  "descriptionHtml_before": "<p>Advanced is the higher-strength Comfort Gel \u2014 for longer facial sittings and more sensitive precise work. Gel holds where you place it and stays put through a longer sitting.</p> <p>Formulated for longer or more sensitive sessions on facial and contoured areas. No tier is better than another; each suits a different kind of session. Strength isn't set by the format \u2014 every format comes in all three tiers, so pick the format for the area and the tier for the session.</p> <p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Formulated for longer or more sensitive sessions on facial and contoured areas. No tier is better than another; each suits a different kind of session. Strength isn't set by the format \u2014 every format comes in all three tiers, so pick the format for the area and the tier for the session.</p>"
+ },
+ "clinical-strength-gel": {
+  "title": "Clinical Strength Gel",
+  "descriptionHtml_before": "<p>Clinical is the standard-strength Comfort Gel \u2014 it holds where you place it, for precise and facial work. Gel is the precise format: it stays put on facial and contoured areas through a longer sitting.</p> <p>Formulated for shorter, routine sittings and smaller, defined areas. No tier is better than another; each suits a different kind of session. Strength isn't set by the format \u2014 every format comes in all three tiers, so pick the format for the area and the tier for the session.</p> <p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Formulated for shorter, routine sittings and smaller, defined areas. No tier is better than another; each suits a different kind of session. Strength isn't set by the format \u2014 every format comes in all three tiers, so pick the format for the area and the tier for the session.</p>"
+ },
+ "professional-strength-gel": {
+  "title": "Professional Strength Gel",
+  "descriptionHtml_before": "<p>Professional is our practitioner tier \u2014 developed with practitioners, for the longest and most sustained precise work. Gel holds where you place it and stays put through a longer sitting, on facial and contoured areas.</p> <p>Most sessions don't need the practitioner tier. No tier is better than another; each suits a different kind of session. Strength isn't set by the format \u2014 every format comes in all three tiers, so pick the format for the area and the tier for the session.</p> <p>Available in 15ml and 35ml. Apply to clean, dry, unbroken skin ahead of time and remove before your appointment; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Most sessions don't need the practitioner tier. No tier is better than another; each suits a different kind of session. Strength isn't set by the format \u2014 every format comes in all three tiers, so pick the format for the area and the tier for the session.</p>"
+ },
+ "senseless-cosmetics-bag": {
+  "title": "Senseless Cosmetics Bag",
+  "descriptionHtml_before": "<p>A zip-top cosmetics bag in soft cream, with the Senseless wordmark on the front.</p>\n<p>Sized for what you actually take to an appointment \u2014 a tube or two, wipes, a cloth \u2014 and slim enough to live in a handbag without taking it over. Silver-tone zip, and a flat base so it stands up on a worktop rather than slumping.</p>",
+  "removed_paragraph": "<p>Sized for what you actually take to an appointment \u2014 a tube or two, wipes, a cloth \u2014 and slim enough to live in a handbag without taking it over. Silver-tone zip, and a flat base so it stands up on a worktop rather than slumping.</p>"
+ },
+ "advanced-strength-spray": {
+  "title": "Advanced Strength Spray",
+  "descriptionHtml_before": "<p>Advanced is the higher-strength Comfort Spray \u2014 for longer or more sensitive body sessions and larger areas. Spray gives even, hands-off coverage, with no layer to work in by hand.</p> <p>Formulated for longer or more sensitive body sessions, and suited to broad areas such as laser and waxing appointments, where sensitivity varies across the area. No tier is better than another; each suits a different kind of session.</p> <p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Formulated for longer or more sensitive body sessions, and suited to broad areas such as laser and waxing appointments, where sensitivity varies across the area. No tier is better than another; each suits a different kind of session.</p>"
+ },
+ "clinical-strength-spray": {
+  "title": "Clinical Strength Spray",
+  "descriptionHtml_before": "<p>Clinical is the standard-strength Comfort Spray \u2014 even, hands-off coverage for larger or awkward areas. Spray is the coverage format: even passes across a broad area, with no layer to work in by hand.</p> <p>Formulated for shorter, routine sessions where the area is broad and covering it evenly matters. No tier is better than another; each suits a different kind of session. If you're between two, the lighter one is usually the sensible start.</p> <p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Formulated for shorter, routine sessions where the area is broad and covering it evenly matters. No tier is better than another; each suits a different kind of session. If you're between two, the lighter one is usually the sensible start.</p>"
+ },
+ "professional-strength-spray": {
+  "title": "Professional Strength Spray",
+  "descriptionHtml_before": "<p>Professional is our practitioner tier \u2014 developed with practitioners, for the longest and most sustained body work. Spray covers large or awkward areas in even passes, with no layer to work in by hand.</p> <p>Most sessions don't need the practitioner tier. No tier is better than another; each suits a different kind of session. If yours is routine, Clinical or Advanced is the sensible match. Strength matches the appointment, not the budget.</p> <p>35ml. Hold a short, consistent distance from the skin and cover the area in even passes, on clean, dry, unbroken skin; follow the product guidance and your practitioner. Formulated in the UK, CPSR assessed.</p>",
+  "removed_paragraph": "<p>Most sessions don't need the practitioner tier. No tier is better than another; each suits a different kind of session. If yours is routine, Clinical or Advanced is the sensible match. Strength matches the appointment, not the budget.</p>"
+ }
+}

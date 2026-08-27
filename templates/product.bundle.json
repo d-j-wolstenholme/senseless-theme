@@ -61,7 +61,7 @@
         "background": "white",
         "eyebrow": "Where this sits",
         "headline": "Part of the Senseless System",
-        "body": "<p>Each bundle pairs a strength-matched Comfort Cream, Comfort Gel and Comfort Spray with the Foaming Cleanser — the same products sold individually, assembled and picked as one unit. Choose the bundle that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom.</p>",
+        "body": "<p>Each bundle pairs a strength-matched Comfort Cream, Comfort Gel and Comfort Spray with the Foaming Cleanser and the Senseless Cosmetics Bag — the same products sold individually, assembled and picked as one unit. Choose the bundle that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom.</p>",
         "cta_label": "Explore the Senseless System",
         "cta_url": "/pages/the-senseless-system"
       }
@@ -73,7 +73,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What's in the bundle?",
-            "answer": "<p>A strength-matched Comfort Cream, Comfort Gel and Comfort Spray, plus the Foaming Cleanser for before and after. The exact sizes are listed above.</p>"
+            "answer": "<p>A strength-matched Comfort Cream, Comfort Gel and Comfort Spray, the Foaming Cleanser for before and after, and the Senseless Cosmetics Bag to keep it together. The exact sizes are listed above.</p>"
           }
         },
         "q2": {
@@ -125,26 +125,12 @@
     "alsoworth": {
       "type": "senseless-cross-sell",
       "blocks": {
-        "a1": {
-          "type": "product_card",
-          "settings": {
-            "label": "Merchandise",
-            "title": "Cosmetics Bag",
-            "body": "<p>Somewhere to keep the kit on the way to your appointment.</p>",
-            "product": "senseless-cosmetics-bag",
-            "price": "",
-            "cta_label": "View product",
-            "cta_url": "/products/senseless-cosmetics-bag",
-            "flagship": false,
-            "image_alt": "Senseless cosmetics bag in cream with a silver zip and an embossed SENSELESS wordmark"
-          }
-        },
         "a2": {
           "type": "product_card",
           "settings": {
-            "label": "Aftercare",
+            "label": "Refill",
             "title": "Foaming Cleanser",
-            "body": "<p>An antibacterial cleansing foam for treated skin.</p>",
+            "body": "<p>A replacement 35ml, for when the one in your bundle runs out.</p>",
             "product": "foaming-cleanser",
             "price": "",
             "cta_label": "View product",
@@ -158,7 +144,7 @@
           "settings": {
             "label": "Aftercare",
             "title": "Vitamin A & D Ointment",
-            "body": "<p>A simple barrier ointment. Four travel tubes.</p>",
+            "body": "<p>A simple barrier ointment for afterwards. Four travel tubes, and not included in the bundle.</p>",
             "product": "vitamin-a-d-ointment-4-pack",
             "price": "",
             "cta_label": "View product",
@@ -169,14 +155,13 @@
         }
       },
       "block_order": [
-        "a1",
         "a2",
         "a3"
       ],
       "settings": {
-        "columns": "3",
-        "eyebrow": "Also worth having",
-        "headline": "Keep the kit together."
+        "columns": "2",
+        "eyebrow": "Aftercare and refills",
+        "headline": "For afterwards, and for when it runs out."
       }
     }
   },
