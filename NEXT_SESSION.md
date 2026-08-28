@@ -1,148 +1,90 @@
 # NEXT_SESSION — handoff
 
-**Last session (23 Aug 2026, MacBook Pro):** launched the **Merchandise** line —
-new collection + the Senseless Cosmetics Bag — and wired it into the promotion
-surfaces. Shipped and live.
+**Last session (27–28 Aug 2026, MacBook Pro):** two strands — (1) diagnosed why
+Senseless email lands in junk and briefed Peter to fix the DNS, (2) audited all 17
+product pages and cut the copy the founder objected to. Everything below is live.
 
 ## Done
 
-- **Product `senseless-cosmetics-bag`** — SKU `SENBAG`, £9.99, single variant,
-  **150 units at UK Dispatch**, ACTIVE, published to Online Store. New
-  `product_type` = **Merchandise**. Own template, own SEO.
-- **Collection `merchandise`** — smart collection, rule `type = Merchandise`,
-  published, own template, SEO set. `/collections/merchandise` is live.
-- **The new product type had a blast radius and it bit immediately.**
-  `aesthetic-numbing-cream` is a smart collection whose ONLY rule was
-  `type != Cleanser`, so the bag auto-joined a *numbing cream* collection the
-  moment it was created. Caught by querying the product's collections straight
-  after creation rather than assuming. Fixed with `type != Merchandise`; the bag
-  now sits in `shop-all` + `merchandise` only.
-- **Image** through `scripts/image-pipeline.mjs`: 1254×1254 PNG 1.27MB → WebP
-  **45.6KB** (ceiling 300KB), alt set, manifest logged.
-  CDN: `https://cdn.shopify.com/s/files/1/1028/2565/6668/files/senseless-cosmetics-bag.webp?v=1787476407`
-- **Promotion surfaces** (Daniel chose each one):
-  1. **5th mega-menu column "Merchandise"** desktop + matching drawer accordion
-     group on mobile. Professional Complete **keeps** the featured card. The Shop
-     panel now uses `.ss-hdr__panelinner--wide` (1280px, the header bar's own
-     width) so the existing four columns aren't squeezed by the new one.
-  2. **Cart drawer now carries TWO offers** (ointment + bag). This deliberately
-     supersedes the "ONE suggested add" rule for that pair. Laid out
-     `repeat(auto-fit, minmax(240px,1fr))` — side by side on the cart page and
-     wide viewports, **stacked** in the ~380px drawer where two-across is
-     unusable.
-  3. **New cross-sell row on `product.bundle.json`** — covers all 5 kits; it had
-     no cross-sell row, so nothing was diluted.
-  4. **Bag as a 4th card** on the two aftercare PDPs.
-- **Shop All now has its own Merchandise section at the bottom** (`6666b0c`) —
-  see the correction below; this was missed on the first pass.
-- **Merchandise added to the footer Shop column** (found on audit — it listed
-  every other category but not this one). 3 links live on every page: desktop
-  mega, mobile drawer, footer.
-- Commits `128ec63` (build) + `11f4ca0` + `6666b0c` (Shop All) + lock re-locks.
-  Deployed via `deploy.sh --reviews-changed`; **Asset-API remote == local**.
-- Written up: Decision `3c558bc3-75ea-8144-a998-cb11ae99170d` + State Surface
-  sync-status and log entry.
+### Strand 1 — email authentication (senseless.uk)
 
-## Also done — dispatch cut-off 1pm → 3:30pm (`508e6b9`)
+- **Diagnosed the real cause.** Four systems send as `@senseless.uk`; DMARC is at
+  `p=quarantine`, so anything that does not **align** is junked by our own policy.
+  Only Microsoft 365 aligns, and it does so on SPF alone.
+  - **Klaviyo** is on the SHARED sending domain → cannot align → campaigns fail
+    DMARC deterministically. This is the cause of campaigns in junk.
+  - **M365** has NO DKIM published (`selector1/2._domainkey` absent). DMARC rests
+    on SPF only, with no fallback on forwarded or mailing-list mail.
+  - **Shopify** (`cs@senseless.uk`) is very likely unauthenticated, but this is
+    **NOT provable from DNS** — host names are per-store and the Admin API does not
+    expose the status. Must be read in the admin.
+  - **DMARC `rua` points at GoDaddy's aggregator**, so nobody here has ever seen a
+    failure report. Confirmed the authorisation record exists at
+    `senseless.uk._report._dmarc.onsecureserver.net`.
+- **Corrected a wrong claim before it went to the agency.** "SPF only authorises
+  GoDaddy" is FALSE: `include:secureserver.net` chains through `spf-0.secureserver.net`
+  to `include:spf.protection.outlook.com` in **3 of 10 lookups**. `-all` inside an
+  included record does not end the outer evaluation (RFC 7208 §5.2).
+  **Do not edit the apex SPF record** — it is the only mechanism currently producing a
+  DMARC pass, and the lookup headroom is load-bearing.
+- **`scripts/email-auth-check.sh`** (commit `ae4e3cc`) — reads live DNS, pass/fail per
+  sender. Refuses to report a clean run if any lookup errored (exit 2 = UNRELIABLE),
+  per the `injectable-clean-sweep.py` false-zero lesson.
+  **Current state: 6 pass · 4 fail · 1 warn · 0 resolver errors.**
+- **Peter briefed.** Five-job runbook written for someone with no email knowledge,
+  rendered to PDF (`~/Documents/senseless-briefs/`) and emailed to
+  peter@matrixhealthgroup.co.uk from Outlook web. Confirmed in Sent Items.
 
-Changed everywhere it is stated, both sides of the store. Live-swept clean:
-**0 instances of "1pm" on any surface.**
+### Strand 2 — product page copy
 
-- **Schema was a gap, not a replace.** The graph had `handlingTime` and
-  `transitTime` but **no `cutoffTime` at all** — the cut-off was never expressed
-  to Google. Added to all five `ShippingDeliveryTime` nodes.
-- **The offset tracks BST/GMT by itself.** Google needs ISO 8601 *with* a
-  timezone, and a hardcoded `+01:00` reads as 14:30 once BST ends. The offset is
-  read from the store's own clock (`date: '%z'`), so it is `+0100` in summer and
-  `+0000` in winter with no seasonal edit. Live: `15:30:00+01:00`.
-- **Checkout method names renamed** on both definitions. The full rate card was
-  snapshotted before/after and diffed — names changed, **every price and
-  price-condition untouched**.
-- Theme: shipping banner, `page.delivery.json` (12), `page.tktx-*` (2).
-  Shopify: shop shipping policy, one blog article, and 4 metafields.
-- **`page.faq.json` deliberately untouched** — "before our published daily
-  dispatch cut-off" states no time and is legal-verbatim copy.
+- **Audit:** 13 agents over a corpus of all 17 products (live Admin API + repo
+  templates). 81 findings survived a hostile verification pass; 33 were dropped as
+  fabricated, misquoted or taste-only.
+- **Descriptions (live, Admin API):** second paragraph removed from **16 products** —
+  every one was either defensive steering ("Most sessions don't need the practitioner
+  tier") or a duplicate of the same page's own Key Facts/FAQ. Then the duplicated
+  sizes/directions/CPSR paragraph removed from the **9 range products** (all three
+  facts already render in Key Facts, the safety block and the trust bar).
+  Backups: `build-reports/product-description-p2-removal-backup-2026-08-27.json` and
+  `…-p3-removal-backup-2026-08-27.json` — every original recoverable.
+- **Templates (`46a6dcc`):** cream FAQ repetition cut (the 45–60 minute sentence pair
+  appeared verbatim in two adjacent accordion items); gel/spray duplicated clause cut;
+  spray "How long does it last?" no longer describes CREAM technique; bag added to
+  bundle contents; bundle cross-sell no longer offers items already inside the bundle.
+- **Cart (`e064731`):** cart upsell is now bundle-aware (reads each item's own
+  `bundle_contents`), and the stale-empty-class bug is fixed at the root.
 
-> **Content hides in metafields.** Scanning `body_html` alone would have missed
-> **6 of the 10** Shopify-side hits — the policy pages are metafield-driven. And
-> the first LIVE sweep still found 2 survivors: an FAQ in an *article* metafield
-> (`custom.faq`), rendered twice (HTML + FAQPage JSON-LD). Sweep page, article,
-> product and collection metafields — then re-sweep live.
+## Next Work Item
 
-## Open — needs Daniel
+1. **Peter works jobs 1–5 in the brief.** NOTHING IN DNS HAS BEEN CHANGED. Order is
+   reports → M365 DKIM → Shopify → Klaviyo → then resume sending.
+2. After each job, re-run `bash scripts/email-auth-check.sh` and check it moves.
+3. Only when it is clean does the September send plan (max 5, tight segments) start.
 
-1. **The bag's MATERIAL and DIMENSIONS.** I inferred "faux leather" from the
-   photograph and then **deliberately removed it** from the alt text and key
-   facts — a wrong material statement on a product page is a consumer-law
-   problem, not a copy nit. The key-facts block is honest but thin until these
-   are supplied. Once you confirm, update the alt text, the Files asset alt, and
-   the `Closure`/material key facts.
-2. **`/pages/delivery` SEO meta description is 220 chars** and will be truncated
-   in search results. It was already over (216) before the cut-off edit — this is
-   pre-existing, not caused by it, and I did not rewrite your SEO copy without
-   asking. Say the word and I'll trim it to ~155.
-3. Everything below is unchanged from the previous handoff.
+## Gotchas
 
-## Next
-
-1. **Commission the 12 images.** Brief ready: `docs/IMAGE-BRIEF-tattoo-cluster.md`.
-   Finals to `assets/images/inbox/`, `scripts/image-pipeline.mjs` does the rest.
-2. **G2 — the only safety gate still open.** Can *"Apply to clean, unbroken skin"*
-   change? Assume NO until the safety assessor rules. (**G1 is closed. Do not
-   re-raise it.**)
-3. **`tattoo pain chart`** — 6,900/mo at KD 1, `/pages/tattoo-pain-chart` is a
-   404, and the two strategy docs contradict each other on whether it's winnable.
-4. **Search Console** — still outstanding from 19 Aug: click **Validate fix** on
-   each of the 3 Merchant listings issues. (The new bag PDP does *not* reopen
-   them — its JSON-LD was verified to carry `description`, `shippingDetails` and
-   `hasMerchantReturnPolicy`.)
-
-## The correction that matters — a verification that lied
-
-My first pass reported **"bag appears in Shop All: PASS"**. It did not appear.
-The assertion matched the product **name** anywhere in the shop-all HTML, and the
-name was there only inside the **JSON-LD `ItemList`**. Live before the fix:
-`/collections/shop-all` declared **17** items in schema and rendered **16** cards.
-
-Shop All is **not one grid** — it is six `senseless-collection-grid` sections,
-each pinned to a `format` (cream/gel/spray/cleanser/bundle). None matched
-`Merchandise`, so the bag fell through every one of them.
-
-**The section's own comment already documents this exact failure** from the
-Vitamin A&D case — *"shop-all, whose own JSON-LD declared 16 items while the DOM
-rendered 15"* — and I reproduced it while editing that very file.
-
-Fixed in `6666b0c`. Live now: **17 cards == 17 ItemList entries, bag last.**
-
-> **Assert on RENDERED CARDS, never on a name appearing somewhere in the HTML.**
-> JSON-LD, nav links and inline CSS all contain product names and will hand you a
-> false PASS. `scratchpad/audit.py` now counts
-> `<h3 class="ss-cg__title">` anchors.
-
-## Gotchas earned this session
-
-- **`nil == blank` is TRUE in Shopify Liquid but FALSE in python-liquid.** A guard
-  written `if product != blank` therefore **cannot be exercised in the offline
-  harness** — the missing-product branch never fires and the harness cheerfully
-  renders a broken card while reporting success. **Write guards as plain
-  truthiness** (`if p and v and v.available`): nil is falsy in both engines, so
-  the guard is correct live *and* testable offline. This is what the cart-offer
-  guard was rewritten to.
-- **A new `product_type` is never a local change on this store.** All 19
-  collections are smart collections keyed on `type` or a metafield. Read the rules
-  before creating the product, and query the product's collections immediately
-  after. One query, caught a real breach first time.
-- **Checkout upsells are not buildable here and this should stop being asked.**
-  The store is on the **Grow** plan, not Plus — no app, snippet or theme edit puts
-  custom content or a pop-up on the checkout page. Only the cart drawer (ours) and
-  a paid post-purchase app exist; Daniel chose to skip the paid route.
-- **Verify a cart feature with an actual cart.** `curl` against `/cart` with an
-  empty cart proves nothing about the offer logic. Building a real cart with
-  `/cart/add.js` + a cookie jar proved both cards render *and* that each
-  self-suppresses once its product is in the cart.
-- **Watch your own verification regexes before believing a FAIL.** Three
-  "failures" this session were all mine: the theme emits **multi-line** `<meta>`
-  tags (so a single-line description regex misses it), product images serve from
-  `senseless.uk/cdn/shop/files/` not `cdn.shopify.com`, and `.ss-ph__comfort`
-  appears as a **CSS rule** on every product page — match the markup, not the
-  class name.
+- **Safety gate G2 is BLOCKED, not done.** The founder says the product is fine on
+  broken skin and asked to remove "Apply to clean, unbroken skin." and add in-session
+  "extend" wording. **Not actioned.** That block is the approved launch-gate compliance
+  set, hardcoded and non-editable by design (Decision 2 Jul 2026); broken-skin
+  suitability sits in the CPSR claim envelope, so it needs the CPSR/MHG owner, not a
+  content call. "Extend" would also be a duration claim under the Hard Rules.
+- **FULFILMENT MUST SHIP A BAG WITH EVERY BUNDLE.** The founder confirmed bundles
+  contain the Cosmetics Bag, so the metafield, body copy, FAQ and collection page now
+  all say so. If the pick list does not include it, the site is now misdescribing.
+- **"Numbing is a cosmetic preparation that supports comfort" is STILL LIVE** in the
+  bundle rich-text section. Removing it from the descriptions did NOT close that
+  flagged effect claim.
+- **"Antibacterial" appears 11× across 7 pages.** Not a Hard Rule breach, but it is a
+  biocidal claim needing substantiation — a question for MHG.
+- **73 audit findings remain open.** Only the items the founder named were actioned.
+  Full verified set in the workflow output; highest-value untouched item is
+  "What it's used for." × 24 across 9 pages.
+- **`config/settings_data.json` drifts 42 bytes from live — whitespace only.**
+  Semantically identical. It is NOT the cause of anything. Do not chase it again.
+- **The cart drawer "keeps reverting" was never a revert.** `cart-drawer--empty` is
+  written once server-side from `cart.empty?` and nothing removed it, so the first
+  AJAX add left a stale class and the empty-state layout slid the heading under the
+  close button. Fixed in `cart-drawer.js` + a `:has()` CSS guard.
+- **Storefront cache is per URL.** Use `?_fd=0` plus a random param; a plain fetch can
+  serve a stale page and read as a failed change.
