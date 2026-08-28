@@ -540,6 +540,18 @@
     text-align: center;
   }
 
+  /* Belt and braces for the stale `cart-drawer--empty` class (root cause fixed in
+     cart-drawer.js): if the drawer genuinely has items, never apply the empty-state layout,
+     whatever the class says. Without this, `justify-content: right` slid the "Cart" heading
+     underneath the absolutely positioned close (x) button. */
+  .cart-drawer__dialog:has(.cart-drawer__items) .cart-drawer__header {
+    justify-content: space-between;
+  }
+
+  .cart-drawer__dialog:has(.cart-drawer__items) .cart-drawer__heading {
+    text-align: left;
+  }
+
   header-actions {
     display: flex;
 

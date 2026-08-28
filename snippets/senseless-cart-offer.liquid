@@ -58,6 +58,24 @@
         endfor
       endif
 
+      # Already inside a bundle that's in the cart? Read the bundle's OWN contents list rather
+      # than hardcoding handles, so this self-corrects whenever a bundle's contents change.
+      # Every Senseless bundle ships with the Cosmetics Bag, so offering the bag to someone
+      # buying a bundle sells them something they are already paying for. The Vitamin A & D
+      # ointment is in no bundle, so it keeps showing.
+      if ok
+        for item in cart.items
+          assign bundled = item.product.metafields.senseless.bundle_contents.value
+          if bundled
+            for entry in bundled
+              if entry contains h
+                assign ok = false
+              endif
+            endfor
+          endif
+        endfor
+      endif
+
       if ok
         if visible == ''
           assign visible = h

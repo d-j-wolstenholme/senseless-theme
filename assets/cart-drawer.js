@@ -1,5 +1,5 @@
 import { DialogComponent, DialogOpenEvent, DialogCloseEvent } from '@theme/dialog';
-import { CartAddEvent } from '@theme/events';
+import { CartAddEvent, ThemeEvents } from '@theme/events';
 import { isMobileBreakpoint } from '@theme/utilities';
 
 /**
@@ -21,6 +21,7 @@ class CartDrawerComponent extends DialogComponent {
   connectedCallback() {
     super.connectedCallback();
     document.addEventListener(CartAddEvent.eventName, this.#handleCartAdd);
+    document.addEventListener(ThemeEvents.cartUpdate, this.#handleCartUpdate);
     this.addEventListener(DialogOpenEvent.eventName, this.#updateStickyState);
     this.addEventListener(DialogOpenEvent.eventName, this.#handleHistoryOpen);
     this.addEventListener(DialogCloseEvent.eventName, this.#handleHistoryClose);
@@ -33,6 +34,7 @@ class CartDrawerComponent extends DialogComponent {
   disconnectedCallback() {
     super.disconnectedCallback();
     document.removeEventListener(CartAddEvent.eventName, this.#handleCartAdd);
+    document.removeEventListener(ThemeEvents.cartUpdate, this.#handleCartUpdate);
     this.removeEventListener(DialogOpenEvent.eventName, this.#updateStickyState);
     this.removeEventListener(DialogOpenEvent.eventName, this.#handleHistoryOpen);
     this.removeEventListener(DialogCloseEvent.eventName, this.#handleHistoryClose);
@@ -75,6 +77,38 @@ class CartDrawerComponent extends DialogComponent {
     }
 
     this.#announceCartCount(event.detail.resource?.item_count);
+    // A successful add means the cart is not empty, whatever the class currently says.
+    this.#syncEmptyState(1);
+  };
+
+  /**
+   * Keeps the empty-state class in step with the real cart.
+   *
+   * `cart-drawer--empty` is written ONCE, server-side, from `cart.empty?` at page render, and
+   * nothing removed it afterwards. Adding the first item over AJAX therefore left a stale class on
+   * a now-full drawer, and the empty-state rules kept applying — `justify-content: right` on
+   * `.cart-drawer__header` slid the "Cart" heading underneath the absolutely positioned close (x)
+   * button. Any page reload re-rendered it correctly, which is why it read as an intermittent
+   * regression that "kept coming back" rather than a permanent break.
+   *
+   * @param {number | undefined} itemCount
+   */
+  #syncEmptyState(itemCount) {
+    if (itemCount === undefined) return;
+    this.refs.dialog?.classList.toggle('cart-drawer--empty', itemCount === 0);
+  }
+
+  /**
+   * @param {CustomEvent<{ data?: { itemCount?: number, source?: string } }>} event
+   */
+  #handleCartUpdate = (event) => {
+    // From a product form, itemCount is the quantity just added rather than the cart total —
+    // but the add itself proves the cart is not empty.
+    if (event.detail?.data?.source === 'product-form-component') {
+      this.#syncEmptyState(1);
+      return;
+    }
+    this.#syncEmptyState(event.detail?.data?.itemCount);
   };
 
   /**
