@@ -1,90 +1,74 @@
 # NEXT_SESSION — handoff
 
-**Last session (27–28 Aug 2026, MacBook Pro):** two strands — (1) diagnosed why
-Senseless email lands in junk and briefed Peter to fix the DNS, (2) audited all 17
-product pages and cut the copy the founder objected to. Everything below is live.
+**Last session (30–31 Aug 2026 + 1 Sep close, MacBook Pro):** collection-page
+conversion work, end to end — audit (13 agents + 42-source research), report, and the
+full rebuild SHIPPED to live. Repo `c0820c0` + lock re-lock, == origin/main.
+Report artifact: "The Buried Grid" — https://claude.ai/code/artifact/f62a087f-daeb-4851-9982-91de69b9777e
 
-## Done
+## Done (live, verified)
 
-### Strand 1 — email authentication (senseless.uk)
+- **Grid to slot 2 on all 17 collection templates** (was 5th–6th behind 444–968 words).
+  Copy moved BELOW the grid, not deleted — SEO/GEO surfaces untouched (no URL/H1/meta/
+  JSON-LD changes). Tattoos/piercings format-guidance folded into the first grid's intro.
+- **Cards** (senseless-collection-grid + product-highlights + trio-card-row): Judge.me
+  stars server-rendered from `judgeme.badge` metafield (slot had shipped EMPTY on every
+  card since integration); size-labelled prices ("10g · £19.99"); prices on size chips;
+  compare-at + "Save £X" (bundles now show the deal); 2-up compact mobile grid, qty
+  stepper hidden <768px, ≥44px touch targets; srcset 300–1200 + sizes; persistent
+  view-cue on touch; new `card_badge` block.
+- **Strength filter switched ON** (was built + `show_filters:false` on all 32 instances)
+  for waxing / microneedling / SPMU / laser.
+- **Captions on all 16 tattoos + 16 piercings cards** (were 4); **Bestseller badge on
+  Professional Strength Spray** — earned: 19 units of 75 orders since launch (real order
+  data). Sprays outsell creams 40–27 — the "cream is what most people reach for" copy
+  may deserve a rethink.
+- **Copy** (21 strings through compliance-check: PASS): piercings hero/intro no longer
+  argue the visitor out of buying (lobe honesty kept, in FAQ); tattoos hero 67→33w;
+  "you may not need this" callout removed from 3 format pages (FAQ instance survives);
+  clinical-vs-procedure "most appointments" contradiction resolved; "Strongest numbing
+  cream" link relabelled; keyword-stuffed key-fact rewritten; aesthetic hub stale
+  "Two strengths" facts corrected (all formats have three); shop-all CTA no longer
+  presumes cream; aesthetic buyable trio to slot 2; shop-all grids resequenced.
+- **Verified:** theme-check 0 errors; Asset-API 22/22 byte-match; 18/19 live render
+  checks pass; injectable sweep 48 ad-facing surfaces, BREACHES: 0 with 0 fetch errors
+  (a genuine zero); srcset candidates all HTTP 200; reviews-guard 5/5 both deploys.
 
-- **Diagnosed the real cause.** Four systems send as `@senseless.uk`; DMARC is at
-  `p=quarantine`, so anything that does not **align** is junked by our own policy.
-  Only Microsoft 365 aligns, and it does so on SPF alone.
-  - **Klaviyo** is on the SHARED sending domain → cannot align → campaigns fail
-    DMARC deterministically. This is the cause of campaigns in junk.
-  - **M365** has NO DKIM published (`selector1/2._domainkey` absent). DMARC rests
-    on SPF only, with no fallback on forwarded or mailing-list mail.
-  - **Shopify** (`cs@senseless.uk`) is very likely unauthenticated, but this is
-    **NOT provable from DNS** — host names are per-store and the Admin API does not
-    expose the status. Must be read in the admin.
-  - **DMARC `rua` points at GoDaddy's aggregator**, so nobody here has ever seen a
-    failure report. Confirmed the authorisation record exists at
-    `senseless.uk._report._dmarc.onsecureserver.net`.
-- **Corrected a wrong claim before it went to the agency.** "SPF only authorises
-  GoDaddy" is FALSE: `include:secureserver.net` chains through `spf-0.secureserver.net`
-  to `include:spf.protection.outlook.com` in **3 of 10 lookups**. `-all` inside an
-  included record does not end the outer evaluation (RFC 7208 §5.2).
-  **Do not edit the apex SPF record** — it is the only mechanism currently producing a
-  DMARC pass, and the lookup headroom is load-bearing.
-- **`scripts/email-auth-check.sh`** (commit `ae4e3cc`) — reads live DNS, pass/fail per
-  sender. Refuses to report a clean run if any lookup errored (exit 2 = UNRELIABLE),
-  per the `injectable-clean-sweep.py` false-zero lesson.
-  **Current state: 6 pass · 4 fail · 1 warn · 0 resolver errors.**
-- **Peter briefed.** Five-job runbook written for someone with no email knowledge,
-  rendered to PDF (`~/Documents/senseless-briefs/`) and emailed to
-  peter@matrixhealthgroup.co.uk from Outlook web. Confirmed in Sent Items.
+## Data unlocked this session
 
-### Strand 2 — product page copy
-
-- **Audit:** 13 agents over a corpus of all 17 products (live Admin API + repo
-  templates). 81 findings survived a hostile verification pass; 33 were dropped as
-  fabricated, misquoted or taste-only.
-- **Descriptions (live, Admin API):** second paragraph removed from **16 products** —
-  every one was either defensive steering ("Most sessions don't need the practitioner
-  tier") or a duplicate of the same page's own Key Facts/FAQ. Then the duplicated
-  sizes/directions/CPSR paragraph removed from the **9 range products** (all three
-  facts already render in Key Facts, the safety block and the trust bar).
-  Backups: `build-reports/product-description-p2-removal-backup-2026-08-27.json` and
-  `…-p3-removal-backup-2026-08-27.json` — every original recoverable.
-- **Templates (`46a6dcc`):** cream FAQ repetition cut (the 45–60 minute sentence pair
-  appeared verbatim in two adjacent accordion items); gel/spray duplicated clause cut;
-  spray "How long does it last?" no longer describes CREAM technique; bag added to
-  bundle contents; bundle cross-sell no longer offers items already inside the bundle.
-- **Cart (`e064731`):** cart upsell is now bundle-aware (reads each item's own
-  `bundle_contents`), and the stale-empty-class bug is fixed at the root.
+- **`shopify store auth/execute` is the orders-data path** — Daniel authorised
+  `read_orders` in-browser; the custom-app token (refresh-token.sh) has 31 scopes and
+  NO orders scope, and can never mint one until the app is granted it in admin.
+- **THE MEASUREMENT BLACKOUT (big):** 72 of 75 orders have `ready:true, moments:0` —
+  zero attribution. 65/75 are ordinary web orders, so it's not the mobile app: the PECR
+  consent banner defaults analytics off and ~5% of buyers opt in. Consequence: Shopify
+  can't measure landing-page conversion, AND if the same gate covers the Google tags,
+  **Google Ads is blind to its own conversions and its bidding starves**. → Verify the
+  Google & YouTube channel's Consent Mode v2 status (Daniel; legal-flavoured).
 
 ## Next Work Item
 
-1. **Peter works jobs 1–5 in the brief.** NOTHING IN DNS HAS BEEN CHANGED. Order is
-   reports → M365 DKIM → Shopify → Klaviyo → then resume sending.
-2. After each job, re-run `bash scripts/email-auth-check.sh` and check it moves.
-3. Only when it is clean does the September send plan (max 5, tight segments) start.
+1. **Daniel:** Klaviyo popup suppression on /collections/* or gclid sessions (app-side;
+   blocking for the ads funnel — flagged since 6 Aug).
+2. **Daniel:** Consent Mode v2 check on the Google & YouTube app; reconnect Shopify MCP
+   on claude.ai for ShopifyQL sessions data (the denominator).
+3. Judge.me: only 7 products carry `judgeme.badge` — sync/enable badges for the rest so
+   stars cover all cards.
+4. Watch GSC + rankings for a fortnight post-reorder (normal churn expected, no
+   structural risk); re-screenshot mobile once cache settles.
+5. Deferred by design: single-grid+tabs consolidation on tattoos/piercings (anchor-nav
+   version shipped instead), sticky mobile shop bar (test candidate), Selector embed on
+   procedure pages, aggregate-rating line in collection heroes.
 
 ## Gotchas
 
-- **Safety gate G2 is BLOCKED, not done.** The founder says the product is fine on
-  broken skin and asked to remove "Apply to clean, unbroken skin." and add in-session
-  "extend" wording. **Not actioned.** That block is the approved launch-gate compliance
-  set, hardcoded and non-editable by design (Decision 2 Jul 2026); broken-skin
-  suitability sits in the CPSR claim envelope, so it needs the CPSR/MHG owner, not a
-  content call. "Extend" would also be a duration claim under the Hard Rules.
-- **FULFILMENT MUST SHIP A BAG WITH EVERY BUNDLE.** The founder confirmed bundles
-  contain the Cosmetics Bag, so the metafield, body copy, FAQ and collection page now
-  all say so. If the pick list does not include it, the site is now misdescribing.
-- **"Numbing is a cosmetic preparation that supports comfort" is STILL LIVE** in the
-  bundle rich-text section. Removing it from the descriptions did NOT close that
-  flagged effect claim.
-- **"Antibacterial" appears 11× across 7 pages.** Not a Hard Rule breach, but it is a
-  biocidal claim needing substantiation — a question for MHG.
-- **73 audit findings remain open.** Only the items the founder named were actioned.
-  Full verified set in the workflow output; highest-value untouched item is
-  "What it's used for." × 24 across 9 pages.
-- **`config/settings_data.json` drifts 42 bytes from live — whitespace only.**
-  Semantically identical. It is NOT the cause of anything. Do not chase it again.
-- **The cart drawer "keeps reverting" was never a revert.** `cart-drawer--empty` is
-  written once server-side from `cart.empty?` and nothing removed it, so the first
-  AJAX add left a stale class and the empty-state layout slid the heading under the
-  close button. Fixed in `cart-drawer.js` + a `:has()` CSS guard.
-- **Storefront cache is per URL.** Use `?_fd=0` plus a random param; a plain fetch can
-  serve a stale page and read as a failed change.
+- The audit ran overnight TWICE and both runs died to **machine sleep** — recovered from
+  the workflow journal + inline verification. Don't schedule long multi-agent runs when
+  the laptop may close.
+- `templates/collection.json` (unused default) fails a strict block_order check —
+  pre-existing Horizon static blocks, not ours, don't "fix" it.
+- Ladder tier links come from a sitewide METAOBJECT — deliberately not touched (blast
+  radius). The ladder now sits below the grid, which was the point.
+- G2 (broken-skin line) still BLOCKED on CPSR/MHG owner; "supports comfort" still live
+  in bundle rich-text; "antibacterial" (11×) still needs MHG substantiation answer.
+- Email-auth strand unchanged: Peter has the runbook, nothing in DNS moved yet;
+  `bash scripts/email-auth-check.sh` is the gate (6 pass / 4 fail / 1 warn).
