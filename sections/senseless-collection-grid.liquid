@@ -93,9 +93,12 @@
   .ss-cg__was { color:var(--body); opacity:.65; font-weight:400; margin-left:2px; }
   .ss-cg__save { display:inline-block; font-size:12px; font-weight:600; color:var(--p); background:rgba(107,63,160,.08); border-radius:999px; padding:2px 8px; margin-left:4px; }
   .ss-cg__badge { position:absolute; top:10px; left:10px; z-index:1; font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--p); border-radius:999px; padding:4px 10px; }
-  .ss-cg__opt { display:flex; flex-wrap:wrap; gap:8px; margin:2px 0; }
+  /* Chips sit side by side as equal halves — with price labels they'd otherwise just overflow
+     the card width and stack untidily. flex-basis 0 + min-width 0 means they shrink to fit
+     instead of ever wrapping. */
+  .ss-cg__opt { display:flex; flex-wrap:nowrap; gap:8px; margin:2px 0; }
   .ss-cg__opt input { position:absolute; opacity:0; pointer-events:none; }
-  .ss-cg__chip { display:inline-flex; align-items:center; justify-content:center; min-width:54px; height:44px; padding:0 14px; border:1px solid var(--bd); border-radius:14px; background:var(--surf); font-family:var(--sans); font-size:13px; color:var(--ink); cursor:pointer; transition:background-color .12s ease,border-color .12s ease,color .12s ease; }
+  .ss-cg__chip { display:inline-flex; align-items:center; justify-content:center; flex:1 1 0; min-width:0; height:44px; padding:0 8px; border:1px solid var(--bd); border-radius:14px; background:var(--surf); font-family:var(--sans); font-size:13px; color:var(--ink); cursor:pointer; white-space:nowrap; transition:background-color .12s ease,border-color .12s ease,color .12s ease; }
   .ss-cg__opt input:checked + .ss-cg__chip { background:var(--p); border-color:var(--p); color:#fff; }
   .ss-cg__opt input[data-avail="false"] + .ss-cg__chip { opacity:.55; text-decoration:line-through; }
   .ss-cg__opt input[data-avail="false"]:checked + .ss-cg__chip { opacity:1; }
@@ -128,7 +131,7 @@
     .ss-cg__caption { font-size:12px; }
     .ss-cg__label { font-size:0.65rem; }
     .ss-cg__qty { display:none; }
-    .ss-cg__chip { min-width:0; flex:1 1 auto; height:44px; padding:0 8px; font-size:12px; }
+    .ss-cg__chip { font-size:12px; }
     .ss-cg__opt { gap:6px; }
     .ss-cg__save { display:none; }
   }
