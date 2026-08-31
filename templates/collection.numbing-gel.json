@@ -10,7 +10,7 @@
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
-        "image_alt": "Senseless Comfort Gel range — Clinical, Advanced and Professional Strength",
+        "image_alt": "Senseless gel range — Clinical, Advanced and Professional Strength",
         "image": "shopify://shop_images/senseless-numbing-gel-collection-hero.webp",
         "accent_word": "matched"
       }
@@ -52,7 +52,7 @@
         "r1": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Clinical Comfort Gel",
+            "strength": "Clinical Strength Gel",
             "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>",
             "link": "/products/clinical-strength-gel"
           }
@@ -60,7 +60,7 @@
         "r2": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Advanced Comfort Gel",
+            "strength": "Advanced Strength Gel",
             "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>",
             "link": "/products/advanced-strength-gel"
           }
@@ -68,7 +68,7 @@
         "r3": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Professional Comfort Gel",
+            "strength": "Professional Strength Gel",
             "matched": "<p>The longest, most demanding appointments.</p>",
             "link": "/products/professional-strength-gel"
           }

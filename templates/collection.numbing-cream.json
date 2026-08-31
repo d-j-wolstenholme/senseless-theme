@@ -10,7 +10,7 @@
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
         "secondary_cta_url": "#match",
-        "image_alt": "Senseless Comfort Cream range — Clinical, Advanced and Professional Strength",
+        "image_alt": "Senseless cream range — Clinical, Advanced and Professional Strength",
         "accent_word": "matched",
         "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp"
       }
@@ -52,7 +52,7 @@
         "r1": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Clinical Comfort Cream",
+            "strength": "Clinical Strength Cream",
             "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>",
             "link": "/products/clinical-strength-cream"
           }
@@ -60,7 +60,7 @@
         "r2": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Advanced Comfort Cream",
+            "strength": "Advanced Strength Cream",
             "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>",
             "link": "/products/advanced-strength-cream"
           }
@@ -68,7 +68,7 @@
         "r3": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Professional Comfort Cream",
+            "strength": "Professional Strength Cream",
             "matched": "<p>The longest, most demanding appointments.</p>",
             "link": "/products/professional-strength-cream"
           }

@@ -140,26 +140,26 @@
           "type": "product_card",
           "settings": {
             "label": "Advanced Strength",
-            "title": "Advanced Comfort Gel",
+            "title": "Advanced Strength Gel",
             "body": "<p>For longer or more sensitive sessions.</p>",
             "product": "advanced-strength-gel",
             "cta_label": "View product",
             "cta_url": "/products/advanced-strength-gel",
             "flagship": false,
-            "image_alt": "Advanced Comfort Gel on a warm off-white background"
+            "image_alt": "Advanced Strength Gel on a warm off-white background"
           }
         },
         "b": {
           "type": "product_card",
           "settings": {
             "label": "Professional Strength",
-            "title": "Professional Comfort Gel",
+            "title": "Professional Strength Gel",
             "body": "<p>Our practitioner tier — for the longest, most sustained sessions.</p>",
             "product": "professional-strength-gel",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-gel",
             "flagship": false,
-            "image_alt": "Professional Comfort Gel on a warm off-white background"
+            "image_alt": "Professional Strength Gel on a warm off-white background"
           }
         }
       },

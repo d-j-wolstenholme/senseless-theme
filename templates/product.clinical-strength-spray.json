@@ -132,26 +132,26 @@
           "type": "product_card",
           "settings": {
             "label": "Advanced Strength",
-            "title": "Advanced Comfort Spray",
+            "title": "Advanced Strength Spray",
             "body": "<p>For longer or more sensitive sessions.</p>",
             "product": "advanced-strength-spray",
             "cta_label": "View product",
             "cta_url": "/products/advanced-strength-spray",
             "flagship": false,
-            "image_alt": "Advanced Comfort Spray on a warm off-white background"
+            "image_alt": "Advanced Strength Spray on a warm off-white background"
           }
         },
         "b": {
           "type": "product_card",
           "settings": {
             "label": "Professional Strength",
-            "title": "Professional Comfort Spray",
+            "title": "Professional Strength Spray",
             "body": "<p>Our practitioner tier — for the longest, most sustained sessions.</p>",
             "product": "professional-strength-spray",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-spray",
             "flagship": false,
-            "image_alt": "Professional Comfort Spray on a warm off-white background"
+            "image_alt": "Professional Strength Spray on a warm off-white background"
           }
         }
       },

@@ -140,26 +140,26 @@
           "type": "product_card",
           "settings": {
             "label": "Clinical Strength",
-            "title": "Clinical Comfort Cream",
+            "title": "Clinical Strength Cream",
             "body": "<p>The standard most appointments call for.</p>",
             "product": "clinical-strength-cream",
             "cta_label": "View product",
             "cta_url": "/products/clinical-strength-cream",
             "flagship": false,
-            "image_alt": "Clinical Comfort Cream on a warm off-white background"
+            "image_alt": "Clinical Strength Cream on a warm off-white background"
           }
         },
         "b": {
           "type": "product_card",
           "settings": {
             "label": "Professional Strength",
-            "title": "Professional Comfort Cream",
+            "title": "Professional Strength Cream",
             "body": "<p>Our practitioner tier — for the longest, most sustained sessions.</p>",
             "product": "professional-strength-cream",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
             "flagship": false,
-            "image_alt": "Professional Comfort Cream on a warm off-white background"
+            "image_alt": "Professional Strength Cream on a warm off-white background"
           }
         }
       },
