@@ -4,7 +4,7 @@
  (semantic <dl> with <dt>/<dd> pairs), built for generative-engine + answer-engine extraction.
  Per-page facts are set as block instances (pulled from each page's v2 "Key Facts" content in Notion).
  The closing classification line is FIXED and non-editable so the compliance statement always renders:
-  "UK cosmetic product, by Matrix Health Group Ltd."
+  "By Matrix Health Group Ltd — formulated in the UK, CPSR assessed." (de-classified 1 Sep 2026, completing the 14 Aug decision)
  No medicinal claims. No price (products are £TBC). Reuses the locked Senseless tokens.
 {%- endcomment -%}
 
@@ -66,7 +66,7 @@
   { "type": "select", "id": "band", "label": "Band background", "default": "surface", "options": [ { "value": "canvas", "label": "Canvas (off-white)" }, { "value": "surface", "label": "Surface (white, hairline border)" } ] },
   { "type": "text", "id": "heading", "label": "Heading", "default": "Key facts" },
   { "type": "text", "id": "accent_word", "label": "Italic accent word (one word, optional)" },
-  { "type": "paragraph", "content": "The closing line — “UK cosmetic product, by Matrix Health Group Ltd.” — is fixed and always shown for compliance. Add the page's facts as blocks below (label + value). No price, no medicinal claims." }
+  { "type": "paragraph", "content": "The closing line — the MHG credentials + CPSR sentence — is fixed and always shown. Add the page's facts as blocks below (label + value). No price, no medicinal claims." }
  ],
  "blocks": [
   {

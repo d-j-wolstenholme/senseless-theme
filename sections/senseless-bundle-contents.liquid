@@ -5,10 +5,6 @@
 {%- endcomment -%}
 {%- liquid
   assign items = product.metafields.senseless.bundle_contents.value
-  assign saving = 0
-  if product.compare_at_price > product.price
-    assign saving = product.compare_at_price | minus: product.price
-  endif
 -%}
 {%- if items != blank and items.size > 0 -%}
 {%- style -%}
@@ -23,8 +19,7 @@
   .ss-kit__item:last-child { border-bottom:1px solid var(--bd); }
   .ss-kit__item a { color:var(--p); text-decoration:none; font-weight:600; }
   .ss-kit__item a:hover { text-decoration:underline; }
-  .ss-kit__saving { margin:18px 0 0; font-size:15px; color:var(--body); }
-  .ss-kit__saving strong { color:var(--ink); }
+  .ss-kit__note { margin:18px 0 0; font-size:15px; color:var(--body); }
   @media (max-width:989px){ .ss-kit__inner { padding-block:32px; } }
   @media (max-width:749px){ .ss-kit__inner { padding-block:28px; } .ss-kit__headline { line-height:1.12; } }
 {%- endstyle -%}
@@ -38,10 +33,11 @@
         <li class="ss-kit__item">{%- if parts[1] != blank -%}<a href="{{ parts[1] | strip }}">{{ parts[0] | strip | escape }}</a>{%- else -%}{{ parts[0] | strip | escape }}{%- endif -%}</li>
       {%- endfor -%}
     </ul>
-    {%- if saving > 0 -%}
-      <p class="ss-kit__saving"><strong>{{ product.price | money }}</strong> — save {{ saving | money }} versus buying the items separately ({{ product.compare_at_price | money }}).</p>
-    {%- endif -%}
-  </div>
+    {%- comment -%} Static value statement only — no struck prices, no savings figures, per the
+      1 Sep no-sale-presentation decision. Exact figures can return once compareAtPrice covers all
+      five components. {%- endcomment -%}
+    <p class="ss-kit__note">{{ product.price | money }} for the set — priced below the five pieces bought separately.</p>
+      </div>
 </section>
 {%- endif -%}
 

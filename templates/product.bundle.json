@@ -3,7 +3,7 @@
     "hero": {
       "type": "senseless-product-hero",
       "settings": {
-        "trust_line": "UK formulated · Cosmetic product",
+        "trust_line": "UK formulated · CPSR assessed",
         "delivery_line": "Free UK delivery over £40"
       },
       "blocks": {
@@ -61,7 +61,7 @@
         "background": "white",
         "eyebrow": "Where this sits",
         "headline": "Part of the Senseless System",
-        "body": "<p>Choose the tier that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom.</p>",
+        "body": "<p>Choose the tier that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p>",
         "cta_label": "Explore the Senseless System",
         "cta_url": "/pages/the-senseless-system"
       }

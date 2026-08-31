@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "How it works",
         "headline": "A system, not a single product.",
-        "subhead": "<p>Senseless is a UK cosmetic product, built for the procedures aesthetic clinics actually run. Three strengths and three formats, formulated to match what each appointment asks of the skin. The system is the answer.</p>",
+        "subhead": "<p>Senseless is UK-formulated, built for the procedures aesthetic clinics actually run. Three strengths and three formats, formulated to match what each appointment asks of the skin. The system is the answer.</p>",
         "image_alt": "Editorial Senseless product system still life, multiple SKUs"
       }
     },
@@ -14,8 +14,8 @@
       "settings": {
         "direction": "text-left",
         "eyebrow": "The category",
-        "headline": "A UK cosmetic product. Built for aesthetics.",
-        "body": "<p>Senseless sits in the cosmetic product category. Not a pharmacy product. A topical preparation formulated specifically for the way modern aesthetic appointments run — short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result. The category matters because it shapes what the product is built for and how it's regulated.</p>",
+        "headline": "UK-formulated. Built for aesthetics.",
+        "body": "<p>Senseless is a topical preparation formulated specifically for the way modern aesthetic appointments run — short windows between booking and the chair, sensitive treatment areas, and clients who care about the experience as much as the result. The category matters because it shapes what the product is built for and how it's regulated.</p>",
         "cta_label": "",
         "cta_url": "",
         "image": "shopify://shop_images/senseless-asterisk.svg",
@@ -67,7 +67,7 @@
         "style": "brand",
         "eyebrow": "",
         "heading": "Why we don't talk about the active",
-        "body": "<p>You'll notice this page doesn't lead with the active ingredient. Senseless is a UK cosmetic product, and the formulation details that matter are on the packaging and in the regulatory documentation that sits behind each SKU. What matters at the point of purchase is the system — strength matched to procedure, format matched to treatment area, brand built for aesthetics. The product specifics support that. They don't lead it.</p>",
+        "body": "<p>You'll notice this page doesn't lead with the active ingredient. Senseless is a UK-formulated product, and the formulation details that matter are on the packaging and in the regulatory documentation that sits behind each SKU. What matters at the point of purchase is the system — strength matched to procedure, format matched to treatment area, brand built for aesthetics. The product specifics support that. They don't lead it.</p>",
         "cta_label": "",
         "cta_url": ""
       }

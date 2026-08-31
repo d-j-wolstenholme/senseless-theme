@@ -90,8 +90,6 @@
   .ss-cg__stars:empty { display:none; }
   .ss-cg__stars .jdgm-prev-badge__text { font-family:var(--sans); font-size:12px; color:var(--body); }
   .ss-cg__psize { font-weight:600; }
-  .ss-cg__was { color:var(--body); opacity:.65; font-weight:400; margin-left:2px; }
-  .ss-cg__save { display:inline-block; font-size:12px; font-weight:600; color:var(--p); background:rgba(107,63,160,.08); border-radius:999px; padding:2px 8px; margin-left:4px; }
   .ss-cg__badge { position:absolute; top:10px; left:10px; z-index:1; font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--p); border-radius:999px; padding:4px 10px; }
   /* Chips sit side by side as equal halves — with price labels they'd otherwise just overflow
      the card width and stack untidily. flex-basis 0 + min-width 0 means they shrink to fit
@@ -135,7 +133,6 @@
     .ss-cg__chip { flex-direction:column; justify-content:center; gap:0; height:46px; padding:0 4px; font-size:11px; line-height:1.2; }
     .ss-cg__chipsize { font-size:12px; }
     .ss-cg__opt { gap:6px; }
-    .ss-cg__save { display:none; }
   }
   /* Touch devices never see :hover — the image and title are the links; a persistent overlay
      cue read as a broken grey band across product photos on real phones (founder screenshot,
@@ -214,7 +211,6 @@
             <h3 class="ss-cg__title"><a href="{{ product.url }}">{{ product.title | escape }}</a></h3>
             {%- if card_caption != blank -%}<p class="ss-cg__caption">{{ card_caption | escape }}</p>{%- endif -%}
             {%- liquid
-              assign v0_cmp = v0.compare_at_price | default: 0
               assign size_label = ''
               unless v0.title contains 'Default'
                 assign size_label = v0.title
@@ -223,7 +219,7 @@
             <p class="ss-cg__price" data-cg-price>
               {%- if size_label != blank -%}<span class="ss-cg__psize" data-cg-psize>{{ size_label | escape }}</span> · {% endif -%}
               <span data-cg-pnow>{{ v0.price | money }}</span>
-              {%- if v0_cmp > v0.price %} <s class="ss-cg__was">{{ v0_cmp | money }}</s> <span class="ss-cg__save">Save {{ v0_cmp | minus: v0.price | money }}</span>{%- endif -%}
+
             </p>
             {%- comment -%} Judge.me per-card stars: the badge metafield is SERVER-RENDERED inside the slot
                 (data-attrs only, no microdata — the JSON-LD layer stays the single source of rating markup).

@@ -163,9 +163,6 @@
           wording matches the explanation already shipped further down the same page ("save £x versus
           buying the items separately").
         {%- endcomment -%}
-        {%- if v.compare_at_price > v.price -%}
-          <del>{{ v.compare_at_price | money }}</del><span class="ss-ph__price-basis">bought separately</span>
-        {%- endif -%}
         {{ v.price | money }}{% if p.variants.size == 1 and v.title contains 'Default' %}{% elsif p.variants.size == 1 %} <span class="ss-ph__price-basis">&middot; {{ v.title | escape }}</span>{% endif %}
       </p>
 
@@ -321,7 +318,6 @@
         if (idInput) { idInput.value = v.id; }
         if (priceEl) {
           var html = '';
-          if (v.compare_at_price && v.compare_at_price > v.price) { html += '<del>' + money(v.compare_at_price) + '</del>'; }
           html += money(v.price);
           priceEl.innerHTML = html;
         }
@@ -354,7 +350,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "e.g. Clinical Strength · Cream. Shared across products on this template — leave blank or drive per-product via metafield." },
     { "type": "text", "id": "subtitle", "label": "Subtitle" },
-    { "type": "text", "id": "trust_line", "label": "Trust line (below add to cart)", "default": "UK formulated · Cosmetic product" },
+    { "type": "text", "id": "trust_line", "label": "Trust line (below add to cart)", "default": "UK formulated · CPSR assessed" },
     { "type": "text", "id": "delivery_line", "label": "Delivery line (static, below trust line)", "info": "Static reassurance only — no live progress here. Leave blank to hide.", "default": "Free UK delivery over £40" },
     { "type": "select", "id": "force_tier", "label": "Comfort tier (Scale mark)", "default": "auto", "info": "Sets the Senseless Scale comfort mark (ascending asterisks) shown under the eyebrow. Auto resolves from metafield senseless.tier, then the strength-SKU handle. 'None' hides the mark (e.g. cleanser).", "options": [ { "value": "auto", "label": "Auto (from product)" }, { "value": "none", "label": "None" }, { "value": "clinical", "label": "Clinical" }, { "value": "advanced", "label": "Advanced" }, { "value": "professional", "label": "Professional" } ] }
   ],
