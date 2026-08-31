@@ -1,94 +1,74 @@
 # NEXT_SESSION — handoff
 
-**Last session (30–31 Aug 2026 + 1 Sep close, MacBook Pro):** collection-page
-conversion work, end to end — audit (13 agents + 42-source research), report, and the
-full rebuild SHIPPED to live. Repo `c0820c0` + lock re-lock, == origin/main.
-Report artifact: "The Buried Grid" — https://claude.ai/code/artifact/f62a087f-daeb-4851-9982-91de69b9777e
+**Last session (1 Sep 2026, MacBook Pro, marathon):** funnel fixes shipped; two-session
+collaboration with senseless-app (its handover items executed + its completion report
+received); FOUR founder decisions taken and logged. Everything below is live and verified;
+repo == origin/main, DECISIONS-LOG carries five 2026-09-01 entries.
 
-## Done (live, verified)
+## Founder decisions this session (all in DECISIONS-LOG.md)
 
-- **Grid to slot 2 on all 17 collection templates** (was 5th–6th behind 444–968 words).
-  Copy moved BELOW the grid, not deleted — SEO/GEO surfaces untouched (no URL/H1/meta/
-  JSON-LD changes). Tattoos/piercings format-guidance folded into the first grid's intro.
-- **Cards** (senseless-collection-grid + product-highlights + trio-card-row): Judge.me
-  stars server-rendered from `judgeme.badge` metafield (slot had shipped EMPTY on every
-  card since integration); size-labelled prices ("10g · £19.99"); prices on size chips;
-  compare-at + "Save £X" (bundles now show the deal); 2-up compact mobile grid, qty
-  stepper hidden <768px, ≥44px touch targets; srcset 300–1200 + sizes; persistent
-  view-cue on touch; new `card_badge` block.
-- **Strength filter switched ON** (was built + `show_filters:false` on all 32 instances)
-  for waxing / microneedling / SPMU / laser.
-- **Captions on all 16 tattoos + 16 piercings cards** (were 4); **Bestseller badge on
-  Professional Strength Spray** — earned: 19 units of 75 orders since launch (real order
-  data). Sprays outsell creams 40–27 — the "cream is what most people reach for" copy
-  may deserve a rethink.
-- **Copy** (21 strings through compliance-check: PASS): piercings hero/intro no longer
-  argue the visitor out of buying (lobe honesty kept, in FAQ); tattoos hero 67→33w;
-  "you may not need this" callout removed from 3 format pages (FAQ instance survives);
-  clinical-vs-procedure "most appointments" contradiction resolved; "Strongest numbing
-  cream" link relabelled; keyword-stuffed key-fact rewritten; aesthetic hub stale
-  "Two strengths" facts corrected (all formats have three); shop-all CTA no longer
-  presumes cream; aesthetic buyable trio to slot 2; shop-all grids resequenced.
-- **Verified:** theme-check 0 errors; Asset-API 22/22 byte-match; 18/19 live render
-  checks pass; injectable sweep 48 ad-facing surfaces, BREACHES: 0 with 0 fetch errors
-  (a genuine zero); srcset candidates all HTTP 200; reviews-guard 5/5 both deploys.
+1. **Naming:** "<Tier> Strength <Format>" stays; "Comfort <Format>" noun retired from
+   store text (the relayed Comfort rename shipped and was reverted within the hour —
+   direct word beats relay). Cleanser = "Foaming Cleanser". Handles never changed.
+2. **No sale presentation on bundles:** no struck prices, no Save pills, anywhere
+   (hero/cards/cart/contents). Savings live as ONE static plain-text line.
+3. **Bundle value model:** compareAt = four-product sum; **the bag is a free inclusion,
+   never priced into the comparison** (the +£9.99 correction was wrong and reverted).
+   Line reads: "£71.99 for the set — the cream, gel, spray and cleanser are £79.96
+   bought separately, and the Senseless Cosmetics Bag is included."
+4. **Certification only:** ALL cosmetic-vs-medicine language is off the site — the 14 Aug
+   removal completed (trust-line "Cosmetic product" items, self-classification sentences,
+   medicine-FAQ pairs, comparison-page nouns) AND the 16 "not an anaesthetic" statements
+   removed by standalone decision with the MHRA-boundary stake stated first. CPSR is the
+   only credential. Canon vocabulary kept: "cosmetic brand/numbing range/topical
+   preparation" + spelled-out Cosmetic Product Safety Report (verified intact, 19 instances).
 
-## Data unlocked this session
+## Also shipped this session
 
-- **`shopify store auth/execute` is the orders-data path** — Daniel authorised
-  `read_orders` in-browser; the custom-app token (refresh-token.sh) has 31 scopes and
-  NO orders scope, and can never mint one until the app is granted it in admin.
-- **THE MEASUREMENT BLACKOUT (big):** 72 of 75 orders have `ready:true, moments:0` —
-  zero attribution. 65/75 are ordinary web orders, so it's not the mobile app: the PECR
-  consent banner defaults analytics off and ~5% of buyers opt in. Consequence: Shopify
-  can't measure landing-page conversion, AND if the same gate covers the Google tags,
-  **Google Ads is blind to its own conversions and its bidding starves**. → Verify the
-  Google & YouTube channel's Consent Mode v2 status (Daniel; legal-flavoured).
+- **Review widget on all 14 PDP templates** — first review lists ever rendered on PDPs
+  (renders as `jdgm-review-widget`; earlier "not rendering" was a wrong grep needle).
+- Funnel batch: homepage highlights = real bestseller + category-noun hero; mobile sticky
+  ATC; cart £40/£80 progress + trust row; Selector ?strength= handoff; PDP exit-row/size
+  labels; chips side-by-side then in-pill stacked on mobile; comparison copy out of grid
+  intros (FAQ keeps it).
+- App-handover items: Contents eyebrow, five-item trust badge, approved per-bundle
+  descriptions (verbatim, now the single source — the app drops its duplicate),
+  build-bundles.py FENCED (stale 150ml/prices would corrupt data).
+- Bundle SEO: "cosmetic prep" sentences replaced (UK-formulated claim now survives the
+  app's sentence filter — its item 7), "vanity bag" → "cosmetics bag".
 
-## Next Work Item
+## Verification state
 
-1. **Daniel:** Klaviyo popup suppression on /collections/* or gclid sessions (app-side;
-   blocking for the ads funnel — flagged since 6 Aug).
-2. **Daniel:** Consent Mode v2 check on the Google & YouTube app; reconnect Shopify MCP
-   on claude.ai for ShopifyQL sessions data (the denominator).
-3. Judge.me: only 7 products carry `judgeme.badge` — sync/enable badges for the rest so
-   stars cover all cards.
-4. Watch GSC + rankings for a fortnight post-reorder (normal churn expected, no
-   structural risk); re-screenshot mobile once cache settles.
-5. Deferred by design: single-grid+tabs consolidation on tattoos/piercings (anchor-nav
-   version shipped instead), sticky mobile shop bar (test candidate), Selector embed on
-   procedure pages, aggregate-rating line in collection heroes.
+- Asset-API compare after the big pushes: 54/54 match (run it EVERY multi-file deploy —
+  this session briefly mis-diagnosed cache because one batch skipped it).
+- Served-output sweep for removed phrases: clean everywhere except 2 guide pages showing
+  cached copies (deployed bytes verified clean; delayed recheck in /tmp/anaes-recheck.log).
+- Injectable sweeps: genuine zeros (error-count checked).
+- The senseless.uk edge cache holds pages ~10-30 min even with ?_fd=0&x= — judge
+  "failed deploys" by Asset-API bytes + myshopify domain, and re-check later.
 
+## From the app session's completion report (its 7 commits a8bb9c3..f66739d)
 
-## Funnel audit round two (1 Sep, verified — recommendations only, nothing shipped)
+- App aligned on: naming, five bundle rows, no sale signals, size-correct deep links,
+  certification-only filter (with CPSR/keep guards), duplicate-description drop.
+- **URGENT for Daniel: Google Play developer verification, deadline 30 Sep 2026** —
+  unverified apps are removed from Play globally. Needs his Play Console login.
+- Its scripts/notion-write.py 404s: the "Code" Notion integration lost Session-Log DB
+  access in the 28 Jul restructure — someone with Notion admin must re-share that DB.
+- App-side still open: nothing installed on a physical device this session; on-screen
+  recheck of final bundle copy owed.
 
-Full set in "The Buried Grid" artifact. Verified root causes worth remembering:
-- **No PDP has ever rendered a review list.** The hero's badge app block is wired on 13
-  templates, but the `senseless-reviews` section has ZERO blocks on all 14 — its own code
-  renders nothing without one. Fix = add the Judge.me review-widget app block per template.
-- **Homepage highlights are backwards:** two kits at £112.99/£142.99 + Professional Cream
-  badged "Most Popular" (7 lifetime sales); the actual best seller (Professional Spray,
-  19 units) appears nowhere.
-- **`sticky-add-to-cart.js` loads on every PDP but only Horizon's native section emits the
-  element** — the custom PDPs never render it.
-- **Selector emits `?strength=` and the grids ignore it** (0 URL-param reads in
-  senseless-collection-grid); the strongest-numbing-cream page has the init to port.
-- **No free-delivery progress in the cart drawer** at a £36 AOV vs the £40 threshold.
-- Live typos in the homepage practitioner quote: "differnt", "aweful" (swap the quote,
-  don't edit a quote). System-vs-microneedling tier line still contradicts.
-- Deliberately NOT doing: urgency widgets, benefit/timing claims, tier-superiority badges,
-  PDP copy cuts, more popups, injectable links. Toast/app-banner/chat-count are Daniel calls.
+## Open site-side
 
-## Gotchas
-
-- The audit ran overnight TWICE and both runs died to **machine sleep** — recovered from
-  the workflow journal + inline verification. Don't schedule long multi-agent runs when
-  the laptop may close.
-- `templates/collection.json` (unused default) fails a strict block_order check —
-  pre-existing Horizon static blocks, not ours, don't "fix" it.
-- Ladder tier links come from a sitewide METAOBJECT — deliberately not touched (blast
-  radius). The ladder now sits below the grid, which was the point.
-- G2 (broken-skin line) still BLOCKED on CPSR/MHG owner; "supports comfort" still live
-  in bundle rich-text; "antibacterial" (11×) still needs MHG substantiation answer.
-- Email-auth strand unchanged: Peter has the runbook, nothing in DNS moved yet;
-  `bash scripts/email-auth-check.sh` is the gate (6 pass / 4 fail / 1 warn).
+- Klaviyo popup suppression (Daniel, app-level) — still the biggest unfixed brake.
+- Consent Mode v2 check (Daniel) — the measurement blackout stands (72/75 orders blind).
+- Judge.me: 207 imported reviews still parked on Professional Strength Cream (his call on
+  redistribution vs store-reviews move; legal check advised); badge metafield on only 7
+  products so card stars cover ~6/16.
+- templates/page.how-it-works.json is ORPHANED (no page uses it; /pages/how-it-works
+  301s to the System page) — delete candidate.
+- Funnel round-two deferred items: single-grid tabs consolidation, Selector embed,
+  aggregate-rating hero line, cart-page suggestions collection, add-to-cart toast
+  (needs Daniel), app-banner position (Daniel), one-chat-bubble choice (Daniel).
+- G2 broken-skin gate: still BLOCKED on CPSR/MHG owner. "Antibacterial" ×11 still needs
+  MHG substantiation. Email-auth strand: Peter's runbook, DNS untouched.
