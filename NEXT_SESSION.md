@@ -41,8 +41,12 @@ repo == origin/main, DECISIONS-LOG carries five 2026-09-01 entries.
 
 - Asset-API compare after the big pushes: 54/54 match (run it EVERY multi-file deploy —
   this session briefly mis-diagnosed cache because one batch skipped it).
-- Served-output sweep for removed phrases: clean everywhere except 2 guide pages showing
-  cached copies (deployed bytes verified clean; delayed recheck in /tmp/anaes-recheck.log).
+- Served-output sweep for removed phrases: NOW CLEAN EVERYWHERE (llms.txt structured).
+  The 2 "cached" guide pages were actually a 422-REJECTED deploy: the sweep's whitespace
+  tidy flattened comfort-compare's {% liquid %} block (invalid), Shopify rejected it, and
+  the CLI printed "deploy: success" TWICE. Repaired from git + surgical re-edit
+  (`b3ed77d`→repair commit). NEW RULE: a DIFF after a "successful" scoped re-push means
+  the FILE is invalid; and never regex-tidy whitespace across .liquid files.
 - Injectable sweeps: genuine zeros (error-count checked).
 - The senseless.uk edge cache holds pages ~10-30 min even with ?_fd=0&x= — judge
   "failed deploys" by Asset-API bytes + myshopify domain, and re-check later.
