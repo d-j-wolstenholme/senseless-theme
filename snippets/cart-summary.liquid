@@ -8,6 +8,38 @@
 {%- comment -%} Senseless cart add-on offer (inline, in-drawer) — ONE suggested add per the Upsell & Cross-sell Strategy; pairs with the free-shipping bar. {%- endcomment -%}
 {% render 'senseless-cart-offer', section_id: section_id %}
 
+{%- comment -%} Senseless: free-delivery progress (GBP40 std / GBP80 next-day). cart.total_price is
+  post-discount; the snippet re-renders on every cart mutation so the bar tracks live. The header
+  banner carries the same ladder but the open drawer dims it — this is the in-drawer copy. {%- endcomment -%}
+{%- liquid
+  assign ss_total = cart.total_price
+  assign ss_t1 = 4000
+  assign ss_t2 = 8000
+-%}
+{%- if cart.item_count > 0 -%}
+  <div class="ss-ship-nudge" aria-live="polite">
+    {%- if ss_total >= ss_t2 -%}
+      <p class="ss-ship-nudge__text"><strong>Free next-day delivery unlocked</strong></p>
+      {%- assign ss_pct = 100 -%}
+    {%- elsif ss_total >= ss_t1 -%}
+      {%- assign ss_rem = ss_t2 | minus: ss_total -%}
+      <p class="ss-ship-nudge__text"><strong>Free UK delivery unlocked</strong> — {{ ss_rem | money }} away from free next-day</p>
+      {%- assign ss_pct = ss_total | times: 100 | divided_by: ss_t2 -%}
+    {%- else -%}
+      {%- assign ss_rem = ss_t1 | minus: ss_total -%}
+      <p class="ss-ship-nudge__text">{{ ss_rem | money }} away from <strong>free UK delivery</strong></p>
+      {%- assign ss_pct = ss_total | times: 100 | divided_by: ss_t1 -%}
+    {%- endif -%}
+    <div class="ss-ship-nudge__bar" role="img" aria-label="Delivery progress"><span style="width: {{ ss_pct }}%"></span></div>
+  </div>
+  <style>
+    .ss-ship-nudge { margin: 0 0 14px; }
+    .ss-ship-nudge__text { margin: 0 0 6px; font-size: 13px; line-height: 1.4; }
+    .ss-ship-nudge__bar { height: 6px; border-radius: 999px; background: rgba(107,63,160,.14); overflow: hidden; }
+    .ss-ship-nudge__bar span { display: block; height: 100%; border-radius: 999px; background: #6B3FA0; transition: width .3s ease; }
+    @media (prefers-reduced-motion: reduce) { .ss-ship-nudge__bar span { transition: none; } }
+  </style>
+{%- endif -%}
 <div class="cart-totals">
   {% # We need to keep this node in place to allow morphing to work properly # %}
   <div class="cart-totals__original-container cart-primary-typography">
@@ -289,6 +321,16 @@
       {{ content_for_additional_checkout_buttons }}
     </div>
   {% endif %}
+  {%- comment -%} Senseless: trust row at the decision point — stated facts only. {%- endcomment -%}
+  <div class="ss-cart-trust">
+    <span>&#9733; 4.9 &middot; 230+ reviews</span>
+    <span>UK formulated &middot; CPSR assessed</span>
+    <a href="/pages/returns-refunds">Returns &amp; refunds</a>
+  </div>
+  <style>
+    .ss-cart-trust { display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: center; margin: 12px 0 0; font-size: 12px; color: #5C5853; }
+    .ss-cart-trust a { color: inherit; text-decoration: underline; }
+  </style>
 </div>
 
 {% stylesheet %}

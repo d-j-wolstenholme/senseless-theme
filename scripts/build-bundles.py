@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# FENCED 1 Sep 2026 — DO NOT RUN. This script's data is STALE and will corrupt live products:
+#   - it believes the Foaming Cleanser is 150ml (live: 35ml)
+#   - it carries retired prices (75.96/113.96/90.21/128.21/143.41 vs live 71.99/107.99/84.99/120.99/135.99)
+#   - bundles now include the Senseless Cosmetics Bag, which it predates entirely
+# Flagged by the senseless-app session, 31 Aug 2026. Update every constant against the live
+# Admin API and remove this guard before any run.
+import sys
+sys.exit("build-bundles.py is FENCED — stale sizes/prices would corrupt live bundle data. See header.")
+
 """Senseless — build the 5-bundle product line (products + metafields + inventory).
 Each bundle = own product + own SKU, single Default variant, ACTIVE, tracked, stock 20.
 price = 5% off the sum of live component prices (computed elsewhere); compareAtPrice = the sum

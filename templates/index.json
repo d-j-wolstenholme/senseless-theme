@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Made for the appointment",
         "headline": "Confidence starts with comfort.",
-        "subhead": "<p>Senseless is a system — match the strength and the format to the appointment you've booked. Three strengths, three formats, formulated in the UK.</p>",
+        "subhead": "<p>Numbing cream, gel and spray for tattoo, laser, SPMU and waxing appointments — three strengths, three formats, formulated in the UK. Match the strength and the format to the appointment you've booked.</p>",
         "primary_cta_label": "Shop all products",
         "primary_cta_url": "/collections/shop-all",
         "secondary_cta_label": "How Senseless works",
@@ -311,40 +311,40 @@
         "band": "canvas"
       },
       "blocks": {
-        "c1": {
+        "h1": {
           "type": "card",
           "settings": {
-            "label": "Best Value",
+            "label": "Bestseller",
+            "product": "professional-strength-spray"
+          }
+        },
+        "h2": {
+          "type": "card",
+          "settings": {
+            "label": "",
+            "product": "advanced-strength-cream"
+          }
+        },
+        "h3": {
+          "type": "card",
+          "settings": {
+            "label": "Complete kit",
             "product": "advanced-numbing-kit-large"
-          }
-        },
-        "c2": {
-          "type": "card",
-          "settings": {
-            "label": "Practitioner's Choice",
-            "product": "professional-numbing-kit-large"
-          }
-        },
-        "c3": {
-          "type": "card",
-          "settings": {
-            "label": "Most Popular",
-            "product": "professional-strength-cream"
           }
         }
       },
       "block_order": [
-        "c1",
-        "c2",
-        "c3"
+        "h1",
+        "h2",
+        "h3"
       ]
     }
   },
   "order": [
     "hero",
     "trust",
-    "procedure",
     "highlights",
+    "procedure",
     "practitionercards",
     "scale",
     "selectorlink",

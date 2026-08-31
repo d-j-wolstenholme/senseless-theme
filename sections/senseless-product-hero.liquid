@@ -166,7 +166,7 @@
         {%- if v.compare_at_price > v.price -%}
           <del>{{ v.compare_at_price | money }}</del><span class="ss-ph__price-basis">bought separately</span>
         {%- endif -%}
-        {{ v.price | money }}
+        {{ v.price | money }}{% if p.variants.size == 1 and v.title contains 'Default' %}{% elsif p.variants.size == 1 %} <span class="ss-ph__price-basis">&middot; {{ v.title | escape }}</span>{% endif %}
       </p>
 
       {%- comment -%}
@@ -201,7 +201,8 @@
       <span class="ss-ph__atc-error hidden" ref="addToCartTextError" role="alert">
         <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
       </span>
-      {%- form 'product', p, class: 'ss-ph__form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+      {%- assign ph_form_id = 'ph-form-' | append: section.id -%}
+      {%- form 'product', p, id: ph_form_id, class: 'ss-ph__form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
         {%- if p.variants.size > 1 -%}
           {%- for option in p.options_with_values -%}
             <div class="ss-ph__opt" data-ph-optgroup>
@@ -231,6 +232,29 @@
           {{ form | payment_button }}
         </div>
       {%- endform -%}
+
+      {%- comment -%} Senseless: mobile sticky add-to-cart. Submits the hero form via the HTML form
+        attribute, so the existing product-form-component AJAX path handles the add. Shown only once
+        the buy box has scrolled out of view; mobile only. {%- endcomment -%}
+      <div class="ss-ph__sticky" data-ph-sticky hidden>
+        <div class="ss-ph__sticky-info">
+          <span class="ss-ph__sticky-title">{{ p.title | escape }}</span>
+          <span class="ss-ph__sticky-price">{{ v.price | money }}</span>
+        </div>
+        <button form="{{ ph_form_id }}" type="submit" name="add" class="ss-ph__atc ss-ph__sticky-btn" {% unless v.available %}disabled{% endunless %}>Add to cart</button>
+      </div>
+      <style>
+        .ss-ph__sticky { display: none; }
+        @media (max-width: 767px) {
+          .ss-ph__sticky[hidden], .ss-ph__sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; gap: 12px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: #ffffff; border-top: 1px solid #E5E2DC; box-shadow: 0 -6px 18px rgba(26,24,22,.08); transform: translateY(110%); transition: transform .25s ease; }
+          .ss-ph__sticky.is-on { transform: translateY(0); }
+          .ss-ph__sticky-info { display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto; }
+          .ss-ph__sticky-title { font-family: var(--ss-sans); font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+          .ss-ph__sticky-price { font-family: var(--ss-sans); font-size: 13px; }
+          .ss-ph__sticky-btn { flex: 0 0 auto; height: 44px; padding: 0 18px; }
+        }
+        @media (prefers-reduced-motion: reduce) { .ss-ph__sticky { transition: none; } }
+      </style>
       </product-form-component>
 
       {%- if section.settings.trust_line != blank -%}<p class="ss-ph__trust">{{ section.settings.trust_line | escape }}</p>{%- endif -%}
@@ -263,6 +287,14 @@
       var atc = root.querySelector('[data-ph-atc]');
       var atcText = root.querySelector('[data-ph-atc-text]');
 
+      (function () {
+        var sticky = root.querySelector('[data-ph-sticky]');
+        var actions = root.querySelector('.ss-ph__actions');
+        if (!sticky || !actions || !('IntersectionObserver' in window)) return;
+        new IntersectionObserver(function (entries) {
+          sticky.classList.toggle('is-on', !entries[0].isIntersecting && entries[0].boundingClientRect.top < 0);
+        }, { threshold: 0 }).observe(actions);
+      })();
       function money(cents) {
         try { return '£' + (cents / 100).toFixed(2); } catch (e) { return ''; }
       }

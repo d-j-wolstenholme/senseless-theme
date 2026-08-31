@@ -297,6 +297,20 @@
       // strength filter tabs
       var tabs = root.querySelector('[data-cg-tabs]');
       if (tabs) {
+        // Selector handoff: /pages/the-senseless-system emits ?strength=<tier>; pre-select that tab
+        // so peak-intent taps land on a filtered grid instead of the full list.
+        try {
+          var want = new URLSearchParams(location.search).get('strength');
+          if (want) {
+            var pre = tabs.querySelector('[data-filter="' + want.toLowerCase() + '"]');
+            if (pre) {
+              tabs.querySelectorAll('[data-filter]').forEach(function (b){ b.setAttribute('aria-selected', b === pre ? 'true' : 'false'); });
+              root.querySelectorAll('.ss-cg__card').forEach(function (card){
+                card.hidden = card.getAttribute('data-strength') !== want.toLowerCase();
+              });
+            }
+          }
+        } catch (e) {}
         tabs.addEventListener('click', function (e) {
           var btn = e.target.closest('[data-filter]'); if (!btn) return;
           var f = btn.getAttribute('data-filter');

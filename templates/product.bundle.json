@@ -19,7 +19,7 @@
     "contents": {
       "type": "senseless-bundle-contents",
       "settings": {
-        "eyebrow": "In the bundle",
+        "eyebrow": "Contents",
         "headline": "What's in the bundle",
         "band": "surface"
       }
@@ -36,7 +36,7 @@
         "t3": {
           "type": "trust_item",
           "settings": {
-            "label": "Cream, gel, spray + cleanser"
+            "label": "Cream, gel, spray, cleanser + bag"
           }
         },
         "t4": {
@@ -61,7 +61,7 @@
         "background": "white",
         "eyebrow": "Where this sits",
         "headline": "Part of the Senseless System",
-        "body": "<p>Each bundle pairs a strength-matched Comfort Cream, Comfort Gel and Comfort Spray with the Foaming Cleanser and the Senseless Cosmetics Bag — the same products sold individually, assembled and picked as one unit. Choose the bundle that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom.</p>",
+        "body": "<p>Choose the tier that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p><p>Senseless is a cosmetic product, formulated in the United Kingdom.</p>",
         "cta_label": "Explore the Senseless System",
         "cta_url": "/pages/the-senseless-system"
       }
