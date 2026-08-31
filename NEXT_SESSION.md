@@ -59,6 +59,26 @@ Report artifact: "The Buried Grid" — https://claude.ai/code/artifact/f62a087f-
    version shipped instead), sticky mobile shop bar (test candidate), Selector embed on
    procedure pages, aggregate-rating line in collection heroes.
 
+
+## Funnel audit round two (1 Sep, verified — recommendations only, nothing shipped)
+
+Full set in "The Buried Grid" artifact. Verified root causes worth remembering:
+- **No PDP has ever rendered a review list.** The hero's badge app block is wired on 13
+  templates, but the `senseless-reviews` section has ZERO blocks on all 14 — its own code
+  renders nothing without one. Fix = add the Judge.me review-widget app block per template.
+- **Homepage highlights are backwards:** two kits at £112.99/£142.99 + Professional Cream
+  badged "Most Popular" (7 lifetime sales); the actual best seller (Professional Spray,
+  19 units) appears nowhere.
+- **`sticky-add-to-cart.js` loads on every PDP but only Horizon's native section emits the
+  element** — the custom PDPs never render it.
+- **Selector emits `?strength=` and the grids ignore it** (0 URL-param reads in
+  senseless-collection-grid); the strongest-numbing-cream page has the init to port.
+- **No free-delivery progress in the cart drawer** at a £36 AOV vs the £40 threshold.
+- Live typos in the homepage practitioner quote: "differnt", "aweful" (swap the quote,
+  don't edit a quote). System-vs-microneedling tier line still contradicts.
+- Deliberately NOT doing: urgency widgets, benefit/timing claims, tier-superiority badges,
+  PDP copy cuts, more popups, injectable links. Toast/app-banner/chat-count are Daniel calls.
+
 ## Gotchas
 
 - The audit ran overnight TWICE and both runs died to **machine sleep** — recovered from
