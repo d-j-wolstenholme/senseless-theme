@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Emla alternative",
         "headline": "The best EMLA alternative in the UK: a different category, a different purpose.",
-        "subhead": "<p>Senseless is a UK cosmetic product, formulated specifically for aesthetic procedures. Emla is a medicine. The comparison is across categories. If you're looking for the aesthetic-product alternative, this is it.</p>",
+        "subhead": "<p>Senseless is UK-formulated specifically for aesthetic procedures. Emla is a medicine. The comparison is across categories. If you're looking for the aesthetic-product alternative, this is it.</p>",
         "image_alt": "Editorial Senseless system view",
         "primary_cta_label": "Shop the Senseless system",
         "primary_cta_url": "/collections/numbing-cream",
@@ -19,7 +19,7 @@
         "direction": "text-left",
         "eyebrow": "The honest framing",
         "headline": "Senseless and Emla aren't the same kind of product.",
-        "body": "<p>Emla is a medicine, sold through pharmacies, classified as such in the UK. Senseless is a cosmetic product, sold direct-to-consumer, classified as such in the UK. They sit in different regulatory categories. They're built for different contexts. We won't pretend Senseless is a direct medical substitute for Emla — it isn't, by design. What Senseless is: a cosmetic preparation purpose-built for aesthetic procedures, with a three-tier system matched to what aesthetic appointments actually ask of the skin.</p>",
+        "body": "<p>Emla is a medicine, sold through pharmacies, classified as such in the UK. Senseless is a topical preparation, sold direct-to-consumer and safety-assessed under a UK Cosmetic Product Safety Report. They sit in different regulatory categories. They're built for different contexts. We won't pretend Senseless is a direct medical substitute for Emla — it isn't, by design. What Senseless is: a cosmetic preparation purpose-built for aesthetic procedures, with a three-tier system matched to what aesthetic appointments actually ask of the skin.</p>",
         "cta_label": "",
         "cta_url": "",
         "image": "shopify://shop_images/senseless-asterisk.svg",
@@ -196,14 +196,14 @@
           "type": "faq_item",
           "settings": {
             "question": "Is Senseless a direct replacement for Emla?",
-            "answer": "<p>No — not by design. They're different categories. Senseless is a UK cosmetic product built for aesthetic procedures. Emla is a medicine. If you specifically need a medical preparation, Senseless isn't formulated for that purpose.</p>"
+            "answer": "<p>No — not by design. They're different categories. Senseless is built for aesthetic procedures. Emla is a medicine. If you specifically need a medical preparation, Senseless isn't formulated for that purpose.</p>"
           }
         },
         "q2": {
           "type": "faq_item",
           "settings": {
             "question": "Do I need a prescription for Senseless?",
-            "answer": "<p>No. Senseless is a cosmetic product, available without prescription.</p>"
+            "answer": "<p>No. Senseless is available without prescription.</p>"
           }
         },
         "q3": {
@@ -231,7 +231,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Is Senseless safer than Emla?",
-            "answer": "<p>We don't make comparative safety claims. Senseless is a UK cosmetic product, regulated as such. Emla is a medicine, regulated as such. Different categories, different safety frameworks.</p>"
+            "answer": "<p>We don't make comparative safety claims. Senseless is a topical preparation, safety-assessed under a UK Cosmetic Product Safety Report. Emla is a medicine, regulated as such. Different categories, different safety frameworks.</p>"
           }
         }
       },
@@ -289,7 +289,7 @@
             "image": "shopify://shop_images/senseless-asterisk.svg",
             "image_alt": "Senseless compared with Ametop",
             "label": "Senseless vs Ametop",
-            "body": "<p>Cosmetic product, not a pharmacy medicine.</p>",
+            "body": "<p>Sold openly in the UK — no prescription needed.</p>",
             "cta_label": "Read the guide",
             "cta_url": "/pages/senseless-vs-ametop"
           }

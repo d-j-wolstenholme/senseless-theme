@@ -21,7 +21,7 @@
         "direction": "text-left",
         "eyebrow": "The honest framing",
         "headline": "A comparison we're not allowed to make, and one we can.",
-        "body": "<p>Senseless is a UK cosmetic product. Under UK rules we cannot claim that one topical preparation performs better than another, and we would not be able to substantiate it if we tried. So this page does not rank products.</p><p>What it does instead is set out the things a UK buyer can verify for themselves before ordering anything in this category — who the seller is, whether the product has been safety-assessed, what you are actually paying per gram, and where the parcel ships from. Those are checkable facts rather than opinions, and they are the ones that tend to matter when something goes wrong.</p>",
+        "body": "<p>Senseless is UK-formulated and CPSR assessed. Under UK rules we cannot claim that one topical preparation performs better than another, and we would not be able to substantiate it if we tried. So this page does not rank products.</p><p>What it does instead is set out the things a UK buyer can verify for themselves before ordering anything in this category — who the seller is, whether the product has been safety-assessed, what you are actually paying per gram, and where the parcel ships from. Those are checkable facts rather than opinions, and they are the ones that tend to matter when something goes wrong.</p>",
         "image": "shopify://shop_images/senseless-asterisk.svg",
         "image_alt": "The Senseless asterisk mark",
         "cta_label": "",
@@ -216,7 +216,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Do I need a prescription for Senseless?",
-            "answer": "<p>No. Senseless is a cosmetic product, sold openly in the UK. Pharmacy medicines are a separate category with their own route — if a practitioner has told you that you need a medical preparation, a pharmacist is the right source.</p>"
+            "answer": "<p>No prescription is needed — Senseless is sold openly in the UK, UK-formulated and CPSR assessed. Pharmacy medicines are a separate category with their own route — if a practitioner has told you that you need a medical preparation, a pharmacist is the right source.</p>"
           }
         },
         "q6": {

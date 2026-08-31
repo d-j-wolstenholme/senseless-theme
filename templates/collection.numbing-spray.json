@@ -326,13 +326,6 @@
             "answer": "<p>Spray suits larger or broader areas — body laser, waxing and similar zones — where its even, hands-off coverage is easier to apply than a cream. For small, precise facial work, many people prefer a cream or gel. Most clinics apply their own numbing as standard, though — so check with your practitioner before your appointment, as they may prefer to prepare the skin themselves.</p>"
           }
         },
-        "q7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is numbing spray a medicine?",
-            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
-          }
-        },
         "q8": {
           "type": "faq_item",
           "settings": {
@@ -350,7 +343,6 @@
         "q6",
         "qreapply",
         "qinj",
-        "q7",
         "q8"
       ],
       "settings": {

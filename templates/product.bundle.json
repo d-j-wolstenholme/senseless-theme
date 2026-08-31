@@ -61,7 +61,7 @@
         "background": "white",
         "eyebrow": "Where this sits",
         "headline": "Part of the Senseless System",
-        "body": "<p>Choose the tier that matches your appointment and your practitioner's guidance. Numbing is a cosmetic preparation that supports comfort.</p>",
+        "body": "<p>Choose the tier that matches your appointment and your practitioner's guidance.</p>",
         "cta_label": "Explore the Senseless System",
         "cta_url": "/pages/the-senseless-system"
       }
@@ -113,7 +113,16 @@
       "type": "senseless-reviews",
       "settings": {
         "headline": "What clients say"
-      }
+      },
+      "blocks": {
+        "jm_widget": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "jm_widget"
+      ]
     },
     "safetywarnings": {
       "type": "senseless-safety-warnings",

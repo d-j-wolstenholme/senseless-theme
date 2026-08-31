@@ -94,7 +94,16 @@
       "type": "senseless-reviews",
       "settings": {
         "headline": "What clients say"
-      }
+      },
+      "blocks": {
+        "jm_widget": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "jm_widget"
+      ]
     },
     "crosssell": {
       "type": "senseless-cross-sell",

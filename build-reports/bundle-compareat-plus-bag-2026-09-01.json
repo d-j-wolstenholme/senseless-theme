@@ -1,0 +1,32 @@
+{
+ "clinical-numbing-kit-small": {
+  "variant": "gid://shopify/ProductVariant/57797424873820",
+  "old": 79.96,
+  "new": 89.95,
+  "price": "71.99"
+ },
+ "clinical-numbing-kit-large": {
+  "variant": "gid://shopify/ProductVariant/57797424906588",
+  "old": 119.96,
+  "new": 129.95,
+  "price": "107.99"
+ },
+ "advanced-numbing-kit-small": {
+  "variant": "gid://shopify/ProductVariant/57797425824092",
+  "old": 94.96,
+  "new": 104.95,
+  "price": "84.99"
+ },
+ "advanced-numbing-kit-large": {
+  "variant": "gid://shopify/ProductVariant/57797425922396",
+  "old": 134.96,
+  "new": 144.95,
+  "price": "120.99"
+ },
+ "professional-numbing-kit-large": {
+  "variant": "gid://shopify/ProductVariant/57797425955164",
+  "old": 150.96,
+  "new": 160.95,
+  "price": "135.99"
+ }
+}

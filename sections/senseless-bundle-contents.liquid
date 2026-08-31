@@ -36,7 +36,7 @@
     {%- comment -%} Static value statement only — no struck prices, no savings figures, per the
       1 Sep no-sale-presentation decision. Exact figures can return once compareAtPrice covers all
       five components. {%- endcomment -%}
-    <p class="ss-kit__note">{{ product.price | money }} for the set — priced below the five pieces bought separately.</p>
+    <p class="ss-kit__note">{{ product.price | money }} for the set{% if product.compare_at_price > product.price %} — the five pieces are {{ product.compare_at_price | money }} bought separately{% endif %}.</p>
       </div>
 </section>
 {%- endif -%}

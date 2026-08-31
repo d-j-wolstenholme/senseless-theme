@@ -292,13 +292,6 @@
             "answer": "<p>Yes — patch test 24 hours before on the inside of your wrist or behind your ear, and don't use it if you see any reaction. Take extra care on sensitive or broken skin.</p>"
           }
         },
-        "q7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is numbing gel a medicine?",
-            "answer": "<p>No. Senseless is a cosmetic product, UK-formulated and CPSR assessed — no prescription needed.</p>"
-          }
-        },
         "q8": {
           "type": "faq_item",
           "settings": {
@@ -314,7 +307,6 @@
         "q4",
         "q5",
         "q6",
-        "q7",
         "q8"
       ],
       "settings": {
