@@ -1,12 +1,142 @@
-{%- comment -%} Senseless — Comfort compare (Phase 6 interactive, qualitative version). Replaces the senseless-pain-scale-slot placeholder. QUALITATIVE ONLY — a relative Mild · Moderate · Sharper band, NO numbers, no "/10", no sourcing. All strings are verbatim from spec 37358bc375ea81df995afcf813dd03bb ("INTERACTIVE — qualitative version" + "DESCRIPTOR STRINGS"). The interactive only RECOMBINES wording already on the page — it asserts no new fact. Two modes (section.settings.mode) — the per-page toggle interactive only: - microneedling : needle depth (3) × area (2) = 6 combos → band + descriptor + numbing line - laser : area (2) × session (2) = 4 combos → band + descriptor + numbing line (The static 8-row "hub" mode was retired 2026-06-03 — the /pages/does-it-hurt hub now uses a card list instead. This section lives only on the two deep pages at §2.) Compliance: reduce-not-eliminate numbing line on both modes; 0 banned words; no efficacy/duration/onset/%/"/10".
+{%- comment -%}
+  Senseless — Comfort compare (Phase 6 interactive, qualitative version).
+
+  Replaces the senseless-pain-scale-slot placeholder. QUALITATIVE ONLY — a relative
+  Mild · Moderate · Sharper band, NO numbers, no "/10", no sourcing. All strings are
+  verbatim from spec 37358bc375ea81df995afcf813dd03bb ("INTERACTIVE — qualitative version"
+  + "DESCRIPTOR STRINGS"). The interactive only RECOMBINES wording already on the page —
+  it asserts no new fact.
+
+  Two modes (section.settings.mode) — the per-page toggle interactive only:
+    - microneedling : needle depth (3) × area (2) = 6 combos → band + descriptor + numbing line
+    - laser         : area (2) × session (2) = 4 combos → band + descriptor + numbing line
+
+  (The static 8-row "hub" mode was retired 2026-06-03 — the /pages/does-it-hurt hub now uses a
+  card list instead. This section lives only on the two deep pages at §2.)
+
+  Compliance: reduce-not-eliminate numbing line on both modes; 0 banned words; no efficacy/duration/onset/%/"/10".
 {%- endcomment -%}
-{%- liquid assign mode = section.settings.mode | default: 'microneedling' assign anchor = section.settings.anchor_id | default: 'comfort' assign numbing_line = 'Numbing is commonly used to help you feel more comfortable during treatment. '
+{%- liquid
+  assign mode = section.settings.mode | default: 'microneedling'
+  assign anchor = section.settings.anchor_id | default: 'comfort'
+  assign numbing_line = 'Numbing is commonly used to help you feel more comfortable during treatment.'
 -%}
-{%- style -%}.ss-cmp { position:static; --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC; --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); }.ss-cmp__inner { max-width:820px; margin:0 auto; padding-block:96px; padding-inline:20px; }.ss-cmp__eyebrow { font-family:var(--sans); font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0 0 10px; }.ss-cmp__heading { font-family:var(--sans); font-weight:400; letter-spacing:-0.02em; font-size:clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height:1.1; margin:0 0 22px; }.ss-cmp__q { margin:0 0 16px; border:0; padding:0; }.ss-cmp__qlabel { font-family:var(--sans); font-weight:600; font-size:13px; color:var(--ink); margin:0 0 8px; }.ss-cmp__chips { display:flex; flex-wrap:wrap; gap:8px; }.ss-cmp__opt { position:relative; }.ss-cmp__opt input { position:absolute; opacity:0; pointer-events:none; }.ss-cmp__chip { display:inline-flex; align-items:center; min-height:38px; padding:0 15px; border:1px solid var(--bd); border-radius:999px; background:var(--surf); font-family:var(--sans); font-size:14px; color:var(--ink); cursor:pointer; transition:background-color.12s,border-color.12s,color.12s; }.ss-cmp__opt input:checked +.ss-cmp__chip { background:var(--p); border-color:var(--p); color:#fff; }.ss-cmp__opt input:focus-visible +.ss-cmp__chip { outline:2px solid var(--p); outline-offset:2px; } /* band */.ss-cmp__band { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:22px 0 14px; }.ss-cmp__seg { text-align:center; padding:14px 8px; border:1px solid var(--bd); border-radius:6px; background:var(--surf); font-family:var(--sans); font-weight:600; font-size:14px; color:var(--sec); transition:background-color.15s,color.15s,border-color.15s; }.ss-cmp__seg[data-active="true"] { background:var(--p); border-color:var(--p); color:#fff; }.ss-cmp__axis { display:flex; justify-content:space-between; font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--sec); margin:0 2px 6px; }.ss-cmp__desc { font-family:var(--sans); font-size:16px; line-height:1.55; color:var(--ink); margin:6px 0 0; min-height:1.55em; }.ss-cmp__numbing { font-family:var(--sans); font-size:13.5px; line-height:1.55; color:var(--sec); margin:14px 0 0; border-left:3px solid var(--p); padding:2px 0 2px 14px; } @media (max-width:989px){.ss-cmp__inner{padding-block:56px;} } @media (max-width:749px){.ss-cmp__inner{padding-block:44px;}.ss-cmp__band{gap:4px;}.ss-cmp__seg{font-size:12.5px;padding:12px 4px;} }
+{%- style -%}
+  .ss-cmp { position:static; --p:#6B3FA0; --bg:#f7f7f5; --surf:#ffffff; --ink:#1A1816; --body:#2B2730; --sec:#5C5853; --bd:#E5E2DC;
+    --sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); }
+  .ss-cmp__inner { max-width:820px; margin:0 auto; padding-block:96px; padding-inline:20px; }
+  .ss-cmp__eyebrow { font-family:var(--sans); font-weight:600; font-size:0.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--p); margin:0 0 10px; }
+  .ss-cmp__heading { font-family:var(--sans); font-weight:400; letter-spacing:-0.02em; font-size:clamp(1.875rem, 1.2rem + 3vw, 2.75rem); line-height:1.1; margin:0 0 22px; }
+  .ss-cmp__q { margin:0 0 16px; border:0; padding:0; }
+  .ss-cmp__qlabel { font-family:var(--sans); font-weight:600; font-size:13px; color:var(--ink); margin:0 0 8px; }
+  .ss-cmp__chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .ss-cmp__opt { position:relative; }
+  .ss-cmp__opt input { position:absolute; opacity:0; pointer-events:none; }
+  .ss-cmp__chip { display:inline-flex; align-items:center; min-height:38px; padding:0 15px; border:1px solid var(--bd); border-radius:999px; background:var(--surf); font-family:var(--sans); font-size:14px; color:var(--ink); cursor:pointer; transition:background-color .12s,border-color .12s,color .12s; }
+  .ss-cmp__opt input:checked + .ss-cmp__chip { background:var(--p); border-color:var(--p); color:#fff; }
+  .ss-cmp__opt input:focus-visible + .ss-cmp__chip { outline:2px solid var(--p); outline-offset:2px; }
+  /* band */
+  .ss-cmp__band { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:22px 0 14px; }
+  .ss-cmp__seg { text-align:center; padding:14px 8px; border:1px solid var(--bd); border-radius:6px; background:var(--surf); font-family:var(--sans); font-weight:600; font-size:14px; color:var(--sec); transition:background-color .15s,color .15s,border-color .15s; }
+  .ss-cmp__seg[data-active="true"] { background:var(--p); border-color:var(--p); color:#fff; }
+  .ss-cmp__axis { display:flex; justify-content:space-between; font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--sec); margin:0 2px 6px; }
+  .ss-cmp__desc { font-family:var(--sans); font-size:16px; line-height:1.55; color:var(--ink); margin:6px 0 0; min-height:1.55em; }
+  .ss-cmp__numbing { font-family:var(--sans); font-size:13.5px; line-height:1.55; color:var(--sec); margin:14px 0 0; border-left:3px solid var(--p); padding:2px 0 2px 14px; }
+  @media (max-width:989px){ .ss-cmp__inner{padding-block:56px;} }
+  @media (max-width:749px){ .ss-cmp__inner{padding-block:44px;} .ss-cmp__band{gap:4px;} .ss-cmp__seg{font-size:12.5px;padding:12px 4px;} }
 {%- endstyle -%}
-<section class="ss-cmp" id="{{ anchor | escape }}" aria-label="{{ section.settings.heading | default: 'Comfort comparison' | escape }}"> <div class="ss-cmp__inner" data-cc data-mode="{{ mode }}"> {%- if section.settings.eyebrow != blank -%}<p class="ss-cmp__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%} {%- if section.settings.heading != blank -%}<h2 class="ss-cmp__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%} {%- comment -%} Per-page toggle modes (microneedling / laser). The static 8-row hub mode was retired 2026-06-03 — the hub page now uses a card list instead. {%- endcomment -%} {%- if mode == 'laser' -%} {%- assign g1label = 'Area' -%} {%- assign g1 = 'large|Legs / back / arms~sensitive|Underarms / bikini / upper lip' | split: '~' -%} {%- assign g2label = 'Session' -%} {%- assign g2 = 'first|First session~later|Later sessions' | split: '~' -%} {%- capture combo_map -%}{ "large|first": {"band":"Moderate","desc":"Larger areas in the first session feel like a quick elastic-band snap, easing in later sessions."}, "large|later": {"band":"Mild","desc":"Larger areas in later sessions are among the most comfortable — a brief, light flick as the hair thins."}, "sensitive|first": {"band":"Sharper","desc":"Sensitive zones in the first session are the sharpest combination — a quick, intense snap that's over fast."}, "sensitive|later": {"band":"Moderate","desc":"Sensitive zones get more comfortable over a course, but stay sharper than larger areas."} }{%- endcapture -%} {%- else -%} {%- assign g1label = 'Needle depth' -%} {%- assign g1 = 'light|Light refresh~standard|Standard~deeper|Deeper for scarring' | split: '~' -%} {%- assign g2label = 'Area' -%} {%- assign g2 = 'cheeks|Cheeks~bonier|Forehead / jaw / hairline' | split: '~' -%} {%- capture combo_map -%}{ "light|cheeks": {"band":"Mild","desc":"A light refresh across the cheeks is among the milder end — most people describe a faint prickling."}, "light|bonier": {"band":"Moderate","desc":"A light refresh over bonier areas like the forehead feels a little sharper, though still on the lighter side."}, "standard|cheeks": {"band":"Moderate","desc":"A standard treatment on the cheeks sits in the middle — a noticeable scratching as the device passes over."}, "standard|bonier": {"band":"Sharper","desc":"A standard treatment over the forehead and jaw is sharper, as the skin sits closer to the bone."}, "deeper|cheeks": {"band":"Sharper","desc":"Deeper work for scarring is more intense, even across the fuller part of the cheeks."}, "deeper|bonier": {"band":"Sharper","desc":"Deeper work over bonier areas is the most noticeable combination — the sharper end of the range."} }{%- endcapture -%} {%- endif -%} <fieldset class="ss-cmp__q"> <legend class="ss-cmp__qlabel">{{ g1label }}</legend> <div class="ss-cmp__chips"> {%- for o in g1 -%}{%- assign op = o | split: '|' -%} <label class="ss-cmp__opt"><input type="radio" name="cc-g1-{{ section.id }}" data-group="g1" value="{{ op[0] }}"{% if forloop.first %} checked{% endif %}><span class="ss-cmp__chip">{{ op[1] | escape }}</span></label> {%- endfor -%} </div> </fieldset> <fieldset class="ss-cmp__q"> <legend class="ss-cmp__qlabel">{{ g2label }}</legend> <div class="ss-cmp__chips"> {%- for o in g2 -%}{%- assign op = o | split: '|' -%} <label class="ss-cmp__opt"><input type="radio" name="cc-g2-{{ section.id }}" data-group="g2" value="{{ op[0] }}"{% if forloop.first %} checked{% endif %}><span class="ss-cmp__chip">{{ op[1] | escape }}</span></label> {%- endfor -%} </div> </fieldset> <div class="ss-cmp__axis"><span>Milder</span><span>Sharper</span></div> <div class="ss-cmp__band" role="img" aria-label="Comfort band: Mild, Moderate, Sharper"> <div class="ss-cmp__seg" data-seg="Mild">Mild</div> <div class="ss-cmp__seg" data-seg="Moderate">Moderate</div> <div class="ss-cmp__seg" data-seg="Sharper">Sharper</div> </div> <p class="ss-cmp__desc" data-desc aria-live="polite"></p> <p class="ss-cmp__numbing">{{ numbing_line }}</p> <script type="application/json" data-combo-map>{{ combo_map }}</script> <script> (function(){ var root = document.currentScript.closest('.ss-cmp'); if(!root) return; var map = {}; try { map = JSON.parse(root.querySelector('[data-combo-map]').textContent); } catch(e){} var segs = root.querySelectorAll('.ss-cmp__seg'); var descEl = root.querySelector('[data-desc]'); function val(g){ var el = root.querySelector('input[data-group="'+g+'"]:checked'); return el ? el.value : null; } function update(){ var key = val('g1') + '|' + val('g2'); var hit = map[key]; if(!hit) return; descEl.textContent = hit.desc; segs.forEach(function(s){ s.setAttribute('data-active', s.getAttribute('data-seg') === hit.band ? 'true' : 'false'); }); } root.querySelectorAll('input[type="radio"]').forEach(function(i){ i.addEventListener('change', update); }); update(); })(); </script> </div>
+<section class="ss-cmp" id="{{ anchor | escape }}" aria-label="{{ section.settings.heading | default: 'Comfort comparison' | escape }}">
+  <div class="ss-cmp__inner" data-cc data-mode="{{ mode }}">
+    {%- if section.settings.eyebrow != blank -%}<p class="ss-cmp__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="ss-cmp__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+
+    {%- comment -%} Per-page toggle modes (microneedling / laser). The static 8-row hub mode was retired 2026-06-03 — the hub page now uses a card list instead. {%- endcomment -%}
+      {%- if mode == 'laser' -%}
+        {%- assign g1label = 'Area' -%}
+        {%- assign g1 = 'large|Legs / back / arms~sensitive|Underarms / bikini / upper lip' | split: '~' -%}
+        {%- assign g2label = 'Session' -%}
+        {%- assign g2 = 'first|First session~later|Later sessions' | split: '~' -%}
+        {%- capture combo_map -%}{
+          "large|first":   {"band":"Moderate","desc":"Larger areas in the first session feel like a quick elastic-band snap, easing in later sessions."},
+          "large|later":   {"band":"Mild","desc":"Larger areas in later sessions are among the most comfortable — a brief, light flick as the hair thins."},
+          "sensitive|first": {"band":"Sharper","desc":"Sensitive zones in the first session are the sharpest combination — a quick, intense snap that's over fast."},
+          "sensitive|later": {"band":"Moderate","desc":"Sensitive zones get more comfortable over a course, but stay sharper than larger areas."}
+        }{%- endcapture -%}
+      {%- else -%}
+        {%- assign g1label = 'Needle depth' -%}
+        {%- assign g1 = 'light|Light refresh~standard|Standard~deeper|Deeper for scarring' | split: '~' -%}
+        {%- assign g2label = 'Area' -%}
+        {%- assign g2 = 'cheeks|Cheeks~bonier|Forehead / jaw / hairline' | split: '~' -%}
+        {%- capture combo_map -%}{
+          "light|cheeks":    {"band":"Mild","desc":"A light refresh across the cheeks is among the milder end — most people describe a faint prickling."},
+          "light|bonier":    {"band":"Moderate","desc":"A light refresh over bonier areas like the forehead feels a little sharper, though still on the lighter side."},
+          "standard|cheeks": {"band":"Moderate","desc":"A standard treatment on the cheeks sits in the middle — a noticeable scratching as the device passes over."},
+          "standard|bonier": {"band":"Sharper","desc":"A standard treatment over the forehead and jaw is sharper, as the skin sits closer to the bone."},
+          "deeper|cheeks":   {"band":"Sharper","desc":"Deeper work for scarring is more intense, even across the fuller part of the cheeks."},
+          "deeper|bonier":   {"band":"Sharper","desc":"Deeper work over bonier areas is the most noticeable combination — the sharper end of the range."}
+        }{%- endcapture -%}
+      {%- endif -%}
+
+      <fieldset class="ss-cmp__q">
+        <legend class="ss-cmp__qlabel">{{ g1label }}</legend>
+        <div class="ss-cmp__chips">
+          {%- for o in g1 -%}{%- assign op = o | split: '|' -%}
+            <label class="ss-cmp__opt"><input type="radio" name="cc-g1-{{ section.id }}" data-group="g1" value="{{ op[0] }}"{% if forloop.first %} checked{% endif %}><span class="ss-cmp__chip">{{ op[1] | escape }}</span></label>
+          {%- endfor -%}
+        </div>
+      </fieldset>
+      <fieldset class="ss-cmp__q">
+        <legend class="ss-cmp__qlabel">{{ g2label }}</legend>
+        <div class="ss-cmp__chips">
+          {%- for o in g2 -%}{%- assign op = o | split: '|' -%}
+            <label class="ss-cmp__opt"><input type="radio" name="cc-g2-{{ section.id }}" data-group="g2" value="{{ op[0] }}"{% if forloop.first %} checked{% endif %}><span class="ss-cmp__chip">{{ op[1] | escape }}</span></label>
+          {%- endfor -%}
+        </div>
+      </fieldset>
+
+      <div class="ss-cmp__axis"><span>Milder</span><span>Sharper</span></div>
+      <div class="ss-cmp__band" role="img" aria-label="Comfort band: Mild, Moderate, Sharper">
+        <div class="ss-cmp__seg" data-seg="Mild">Mild</div>
+        <div class="ss-cmp__seg" data-seg="Moderate">Moderate</div>
+        <div class="ss-cmp__seg" data-seg="Sharper">Sharper</div>
+      </div>
+      <p class="ss-cmp__desc" data-desc aria-live="polite"></p>
+      <p class="ss-cmp__numbing">{{ numbing_line }}</p>
+
+      <script type="application/json" data-combo-map>{{ combo_map }}</script>
+      <script>
+        (function(){
+          var root = document.currentScript.closest('.ss-cmp');
+          if(!root) return;
+          var map = {};
+          try { map = JSON.parse(root.querySelector('[data-combo-map]').textContent); } catch(e){}
+          var segs = root.querySelectorAll('.ss-cmp__seg');
+          var descEl = root.querySelector('[data-desc]');
+          function val(g){ var el = root.querySelector('input[data-group="'+g+'"]:checked'); return el ? el.value : null; }
+          function update(){
+            var key = val('g1') + '|' + val('g2');
+            var hit = map[key];
+            if(!hit) return;
+            descEl.textContent = hit.desc;
+            segs.forEach(function(s){ s.setAttribute('data-active', s.getAttribute('data-seg') === hit.band ? 'true' : 'false'); });
+          }
+          root.querySelectorAll('input[type="radio"]').forEach(function(i){ i.addEventListener('change', update); });
+          update();
+        })();
+      </script>
+  </div>
 </section>
 {% schema %}
-{ "name": "Senseless — Comfort cmp", "tag": "section", "class": "senseless-section senseless-comfort-compare", "settings": [ { "type": "select", "id": "mode", "label": "Mode", "default": "microneedling", "options": [ { "value": "microneedling", "label": "Microneedling (depth × area)" }, { "value": "laser", "label": "Laser (area × session)" } ] }, { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "comfort" }, { "type": "text", "id": "eyebrow", "label": "Eyebrow" }, { "type": "text", "id": "heading", "label": "Heading" } ], "presets": [ { "name": "Senseless — Comfort cmp" } ]
+{
+  "name": "Senseless — Comfort cmp",
+  "tag": "section",
+  "class": "senseless-section senseless-comfort-compare",
+  "settings": [
+    { "type": "select", "id": "mode", "label": "Mode", "default": "microneedling", "options": [ { "value": "microneedling", "label": "Microneedling (depth × area)" }, { "value": "laser", "label": "Laser (area × session)" } ] },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "comfort" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" }
+  ],
+  "presets": [ { "name": "Senseless — Comfort cmp" } ]
 }
 {% endschema %}
