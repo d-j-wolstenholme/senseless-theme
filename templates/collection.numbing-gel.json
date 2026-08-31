@@ -211,15 +211,6 @@
         "accent_word": "average"
       }
     },
-    "honest": {
-      "type": "senseless-callout-band",
-      "settings": {
-        "style": "neutral",
-        "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard — microneedling especially. If yours does, you may not need to bring your own, and arriving already prepared without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>",
-        "accent_word": "skip"
-      }
-    },
     "characteristics": {
       "type": "senseless-key-facts",
       "blocks": {
@@ -345,14 +336,13 @@
   },
   "order": [
     "hero",
+    "grid",
     "trust",
     "match",
     "selectorlink",
-    "grid",
     "format",
     "uses",
     "philosophy",
-    "honest",
     "characteristics",
     "faq"
   ]

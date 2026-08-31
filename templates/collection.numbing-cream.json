@@ -173,7 +173,7 @@
         "rel_strongest": {
           "type": "link_item",
           "settings": {
-            "label": "Strongest numbing cream",
+            "label": "Which strength for demanding sittings?",
             "url": "/pages/strongest-numbing-cream"
           }
         },
@@ -221,15 +221,6 @@
         "accent_word": "average"
       }
     },
-    "honest": {
-      "type": "senseless-callout-band",
-      "settings": {
-        "style": "brand",
-        "heading": "Before you buy: the bit most sellers skip",
-        "body": "<p>For a lot of aesthetic procedures, the clinic applies its own numbing as standard. If yours does, you may not need to bring your own — and arriving already prepared without checking can get in the way of the treatment. Self-applied numbing matters most where the practitioner doesn't provide it, or where you want extra preparation on top. A quick message to your practitioner before you book settles it.</p>",
-        "accent_word": "skip"
-      }
-    },
     "characteristics": {
       "type": "senseless-key-facts",
       "blocks": {
@@ -237,7 +228,7 @@
           "type": "fact",
           "settings": {
             "label": "UK-formulated",
-            "value": "Every Senseless topical numbing cream is formulated in the United Kingdom by Matrix Health Group Ltd — numbing cream UK customers order, developed and assessed here."
+            "value": "Every Senseless topical numbing cream is formulated in the United Kingdom by Matrix Health Group Ltd — developed and assessed here."
           }
         },
         "c3": {
@@ -363,14 +354,13 @@
   },
   "order": [
     "hero",
+    "grid",
     "trust",
     "match",
     "selectorlink",
-    "grid",
     "format",
     "uses",
     "philosophy",
-    "honest",
     "characteristics",
     "faq"
   ]

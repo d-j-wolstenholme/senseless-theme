@@ -22,7 +22,7 @@
       "settings": {
         "eyebrow": "Clinical Strength",
         "headline": "Clinical Strength",
-        "subhead": "<p>The baseline of the Senseless system — the strength most appointments call for. Clinical is formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>",
+        "subhead": "<p>The baseline of the Senseless system — for shorter, routine appointments and smaller areas. Clinical is formulated for shorter sessions and smaller treatment areas: top-ups, routine microneedling, contained laser work. Precise where it counts.</p>",
         "primary_cta_label": "Shop Clinical",
         "primary_cta_url": "#shop",
         "image_alt": "Senseless Clinical Strength range — Comfort Cream, Comfort Gel and Comfort Spray",
@@ -137,8 +137,8 @@
   },
   "order": [
     "hero",
-    "trust",
     "grid",
+    "trust",
     "scale",
     "whentochoose",
     "selectorlink",

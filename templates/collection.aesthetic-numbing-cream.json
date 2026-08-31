@@ -324,7 +324,7 @@
             "image": "shopify://shop_images/senseless-numbing-cream-collection-hero.webp",
             "image_alt": "Senseless cream on a warm off-white background",
             "label": "Numbing Cream",
-            "body": "<p>Three strengths and two sizes.</p>",
+            "body": "<p>Three strengths, 10g and 30g.</p>",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-cream"
           }
@@ -335,7 +335,7 @@
             "image": "shopify://shop_images/senseless-numbing-gel-collection-hero.webp",
             "image_alt": "Senseless gel on a warm off-white background",
             "label": "Numbing Gel",
-            "body": "<p>Two strengths — Advanced and Professional.</p>",
+            "body": "<p>Three strengths — Clinical, Advanced and Professional.</p>",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-gel"
           }
@@ -346,7 +346,7 @@
             "image": "shopify://shop_images/senseless-numbing-spray-collection-hero.webp",
             "image_alt": "Senseless spray on a warm off-white background",
             "label": "Numbing Spray",
-            "body": "<p>Advanced and Professional, for body areas.</p>",
+            "body": "<p>Three strengths — Clinical, Advanced and Professional — for body areas.</p>",
             "cta_label": "View range",
             "cta_url": "/collections/numbing-spray"
           }
@@ -370,11 +370,11 @@
   },
   "order": [
     "hero",
+    "featured",
     "procedures",
     "why",
     "tiers",
     "trust",
-    "featured",
     "aftercare",
     "faq",
     "formats"

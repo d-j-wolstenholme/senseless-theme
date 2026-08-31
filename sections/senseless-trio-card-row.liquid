@@ -160,7 +160,7 @@
                   {%- if card_product == blank and block.settings.cta_label != blank -%}<span class="ss-card__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
                 </div>
               </a>
-              {%- if card_product != blank -%}<div class="ss-card__stars jdgm-widget jdgm-preview-badge" data-id="{{ card_product.id }}" data-template="senseless-card"></div>{%- endif -%}
+              {%- if card_product != blank -%}<div class="ss-card__stars jdgm-widget jdgm-preview-badge" data-id="{{ card_product.id }}" data-template="senseless-card">{{ card_product.metafields.judgeme.badge }}</div>{%- endif -%}
               {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}
             </div>
 

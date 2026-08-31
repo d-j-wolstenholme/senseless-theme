@@ -137,8 +137,8 @@
   },
   "order": [
     "hero",
-    "trust",
     "grid",
+    "trust",
     "scale",
     "whentochoose",
     "selectorlink",

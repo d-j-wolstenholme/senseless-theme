@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "For tattoo appointments",
         "headline": "Numbing cream for tattoos, matched to the sitting.",
-        "subhead": "<p>A tattoo appointment is usually the longest thing on this list — hours rather than minutes, over an area that can be small or span a whole limb. That is what the choice turns on: how long you are booked for, how much skin is involved, and what your artist asks you to do. Here is how the three strengths and three formats line up against that.</p>",
+        "subhead": "<p>A tattoo sitting runs hours rather than minutes. The choice turns on how long you're booked for, how much skin is involved, and what your artist asks. Three strengths and three formats, below.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
@@ -97,16 +97,6 @@
         "body": "<p>None of the three is \"better\" than another — each is formulated for a different kind of session. A long sitting sits at the upper end of the range; a short first piece does not need to.</p>",
         "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
         "accent_word": "Match"
-      }
-    },
-    "format": {
-      "type": "senseless-callout-band",
-      "settings": {
-        "style": "neutral",
-        "heading": "Cream, gel or spray?",
-        "body": "<p>Cream is the general-purpose format and the one most people reach for. Gel is the more precise of the two for smaller, defined areas. Spray covers broad areas without spreading anything by hand — the practical choice on a limb or a back piece. The same three strengths run across all three formats, so format is a question about the area and strength is a question about the length.</p>",
-        "cta_label": "How to apply it",
-        "cta_url": "/pages/how-to-apply-numbing-cream"
       }
     },
     "honest": {
@@ -242,11 +232,19 @@
             "product": "advanced-strength-cream",
             "caption": "The usual starting point for a longer booking."
           }
+        },
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-strength-cream",
+            "caption": "The standard tier — shorter, routine sittings."
+          }
         }
       },
       "block_order": [
         "c1",
-        "c2"
+        "c2",
+        "cc1"
       ],
       "settings": {
         "headline": "Creams",
@@ -254,7 +252,7 @@
         "show_filters": false,
         "format": "cream",
         "accent_word": "Creams",
-        "body": "<p>The general-purpose format, and the one most people reach for. Three strengths, ordered from the entry tier up.</p>"
+        "body": "<p>The general-purpose format, and the one most people reach for. Three strengths, ordered from the entry tier up.</p><p><strong>Cream, gel or spray?</strong> Cream is the general-purpose format and the one most people reach for. Gel is the more precise of the two for smaller, defined areas. Spray covers broad areas without spreading anything by hand — the practical choice on a limb or a back piece. The same three strengths run across all three formats, so format is a question about the area and strength is a question about the length.</p>"
       }
     },
     "gel": {
@@ -266,10 +264,26 @@
             "product": "advanced-strength-gel",
             "caption": "Precise on smaller, defined areas."
           }
+        },
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-strength-gel",
+            "caption": "The standard tier, precise on defined areas."
+          }
+        },
+        "cc2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-gel",
+            "caption": "For the longest precise work."
+          }
         }
       },
       "block_order": [
-        "c1"
+        "c1",
+        "cc1",
+        "cc2"
       ],
       "settings": {
         "headline": "Gels",
@@ -288,10 +302,34 @@
             "product": "advanced-strength-spray",
             "caption": "Where the area is broad rather than defined."
           }
+        },
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-strength-spray",
+            "caption": "Even, hands-off coverage for larger areas."
+          }
+        },
+        "cc2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-spray",
+            "caption": "For the longest, most sustained body work."
+          }
+        },
+        "bb2": {
+          "type": "card_badge",
+          "settings": {
+            "product": "professional-strength-spray",
+            "label": "Bestseller"
+          }
         }
       },
       "block_order": [
-        "c1"
+        "c1",
+        "cc1",
+        "cc2",
+        "bb2"
       ],
       "settings": {
         "headline": "Sprays",
@@ -309,7 +347,51 @@
         "show_filters": false,
         "format": "bundle",
         "body": "<p>The full routine in one box, at a set price.</p>"
-      }
+      },
+      "blocks": {
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-numbing-kit-small",
+            "caption": "Every format at Clinical strength — starter sizes."
+          }
+        },
+        "cc2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-numbing-kit-large",
+            "caption": "Every format at Clinical strength — full sizes."
+          }
+        },
+        "cc3": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-numbing-kit-small",
+            "caption": "Every format at Advanced strength — starter sizes."
+          }
+        },
+        "cc4": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-numbing-kit-large",
+            "caption": "Every format at Advanced strength — full sizes."
+          }
+        },
+        "cc5": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-numbing-kit-large",
+            "caption": "Every format at Professional strength — full sizes."
+          }
+        }
+      },
+      "block_order": [
+        "cc1",
+        "cc2",
+        "cc3",
+        "cc4",
+        "cc5"
+      ]
     },
     "aftercare": {
       "type": "senseless-collection-grid",
@@ -319,21 +401,40 @@
         "show_filters": false,
         "format": "cleanser",
         "body": "<p>Not numbing products. A cleanser for the area, and a barrier ointment for afterwards.</p>"
-      }
+      },
+      "blocks": {
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "foaming-cleanser",
+            "caption": "Cleanse before and after the appointment."
+          }
+        },
+        "cc2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "vitamin-a-d-ointment-4-pack",
+            "caption": "Barrier ointment for afterwards — four travel tubes."
+          }
+        }
+      },
+      "block_order": [
+        "cc1",
+        "cc2"
+      ]
     }
   },
   "order": [
     "hero",
-    "trust",
-    "intro",
-    "match",
-    "selectorlink",
     "cream",
     "gel",
     "spray",
     "bundles",
     "aftercare",
-    "format",
+    "trust",
+    "intro",
+    "match",
+    "selectorlink",
     "honest",
     "characteristics",
     "faq"

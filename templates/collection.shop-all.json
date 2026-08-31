@@ -7,7 +7,7 @@
         "headline": "Numbing cream, gel and spray — the full Senseless range.",
         "accent_word": "range",
         "subhead": "<p>Every Senseless format and strength in one place — <a href=\"/collections/numbing-cream\">cream</a>, <a href=\"/collections/numbing-gel\">gel</a> and <a href=\"/collections/numbing-spray\">spray</a> across Clinical, Advanced and Professional, plus the Foaming Cleanser for aftercare. Not sure which to pick? <a href=\"/pages/the-senseless-system\">Find your strength</a>.</p>",
-        "primary_cta_label": "Shop the cream range",
+        "primary_cta_label": "Shop the full range",
         "primary_cta_url": "#cream",
         "image_alt": "Senseless range on a warm off-white background"
       }
@@ -40,7 +40,19 @@
         "show_filters": false,
         "format": "spray",
         "anchor_id": "spray"
-      }
+      },
+      "blocks": {
+        "bb1": {
+          "type": "card_badge",
+          "settings": {
+            "product": "professional-strength-spray",
+            "label": "Bestseller"
+          }
+        }
+      },
+      "block_order": [
+        "bb1"
+      ]
     },
     "bundles": {
       "type": "senseless-collection-grid",
@@ -78,8 +90,8 @@
     "cream",
     "gel",
     "spray",
-    "aftercare",
     "bundles",
+    "aftercare",
     "merchandise"
   ]
 }

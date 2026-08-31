@@ -141,7 +141,7 @@
       "settings": {
         "headline": "Numbing for microneedling, by strength",
         "anchor_id": "shop",
-        "show_filters": false,
+        "show_filters": true,
         "accent_word": "strength"
       }
     },
@@ -275,11 +275,11 @@
   },
   "order": [
     "hero",
+    "grid",
     "trust",
     "intro",
     "match",
     "selectorlink",
-    "grid",
     "format",
     "honest",
     "characteristics",

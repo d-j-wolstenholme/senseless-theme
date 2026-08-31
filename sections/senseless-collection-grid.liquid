@@ -61,7 +61,7 @@
   .ss-cg__body { font-family:var(--sans); font-size:16px; line-height:1.55; color:var(--body); margin:0; }
   .ss-cg__body p { margin:0 0 8px; } .ss-cg__body p:last-child { margin:0; }
   .ss-cg__tabs { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 24px; }
-  .ss-cg__tab { font-family:var(--sans); font-weight:600; font-size:13px; height:38px; padding:0 16px; border-radius:999px; border:1px solid var(--bd); background:var(--surf); color:var(--body); cursor:pointer; }
+  .ss-cg__tab { font-family:var(--sans); font-weight:600; font-size:13px; height:44px; padding:0 16px; border-radius:999px; border:1px solid var(--bd); background:var(--surf); color:var(--body); cursor:pointer; }
   .ss-cg__tab[aria-selected="true"] { background:var(--p); border-color:var(--p); color:#fff; }
   .ss-cg__tab:focus-visible { outline:2px solid var(--p); outline-offset:2px; }
   .ss-cg__grid { display:grid; grid-template-columns:1fr; gap:16px; }
@@ -88,9 +88,14 @@
   .ss-cg__price { font-family:var(--sans); font-weight:600; font-size:16px; margin:0; }
   .ss-cg__caption { font-family:var(--sans); font-size:13px; line-height:1.45; color:var(--body); margin:-2px 0 0; font-style:italic; }
   .ss-cg__stars:empty { display:none; }
+  .ss-cg__stars .jdgm-prev-badge__text { font-family:var(--sans); font-size:12px; color:var(--body); }
+  .ss-cg__psize { font-weight:600; }
+  .ss-cg__was { color:var(--body); opacity:.65; font-weight:400; margin-left:2px; }
+  .ss-cg__save { display:inline-block; font-size:12px; font-weight:600; color:var(--p); background:rgba(107,63,160,.08); border-radius:999px; padding:2px 8px; margin-left:4px; }
+  .ss-cg__badge { position:absolute; top:10px; left:10px; z-index:1; font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:var(--p); border-radius:999px; padding:4px 10px; }
   .ss-cg__opt { display:flex; flex-wrap:wrap; gap:8px; margin:2px 0; }
   .ss-cg__opt input { position:absolute; opacity:0; pointer-events:none; }
-  .ss-cg__chip { display:inline-flex; align-items:center; justify-content:center; min-width:54px; height:38px; padding:0 14px; border:1px solid var(--bd); border-radius:14px; background:var(--surf); font-family:var(--sans); font-size:13px; color:var(--ink); cursor:pointer; transition:background-color .12s ease,border-color .12s ease,color .12s ease; }
+  .ss-cg__chip { display:inline-flex; align-items:center; justify-content:center; min-width:54px; height:44px; padding:0 14px; border:1px solid var(--bd); border-radius:14px; background:var(--surf); font-family:var(--sans); font-size:13px; color:var(--ink); cursor:pointer; transition:background-color .12s ease,border-color .12s ease,color .12s ease; }
   .ss-cg__opt input:checked + .ss-cg__chip { background:var(--p); border-color:var(--p); color:#fff; }
   .ss-cg__opt input[data-avail="false"] + .ss-cg__chip { opacity:.55; text-decoration:line-through; }
   .ss-cg__opt input[data-avail="false"]:checked + .ss-cg__chip { opacity:1; }
@@ -102,16 +107,35 @@
   .ss-cg__cbody [data-cg-form] > form { display:flex; flex-direction:column; flex:1 1 auto; }
   .ss-cg__buy { display:flex; gap:10px; align-items:stretch; margin-top:auto; padding-top:6px; }
   .ss-cg__qty { display:inline-flex; align-items:center; border:1px solid var(--bd); border-radius:14px; overflow:hidden; flex:0 0 auto; }
-  .ss-cg__qbtn { width:34px; height:42px; border:0; background:var(--surf); color:var(--ink); font-size:18px; line-height:1; cursor:pointer; }
+  .ss-cg__qbtn { width:40px; height:44px; border:0; background:var(--surf); color:var(--ink); font-size:18px; line-height:1; cursor:pointer; }
   .ss-cg__qbtn:focus-visible { outline:2px solid var(--p); outline-offset:-2px; }
   .ss-cg__qval { min-width:30px; text-align:center; font-family:var(--sans); font-weight:600; font-size:14px; }
-  .ss-cg__add { flex:1 1 auto; height:42px; border-radius:14px; border:1px solid var(--p); background:var(--p); color:#fff; font-family:var(--sans); font-weight:600; font-size:14px; cursor:pointer; transition:background-color .15s ease,border-color .15s ease; }
+  .ss-cg__add { flex:1 1 auto; height:44px; border-radius:14px; border:1px solid var(--p); background:var(--p); color:#fff; font-family:var(--sans); font-weight:600; font-size:14px; cursor:pointer; transition:background-color .15s ease,border-color .15s ease; }
   .ss-cg__add:hover { background:var(--ph); border-color:var(--ph); }
   .ss-cg__add[disabled] { opacity:.5; cursor:not-allowed; }
   @media (min-width:768px) { .ss-cg__grid { grid-template-columns:repeat(3,1fr); gap:24px; } }
   @media (min-width:990px) { .ss-cg__inner { padding-inline:40px; } }
   @media (max-width:989px) { .ss-cg__inner { padding-block:56px; } }
+  /* Mobile: 2-up compact grid. Research (RealEye/Baymard): image-led catalogues browse faster 2-up;
+     the qty stepper is hidden below 768px (first-touch buyers add 1; the hidden input still posts
+     quantity=1) so the tap targets that remain can hold >=44px. */
   @media (max-width:749px) { .ss-cg__inner { padding-block:44px; } .ss-cg__grid { gap:12px; } .ss-cg__cbody { padding:16px; } }
+  @media (max-width:767px) {
+    .ss-cg__grid { grid-template-columns:repeat(2,1fr); }
+    .ss-cg__cbody { padding:12px; gap:6px; }
+    .ss-cg__title { font-size:14px; }
+    .ss-cg__price { font-size:14px; }
+    .ss-cg__caption { font-size:12px; }
+    .ss-cg__label { font-size:0.65rem; }
+    .ss-cg__qty { display:none; }
+    .ss-cg__chip { min-width:0; flex:1 1 auto; height:44px; padding:0 8px; font-size:12px; }
+    .ss-cg__opt { gap:6px; }
+    .ss-cg__save { display:none; }
+  }
+  /* Touch devices never see :hover — keep the PDP affordance visible. */
+  @media (hover:none) {
+    .ss-cg__view { opacity:1; transform:none; font-size:12px; padding:14px 10px 8px; }
+  }
   .ss-ph__atc-error, .ss-atc-error { display:flex; align-items:flex-start; gap:6px; flex:1 0 100%; margin:0 0 8px; color:#B3261E; font-size:14px; line-height:1.4; }
   .ss-ph__atc-error.hidden, .ss-atc-error.hidden { display:none; }
   .ss-ph__atc-error .svg-wrapper svg, .ss-atc-error .svg-wrapper svg { width:16px; height:16px; }
@@ -157,29 +181,48 @@
           assign v0 = product.selected_or_first_available_variant
           assign form_id = 'cg-' | append: section.id | append: '-' | append: product.id
           assign card_caption = ''
+          assign card_badge = ''
           for blk in section.blocks
             if blk.type == 'card_caption' and blk.settings.product != blank and blk.settings.product.handle == product.handle
               assign card_caption = blk.settings.caption
+            endif
+            if blk.type == 'card_badge' and blk.settings.product != blank and blk.settings.product.handle == product.handle
+              assign card_badge = blk.settings.label
             endif
           endfor
         -%}
         <article class="ss-cg__card{% if is_pro %} ss-cg__card--pro{% endif %}" data-strength="{{ strength }}">
           <a class="ss-cg__media" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
             {%- if product.featured_media -%}
-              {{ product.featured_media | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,600', alt: product.featured_media.alt | default: product.title }}
+              {{ product.featured_media | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '300,600,900,1200', sizes: '(min-width: 768px) 33vw, 50vw', alt: product.featured_media.alt | default: product.title }}
             {%- else -%}
               <span class="ss-cg__ph">{{ 'product-1' | placeholder_svg_tag }}</span>
             {%- endif -%}
             <span class="ss-cg__view" aria-hidden="true">View product &rarr;</span>
+            {%- if card_badge != blank -%}<span class="ss-cg__badge">{{ card_badge | escape }}</span>{%- endif -%}
           </a>
           <div class="ss-cg__cbody">
             {%- if strength != blank -%}<p class="ss-cg__label">{{ strength | capitalize }} Strength</p>{%- endif -%}
             {%- if strength == 'clinical' or strength == 'advanced' or strength == 'professional' -%}<div class="ss-cg__comfort">{% render 'senseless-comfort-mark', tier: strength, name: false, size: 15, link: false %}</div>{%- endif -%}
             <h3 class="ss-cg__title"><a href="{{ product.url }}">{{ product.title | escape }}</a></h3>
             {%- if card_caption != blank -%}<p class="ss-cg__caption">{{ card_caption | escape }}</p>{%- endif -%}
-            <p class="ss-cg__price" data-cg-price>{{ v0.price | money }}</p>
-            {%- comment -%} Judge.me per-card star badge slot — add the app block here at integration; :empty-hidden until reviews exist. {%- endcomment -%}
-            <div class="ss-cg__stars jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}" data-template="senseless-card" data-judgeme-card></div>
+            {%- liquid
+              assign v0_cmp = v0.compare_at_price | default: 0
+              assign size_label = ''
+              unless v0.title contains 'Default'
+                assign size_label = v0.title
+              endunless
+            -%}
+            <p class="ss-cg__price" data-cg-price>
+              {%- if size_label != blank -%}<span class="ss-cg__psize" data-cg-psize>{{ size_label | escape }}</span> · {% endif -%}
+              <span data-cg-pnow>{{ v0.price | money }}</span>
+              {%- if v0_cmp > v0.price %} <s class="ss-cg__was">{{ v0_cmp | money }}</s> <span class="ss-cg__save">Save {{ v0_cmp | minus: v0.price | money }}</span>{%- endif -%}
+            </p>
+            {%- comment -%} Judge.me per-card stars: the badge metafield is SERVER-RENDERED inside the slot
+                (data-attrs only, no microdata — the JSON-LD layer stays the single source of rating markup).
+                Judge.me's JS un-hides its inner display:none div in the browser; :empty-hidden covers
+                products with no badge yet. The previous empty app-block wiring never rendered anything. {%- endcomment -%}
+            <div class="ss-cg__stars jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}" data-template="senseless-card" data-judgeme-card>{{ product.metafields.judgeme.badge }}</div>
 
             <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ product.id }}" on:submit="/handleSubmit" data-cg-form>
               <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
@@ -190,8 +233,8 @@
                 {%- if product.variants.size > 1 -%}
                   <div class="ss-cg__opt" role="radiogroup" aria-label="{{ product.options_with_values.first.name | default: 'Size' | escape }}">
                     {%- for v in product.variants -%}
-                      <input type="radio" id="{{ form_id }}-v{{ v.id }}" name="cgsize-{{ form_id }}" class="ss-cg__chipin" data-cg-opt data-vid="{{ v.id }}" data-price="{{ v.price }}" data-avail="{{ v.available }}" {% if v.id == v0.id %}checked{% endif %}>
-                      <label class="ss-cg__chip" for="{{ form_id }}-v{{ v.id }}">{{ v.title | escape }}</label>
+                      <input type="radio" id="{{ form_id }}-v{{ v.id }}" name="cgsize-{{ form_id }}" class="ss-cg__chipin" data-cg-opt data-vid="{{ v.id }}" data-price="{{ v.price }}" data-vtitle="{{ v.title | escape }}" data-avail="{{ v.available }}" {% if v.id == v0.id %}checked{% endif %}>
+                      <label class="ss-cg__chip" for="{{ form_id }}-v{{ v.id }}">{{ v.title | escape }} · {{ v.price | money }}</label>
                     {%- endfor -%}
                   </div>
                 {%- endif -%}
@@ -222,12 +265,15 @@
       // per-card variant chips + qty
       root.querySelectorAll('[data-cg-form]').forEach(function (form) {
         var vid = form.querySelector('[data-cg-vid]');
-        var price = form.closest('.ss-cg__cbody').querySelector('[data-cg-price]');
+        var cbody = form.closest('.ss-cg__cbody');
+        var pnow = cbody.querySelector('[data-cg-pnow]');
+        var psize = cbody.querySelector('[data-cg-psize]');
         var add = form.querySelector('[data-cg-add]');
         form.querySelectorAll('[data-cg-opt]').forEach(function (opt) {
           opt.addEventListener('change', function () {
             if (vid) vid.value = opt.getAttribute('data-vid');
-            if (price) price.textContent = money(parseInt(opt.getAttribute('data-price'), 10));
+            if (pnow) pnow.textContent = money(parseInt(opt.getAttribute('data-price'), 10));
+            if (psize) psize.textContent = opt.getAttribute('data-vtitle') || '';
             if (add) {
               var avail = opt.getAttribute('data-avail') === 'true';
               add.disabled = !avail;
@@ -280,6 +326,14 @@
       "settings": [
         { "type": "product", "id": "product", "label": "Product" },
         { "type": "text", "id": "caption", "label": "Caption", "info": "Optional per-card descriptor (e.g. \"the usual microneedling pick\")." }
+      ]
+    },
+    {
+      "type": "card_badge",
+      "name": "Card badge",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "label", "label": "Badge label", "info": "Earned flags only (e.g. \"Bestseller\" from real order data) — never effect claims." }
       ]
     }
   ],

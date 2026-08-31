@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "For piercings",
         "headline": "Numbing cream for piercings, kept in proportion.",
-        "subhead": "<p>A single piercing is over in seconds. That one fact changes what preparation is for here, and it is the thing most sellers won't tell you. Where it earns its place is cartilage, several piercings in one sitting, or simply going in less anxious than last time. Here is how the range lines up against that — and where we'd say don't bother.</p>",
+        "subhead": "<p>Built for cartilage — helix, conch, daith — for several piercings in one sitting, and for going in less anxious than last time. Three strengths and three formats, below.</p>",
         "primary_cta_label": "Shop the range",
         "primary_cta_url": "#shop",
         "secondary_cta_label": "Match the strength",
@@ -51,8 +51,8 @@
         "background": "white",
         "align": "left",
         "eyebrow": "Where it fits, and where it doesn't",
-        "headline": "The honest version: a lobe piercing probably doesn't need this",
-        "body": "<p>A standard lobe piercing is a single, brief moment. Preparing for it is not wrong, but it is not the case we would build a page around, and plenty of people book one without giving it a thought.</p><p>Three situations change that. Cartilage — helix, conch, daith, industrial — is a different proposition from a lobe, and people who have had both usually say so. Several piercings in one appointment stretch a brief moment into a longer one. And if the last appointment left you dreading the next, arriving prepared is a reasonable thing to want regardless of how quick it is.</p>",
+        "headline": "Where preparation earns its place",
+        "body": "<p>Cartilage — helix, conch, daith, industrial — is a different proposition from a lobe, and people who have had both usually say so. Several piercings in one appointment stretch a brief moment into a longer one. And if the last appointment left you dreading the next, arriving prepared is a reasonable thing to want.</p><p>A standard lobe is a single, brief moment — the honest answer for that one is in the FAQ below.</p>",
         "accent_word": "honest"
       }
     },
@@ -97,16 +97,6 @@
         "body": "<p>None of the three is \"better\" than another — each is formulated for a different kind of session. A piercing appointment is one of the shortest things in the range, so Clinical is the sensible default and the upper strengths are there for cartilage or a multi-piercing sitting.</p>",
         "note": "<p>If you're between two, the lower one is usually the sensible start, and you can move up next time.</p>",
         "accent_word": "entry"
-      }
-    },
-    "format": {
-      "type": "senseless-callout-band",
-      "settings": {
-        "style": "neutral",
-        "heading": "Gel is usually the format here",
-        "body": "<p>A piercing site is small and precise, which is what gel is for — it goes exactly where you put it and stays there. Cream is the equal alternative if you prefer its feel. Spray is built for broad areas and is the wrong tool for an earlobe. The same three strengths run across all three formats.</p>",
-        "cta_label": "See all procedures",
-        "cta_url": "/pages/aesthetic-procedures"
       }
     },
     "honest": {
@@ -242,11 +232,19 @@
             "product": "advanced-strength-gel",
             "caption": "Cartilage, or several piercings in one sitting."
           }
+        },
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-gel",
+            "caption": "For the longest precise work."
+          }
         }
       },
       "block_order": [
         "c1",
-        "c2"
+        "c2",
+        "cc1"
       ],
       "settings": {
         "headline": "Gels",
@@ -254,7 +252,7 @@
         "show_filters": false,
         "format": "gel",
         "accent_word": "Gels",
-        "body": "<p>A piercing site is small and exact, which is what gel is for. Three strengths, ordered from the entry tier up.</p>"
+        "body": "<p>A piercing site is small and exact, which is what gel is for. Three strengths, ordered from the entry tier up.</p><p><strong>Gel is usually the format here</strong> A piercing site is small and precise, which is what gel is for — it goes exactly where you put it and stays there. Cream is the equal alternative if you prefer its feel. Spray is built for broad areas and is the wrong tool for an earlobe. The same three strengths run across all three formats.</p>"
       }
     },
     "cream": {
@@ -287,7 +285,35 @@
         "show_filters": false,
         "format": "spray",
         "body": "<p>Built for broad areas. The wrong tool for an earlobe, and here for completeness.</p>"
-      }
+      },
+      "blocks": {
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-strength-spray",
+            "caption": "Even, hands-off coverage for larger areas."
+          }
+        },
+        "cc2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-strength-spray",
+            "caption": "For the longest, most sustained body work."
+          }
+        },
+        "bb2": {
+          "type": "card_badge",
+          "settings": {
+            "product": "professional-strength-spray",
+            "label": "Bestseller"
+          }
+        }
+      },
+      "block_order": [
+        "cc1",
+        "cc2",
+        "bb2"
+      ]
     },
     "bundles": {
       "type": "senseless-collection-grid",
@@ -297,7 +323,51 @@
         "show_filters": false,
         "format": "bundle",
         "body": "<p>The full routine in one box, at a set price.</p>"
-      }
+      },
+      "blocks": {
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-numbing-kit-small",
+            "caption": "Every format at Clinical strength — starter sizes."
+          }
+        },
+        "cc2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "clinical-numbing-kit-large",
+            "caption": "Every format at Clinical strength — full sizes."
+          }
+        },
+        "cc3": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-numbing-kit-small",
+            "caption": "Every format at Advanced strength — starter sizes."
+          }
+        },
+        "cc4": {
+          "type": "card_caption",
+          "settings": {
+            "product": "advanced-numbing-kit-large",
+            "caption": "Every format at Advanced strength — full sizes."
+          }
+        },
+        "cc5": {
+          "type": "card_caption",
+          "settings": {
+            "product": "professional-numbing-kit-large",
+            "caption": "Every format at Professional strength — full sizes."
+          }
+        }
+      },
+      "block_order": [
+        "cc1",
+        "cc2",
+        "cc3",
+        "cc4",
+        "cc5"
+      ]
     },
     "aftercare": {
       "type": "senseless-collection-grid",
@@ -307,21 +377,40 @@
         "show_filters": false,
         "format": "cleanser",
         "body": "<p>Not numbing products. A cleanser for the area, and a barrier ointment for afterwards.</p>"
-      }
+      },
+      "blocks": {
+        "cc1": {
+          "type": "card_caption",
+          "settings": {
+            "product": "foaming-cleanser",
+            "caption": "Cleanse before and after the appointment."
+          }
+        },
+        "cc2": {
+          "type": "card_caption",
+          "settings": {
+            "product": "vitamin-a-d-ointment-4-pack",
+            "caption": "Barrier ointment for afterwards — four travel tubes."
+          }
+        }
+      },
+      "block_order": [
+        "cc1",
+        "cc2"
+      ]
     }
   },
   "order": [
     "hero",
-    "trust",
-    "intro",
-    "match",
-    "selectorlink",
     "gel",
     "cream",
     "spray",
     "bundles",
     "aftercare",
-    "format",
+    "trust",
+    "intro",
+    "match",
+    "selectorlink",
     "honest",
     "characteristics",
     "faq"

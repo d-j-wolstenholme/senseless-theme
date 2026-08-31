@@ -100,8 +100,8 @@
   },
   "order": [
     "hero",
-    "trust",
     "grid",
+    "trust",
     "range"
   ]
 }
