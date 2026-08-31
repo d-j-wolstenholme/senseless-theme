@@ -98,7 +98,8 @@
      instead of ever wrapping. */
   .ss-cg__opt { display:flex; flex-wrap:nowrap; gap:8px; margin:2px 0; }
   .ss-cg__opt input { position:absolute; opacity:0; pointer-events:none; }
-  .ss-cg__chip { display:inline-flex; align-items:center; justify-content:center; flex:1 1 0; min-width:0; height:44px; padding:0 8px; border:1px solid var(--bd); border-radius:14px; background:var(--surf); font-family:var(--sans); font-size:13px; color:var(--ink); cursor:pointer; white-space:nowrap; transition:background-color .12s ease,border-color .12s ease,color .12s ease; }
+  .ss-cg__chip { display:inline-flex; align-items:center; justify-content:center; gap:5px; flex:1 1 0; min-width:0; height:44px; padding:0 8px; border:1px solid var(--bd); border-radius:14px; background:var(--surf); font-family:var(--sans); font-size:13px; color:var(--ink); cursor:pointer; white-space:nowrap; overflow:hidden; transition:background-color .12s ease,border-color .12s ease,color .12s ease; }
+  .ss-cg__chipsize { font-weight:600; }
   .ss-cg__opt input:checked + .ss-cg__chip { background:var(--p); border-color:var(--p); color:#fff; }
   .ss-cg__opt input[data-avail="false"] + .ss-cg__chip { opacity:.55; text-decoration:line-through; }
   .ss-cg__opt input[data-avail="false"]:checked + .ss-cg__chip { opacity:1; }
@@ -131,13 +132,16 @@
     .ss-cg__caption { font-size:12px; }
     .ss-cg__label { font-size:0.65rem; }
     .ss-cg__qty { display:none; }
-    .ss-cg__chip { font-size:12px; }
+    .ss-cg__chip { flex-direction:column; justify-content:center; gap:0; height:46px; padding:0 4px; font-size:11px; line-height:1.2; }
+    .ss-cg__chipsize { font-size:12px; }
     .ss-cg__opt { gap:6px; }
     .ss-cg__save { display:none; }
   }
-  /* Touch devices never see :hover — keep the PDP affordance visible. */
+  /* Touch devices never see :hover — the image and title are the links; a persistent overlay
+     cue read as a broken grey band across product photos on real phones (founder screenshot,
+     31 Aug), so touch gets no overlay at all. */
   @media (hover:none) {
-    .ss-cg__view { opacity:1; transform:none; font-size:12px; padding:14px 10px 8px; }
+    .ss-cg__view { display:none; }
   }
   .ss-ph__atc-error, .ss-atc-error { display:flex; align-items:flex-start; gap:6px; flex:1 0 100%; margin:0 0 8px; color:#B3261E; font-size:14px; line-height:1.4; }
   .ss-ph__atc-error.hidden, .ss-atc-error.hidden { display:none; }
@@ -237,7 +241,7 @@
                   <div class="ss-cg__opt" role="radiogroup" aria-label="{{ product.options_with_values.first.name | default: 'Size' | escape }}">
                     {%- for v in product.variants -%}
                       <input type="radio" id="{{ form_id }}-v{{ v.id }}" name="cgsize-{{ form_id }}" class="ss-cg__chipin" data-cg-opt data-vid="{{ v.id }}" data-price="{{ v.price }}" data-vtitle="{{ v.title | escape }}" data-avail="{{ v.available }}" {% if v.id == v0.id %}checked{% endif %}>
-                      <label class="ss-cg__chip" for="{{ form_id }}-v{{ v.id }}">{{ v.title | escape }} · {{ v.price | money }}</label>
+                      <label class="ss-cg__chip" for="{{ form_id }}-v{{ v.id }}"><span class="ss-cg__chipsize">{{ v.title | escape }}</span><span class="ss-cg__chipprice">{{ v.price | money }}</span></label>
                     {%- endfor -%}
                   </div>
                 {%- endif -%}
