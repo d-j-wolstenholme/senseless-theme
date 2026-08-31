@@ -145,13 +145,13 @@
           "type": "product_card",
           "settings": {
             "label": "Clinical Strength",
-            "title": "Clinical Strength Cream",
+            "title": "Clinical Comfort Cream",
             "body": "<p>The standard most appointments start with.</p>",
             "product": "clinical-strength-cream",
             "cta_label": "View product",
             "cta_url": "/products/clinical-strength-cream",
             "flagship": false,
-            "image_alt": "Clinical Strength Cream on a warm off-white background"
+            "image_alt": "Clinical Comfort Cream on a warm off-white background"
           }
         },
         "c": {

@@ -149,26 +149,26 @@
           "type": "product_card",
           "settings": {
             "label": "Advanced Strength",
-            "title": "Advanced Strength Cream",
+            "title": "Advanced Comfort Cream",
             "body": "<p>For longer or more sensitive sessions.</p>",
             "product": "advanced-strength-cream",
             "cta_label": "View product",
             "cta_url": "/products/advanced-strength-cream",
             "flagship": false,
-            "image_alt": "Advanced Strength Cream on a warm off-white background"
+            "image_alt": "Advanced Comfort Cream on a warm off-white background"
           }
         },
         "b": {
           "type": "product_card",
           "settings": {
             "label": "Professional Strength",
-            "title": "Professional Strength Cream",
+            "title": "Professional Comfort Cream",
             "body": "<p>Our practitioner tier — for the longest, most sustained sessions.</p>",
             "product": "professional-strength-cream",
             "cta_label": "View product",
             "cta_url": "/products/professional-strength-cream",
             "flagship": false,
-            "image_alt": "Professional Strength Cream on a warm off-white background"
+            "image_alt": "Professional Comfort Cream on a warm off-white background"
           }
         }
       },

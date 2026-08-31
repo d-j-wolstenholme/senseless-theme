@@ -60,7 +60,7 @@
         "r1": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Clinical Strength Spray",
+            "strength": "Clinical Comfort Spray",
             "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>",
             "link": "/products/clinical-strength-spray"
           }
@@ -68,7 +68,7 @@
         "r2": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Advanced Strength Spray",
+            "strength": "Advanced Comfort Spray",
             "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>",
             "link": "/products/advanced-strength-spray"
           }
@@ -76,7 +76,7 @@
         "r3": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Professional Strength Spray",
+            "strength": "Professional Comfort Spray",
             "matched": "<p>The longest, most demanding appointments.</p>",
             "link": "/products/professional-strength-spray"
           }

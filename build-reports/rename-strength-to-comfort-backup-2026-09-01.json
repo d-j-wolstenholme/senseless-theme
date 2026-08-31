@@ -1,0 +1,98 @@
+{
+ "clinical-strength-cream": {
+  "title": [
+   "Clinical Strength Cream",
+   "Clinical Comfort Cream"
+  ],
+  "seo.title": [
+   "Clinical Strength Cream | UK-Formulated",
+   "Clinical Comfort Cream | UK-Formulated"
+  ]
+ },
+ "advanced-strength-cream": {
+  "title": [
+   "Advanced Strength Cream",
+   "Advanced Comfort Cream"
+  ]
+ },
+ "professional-strength-cream": {
+  "title": [
+   "Professional Strength Cream",
+   "Professional Comfort Cream"
+  ]
+ },
+ "clinical-strength-gel": {
+  "title": [
+   "Clinical Strength Gel",
+   "Clinical Comfort Gel"
+  ]
+ },
+ "advanced-strength-gel": {
+  "title": [
+   "Advanced Strength Gel",
+   "Advanced Comfort Gel"
+  ]
+ },
+ "professional-strength-gel": {
+  "title": [
+   "Professional Strength Gel",
+   "Professional Comfort Gel"
+  ]
+ },
+ "clinical-strength-spray": {
+  "title": [
+   "Clinical Strength Spray",
+   "Clinical Comfort Spray"
+  ]
+ },
+ "advanced-strength-spray": {
+  "title": [
+   "Advanced Strength Spray",
+   "Advanced Comfort Spray"
+  ]
+ },
+ "professional-strength-spray": {
+  "title": [
+   "Professional Strength Spray",
+   "Professional Comfort Spray"
+  ]
+ },
+ "foaming-cleanser": {
+  "media_alt": 1
+ },
+ "clinical-numbing-kit-small": {
+  "bundle_contents": [
+   "[\"Clinical Strength Cream (10g)|/products/clinical-strength-",
+   "[\"Clinical Comfort Cream (10g)|/products/clinical-strength-c"
+  ],
+  "media_alt": 1
+ },
+ "clinical-numbing-kit-large": {
+  "bundle_contents": [
+   "[\"Clinical Strength Cream (30g)|/products/clinical-strength-",
+   "[\"Clinical Comfort Cream (30g)|/products/clinical-strength-c"
+  ],
+  "media_alt": 1
+ },
+ "advanced-numbing-kit-small": {
+  "bundle_contents": [
+   "[\"Advanced Strength Cream (10g)|/products/advanced-strength-",
+   "[\"Advanced Comfort Cream (10g)|/products/advanced-strength-c"
+  ],
+  "media_alt": 1
+ },
+ "advanced-numbing-kit-large": {
+  "bundle_contents": [
+   "[\"Advanced Strength Cream (30g)|/products/advanced-strength-",
+   "[\"Advanced Comfort Cream (30g)|/products/advanced-strength-c"
+  ],
+  "media_alt": 1
+ },
+ "professional-numbing-kit-large": {
+  "bundle_contents": [
+   "[\"Professional Strength Cream (30g)|/products/professional-s",
+   "[\"Professional Comfort Cream (30g)|/products/professional-st"
+  ],
+  "media_alt": 1
+ }
+}

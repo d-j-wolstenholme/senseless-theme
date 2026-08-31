@@ -52,7 +52,7 @@
         "r1": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Clinical Strength Gel",
+            "strength": "Clinical Comfort Gel",
             "matched": "<p>Shorter, routine appointments, smaller areas, and anyone starting out who wants to begin considered.</p>",
             "link": "/products/clinical-strength-gel"
           }
@@ -60,7 +60,7 @@
         "r2": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Advanced Strength Gel",
+            "strength": "Advanced Comfort Gel",
             "matched": "<p>Longer or more sensitive sessions and larger areas — the one most people settle on for regular aesthetic work.</p>",
             "link": "/products/advanced-strength-gel"
           }
@@ -68,7 +68,7 @@
         "r3": {
           "type": "ladder_row",
           "settings": {
-            "strength": "Professional Strength Gel",
+            "strength": "Professional Comfort Gel",
             "matched": "<p>The longest, most demanding appointments.</p>",
             "link": "/products/professional-strength-gel"
           }
