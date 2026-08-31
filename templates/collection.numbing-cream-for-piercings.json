@@ -252,7 +252,7 @@
         "show_filters": false,
         "format": "gel",
         "accent_word": "Gels",
-        "body": "<p>A piercing site is small and exact, which is what gel is for. Three strengths, ordered from the entry tier up.</p><p><strong>Gel is usually the format here</strong> A piercing site is small and precise, which is what gel is for — it goes exactly where you put it and stays there. Cream is the equal alternative if you prefer its feel. Spray is built for broad areas and is the wrong tool for an earlobe. The same three strengths run across all three formats.</p>"
+        "body": "<p>A piercing site is small and exact, which is what gel is for. Three strengths, ordered from the entry tier up.</p>"
       }
     },
     "cream": {
@@ -274,7 +274,7 @@
         "anchor_id": "cream",
         "show_filters": false,
         "format": "cream",
-        "body": "<p>The equal alternative if you prefer a cream's feel.</p>"
+        "body": "<p>For those who prefer a cream's feel — the same three strengths.</p>"
       }
     },
     "spray": {
@@ -284,7 +284,7 @@
         "anchor_id": "spray",
         "show_filters": false,
         "format": "spray",
-        "body": "<p>Built for broad areas. The wrong tool for an earlobe, and here for completeness.</p>"
+        "body": "<p>Built for broad areas — several piercings across a larger zone.</p>"
       },
       "blocks": {
         "cc1": {

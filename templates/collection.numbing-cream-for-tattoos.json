@@ -252,7 +252,7 @@
         "show_filters": false,
         "format": "cream",
         "accent_word": "Creams",
-        "body": "<p>The general-purpose format, and the one most people reach for. Three strengths, ordered from the entry tier up.</p><p><strong>Cream, gel or spray?</strong> Cream is the general-purpose format and the one most people reach for. Gel is the more precise of the two for smaller, defined areas. Spray covers broad areas without spreading anything by hand — the practical choice on a limb or a back piece. The same three strengths run across all three formats, so format is a question about the area and strength is a question about the length.</p>"
+        "body": "<p>The general-purpose format for most sittings. Three strengths, ordered from the entry tier up.</p>"
       }
     },
     "gel": {
@@ -290,7 +290,7 @@
         "anchor_id": "gel",
         "show_filters": false,
         "format": "gel",
-        "body": "<p>More precise than cream on smaller, defined work.</p>"
+        "body": "<p>For smaller, defined work — it stays where you place it.</p>"
       }
     },
     "spray": {
