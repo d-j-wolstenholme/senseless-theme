@@ -20,7 +20,7 @@
         "eyebrow": "The honest answer",
         "headline": "What it actually feels like",
         "accent_word": "actually",
-        "body": "<p>Microneedling is usually described as uncomfortable rather than painful. Most people feel a fine scratching or prickling sensation, strongest over bonier areas like the forehead and jawline, and lighter across the cheeks. The needle depth makes the biggest difference — a light refresh facial feels very different to a deeper treatment for scarring. Numbing is commonly used to help you feel more comfortable during the session. It's a cosmetic preparation, not an anaesthetic.</p>"
+        "body": "<p>Microneedling is usually described as uncomfortable rather than painful. Most people feel a fine scratching or prickling sensation, strongest over bonier areas like the forehead and jawline, and lighter across the cheeks. The needle depth makes the biggest difference — a light refresh facial feels very different to a deeper treatment for scarring. Numbing is commonly used to help you feel more comfortable during the session. </p>"
       }
     },
     "comfort": {
@@ -82,7 +82,7 @@
           "type": "fact",
           "settings": {
             "label": "Numbing's role",
-            "value": "Most practitioners apply a numbing preparation as standard. Numbing is a cosmetic preparation, not an anaesthetic."
+            "value": "Most practitioners apply a numbing preparation as standard. "
           }
         },
         "kf4": {
@@ -129,7 +129,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Does numbing cream stop microneedling hurting?",
-            "answer": "<p>It's a cosmetic preparation, not an anaesthetic. Most practitioners apply a numbing preparation before the session as standard.</p>"
+            "answer": "<p> Most practitioners apply a numbing preparation before the session as standard.</p>"
           }
         },
         "q3": {

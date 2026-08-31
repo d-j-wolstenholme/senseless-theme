@@ -305,7 +305,7 @@
       "settings": {
         "background": "canvas",
         "eyebrow": "The essentials",
-        "body": "<ul><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom.</li><li>Numbing is a cosmetic preparation, not an anaesthetic.</li><li>Apply only to clean, healthy skin, patch test, and follow the product's instructions.</li><li>Many practitioners apply their own numbing, so check before your appointment.</li></ul>"
+        "body": "<ul><li>Senseless is a UK cosmetic numbing range, formulated in the United Kingdom.</li><li></li><li>Apply only to clean, healthy skin, patch test, and follow the product's instructions.</li><li>Many practitioners apply their own numbing, so check before your appointment.</li></ul>"
       }
     },
     "route": {

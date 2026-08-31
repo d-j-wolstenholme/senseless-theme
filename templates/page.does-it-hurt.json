@@ -112,7 +112,7 @@
     "kf": {
       "type": "senseless-key-facts",
       "blocks": {
-        "c1": { "type": "fact", "settings": { "label": "What numbing does", "value": "Topical numbing is a cosmetic preparation applied before treatment to support comfort — not an anaesthetic." } },
+        "c1": { "type": "fact", "settings": { "label": "What numbing does", "value": "Topical numbing is a cosmetic preparation applied before treatment to support comfort." } },
         "c2": { "type": "fact", "settings": { "label": "What comfort depends on", "value": "The treatment, the area, your skin, and how the product is applied." } },
         "c3": { "type": "fact", "settings": { "label": "Formats", "value": "Cream, gel and spray — matched to the area and appointment." } },
         "c4": { "type": "fact", "settings": { "label": "Before you use it", "value": "Patch test about 24 hours before first use and follow your practitioner's guidance." } }
@@ -123,9 +123,9 @@
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "q1": { "type": "faq_item", "settings": { "question": "Does numbing cream stop all pain?", "answer": "<p>No — numbing cream is a cosmetic preparation, not an anaesthetic. It supports comfort during many aesthetic treatments, but you may feel pressure or movement.</p>" } },
+        "q1": { "type": "faq_item", "settings": { "question": "Does numbing cream stop all pain?", "answer": "<p>No — numbing cream is a cosmetic preparation. It supports comfort during many aesthetic treatments, but you may feel pressure or movement.</p>" } },
         "q2": { "type": "faq_item", "settings": { "question": "Which treatments does numbing help with?", "answer": "<p>It's used before procedures such as microneedling, laser and semi-permanent makeup. Match the format and strength to the area and appointment — the Senseless Selector helps you choose.</p>" } },
-        "q3": { "type": "faq_item", "settings": { "question": "Will I feel anything during my treatment?", "answer": "<p>Numbing is a cosmetic preparation, not an anaesthetic — your practitioner can advise what to expect for your specific treatment.</p>" } },
+        "q3": { "type": "faq_item", "settings": { "question": "Will I feel anything during my treatment?", "answer": "<p></p>" } },
         "q4": { "type": "faq_item", "settings": { "question": "How can I make a treatment more comfortable?", "answer": "<p>Apply to clean skin, patch test about 24 hours beforehand, and follow the product instructions and your practitioner's advice. Choosing the right strength for the appointment helps too.</p>" } }
       },
       "block_order": ["q1", "q2", "q3", "q4"],
