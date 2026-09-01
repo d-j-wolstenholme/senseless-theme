@@ -1,0 +1,28 @@
+{%- comment -%}
+  Senseless — server-rendered Judge.me preview badge, SANITISED.
+  The judgeme.badge metafield ships a jdgm-prev-badge__rich-snippet div carrying
+  itemprop='aggregateRating' microdata. Rendered on cards it is ORPHANED (no parent
+  Product itemscope) — invalid review markup under Google's guidance, and it would
+  double-signal against the Product JSON-LD which is this theme's single source of
+  rating markup (19 Aug schema decision). This snippet strips that div and renders
+  the visual badge only. Accepts: product.
+  NOTE: the PDP hero's Judge.me APP BLOCK emits the same orphan — app-extension
+  output we cannot edit; disable "rich snippet" in the Judge.me dashboard (flagged).
+{%- endcomment -%}
+{%- liquid
+  assign jb = product.metafields.judgeme.badge
+  if jb contains "jdgm-prev-badge__rich-snippet"
+    assign parts = jb | split: "<div class='jdgm-prev-badge__rich-snippet'"
+    assign tail_segs = parts[1] | split: "</div>"
+    assign tail = ""
+    for seg in tail_segs offset: 1
+      if forloop.first
+        assign tail = seg
+      else
+        assign tail = tail | append: "</div>" | append: seg
+      endif
+    endfor
+    assign jb = parts[0] | append: tail
+  endif
+  echo jb
+-%}

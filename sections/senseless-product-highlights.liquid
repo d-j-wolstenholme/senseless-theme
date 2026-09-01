@@ -104,7 +104,7 @@
               {%- if card_tier != blank -%}<div class="ss-ph__comfort">{% render 'senseless-comfort-mark', tier: card_tier, name: false, size: 15, link: false %}</div>{%- endif -%}
               <h3 class="ss-ph__title"><a href="{{ p.url }}">{{ p.title | escape }}</a></h3>
               {%- if p.price > 0 -%}<p class="ss-ph__price">{{ p.price | money }}</p>{%- endif -%}
-              <div class="ss-ph__stars jdgm-widget jdgm-preview-badge" data-id="{{ p.id }}" data-template="senseless-card">{{ p.metafields.judgeme.badge }}</div>
+              <div class="ss-ph__stars jdgm-widget jdgm-preview-badge" data-id="{{ p.id }}" data-template="senseless-card">{% render 'senseless-jdgm-badge', product: p %}</div>
             </div>
             <div class="ss-ph__qa">
               {%- render 'senseless-quick-add', product: p, section_id: section.id, uid: block.id -%}

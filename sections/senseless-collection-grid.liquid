@@ -225,7 +225,7 @@
                 (data-attrs only, no microdata — the JSON-LD layer stays the single source of rating markup).
                 Judge.me's JS un-hides its inner display:none div in the browser; :empty-hidden covers
                 products with no badge yet. The previous empty app-block wiring never rendered anything. {%- endcomment -%}
-            <div class="ss-cg__stars jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}" data-template="senseless-card" data-judgeme-card>{{ product.metafields.judgeme.badge }}</div>
+            <div class="ss-cg__stars jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}" data-template="senseless-card" data-judgeme-card>{% render 'senseless-jdgm-badge', product: product %}</div>
 
             <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ product.id }}" on:submit="/handleSubmit" data-cg-form>
               <div class="visually-hidden" aria-live="assertive" role="status" aria-atomic="true" ref="liveRegion"></div>
