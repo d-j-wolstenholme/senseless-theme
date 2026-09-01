@@ -120,13 +120,22 @@
             "label": "Shop by procedure",
             "url": "/pages/aesthetic-procedures"
           }
+        },
+        "lsn1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Strongest numbing cream, answered",
+            "note": "The honest guide to choosing by strength.",
+            "url": "/pages/strongest-numbing-cream"
+          }
         }
       },
       "block_order": [
         "x1",
         "x2",
         "x3",
-        "x4"
+        "x4",
+        "lsn1"
       ],
       "settings": {
         "band": "surface",
