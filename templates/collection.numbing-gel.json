@@ -183,6 +183,14 @@
             "note": "A piercing site is small and exact — gel's job.",
             "url": "/collections/numbing-cream-for-piercings"
           }
+        },
+        "lsn1": {
+          "type": "link_item",
+          "settings": {
+            "label": "Strongest numbing cream, answered",
+            "note": "The honest guide to choosing by strength.",
+            "url": "/pages/strongest-numbing-cream"
+          }
         }
       },
       "block_order": [
@@ -191,7 +199,8 @@
         "u3",
         "u4",
         "tattooing",
-        "piercings"
+        "piercings",
+        "lsn1"
       ],
       "settings": {
         "band": "surface",

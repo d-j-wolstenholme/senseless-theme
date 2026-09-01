@@ -173,8 +173,9 @@
         "rel_strongest": {
           "type": "link_item",
           "settings": {
-            "label": "Which strength for demanding sittings?",
-            "url": "/pages/strongest-numbing-cream"
+            "label": "Strongest numbing cream, answered",
+            "url": "/pages/strongest-numbing-cream",
+            "note": "The honest guide to choosing by strength."
           }
         },
         "tattooing": {
