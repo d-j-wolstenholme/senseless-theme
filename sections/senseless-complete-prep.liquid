@@ -125,7 +125,7 @@
     </div>
 
     <div class="ss-prep__foot">
-      <a class="ss-prep__cta" href="{{ section.settings.compare_url | default: '/pages/choosing-your-format' }}">Compare formats</a>
+      <a class="ss-prep__cta" href="{{ section.settings.compare_url | default: '/pages/the-senseless-system' }}">Compare formats</a>
     </div>
   </div>
 </section>
@@ -139,7 +139,7 @@
   "settings": [
     { "type": "paragraph", "content": "Complementary format cross-sell. 'Auto' picks the variant from the host product's format (metafield senseless.format → product type → tags); renders nothing if it can't resolve, so it is safe to stage on the product template before products exist." },
     { "type": "select", "id": "variant", "label": "Variant", "default": "auto", "options": [ { "value": "auto", "label": "Auto (detect product format)" }, { "value": "cream", "label": "Cream page (A)" }, { "value": "spray", "label": "Spray page (B)" }, { "value": "gel", "label": "Gel page (C)" } ] },
-    { "type": "url", "id": "compare_url", "label": "Compare formats link", "info": "Set to /pages/choosing-your-format" }
+    { "type": "url", "id": "compare_url", "label": "Compare formats link", "info": "Set to /pages/the-senseless-system" }
   ],
   "presets": [ { "name": "Senseless — Complete prep", "settings": { "variant": "cream" } } ]
 }

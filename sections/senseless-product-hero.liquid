@@ -146,13 +146,11 @@
       {%- if section.settings.eyebrow != blank -%}<p class="ss-ph__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       {%- if comfort_tier != blank -%}<div class="ss-ph__comfort">{% render 'senseless-comfort-mark', tier: comfort_tier, name: true, link: true %}</div>{%- endif -%}
       <h1 class="ss-ph__title">{{ p.title | escape }}</h1>
-      {%- comment -%} Judge.me Preview Badge app-block slot (near title, TN placement). Renders nothing
-         until the Preview Badge block is added in the editor; :empty-hidden so no zero-state ships. {%- endcomment -%}
-      {%- if section.blocks.size > 0 -%}
-        <div class="ss-ph__reviews">
-          {%- for block in section.blocks -%}{%- if block.type == '@app' -%}{%- render block -%}{%- endif -%}{%- endfor -%}
-        </div>
-      {%- endif -%}
+      {%- comment -%} Judge.me preview badge, server-rendered SANITISED (senseless-jdgm-badge strips the
+         orphaned aggregateRating microdata that the app block emits — Ahrefs flagged it on 58 URLs;
+         the Product JSON-LD is the single source of rating markup). The @app block slot was retired
+         1 Sep 2026; templates no longer carry the block. :empty-hidden so no zero-state ships. {%- endcomment -%}
+      <div class="ss-ph__reviews jdgm-widget jdgm-preview-badge" data-id="{{ p.id }}">{% render 'senseless-jdgm-badge', product: p %}</div>
       {%- if section.settings.subtitle != blank -%}<p class="ss-ph__subtitle">{{ section.settings.subtitle | escape }}</p>{%- endif -%}
       <p class="ss-ph__price" data-ph-price>
         {%- assign v = p.selected_or_first_available_variant -%}

@@ -7,16 +7,7 @@
         "subtitle": "A higher-strength spray. For body coverage and larger treatment areas.",
         "trust_line": "UK formulated · CPSR assessed",
         "force_tier": "auto"
-      },
-      "blocks": {
-        "judgeme_preview_badge": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judgeme_preview_badge"
-      ]
+      }
     },
     "trust": {
       "type": "senseless-trust-bar",
