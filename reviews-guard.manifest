@@ -11,27 +11,27 @@
 
 # --- REPO: source files carrying a Judge.me embed or the reviews.rating accessor ---
 REPO | templates/page.reviews.json | all_reviews_page
-REPO | templates/product.json | preview_badge
-REPO | templates/product.clinical-strength-cream.json | preview_badge
-REPO | templates/product.clinical-strength-gel.json | preview_badge
-REPO | templates/product.clinical-strength-spray.json | preview_badge
-REPO | templates/product.advanced-strength-cream.json | preview_badge
-REPO | templates/product.advanced-strength-gel.json | preview_badge
-REPO | templates/product.advanced-strength-spray.json | preview_badge
-REPO | templates/product.professional-strength-cream.json | preview_badge
-REPO | templates/product.professional-strength-gel.json | preview_badge
-REPO | templates/product.professional-strength-spray.json | preview_badge
-REPO | templates/product.foaming-cleanser.json | preview_badge
-REPO | templates/product.vitamin-a-d-ointment.json | preview_badge
-REPO | templates/product.senseless-cosmetics-bag.json | preview_badge
-REPO | templates/product.bundle.json | preview_badge
+REPO | templates/product.clinical-strength-cream.json | review_widget
+REPO | templates/product.clinical-strength-gel.json | review_widget
+REPO | templates/product.clinical-strength-spray.json | review_widget
+REPO | templates/product.advanced-strength-cream.json | review_widget
+REPO | templates/product.advanced-strength-gel.json | review_widget
+REPO | templates/product.advanced-strength-spray.json | review_widget
+REPO | templates/product.professional-strength-cream.json | review_widget
+REPO | templates/product.professional-strength-gel.json | review_widget
+REPO | templates/product.professional-strength-spray.json | review_widget
+REPO | templates/product.foaming-cleanser.json | review_widget
+REPO | templates/product.vitamin-a-d-ointment.json | review_widget
+REPO | templates/product.senseless-cosmetics-bag.json | review_widget
+REPO | templates/product.bundle.json | review_widget
 REPO | sections/senseless-reviews.liquid | @app
-REPO | sections/senseless-product-hero.liquid | @app
+REPO | sections/senseless-product-hero.liquid | jdgm-preview-badge
 REPO | sections/senseless-collection-grid.liquid | judgeme
 REPO | sections/senseless-product-highlights.liquid | jdgm-preview-badge
 REPO | sections/senseless-cross-sell.liquid | jdgm-preview-badge
 REPO | sections/senseless-product-showcase.liquid | jdgm-preview-badge
 REPO | sections/senseless-trio-card-row.liquid | jdgm-preview-badge
+REPO | snippets/senseless-jdgm-badge.liquid | judgeme.badge
 REPO | snippets/senseless-structured-data.liquid | product.metafields.reviews.rating
 REPO | blocks/review.liquid | product.metafields.reviews.rating
 
