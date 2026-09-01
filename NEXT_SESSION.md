@@ -51,6 +51,37 @@ repo == origin/main, DECISIONS-LOG carries five 2026-09-01 entries.
 - The senseless.uk edge cache holds pages ~10-30 min even with ?_fd=0&x= — judge
   "failed deploys" by Asset-API bytes + myshopify domain, and re-check later.
 
+
+## Evening strand: SEO/GEO verification, Ahrefs sweep, outreach plan (all closed)
+
+- **SEO/GEO regression after the day's surgery: ZERO structural harm** — 0 invalid JSON-LD
+  across 7 page types, merchant-listings layer intact, FAQPage valid, titles/canonicals
+  untouched, llms.txt structured. One self-inflicted find fixed same-day: orphaned
+  AggregateRating microdata from server-rendered badges — sanitiser snippet + the PDP
+  hero's Judge.me APP BLOCK retired entirely (guard manifest updated via --reviews-changed
+  after the guard correctly ABORTED the unannounced contract change).
+- **Ahrefs new issues all addressed** (200 units spent; ~16.8k left til 9 Sep; GSC
+  endpoints are FREE): schema errors (58 URLs) fixed as above; links-to-redirect fixed
+  (two sitewide sections linked the retired choosing-your-* paths); two short metas
+  extended. Residual by design: Judge.me WIDGET rich snippet (Daniel: "Rich Snippets"
+  toggle off in Judge.me dashboard), CSS bundle size, two n=1 slow flags.
+- **Performance truth (GSC via Ahrefs project, free):** 4–11 organic clicks/WEEK; all
+  commercial terms at pos 28–50; biggest asset /pages/strongest-numbing-cream 953 imp/wk
+  @35. Diagnosis: AUTHORITY, not on-page. Fixed tonight: SEO titles/metas on the three
+  near-page-1 pages (they had NONE), 6 internal "Strongest numbing cream, answered"
+  anchors.
+- **Outreach plan researched (38 verified prospects) and published:** "The Nerves Index
+  Playbook" artifact — 15 ref domains/90 days, ≥70% brand anchors, 2 exact-match slots,
+  Tier-1 ten, Appointment Nerves Index PR play, templates, Rules Card, cadence.
+  Referring-domains baseline snapshot due 9–10 Sep after the unit reset. Free quick win
+  flagged: Judge.me public shop page toggle (an indexed link, switched off).
+- **Founder challenge resolved, no action:** the certification-only sweep does NOT damage
+  the SEO funnel — FAQ rich results are dead for ordinary sites (2023) and lexical
+  token-matching wasn't winning anything (those queries sat 45–55 with 0 clicks). I
+  briefly overweighted word-level trims against my own authority diagnosis; corrected.
+  Certification-only stands everywhere. Category noun ("numbing cream" ×171), strongest/
+  EMLA/Ametop/TKTX keyword payloads all intact.
+
 ## From the app session's completion report (its 7 commits a8bb9c3..f66739d)
 
 - App aligned on: naming, five bundle rows, no sale signals, size-correct deep links,
