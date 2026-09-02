@@ -22,13 +22,13 @@
         "t1": {
           "type": "trust_item",
           "settings": {
-            "label": "UK brand"
+            "label": "30-day returns"
           }
         },
         "t2": {
           "type": "trust_item",
           "settings": {
-            "label": "Ships with the rest of your order"
+            "label": "Secure Shopify checkout"
           }
         },
         "t3": {

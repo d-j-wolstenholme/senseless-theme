@@ -21,19 +21,19 @@
         "t1": {
           "type": "trust_item",
           "settings": {
-            "label": "Formulated in the United Kingdom"
+            "label": "UK formulated"
           }
         },
         "t3": {
           "type": "trust_item",
           "settings": {
-            "label": "Cream, gel, spray, cleanser + bag"
+            "label": "CPSR assessed"
           }
         },
         "t4": {
           "type": "trust_item",
           "settings": {
-            "label": "Free UK delivery over £40"
+            "label": "30-day returns"
           }
         }
       },
