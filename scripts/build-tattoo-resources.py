@@ -86,7 +86,7 @@ PAGES = [
         "title": "Delivery",
         "suffix": "delivery",
         "mt": "Numbing Cream Delivery UK — Next-Day | Senseless",
-        "md": "Free UK delivery over £40, free next-day over £80. Order by 1pm on a working day "
+        "md": "Free UK delivery over £40, free next-day over £80. Order by 3pm on a working day "
               "for same-day dispatch. Royal Mail, tracked, plain unbranded packaging.",
     },
     {

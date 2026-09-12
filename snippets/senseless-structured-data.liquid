@@ -56,16 +56,16 @@
   assign ship_next_free_id = base | append: '/#shipping-next-working-day-free'
   assign return_id = base | append: '/#return-policy'
 
-  # Same-day dispatch cut-off, shared by every shipping method. 15:30 local (was 13:00 until
-  # 23 Aug 2026). Google requires cutoffTime as ISO 8601 WITH a timezone offset, and a hardcoded
-  # one would be wrong for half the year -- '+01:00' reads as 14:30 GMT once BST ends. So the
+  # Same-day dispatch cut-off, shared by every shipping method. 15:00 local (was 15:30 from 23 Aug
+  # to 12 Sep 2026, and 13:00 before that). Google requires cutoffTime as ISO 8601 WITH a timezone offset, and a hardcoded
+  # one would be wrong for half the year -- '+01:00' reads as 14:00 GMT once BST ends. So the
   # offset is taken from the STORE's own clock via `date: '%z'` (Shopify renders this in the shop
   # timezone, Europe/London), which yields +0100 in summer and +0000 in winter and needs no
   # seasonal edit. Built from %z rather than %:z because %z is the safely-supported form; the
   # colon is inserted here to give the +HH:MM shape Google's examples use.
   assign tz_h = 'now' | date: '%z' | slice: 0, 3
   assign tz_m = 'now' | date: '%z' | slice: 3, 2
-  assign dispatch_cutoff = '15:30:00' | append: tz_h | append: ':' | append: tz_m
+  assign dispatch_cutoff = '15:00:00' | append: tz_h | append: ':' | append: tz_m
 
   # WebPage @type, specialised per page type. senseless-page-schema.liquid re-declares
   # #webpage as AboutPage/ContactPage on the two templates that need it.
@@ -237,9 +237,9 @@
 
         Standard 4-6 Working Days        GBP 1.99   0      - 39.99
         Express 2-3 working days         GBP 3.99   0      - 79.99
-        Next Working Day (order by 3:30pm)  GBP 8.99   0      - 79.99
+        Next Working Day (order by 3pm)  GBP 8.99   0      - 79.99
         Standard 4-6 Working Days        GBP 0.00   40.00  - 79.99
-        Next Working Day (order by 3:30pm)  GBP 0.00   80.00  +
+        Next Working Day (order by 3pm)  GBP 0.00   80.00  +
 
       CORRECTION, and it matters. On 14 Aug this block was briefly cut down to two free options,
       on the reasoning that the 1.99 rate and the 4-6 day transit "appear nowhere in published
@@ -250,7 +250,7 @@
       incomplete, since neither of them mentions Express at all. Accurate structured data was
       deleted on a false premise; that restored it from the authoritative source.
 
-      handlingTime is 0-1 day on every method: ordered before 15:30 on a working day it is
+      handlingTime is 0-1 day on every method: ordered before 15:00 on a working day it is
       dispatched the same day, otherwise the next working day. Keep this in step with the
       rate card -- if shipping changes in Shopify, change it here too.
     {%- endcomment -%}
