@@ -134,22 +134,29 @@
   .ss-hdr__sublink { font-family: var(--ss-head); font-weight: 500; font-size: 16px; color: var(--ss-body); text-decoration: none; transition: color 200ms ease-out; }
   .ss-hdr__sublink:hover { color: var(--ss-purple); }
   .ss-hdr__colfoot { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--ss-border); }
-  .ss-hdr__sublink--foot { color: var(--ss-purple); font-weight: 600; font-size: 15px; }
+  .ss-hdr__sublink--foot { color: var(--ss-purple); font-weight: 600; font-size: 14px; white-space: nowrap; }
   .ss-hdr__sublink--foot::after { content: ' →'; }
   .ss-hdr__megacta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--ss-border); }
   .ss-hdr__megacta a { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 14px; background: var(--ss-purple); color: #fff; font-family: var(--ss-head); font-weight: 600; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out; }
   .ss-hdr__megacta a:hover { background: var(--ss-purple-hover); }
   .ss-hdr__megacta a::after { content: '\2192'; }
 
-  /* ---- Shop mega: 4 columns + featured card ---- */
-  /* Equal-height nav columns (footer CTAs pin to one baseline) + vertical hairline dividers */
-  .ss-hdr__shopgrid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)) minmax(150px, 0.8fr) minmax(210px, 280px); column-gap: 0; row-gap: 28px; align-items: stretch; }
+  /* ---- Shop mega: 5 columns + featured card ---- */
+  /* Equal-height nav columns (footer CTAs pin to one baseline) + vertical hairline dividers.
+     The five nav columns share the free space equally but never shrink below their own content
+     (min-content), and headings + footer links don't wrap. Merchandise used to get a narrower
+     track, which broke its heading mid-word ("MERCHANDIS/E") and wrapped footer links onto two
+     lines — a two-line footer is what knocked the column feet out of line. */
+  .ss-hdr__shopgrid { display: grid; grid-template-columns: repeat(5, minmax(min-content, 1fr)) minmax(200px, 260px); column-gap: 0; row-gap: 28px; align-items: stretch; }
   .ss-hdr__colgroup { min-width: 0; }
-  .ss-hdr__shopgrid > .ss-hdr__colgroup { display: flex; flex-direction: column; padding: 0 20px; }
+  /* 16px bottom padding matches the featured card's own padding, so the column footer links sit
+     on the same line as the card's CTA. */
+  .ss-hdr__shopgrid > .ss-hdr__colgroup { display: flex; flex-direction: column; padding: 0 16px 16px; }
   .ss-hdr__shopgrid > .ss-hdr__colgroup:first-child { padding-left: 0; }
   .ss-hdr__shopgrid > .ss-hdr__colgroup + .ss-hdr__colgroup { border-left: 1px solid var(--ss-border); }
   .ss-hdr__shopgrid > .ss-hdr__colgroup > .ss-hdr__sublist { flex: 1 1 auto; }
-  .ss-hdr__shopgrid > .ss-hdr__featured { margin-left: 20px; }
+  .ss-hdr__shopgrid > .ss-hdr__featured { margin-left: 16px; }
+  .ss-hdr__shopgrid .ss-hdr__col-title { white-space: nowrap; }
 
   /* By-product format rows + inline strength flyout */
   .ss-fmt { position: relative; }
@@ -166,8 +173,10 @@
   .ss-fmt__flyfoot a { font-family: var(--ss-head); font-weight: 600; font-size: 14px; color: var(--ss-purple); text-decoration: none; }
   .ss-fmt__flyfoot a::after { content: ' →'; }
 
-  /* By-strength: the strength word is a flyout TRIGGER only (button, never a link) */
-  .ss-str__head { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 6px; background: transparent; border: 0; cursor: pointer; padding: 0; font-family: var(--ss-head); font-weight: 500; font-size: 16px; color: var(--ss-body); text-align: left; }
+  /* By-strength: the strength word is a flyout TRIGGER only (button, never a link).
+     min-height matches the 28px .ss-fmt__toggle, so Bundles rows keep the same rhythm as the
+     link+toggle rows in the neighbouring columns. */
+  .ss-str__head { width: 100%; min-height: 28px; display: flex; align-items: center; justify-content: space-between; gap: 6px; background: transparent; border: 0; cursor: pointer; padding: 0; font-family: var(--ss-head); font-weight: 500; font-size: 16px; color: var(--ss-body); text-align: left; }
   .ss-str__head:hover { color: var(--ss-purple); }
   .ss-str__head svg { flex: 0 0 auto; width: 12px; height: 12px; color: var(--ss-secondary); transition: transform 200ms ease-out; }
   .ss-str__head:hover svg { color: var(--ss-purple); }
@@ -180,7 +189,9 @@
   .ss-hdr__featured-eyebrow { font-weight: 600; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ss-purple); margin: 2px 0 0; }
   .ss-hdr__featured-title { font-weight: 600; font-size: 16px; color: var(--ss-text); margin: 0; }
   .ss-hdr__featured-text { font-weight: 500; font-size: 13.5px; line-height: 1.5; color: var(--ss-secondary); margin: 0; }
-  .ss-hdr__featured-cta { margin-top: 2px; font-family: var(--ss-head); font-weight: 600; font-size: 14px; color: var(--ss-purple); text-decoration: none; }
+  /* margin-top: auto pins the CTA to the card foot (level with the column footer links) even when
+     an open flyout makes the row taller than the card's own content. */
+  .ss-hdr__featured-cta { margin-top: auto; font-family: var(--ss-head); font-weight: 600; font-size: 14px; color: var(--ss-purple); text-decoration: none; }
   .ss-hdr__featured-cta::after { content: ' →'; }
 
   /* ---- The System: read-first card + 3 groups ---- */
@@ -268,6 +279,11 @@
     .ss-hdr__logo--desktop { display: inline-flex; }
     .ss-hdr__logo--mobile, .ss-hdr__burger { display: none; }
     .ss-hdr__wordmark { font-size: 34px; }
+  }
+  /* 1200–1279px: the Shop panel is below its 1280px max, so the featured card gives up width first.
+     Left at 260px it squeezes the nav columns and wraps their links onto two lines. */
+  @media (min-width: 1200px) and (max-width: 1279px) {
+    .ss-hdr__shopgrid { grid-template-columns: repeat(5, minmax(min-content, 1fr)) 200px; }
   }
   @media (max-width: 1199px) {
     .ss-hdr__shopgrid { grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: 28px; row-gap: 28px; }
