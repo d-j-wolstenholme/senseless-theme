@@ -8,16 +8,20 @@ column + column feet). Repo == origin/main @ `daa52f7`, clean.
 ## ON-CONTINUE — do these first
 
 <!-- ON-CONTINUE:START -->
-1. **The Senseless app still says "Same-day dispatch before 3:30pm"** — iOS
-   `senseless-app/ios/Senseless/Brand/BrandProduct.swift:203`, Android
-   `senseless-app/android/app/src/senseless/res/values/strings.xml:66`. Ask Daniel whether to change
-   it and cut 1.0.7. (`matrix-health-ecommerce/brands/senseless` says "before 1pm" — same fix.)
-2. **Daniel to check by hand for a 3:30pm cut-off:** Google Merchant Center → Shipping (order
-   cut-off time → 15:00 Europe/London); Shopify Settings → Shipping and delivery → delivery dates;
-   Klaviyo flows/forms; Shopify Inbox instant answers; Dondy WhatsApp auto-replies; Google Ads
-   assets; notification emails.
-3. **Notion write-back not yet done** for the cut-off change — Decisions DB entry + State Surface
-   sync-status. The local mirror (`DECISIONS-LOG.md`, 2026-09-12) is written.
+1. **Senseless app 1.0.7 — the only place still showing 3:30pm.** Code is done and pushed
+   (`senseless-app` 92f625b: iOS `BrandProduct.swift:203`, Android `strings.xml:66`; shared code
+   `matrix-health-ecommerce` bab087f, where both brands said "before 1pm"). Live 1.0.6 on both stores
+   still says "Same-day dispatch before 3:30pm". Per `senseless-app/HOW-WE-WORK.md` nothing is submitted
+   without Daniel's on-iPhone yes. Before cutting: confirm nothing is pending in Play Console, check the
+   store screenshots for 3:30pm, and ship the Rewards-expiry copy fix already queued for 1.0.7.
+2. **Out of reach from here — Daniel:** Google Merchant Center (neither signed-in Google account has
+   access) — if an order cut-off time is set there, make it 15:00 Europe/London; Klaviyo (login needs a
+   password + CAPTCHA) — flows, forms, SMS; **totallynumb.com** (GoDaddy Website Builder, NOT in Daniel's
+   GoDaddy account) still says "ORDER BEFORE 1PM MONDAY - FRIDAY FOR SAME DAY DISPATCH".
+3. **Notion Confirmed Fact "Shipping model (rates + free tiers)"** still says "Next Working Day (order by
+   1pm)". Rewrite it from the live rate card (mirrored in the comment in
+   `snippets/senseless-structured-data.liquid`). The 12 Sep Decisions + State Surface write-back is done
+   (`1753580`).
 4. **Carried over from 4 Sep, status unknown:** Rich Results Test on
    `https://senseless.uk/products/professional-strength-cream` (expect ONE aggregate rating);
    Search Console "Validate fix" on the 3 issues; ask Daniel whether the Google Ads conversation
@@ -48,6 +52,22 @@ column + column feet). Repo == origin/main @ `daa52f7`, clean.
 - **Gotcha:** to preview CSS in the browser, append the test `<style>` to the END of `<body>` — the
   section's own `{% style %}` block renders in the body, so a `<style>` in `<head>` loses on equal
   specificity and the preview silently half-applies.
+
+## Checked 12 Sep — no cut-off found (nothing to change)
+
+- Shopify Settings → Shipping and delivery → Estimated delivery dates: Automated, fulfilment "Next
+  business day"; no cut-off field anywhere in delivery or location settings.
+- Customer notification emails (rendered previews): order confirmation, draft order invoice, order
+  invoice, shipping confirmation, shipping update, out for delivery, delivered, order edited, abandoned
+  checkout — no cut-off wording. Pickup, gift-card, returns, refunds, POS and payment-failure templates
+  were not verified.
+- Knowledge Base / AI-agent answers via the public Storefront MCP (`/api/mcp`,
+  `search_shop_policies_and_faqs`): no cut-off returned.
+- Dondy WhatsApp widget config (`widget-view.dondy.net/api/WhatsAppWidgetsView/<shop>`): no cut-off.
+- Google Ads (audit only, nothing edited): account 368-965-4782 — the ads table, the account- and campaign-level assets (callouts,
+  structured snippet, calls, sitelinks) and the first page of ad headlines and of descriptions (10 of 33)
+  show no cut-off. Later asset pages were not verified: the table pager did not respond to automation.
+- GoDaddy site `senseless-numbing.com`: no cut-off.
 
 **Gotchas (12 Sep):**
 - **Renaming a delivery method re-issues its `DeliveryCondition` ids.** A raw before/after diff of
