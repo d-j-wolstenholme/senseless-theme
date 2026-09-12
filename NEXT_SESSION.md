@@ -1,15 +1,56 @@
 # NEXT_SESSION — handoff
 
-**Last session (4 Sep 2026, MacBook Pro):** Google Search Console raised three structured-data
-alerts; root-caused, fixed on both layers, and verified. Separately, the Google Ads account was
-audited for the first time and the picture there is bad. Repo == origin/main @ `6053eec`, clean.
+**Last session (12 Sep 2026, MacBook Pro):** Same-day dispatch cut-off moved **3:30pm → 3pm** on
+Senseless (and Totally Numb, same session). Theme deployed and verified live; every Shopify-side
+statement and both checkout rate names changed. Repo == origin/main @ `fbcbb59`, clean.
 
 ## ON-CONTINUE — do these first
 
-1. **Rich Results Test** `https://senseless.uk/products/professional-strength-cream` — expect ONE
-   aggregate rating. `curl` CANNOT see this bug; only a JS-rendering tool can.
-2. **Search Console → the 3 issues → "Validate fix"** on each. Not yet submitted.
-3. Ask Daniel whether the Google Ads conversation with Martin has happened (see below).
+<!-- ON-CONTINUE:START -->
+1. **The Senseless app still says "Same-day dispatch before 3:30pm"** — iOS
+   `senseless-app/ios/Senseless/Brand/BrandProduct.swift:203`, Android
+   `senseless-app/android/app/src/senseless/res/values/strings.xml:66`. Ask Daniel whether to change
+   it and cut 1.0.7. (`matrix-health-ecommerce/brands/senseless` says "before 1pm" — same fix.)
+2. **Daniel to check by hand for a 3:30pm cut-off:** Google Merchant Center → Shipping (order
+   cut-off time → 15:00 Europe/London); Shopify Settings → Shipping and delivery → delivery dates;
+   Klaviyo flows/forms; Shopify Inbox instant answers; Dondy WhatsApp auto-replies; Google Ads
+   assets; notification emails.
+3. **Notion write-back not yet done** for the cut-off change — Decisions DB entry + State Surface
+   sync-status. The local mirror (`DECISIONS-LOG.md`, 2026-09-12) is written.
+4. **Carried over from 4 Sep, status unknown:** Rich Results Test on
+   `https://senseless.uk/products/professional-strength-cream` (expect ONE aggregate rating);
+   Search Console "Validate fix" on the 3 issues; ask Daniel whether the Google Ads conversation
+   with Martin has happened.
+<!-- ON-CONTINUE:END -->
+
+## Done 12 Sep — dispatch cut-off 3:30pm → 3pm (`01544e5`, `5dc687b`, lock `fbcbb59`)
+
+- **Theme:** shipping banner (3 states), `page.delivery.json` (12), `page.tktx-numbing-cream-uk.json`
+  (2), structured-data `cutoffTime` `15:00:00` (offset still from the shop clock). Deployed via
+  `deploy.sh --reviews-changed`; Asset API 584 files before and after, only these 4 updated.
+- **Shopify:** both rate names "Next Working Day (Order by 3pm)" (prices + conditions diffed
+  unchanged), `SHIPPING_POLICY`, page `shipping-delivery` (SEO tag + `policy.prose_policy_body`),
+  page `delivery` (SEO tag), article `where-to-buy-numbing-cream-for-tattoos-uk` (body + `custom.faq`).
+- **Stale 1pm** removed from `docs/tattoo-cluster-content.json`, `scripts/build-tattoo-resources.py`,
+  `scripts/policy-metafields.py` so a re-run can't republish it.
+- **Live:** crawl of 81 URLs 0 × 3:30; Admin re-sweep 0 × 3:30. Detail in `DECISIONS-LOG.md`.
+
+**Gotchas (12 Sep):**
+- **Renaming a delivery method re-issues its `DeliveryCondition` ids.** A raw before/after diff of
+  the rate card flags it "changed"; compare price + field/operator/amount instead.
+- **The Admin writes landed ~30 min before the theme deploy.** The first deploy attempt was blocked
+  by Claude Code's auto-mode permission check, so checkout and the policy said 3pm while the banner
+  said 3:30pm until Daniel confirmed. Next time: deploy the theme first, then the Admin writes.
+- The custom-app token lacks `read_locales` / `read_translations`, so translations can't be swept
+  (no locale is published today — `/fr`, `/de`, `/en-us` all 404).
+
+---
+
+## Previous handoff (4 Sep 2026) — kept for reference
+
+**Session (4 Sep 2026, MacBook Pro):** Google Search Console raised three structured-data
+alerts; root-caused, fixed on both layers, and verified. Separately, the Google Ads account was
+audited for the first time and the picture there is bad. Repo == origin/main @ `6053eec`, clean.
 
 ## What was wrong, and what fixed it
 
