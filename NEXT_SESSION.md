@@ -2,7 +2,8 @@
 
 **Last session (12 Sep 2026, MacBook Pro):** Same-day dispatch cut-off moved **3:30pm → 3pm** on
 Senseless (and Totally Numb, same session). Theme deployed and verified live; every Shopify-side
-statement and both checkout rate names changed. Repo == origin/main @ `fbcbb59`, clean.
+statement and both checkout rate names changed. Then fixed the Shop mega-menu layout (Merchandise
+column + column feet). Repo == origin/main @ `daa52f7`, clean.
 
 ## ON-CONTINUE — do these first
 
@@ -34,6 +35,19 @@ statement and both checkout rate names changed. Repo == origin/main @ `fbcbb59`,
 - **Stale 1pm** removed from `docs/tattoo-cluster-content.json`, `scripts/build-tattoo-resources.py`,
   `scripts/policy-metafields.py` so a re-run can't republish it.
 - **Live:** crawl of 81 URLs 0 × 3:30; Admin re-sweep 0 × 3:30. Detail in `DECISIONS-LOG.md`.
+
+## Done 12 Sep — Shop mega-menu layout (`daa52f7`)
+
+- `sections/senseless-header.liquid`, CSS only: Merchandise had a narrower track, so its heading broke
+  "MERCHANDIS/E" and footer links wrapped, knocking the column feet out of line. Nav columns are now
+  `minmax(min-content, 1fr)`; headings + footer links `nowrap`; footers 14px + 16px column bottom
+  padding so they share one line with the card's "Shop the kit →"; Bundles rows `min-height: 28px`;
+  card 200px at 1200–1279px.
+- Verified live in Chrome at 1712px (no injected CSS): no overflow, only "Semi-permanent makeup"
+  wraps (as before), footers level, first rows level.
+- **Gotcha:** to preview CSS in the browser, append the test `<style>` to the END of `<body>` — the
+  section's own `{% style %}` block renders in the body, so a `<style>` in `<head>` loses on equal
+  specificity and the preview silently half-applies.
 
 **Gotchas (12 Sep):**
 - **Renaming a delivery method re-issues its `DeliveryCondition` ids.** A raw before/after diff of
