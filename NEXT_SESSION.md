@@ -8,12 +8,8 @@ column + column feet). Repo == origin/main @ `daa52f7`, clean.
 ## ON-CONTINUE — do these first
 
 <!-- ON-CONTINUE:START -->
-1. **Senseless app 1.0.7 — the only place still showing 3:30pm.** Code is done and pushed
-   (`senseless-app` 92f625b: iOS `BrandProduct.swift:203`, Android `strings.xml:66`; shared code
-   `matrix-health-ecommerce` bab087f, where both brands said "before 1pm"). Live 1.0.6 on both stores
-   still says "Same-day dispatch before 3:30pm". Per `senseless-app/HOW-WE-WORK.md` nothing is submitted
-   without Daniel's on-iPhone yes. Before cutting: confirm nothing is pending in Play Console, check the
-   store screenshots for 3:30pm, and ship the Rewards-expiry copy fix already queued for 1.0.7.
+1. **Senseless app 1.0.7 SUBMITTED to both stores (12 Sep ~23:05)** — iOS 1.0.7 (9) Waiting for Review, Android 8 Changes in review, both auto-release. Confirm approval on the public listings. Detail: `senseless-app/docs/*-submission-record.md`.
+   `/pages/rewards` expiry copy was fixed the same night (`e130914`, DECISIONS-LOG Decision 4).
 2. **Out of reach from here — Daniel:** Google Merchant Center (neither signed-in Google account has
    access) — if an order cut-off time is set there, make it 15:00 Europe/London; Klaviyo (login needs a
    password + CAPTCHA) — flows, forms, SMS; **totallynumb.com** (GoDaddy Website Builder, NOT in Daniel's
