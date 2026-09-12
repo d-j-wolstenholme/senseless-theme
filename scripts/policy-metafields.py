@@ -79,14 +79,14 @@ def to_richtext(html_str):
 # Shipping: paid tiers KEPT, free £40/£80 thresholds ADDED, "Free shipping?" FAQ corrected.
 SHIPPING_BODY = """
 <h2>Dispatch</h2>
-<p>Orders placed before 1pm on a working day are dispatched the same day; after 1pm or at weekends, the next working day. All orders ship from the United Kingdom via Royal Mail.</p>
+<p>Orders placed before 3pm on a working day are dispatched the same day; after 3pm or at weekends, the next working day. All orders ship from the United Kingdom via Royal Mail.</p>
 <h2>Free delivery</h2>
-<p>Free standard UK delivery on orders over &pound;40. Free next-day delivery on orders over &pound;80. Order before 1pm on a working day for same-day dispatch.</p>
+<p>Free standard UK delivery on orders over &pound;40. Free next-day delivery on orders over &pound;80. Order before 3pm on a working day for same-day dispatch.</p>
 <h2>Delivery options</h2>
 <ul>
 <li><strong>Standard</strong> — &pound;1.99 — 4&ndash;6 working days. <strong>Free on orders over &pound;40.</strong></li>
 <li><strong>Express</strong> — &pound;2.99 — 2&ndash;3 working days.</li>
-<li><strong>Next working day</strong> — &pound;7.99 — order by 1pm. <strong>Free on orders over &pound;80.</strong></li>
+<li><strong>Next working day</strong> — &pound;7.99 — order by 3pm. <strong>Free on orders over &pound;80.</strong></li>
 </ul>
 <h2>Tracking your order</h2>
 <p>A confirmation email with a tracking link is sent on dispatch. Track directly at <a href="https://www.royalmail.com/track-your-item">royalmail.com/track-your-item</a>. No confirmation within 24 hours — check spam or contact <a href="mailto:cs@senseless.uk">cs@senseless.uk</a>.</p>
