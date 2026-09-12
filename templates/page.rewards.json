@@ -38,7 +38,7 @@
         "earn7": { "type": "rate", "settings": { "term": "Follow us", "detail": "Earn points for following Senseless on social.", "group": "earn", "app_only": false, "coming_soon": true } },
 
         "rule1": { "type": "rate", "settings": { "term": "Redeem", "detail": "100 points = £1 off, applied from your account.", "group": "rule", "app_only": false, "coming_soon": false } },
-        "rule2": { "type": "rate", "settings": { "term": "No expiry", "detail": "Your points don't expire.", "group": "rule", "app_only": false, "coming_soon": false } },
+        "rule2": { "type": "rate", "settings": { "term": "24-month expiry", "detail": "From 1 October 2026, points expire after 24 months without earning or redeeming. Points earned before then are protected until at least 1 October 2028.", "group": "rule", "app_only": false, "coming_soon": false } },
         "rule3": { "type": "rate", "settings": { "term": "Signed in only", "detail": "Guest checkout doesn't earn — sign in to collect.", "group": "rule", "app_only": false, "coming_soon": false } },
 
         "cmp0": { "type": "compare", "settings": { "feature": "10% off your order", "web": "—", "app": "Applied automatically" } },
@@ -46,7 +46,7 @@
         "cmp2": { "type": "compare", "settings": { "feature": "200-point welcome bonus", "web": "—", "app": "Yes" } },
         "cmp5": { "type": "compare", "settings": { "feature": "Birthday points", "web": "—", "app": "100 pts / year" } },
         "cmp3": { "type": "compare", "settings": { "feature": "See balance & redeem", "web": "In your account", "app": "Built in" } },
-        "cmp4": { "type": "compare", "settings": { "feature": "Points expiry", "web": "None", "app": "None" } }
+        "cmp4": { "type": "compare", "settings": { "feature": "Points expiry", "web": "After 24 months without activity", "app": "After 24 months without activity" } }
       },
       "block_order": ["step1", "step2", "step3", "earn1", "earn2", "earn3", "earn4", "earn5", "earn6", "earn7", "rule1", "rule2", "rule3", "cmp0", "cmp1", "cmp2", "cmp5", "cmp3", "cmp4"],
       "settings": {
@@ -67,7 +67,7 @@
     "faq": {
       "type": "senseless-faq-accordion",
       "blocks": {
-        "faq1": { "type": "faq_item", "settings": { "question": "Do my points expire?", "answer": "<p>No. In this first version of the programme, your points don't expire.</p>" } },
+        "faq1": { "type": "faq_item", "settings": { "question": "Do my points expire?", "answer": "<p>From 1 October 2026, your points expire if you go 24 months without earning or redeeming any, and earning or redeeming restarts the clock. Points earned before then will not expire before 1 October 2028 at the earliest. Discount codes you have already claimed do not expire. Full detail is in the <a href=\"/pages/rewards-terms\">Rewards terms</a>.</p>" } },
         "faq2": { "type": "faq_item", "settings": { "question": "What happens to my points if I return an order?", "answer": "<p>Points earned on an order are removed if that order is refunded, in line with the refund.</p>" } },
         "faq3": { "type": "faq_item", "settings": { "question": "Does guest checkout earn points?", "answer": "<p>No — points are tied to your account, so you need to be signed in (in the app or on the web). Guest checkout doesn't collect points.</p>" } },
         "faq4": { "type": "faq_item", "settings": { "question": "How do I redeem points?", "answer": "<p>Your balance and redeem option are on your account page. 100 points = £1 off — sign in to view and redeem.</p>" } },
