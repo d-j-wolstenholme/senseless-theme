@@ -1,28 +1,92 @@
 # NEXT_SESSION — handoff
 
-**Last session (12 Sep 2026, MacBook Pro):** Same-day dispatch cut-off moved **3:30pm → 3pm** on
-Senseless (and Totally Numb, same session). Theme deployed and verified live; every Shopify-side
-statement and both checkout rate names changed. Then fixed the Shop mega-menu layout (Merchandise
-column + column feet). Repo == origin/main @ `daa52f7`, clean.
+**Last session (21–22 Sep 2026, Mac mini `Ds-Mac-mini.local`):** local brought level with live and
+origin, records reconciled, and the 20 Sep **Google Ads & Merchant Centre audit** saved and studied.
+Nothing deployed and nothing changed in Shopify. Repo == origin/main, clean (session record on top of
+`ae2c017`). Live theme `#199324434780` == repo on all 582 common files.
 
 ## ON-CONTINUE — do these first
 
 <!-- ON-CONTINUE:START -->
-1. **Senseless app 1.0.7 SUBMITTED to both stores (12 Sep ~23:05)** — iOS 1.0.7 (9) Waiting for Review, Android 8 Changes in review, both auto-release. Confirm approval on the public listings. Detail: `senseless-app/docs/*-submission-record.md`.
-   `/pages/rewards` expiry copy was fixed the same night (`e130914`, DECISIONS-LOG Decision 4).
-2. **Out of reach from here — Daniel:** Google Merchant Center (neither signed-in Google account has
-   access) — if an order cut-off time is set there, make it 15:00 Europe/London; Klaviyo (login needs a
-   password + CAPTCHA) — flows, forms, SMS; **totallynumb.com** (GoDaddy Website Builder, NOT in Daniel's
-   GoDaddy account) still says "ORDER BEFORE 1PM MONDAY - FRIDAY FOR SAME DAY DISPATCH".
-3. **Notion Confirmed Fact "Shipping model (rates + free tiers)"** still says "Next Working Day (order by
-   1pm)". Rewrite it from the live rate card (mirrored in the comment in
-   `snippets/senseless-structured-data.liquid`). The 12 Sep Decisions + State Surface write-back is done
-   (`1753580`).
-4. **Carried over from 4 Sep, status unknown:** Rich Results Test on
-   `https://senseless.uk/products/professional-strength-cream` (expect ONE aggregate rating);
-   Search Console "Validate fix" on the 3 issues; ask Daniel whether the Google Ads conversation
-   with Martin has happened.
+1. **Which machine?** On the **Mac mini** the `.env` Shopify client ID, secret and token are EMPTY, so
+   `refresh-token.sh` returns 400 and `deploy.sh` exits. Copy the MacBook Pro `.env` across, or do any
+   Admin API or deploy work on the MacBook. The Shopify CLI login works here for `theme list/pull`.
+2. **Recommended next Work Item: the consent fix** (`docs/GOOGLE-ADS-MC-AUDIT-2026-09-20.md` N1/V53,
+   §5A item 2). `snippets/senseless-cookie-consent.liquid:127` sends `sale_of_data` as a string, so
+   Shopify has rejected every Accept/Reject since 1 Jun. The fix is one line (`sale_of_data: !!c.marketing`)
+   plus a three-state live test (no choice / Accept / Reject). **Before shipping it:** the founder agrees
+   the timing and briefs Martin, and the account holder confirms the Ads conversion set-up (study §5D
+   step 8), so a dormant GA4 import can't start double-counting. Separately, Legal gives the PECR position
+   on the AW pixel and Klaviyo onsite firing before consent (N2). Needs the MacBook (deploy).
+3. **Founder decisions from the study (§5B):**
+   - what "Strength" means (the hidden "not a measure of strength" is on 37 pages; canon 817f vs 817c);
+   - bundle sale styling (still on `/collections/all` + search) and whether it extends to Google Shopping;
+   - GS1 UK barcodes for 16 variants (scan a pack first);
+   - scope of the ad-facing rule (links only, or injectable text too);
+   - route returns wording + imported reviews + classification evidence to MHG/legal, and log a
+     Compliance Hold on returns wording;
+   - set the Cosmetics Bag's Compliance status (Products DB row 3e258bc3-75ea-8144).
+4. **Account holder (study §5D):** name the live MC (the G&Y widget says `5805726847`); read the
+   "Apply for healthcare certification" alert; run the export/join checklist; put the four 4 Sep
+   questions to Martin.
+5. **Ask Daniel:** Google Play developer verification (deadline **30 Sep 2026**). It was flagged URGENT
+   31 Aug and dropped from the 4 Sep handoff with no recorded closure.
+6. **Needs an OK:** delete the 2 July orphans still on the live theme (`blocks/footer-copyright.liquid`,
+   `templates/page.how-long-numbing-cream-takes-to-work.json`). They are unused, and the page URL already 301s.
+7. **Canon owner passes (flagged, not changed):**
+   - Decision 38e58bc3-75ea-817f vs -817c (founder ruling);
+   - Decisions 38e58bc3-75ea-8177 (trust bar) and -81fb (bundles 5%) need supersession;
+   - the 22 Jun shipping-schema decision -8109 needs a new decision (V17);
+   - Compliance Hold 3bb58bc3 title still says "G1 unanswered" (owner);
+   - Shipping model Confirmed Fact: re-read `deliveryProfiles` via the Admin API on the MacBook.
+8. **Theme comment-only fixes, batched with the next structured-data deploy** (kept out of git so
+   git == live holds): `senseless-structured-data.liquid` comments (productID `shopify_GB_`, rate-card
+   re-read date, `cutoffTime` scope), `senseless-shipping-banner.liquid:7`, `senseless-header.liquid:42`
+   (SBUN5), and `senseless-scale.liquid:9` / `senseless-comfort-mark.liquid:5` after the Strength ruling.
+9. **Carried over:** Rich Results Test + 3 GSC "Validate fix" (from 4 Sep);
+   `matrix-health-ecommerce/brands/senseless` "before 1pm" (not on the Mac mini); MC order cut-off
+   15:00; Klaviyo; totallynumb.com 1pm; G2 safety gate stays open (G1 CLOSED, do not re-raise).
 <!-- ON-CONTINUE:END -->
+
+## Done 21–22 Sep
+
+- **Sync (`7e944a3`):** fetch showed 0/0. A full pull of live vs `git ls-files` found one real
+  difference: Shopify's Liquid migration rewrote `sections/senseless-complete-prep.liquid` on live
+  (behaviour unchanged). Adopted verbatim. 117 byte-only diffs (pull noise); 113 repo-only image-pipeline
+  sources; 2 live-only July orphans.
+- **Audit (`93bf0e4`):** `docs/evidence/google-ads-merchant-centre-audit-2026-09-20.pdf` plus the study
+  `docs/GOOGLE-ADS-MC-AUDIT-2026-09-20.md`: 9 lenses → synthesis → skeptic (25 claims re-checked, 12 fixes
+  + 7 gaps applied). Verdict table V1–V56, issues the audit missed N1–N40, owner-split action list.
+- **App:** Senseless 1.0.7 is LIVE on both stores (App Store released 14 Sep, Play updated 12 Sep);
+  release notes state the 3pm cut-off. The in-app copy was not observed.
+- **Records (`ae2c017` + Notion):** 98 stale statements found and corrected where evidence was decisive:
+  - repo: CLAUDE.md range 17/22, ARCHITECTURE, COMPLIANCE/BRAND naming, DECISIONS-LOG order + footer,
+    STATE.md archived pointer, consent build-report root cause, deploy rule per-machine `.env`;
+  - Notion: Project Instance, 9 Confirmed Facts, Products + Handle Registry, 6 Decision rows transcribed,
+    3 Stakeholder Actions closed with evidence, State Surface header + log;
+  - memory rewritten as pointers.
+  An independent audit confirmed 24 Notion changes. Its 2 real problems were fixed the same night.
+
+## Gotchas (21–22 Sep)
+
+- **Shopify rewrites theme files itself** (Liquid parser migration, with a change-log comment appended).
+  Adopt verbatim with a live→git commit; never pull blindly over `main`.
+- **`deploy.sh --only` never deletes**, so files removed from git linger on live.
+- **Auto-mode blocks saving or printing the OAuth token response.** Check HTTP status codes and
+  `.env` key presence (set/EMPTY) instead.
+- **The State Surface fetch is about 240k characters.** Grep the saved tool-result file; don't read it whole.
+- **Notion auto-links bare filenames** (`DECISIONS-LOG.md` → `http://DECISIONS-LOG.md`) in new rows.
+  It's cosmetic; wrap filenames in backticks to avoid it.
+- The State Surface log is append-only, so corrections to old entries go in the new entry
+  ("Corrections to earlier log entries").
+
+---
+
+## Previous handoff (12 Sep 2026, MacBook Pro) — kept for reference
+
+Same-day dispatch cut-off moved **3:30pm → 3pm** on Senseless (and Totally Numb). Theme deployed and
+verified live; every Shopify-side statement and both checkout rate names changed. Then fixed the Shop
+mega-menu layout. Repo == origin/main @ `daa52f7` at the time.
 
 ## Done 12 Sep — dispatch cut-off 3:30pm → 3pm (`01544e5`, `5dc687b`, lock `fbcbb59`)
 

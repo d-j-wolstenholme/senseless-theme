@@ -8,6 +8,8 @@
 - Notion canon, read only;
 - official Google, GOV.UK, MHRA and legislation.gov.uk texts.
 
+**Line references to `NEXT_SESSION.md`** are to the handoff as it stood at `5ce0026`, before this session rewrote it.
+
 **Checked by one lens only (the skeptic did not re-check them):** V24's "tube reads ADVANCED STRENGTH", N35 (Klaviyo covering the banner at about 7s) and N19 (sticky price, source-only). Treat them as single-source until the browser checks in §5A item 1 run.
 
 **What the audit is.** An outside review of the public website only. It had no access to Merchant Centre, Google Ads, Shopify admin, Search Console or checkout. It says so, and it treats every account-side effect as conditional.
