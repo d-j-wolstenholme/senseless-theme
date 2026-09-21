@@ -3,7 +3,7 @@
 Senseless is a UK cosmetic product. Not a medicine. Not a medical device. All copy, alt text, schema descriptions, marketing assets, and product descriptions must comply with:
 
 - UK Cosmetic Products Enforcement Regulations 2013
-- Consumer Protection from Unfair Trading Regulations 2008
+- Consumer Protection from Unfair Trading Regulations 2008 — *revoked 6 Apr 2025 and replaced by the Digital Markets, Competition and Consumers Act 2024, Part 4 Ch 1 (ss 225–230, Sch 20). Read references to the 2008 Regulations below as the DMCC Act. (Noted 22 Sep 2026.)*
 - CAP Code (non-broadcast) — ASA enforcement
 - MHRA Borderline Products Guidance
 
@@ -50,7 +50,7 @@ The main-site FAQ (`templates/page.faq.json`) was **authored by Peter + the MHG 
 | Works in 20 minutes | Apply ahead of your appointment |
 | Lasts 2 hours | Designed for typical session lengths |
 | Anaesthetic cream | Topical preparation cream |
-| Strongest numbing cream | Our most concentrated formula |
+| Strongest numbing cream | Our most concentrated formula ⚠ *PENDING founder ruling: Notion Decision 38e58bc3-75ea-817c (20 Jun) bans "most concentrated" for Professional, so canon contradicts this row. Don't treat it as cleared (docs/GOOGLE-ADS-MC-AUDIT-2026-09-20.md §3 item 4, N12).* |
 | Stops the pain | Supports the experience |
 | Will numb you | May support comfort |
 | Effective on lip fillers | Designed for use before lip fillers |
@@ -61,7 +61,7 @@ The main-site FAQ (`templates/page.faq.json`) was **authored by Peter + the MHG 
 |---|---|---|
 | Clinical Strength | "For shorter or less intensive treatments" | "Mild numbing", "low strength" |
 | Advanced Strength | "For longer or more sensitive sessions" | "Medium-strength numbing", "everyday" (belongs to Clinical) |
-| Professional Strength | "Our most concentrated formula" | "Strongest numbing", "max strength" |
+| Professional Strength | "Our most concentrated formula" ⚠ *PENDING founder ruling, see the note on the row above* | "Strongest numbing", "max strength" |
 
 ## SEO vs Body Copy Rule
 
@@ -93,12 +93,13 @@ The category-noun exception above is extended to two further surfaces, owner-app
 This does **not** loosen the Hard Rule. "numbing" / "numbs" used as an **effect or efficacy claim** — "numbs the skin", "a numbing effect", "arriving already numbed", "numbing reduces sensation/discomfort", "how numbing fits in" — remains **banned everywhere**, including PDPs and guide pages. The noun names the product type; the moment it describes an effect on skin or sensation, it's a violation.
 
 > **Open gate (2026-06-12):** the full-site audit found live *effect-use* of "numbing/numbed" that breaches the Hard Rule. Per owner instruction that copy is **routed to MHG/legal review** and was not rewritten; it remains a pre-public-go-live gate. See `DECISIONS-LOG.md` 2026-06-12.
+> **Update (noted 22 Sep 2026):** all launch gates cleared 2 Jul 2026 and the site is live and public (`.claude/rules/compliance.md`, State Surface). This note is kept as history. The Hard Rules still apply to every brand-authored surface.
 
 ### Product naming — UK cosmetics compliance
 
 The word "numbing" must not appear as or within a Senseless product name, product description attributing an effect to the product, or any copy that implies the product produces a numbing or anaesthetic effect on the skin. This constitutes a medicinal efficacy claim under UK cosmetics law and risks reclassification of the product as a medicine requiring MHRA licensing.
 
-Senseless product names use **"Comfort"** — **Comfort Cream, Comfort Gel, Comfort Spray**. These describe the user experience without asserting a physiological mechanism.
+Senseless product names are **"<Tier> Strength <Format>"** everywhere, e.g. **Clinical Strength Cream, Advanced Strength Gel, Professional Strength Spray**. This is the founder's decision of 1 Sep 2026 (`DECISIONS-LOG.md` "Naming: 'Strength' stays", commit `8a6338e`). It superseded the 31 Aug "Comfort" rename and retired "Comfort Cream/Gel/Spray" as a product noun. *(Updated 22 Sep 2026. What "Strength" means, and how it squares with the Scale's "not a measure of strength" line, is still open for a founder ruling: docs/GOOGLE-ADS-MC-AUDIT-2026-09-20.md V23–V25.)*
 
 "Numbing cream/gel/spray" may appear as a **search category term** on SEO-facing surfaces (collections, meta descriptions using it as a keyword, guide body copy, article copy) where it describes consumer search intent and does not attribute a numbing effect to the Senseless product specifically.
 

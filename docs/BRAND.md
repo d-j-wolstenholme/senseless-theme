@@ -20,7 +20,7 @@ The canonical code-side mirror of the brand system held in Notion.
 - **Audience:** Female users — cosmetic and aesthetic procedure clients
 - **Headline:** Confidence Starts With Comfort
 - **Positioning:** Premium, professional, clinical-aesthetic, female-leaning, UK formulated
-- **Product naming:** Senseless products are named with **"Comfort"** — **Comfort Cream / Comfort Gel / Comfort Spray** (the brand name; describes the user experience, asserts no physiological mechanism). **"Numbing [format]"** is used only as an **SEO category descriptor** on search-facing surfaces (collections, meta keywords, guide/article body), never as the product name or in effect-attributing copy. See `docs/COMPLIANCE.md` → *Product naming — UK cosmetics compliance*.
+- **Product naming:** Senseless products are named **"<Tier> Strength <Format>"** everywhere (e.g. Clinical Strength Cream). This is the founder's decision of 1 Sep 2026 (`DECISIONS-LOG.md`, commit `8a6338e`), and it retired "Comfort Cream/Gel/Spray" as a product noun. *(Updated 22 Sep 2026; the meaning of "Strength" is still open for a founder ruling, see docs/GOOGLE-ADS-MC-AUDIT-2026-09-20.md V23–V25.)* **"Numbing [format]"** is used only as an **SEO category descriptor** on search-facing surfaces (collections, meta keywords, guide/article body), never as the product name or in effect-attributing copy. See `docs/COMPLIANCE.md` → *Product naming — UK cosmetics compliance*.
 
 ## Colours
 

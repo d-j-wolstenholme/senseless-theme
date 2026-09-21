@@ -17,7 +17,7 @@ Mirrors the Site Architecture Notion page. See full details there.
 | Homepage | 1 | Brand-led, funnels to format + procedure collections |
 | Format Collections | 3 | Numbing Cream, Numbing Gel, Numbing Spray |
 | Procedure Collections | 8 | Aesthetic Hub + Microneedling, SPMU, Laser, Waxing surfaced in nav (**injectable-clean**). Lip Fillers, Botox, Injections collection templates exist but are **not linked from navigation** (injectable-clean decision; under review for noindex/redirect) |
-| Products | 10 (+5 bundles) | 3 Cream / 3 Gel / 3 Spray / 1 Cleanser, sold as size variants → **15 single SKUs**: S10CL S30CL · S10AD S30AD · S30PR · SG15CL SG35CL · SG15AD SG35AD · SG15PR SG35PR · SSPCL SSPAD SSPPR · FOAM. Gel ships in **both 15ml and 35ml** across all three tiers; a **Clinical Spray (SSPCL)** now exists. Plus 5 bundles: SBUN-CL-S/-L, SBUN-AD-S/-L, SBUN-PR-L. |
+| Products | 17 (22 variants; live `/products.json`, 21 Sep 2026) | 3 Cream / 3 Gel / 3 Spray / 1 Cleanser, sold as size variants → **15 single SKUs**: S10CL S30CL · S10AD S30AD · S30PR · S15CL S35CL · SG15AD SG35AD · SG15PR SG35PR · SSPCL SSPAD SSPPR · SFOAM. Gel ships in **both 15ml and 35ml** across all three tiers (note the Clinical Gel SKUs break the `SG` pattern). Plus the Vitamin A&D 4-pack add-on (`VAD-4PK`), the Senseless Cosmetics Bag (`SENBAG`, Merchandise, since 23 Aug 2026) and 5 bundles: SBUN1 Clinical Starter · SBUN2 Clinical Ultimate · SBUN3 Advanced Starter · SBUN4 Advanced Ultimate · SBUN5 Professional Ultimate. |
 | Commercial Landing | 3 | Strongest Numbing Cream, Best Numbing Cream, Best Emla Alternative |
 | Blog Articles | 15+ | Procedure pain, aftercare, product education, retailer comparisons |
 | Supporting | 4 | About, FAQ, Trade, Contact |

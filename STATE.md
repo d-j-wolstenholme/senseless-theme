@@ -1,5 +1,7 @@
 # Senseless — STATE (repo mirror)
 
+> **ARCHIVED SNAPSHOT (last entry 15 Jun 2026) — not current state.** It mirrors `37358bc375ea81ac9451f6b07bdf4e6e`, which now sits under *Archive (pre-migration) / Senseless — Site Build OS*. Current state lives in the Notion **State Surface** `38e58bc3-75ea-81ad-87eb-e20fcfc22406` (repo mirror `canon/state.json`). Entries below describe superseded rules, e.g. the "Comfort [format]" naming (replaced 1 Sep 2026 by "<Tier> Strength <Format>"). *(Pointer added 22 Sep 2026.)*
+
 Repo-side mirror of the Notion 📍 STATE page (`37358bc375ea81ac9451f6b07bdf4e6e`). Newest update at top.
 Created 2026-06-15 (the mirror was previously missing — see DECISIONS-LOG / audit 2026-06-12).
 
