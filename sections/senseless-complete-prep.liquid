@@ -106,7 +106,7 @@
       {%- assign c1 = collections[card1_handle] -%}
       {%- if c1.url != blank -%}{%- assign c1_url = c1.url -%}{%- else -%}{%- assign c1_url = '/collections/' | append: card1_handle -%}{%- endif -%}
       <a class="ss-prep__card" href="{{ c1_url }}">
-        <span class="ss-prep__media">{%- render 'senseless-card-image', collection: c1, alt: card1_label | append: ' — Senseless topical preparation on a warm off-white background', sizes: '96px' -%}{%- if c1_url != blank -%}<span class="ss-prep__view" aria-hidden="true">{{ section.settings.cta_label | default: 'View product' | escape }} &rarr;</span>{%- endif -%}</span>
+        <span class="ss-prep__media">{%- render 'senseless-card-image', collection: c1, alt: card1_label, append: ' — Senseless topical preparation on a warm off-white background', sizes: '96px' -%}{%- if c1_url != blank -%}<span class="ss-prep__view" aria-hidden="true">{{ section.settings.cta_label | default: 'View product' | escape }} &rarr;</span>{%- endif -%}</span>
         <span class="ss-prep__cardbody">
           <span class="ss-prep__cardlabel">{{ card1_label }}</span>
           <span class="ss-prep__cardcue">View {{ card1_label }}</span>
@@ -116,7 +116,7 @@
       {%- assign c2 = collections[card2_handle] -%}
       {%- if c2.url != blank -%}{%- assign c2_url = c2.url -%}{%- else -%}{%- assign c2_url = '/collections/' | append: card2_handle -%}{%- endif -%}
       <a class="ss-prep__card" href="{{ c2_url }}">
-        <span class="ss-prep__media">{%- render 'senseless-card-image', collection: c2, alt: card2_label | append: ' — Senseless topical preparation on a warm off-white background', sizes: '96px' -%}{%- if c2_url != blank -%}<span class="ss-prep__view" aria-hidden="true">{{ section.settings.cta_label | default: 'View product' | escape }} &rarr;</span>{%- endif -%}</span>
+        <span class="ss-prep__media">{%- render 'senseless-card-image', collection: c2, alt: card2_label, append: ' — Senseless topical preparation on a warm off-white background', sizes: '96px' -%}{%- if c2_url != blank -%}<span class="ss-prep__view" aria-hidden="true">{{ section.settings.cta_label | default: 'View product' | escape }} &rarr;</span>{%- endif -%}</span>
         <span class="ss-prep__cardbody">
           <span class="ss-prep__cardlabel">{{ card2_label }}</span>
           <span class="ss-prep__cardcue">View {{ card2_label }}</span>
@@ -144,3 +144,24 @@
   "presets": [ { "name": "Senseless — Complete prep", "settings": { "variant": "cream" } } ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'senseless-card-image', collection: c1, alt: card1_label | append:
+    ' — Senseless topical preparation on a warm off-white background', sizes: '96px'
+    -%}"
+  to: "{%- render 'senseless-card-image', collection: c1, alt: card1_label, append:
+    ' — Senseless topical preparation on a warm off-white background', sizes: '96px'
+    -%}"
+  position: 7768..7929
+- from: "{%- render 'senseless-card-image', collection: c2, alt: card2_label | append:
+    ' — Senseless topical preparation on a warm off-white background', sizes: '96px'
+    -%}"
+  to: "{%- render 'senseless-card-image', collection: c2, alt: card2_label, append:
+    ' — Senseless topical preparation on a warm off-white background', sizes: '96px'
+    -%}"
+  position: 8603..8764
+{% endcomment %}
