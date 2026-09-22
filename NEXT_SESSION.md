@@ -23,6 +23,35 @@ Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit p
 2. **Next in sequence:**
    - (a) Founder call: show the unit price on the PDP hero (the theme doesn't yet).
    - (b) **Merchant Center delivery policies FIXED by hand 22 Sep** (DECISIONS-LOG Decision 12): Express 2–4 d £3.99 to £79.99; Standard 4–7 d £1.99 to £39.99, free £40–£79.99; NWD 1–2 d £8.99 to £79.99, free £80+; all 15:00 London cut-off, handling 0–1; the broken `Custom_rate_price_based` deleted. **FIRST THING NEXT SESSION: re-check MC → Delivery and returns** (3 policies, those day ranges) in case the Google & YouTube app resynced or recreated the 4th. Merchant API client ready (`scripts/merchant-api.py`); the founder's GCP/service-account setup is still pending.
+   - (c) **Shopify-side root cause found 22 Sep — NOT yet fixed (needs the founder's hands).**
+     The Google & YouTube app's **"Shipping Information — automatically syncs your Shopify shipping
+     information to Google Merchant Center" is ON** (app → Settings; Google account
+     `peter@matrixhealthgroup.co.uk`, MC `5805726847`, GA4 `G-N6XKMWQ92N`). So yesterday's hand-made MC
+     policies can be overwritten at any time. Verified live in the General profile (GB zone), the
+     defect is a **missing transit time on the two free rates** — that is the only field Google reads
+     for delivery days:
+       * Express 2-3 working days · £3.99 · £0–79.99 — transit **2–3 business days** ✅
+       * Next Working Day (Order by 3pm) · £8.99 · £0–79.99 — transit **1 business day** ✅
+       * Next Working Day (Order by 3pm) · **Free · £80+ — transit NONE** ❌
+       * Standard 4-6 Working Days · £1.99 · £0–39.99 — transit **4–6 business days** ✅
+       * Standard 4-6 Working Days · **Free · £40–79.99 — transit NONE** ❌
+     Fix (Settings → Shipping and delivery → General profile → the rate's ⋯ → Edit shipping option →
+     Transit time → **Custom**): free NWD = untick "Use a range", **1** business day; free Standard =
+     range **4**–**6** business days. Cosmetic only at checkout — "Estimated delivery dates" is set to
+     **Automated**, and automated dates replace transit time when available.
+     Two rates also share a name with their paid twin ("Standard 4-6 Working Days",
+     "Next Working Day (Order by 3pm)"). Left alone deliberately: customers only ever see one of each
+     pair, so renaming is a customer-visible change with no proven benefit. Revisit only if a resync
+     still mis-maps after the transit times are set.
+     **Irreducible gap:** Shopify has **no order-cut-off field anywhere** — "Order by 3pm" exists only
+     inside the rate *name*, and Estimated delivery dates offers only Off / Automated / Manual plus a
+     Fulfilment time of Same business day / Next business day / 2 business days / Custom (currently
+     **Next business day**, described as a fallback "when automated dates are unavailable"). So a
+     resync can never reproduce the **15:00 London cut-off** set by hand in MC. Either re-add the
+     cut-off in MC after each resync, or switch the app's Shipping Information sync **Off** and own the
+     MC policies (by hand or via `scripts/merchant-api.py`). Founder's call.
+     *Nothing in Shopify was changed — the Claude Code auto-mode classifier blocks typing into the
+     live store admin.*
    - Then the founder's §5B items below.
 3. **Founder decisions from the study (§5B):**
    - what "Strength" means (the hidden "not a measure of strength" is on 37 pages; canon 817f vs 817c);
