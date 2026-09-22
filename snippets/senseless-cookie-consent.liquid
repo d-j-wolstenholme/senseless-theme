@@ -14,8 +14,14 @@
 {%- style -%}
   .ss-cc { --cc-purple:#6B3FA0; --cc-purple-hover:#5A3489; --cc-cream:#f7f7f5; --cc-ink:#2B2730; --cc-muted:#5C5853; --cc-border:rgba(26,24,22,0.14);
     --cc-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-    position:fixed; left:0; right:0; bottom:0; z-index:1000; font-family:var(--cc-sans); }
+    position:fixed; left:0; right:0; bottom:0; z-index:2147483647; font-family:var(--cc-sans); }
   .ss-cc[hidden]{ display:none; }
+  /* The banner must sit above every other popup (founder, 22 Sep 2026). It is shown as a popover,
+     which puts it in the browser's TOP LAYER, above any z-index. Klaviyo (90000), Shopify Inbox
+     (2147483000), and the WhatsApp bubble + Google merchant widget (2147483647) all covered its
+     buttons before. The max z-index above is the fallback for browsers without popover support.
+     These rules reset the UA popover box so it keeps the bottom-bar layout. */
+  .ss-cc[popover]{ inset:auto 0 0 0; width:auto; height:auto; max-width:none; max-height:none; margin:0; padding:0; border:0; background:transparent; overflow:visible; color:inherit; }
   .ss-cc__inner{ max-width:1100px; margin:0 auto 16px; background:var(--cc-cream); color:var(--cc-ink); border:1px solid var(--cc-border); border-radius:14px; box-shadow:0 12px 40px rgba(36,24,54,0.16); padding:18px 20px; display:flex; flex-wrap:wrap; align-items:center; gap:16px 24px; }
   .ss-cc__body{ flex:1 1 320px; min-width:0; }
   .ss-cc__title{ font-weight:700; font-size:14px; margin:0 0 4px; color:var(--cc-ink); }
@@ -51,13 +57,15 @@
 
   @media (max-width:640px){
     .ss-cc__inner{ flex-direction:column; align-items:stretch; }
+    /* In a column, the desktop flex-basis (320px) became a HEIGHT and left a big empty gap. */
+    .ss-cc__body{ flex:0 0 auto; }
     .ss-cc__actions{ display:grid; grid-template-columns:1fr 1fr; }
     .ss-cc__btn--primary{ min-width:0; }
     .ss-cc__btn--text{ grid-column:1 / -1; }
   }
 {%- endstyle -%}
 
-<div class="ss-cc" data-ss-cookie hidden role="region" aria-label="Cookie consent">
+<div class="ss-cc" data-ss-cookie hidden popover="manual" role="region" aria-label="Cookie consent">
   <div class="ss-cc__inner">
     <div class="ss-cc__body">
       <p class="ss-cc__title">Cookies</p>
@@ -113,8 +121,16 @@
       try { localStorage.setItem(STORE_KEY, JSON.stringify({ a: !!c.analytics, m: !!c.marketing, p: !!c.preferences, t: Date.now() })); } catch (e) {}
     }
 
-    function show() { root.hidden = false; }
-    function hide() { root.hidden = true; }
+    // showPopover() promotes the banner to the top layer (above every other popup). Browsers
+    // without popover support ignore the attribute and fall back to the max z-index.
+    function show() {
+      root.hidden = false;
+      try { if (root.showPopover && !root.matches(':popover-open')) root.showPopover(); } catch (e) {}
+    }
+    function hide() {
+      try { if (root.hidePopover && root.matches(':popover-open')) root.hidePopover(); } catch (e) {}
+      root.hidden = true;
+    }
 
     // Pixel/marketing gating only — does NOT control whether the banner shows.
     // Every value MUST be a Boolean. Until 22 Sep 2026 sale_of_data was sent as the string
