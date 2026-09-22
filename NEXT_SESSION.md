@@ -2,22 +2,23 @@
 
 **Last session (21–22 Sep 2026, Mac mini `Ds-Mac-mini.local`):** local brought level with live and
 origin, records reconciled, and the 20 Sep **Google Ads & Merchant Centre audit** saved and studied.
-Nothing deployed and nothing changed in Shopify. Repo == origin/main, clean (session record on top of
+Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit pricing set (see item 1). Repo == origin/main, clean (session record on top of
 `ae2c017`). Live theme `#199324434780` == repo on all 582 common files.
 
 ## ON-CONTINUE — do these first
 
 <!-- ON-CONTINUE:START -->
-1. **Which machine?** On the **Mac mini** the `.env` Shopify client ID, secret and token are EMPTY, so
-   `refresh-token.sh` returns 400 and `deploy.sh` exits. Copy the MacBook Pro `.env` across, or do any
-   Admin API or deploy work on the MacBook. The Shopify CLI login works here for `theme list/pull`.
-2. **Recommended next Work Item: the consent fix** (`docs/GOOGLE-ADS-MC-AUDIT-2026-09-20.md` N1/V53,
-   §5A item 2). `snippets/senseless-cookie-consent.liquid:127` sends `sale_of_data` as a string, so
-   Shopify has rejected every Accept/Reject since 1 Jun. The fix is one line (`sale_of_data: !!c.marketing`)
-   plus a three-state live test (no choice / Accept / Reject). **Before shipping it:** the founder agrees
-   the timing and briefs Martin, and the account holder confirms the Ads conversion set-up (study §5D
-   step 8), so a dormant GA4 import can't start double-counting. Separately, Legal gives the PECR position
-   on the AW pixel and Klaviyo onsite firing before consent (N2). Needs the MacBook (deploy).
+1. **DONE 22 Sep (Mac mini):**
+   - **Mac mini credentials:** the MacBook `.env` is installed (chmod 600); `refresh-token.sh` and `deploy.sh` work here. `shopify store auth` (read/write_themes) also works.
+   - **Cookie banner:** records consent (`24e9f5e`); `sale_of_data` is kept true so the Ads pixel is unchanged (founder decision; never re-raise). It sits above every popup via the top layer (`de6259e`), and the mobile gap is fixed. Verified live, desktop + mobile.
+   - **Merchant Center unit pricing:** 16 variants are per kg / per litre / per item (`scripts/set-unit-pricing.py`, applied by the founder). The UK PMO as amended from 1 Oct 2025 requires kg/litre; smaller units are not allowed.
+   - **Merchant Center account:** confirmed as **5805726847** (founder's screenshot), and the founder has access.
+2. **Next in sequence:**
+   - (a) Founder call: show the unit price on the PDP hero (the theme doesn't yet).
+   - (b) A permission rule so `deploy.sh` / `shopify store execute` / reviewed scripts don't need pasting, then delete the 2 live orphans (founder said yes; blocked by auto mode).
+   - (c) Shipping schema: `eligibleTransactionVolume` is invalid (study V17; the structured-data snippet is reviews-guard-locked). Mirror the rate card in MC shipping settings.
+   - (d) Bundle Sale styling still on `/collections/all` + search (the 1 Sep decision already covers it).
+   - Then the founder's §5B items below.
 3. **Founder decisions from the study (§5B):**
    - what "Strength" means (the hidden "not a measure of strength" is on 37 pages; canon 817f vs 817c);
    - bundle sale styling (still on `/collections/all` + search) and whether it extends to Google Shopping;
