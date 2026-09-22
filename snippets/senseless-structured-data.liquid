@@ -57,7 +57,8 @@
   assign return_id = base | append: '/#return-policy'
 
   # Same-day dispatch cut-off, shared by every shipping method. 15:00 local (was 15:30 from 23 Aug
-  # to 12 Sep 2026, and 13:00 before that). Google requires cutoffTime as ISO 8601 WITH a timezone offset, and a hardcoded
+  # to 12 Sep 2026, and 13:00 before that). cutoffTime must be ISO 8601 WITH a timezone offset (valid schema.org on an
+  # offer-level ShippingDeliveryTime; Google documents it for organisation-level ShippingService, so it may ignore it here), and a hardcoded
   # one would be wrong for half the year -- '+01:00' reads as 14:00 GMT once BST ends. So the
   # offset is taken from the STORE's own clock via `date: '%z'` (Shopify renders this in the shop
   # timezone, Europe/London), which yields +0100 in summer and +0000 in winter and needs no
@@ -233,7 +234,8 @@
       per-variant duplication on PDPs, and leaves the rate card in exactly one place in this file.
 
       These five entries mirror the LIVE Shopify rate card for the GB zone exactly,
-      re-read from the Admin API on 2026-08-14 (deliveryProfiles -> methodDefinitions):
+      re-read from the Admin API on 2026-08-14 (deliveryProfiles -> methodDefinitions); method names
+      re-read 2026-09-12 after the rename to "Next Working Day (Order by 3pm)", prices and conditions unchanged:
 
         Standard 4-6 Working Days        GBP 1.99   0      - 39.99
         Express 2-3 working days         GBP 3.99   0      - 79.99
@@ -250,6 +252,13 @@
       incomplete, since neither of them mentions Express at all. Accurate structured data was
       deleted on a false premise; that restored it from the authoritative source.
 
+      WHICH nodes an offer references depends on its price: snippets/senseless-shipping-refs.liquid
+      picks the methods valid for that item bought on its own (22 Sep 2026, study V17). The order-value
+      bands used to sit here as eligibleTransactionVolume. schema.org doesn't allow that on
+      OfferShippingDetails, so Google read the two £0 nodes as applying to every offer. The nodes
+      now carry no band; the per-offer selection does the job, and Merchant Center's own shipping
+      settings (account level) remain what Shopping ads use.
+
       handlingTime is 0-1 day on every method: ordered before 15:00 on a working day it is
       dispatched the same day, otherwise the next working day. Keep this in step with the
       rate card -- if shipping changes in Shopify, change it here too.
@@ -260,7 +269,6 @@
       "name": "Standard delivery",
       "shippingRate": { "@type": "MonetaryAmount", "value": "1.99", "currency": "GBP" },
       "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 39.99, "priceCurrency": "GBP" },
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
         "cutoffTime": {{ dispatch_cutoff | json }},
@@ -274,7 +282,6 @@
       "name": "Express delivery",
       "shippingRate": { "@type": "MonetaryAmount", "value": "3.99", "currency": "GBP" },
       "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 79.99, "priceCurrency": "GBP" },
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
         "cutoffTime": {{ dispatch_cutoff | json }},
@@ -288,7 +295,6 @@
       "name": "Next working day",
       "shippingRate": { "@type": "MonetaryAmount", "value": "8.99", "currency": "GBP" },
       "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 0, "maxPrice": 79.99, "priceCurrency": "GBP" },
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
         "cutoffTime": {{ dispatch_cutoff | json }},
@@ -302,7 +308,6 @@
       "name": "Free standard delivery on orders from GBP 40",
       "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
       "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 40, "maxPrice": 79.99, "priceCurrency": "GBP" },
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
         "cutoffTime": {{ dispatch_cutoff | json }},
@@ -316,7 +321,6 @@
       "name": "Free next working day on orders from GBP 80",
       "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
       "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
-      "eligibleTransactionVolume": { "@type": "PriceSpecification", "minPrice": 80, "priceCurrency": "GBP" },
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
         "cutoffTime": {{ dispatch_cutoff | json }},
@@ -377,9 +381,10 @@
         {%- endif -%}
         {%- comment -%}
           Product-level identifiers. Every SKU carries a Shopify SKU code; only three variants
-          carry a barcode (2026-08-13), so gtin13 is emitted per-offer where it exists and never
-          invented. productID is the Shopify product GID, which is what the Merchant Center feed
-          and the Admin API both key on.
+          carry a barcode (2026-08-13; GS1 UK codes exist for 16 variants but aren't loaded, study N3),
+          so gtin13 is emitted where it exists and never invented. productID is a label,
+          'shopify_GB_<numeric product id>', not a GID. The Google & YouTube feed keys its items as
+          shopify_ZZ_<product id>_<variant id>, so this is not the MC item ID (study N30).
         {%- endcomment -%}
         {%- if v1.sku != blank -%}
         "sku": {{ v1.sku | json }},
@@ -428,13 +433,7 @@
               Shipping + return by reference. The nodes themselves are emitted once per page,
               above the page-type case — see the rate-card note there before changing anything.
             {%- endcomment -%}
-            "shippingDetails": [
-              { "@id": {{ ship_standard_id | json }} },
-              { "@id": {{ ship_express_id | json }} },
-              { "@id": {{ ship_next_id | json }} },
-              { "@id": {{ ship_standard_free_id | json }} },
-              { "@id": {{ ship_next_free_id | json }} }
-            ],
+            "shippingDetails": {% render 'senseless-shipping-refs', price: v1.price, std: ship_standard_id, express: ship_express_id, nwd: ship_next_id, std_free: ship_standard_free_id, nwd_free: ship_next_free_id %},
             "hasMerchantReturnPolicy": { "@id": {{ return_id | json }} }
           }
         ]
@@ -489,13 +488,7 @@
                 "url": {{ base | append: prod.url | json }},
                 "seller": { "@id": {{ org_id | json }} },
                 "itemCondition": "https://schema.org/NewCondition",
-                "shippingDetails": [
-                  { "@id": {{ ship_standard_id | json }} },
-                  { "@id": {{ ship_express_id | json }} },
-                  { "@id": {{ ship_next_id | json }} },
-                  { "@id": {{ ship_standard_free_id | json }} },
-                  { "@id": {{ ship_next_free_id | json }} }
-                ],
+                "shippingDetails": {% render 'senseless-shipping-refs', price: prod.price, std: ship_standard_id, express: ship_express_id, nwd: ship_next_id, std_free: ship_standard_free_id, nwd_free: ship_next_free_id %},
                 "hasMerchantReturnPolicy": { "@id": {{ return_id | json }} }
               }
             }

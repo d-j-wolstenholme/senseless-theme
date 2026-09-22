@@ -1,0 +1,29 @@
+{%- doc -%}
+  Senseless: the "shippingDetails" array for ONE Offer. It references only the shipping methods
+  valid for that item bought on its own (order value = the item's price), following the GB rate
+  card that senseless-structured-data.liquid mirrors:
+
+    under £40      Standard £1.99 · Express £3.99 · Next working day £8.99
+    £40 – £79.99   Standard FREE  · Express £3.99 · Next working day £8.99
+    £80 and over   Next working day FREE (the only method the rate card shows at £80+)
+
+  Why (22 Sep 2026, study V17): every offer used to reference all five nodes, with the order-value
+  bands in eligibleTransactionVolume. schema.org doesn't allow that property on
+  OfferShippingDetails, so Google saw two unconditioned £0 options on every offer (free delivery
+  on everything). Same approach as Totally Numb's variant schema.
+
+  @param {number} price - the offer's price in pence (variant.price / product.price)
+  @param {string} std - @id of the £1.99 standard node
+  @param {string} express - @id of the £3.99 express node
+  @param {string} nwd - @id of the £8.99 next-working-day node
+  @param {string} std_free - @id of the free standard node (£40–£79.99)
+  @param {string} nwd_free - @id of the free next-working-day node (£80+)
+{%- enddoc -%}
+{%- assign p = price | default: 0 -%}
+{%- if p >= 8000 -%}
+[ { "@id": {{ nwd_free | json }} } ]
+{%- elsif p >= 4000 -%}
+[ { "@id": {{ std_free | json }} }, { "@id": {{ express | json }} }, { "@id": {{ nwd | json }} } ]
+{%- else -%}
+[ { "@id": {{ std | json }} }, { "@id": {{ express | json }} }, { "@id": {{ nwd | json }} } ]
+{%- endif -%}
