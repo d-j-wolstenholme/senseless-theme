@@ -15,7 +15,8 @@
   assign compare_at_price = selected_variant.compare_at_price
 
   assign show_compare_price = false
-  if compare_at_price > price
+  # Senseless (1 Sep 2026 founder decision): bundles are never presented as on sale, so no struck compare-at.
+  if compare_at_price > price and product_resource.type != 'Bundle'
     assign show_compare_price = true
   endif
 
