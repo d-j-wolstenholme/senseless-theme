@@ -403,18 +403,26 @@
           "worstRating": "1"
         },
         {%- endif -%}
+        {%- comment -%}
+          ONE Offer, for the SELECTED variant (the ?variant= on the URL, else the first available),
+          so every attribute a crawler reads on a variant landing page (sku, gtin, price, url)
+          belongs to the same size. Until 22 Sep 2026 this looped over every variant, with the
+          smaller size first. Google Merchant Center's automatic updates then read the 15ml price
+          (£24.99) on the Advanced Gel 35ml landing page and flagged "Mismatched product price"
+          against the feed's £39.99. The other sizes are still reachable (the feed lists each
+          variant's own ?variant= URL). Same fix as Totally Numb (21 Sep, 6457125).
+        {%- endcomment -%}
         "offers": [
-          {%- for variant in product.variants -%}
           {
             "@type": "Offer",
-            {%- if variant.sku != blank -%}"sku": {{ variant.sku | json }},{%- endif -%}
-            {%- if variant.barcode != blank -%}"gtin13": {{ variant.barcode | json }},{%- endif -%}
-            "name": {{ variant.title | json }},
-            "price": "{{ variant.price | divided_by: 100.0 }}",
+            {%- if v1.sku != blank -%}"sku": {{ v1.sku | json }},{%- endif -%}
+            {%- if v1.barcode != blank -%}"gtin13": {{ v1.barcode | json }},{%- endif -%}
+            {%- if v1.title != 'Default Title' -%}"name": {{ v1.title | json }},{%- endif -%}
+            "price": "{{ v1.price | divided_by: 100.0 }}",
             "priceCurrency": {{ cur | json }},
             "itemCondition": "https://schema.org/NewCondition",
-            "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-            "url": {{ base | append: variant.url | json }},
+            "availability": "https://schema.org/{% if v1.available %}InStock{% else %}OutOfStock{% endif %}",
+            "url": {{ base | append: v1.url | json }},
             "seller": { "@id": {{ org_id | json }} },
             {%- comment -%}
               Shipping + return by reference. The nodes themselves are emitted once per page,
@@ -428,8 +436,7 @@
               { "@id": {{ ship_next_free_id | json }} }
             ],
             "hasMerchantReturnPolicy": { "@id": {{ return_id | json }} }
-          }{%- unless forloop.last -%},{%- endunless -%}
-          {%- endfor -%}
+          }
         ]
       }
 
