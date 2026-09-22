@@ -19,13 +19,17 @@
   assign v = product.selected_or_first_available_variant
   assign img = v.featured_image | default: product.featured_image
 -%}
-<div data-product-grid-content data-ss-qam class="ss-qam">
+<div data-product-grid-content data-ss-qam>
+<div class="ss-qam">
   <style>
-    .ss-qam { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 24px; font-family: var(--ss-sans, inherit); }
-    @media (min-width: 750px) { .ss-qam { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px; padding: 32px; align-items: center; } }
+    /* quick-add.js copies this element's CHILDREN into Horizon's .quick-add-modal__content, a 7-column
+       (desktop) / 4-column (mobile) grid, so this single wrapper spans every column and owns the layout. */
+    .ss-qam { grid-column: 1 / -1; align-self: center; display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; font-family: var(--ss-sans, inherit); }
+    .ss-qam .ss-qam__media { max-width: 220px; }
+    @media (min-width: 750px) { .ss-qam { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 40px; padding: 48px 56px; align-items: center; } .ss-qam .ss-qam__media { max-width: none; } }
     .ss-qam__media { background: #f7f7f5; border-radius: 12px; overflow: hidden; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; }
     .ss-qam__img { width: 100%; height: 100%; object-fit: contain; }
-    .ss-qam__title { margin: 0 0 6px; font-size: 20px; font-weight: 600; line-height: 1.25; }
+    .ss-qam__title { margin: 0 0 6px; padding-inline-end: 48px; font-size: 20px; font-weight: 600; line-height: 1.25; }
     .ss-qam__title a { color: inherit; text-decoration: none; }
     .ss-qam__title a:hover { text-decoration: underline; }
     .ss-qam__price { margin: 0 0 14px; font-size: 18px; }
@@ -42,4 +46,5 @@
     {% render 'senseless-quick-add', product: product, section_id: 'quick-add-modal', uid: product.id %}
     <a class="ss-qam__more" href="{{ product.url }}">View full details &rarr;</a>
   </div>
+</div>
 </div>
