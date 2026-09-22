@@ -319,6 +319,9 @@
           html += money(v.price);
           priceEl.innerHTML = html;
         }
+        // The mobile sticky bar shows the price too; until 22 Sep 2026 it stayed on the first size.
+        var stickyPrice = root.querySelector('.ss-ph__sticky-price');
+        if (stickyPrice) { stickyPrice.innerHTML = money(v.price); }
         if (atc && atcText) {
           if (v.available) { atc.removeAttribute('disabled'); atcText.textContent = 'Add to cart'; }
           else { atc.setAttribute('disabled', 'disabled'); atcText.textContent = 'Sold out'; }

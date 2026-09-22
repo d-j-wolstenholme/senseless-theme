@@ -105,7 +105,7 @@
             {%- assign card_title = block.settings.title | default: card_product.title -%}
             {%- if card_title != blank -%}<h3 class="ss-ps__title">{% if card_href != blank %}<a href="{{ card_href }}">{{ card_title | escape }}</a>{% else %}{{ card_title | escape }}{% endif %}</h3>{%- endif -%}
             {%- if block.settings.body != blank -%}<div class="ss-ps__text">{{ block.settings.body }}</div>{%- endif -%}
-            {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-ps__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-ps__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+            {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-ps__price" data-qa-price>{{ card_product.selected_or_first_available_variant.price | default: card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-ps__price">{{ block.settings.price | escape }}</p>{%- endif -%}
             {%- if card_product != blank -%}<div class="ss-ps__stars jdgm-widget jdgm-preview-badge" data-id="{{ card_product.id }}" data-template="senseless-card"></div>{%- endif -%}
             {%- if block.settings.cta_label != blank -%}<a class="ss-ps__cta" href="{{ card_product.url | default: block.settings.cta_url | default: '#' }}">{{ block.settings.cta_label | escape }}</a>{%- endif -%}
             {%- if card_product != blank -%}{% render 'senseless-quick-add', product: card_product, section_id: section.id, uid: block.id %}{%- endif -%}

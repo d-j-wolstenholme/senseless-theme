@@ -92,7 +92,7 @@
             <div class="ss-pg__cbody">
               {%- if block.settings.label != blank -%}<p class="ss-pg__label">{{ block.settings.label | escape }}</p>{%- endif -%}
               {%- if block.settings.title != blank -%}<h3 class="ss-pg__title">{{ block.settings.title | escape }}</h3>{%- elsif card_product != blank -%}<h3 class="ss-pg__title">{{ card_product.title | escape }}</h3>{%- endif -%}
-              {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-pg__price">{{ card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-pg__price">{{ block.settings.price | escape }}</p>{%- endif -%}
+              {%- if card_product != blank and card_product.price > 0 -%}<p class="ss-pg__price" data-qa-price>{{ card_product.selected_or_first_available_variant.price | default: card_product.price | money }}</p>{%- elsif block.settings.price != blank -%}<p class="ss-pg__price">{{ block.settings.price | escape }}</p>{%- endif -%}
               {%- if card_product == blank and block.settings.cta_label != blank -%}<span class="ss-pg__cta">{{ block.settings.cta_label | escape }}</span>{%- endif -%}
             </div>
           </a>
