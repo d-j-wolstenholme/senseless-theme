@@ -17,11 +17,12 @@ Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit p
    - **Merchant Center price mismatch (35ml gel):** a single selected-variant Offer + og:price (`a511a95`); verified on 21 URLs.
    - **Card prices follow the size** (all quick-add cards + the PDP sticky bar, `f922cfa`): live audit 196/196.
    - **Horizon quick-add modal fixed** (was empty for two-size products): `templates/product.quick-add.liquid` + quick-add.js; verified desktop + mobile.
+   - **Permission rule** (project-local) + **2 live orphans deleted** (founder yes).
+   - **Bundle sale styling gone** from /collections/all, search and the search modal (N7).
+   - **Shipping schema fixed** (V17): per-offer methods by price; validator 0 errors / 0 warnings.
 2. **Next in sequence:**
    - (a) Founder call: show the unit price on the PDP hero (the theme doesn't yet).
-   - (b) A permission rule so `deploy.sh` / `shopify store execute` / reviewed scripts don't need pasting, then delete the 2 live orphans (founder said yes; blocked by auto mode).
-   - (c) Shipping schema: `eligibleTransactionVolume` is invalid (study V17; the structured-data snippet is reviews-guard-locked). Mirror the rate card in MC shipping settings.
-   - (d) Bundle Sale styling still on `/collections/all` + search (the 1 Sep decision already covers it).
+   - (b) Founder (now has MC access): check Merchant Center → Delivery and returns mirrors the rate card: GB, under £40 standard £1.99 / express £3.99 / NWD £8.99; £40–£79.99 standard free; £80+ NWD free; cut-off 15:00 Europe/London.
    - Then the founder's §5B items below.
 3. **Founder decisions from the study (§5B):**
    - what "Strength" means (the hidden "not a measure of strength" is on 37 pages; canon 817f vs 817c);
