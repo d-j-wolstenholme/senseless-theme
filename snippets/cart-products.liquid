@@ -125,7 +125,7 @@
             {% for item in cart.items %}
               <tr
                 role="row"
-                class="cart-items__table-row{% if item.parent_relationship.parent != null %} cart-items__nested-line{% endif %}{% unless item.unit_price_measurement %} cart-items__table-row--full-width-variants{% endunless %}"
+                class="cart-items__table-row{% if item.parent_relationship.parent != null %} cart-items__nested-line{% endif %} cart-items__table-row--full-width-variants"
                 ref="cartItemRows[]"
                 data-parent-key="{{ item.parent_relationship.parent.key }}"
                 data-key="{{ item.key }}"
@@ -341,10 +341,8 @@
                 {%- liquid
                   if settings.currency_code_enabled_cart_items
                     assign price = item.final_line_price | money_with_currency
-                    assign unit_price = item.unit_price | money_with_currency
                   else
                     assign price = item.final_line_price | money
-                    assign unit_price = item.unit_price | money
                   endif
                 -%}
                 <td
@@ -353,11 +351,11 @@
                   headers="productTotal"
                 >
                   <text-component value="{{ price | strip_html }}">{{ price }}</text-component>
-                  {%- if item.unit_price_measurement -%}
-                    <div class="cart-items__price-unit cart-secondary-typography">
-                      {% render 'unit-price', price: unit_price, measurement: item.unit_price_measurement %}
-                    </div>
-                  {%- endif -%}
+                  {%- comment -%}
+                    Unit price deliberately not shown (founder, 22 Sep 2026; see snippets/unit-price.liquid).
+                    The row keeps the full-width-variants layout it always had before variants carried
+                    unit_price_measurement.
+                  {%- endcomment -%}
                 </td>
               </tr>
             {% endfor %}

@@ -10,7 +10,18 @@
   @example
   {% render 'unit-price', price: line_item.unit_price | money_with_currency, measurement: line_item.unit_price_measurement }
 {%- enddoc -%}
+{%- comment -%}
+  Senseless (22 Sep 2026): renders NOTHING, by founder decision. Unit pricing is set on the
+  variants (scripts/set-unit-pricing.py: per kg / per litre / per item) so the Google & YouTube
+  feed can send unit_pricing_measure to Merchant Center. It is deliberately not shown on the site.
+  Every theme caller (price.liquid for product cards / search / collection grids, and
+  cart-products.liquid) renders through this snippet, so this one change hides it everywhere.
+  To show it again, set ss_show_unit_price to true (and restore the cart block in cart-products.liquid).
+{%- endcomment -%}
+{%- assign ss_show_unit_price = false -%}
+{%- if ss_show_unit_price -%}
 <small class="unit-price">
   <span class="visually-hidden">{{ 'accessibility.unit_price' | t }}</span>
   {{ price | unit_price_with_measurement: measurement }}
 </small>
+{%- endif -%}
