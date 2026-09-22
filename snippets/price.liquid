@@ -98,6 +98,9 @@
     >
       <span class="price">{{ price | default: '&nbsp;' }}</span>
     </div>
+    {%- comment -%} Senseless: bundles are never on sale (1 Sep 2026), so the hidden sale block with its struck
+      "Regular price" is not rendered at all, not even hidden for crawlers or screen readers. {%- endcomment -%}
+    {%- unless product_resource.type == 'Bundle' -%}
     <div
       class="
         price__sale
@@ -126,6 +129,7 @@
         </span>
       {% endif %}
     </div>
+    {%- endunless -%}
   {% endif %}
   {%- if selected_variant.unit_price and show_unit_price %}
     {%- liquid
