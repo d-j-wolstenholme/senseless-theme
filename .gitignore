@@ -18,3 +18,7 @@ outputs/
 
 # Bing URL-submission cooldown state (local only)
 .bing-submit-state.json
+
+# Merchant API: local Python env + service-account key (never commit)
+.venv/
+.secrets/
