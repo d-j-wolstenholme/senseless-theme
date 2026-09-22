@@ -120,6 +120,10 @@
     // Every value MUST be a Boolean. Until 22 Sep 2026 sale_of_data was sent as the string
     // 'enabled'/'disabled'; the Storefront API rejected the whole write ("Expected type
     // 'Boolean'"), so no Accept/Reject was ever recorded, and the empty callback hid it.
+    // sale_of_data stays TRUE whatever the choice. This is the founder's decision (22 Sep 2026):
+    // the Google Ads purchase pixel (declares SALE_OF_DATA only) keeps running as before, and a
+    // false here would switch it off on Reject (tested live). Analytics and marketing still
+    // follow the visitor's choice.
     function setAPI(c) {
       try {
         if (window.Shopify && Shopify.customerPrivacy && Shopify.customerPrivacy.setTrackingConsent) {
@@ -127,7 +131,7 @@
             analytics: !!c.analytics,
             marketing: !!c.marketing,
             preferences: !!c.preferences,
-            sale_of_data: !!c.marketing
+            sale_of_data: true
           }, function (res) {
             if (res && res.error) { try { console.warn('[ss-consent] setTrackingConsent failed:', res.error); } catch (e) {} }
           });
@@ -141,7 +145,7 @@
         var v = Shopify.customerPrivacy.currentVisitorConsent();
         var yn = function (b) { return b ? 'yes' : 'no'; };
         return v.analytics === yn(c.analytics) && v.marketing === yn(c.marketing) &&
-               v.preferences === yn(c.preferences) && v.sale_of_data === yn(c.marketing);
+               v.preferences === yn(c.preferences) && v.sale_of_data === 'yes';
       } catch (e) { return false; }
     }
 
