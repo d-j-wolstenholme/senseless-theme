@@ -1,0 +1,45 @@
+{%- layout none -%}
+{%- comment -%}
+  Senseless — content for Horizon's quick-add modal. Served at /products/<handle>?view=quick-add;
+  assets/quick-add.js fetches it (not the full product page) when a product card's "Choose"
+  button is clicked.
+
+  Why (22 Sep 2026): quick-add.js copies the product page's [data-product-grid-content] element
+  into the modal. That element only exists in Horizon's stock product-information section, and
+  Senseless product pages use senseless-product-hero instead. So "Choose" on /collections/all,
+  search and the cart recommendations opened an EMPTY modal for every two-size product.
+
+  This renders the same controls as every other Senseless card: image, title, the selected size's
+  price ([data-qa-price]) and senseless-quick-add (size chips + quantity + add to cart through
+  Horizon's product-form-component; the dialog closes itself on the cart update). The chip script is
+  global (snippets/senseless-quick-add-js.liquid). data-ss-qam tells quick-add.js to skip its mobile
+  re-arrangement, which assumes Horizon's own markup.
+{%- endcomment -%}
+{%- liquid
+  assign v = product.selected_or_first_available_variant
+  assign img = v.featured_image | default: product.featured_image
+-%}
+<div data-product-grid-content data-ss-qam class="ss-qam">
+  <style>
+    .ss-qam { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 24px; font-family: var(--ss-sans, inherit); }
+    @media (min-width: 750px) { .ss-qam { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px; padding: 32px; align-items: center; } }
+    .ss-qam__media { background: #f7f7f5; border-radius: 12px; overflow: hidden; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; }
+    .ss-qam__img { width: 100%; height: 100%; object-fit: contain; }
+    .ss-qam__title { margin: 0 0 6px; font-size: 20px; font-weight: 600; line-height: 1.25; }
+    .ss-qam__title a { color: inherit; text-decoration: none; }
+    .ss-qam__title a:hover { text-decoration: underline; }
+    .ss-qam__price { margin: 0 0 14px; font-size: 18px; }
+    .ss-qam__more { display: inline-block; margin-top: 14px; font-size: 14px; color: #6B3FA0; }
+  </style>
+  <div class="ss-qam__media">
+    {%- if img -%}
+      {{ img | image_url: width: 800 | image_tag: loading: 'eager', class: 'ss-qam__img', sizes: '(min-width: 750px) 360px, 90vw', alt: img.alt | default: product.title }}
+    {%- endif -%}
+  </div>
+  <div class="ss-qam__body">
+    <p class="ss-qam__title"><a href="{{ product.url }}">{{ product.title | escape }}</a></p>
+    <p class="ss-qam__price" data-qa-price>{{ v.price | money }}</p>
+    {% render 'senseless-quick-add', product: product, section_id: 'quick-add-modal', uid: product.id %}
+    <a class="ss-qam__more" href="{{ product.url }}">View full details &rarr;</a>
+  </div>
+</div>

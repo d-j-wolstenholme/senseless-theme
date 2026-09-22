@@ -13,6 +13,21 @@ export class QuickAddComponent extends Component {
   /** @type {AbortController} */
   #cartUpdateAbortController = new AbortController();
 
+  /**
+   * Senseless: the URL of the quick-add modal view for a product URL (keeps ?variant=).
+   * @param {string} productUrl
+   * @returns {string}
+   */
+  static quickAddViewUrl(productUrl) {
+    try {
+      const url = new URL(productUrl, window.location.origin);
+      url.searchParams.set('view', 'quick-add');
+      return url.toString();
+    } catch (error) {
+      return productUrl;
+    }
+  }
+
   get productPageUrl() {
     const productCard = /** @type {import('./product-card').ProductCard | null} */ (this.closest('product-card'));
     const hotspotProduct = /** @type {import('./product-hotspot').ProductHotspotComponent | null} */ (
@@ -96,8 +111,11 @@ export class QuickAddComponent extends Component {
     let productGrid = this.#cachedContent.get(currentUrl);
 
     if (!productGrid) {
-      // Fetch and cache the content
-      const html = await this.fetchProductPage(currentUrl);
+      // Fetch and cache the content.
+      // Senseless: fetch the dedicated modal view (templates/product.quick-add.liquid), not the full
+      // product page. Our product pages use senseless-product-hero, which has no
+      // [data-product-grid-content], so the modal used to open EMPTY for every two-size product.
+      const html = await this.fetchProductPage(QuickAddComponent.quickAddViewUrl(currentUrl));
       if (html) {
         const gridElement = html.querySelector('[data-product-grid-content]');
         if (gridElement) {
@@ -204,7 +222,9 @@ export class QuickAddComponent extends Component {
 
     if (!productGrid || !modalContent) return;
 
-    if (isMobileBreakpoint()) {
+    // Senseless: our modal view (data-ss-qam) is already laid out for small screens; this
+    // re-arrangement assumes Horizon's product-information markup and would scramble it.
+    if (isMobileBreakpoint() && !productGrid.hasAttribute('data-ss-qam')) {
       const productDetails = productGrid.querySelector('.product-details');
       const productFormComponent = productGrid.querySelector('product-form-component');
       const variantPicker = productGrid.querySelector('variant-picker');

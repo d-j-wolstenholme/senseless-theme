@@ -57,53 +57,7 @@
       </div>
     {%- endform -%}
   </product-form-component>
-  <script>
-    (function () {
-      if (window.__ssQaInit) return;
-      window.__ssQaInit = true;
-      // Variant chips → update the hidden ref="variantId", the card's price + add-button availability.
-      // The price is rendered by the host section OUTSIDE this snippet (a [data-qa-price] element in
-      // the same card), so walk up to the nearest ancestor that holds one. Sibling cards are only
-      // reachable above the card itself, so this never picks another card's price. Until 22 Sep 2026
-      // the price never changed with the size.
-      function cardPrice(el) {
-        for (var n = el.parentElement; n && n !== document.body; n = n.parentElement) {
-          var p = n.querySelector('[data-qa-price]');
-          if (p) return p;
-        }
-        return null;
-      }
-      document.addEventListener('change', function (e) {
-        var opt = e.target;
-        if (!opt || !opt.matches || !opt.matches('.ss-qa__optin[data-qa-opt]')) return;
-        var form = opt.closest('form');
-        if (!form) return;
-        var vid = form.querySelector('[data-qa-vid]');
-        if (vid) vid.value = opt.getAttribute('data-vid');
-        var price = cardPrice(form), pv = opt.getAttribute('data-price');
-        if (price && pv) price.textContent = pv;
-        var add = form.querySelector('[data-qa-add]');
-        if (add) {
-          var avail = opt.getAttribute('data-avail') === 'true';
-          add.disabled = !avail;
-          if (!avail) { add.dataset.label = add.dataset.label || add.textContent.trim(); add.textContent = 'Sold out'; }
-          else if (add.dataset.label) { add.textContent = add.dataset.label; }
-        }
-      });
-      // Quantity steppers
-      document.addEventListener('click', function (e) {
-        var btn = e.target.closest ? e.target.closest('[data-qa-dec],[data-qa-inc]') : null;
-        if (!btn) return;
-        var qty = btn.closest('[data-qa-qty]');
-        if (!qty) return;
-        var qin = qty.querySelector('[data-qa-qin]'), qval = qty.querySelector('[data-qa-qval]');
-        var n = (parseInt(qin && qin.value, 10) || 1) + (btn.hasAttribute('data-qa-inc') ? 1 : -1);
-        n = Math.max(1, n);
-        if (qin) qin.value = n;
-        if (qval) qval.textContent = n;
-      });
-    })();
-  </script>
+  {%- comment -%} The chip + stepper script lives in snippets/senseless-quick-add-js.liquid, rendered ONCE from layout/theme.liquid, so it also works inside Horizon's quick-add modal (content copied in by quick-add.js; scripts inside it never run). {%- endcomment -%}
 {%- endif -%}
 
 {% stylesheet %}
