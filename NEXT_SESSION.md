@@ -22,7 +22,7 @@ Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit p
    - **Shipping schema fixed** (V17): per-offer methods by price; validator 0 errors / 0 warnings.
 2. **Next in sequence:**
    - (a) Founder call: show the unit price on the PDP hero (the theme doesn't yet).
-   - (b) Founder (now has MC access): check Merchant Center → Delivery and returns mirrors the rate card: GB, under £40 standard £1.99 / express £3.99 / NWD £8.99; £40–£79.99 standard free; £80+ NWD free; cut-off 15:00 Europe/London.
+   - (b) **Merchant Center delivery policies (in progress; founder chose to connect the Merchant API first).** Read in the MC UI on 22 Sep, nothing saved: all 4 policies were synced by the Google & YouTube app (`price_based_GBP_693925773660_*`: express 2-3, standard 4-6, next working day, and `Custom_rate_price_based`). None has a cut-off (00:00, no time zone); handling is 1-1 day, so NWD shows as 2 days. The 4th is INVALID in MC (no delivery under £40, free over £79.99, empty £40–79.99 price). Target: cut-off 15:00 London, handling 0–1, rates as the Shopify card. Client ready: `scripts/merchant-api.py` (`.venv`, key at `.secrets/merchant-service-account.json`). Waiting on the founder's GCP project + service account (Admin in MC) + key + developer email. Watch for the app re-syncing over any edits.
    - Then the founder's §5B items below.
 3. **Founder decisions from the study (§5B):**
    - what "Strength" means (the hidden "not a measure of strength" is on 37 pages; canon 817f vs 817c);
