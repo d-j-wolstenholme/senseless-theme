@@ -13,6 +13,10 @@ Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit p
    - **Cookie banner:** records consent (`24e9f5e`); `sale_of_data` is kept true so the Ads pixel is unchanged (founder decision; never re-raise). It sits above every popup via the top layer (`de6259e`), and the mobile gap is fixed. Verified live, desktop + mobile.
    - **Merchant Center unit pricing:** 16 variants are per kg / per litre / per item (`scripts/set-unit-pricing.py`, applied by the founder). The UK PMO as amended from 1 Oct 2025 requires kg/litre; smaller units are not allowed.
    - **Merchant Center account:** confirmed as **5805726847** (founder's screenshot), and the founder has access.
+   - **Unit prices hidden on the site** (founder); the data stays for Merchant Center (`0403cf2`).
+   - **Merchant Center price mismatch (35ml gel):** a single selected-variant Offer + og:price (`a511a95`); verified on 21 URLs.
+   - **Card prices follow the size** (all quick-add cards + the PDP sticky bar, `f922cfa`): live audit 196/196.
+   - **Horizon quick-add modal fixed** (was empty for two-size products): `templates/product.quick-add.liquid` + quick-add.js; verified desktop + mobile.
 2. **Next in sequence:**
    - (a) Founder call: show the unit price on the PDP hero (the theme doesn't yet).
    - (b) A permission rule so `deploy.sh` / `shopify store execute` / reviewed scripts don't need pasting, then delete the 2 live orphans (founder said yes; blocked by auto mode).

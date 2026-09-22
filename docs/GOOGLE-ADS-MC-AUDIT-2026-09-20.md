@@ -179,7 +179,7 @@ Deduplicated across the lenses. Severity is ours.
 | N16 | No evidence pack for a Google appeal or an MHRA question | No public INCI; no SCPN notification numbers or Responsible Person on record; the Shopify product category (which maps to `google_product_category`) is unknown | Medium | Legal; founder |
 | N17 | Three ad-facing collection FAQs contradict the unbroken-skin instruction | "Take extra care on sensitive or broken skin." on `/collections/numbing-cream`, `/collections/numbing-gel` and `/collections/numbing-cream-for-microneedling`. Deferred by Daniel on 7 Aug | Medium | Founder; G2 owner |
 | N18 | The 5 kits have vendor `senseless-numbing`; every other product has `Senseless` | If the feed takes brand from vendor, the kits' brand is wrong. The feed brand was not observed | Medium | Account holder checks; CC fixes |
-| N19 | The mobile sticky add-to-cart price doesn't update when the size changes | `sections/senseless-product-hero.liquid:237`; `update()` at :308-336 never touches it. Seen in source only; not observed live | Medium | CC |
+| N19 | The mobile sticky add-to-cart price doesn't update when the size changes. **FIXED 22 Sep (`f922cfa`)** | `sections/senseless-product-hero.liquid:237`; `update()` at :308-336 never touches it. Seen in source only; not observed live | Medium | CC |
 | N20 | The "formal record" shipping pages omit Express and paid prices; date stamps are stale | `/pages/shipping-delivery` says "Last updated 4 June 2026" although its body was rewritten on 12 Sep. `/policies/refund-policy` says 2026-06-04 while the page says 3 July | Medium | Founder approves; CC |
 | N21 | Delivery pages set a 14-day deadline to report damaged or missing goods | `templates/page.delivery.json:114,206` and the shipping-delivery metafield. CRA s22 gives a 30-day right to reject; s31 makes restrictive terms non-binding | Medium | Legal |
 | N22 | The T&Cs have no cancellation clause and no statutory-rights reminder; the liability cap may restrict CRA remedies | `/pages/terms-conditions`, `/policies/terms-of-service` | Medium | Legal |
@@ -188,8 +188,8 @@ Deduplicated across the lenses. Severity is ours.
 | N25 | Threshold wording and the banner maths don't match the rate card | Copy says "over £40/£80", but the rate card is inclusive ("from £40"). The banner uses the pre-discount subtotal (`snippets/senseless-shipping-banner.liquid:83`); rates use the post-discount total | Low | Founder |
 | N26 | Offer-level `cutoffTime` is outside Google's documented offer-level subset | Probably ignored; valid schema.org | Low | CC |
 | N27 | The noindex policy pages emit two conflicting robots meta tags | `noindex,follow` from the theme and `noindex,nofollow` from `content_for_header` | Low | CC |
-| N28 | `og:price:amount` always shows the lowest variant price | `snippets/meta-tags.liquid:120` uses `product.price` | Low | CC |
-| N29 | Offer `name` is "Default Title" on 7 single-variant products | `snippets/senseless-structured-data.liquid:412` | Low | CC |
+| N28 | `og:price:amount` always shows the lowest variant price. **FIXED 22 Sep (single selected-variant Offer + og:price)** | `snippets/meta-tags.liquid:120` uses `product.price` | Low | CC |
+| N29 | Offer `name` is "Default Title" on 7 single-variant products. **FIXED 22 Sep** | `snippets/senseless-structured-data.liquid:412` | Low | CC |
 | N30 | `productID` is emitted as `shopify_GB_<id>`, and a comment claims that's MC's key | The G&Y item IDs are `shopify_ZZ_<pid>_<vid>` | Low | CC (comment) |
 | N31 | VAD-4PK is published with brand "Senseless" | The owner's sheet lists it as "Unbranded" with no GS1 code | Low | Founder |
 | N32 | "our practitioner grade" appears in the Professional Ultimate description, which feeds MC | COMPLIANCE.md bans the "-grade" family. Other Professional SKUs say "practitioner tier" | Low | Founder |
