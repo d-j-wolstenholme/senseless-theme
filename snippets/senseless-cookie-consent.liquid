@@ -117,6 +117,9 @@
     function hide() { root.hidden = true; }
 
     // Pixel/marketing gating only — does NOT control whether the banner shows.
+    // Every value MUST be a Boolean. Until 22 Sep 2026 sale_of_data was sent as the string
+    // 'enabled'/'disabled'; the Storefront API rejected the whole write ("Expected type
+    // 'Boolean'"), so no Accept/Reject was ever recorded, and the empty callback hid it.
     function setAPI(c) {
       try {
         if (window.Shopify && Shopify.customerPrivacy && Shopify.customerPrivacy.setTrackingConsent) {
@@ -124,10 +127,22 @@
             analytics: !!c.analytics,
             marketing: !!c.marketing,
             preferences: !!c.preferences,
-            sale_of_data: c.marketing ? 'enabled' : 'disabled'
-          }, function () {});
+            sale_of_data: !!c.marketing
+          }, function (res) {
+            if (res && res.error) { try { console.warn('[ss-consent] setTrackingConsent failed:', res.error); } catch (e) {} }
+          });
         }
       } catch (e) {}
+    }
+
+    // True when Shopify already holds exactly this choice, so init() can skip a redundant write.
+    function apiMatches(c) {
+      try {
+        var v = Shopify.customerPrivacy.currentVisitorConsent();
+        var yn = function (b) { return b ? 'yes' : 'no'; };
+        return v.analytics === yn(c.analytics) && v.marketing === yn(c.marketing) &&
+               v.preferences === yn(c.preferences) && v.sale_of_data === yn(c.marketing);
+      } catch (e) { return false; }
     }
 
     function openPanel() {
@@ -187,7 +202,8 @@
     function init() {
       if (decisionMade()) {
         var d = readDecision() || {};
-        setAPI({ analytics: !!d.a, marketing: !!d.m, preferences: !!d.p });
+        var c = { analytics: !!d.a, marketing: !!d.m, preferences: !!d.p };
+        if (!apiMatches(c)) setAPI(c); // re-assert only if Shopify's record differs (e.g. its cookie expired)
         hide();
         return;
       }
