@@ -23,15 +23,20 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
      on"; `4be298b` + lock `51db25c`): nested in `#organization` on all 73 HTML pages, terms
      unchanged, the standalone node removed, Offers still reference it by `@id`. If Legal changes
      the returns wording, update this node too.
-2. **Follow-ups from the batch (small):**
-   - **Google's own check, not yet run:** Rich Results Test (or Search Console URL Inspection → live
-     test) on `/products/advanced-strength-gel`, one bundle (`/products/professional-numbing-kit-large`)
-     and `/pages/how-to-apply-numbing-cream` (the only HowTo). validator.schema.org IP-blocked this
-     machine after ~20 POSTs (302 to google.com/sorry, then 405), so those three got the census only.
-   - **~27–30 Sep:** Search Console Merchant listings + Product snippets (were 94 valid / 0 invalid)
-     and Merchant Center diagnostics after Google recrawls.
-   - If the bundles' compare-at (founder B4) is ever emitted as StrikethroughPrice markup,
-     `priceValidUntil` must become the real sale end — Google reads it as one then.
+2. **Follow-ups from the batch:**
+   - **Google Rich Results Test — DONE 23 Sep eve** (live, after the `priceValidUntil` removal):
+     `/products/advanced-strength-gel` and `/products/professional-numbing-kit-large` — 5 valid items
+     each (Product snippets, Merchant listings, Breadcrumbs, Local businesses, Organization); Merchant
+     listings **0 issues**; Product snippets only the pre-existing `aggregateRating`/`review` (no
+     reviews on those products). Google resolves each Offer's `hasMerchantReturnPolicy` `@id` to the
+     policy nested in `#organization`. `/pages/how-to-apply-numbing-cream` — 3 valid (Breadcrumbs,
+     Local businesses, Organization); HowTo isn't a Google rich result any more (retired 2023).
+     "Local businesses" = the `OnlineStore` Organization; valid, no warnings, left as is.
+   - **~27–30 Sep re-check against the 23 Sep baseline:** Search Console Merchant listings **94 valid /
+     0 invalid**, all 4 issues Passed 0; Product snippets **94 valid / 0 invalid**, non-critical
+     `aggregateRating` 89 + `review` 89; Indexing **62 indexed / 111 not indexed**; 78 clicks / 3
+     months. Merchant Center: 6 Limited, all "Personalised advertising: Personal hardships" (founder:
+     leave); no price or markup issues. Expect the same counts — anything new is this batch's.
 3. **DONE 23 Sep eve:** robots `Disallow: /collections/*?*page=` (+ `/*/` form) in the `*` and all AI
    groups (`9454886` + whitespace fix `c3ef726`; live diff 26 added / 0 removed; no sitemap URL newly
    blocked; AdsBot untouched). **`/blogs/guides` is NOT an open question** — decided 9 Jul (noindex,
