@@ -229,6 +229,11 @@ real signal and are worth a content pass.
    structurally unindexable. Merchant Center is unaffected (the feed carries per-variant URLs). Fix:
    `ProductGroup` + `hasVariant`, keeping the selected variant's Offer. This touches exactly what the
    22 Sep fix guarded, so it needs its own session and an MC re-check.
+   **FIXED 24 Sep (`d04c60d`, lock `0af1488`; spec `docs/specs/productgroup-phase1/SPEC.md`).** The 5 base URLs
+   now carry a ProductGroup with both sizes (one Offer each, GS1 gtin13, per-size shipping band); every
+   `?variant=` URL and single-variant PDP is byte-identical, so the 22 Sep price fix is untouched. Google Rich
+   Results Test (live): Merchant listings **2 valid items** on each of the 5; review stars kept on the 3 rated
+   products; the `?variant=` 35ml gel page unchanged at 1 valid Merchant listing.
 5. **HTML entities leak into JSON-LD strings — 33 occurrences** (`&amp;`, `&#39;`). JSON-LD inside
    `<script>` is not HTML-parsed, so Google reads them literally. Root causes: `page_title` /
    `page_description` (Shopify pre-escapes) and `product.description | strip_html`.
@@ -324,7 +329,7 @@ intact: 9 pages, 15 anchors, 0 breaches — exactly the 2026-08-06 baseline**.
 4. ~~**Entity unescape, `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`**~~ —
    **DONE 23 Sep (`7224825`, return policy `4be298b`)**. Originally: batch
    as one schema-quality deploy.
-5. **`ProductGroup` / `hasVariant`** — the biggest upside; own session, MC re-check afterwards.
+5. ~~**`ProductGroup` / `hasVariant`**~~ — **DONE 24 Sep (`d04c60d`)**; MC re-check at +2–3 and +7 days.
 6. **Ads hygiene** — campaign/display-path spellings, Manual CPC, the paused Shopping campaign vs the
    Cream/Spray-only PMax coverage, and a decision on the crawled Vitamin A&D item.
 7. **Founder/source calls** — healthcare certification, "strongest" title, aggregateRating threshold,

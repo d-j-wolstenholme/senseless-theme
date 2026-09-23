@@ -1,6 +1,6 @@
 # Spec — ProductGroup / hasVariant, Phase 1 (the 5 two-size PDPs)
 
-**Status:** READY TO BUILD, pending decisions §4. Prepared 23 Sep 2026 (Mac mini) by a read-only research + design workflow
+**Status:** BUILT AND LIVE 24 Sep 2026 00:00 BST (`d04c60d`, lock `0af1488`). Decisions §4 made by CC at the founder's request ("why can't you take care of all that?"): deploy now, Phase 1 only, MC pre-check done (10/10 own ?variant= link + GS1 gtin), productGroupID = numeric product id (MC shows no item_group_id), reviews-guard class marker added. Originally: Prepared 23 Sep 2026 (Mac mini) by a read-only research + design workflow
 (4 grounding researchers → 3 independent designs → judge → adversarial critic). Nothing here has been deployed.
 Target file: `snippets/senseless-structured-data.liquid` at sha256 `e0e50e770b7ee88f…` (repo `0a31b9e`); the draft applies
 cleanly and produces sha256 `db5291d97804139501730d9cbc1388c2077ed2b0d4bfe250ddc280324ff13881`.

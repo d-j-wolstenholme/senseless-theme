@@ -43,17 +43,14 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
    `/pages/articles` canonical) and 17 Jul (`dc7b3ee`: blog-level `seo.hidden` tested live, it drops
    the ARTICLES from the sitemap too, reverted; accept the GSC warning). Never set `seo.hidden` on a
    Blog.
-3b. **NEXT WORK ITEM — ProductGroup / hasVariant Phase 1: SPEC READY → `docs/specs/productgroup-phase1/SPEC.md`.**
-   Read it first; everything needed is in that folder (drop-in patch that `git apply`s on HEAD, render harness +
-   `live/capture.py`, RRT code-mode documents). Design: a ProductGroup with both sizes ONLY on the 5 two-size base URLs;
-   every `?variant=` URL (the Merchant Center landing pages) and all single-variant PDPs stay byte-identical, so the 22 Sep
-   price fix is untouched. **Before coding, the founder decides §4:** (1) timing — recommended AFTER the 27–30 Sep GSC/MC
-   re-checks so any change stays attributable; (2) scope = Phase 1 only; (3) MC export pre-check (every two-size item links
-   to its own `?variant=` URL; gtin = GS1 for all 10); (4) RRT rule — incl. the binding amendment that the 3 RATED products
-   must keep aggregateRating detected; (5) productGroupID form; (6) add `class="jdgm-server-jld"` as a reviews-guard marker.
-   Gotchas in the spec: take the live capture immediately before editing; add the 12 single-variant `?variant=` URLs to the
-   captures; Asset-API diff BEFORE committing the lock; the Offer body now lives in two branches (change one, change both);
-   never put the ProductGroup on `?variant=` URLs (Phase 2 needs its own decision after MC shows gtin matches for 7 days).
+3b. **DONE 24 Sep 00:00 — ProductGroup / hasVariant Phase 1 LIVE (`d04c60d`, lock `0af1488`).** Spec:
+   `docs/specs/productgroup-phase1/SPEC.md`. The 5 two-size base URLs carry a ProductGroup with both sizes;
+   every `?variant=` URL and single-variant PDP is byte-identical (22 Sep price fix untouched). Google RRT live:
+   Merchant listings 2 valid items on each of the 5, review stars kept on the 3 rated products, no new warnings.
+   **Follow-ups:** MC diagnostics at +2–3 d and +7 d (no price/GTIN issue on the 10 two-size items); GSC Merchant
+   listings + Product snippets should rise by ~5 valid items vs the 94/94 baseline (it's this change, not a
+   regression). Phase 2 (group markup on `?variant=` URLs) only after 7 clean MC days, as its own decision.
+   Gotcha: the Offer body now lives in TWO branches of the snippet (group + else) — change one, change both.
 4. **Founder / account-holder items still open** (unchanged, detail in the previous block below):
    ~~Google Play developer verification~~ — **CLOSED 23 Sep, checked in Play Console via Chrome:**
    Android developer verification shows both packages **Registered** (`uk.senseless.app` 18 Jul 2026,
