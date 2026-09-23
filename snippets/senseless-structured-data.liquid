@@ -73,13 +73,12 @@
   assign tz_m = 'now' | date: '%z' | slice: 3, 2
   assign dispatch_cutoff = '15:00:00' | append: tz_h | append: ':' | append: tz_m
 
-  # Offer.priceValidUntil: 31 December of next year, on every Offer (PDP and collection ItemList).
-  # Google lists it as recommended for product snippets and merchant listings, and says a listing
-  # "may not display" if it is in the past. Nothing ends our prices, so this is the WooCommerce-core
-  # convention: always 12-24 months ahead, and it changes once a year rather than on every render.
-  # It is NOT a sale end. If compare-at / StrikethroughPrice markup is ever added, Google reads
-  # priceValidUntil as the end of the sale, so it must then carry the real end date or go.
-  assign price_valid_until = 'now' | date: '%Y' | plus: 1 | append: '-12-31'
+  # NO Offer.priceValidUntil, on purpose. It went out on 23 Sep 2026 (31 Dec of next year) and came
+  # off the same evening: Google's Rich Results Test then flagged a NEW non-critical Merchant
+  # listings issue on every Offer, 'Missing field "validFrom"', because Google now reads
+  # priceValidUntil as the END OF A SALE and asks for its start. Search Console had shown 0
+  # Merchant listings issues and never flagged priceValidUntil as missing, so it bought nothing.
+  # Only add it with a real sale window (validFrom + priceValidUntil on a StrikethroughPrice offer).
 
   # WebPage @type, specialised per page type. senseless-page-schema.liquid re-declares
   # #webpage as AboutPage/ContactPage on the two templates that need it.
@@ -462,7 +461,6 @@
             {%- if v1.title != 'Default Title' -%}"name": {{ v1.title | json }},{%- endif -%}
             "price": "{{ v1.price | divided_by: 100.0 }}",
             "priceCurrency": {{ cur | json }},
-            "priceValidUntil": {{ price_valid_until | json }},
             "itemCondition": "https://schema.org/NewCondition",
             "availability": "https://schema.org/{% if v1.available %}InStock{% else %}OutOfStock{% endif %}",
             "url": {{ base | append: v1.url | json }},
@@ -526,7 +524,6 @@
                 "@type": "Offer",
                 "price": "{{ prod.price | divided_by: 100.0 }}",
                 "priceCurrency": {{ cur | json }},
-                "priceValidUntil": {{ price_valid_until | json }},
                 "availability": "https://schema.org/{% if prod.available %}InStock{% else %}OutOfStock{% endif %}",
                 "url": {{ base | append: prod.url | json }},
                 "seller": { "@id": {{ org_id | json }} },
