@@ -69,6 +69,10 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
 
 - **The handoff's decode chain had `&amp;` first** — that double-decodes "&amp;#39;". Decode it last.
   And never decode `&lt;`/`&gt;` into JSON-LD: `/search` titles carry the visitor's query.
+- **Google's Rich Results Test is the real gate, not validator.schema.org.** The validator passed
+  `priceValidUntil` 0/0; only the RRT showed it adds a Merchant listings warning. RRT takes ~1 min per URL.
+- **Never set `seo.hidden` on a Blog** — it drops the blog's articles from the sitemap (17 Jul test).
+  The `/blogs/guides` GSC "noindex in sitemap" warning is accepted by design.
 - **validator.schema.org rate-limits by IP** (~20 POSTs, then Google's "sorry" page). Space calls,
   or use the Rich Results Test in a browser.
 - **Any edit to `snippets/senseless-structured-data.liquid` needs `deploy.sh --reviews-changed`** and a
