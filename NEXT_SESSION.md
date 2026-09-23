@@ -37,8 +37,12 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
    for the 5 two-size PDPs (audit item 4) — run `scripts/jsonld-census.py` before and after, and
    re-check MC because it touches what the 22 Sep price fix guards.
 4. **Founder / account-holder items still open** (unchanged, detail in the previous block below):
-   **Google Play developer verification — deadline 30 Sep 2026 (7 days), still unrecorded — ask
-   Daniel first.** Then: MC delivery re-check + the G&Y app's shipping-sync switch (item 2b/2c
+   ~~Google Play developer verification~~ — **CLOSED 23 Sep, checked in Play Console via Chrome:**
+   Android developer verification shows both packages **Registered** (`uk.senseless.app` 18 Jul 2026,
+   `com.totallynumb` 3 Jul 2026, 1 key each) and the Identity tab carries MATRIX HEALTH GROUP LTD,
+   Paddock Business Centre, 2 Paddock Road, Skelmersdale WN8 9PL (org account 8140414713800942317,
+   signed in as senseless.tattooing@gmail.com). Nothing was changed; the only related notification is
+   Google's generic 8 Sep reminder. Then: MC delivery re-check + the G&Y app's shipping-sync switch (item 2b/2c
    below); §5B decisions (Strength meaning, bundle sale scope, GS1 barcodes, ad-facing scope, returns
    wording to legal, bag compliance status); §5D (healthcare certification alert in Ads, 4 questions
    to Martin); Ads hygiene (misspelt campaigns/display path, Manual CPC, Shopping coverage).
