@@ -20,6 +20,31 @@ Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit p
    - **Permission rule** (project-local) + **2 live orphans deleted** (founder yes).
    - **Bundle sale styling gone** from /collections/all, search and the search modal (N7).
    - **Shipping schema fixed** (V17): per-offer methods by price; validator 0 errors / 0 warnings.
+1b. **DONE 23 Sep (Mac mini) — audit of store vs Merchant Center vs Google Ads vs schema/GSC.**
+   Full write-up: `docs/AUDIT-STORE-MC-ADS-2026-09-23.md` (commit `3debdd2`). Headlines:
+   - **P0 FIXED AND LIVE (`7199dd5`):** `/products/foaming-cleanser` was declaring
+     **"Numbing Cream for Botox"** as its `BreadcrumbList` parent — an ad-facing PDP associating
+     with an injectable collection in markup Google follows *and* renders as the SERP breadcrumb.
+     Cause: `senseless-breadcrumbs-jsonld.liquid` took `product.collections.first`; 12 products are
+     injectable-collection members, so the three handles are now filtered in that snippet rather
+     than the one product being fixed. Verified live on all 17 PDPs: **0 injectable parents**
+     (cleanser now reads "Numbing Cream for Laser Treatment"); theme-check at baseline;
+     Asset-API byte-identical.
+   - **`.claude/rules/ad-facing.md` now requires TWO passes** — anchors **and** structured-data
+     `item` URLs. Pass 1 alone reported 0 breaches on 23 Sep while this one was live.
+   - **Yesterday's MC delivery fixes survived** (3 policies, all Complete, no recreated 4th) and the
+     unit-pricing issue is gone from diagnostics.
+   - **The three GSC "Validate fix" items carried since 4 Sep have all PASSED.** Merchant listings
+     94 valid / 0 invalid; Product snippets 94 valid / 0 invalid; no manual actions.
+   - **Vitamin A&D 4-Pack (£2.00) is in Merchant Center via Google's own crawl**, Approved, despite
+     being withheld from the Google channel in Shopify. Not ad-eligible unless someone accepts the
+     "Allow ads" prompt on that data source. Needs a decision.
+   - Still open from the audit: product `<lastmod>` = request time (Admin/app issue); unbounded
+     `?page=N`; `/blogs/guides` noindex-in-sitemap; 5 PDPs hide their larger variant from Google
+     (needs `ProductGroup`/`hasVariant` + an MC re-check); schema-quality batch (entity unescape,
+     `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`); Ads hygiene
+     (paused Shopping campaign vs Cream/Spray-only PMax, "Seneseless"/"Tatoo" spellings, Manual CPC,
+     healthcare-certification alert).
 2. **Next in sequence:**
    - (a) Founder call: show the unit price on the PDP hero (the theme doesn't yet).
    - (b) **Merchant Center delivery policies FIXED by hand 22 Sep** (DECISIONS-LOG Decision 12): Express 2–4 d £3.99 to £79.99; Standard 4–7 d £1.99 to £39.99, free £40–£79.99; NWD 1–2 d £8.99 to £79.99, free £80+; all 15:00 London cut-off, handling 0–1; the broken `Custom_rate_price_based` deleted. **FIRST THING NEXT SESSION: re-check MC → Delivery and returns** (3 policies, those day ranges) in case the Google & YouTube app resynced or recreated the 4th. Merchant API client ready (`scripts/merchant-api.py`); the founder's GCP/service-account setup is still pending.
