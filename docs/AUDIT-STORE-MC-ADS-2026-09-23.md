@@ -226,6 +226,18 @@ real signal and are worth a content pass.
 7. **`priceValidUntil` missing on every Offer** (0 of 173) — recommended for Merchant listings.
 8. **Organization is thin:** no `sameAs` anywhere, `@type` is `Organization` rather than
    `OnlineStore`, no organization-level `hasMerchantReturnPolicy`.
+   **Items 5–8 FIXED AND LIVE 23 Sep (`7224825`, lock `84efe3f`).** Census of all 74 sitemap URLs,
+   before → after: entity leaks 34 → **0** (the true count; 33 above was one short); run-together
+   sentences in FAQ answers 20 → **0** (same root cause, found in this pass); Offers with
+   `priceValidUntil` 0/188 → **188/188**, all `2027-12-31` (31 Dec of next year, not now+365, so it
+   changes once a year); pages with conflicting `#webpage` 12 → **0** (plus `/pages/contact`, outside
+   the sitemap); Organization now `["Organization","OnlineStore"]`. One shared helper,
+   `snippets/senseless-jsonld-text.liquid`, decodes `&amp;` LAST and leaves `&lt;`/`&gt;` encoded
+   because `/search` titles carry the visitor's query. validator.schema.org 0/0 on 12 live pages; the
+   22 Sep price guard holds on all 39 PDP URLs; Judge.me injects nothing in a real headless render;
+   ad-facing invariant 0 breaches in both passes. **Not done, on purpose:** the organisation-level
+   `hasMerchantReturnPolicy` waits for Legal to sign off the returns wording (study 2026-09-20 step 7,
+   N38), and `sameAs` stays empty until a profile exists.
 9. **A 2.0-star rating from a single review is live** on `/products/professional-strength-gel`
    (£29.99). Genuine data, but SERP-facing off a sample of one. Reviews are under legal hold — change
    only the emission threshold, never the reviews.
@@ -291,7 +303,8 @@ intact: 9 pages, 15 anchors, 0 breaches — exactly the 2026-08-06 baseline**.
 2. ~~Product `lastmod` = request time~~ — **CLOSED 23 Sep.** Confirmed Shopify platform behaviour;
    no merchant-side setting exists, logged by Support as product feedback. See the finding above.
 3. **`Disallow: …page=`** and the `/blogs/guides` noindex-vs-sitemap decision — minutes each.
-4. **Entity unescape, `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`** — batch
+4. ~~**Entity unescape, `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`**~~ —
+   **DONE 23 Sep (`7224825`)**; org-level return policy held for Legal. Originally: batch
    as one schema-quality deploy.
 5. **`ProductGroup` / `hasVariant`** — the biggest upside; own session, MC re-check afterwards.
 6. **Ads hygiene** — campaign/display-path spellings, Manual CPC, the paused Shopping campaign vs the

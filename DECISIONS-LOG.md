@@ -19,6 +19,20 @@ When this file is older than 24 hours, run `/drift-check` to surface any drift b
 
 ---
 
+### 2026-09-23 (Schema-quality batch — JSON-LD text, priceValidUntil, one #webpage, OnlineStore; Mac mini)
+
+Deployed `7224825` + lock `84efe3f` (`deploy.sh --reviews-changed`, helper snippet pushed first). Evidence and before/after counts: `docs/AUDIT-STORE-MC-ADS-2026-09-23.md` items 5–8.
+
+**Decision 1 — One helper for every free-text JSON-LD string (`snippets/senseless-jsonld-text.liquid`).** JSON-LD is not HTML-parsed, so `&amp;`/`&#39;` from Shopify's pre-escaped `page_title`/`page_description` and from `strip_html` were read literally by Google (34 on 27 URLs). The helper decodes `&#39;` `&quot;` `&nbsp;` and then `&amp;` **last** (decoding it first, as the 23 Sep handoff spec had it, double-decodes "&amp;#39;"). It **never decodes `&lt;`/`&gt;`**: on `/search` the title carries the visitor's query, so the helper can never put a `<` into a script block. Decode runs before `truncate`, so caps count real characters. `html: true` spaces paragraph/list ends before `strip_html` (20 run-together sentences on `/pages/faq`; words unchanged, including the legal-verbatim FAQ).
+
+**Decision 2 — `priceValidUntil` = 31 December of next year, on every Offer.** Google lists it as recommended and suppresses a listing with a past date. Nothing ends our prices, so this follows the WooCommerce-core convention (12–24 months ahead, changes once a year) rather than the handoff's now + 365 days, which would change the HTML on every render. It is not a sale end: if compare-at/StrikethroughPrice markup is ever emitted, it must carry the real end date or go.
+
+**Decision 3 — `senseless-page-schema` adds a type, never a name or description.** JSON-LD merges same-`@id` statements as a union, so the section's re-declaration gave 12 sitemap pages (+ `/pages/contact`) two names and two descriptions on one node. It now emits `@id` + `@type` for AboutPage/ContactPage only; plain WebPage emits nothing. The section's Name/Description settings are read by Service only (labels say so); the `#webpage` text is the page's SEO title and meta description.
+
+**Decision 4 — Organization is `["Organization","OnlineStore"]`; the organisation-level return policy is held for Legal.** Google recommends the most specific subtype. The 23 Sep handoff also asked for org-level `hasMerchantReturnPolicy`, but the 20 Sep study (step 7, N38) sequences that move after Legal signs off the returns wording, so the schema mirrors the final text; the earlier, explicit sequencing was kept. No Compliance Hold exists for it — this is a founder call if it should go sooner. Offer-level `#return-policy` is unchanged and complete. `sameAs` stays empty until a profile exists.
+
+Also: comment-only fixes from the 22 Sep handoff item 8 (rate-card rows "(Order by 3pm)"; shipping banner — free delivery is the rate card's £0 rates, 0 automatic discounts per the Admin API; header featured card = Professional Ultimate, SBUN5). The Scale/comfort-mark comments stay until the Strength ruling. `scripts/content-lint.py` GEO-NO-ORG accepts the array/subtype form.
+
 ### 2026-09-22 (Cookie banner records consent again; the Google Ads pixel stays as it is — Mac mini)
 
 **Decision 1 — Fix the consent write (`snippets/senseless-cookie-consent.liquid`, `75ec619` + `24e9f5e`).** The founder's instruction: "fix the critical things first, such as the cookie banner". Since 1 Jun the banner sent `sale_of_data` as the string `'enabled'`/`'disabled'`. The Storefront API rejected every write ("Argument 'saleOfData' … Expected type 'Boolean'"), so no Accept or Reject was ever recorded. Now every value is a Boolean, the callback logs failures, and `init()` re-sends the stored choice only when Shopify's record differs. Before deploy, the corrected payload was tested against the live Storefront API in fresh headless Chrome contexts. The old payload fails with the exact error above; the new one is accepted (consent `yes/yes/yes/yes`, `_tracking_consent` set). After Accept, GA4 now fires (3 requests), where before it never did.

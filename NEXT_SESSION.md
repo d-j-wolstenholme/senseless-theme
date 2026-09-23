@@ -1,13 +1,74 @@
 # NEXT_SESSION — handoff
 
-**Last session (21–22 Sep 2026, Mac mini `Ds-Mac-mini.local`):** local brought level with live and
-origin, records reconciled, and the 20 Sep **Google Ads & Merchant Centre audit** saved and studied.
-Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit pricing set (see item 1). Repo == origin/main, clean (session record on top of
-`ae2c017`). Live theme `#199324434780` == repo on all 582 common files.
+**Last session (23 Sep 2026, Mac mini `Ds-Mac-mini.local`):** the schema-quality batch, deployed and
+verified live. Repo == origin/main @ `84efe3f` + this handoff commit, clean. Live theme `#199324434780`
+== git on all 8 deployed files (Asset API byte-identical); 586 assets live.
 
 ## ON-CONTINUE — do these first
 
 <!-- ON-CONTINUE:START -->
+1. **DONE 23 Sep (Mac mini) — schema-quality batch (`7224825`, lock `84efe3f`).** Detail:
+   `DECISIONS-LOG.md` 2026-09-23 and `docs/AUDIT-STORE-MC-ADS-2026-09-23.md` items 5–8.
+   - Census of all 74 sitemap URLs (`scripts/jsonld-census.py`, before → after): JSON-LD entity
+     leaks 34 → **0**; run-together FAQ sentences 20 → **0**; Offers with `priceValidUntil`
+     0/188 → **188/188** (`2027-12-31`); conflicting `#webpage` pages 12 → **0**; Organization now
+     `["Organization","OnlineStore"]`; 0 parse errors, 0 dangling `@id`s, Offers per URL unchanged.
+   - Verified live: validator.schema.org 0 errors / 0 warnings on 12 pages; the 22 Sep price guard
+     holds on all 39 PDP URLs (22 `?variant=` + 17 base: 1 Offer, price/sku/og:price match);
+     Judge.me injects no second Product/rating in a real headless render (6 reviewed PDPs); ad-facing
+     invariant 0 breaches in BOTH passes; theme-check at the 119/78 baseline; reviews-guard 6/6.
+   - **Held on purpose:** org-level `hasMerchantReturnPolicy` waits for Legal to sign off the returns
+     wording (study 20 Sep step 7). There is no Compliance Hold for it. **Ask the founder** whether
+     it should go sooner (one line: the terms are identical to the offer-level policy already live).
+2. **Follow-ups from the batch (small):**
+   - **Google's own check, not yet run:** Rich Results Test (or Search Console URL Inspection → live
+     test) on `/products/advanced-strength-gel`, one bundle (`/products/professional-numbing-kit-large`)
+     and `/pages/how-to-apply-numbing-cream` (the only HowTo). validator.schema.org IP-blocked this
+     machine after ~20 POSTs (302 to google.com/sorry, then 405), so those three got the census only.
+   - **~27–30 Sep:** Search Console Merchant listings + Product snippets (were 94 valid / 0 invalid)
+     and Merchant Center diagnostics after Google recrawls.
+   - If the bundles' compare-at (founder B4) is ever emitted as StrikethroughPrice markup,
+     `priceValidUntil` must become the real sale end — Google reads it as one then.
+3. **Recommended next task — minutes each:** `Disallow: /collections/*?*page=` in
+   `templates/robots.txt.liquid` (`/collections/shop-all?page=500` returns 200 and self-canonicalises),
+   and a founder decision on `/blogs/guides` (noindex AND in `sitemap_blogs_1.xml`; drop the noindex
+   or canonicalise to `/pages/articles`). **Biggest upside, own session:** `ProductGroup`/`hasVariant`
+   for the 5 two-size PDPs (audit item 4) — run `scripts/jsonld-census.py` before and after, and
+   re-check MC because it touches what the 22 Sep price fix guards.
+4. **Founder / account-holder items still open** (unchanged, detail in the previous block below):
+   **Google Play developer verification — deadline 30 Sep 2026 (7 days), still unrecorded — ask
+   Daniel first.** Then: MC delivery re-check + the G&Y app's shipping-sync switch (item 2b/2c
+   below); §5B decisions (Strength meaning, bundle sale scope, GS1 barcodes, ad-facing scope, returns
+   wording to legal, bag compliance status); §5D (healthcare certification alert in Ads, 4 questions
+   to Martin); Ads hygiene (misspelt campaigns/display path, Manual CPC, Shopping coverage).
+5. **Noticed, not caused by this batch, not changed:** `/pages/articles` and the 5 policy pages emit a
+   second, anonymous page-level node (CollectionPage / WebPage, no `@id`) beside `#webpage`;
+   `/pages/contact` serves two robots metas (`noindex,follow` + `noindex,nofollow`); pre-existing
+   theme-check `ValidSchema` errors in `senseless-faq-accordion` and `senseless-how-to-use`; the
+   page-schema Name/Description settings are now Service-only (labelled) on 14 templates.
+6. **Records corrected:** the 2 July orphans (`blocks/footer-copyright.liquid`,
+   `templates/page.how-long-numbing-cream-takes-to-work.json`) are **gone from live** (Asset API 404,
+   23 Sep) — the old "needs an OK" item was stale.
+<!-- ON-CONTINUE:END -->
+
+## Gotchas (23 Sep)
+
+- **The handoff's decode chain had `&amp;` first** — that double-decodes "&amp;#39;". Decode it last.
+  And never decode `&lt;`/`&gt;` into JSON-LD: `/search` titles carry the visitor's query.
+- **validator.schema.org rate-limits by IP** (~20 POSTs, then Google's "sorry" page). Space calls,
+  or use the Rich Results Test in a browser.
+- **Any edit to `snippets/senseless-structured-data.liquid` needs `deploy.sh --reviews-changed`** and a
+  lock commit straight after — guard (c) checks the whole manifest, so even a deploy of an unrelated
+  file aborts until the lock matches.
+- **Deploy a new snippet before the files that render it** (two `deploy.sh` calls), so no page renders
+  "Could not find asset" in between.
+- JSON-LD merges same-`@id` nodes as a UNION: re-declaring a node with a different `name` gives it two
+  names. Re-declare type only.
+
+---
+
+## Previous ON-CONTINUE block (22–23 Sep) — kept for reference; items above supersede it
+
 1. **DONE 22 Sep (Mac mini):**
    - **Mac mini credentials:** the MacBook `.env` is installed (chmod 600); `refresh-token.sh` and `deploy.sh` work here. `shopify store auth` (read/write_themes) also works.
    - **Cookie banner:** records consent (`24e9f5e`); `sale_of_data` is kept true so the Ads pixel is unchanged (founder decision; never re-raise). It sits above every popup via the top layer (`de6259e`), and the mobile gap is fixed. Verified live, desktop + mobile.
@@ -153,7 +214,6 @@ Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit p
 9. **Carried over:** Rich Results Test + 3 GSC "Validate fix" (from 4 Sep);
    `matrix-health-ecommerce/brands/senseless` "before 1pm" (not on the Mac mini); MC order cut-off
    15:00; Klaviyo; totallynumb.com 1pm; G2 safety gate stays open (G1 CLOSED, do not re-raise).
-<!-- ON-CONTINUE:END -->
 
 ## Done 21–22 Sep
 
