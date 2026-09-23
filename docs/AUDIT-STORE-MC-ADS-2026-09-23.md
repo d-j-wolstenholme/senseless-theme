@@ -235,9 +235,10 @@ real signal and are worth a content pass.
    `snippets/senseless-jsonld-text.liquid`, decodes `&amp;` LAST and leaves `&lt;`/`&gt;` encoded
    because `/search` titles carry the visitor's query. validator.schema.org 0/0 on 12 live pages; the
    22 Sep price guard holds on all 39 PDP URLs; Judge.me injects nothing in a real headless render;
-   ad-facing invariant 0 breaches in both passes. **Not done, on purpose:** the organisation-level
-   `hasMerchantReturnPolicy` waits for Legal to sign off the returns wording (study 2026-09-20 step 7,
-   N38), and `sameAs` stays empty until a profile exists.
+   ad-facing invariant 0 breaches in both passes. The organisation-level `hasMerchantReturnPolicy`
+   followed the same evening on the founder's go-ahead (`4be298b`): the policy is nested in
+   `#organization` on all 73 HTML pages, terms unchanged, Offers still reference it by `@id`.
+   `sameAs` stays empty until a profile exists.
 9. **A 2.0-star rating from a single review is live** on `/products/professional-strength-gel`
    (£29.99). Genuine data, but SERP-facing off a sample of one. Reviews are under legal hold — change
    only the emission threshold, never the reviews.
@@ -304,7 +305,7 @@ intact: 9 pages, 15 anchors, 0 breaches — exactly the 2026-08-06 baseline**.
    no merchant-side setting exists, logged by Support as product feedback. See the finding above.
 3. **`Disallow: …page=`** and the `/blogs/guides` noindex-vs-sitemap decision — minutes each.
 4. ~~**Entity unescape, `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`**~~ —
-   **DONE 23 Sep (`7224825`)**; org-level return policy held for Legal. Originally: batch
+   **DONE 23 Sep (`7224825`, return policy `4be298b`)**. Originally: batch
    as one schema-quality deploy.
 5. **`ProductGroup` / `hasVariant`** — the biggest upside; own session, MC re-check afterwards.
 6. **Ads hygiene** — campaign/display-path spellings, Manual CPC, the paused Shopping campaign vs the

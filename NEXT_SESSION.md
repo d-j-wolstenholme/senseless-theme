@@ -1,7 +1,7 @@
 # NEXT_SESSION — handoff
 
 **Last session (23 Sep 2026, Mac mini `Ds-Mac-mini.local`):** the schema-quality batch, deployed and
-verified live. Repo == origin/main @ `84efe3f` + this handoff commit, clean. Live theme `#199324434780`
+verified live, then the org-level return policy (`4be298b`). Repo == origin/main, clean. Live theme `#199324434780`
 == git on all 8 deployed files (Asset API byte-identical); 586 assets live.
 
 ## ON-CONTINUE — do these first
@@ -17,9 +17,10 @@ verified live. Repo == origin/main @ `84efe3f` + this handoff commit, clean. Liv
      holds on all 39 PDP URLs (22 `?variant=` + 17 base: 1 Offer, price/sku/og:price match);
      Judge.me injects no second Product/rating in a real headless render (6 reviewed PDPs); ad-facing
      invariant 0 breaches in BOTH passes; theme-check at the 119/78 baseline; reviews-guard 6/6.
-   - **Held on purpose:** org-level `hasMerchantReturnPolicy` waits for Legal to sign off the returns
-     wording (study 20 Sep step 7). There is no Compliance Hold for it. **Ask the founder** whether
-     it should go sooner (one line: the terms are identical to the offer-level policy already live).
+   - **Org-level return policy — DONE the same evening** on the founder's go-ahead ("yes put it
+     on"; `4be298b` + lock `51db25c`): nested in `#organization` on all 73 HTML pages, terms
+     unchanged, the standalone node removed, Offers still reference it by `@id`. If Legal changes
+     the returns wording, update this node too.
 2. **Follow-ups from the batch (small):**
    - **Google's own check, not yet run:** Rich Results Test (or Search Console URL Inspection → live
      test) on `/products/advanced-strength-gel`, one bundle (`/products/professional-numbing-kit-large`)
