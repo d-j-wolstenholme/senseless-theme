@@ -30,12 +30,14 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
      and Merchant Center diagnostics after Google recrawls.
    - If the bundles' compare-at (founder B4) is ever emitted as StrikethroughPrice markup,
      `priceValidUntil` must become the real sale end — Google reads it as one then.
-3. **Recommended next task — minutes each:** `Disallow: /collections/*?*page=` in
-   `templates/robots.txt.liquid` (`/collections/shop-all?page=500` returns 200 and self-canonicalises),
-   and a founder decision on `/blogs/guides` (noindex AND in `sitemap_blogs_1.xml`; drop the noindex
-   or canonicalise to `/pages/articles`). **Biggest upside, own session:** `ProductGroup`/`hasVariant`
-   for the 5 two-size PDPs (audit item 4) — run `scripts/jsonld-census.py` before and after, and
-   re-check MC because it touches what the 22 Sep price fix guards.
+3. **DONE 23 Sep eve:** robots `Disallow: /collections/*?*page=` (+ `/*/` form) in the `*` and all AI
+   groups (`9454886` + whitespace fix `c3ef726`; live diff 26 added / 0 removed; no sitemap URL newly
+   blocked; AdsBot untouched). **`/blogs/guides` is NOT an open question** — decided 9 Jul (noindex,
+   `/pages/articles` canonical) and 17 Jul (`dc7b3ee`: blog-level `seo.hidden` tested live, it drops
+   the ARTICLES from the sitemap too, reverted; accept the GSC warning). Never set `seo.hidden` on a
+   Blog. **Biggest upside, own session:** `ProductGroup`/`hasVariant` for the 5 two-size PDPs (audit
+   item 4) — run `scripts/jsonld-census.py` before and after, and re-check MC because it touches what
+   the 22 Sep price fix guards.
 4. **Founder / account-holder items still open** (unchanged, detail in the previous block below):
    ~~Google Play developer verification~~ — **CLOSED 23 Sep, checked in Play Console via Chrome:**
    Android developer verification shows both packages **Registered** (`uk.senseless.app` 18 Jul 2026,
@@ -65,6 +67,9 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
 - **Any edit to `snippets/senseless-structured-data.liquid` needs `deploy.sh --reviews-changed`** and a
   lock commit straight after — guard (c) checks the whole manifest, so even a deploy of an unrelated
   file aborts until the lock matches.
+- **robots.txt.liquid: a literal `{{ 'Disallow: …' }}` gets NO trailing newline** (the `{{ rule }}` /
+  `{{ group.sitemap }}` drops behave differently). Keep literal whitespace between added lines, and
+  diff the live `/robots.txt` against a saved copy after every deploy — 4e7386a glued a line for ~3 min.
 - **Deploy a new snippet before the files that render it** (two `deploy.sh` calls), so no page renders
   "Could not find asset" in between.
 - JSON-LD merges same-`@id` nodes as a UNION: re-declaring a node with a different `name` gives it two

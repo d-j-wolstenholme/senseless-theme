@@ -178,9 +178,20 @@ real signal and are worth a content pass.
    self-canonicalises to `?page=500`, rendering the identical 17 products. `robots.txt` blocks
    `sort_by` and `filter` but **not** `page=`. Mitigating: page 1 renders no pagination links, so
    on-site discovery is nil. Fix: `Disallow: /collections/*?*page=`.
+   **FIXED 23 Sep (`9454886`, whitespace fix `c3ef726`).** `Disallow: /collections/*?*page=` and
+   `/*/collections/*?*page=` added to the `*` group and all 12 AI-crawler groups; `adsbot-google`
+   untouched. Live diff vs before: 26 lines added, 0 removed; a Google-style matcher blocks
+   `?page=N` for Googlebot/GPTBot/ClaudeBot, allows it for AdsBot, and none of the 74 sitemap URLs is
+   newly blocked. (A 4e7386a attempt glued the `*` group's last line for ~3 min — literal strings in
+   robots.txt.liquid get no newline, unlike `{{ rule }}` — fixed in c3ef726.)
 2. **`/blogs/guides` is `noindex,follow` but is submitted in `sitemap_blogs_1.xml`** — the only
    noindex URL among all 74. Search Console raises this as an error. `/pages/articles` is the
    indexable hub with the identical 12 articles. Pick one deliberately.
+   **ALREADY DECIDED — accept the warning (do not re-raise).** Decision 39858bc3-75ea-812f (9 Jul)
+   made `/pages/articles` the canonical hub and noindexed the blog index; on 17 Jul (`dc7b3ee`) a
+   live test of blog-level `seo.hidden` removed the blog's ARTICLES from the sitemap too and was
+   reverted, so the sitemap-vs-noindex conflict is structural on Shopify and the GSC warning was
+   accepted. `scripts/bing-submit.py:46` still carries the warning. Never set `seo.hidden` on a Blog.
 3. **Every product `<lastmod>` equals the moment of the request** — all 18 entries share one
    timestamp that tracks the clock (11:36:08, 11:48:38, 11:49:01 across three fetches). Google
    ignores `lastmod` site-wide when it looks untrustworthy. Pages, collections and blogs have sane
@@ -303,7 +314,8 @@ intact: 9 pages, 15 anchors, 0 breaches — exactly the 2026-08-06 baseline**.
    Widen the ad-facing rule's check method in the same change.
 2. ~~Product `lastmod` = request time~~ — **CLOSED 23 Sep.** Confirmed Shopify platform behaviour;
    no merchant-side setting exists, logged by Support as product feedback. See the finding above.
-3. **`Disallow: …page=`** and the `/blogs/guides` noindex-vs-sitemap decision — minutes each.
+3. ~~**`Disallow: …page=`** and the `/blogs/guides` noindex-vs-sitemap decision~~ — **robots DONE
+   23 Sep (`9454886`/`c3ef726`); `/blogs/guides` was already decided 17 Jul (accept the warning).**
 4. ~~**Entity unescape, `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`**~~ —
    **DONE 23 Sep (`7224825`, return policy `4be298b`)**. Originally: batch
    as one schema-quality deploy.
