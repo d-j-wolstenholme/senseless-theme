@@ -20,13 +20,17 @@
     sections/senseless-faq-accordion.liquid  FAQPage       (its own document — Google reads
                                                             FAQPage standalone; left alone)
     sections/senseless-article.liquid        Article       -> isPartOf #webpage, #breadcrumb
-    sections/senseless-page-schema.liquid    AboutPage / ContactPage / Service — merges INTO
-                                                            #webpage by re-declaring the same @id
+    sections/senseless-page-schema.liquid    AboutPage / ContactPage — adds that @type to #webpage
+                                                            by re-declaring the same @id (type only);
+                                                            Service — its own #service node
     sections/senseless-org-schema.liquid     now emits nothing; #organization is sitewide
 
   All strings go through the `json` filter, which quotes and escapes — the output is valid JSON
-  by construction. Prices, availability and currency come from live product data. The seller is
-  the parent company, Matrix Health Group Ltd.
+  by construction. Free text that can carry HTML entities (page_title / page_description, which
+  Shopify pre-escapes, and anything through strip_html) goes through snippets/senseless-jsonld-text
+  first, because JSON-LD is not HTML-parsed and Google reads "&amp;" literally. Prices,
+  availability and currency come from live product data. The seller is the parent company,
+  Matrix Health Group Ltd.
 {%- endcomment -%}
 {%- liquid
   assign base = shop.url
@@ -68,6 +72,14 @@
   assign tz_m = 'now' | date: '%z' | slice: 3, 2
   assign dispatch_cutoff = '15:00:00' | append: tz_h | append: ':' | append: tz_m
 
+  # Offer.priceValidUntil: 31 December of next year, on every Offer (PDP and collection ItemList).
+  # Google lists it as recommended for product snippets and merchant listings, and says a listing
+  # "may not display" if it is in the past. Nothing ends our prices, so this is the WooCommerce-core
+  # convention: always 12-24 months ahead, and it changes once a year rather than on every render.
+  # It is NOT a sale end. If compare-at / StrikethroughPrice markup is ever added, Google reads
+  # priceValidUntil as the end of the sale, so it must then carry the real end date or go.
+  assign price_valid_until = 'now' | date: '%Y' | plus: 1 | append: '-12-31'
+
   # WebPage @type, specialised per page type. senseless-page-schema.liquid re-declares
   # #webpage as AboutPage/ContactPage on the two templates that need it.
   assign webpage_type = 'WebPage'
@@ -97,15 +109,23 @@
   case request.page_type
     when 'product'
       assign sd_name = product.title
-      assign sd_desc = product.description | strip_html | strip_newlines | truncate: 1200
+      assign sd_desc = product.description | strip_html | strip_newlines
     when 'collection'
       assign sd_name = collection.title
       if collection.description != blank
-        assign sd_desc = collection.description | strip_html | strip_newlines | truncate: 1200
+        assign sd_desc = collection.description | strip_html | strip_newlines
       endif
     when 'article'
       assign sd_name = article.title
   endcase
+  # Decode entities before truncating, so the cap counts real characters and can't cut one in half.
+  capture sd_name
+    render 'senseless-jsonld-text', text: sd_name
+  endcapture
+  capture sd_desc
+    render 'senseless-jsonld-text', text: sd_desc
+  endcapture
+  assign sd_desc = sd_desc | truncate: 1200
 
   # Dates. `updated_at` is not documented on the Liquid page/article objects; if it resolves it is
   # used, and if it does not the `default` filter falls back to the publish date. Either way the
@@ -141,8 +161,16 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+    {%- comment -%}
+      OnlineStore: Google recommends the most specific Organization subtype ("if you have an
+      ecommerce site ... the OnlineStore subtype"). "Organization" stays in the array so anything
+      matching the plain type still finds it; every { "@id": #organization } reference is unchanged.
+      No organisation-level hasMerchantReturnPolicy yet, on purpose: the 20 Sep 2026 study (step 7,
+      N38) moves the return schema here only after Legal signs off the returns wording, so it
+      mirrors the final text. Until then the policy stays offer-level (#return-policy, below).
+    {%- endcomment -%}
     {
-      "@type": "Organization",
+      "@type": ["Organization", "OnlineStore"],
       "@id": {{ org_id | json }},
       "name": {{ seller_name | json }},
       "legalName": {{ seller_legal | json }},
@@ -239,9 +267,9 @@
 
         Standard 4-6 Working Days        GBP 1.99   0      - 39.99
         Express 2-3 working days         GBP 3.99   0      - 79.99
-        Next Working Day (order by 3pm)  GBP 8.99   0      - 79.99
+        Next Working Day (Order by 3pm)  GBP 8.99   0      - 79.99
         Standard 4-6 Working Days        GBP 0.00   40.00  - 79.99
-        Next Working Day (order by 3pm)  GBP 0.00   80.00  +
+        Next Working Day (Order by 3pm)  GBP 0.00   80.00  +
 
       CORRECTION, and it matters. On 14 Aug this block was briefly cut down to two free options,
       on the reasoning that the 1.99 rate and the 4-6 day transit "appear nowhere in published
@@ -350,7 +378,11 @@
         aligns the two ad-facing surfaces. The cap stays as a guard against an oversized paste.
       {%- endcomment -%}
       {%- liquid
-        assign pd = product.description | strip_html | strip_newlines | truncate: 1200
+        assign pd = product.description | strip_html | strip_newlines
+        capture pd
+          render 'senseless-jsonld-text', text: pd
+        endcapture
+        assign pd = pd | truncate: 1200
         if pd == blank
           assign pd = product.title | append: ' — a topical cosmetic preparation by Senseless.'
         endif
@@ -425,6 +457,7 @@
             {%- if v1.title != 'Default Title' -%}"name": {{ v1.title | json }},{%- endif -%}
             "price": "{{ v1.price | divided_by: 100.0 }}",
             "priceCurrency": {{ cur | json }},
+            "priceValidUntil": {{ price_valid_until | json }},
             "itemCondition": "https://schema.org/NewCondition",
             "availability": "https://schema.org/{% if v1.available %}InStock{% else %}OutOfStock{% endif %}",
             "url": {{ base | append: v1.url | json }},
@@ -461,7 +494,11 @@
               duplicated body copy to the head. 300 is a full opening sentence, which is what
               Google's "description" wants here, and it is the same source text either way.
             endcomment
-            assign pdesc = prod.description | strip_html | strip_newlines | truncate: 300
+            assign pdesc = prod.description | strip_html | strip_newlines
+            capture pdesc
+              render 'senseless-jsonld-text', text: pdesc
+            endcapture
+            assign pdesc = pdesc | truncate: 300
             if pdesc == blank
               assign pdesc = prod.title | append: ' — a topical cosmetic preparation by Senseless.'
             endif
@@ -484,6 +521,7 @@
                 "@type": "Offer",
                 "price": "{{ prod.price | divided_by: 100.0 }}",
                 "priceCurrency": {{ cur | json }},
+                "priceValidUntil": {{ price_valid_until | json }},
                 "availability": "https://schema.org/{% if prod.available %}InStock{% else %}OutOfStock{% endif %}",
                 "url": {{ base | append: prod.url | json }},
                 "seller": { "@id": {{ org_id | json }} },

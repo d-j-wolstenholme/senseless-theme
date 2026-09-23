@@ -1,0 +1,29 @@
+{%- doc -%}
+  Returns `text` as plain text fit for a JSON-LD string. Pipe the captured result through `json`.
+
+  JSON-LD inside a <script> is not HTML-parsed, so an entity there is read literally: Google saw
+  "Vitamin A &amp; D" and "What&#39;s". Two sources put them there: Shopify hands page_title and
+  page_description to Liquid already HTML-escaped, and strip_html removes tags but leaves entities.
+  Census 2026-09-23: 34 leaks on 27 of 74 sitemap URLs, all &amp; or &#39;.
+
+  &amp; is decoded LAST, so text that literally reads "&#39;" (stored as "&amp;#39;") is not decoded
+  twice. &lt; and &gt; are deliberately NOT decoded: on /search, page_title carries the visitor's
+  query, and leaving them encoded means this helper can never put a "<" into a script block.
+
+  Capture it with whitespace control so no newline reaches the JSON string, e.g. inside a liquid
+  tag: capture x / render 'senseless-jsonld-text', text: y / endcapture.
+
+  @param {string} text - Pre-escaped text (page_title, page_description), strip_html output, or
+    rich-text HTML when `html` is true
+  @param {boolean} [html] - True for rich-text HTML: each paragraph, list item and line break
+    becomes a space before the tags are stripped. Without it, strip_html runs "…left.</p><p>If…"
+    together as "left.If" (20 joins on /pages/faq, 23 Sep).
+{%- enddoc -%}
+{%- liquid
+  assign t = text
+  if html
+    assign t = t | replace: '</p>', '</p> ' | replace: '</li>', '</li> ' | replace: '<br>', ' ' | strip_html
+  endif
+  assign t = t | replace: '&#39;', "'" | replace: '&quot;', '"' | replace: '&nbsp;', ' ' | replace: '&amp;', '&' | strip
+  echo t
+-%}

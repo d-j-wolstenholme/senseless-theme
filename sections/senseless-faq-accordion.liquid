@@ -89,10 +89,16 @@
   "@type": "FAQPage",
   "mainEntity": [
     {%- for block in section.blocks -%}
+    {%- comment -%}
+      The answer is rich text: senseless-jsonld-text keeps a space where each paragraph or list
+      item ended and decodes the entities strip_html leaves behind. Whitespace and entities only;
+      the words are untouched (page.faq.json is legal-verbatim).
+    {%- endcomment -%}
+    {%- capture faq_answer -%}{%- render 'senseless-jsonld-text', text: block.settings.answer, html: true -%}{%- endcapture -%}
     {
       "@type": "Question",
       "name": {{ block.settings.question | json }},
-      "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.answer | strip_html | json }} }
+      "acceptedAnswer": { "@type": "Answer", "text": {{ faq_answer | json }} }
     }{%- unless forloop.last -%},{%- endunless -%}
     {%- endfor -%}
   ]

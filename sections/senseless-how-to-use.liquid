@@ -84,11 +84,12 @@
   "name": {{ section.settings.howto_name | default: section.settings.headline | strip_html | json }},
   "step": [
     {%- for block in section.blocks -%}
+    {%- capture step_text -%}{%- render 'senseless-jsonld-text', text: block.settings.body, html: true -%}{%- endcapture -%}
     {
       "@type": "HowToStep",
       "position": {{ forloop.index }},
       "name": {{ block.settings.title | strip_html | json }},
-      "text": {{ block.settings.body | strip_html | json }}
+      "text": {{ step_text | json }}
     }{% unless forloop.last %},{% endunless %}
     {%- endfor -%}
   ]

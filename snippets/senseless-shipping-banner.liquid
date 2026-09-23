@@ -4,7 +4,10 @@
    - empty basket → static explainer.
    - items in basket → 2-milestone progress bar (£40 free standard → £80 free next-day), subtotal-driven.
   Same-day-dispatch line present in all states. NO paid-price references. Tokens: #6B3FA0 fill, #f7f7f5 ground.
-  ⚠ DISPLAY ONLY — the real free-shipping discounts (standard ≥£40, next-day ≥£80) must exist as Shopify rules.
+  ⚠ DISPLAY ONLY — free delivery is not a discount. It comes from the GB rate card's £0 rates, conditioned
+  on order total (Standard £40.00–£79.99, Next Working Day £80.00+); there are no automatic discounts
+  (Admin API, 23 Sep 2026). Keep T1/T2 below in step with the rate card. The bar reads the pre-discount
+  items_subtotal_price, while the rates read the post-discount total (study N25, founder's call).
 {%- endcomment -%}
 {%- style -%}
   .ss-shipbar { background:#ffffff; border-bottom:1px solid rgba(26,24,22,0.10); color:#1A1816;

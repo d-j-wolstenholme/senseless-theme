@@ -339,7 +339,9 @@ def check_schema_geo(all_text_by_file):
     legal_ok = False
     for fp, lines in all_text_by_file.items():
         blob = "\n".join(lines)
-        if re.search(r'"@type"\s*:\s*"Organization"', blob):
+        # Plain "Organization", a subtype string, or an array holding either (since 23 Sep 2026
+        # the theme emits "@type": ["Organization", "OnlineStore"]).
+        if re.search(r'"@type"\s*:\s*(\[[^\]]*)?"(Organization|OnlineStore)"', blob):
             org_ok = True
         if re.search(r'"legalName"\s*:\s*(\{\{[^}]*\}\}|"Matrix Health Group Ltd")', blob) and "Matrix Health Group Ltd" in blob:
             legal_ok = True

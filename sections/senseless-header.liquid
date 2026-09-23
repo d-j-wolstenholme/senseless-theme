@@ -39,7 +39,7 @@
   # (kit-large); Professional is a flat direct link (large only, no Starter). Linked by handle.
   assign bundle_tiers = 'Clinical,Advanced' | split: ','
   assign bundle_tier_slugs = 'clinical,advanced' | split: ','
-  # Featured card: Professional Complete (SBUN-PR-L). Image pulled DYNAMICALLY from the
+  # Featured card: Professional Ultimate (professional-numbing-kit-large, SKU SBUN5). Image pulled DYNAMICALLY from the
   # product's own featured media so real photography auto-populates; optional setting override.
   assign feat_product = all_products['professional-numbing-kit-large']
   if section.settings.shop_feat_product != blank
@@ -480,7 +480,7 @@
                   </ul>
                 </div>
 
-                {%- comment -%}— Featured card: Professional Complete; image pulled from the product's featured media (dynamic) —{%- endcomment -%}
+                {%- comment -%}— Featured card: Professional Ultimate (SBUN5); image pulled from the product's featured media (dynamic) —{%- endcomment -%}
                 <aside class="ss-hdr__featured">
                   {%- if feat_product.featured_image != blank -%}
                     <img class="ss-hdr__featured-media" src="{{ feat_product.featured_image | image_url: width: 600 }}" alt="{{ feat_title | escape }}" width="560" height="420" loading="lazy">

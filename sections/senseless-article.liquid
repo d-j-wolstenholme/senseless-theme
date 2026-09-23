@@ -7,6 +7,10 @@
 {%- liquid
   assign base = shop.url
   assign desc = article.metafields.global.description_tag.value | default: article.excerpt | strip_html | default: article.title
+  # strip_html leaves entities (the excerpt fallback); JSON-LD reads them literally.
+  capture desc
+    render 'senseless-jsonld-text', text: desc
+  endcapture
   assign faq = article.metafields.custom.faq.value
 
   assign page_url = canonical_url | default: base
@@ -202,10 +206,11 @@
   "@type": "FAQPage",
   "mainEntity": [
     {%- for item in faq -%}
+    {%- capture faq_answer -%}{%- render 'senseless-jsonld-text', text: item.answer, html: true -%}{%- endcapture -%}
     {
       "@type": "Question",
       "name": {{ item.question | json }},
-      "acceptedAnswer": { "@type": "Answer", "text": {{ item.answer | strip_html | json }} }
+      "acceptedAnswer": { "@type": "Answer", "text": {{ faq_answer | json }} }
     }{%- unless forloop.last -%},{%- endunless -%}
     {%- endfor -%}
   ]
