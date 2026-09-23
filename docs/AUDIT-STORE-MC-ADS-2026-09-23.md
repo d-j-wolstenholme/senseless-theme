@@ -184,7 +184,30 @@ real signal and are worth a content pass.
 3. **Every product `<lastmod>` equals the moment of the request** — all 18 entries share one
    timestamp that tracks the clock (11:36:08, 11:48:38, 11:49:01 across three fetches). Google
    ignores `lastmod` site-wide when it looks untrustworthy. Pages, collections and blogs have sane
-   varied dates, so this is isolated to products and is an Admin/app investigation, not a theme edit.
+   varied dates, so this is isolated to products.
+   **CLOSED 23 Sep — confirmed Shopify platform behaviour, no action available to us.**
+   The original "Admin/app investigation" diagnosis was **wrong** and is retracted: `updated_at` via
+   the Admin API is stable and varied (1–23 Sep), so nothing is touching the products. Re-measured
+   without any cache-busting or `no-cache` header, with a Googlebot UA, to rule out my own method:
+   15:40:28 → all 17 stamped `15:40:28`; 15:41:13 → all 17 stamped `15:41:13`; the pages sitemap at
+   the same moment returned 20 distinct real dates. Both files are uncached (no `Age`, no
+   `Cache-Control`, unique `X-Request-ID`). The product sitemap is also the only one carrying
+   `<image:image>` blocks — a separate renderer. No vendors/markets/stores sitemap exists on this
+   store (404), so the full comparison set is products vs pages vs collections vs blogs.
+   **Raised with Shopify Support 23 Sep** (live chat, advisor *Iqra*; chat reference to follow by
+   email). Outcome, in their words: the first-tier assistant called it "a known characteristic of how
+   Shopify generates its product sitemaps … set dynamically at request time", "platform-level
+   behaviour with no merchant-facing setting to change it", and conceded there is **no public
+   documentation** for it and that the products-vs-other-types difference "isn't something documented
+   as intentional". The advisor **confirmed in writing that there is no merchant-side setting
+   affecting product sitemap `lastmod`**, could not confirm whether the behaviour is intentional
+   (no visibility into the renderer), stated there is **no escalation path to engineering** for a
+   non-urgent, no-customer-impact issue, and **logged it as product feedback** to the team that owns
+   sitemap generation.
+   **Workaround for genuine changes:** Search Console → URL Inspection → Request indexing on the
+   changed product URL. Manual, but it bypasses `lastmod`, and at 17 products that is trivial.
+   **Note for honesty:** we have *not* observed an actual delay in Google reflecting product changes;
+   this was raised as a data-correctness point, and Support was told so explicitly.
 
 **Structured data** (173 JSON-LD blocks over 72 URLs, 0 parse failures, validator 0/0 on six pages)
 
@@ -265,7 +288,8 @@ intact: 9 pages, 15 anchors, 0 breaches — exactly the 2026-08-06 baseline**.
 
 1. **P0 injectable breadcrumb** — one line, regulated risk, also closes the latent risk on 12 products.
    Widen the ad-facing rule's check method in the same change.
-2. **Product `lastmod` = request time** — Admin/app investigation, degrades recrawl for the whole range.
+2. ~~Product `lastmod` = request time~~ — **CLOSED 23 Sep.** Confirmed Shopify platform behaviour;
+   no merchant-side setting exists, logged by Support as product feedback. See the finding above.
 3. **`Disallow: …page=`** and the `/blogs/guides` noindex-vs-sitemap decision — minutes each.
 4. **Entity unescape, `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`** — batch
    as one schema-quality deploy.
