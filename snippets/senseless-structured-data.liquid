@@ -51,8 +51,9 @@
   assign crumb_id = page_url | append: '#breadcrumb'
 
   # Shipping + return policy node addresses. Sitewide-stable (they are the same policy on every
-  # page), absolute like every other @id in this graph, and emitted only on product + collection
-  # pages, which are the only page types that carry an Offer to reference them.
+  # page) and absolute like every other @id in this graph. The shipping nodes are emitted only on
+  # product + collection pages, the only page types that carry an Offer to reference them; the
+  # return policy is nested in #organization, so it is on every page.
   assign ship_standard_id = base | append: '/#shipping-standard'
   assign ship_express_id = base | append: '/#shipping-express'
   assign ship_next_id = base | append: '/#shipping-next-working-day'
@@ -165,9 +166,11 @@
       OnlineStore: Google recommends the most specific Organization subtype ("if you have an
       ecommerce site ... the OnlineStore subtype"). "Organization" stays in the array so anything
       matching the plain type still finds it; every { "@id": #organization } reference is unchanged.
-      No organisation-level hasMerchantReturnPolicy yet, on purpose: the 20 Sep 2026 study (step 7,
-      N38) moves the return schema here only after Legal signs off the returns wording, so it
-      mirrors the final text. Until then the policy stays offer-level (#return-policy, below).
+      The return policy is nested here (hasMerchantReturnPolicy, @id #return-policy) so it is on
+      every page, including the homepage; every Offer still references it by @id. Nested, not a bare
+      { "@id" }, because a bare reference would be an empty policy on pages that don't define it.
+      Moved here 23 Sep 2026 with unchanged terms (it was a separate node on product and collection
+      pages only). If the returns wording changes, update it here.
     {%- endcomment -%}
     {
       "@type": ["Organization", "OnlineStore"],
@@ -206,6 +209,15 @@
         "areaServed": "GB",
         "availableLanguage": "English"
       }],
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "@id": {{ return_id | json }},
+        "applicableCountry": "GB",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+      },
       "brand": { "@type": "Brand", "name": {{ seller_name | json }} }
     },
     {
@@ -250,6 +262,8 @@
     {%- if request.page_type == 'product' or request.page_type == 'collection' -%},
     {%- comment -%}
       Shipping + return policy, defined ONCE per page and referenced by @id from every offer.
+      (Since 23 Sep 2026 the return policy node lives inside #organization, above, so it is
+      emitted on every page; the five shipping nodes below are still product + collection only.)
 
       Google documents this exact pattern (search/docs/appearance/structured-data/product-variants):
       an offer may carry "shippingDetails": { "@id": "#..." } and "hasMerchantReturnPolicy":
@@ -355,15 +369,6 @@
         "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY" },
         "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 1, "unitCode": "DAY" }
       }
-    },
-    {
-      "@type": "MerchantReturnPolicy",
-      "@id": {{ return_id | json }},
-      "applicableCountry": "GB",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 30,
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
     }
     {%- endif -%}
 
