@@ -63,6 +63,19 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
 6. **Records corrected:** the 2 July orphans (`blocks/footer-copyright.liquid`,
    `templates/page.how-long-numbing-cream-takes-to-work.json`) are **gone from live** (Asset API 404,
    23 Sep) — the old "needs an OK" item was stale.
+7. **DONE 23 Sep late — barcodes match the owner's "Barcodes" sheet** (Drive
+   `165V5aaEfCa3AWYv2Q5_Vxe-B5ImsJzP5NrJtaqQbyQk`; founder: "make sure the ones on Shopify and the
+   Merchant Center match"). `scripts/set-barcodes.py --apply` wrote the GS1 UK code to 16 variants
+   (13 empty + 3 that held the sheet's OLD US codes), mapped by product + size, never by the sheet's
+   SKU column (its gel SKUs differ from Shopify's). VAD-4PK + the 5 kits stay empty (no GS1 code).
+   Verified: admin read-back 16/16; live `.js` + JSON-LD `gtin13` 16/16; Merchant Center synced
+   within ~10 min (Advanced Cream 30g → `…139`, Clinical Gel 15ml → `…047`). **Sheet units fixed at
+   the founder's request:** every gel, spray and foam row "g" → "ml" (both brands, Sheet1 + Sheet2),
+   TN oil 30g → 30ml; column J's `VALUE(SUBSTITUTE(I,"g",""))` formulas were widened to strip "ml"
+   too (34 formulas) after the unit change made them `#VALUE!`. **Totally Numb Shopify/MC: not
+   touched (founder did TN).** Noticed for the founder, not changed: TN Comfort Cream Professional
+   30g (PR30) carries `10795847726097`, the sheet's old GTIN-14 case code; the sheet has no GS1 code
+   for it. **Re-check ~27–30 Sep:** MC diagnostics for any GTIN issue on the 16 items.
 <!-- ON-CONTINUE:END -->
 
 ## Gotchas (23 Sep)
@@ -210,7 +223,7 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
 3. **Founder decisions from the study (§5B):**
    - what "Strength" means (the hidden "not a measure of strength" is on 37 pages; canon 817f vs 817c);
    - bundle sale styling (still on `/collections/all` + search) and whether it extends to Google Shopping;
-   - GS1 UK barcodes for 16 variants (scan a pack first);
+   - ~~GS1 UK barcodes for 16 variants~~ — DONE 23 Sep (see item 7 in ON-CONTINUE);
    - scope of the ad-facing rule (links only, or injectable text too);
    - route returns wording + imported reviews + classification evidence to MHG/legal, and log a
      Compliance Hold on returns wording;

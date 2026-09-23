@@ -292,8 +292,11 @@ intact: 9 pages, 15 anchors, 0 breaches — exactly the 2026-08-06 baseline**.
 
 ## Open / not verified
 
-- **Barcodes:** only 3 of 22 variants have one (`S15CL`, `S35CL`, `SFOAM`). GS1 UK barcodes for the
-  remaining 19 are still a founder task.
+- ~~**Barcodes:** only 3 of 22 variants have one~~ — **FIXED 23 Sep (founder: match the "Barcodes" sheet).**
+  `scripts/set-barcodes.py` wrote the sheet's GS1 UK codes (`5065028388xxx`) to all 16 variants it
+  covers (13 were empty; S15CL, S35CL and SFOAM carried the sheet's OLD US codes). VAD-4PK and the 5
+  kits stay empty (no GS1 code in the sheet). Verified: Shopify admin read-back 16/16, live `.js` +
+  JSON-LD `gtin13` 16/16, Merchant Center synced within minutes (spot-checked two items).
 - **Whether GA4 is linked to Ads** — not checked (the Ads↔Merchant Center link is confirmed by MC
   showing Ads campaign stats).
 - **Google Rich Results Test** has no public API; schema.org's validator was used instead, which does
