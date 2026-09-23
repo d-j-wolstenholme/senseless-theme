@@ -5,12 +5,22 @@
   2. Explicitly welcome AI / LLM crawlers (GEO): each bot gets its own group that mirrors the
      default '*' group's Disallow rules, so the same sensitive paths stay blocked while the rest
      of the site (content) is crawlable.
+  3. Collection pagination (added 23 Sep 2026, audit docs/AUDIT-STORE-MC-ADS-2026-09-23.md):
+     Shopify's defaults block sort_by and filter URLs but not ?page=, and a custom collection
+     answers any ?page=N with 200, a self-canonical and the same grid (/collections/shop-all?page=500)
+     — an unbounded crawl space. Added to the '*' group (Shopify's documented add-a-rule pattern)
+     and to every AI group; adsbot-google keeps its own group, so ad landing pages are untouched.
+     Only /collections/all genuinely paginates, and it is noindex; every product is in the sitemap.
 {%- endcomment -%}
 {%- for group in robots.default_groups -%}
   {{- group.user_agent }}
   {%- for rule in group.rules -%}
     {{ rule }}
   {%- endfor -%}
+  {%- if group.user_agent.value == '*' -%}
+    {{ 'Disallow: /collections/*?*page=' }}
+    {{ 'Disallow: /*/collections/*?*page=' }}
+  {%- endif -%}
   {%- if group.sitemap != blank -%}
     {{ group.sitemap }}
   {%- endif -%}
@@ -31,5 +41,8 @@ User-agent: {{ bot }}
 Allow: /
 {% for rule in default_rules -%}
 {{ rule }}
-{% endfor %}
+{% endfor -%}
+Disallow: /collections/*?*page=
+Disallow: /*/collections/*?*page=
+
 {% endfor -%}
