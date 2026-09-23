@@ -45,12 +45,53 @@ Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit p
      engineering escalation path for a non-urgent issue, and logged it as product feedback (chat
      reference to arrive by email). Workaround for genuine changes: Search Console URL Inspection ->
      Request indexing. We have NOT observed a real indexing delay - raised as data correctness only.
-   - Still open from the audit: unbounded
-     `?page=N`; `/blogs/guides` noindex-in-sitemap; 5 PDPs hide their larger variant from Google
-     (needs `ProductGroup`/`hasVariant` + an MC re-check); schema-quality batch (entity unescape,
-     `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`); Ads hygiene
-     (paused Shopping campaign vs Cream/Spray-only PMax, "Seneseless"/"Tatoo" spellings, Manual CPC,
-     healthcare-certification alert).
+   - **RECOMMENDED NEXT TASK — the schema-quality batch.** Four small fixes, one deploy, one verify
+     pass. Low risk and, importantly, none of them touch the variant/Offer logic that the 22 Sep
+     price fix guards. Evidence for each is in `docs/AUDIT-STORE-MC-ADS-2026-09-23.md`:
+       1. **HTML entities leaking into JSON-LD — 33 occurrences.** `&amp;` / `&#39;` are read
+          literally by Google because JSON-LD in a `<script>` is not HTML-parsed. Two root causes in
+          `snippets/senseless-structured-data.liquid`: `page_title`/`page_description` (Shopify
+          pre-escapes these) and `product.description | strip_html` (strips tags, leaves entities).
+          Fix: one shared unescape chain before `| json` —
+          `| replace: '&amp;','&' | replace: '&#39;',"'" | replace: '&quot;','"'
+           | replace: '&lt;','<' | replace: '&gt;','>'` — applied to `sd_name`, `sd_desc`, `pd`,
+          `pdesc`, and the same in `sections/senseless-faq-accordion.liquid`. Worst case is an
+          ad-facing one: `/products/vitamin-a-d-ointment-4-pack` description reads "Vitamin A &amp; D".
+       2. **`priceValidUntil` missing on every Offer** (0 of 173 blocks). Add a rolling +1 year:
+          `"priceValidUntil": "{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' }}"` on both
+          the PDP Offer and the collection ItemList Offer. **Never emit a past date** — that
+          suppresses the rich result rather than improving it.
+       3. **Duplicate, conflicting `#webpage` node on 12 pages.**
+          `sections/senseless-page-schema.liquid` re-declares the sitewide `@id` with a *different*
+          `name`/`description`, so two statements about one entity merge and Google picks one at
+          random (e.g. `/pages/faq` → "Numbing Cream FAQ — Safety…" vs "Numbing cream FAQ"). Fix:
+          drop `name` and `description` from that re-declaration, emit only `@id` + the narrower
+          `@type` (the `@type` merge is correct and should be kept — about/contact resolve to
+          `["WebPage","AboutPage"]`).
+       4. **Organization is thin.** Set `"@type": ["Organization","OnlineStore"]`, add org-level
+          `"hasMerchantReturnPolicy": {"@id": ".../#return-policy"}`. `sameAs` stays empty until a
+          social profile actually exists — do not invent one.
+     Verify after deploy: `theme-check` at baseline (119 errors / 78 warnings — anything above that
+     is yours), Asset-API byte diff, then re-POST two pages to `https://validator.schema.org/validate`
+     (`--data-urlencode "html@<file>"`) and confirm 0 errors / 0 warnings as today.
+   - **Also cheap, not yet done:** add `Disallow: /collections/*?*page=` to `robots.txt.liquid`
+     (`/collections/shop-all?page=500` returns 200 and self-canonicalises — infinite crawl space,
+     though page 1 renders no pagination links so on-site discovery is nil); and decide deliberately
+     whether `/blogs/guides` should lose its `noindex` or be canonicalised to `/pages/articles` —
+     today it is `noindex,follow` *and* submitted in `sitemap_blogs_1.xml`, which Search Console
+     reports as an error. It is the only noindex URL among all 74.
+   - **Biggest upside, own session:** `ProductGroup`/`hasVariant` — 5 PDPs expose only the cheaper
+     variant to Google (£44.99 clinical cream 30g, £49.99 advanced cream 30g, £34.99 clinical gel
+     35ml, £39.99 advanced gel 35ml, £44.99 professional gel 35ml, plus a valid GTIN-13). The
+     `?variant=` pages emit the right Offer but canonicalise to the base URL. Merchant Center is
+     unaffected (the feed carries per-variant URLs). Needs an MC re-check afterwards because it
+     touches exactly what the 22 Sep fix guards.
+   - **Ads hygiene (founder/Ads console, not theme):** paused Shopping campaign vs Cream/Spray-only
+     PMax coverage — gels, cleanser and all 5 bundles have no Shopping coverage at all;
+     "Seneseless Search" and "Search - Tatoo Numbing" are misspelt, as is the customer-visible
+     display path `/numbing-cream/tatoo`; one Search campaign still runs Manual CPC; and the
+     **"Apply for healthcare certification"** alert is open in Ads (this is the §5D item — it lives
+     in Ads, not Merchant Center).
 2. **Next in sequence:**
    - (a) Founder call: show the unit price on the PDP hero (the theme doesn't yet).
    - (b) **Merchant Center delivery policies FIXED by hand 22 Sep** (DECISIONS-LOG Decision 12): Express 2–4 d £3.99 to £79.99; Standard 4–7 d £1.99 to £39.99, free £40–£79.99; NWD 1–2 d £8.99 to £79.99, free £80+; all 15:00 London cut-off, handling 0–1; the broken `Custom_rate_price_based` deleted. **FIRST THING NEXT SESSION: re-check MC → Delivery and returns** (3 policies, those day ranges) in case the Google & YouTube app resynced or recreated the 4th. Merchant API client ready (`scripts/merchant-api.py`); the founder's GCP/service-account setup is still pending.
