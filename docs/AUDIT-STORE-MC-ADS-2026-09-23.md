@@ -239,9 +239,11 @@ real signal and are worth a content pass.
    `OnlineStore`, no organization-level `hasMerchantReturnPolicy`.
    **Items 5–8 FIXED AND LIVE 23 Sep (`7224825`, lock `84efe3f`).** Census of all 74 sitemap URLs,
    before → after: entity leaks 34 → **0** (the true count; 33 above was one short); run-together
-   sentences in FAQ answers 20 → **0** (same root cause, found in this pass); Offers with
-   `priceValidUntil` 0/188 → **188/188**, all `2027-12-31` (31 Dec of next year, not now+365, so it
-   changes once a year); pages with conflicting `#webpage` 12 → **0** (plus `/pages/contact`, outside
+   sentences in FAQ answers 20 → **0** (same root cause, found in this pass); **item 7
+   (`priceValidUntil`) was shipped then REVERSED the same evening (`4b3ed61`)** — Google's Rich
+   Results Test showed it creates a new Merchant listings warning ("Missing field validFrom") because
+   Google reads it as a sale end, and Search Console had never flagged it as missing, so the audit's
+   "recommended for Merchant listings" item is closed as *do not add without a real sale window*; pages with conflicting `#webpage` 12 → **0** (plus `/pages/contact`, outside
    the sitemap); Organization now `["Organization","OnlineStore"]`. One shared helper,
    `snippets/senseless-jsonld-text.liquid`, decodes `&amp;` LAST and leaves `&lt;`/`&gt;` encoded
    because `/search` titles carry the visitor's query. validator.schema.org 0/0 on 12 live pages; the

@@ -11,7 +11,9 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
    `DECISIONS-LOG.md` 2026-09-23 and `docs/AUDIT-STORE-MC-ADS-2026-09-23.md` items 5–8.
    - Census of all 74 sitemap URLs (`scripts/jsonld-census.py`, before → after): JSON-LD entity
      leaks 34 → **0**; run-together FAQ sentences 20 → **0**; Offers with `priceValidUntil`
-     0/188 → **188/188** (`2027-12-31`); conflicting `#webpage` pages 12 → **0**; Organization now
+     0/188 → 188/188 → **REMOVED again (`4b3ed61`)**: Google's Rich Results Test showed it adds a Merchant
+     listings warning ("Missing field validFrom" — Google reads it as a sale end), and GSC never
+     flagged it as missing; conflicting `#webpage` pages 12 → **0**; Organization now
      `["Organization","OnlineStore"]`; 0 parse errors, 0 dangling `@id`s, Offers per URL unchanged.
    - Verified live: validator.schema.org 0 errors / 0 warnings on 12 pages; the 22 Sep price guard
      holds on all 39 PDP URLs (22 `?variant=` + 17 base: 1 Offer, price/sku/og:price match);
