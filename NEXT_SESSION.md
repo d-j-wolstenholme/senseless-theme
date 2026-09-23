@@ -39,7 +39,13 @@ Then on 22 Sep: the cookie banner fixed and deployed, and Merchant Center unit p
    - **Vitamin A&D 4-Pack (£2.00) is in Merchant Center via Google's own crawl**, Approved, despite
      being withheld from the Google channel in Shopify. Not ad-eligible unless someone accepts the
      "Allow ads" prompt on that data source. Needs a decision.
-   - Still open from the audit: product `<lastmod>` = request time (Admin/app issue); unbounded
+   - **Product `<lastmod>` = request time: CLOSED 23 Sep.** Not an app/Admin issue (that diagnosis
+     was wrong and is retracted - `updated_at` is stable). Confirmed Shopify platform behaviour;
+     Support advisor Iqra confirmed in writing there is no merchant-side setting, said there is no
+     engineering escalation path for a non-urgent issue, and logged it as product feedback (chat
+     reference to arrive by email). Workaround for genuine changes: Search Console URL Inspection ->
+     Request indexing. We have NOT observed a real indexing delay - raised as data correctness only.
+   - Still open from the audit: unbounded
      `?page=N`; `/blogs/guides` noindex-in-sitemap; 5 PDPs hide their larger variant from Google
      (needs `ProductGroup`/`hasVariant` + an MC re-check); schema-quality batch (entity unescape,
      `priceValidUntil`, duplicate `#webpage`, Organization → `OnlineStore`); Ads hygiene
