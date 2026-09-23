@@ -13,7 +13,10 @@
     {shop.url}/#website             the site     — publisher -> #organization
     {canonical_url}#webpage         this page    — isPartOf -> #website, about -> #organization
     {canonical_url}#breadcrumb      this trail   — referenced by #webpage.breadcrumb
-    {canonical_url}#product         this product — mainEntity of #webpage (product pages)
+    {canonical_url}#product         this product — mainEntity of #webpage (product pages). A Product,
+                                    except on the BASE URL of a two-size product, where it is a
+                                    ProductGroup whose sizes are nested in hasVariant at
+                                    {canonical_url}#variant-<variant id> (never top-level nodes)
     {canonical_url}#itemlist        this list    — mainEntity of #webpage (collection pages)
 
   Other emitters that join this graph by @id rather than duplicating it:
@@ -400,7 +403,130 @@
         endcomment
         assign ss_rating = product.metafields.reviews.rating.value
         assign ss_rcount = product.metafields.reviews.rating_count.value
+
+        comment
+          ProductGroup gate. ss_group is true on ONE kind of page only: the BASE product URL (no
+          ?variant=) of a product with more than one variant and a single option named "Size".
+          Today that is the 5 two-size PDPs (Clinical + Advanced cream 10g/30g; Clinical, Advanced +
+          Professional gel 15ml/35ml). Every other page takes the one-Offer Product in the else
+          branch, whose output is unchanged: every ?variant= URL (the Merchant Center landing pages)
+          and all 12 single-variant products.
+          - variants.size, NOT has_only_default_variant: the 3 sprays, the cleanser and Professional
+            cream have a one-value "Size" option, so has_only_default_variant is false for them.
+          - product.selected_variant is nil unless the URL carries ?variant=<id> (shopify.dev: "If no
+            variant is currently selected, then nil is returned."). If Shopify ever sets it some other
+            way, the page falls back to the one-Offer Product, which is the Merchant Center-safe side.
+          - A second option, or an option renamed away from "Size", also falls back (and the larger
+            size disappears from Search again) until variesBy is mapped for it here.
+        endcomment
+        assign ss_group = false
+        if product.variants.size > 1 and product.options_with_values.size == 1
+          assign ss_opt_name = product.options_with_values.first.name | downcase | strip
+          if ss_opt_name == 'size'
+            unless product.selected_variant
+              assign ss_group = true
+            endunless
+          endif
+        endif
       -%}
+      {%- if ss_group -%}
+      {%- comment -%}
+        ProductGroup: base URL of a two-size product only (gate above). Google's single-page variant
+        pattern (developers.google.com/search/docs/appearance/structured-data/product-variants): one
+        group at the canonical URL (every ?variant= URL canonicalises here), each size a Product
+        nested in hasVariant with ONE Offer whose url is that size's own ?variant= URL. Until this
+        change the base URL carried only the first size, so the larger sizes (price, SKU, GTIN) were
+        invisible to Search.
+
+        Why the group is NOT on ?variant= URLs (DECISIONS-LOG 22 Sep Decision 6, a511a95): those are
+        the pages Merchant Center compares prices on, and it matches markup to a feed item only if
+        "There's a single offer on the landing page" or every offer's SKU/GTIN equals the item's
+        (support.google.com/merchants/answer/7331077). Moving the group there is a separate decision
+        (needs every size's feed gtin = its gtin13, checked in Merchant Center first).
+
+        Judge.me (bundle judgeme-762): its review widget's V() rewrites the @id of any TOP-LEVEL node
+        typed Product in this class-marked script whose @id is not canonical#product. So: @type is
+        exactly "ProductGroup" (never an array containing "Product"), the @id stays #product, and the
+        sizes stay NESTED in hasVariant. Never hoist them to @graph siblings.
+
+        Also: aggregateRating on the group only (Judge.me reviews are per product; Google: "representative
+        of all variants"); sku / mpn / gtin13 on each size, never the group; the size this page
+        preselects (v1) is listed first; each size's shipping refs come from ITS price. The Offer body
+        mirrors the one-Offer Product's below with v for v1 -- change one, change both. Size names are
+        Shopify's own ("<title> - <size>"); no new copy.
+      {%- endcomment -%}
+      {
+        "@type": "ProductGroup",
+        "@id": {{ page_url | append: '#product' | json }},
+        "name": {{ product.title | json }},
+        "description": {{ pd | json }},
+        "url": {{ base | append: product.url | json }},
+        "mainEntityOfPage": { "@id": {{ webpage_id | json }} },
+        {%- if product.images.size > 0 -%}
+        "image": [
+          {%- for image in product.images limit: 5 -%}
+            {{ image | image_url: width: 1200 | prepend: 'https:' | json }}{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ],
+        {%- endif -%}
+        "productGroupID": {{ product.id | append: '' | json }},
+        "variesBy": ["https://schema.org/size"],
+        "productID": {{ product.id | prepend: 'shopify_GB_' | json }},
+        "identifier": [
+          { "@type": "PropertyValue", "propertyID": "shopify_product_id", "value": {{ product.id | json }} }
+        ],
+        {%- if product.type != blank -%}"category": {{ product.type | json }},{%- endif -%}
+        "brand": { "@type": "Brand", "name": {{ seller_name | json }} },
+        "manufacturer": { "@id": {{ org_id | json }} },
+        {%- if ss_rcount and ss_rcount > 0 and ss_rating != blank -%}
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "{{ ss_rating.rating }}",
+          "reviewCount": "{{ ss_rcount }}",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        {%- endif -%}
+        "hasVariant": [
+          {%- assign ss_sep = '' -%}
+          {%- for ss_pass in (1..2) -%}
+            {%- for v in product.variants -%}
+              {%- if ss_pass == 1 and v.id != v1.id -%}{%- continue -%}{%- endif -%}
+              {%- if ss_pass == 2 and v.id == v1.id -%}{%- continue -%}{%- endif -%}
+              {%- assign ss_vimg = v.featured_image | default: product.featured_image -%}
+              {{ ss_sep }}{
+                "@type": "Product",
+                "@id": {{ page_url | append: '#variant-' | append: v.id | json }},
+                "name": {{ product.title | append: ' - ' | append: v.title | json }},
+                "description": {{ pd | json }},
+                {%- if ss_vimg -%}"image": {{ ss_vimg | image_url: width: 1200 | prepend: 'https:' | json }},{%- endif -%}
+                {%- if v.sku != blank -%}
+                "sku": {{ v.sku | json }},
+                "mpn": {{ v.sku | json }},
+                {%- endif -%}
+                {%- if v.barcode != blank -%}"gtin13": {{ v.barcode | json }},{%- endif -%}
+                "size": {{ v.options.first | json }},
+                "offers": {
+                  "@type": "Offer",
+                  {%- if v.sku != blank -%}"sku": {{ v.sku | json }},{%- endif -%}
+                  {%- if v.barcode != blank -%}"gtin13": {{ v.barcode | json }},{%- endif -%}
+                  {%- if v.title != 'Default Title' -%}"name": {{ v.title | json }},{%- endif -%}
+                  "price": "{{ v.price | divided_by: 100.0 }}",
+                  "priceCurrency": {{ cur | json }},
+                  "itemCondition": "https://schema.org/NewCondition",
+                  "availability": "https://schema.org/{% if v.available %}InStock{% else %}OutOfStock{% endif %}",
+                  "url": {{ base | append: v.url | json }},
+                  "seller": { "@id": {{ org_id | json }} },
+                  "shippingDetails": {% render 'senseless-shipping-refs', price: v.price, std: ship_standard_id, express: ship_express_id, nwd: ship_next_id, std_free: ship_standard_free_id, nwd_free: ship_next_free_id %},
+                  "hasMerchantReturnPolicy": { "@id": {{ return_id | json }} }
+                }
+              }
+              {%- assign ss_sep = ',' -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        ]
+      }
+      {%- else -%}
       {
         "@type": "Product",
         "@id": {{ page_url | append: '#product' | json }},
@@ -416,11 +542,12 @@
         ],
         {%- endif -%}
         {%- comment -%}
-          Product-level identifiers. Every SKU carries a Shopify SKU code; only three variants
-          carry a barcode (2026-08-13; GS1 UK codes exist for 16 variants but aren't loaded, study N3),
-          so gtin13 is emitted where it exists and never invented. productID is a label,
-          'shopify_GB_<numeric product id>', not a GID. The Google & YouTube feed keys its items as
-          shopify_ZZ_<product id>_<variant id>, so this is not the MC item ID (study N30).
+          Product-level identifiers. Every SKU carries a Shopify SKU code. Since 23 Sep 2026 the GS1 UK
+          code from the owner's "Barcodes" sheet is the barcode on 16 variants (DECISIONS-LOG 23 Sep
+          Decision 5); VAD-4PK and the 5 kits have none, so gtin13 is emitted where it exists and never
+          invented. productID is a label, 'shopify_GB_<numeric product id>', not a GID. The Google &
+          YouTube feed keys its items as shopify_ZZ_<product id>_<variant id>, so this is not the MC
+          item ID (study N30).
         {%- endcomment -%}
         {%- if v1.sku != blank -%}
         "sku": {{ v1.sku | json }},
@@ -452,6 +579,9 @@
           (£24.99) on the Advanced Gel 35ml landing page and flagged "Mismatched product price"
           against the feed's £39.99. The other sizes are still reachable (the feed lists each
           variant's own ?variant= URL). Same fix as Totally Numb (21 Sep, 6457125).
+          This node now renders on every ?variant= URL and every single-variant product; the base
+          URL of a two-size product takes the ProductGroup above, which is how Search sees the other
+          size. Keep this branch's OUTPUT unchanged: it is exactly what Merchant Center reads.
         {%- endcomment -%}
         "offers": [
           {
@@ -474,6 +604,7 @@
           }
         ]
       }
+      {%- endif -%}
 
     {%- when 'collection' -%},
       {%- comment -%}

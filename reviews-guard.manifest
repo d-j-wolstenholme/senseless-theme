@@ -33,6 +33,7 @@ REPO | sections/senseless-product-showcase.liquid | jdgm-preview-badge
 REPO | sections/senseless-trio-card-row.liquid | jdgm-preview-badge
 REPO | snippets/senseless-jdgm-badge.liquid | judgeme.badge
 REPO | snippets/senseless-structured-data.liquid | product.metafields.reviews.rating
+REPO | snippets/senseless-structured-data.liquid | class="jdgm-server-jld"
 REPO | blocks/review.liquid | product.metafields.reviews.rating
 
 # --- REPO: app embeds in config/settings_data.json. A settings_data push whose repo copy LACKS

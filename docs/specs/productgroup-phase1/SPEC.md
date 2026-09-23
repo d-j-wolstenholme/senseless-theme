@@ -283,7 +283,7 @@ detected on every Product-snippets item with no aggregateRating/review warning. 
 ## 5. Implementation
 
 - **Patch:** `senseless-structured-data.productgroup.diff` in this folder (`git apply --check` passes on HEAD). It is E1 (header
-  comment) + E2 (lines 376–476 → `dropin-376-476.liquid`, also in this folder). E3 (optional, decision 6): add
+  comment) + E2 (lines 376–476 → `dropin-376-476.liquid.txt`, also in this folder). E3 (optional, decision 6): add
   `REPO | snippets/senseless-structured-data.liquid | class="jdgm-server-jld"` to `reviews-guard.manifest`.
 - Other files:
   - NO CODE CHANGE in: snippets/meta-tags.liquid (og:price and the canonical stay on the selected variant and the base URL), snippets/senseless-shipping-refs.liquid (reused per size as it is), snippets/senseless-breadcrumbs-jsonld.liquid (injectable filter unchanged; the change adds no collection URLs), the collection ItemList branch (lines 478-538), layout/theme.liquid, sections/senseless-product-hero.liquid, and the 5 product templates. The last three are reviews-guard locked and untouched.
