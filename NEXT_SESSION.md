@@ -42,9 +42,18 @@ verified live, then the org-level return policy (`4be298b`). Repo == origin/main
    blocked; AdsBot untouched). **`/blogs/guides` is NOT an open question** — decided 9 Jul (noindex,
    `/pages/articles` canonical) and 17 Jul (`dc7b3ee`: blog-level `seo.hidden` tested live, it drops
    the ARTICLES from the sitemap too, reverted; accept the GSC warning). Never set `seo.hidden` on a
-   Blog. **Biggest upside, own session:** `ProductGroup`/`hasVariant` for the 5 two-size PDPs (audit
-   item 4) — run `scripts/jsonld-census.py` before and after, and re-check MC because it touches what
-   the 22 Sep price fix guards.
+   Blog.
+3b. **NEXT WORK ITEM — ProductGroup / hasVariant Phase 1: SPEC READY → `docs/specs/productgroup-phase1/SPEC.md`.**
+   Read it first; everything needed is in that folder (drop-in patch that `git apply`s on HEAD, render harness +
+   `live/capture.py`, RRT code-mode documents). Design: a ProductGroup with both sizes ONLY on the 5 two-size base URLs;
+   every `?variant=` URL (the Merchant Center landing pages) and all single-variant PDPs stay byte-identical, so the 22 Sep
+   price fix is untouched. **Before coding, the founder decides §4:** (1) timing — recommended AFTER the 27–30 Sep GSC/MC
+   re-checks so any change stays attributable; (2) scope = Phase 1 only; (3) MC export pre-check (every two-size item links
+   to its own `?variant=` URL; gtin = GS1 for all 10); (4) RRT rule — incl. the binding amendment that the 3 RATED products
+   must keep aggregateRating detected; (5) productGroupID form; (6) add `class="jdgm-server-jld"` as a reviews-guard marker.
+   Gotchas in the spec: take the live capture immediately before editing; add the 12 single-variant `?variant=` URLs to the
+   captures; Asset-API diff BEFORE committing the lock; the Offer body now lives in two branches (change one, change both);
+   never put the ProductGroup on `?variant=` URLs (Phase 2 needs its own decision after MC shows gtin matches for 7 days).
 4. **Founder / account-holder items still open** (unchanged, detail in the previous block below):
    ~~Google Play developer verification~~ — **CLOSED 23 Sep, checked in Play Console via Chrome:**
    Android developer verification shows both packages **Registered** (`uk.senseless.app` 18 Jul 2026,

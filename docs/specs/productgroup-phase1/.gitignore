@@ -1,0 +1,9 @@
+harness/node_modules/
+harness/draft/
+harness/out/
+harness/out-edge/
+harness/package-lock.json
+live/raw/
+live/js/
+live/html/
+live/jsonld/
