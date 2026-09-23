@@ -17,7 +17,25 @@
     { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | append: '/' | json }} }
     {%- case crumb_type -%}
     {%- when 'product' -%}
-      {%- assign col = product.collections.first -%}
+      {%- comment -%}
+        Injectable-clean (.claude/rules/ad-facing.md): a PDP is an ad-facing surface, and Google
+        both follows BreadcrumbList `item` URLs and renders them as the SERP breadcrumb. So the
+        three protected collections must never become a product's breadcrumb parent — on 23 Sep
+        2026 `product.collections.first` made /products/foaming-cleanser advertise itself as
+        "senseless.uk > Numbing Cream for Botox > Foaming Cleanser". 12 products belong to an
+        injectable collection and the theme does not control `collections` ordering, so this is
+        filtered rather than fixed per-product. If a product has no other collection, `col` stays
+        empty and the Home > Product fallback below applies.
+      {%- endcomment -%}
+      {%- assign col = nil -%}
+      {%- for c in product.collections -%}
+        {%- unless c.handle == 'numbing-cream-for-injections'
+          or c.handle == 'numbing-cream-for-lip-fillers'
+          or c.handle == 'numbing-cream-for-botox' -%}
+          {%- assign col = c -%}
+          {%- break -%}
+        {%- endunless -%}
+      {%- endfor -%}
       {%- if col -%}
       ,{ "@type": "ListItem", "position": 2, "name": {{ col.title | json }}, "item": {{ base | append: col.url | json }} }
       ,{ "@type": "ListItem", "position": 3, "name": {{ product.title | json }}, "item": {{ base | append: product.url | json }} }
