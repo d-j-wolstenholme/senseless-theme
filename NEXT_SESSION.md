@@ -18,6 +18,12 @@ products (Admin API only, no theme deploy). Live theme `#199324434780` unchanged
    - **Founder/legal, open:** unit prices are hidden on the site (22 Sep Decision 5), but the PMO likely requires
      them on PDPs for online sales (small-shop exemption is floor-area based). Recommend per kg/l on the PDP, optional
      per-100 g figure alongside. The feed stays per kg/l (GB law since 6 Apr 2026; the 22 Sep log date is corrected).
+   - **Re-researched in full on the founder's challenge** (`docs/UNIT-PRICING-2026-09-26.md`): no caveat allows
+     per 100 g / per g instead of per kg/l; Boots (EMLA 30 g "£933.00 per 1KG"), Tesco, Sainsbury's and Superdrug all
+     show per kg/l on tiny items. The only flexibility is an ADDITIONAL per-g figure beside per kg, on the website only.
+     Our sponsored Shopping cards DO show "£1,999.00/1kg" (my first check saw only free listings — corrected). Founder
+     decisions pending: show unit prices on PDPs (per kg + per g)? email Lancashire Trading Standards to confirm (draft in
+     the doc)? Fact-check: Vitamin A&D tube size (per-item unit price is right only if tubes are sold by number or < 5 g).
    - Noticed, not changed: MC titles use the SEO title where set ("Clinical Strength Cream | UK-Formulated 10g",
      "Foaming Cleanser | Aftercare | Senseless"). This is copy, so it's the founder's call.
 1. **DONE 23 Sep (Mac mini) — schema-quality batch (`7224825`, lock `84efe3f`).** Detail:
