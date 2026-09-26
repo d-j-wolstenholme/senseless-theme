@@ -1,12 +1,25 @@
 # NEXT_SESSION — handoff
 
-**Last session (23 Sep 2026, Mac mini `Ds-Mac-mini.local`):** the schema-quality batch, deployed and
-verified live, then the org-level return policy (`4be298b`). Repo == origin/main, clean. Live theme `#199324434780`
-== git on all 8 deployed files (Asset API byte-identical); 586 assets live.
+**Last session (26 Sep 2026, Mac mini `Ds-Mac-mini.local`):** unit-price basis re-checked (unchanged: per kg /
+litre); Merchant Center "Limited" items cross-referenced; Shopify categories + kit brand set on the 15 feed
+products (Admin API only, no theme deploy). Live theme `#199324434780` unchanged since `d04c60d` (ProductGroup).
 
 ## ON-CONTINUE — do these first
 
 <!-- ON-CONTINUE:START -->
+0. **DONE 26 Sep — MC Limited cross-reference + categories** (`DECISIONS-LOG.md` 2026-09-26).
+   - The 6 Limited items ("Personal hardships" → Dynamic remarketing only) have no data difference from their
+     Approved siblings (Adv Cream 10g vs 30g, Clinical Gel 35ml vs 15ml identical) → classifier variance.
+   - Fixed what was wrong: `scripts/set-product-category.py --apply` → Skin Care (`hb-3-2-9`) on creams/gels/
+     sprays/cleanser, Skin Care Kits & Sets on the 5 kits, kit vendor `senseless-numbing` → `Senseless`. MC re-synced
+     11:01 26 Sep (gels had NO Google category before; kit brand fixed).
+   - **From 29 Sep:** request ONE re-review of the 6 in MC (Needs attention → item → Request review). Repeat
+     failures add cooldowns. If still Limited, leave them — Shopping ads + free listings are unaffected.
+   - **Founder/legal, open:** unit prices are hidden on the site (22 Sep Decision 5), but the PMO likely requires
+     them on PDPs for online sales (small-shop exemption is floor-area based). Recommend per kg/l on the PDP, optional
+     per-100 g figure alongside. The feed stays per kg/l (GB law since 6 Apr 2026; the 22 Sep log date is corrected).
+   - Noticed, not changed: MC titles use the SEO title where set ("Clinical Strength Cream | UK-Formulated 10g",
+     "Foaming Cleanser | Aftercare | Senseless"). This is copy, so it's the founder's call.
 1. **DONE 23 Sep (Mac mini) — schema-quality batch (`7224825`, lock `84efe3f`).** Detail:
    `DECISIONS-LOG.md` 2026-09-23 and `docs/AUDIT-STORE-MC-ADS-2026-09-23.md` items 5–8.
    - Census of all 74 sitemap URLs (`scripts/jsonld-census.py`, before → after): JSON-LD entity
