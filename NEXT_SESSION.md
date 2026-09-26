@@ -7,6 +7,16 @@ products (Admin API only, no theme deploy). Live theme `#199324434780` unchanged
 ## ON-CONTINUE — do these first
 
 <!-- ON-CONTINUE:START -->
+00. **26 Sep eve — PRICES: creams matched to totally-numb.com; gels/sprays HELD** (`DECISIONS-LOG.md` 2026-09-26 eve).
+   - LIVE: Clinical 10g £14.99 / 30g £35.99; Advanced 10g £18.99 / 30g £45.99; Professional 30g £55.99 (unchanged).
+     Kit compare-at ("bought separately") recomputed; kit selling prices unchanged. TKTX page range £14.99–£55.99.
+     Verified: .js, JSON-LD + og:price on every cream URL, kit notes, re-crawl clean, MC synced 17:48, RRT valid.
+   - **WAITING ON FOUNDER:** (1) gel + spray prices — TN has no Silver/Gold gel or spray, only Platinum (gel
+     £18.99/£29.99, spray £24.99) and Professional (gel £28.99/£39.99, spray £29.99); literal Platinum→Professional
+     would put Pro gel below Clinical gel. (2) kit selling prices — keep, or restore ~10% off the new sums (creams-only
+     figures: Clinical Starter £66.99, Clinical Ultimate £99.99, Advanced Starter £79.99, Advanced Ultimate £117.99;
+     recompute after gels/sprays). Then: add to `GEL_SPRAY` / `KIT_PRICE` in `scripts/set-prices.py`, dry-run,
+     `--apply`, re-check the TKTX range, re-run the live checks, MC, RRT.
 0. **DONE 26 Sep — MC Limited cross-reference + categories** (`DECISIONS-LOG.md` 2026-09-26).
    - The 6 Limited items ("Personal hardships" → Dynamic remarketing only) have no data difference from their
      Approved siblings (Adv Cream 10g vs 30g, Clinical Gel 35ml vs 15ml identical) → classifier variance.

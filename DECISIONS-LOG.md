@@ -19,6 +19,31 @@ When this file is older than 24 hours, run `/drift-check` to surface any drift b
 
 ---
 
+### 2026-09-26 eve (Cream prices matched to totally-numb.com; kit "bought separately" figures follow — Mac mini)
+
+**Founder, 26 Sep:** "change the price of all of the numbing products, so the cream, the gel, and the spray, to match up with totally-numb.com's prices. Ignore bronze. Silver = Clinical, Gold = Advanced, Platinum = Professional … anywhere that it's relevant it needs to be changed … it should be a price reduction on Senseless overall." TN prices were read from `https://totally-numb.com/products.json` (public, read-only; TN Shopify/MC untouched).
+
+**Applied (creams — the mapping is exact):** `scripts/set-prices.py --apply` (`2da5455`):
+- Clinical 10g £19.99 → **£14.99**; Clinical 30g £44.99 → **£35.99** (Silver).
+- Advanced 10g £24.99 → **£18.99**; Advanced 30g £49.99 → **£45.99** (Gold).
+- Professional 30g stays **£55.99** (= Platinum 30g).
+- Kit compare-at ("bought separately", the four-product sum under the 1 Sep value model) recomputed in the same run: Clinical Starter £79.96 → £74.96, Clinical Ultimate £119.96 → £110.96, Advanced Starter £94.96 → £88.96, Advanced Ultimate £134.96 → £130.96. **Kit selling prices are unchanged**, which is the founder's call; their saving is now 2.7–7.6% instead of about 10%.
+
+**HELD — gels and sprays:** TN sells gels and sprays only as Platinum (gel 15ml £18.99 / 35ml £29.99; spray £24.99) and Professional (gel £28.99 / £39.99; spray £29.99). There is no Silver or Gold gel or spray. Taken literally, Professional gel → £18.99 would undercut Clinical gel (£19.99), so this needs the founder's numbers.
+
+**Everywhere else it applies:**
+- Theme, Shopify content and the live site were swept for hard-coded prices (repo grep; Admin API scan of products, collections, pages, articles, metafields, metaobjects, policies, menus; a crawl of all 74 sitemap URLs + `/llms.txt`). The only hard-coded product price was the TKTX comparison page range: "£19.99 to £55.99" → **"£14.99 to £55.99"** (`95ecf5f`, deployed; Asset API live == repo). Everything else (cards, PDPs, JSON-LD, og:price, collection ItemLists, unit prices, the kit note) renders from Shopify.
+- A post-change re-crawl found no page still showing an old cream price or old kit figure.
+- JSON-LD and og:price verified on every cream URL (base ProductGroup and `?variant=`). Clinical 30g at £35.99 now correctly takes the paid standard-delivery band (below £40).
+- Unit prices recalculated by Shopify: £1,499/kg, £1,199.67/kg, £1,899/kg and £1,533/kg.
+- Merchant Center synced 17:48 26 Sep (all four creams and four kit compare-ats).
+- Google Rich Results Test (live, 17:52): 7 valid items; Merchant listings read £35.99 for the 30g, no warnings.
+- Search Console recrawl requested for both cream PDPs.
+
+**Not checked / not ours to change:** Google Ads copy (audit-only; no price found in ad text in the 20/23 Sep audits), Klaviyo emails, and any printed or third-party price mentions.
+
+---
+
 ### 2026-09-26 (Unit-price basis re-checked; Merchant Center "Limited" items cross-referenced; product categories + kit brand set — Mac mini)
 
 **Asked by the founder:** (a) confirm the per-kg/litre unit-price basis, since other sellers show per gram, and check competitors' Shopping listings; (b) find out why 6 Merchant Center items are Limited when near-identical ones are approved, and fix what can be fixed.
